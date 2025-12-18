@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-# Bello Mohammed Sani
+# Mohammed Bello Sani
 
 **Aerospace Engineer working at the intersection of aircraft structures, digital twins, and maintenance systems.**
 
@@ -40,5 +40,5 @@ simulated operational and fault data.
 ## Links
 
 - [GitHub](https://github.com/SMBello)
-- [LinkedIn](#)
-- Email: bellosani2d---
+- [LinkedIn](https://www.linkedin.com/in/mohammed-bello-sani) 
+- Email: bellosani2drescue@gmail.com
