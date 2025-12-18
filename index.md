@@ -1,4 +1,3 @@
-<head><meta name="google-site-verification" content="wIf0IT1_xtAW4H6G3pMsZ0E73y5i7-iw8sSqAsZWAWk" /></head>
 ---
 layout: default
 title: Home
@@ -42,4 +41,4 @@ simulated operational and fault data.
 
 - [GitHub](https://github.com/SMBello)
 - [LinkedIn](#)
-- Email: bellosani2drescue@gmail.com
+- Email: bellosani2d---
