@@ -40,5 +40,5 @@ simulated operational and fault data.
 ## Links
 
 - [GitHub](https://github.com/SMBello)
-- [LinkedIn](https://www.linkedin.com/in/mohammed-bello-sani) 
+- [LinkedIn](https://www.linkedin.com/in/mohammed-bello-sani-369a89284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ) 
 - Email: bellosani2drescue@gmail.com
