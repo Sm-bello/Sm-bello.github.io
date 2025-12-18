@@ -1,8 +1,9 @@
+<head><meta name="google-site-verification" content="wIf0IT1_xtAW4H6G3pMsZ0E73y5i7-iw8sSqAsZWAWk" /></head>
 ---
 layout: default
 title: Home
 ---
-<meta name="google-site-verification" content="wIf0IT1_xtAW4H6G3pMsZ0E73y5i7-iw8sSqAsZWAWk" />
+
 # Bello Mohammed Sani
 
 **Aerospace Engineer working at the intersection of aircraft structures, digital twins, and maintenance systems.**
