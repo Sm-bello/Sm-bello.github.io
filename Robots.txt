@@ -1,0 +1,21 @@
+# robots.txt for sm-bello.github.io
+# This file tells search engines how to crawl your site
+
+# Allow all search engines to access everything
+User-agent: *
+Allow: /
+
+# Sitemap location for search engines
+Sitemap: https://sm-bello.github.io/sitemap.xml
+
+# Specific directives for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block access to any future admin or private directories
+# (Add these if you create private sections later)
+# Disallow: /private/
+# Disallow: /drafts/
