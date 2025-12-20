@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Publications | Mohammed Bello Sani | ICAS 2024 | Landing Gear Digital Twin Research | Aerospace Engineering Papers</title>
+    <meta name="description" content="Research publications by Mohammed Bello Sani: ICAS 2024 Conference paper on Landing Gear Digital Twin Architecture, predictive maintenance research, aircraft structural health monitoring publications, and aviation safety papers.">
+    <meta name="keywords" content="ICAS 2024, landing gear research paper, digital twin publication, aerospace engineering research, aircraft maintenance paper, predictive maintenance research, aviation safety publications, structural health monitoring papers, MRO research">
+    
+    <link rel="canonical" href="https://sm-bello.github.io/publications.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #004999;
+            --accent-color: #00a8ff;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Page Hero */
+        .page-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Publications Container */
+        .publications-container {
+            max-width: 1200px;
+            margin: 3rem auto 4rem;
+            padding: 0 2rem;
+        }
+        
+        /* Stats Section */
+        .pub-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .label {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        /* Publication Card */
+        .publication-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+        
+        .pub-type {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .pub-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .pub-authors {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .pub-venue {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pub-abstract {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .pub-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .keyword {
+            background: var(--bg-light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+        
+        .pub-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .pub-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .pub-btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .pub-btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .pub-btn-secondary {
+            background: var(--bg-light);
+            color: var(--primary-color);
+            border: 2px solid var(--border-color);
+        }
+        
+        .pub-btn-secondary:hover {
+            border-color: var(--primary-color);
+        }
+        
+        /* Coming Soon Section */
+        .coming-soon-section {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 2px dashed var(--border-color);
+        }
+        
+        .coming-soon-icon {
+            font-size: 4rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .coming-soon-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .coming-soon-section p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Research Interests */
+        .research-interests {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .research-interests h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            text-align: center;
+        }
+        
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .interest-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+        
+        .interest-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-top: 0.2rem;
+        }
+        
+        .interest-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .interest-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .pub-header {
+                flex-direction: column;
+            }
+            
+            .pub-title {
+                font-size: 1.2rem;
+            }
+            
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <i class="fas fa-plane"></i>
+                <span>Mohammed Bello Sani</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="/publications.html">Publications</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>Research Publications</h1>
+        <p>Contributing to the advancement of aviation safety, digital twin technology, and predictive maintenance systems</p>
+    </section>
+
+    <!-- Publications Container -->
+    <div class="publications-container">
+        
+        <!-- Publication Stats -->
+        <div class="pub-stats">
+            <div class="stat-card">
+                <div class="number">2024</div>
+                <div class="label">Latest Publication</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">1</div>
+                <div class="label">Conference Papers</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">ICAS</div>
+                <div class="label">International Conference</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">5+</div>
+                <div class="label">Research Areas</div>
+            </div>
+        </div>
+
+        <!-- Featured Publication -->
+        <div class="publication-card">
+            <div class="pub-header">
+                <div style="flex: 1;">
+                    <h2 class="pub-title">Landing Gear Digital Twin Architecture for Predictive Maintenance and Structural Health Monitoring</h2>
+                </div>
+                <span class="pub-type">Conference Paper</span>
+            </div>
+            
+            <p class="pub-authors">
+                <strong>Mohammed Bello Sani</strong> (Contributing Author) et al.
+            </p>
+            
+            <p class="pub-venue">
+                <i class="fas fa-university"></i>
+                34th Congress of the International Council of the Aeronautical Sciences (ICAS 2024)
+            </p>
+            
+            <div class="pub-abstract">
+                <p>
+                    This paper presents a comprehensive Digital Twin architecture designed for aircraft landing gear systems, integrating physics-based modeling with real-time sensor data analytics to enable predictive maintenance capabilities and continuous structural health monitoring. The proposed architecture addresses critical challenges in aviation maintenance by creating a virtual representation that accurately mirrors the physical behavior of landing gear components under various operational scenarios.
+                </p>
+                <p>
+                    The research demonstrates the application of digital twin technology for modeling landing impact scenarios, including normal operations, hard-landing events, and fault injection simulations. By analyzing structural response patterns and correlating them with maintenance requirements, the system provides maintenance engineers with actionable intelligence for proactive decision-making. Key innovations include automated hard-landing detection algorithms, predictive analytics for remaining useful life estimation, and integration frameworks compatible with existing aircraft health management systems.
+                </p>
+                <p>
+                    Results indicate significant potential for transitioning from traditional time-based maintenance schedules to condition-based maintenance strategies, offering improvements in aircraft safety, operational availability, and maintenance cost optimization. The scalable architecture presented can be extended to other critical aircraft systems, contributing to the broader digital transformation of aviation maintenance operations.
+                </p>
+            </div>
+            
+            <div class="pub-keywords">
+                <span class="keyword">Digital Twin</span>
+                <span class="keyword">Landing Gear</span>
+                <span class="keyword">Predictive Maintenance</span>
+                <span class="keyword">Structural Health Monitoring</span>
+                <span class="keyword">Aviation Safety</span>
+                <span class="keyword">PHM</span>
+                <span class="keyword">MRO Optimization</span>
+                <span class="keyword">Condition-Based Maintenance</span>
+            </div>
+            
+            <div class="pub-actions">
+                <a href="#" class="pub-btn pub-btn-primary" onclick="alert('Link will be added when paper is published/available online'); return false;">
+                    <i class="fas fa-file-pdf"></i> View Paper
+                </a>
+                <a href="#" class="pub-btn pub-btn-secondary" onclick="alert('Conference proceedings link will be added when available'); return false;">
+                    <i class="fas fa-external-link-alt"></i> ICAS 2024 Proceedings
+                </a>
+                <a href="/projects.html#landing-gear" class="pub-btn pub-btn-secondary">
+                    <i class="fas fa-project-diagram"></i> View Project Details
+                </a>
+            </div>
+        </div>
+
+        <!-- Research Interests Section -->
+        <div class="research-interests">
+            <h2>Current Research Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-item">
+                    <div class="interest-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="interest-content">
+                        <h3>Digital Twin Technology</h3>
+                        <p>Virtual representations of physical aircraft systems for enhanced monitoring and prediction</p>
+                    </div>
+                </div>
+                
+                <div class="interest-item">
+                    <div class="interest-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="interest-content">
+                        <h3>AI in Aviation</h3>
+                        <p>Machine learning applications for intelligent maintenance and safety systems</p>
+                    </div>
+                </div>
+                
+                <div class="interest-item">
+                    <div class="interest-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="interest-content">
+                        <h3>MRO Optimization</h3>
+                        <p>Data-driven approaches to improve maintenance efficiency and reduce costs</p>
+                    </div>
+                </div>
+                
+                <div class="interest-item">
+                    <div class="interest-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="interest-content">
+                        <h3>Aviation Safety Systems</h3>
+                        <p>Advanced safety management and risk mitigation technologies</p>
+                    </div>
+                </div>
+                
+                <div class="interest-item">
+                    <div class="interest-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="interest-content">
+                        <h3>Structural Health Monitoring</h3>
+                        <p>Real-time monitoring systems for aircraft structural integrity assessment</p>
+                    </div>
+                </div>
+                
+                <div class="interest-item">
+                    <div class="interest-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="interest-content">
+                        <h3>Predictive Analytics</h3>
+                        <p>Advanced algorithms for forecasting component failures and maintenance needs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coming Soon Publications -->
+        <div class="coming-soon-section">
+            <div class="coming-soon-icon">
+                <i class="fas fa-file-alt"></i>
+            </div>
+            <h2>Future Publications</h2>
+            <p>
+                Additional research papers and conference contributions are in development. This section will be updated as new publications become available. Stay tuned for upcoming work on AI-powered maintenance systems, IoT integration for aviation, and advanced prognostics algorithms.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Mohammed Bello Sani | Aerospace Engineer | Research Publications | <a href="/contact.html">Collaborate With Me</a></p>
+    </footer>
+
+    <script>
+        // Smooth animations on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.publication-card, .research-interests, .coming-soon-section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
