@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviation Safety Analytics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f1419;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+            border-radius: 15px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #48bb78;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(72, 187, 120, 0.2);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(72, 187, 120, 0.5);
+            box-shadow: 0 10px 30px rgba(72, 187, 120, 0.2);
+        }
+
+        .stat-label {
+            color: #a0aec0;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #48bb78;
+        }
+
+        .stat-trend {
+            font-size: 0.85em;
+            margin-top: 8px;
+            color: #68d391;
+        }
+
+        .trend-up { color: #48bb78; }
+        .trend-down { color: #f56565; }
+
+        .chart-container {
+            background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(72, 187, 120, 0.2);
+        }
+
+        .chart-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #48bb78;
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        .bar {
+            flex: 1;
+            margin: 0 10px;
+            background: linear-gradient(180deg, #48bb78 0%, #38a169 100%);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: all 0.3s;
+            min-width: 40px;
+        }
+
+        .bar:hover {
+            filter: brightness(1.3);
+            transform: scaleY(1.05);
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85em;
+            color: #a0aec0;
+            white-space: nowrap;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 600;
+            color: #48bb78;
+        }
+
+        .incident-list {
+            background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(72, 187, 120, 0.2);
+        }
+
+        .incident-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #48bb78;
+            transition: all 0.3s;
+        }
+
+        .incident-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+        }
+
+        .incident-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .incident-type {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .severity {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .severity-low { background: #48bb78; color: #1a202c; }
+        .severity-medium { background: #f6ad55; color: #1a202c; }
+        .severity-high { background: #f56565; color: #fff; }
+
+        .incident-details {
+            color: #a0aec0;
+            line-height: 1.6;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(72, 187, 120, 0.4);
+        }
+
+        .filter-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        select {
+            padding: 10px 20px;
+            background: #2d3748;
+            color: #fff;
+            border: 1px solid rgba(72, 187, 120, 0.3);
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #48bb78;
+        }
+
+        @media (max-width: 768px) {
+            .bar-chart {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✈️ Aviation Safety Analytics Dashboard</h1>
+            <p>Real-time Safety Monitoring & Incident Tracking</p>
+            <p style="font-size: 0.9em; margin-top: 5px;">Mohammed Bello Sani | Aerospace Engineer</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Safety Score</div>
+                <div class="stat-value">98.7</div>
+                <div class="stat-trend trend-up">↑ 2.3% from last month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Flight Hours (YTD)</div>
+                <div class="stat-value">125K</div>
+                <div class="stat-trend trend-up">↑ 8.5% vs last year</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Incidents Reported</div>
+                <div class="stat-value">12</div>
+                <div class="stat-trend trend-down">↓ 25% from last month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Days Since Last Incident</div>
+                <div class="stat-value">47</div>
+                <div class="stat-trend trend-up">Target: 30+ days</div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <select id="timeFilter">
+                <option value="week">Last Week</option>
+                <option value="month" selected>Last Month</option>
+                <option value="quarter">Last Quarter</option>
+                <option value="year">Last Year</option>
+            </select>
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="mechanical">Mechanical</option>
+                <option value="operational">Operational</option>
+                <option value="environmental">Environmental</option>
+                <option value="human">Human Factors</option>
+            </select>
+        </div>
+
+        <div class="chart-container">
+            <h2 class="chart-title">📊 Incident Trends by Category</h2>
+            <div class="bar-chart" id="barChart"></div>
+        </div>
+
+        <div class="incident-list">
+            <h2 class="chart-title">📋 Recent Safety Reports</h2>
+            <div id="incidentList"></div>
+        </div>
+
+        <div class="controls">
+            <button onclick="refreshData()">🔄 Refresh Data</button>
+            <button onclick="exportReport()">📄 Export Report</button>
+            <button onclick="generatePredictions()">🤖 AI Predictions</button>
+        </div>
+    </div>
+
+    <script>
+        const incidentData = [
+            {
+                type: 'Bird Strike',
+                severity: 'low',
+                date: '2024-12-15',
+                details: 'Minor bird strike during approach at 1500ft. No damage to aircraft. Standard inspection completed.',
+                category: 'environmental'
+            },
+            {
+                type: 'Hydraulic System Alert',
+                severity: 'medium',
+                date: '2024-12-10',
+                details: 'Hydraulic pressure fluctuation detected on System A. Precautionary landing, maintenance performed.',
+                category: 'mechanical'
+            },
+            {
+                type: 'Weather Deviation',
+                severity: 'low',
+                date: '2024-12-08',
+                details: 'Unexpected turbulence encounter. Route deviation approved by ATC. No injuries or damage.',
+                category: 'operational'
+            },
+            {
+                type: 'Landing Gear Indication',
+                severity: 'medium',
+                date: '2024-12-05',
+                details: 'Gear down indication light malfunction. Visual confirmation obtained, safe landing completed.',
+                category: 'mechanical'
+            },
+            {
+                type: 'Communication Loss',
+                severity: 'high',
+                date: '2024-11-28',
+                details: 'Temporary loss of radio communication for 3 minutes. Backup systems engaged successfully.',
+                category: 'operational'
+            }
+        ];
+
+        const categoryData = {
+            mechanical: 5,
+            operational: 4,
+            environmental: 2,
+            human: 1
+        };
+
+        function renderBarChart() {
+            const chart = document.getElementById('barChart');
+            const maxValue = Math.max(...Object.values(categoryData));
+            
+            chart.innerHTML = '';
+            
+            Object.entries(categoryData).forEach(([category, value]) => {
+                const barHeight = (value / maxValue) * 100;
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                bar.style.height = barHeight + '%';
+                bar.innerHTML = `
+                    <div class="bar-value">${value}</div>
+                    <div class="bar-label">${category}</div>
+                `;
+                chart.appendChild(bar);
+            });
+        }
+
+        function renderIncidents() {
+            const list = document.getElementById('incidentList');
+            list.innerHTML = '';
+            
+            incidentData.forEach(incident => {
+                const item = document.createElement('div');
+                item.className = 'incident-item';
+                item.innerHTML = `
+                    <div class="incident-header">
+                        <div class="incident-type">${incident.type}</div>
+                        <div class="severity severity-${incident.severity}">
+                            ${incident.severity.toUpperCase()}
+                        </div>
+                    </div>
+                    <div class="incident-details">
+                        <strong>Date:</strong> ${incident.date}<br>
+                        <strong>Details:</strong> ${incident.details}
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function refreshData() {
+            // Simulate data refresh
+            const cards = document.querySelectorAll('.stat-card');
+            cards.forEach(card => {
+                card.style.opacity = '0.5';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                }, 500);
+            });
+            
+            setTimeout(() => {
+                alert('✅ Data refreshed successfully!\n\nLatest safety metrics updated from fleet monitoring systems.');
+            }, 600);
+        }
+
+        function exportReport() {
+            const date = new Date().toLocaleDateString();
+            alert(`📄 Safety Report Generated\n\nReport Date: ${date}\n\nIncludes:\n• Incident summary\n• Trend analysis\n• Safety recommendations\n• Predictive insights\n\nReport would be exported as PDF in production.`);
+        }
+
+        function generatePredictions() {
+            alert(`🤖 AI Predictive Analysis\n\nBased on current trends:\n\n• 15% decrease in mechanical incidents expected next quarter\n• Recommend increased monitoring of hydraulic systems\n• Weather-related incidents likely to increase in winter months\n• Overall safety score projected to reach 99.2 by Q1 2025\n\nFull ML model predictions available in production version.`);
+        }
+
+        // Initialize dashboard
+        renderBarChart();
+        renderIncidents();
+
+        // Filter functionality
+        document.getElementById('categoryFilter').addEventListener('change', function() {
+            // In production, this would filter the data
+            refreshData();
+        });
+
+        document.getElementById('timeFilter').addEventListener('change', function() {
+            // In production, this would update the time range
+            refreshData();
+        });
+    </script>
+</body>
+</html>
