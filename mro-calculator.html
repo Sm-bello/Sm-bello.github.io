@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRO Interval Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .calculator-card {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .results {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .maintenance-schedule {
+            margin-top: 20px;
+        }
+
+        .schedule-item {
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .check-type {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .hours-due {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .info-box {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-box h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 MRO Maintenance Interval Calculator</h1>
+            <p>Predictive Maintenance Planning Tool</p>
+            <p style="font-size: 0.9em; margin-top: 5px;">Mohammed Bello Sani | Aerospace Engineer</p>
+        </header>
+
+        <div class="calculator-card">
+            <h2 style="color: #2c3e50; margin-bottom: 25px;">Aircraft Maintenance Data</h2>
+            
+            <form id="mroForm">
+                <div class="form-group">
+                    <label for="aircraftType">Aircraft Type</label>
+                    <select id="aircraftType" required>
+                        <option value="">Select Aircraft</option>
+                        <option value="narrow">Narrow Body (737, A320)</option>
+                        <option value="wide">Wide Body (777, A350)</option>
+                        <option value="regional">Regional Jet (CRJ, E-Jet)</option>
+                        <option value="turboprop">Turboprop</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <div class="form-group">
+                        <label for="currentHours">Current Flight Hours</label>
+                        <input type="number" id="currentHours" placeholder="e.g., 25000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="currentCycles">Current Flight Cycles</label>
+                        <input type="number" id="currentCycles" placeholder="e.g., 18000" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="form-group">
+                        <label for="lastCheck">Last Major Check (Hours)</label>
+                        <input type="number" id="lastCheck" placeholder="e.g., 20000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="utilizationRate">Monthly Flight Hours</label>
+                        <input type="number" id="utilizationRate" placeholder="e.g., 300" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="maintenanceProgram">Maintenance Program</label>
+                    <select id="maintenanceProgram" required>
+                        <option value="">Select Program</option>
+                        <option value="msg3">MSG-3 (Modern)</option>
+                        <option value="traditional">Traditional Hard Time</option>
+                        <option value="condition">Condition-Based</option>
+                    </select>
+                </div>
+
+                <button type="submit">Calculate Maintenance Intervals</button>
+            </form>
+
+            <div id="results" class="results">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">📊 Maintenance Schedule</h3>
+                
+                <div class="result-item">
+                    <div class="result-label">Next A-Check Due</div>
+                    <div class="result-value" id="aCheckDue">-</div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-label">Next C-Check Due</div>
+                    <div class="result-value" id="cCheckDue">-</div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-label">Estimated Downtime (C-Check)</div>
+                    <div class="result-value" id="downtime">-</div>
+                </div>
+
+                <div class="maintenance-schedule">
+                    <h4 style="color: #2c3e50; margin-bottom: 15px;">Upcoming Checks</h4>
+                    <div id="scheduleList"></div>
+                </div>
+
+                <div class="info-box">
+                    <h3>💡 Optimization Recommendations</h3>
+                    <p id="recommendations">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const maintenanceIntervals = {
+            narrow: { aCheck: 600, cCheck: 7500, dCheck: 30000 },
+            wide: { aCheck: 800, cCheck: 9000, dCheck: 36000 },
+            regional: { aCheck: 400, cCheck: 6000, dCheck: 24000 },
+            turboprop: { aCheck: 300, cCheck: 4500, dCheck: 18000 }
+        };
+
+        document.getElementById('mroForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateMaintenance();
+        });
+
+        function calculateMaintenance() {
+            const aircraftType = document.getElementById('aircraftType').value;
+            const currentHours = parseInt(document.getElementById('currentHours').value);
+            const currentCycles = parseInt(document.getElementById('currentCycles').value);
+            const lastCheck = parseInt(document.getElementById('lastCheck').value);
+            const utilizationRate = parseInt(document.getElementById('utilizationRate').value);
+            const maintenanceProgram = document.getElementById('maintenanceProgram').value;
+
+            const intervals = maintenanceIntervals[aircraftType];
+            
+            const hoursSinceLastCheck = currentHours - lastCheck;
+            const aCheckRemaining = intervals.aCheck - (hoursSinceLastCheck % intervals.aCheck);
+            const cCheckRemaining = intervals.cCheck - hoursSinceLastCheck;
+            
+            const monthsToACheck = Math.ceil(aCheckRemaining / utilizationRate);
+            const monthsToCCheck = Math.ceil(cCheckRemaining / utilizationRate);
+
+            document.getElementById('aCheckDue').textContent = 
+                `${aCheckRemaining} hours (${monthsToACheck} months)`;
+            
+            document.getElementById('cCheckDue').textContent = 
+                `${cCheckRemaining} hours (${monthsToCCheck} months)`;
+
+            const downtime = aircraftType === 'wide' ? '25-35 days' : 
+                            aircraftType === 'narrow' ? '20-30 days' : '15-25 days';
+            document.getElementById('downtime').textContent = downtime;
+
+            const scheduleList = document.getElementById('scheduleList');
+            scheduleList.innerHTML = `
+                <div class="schedule-item">
+                    <span class="check-type">A-Check</span>
+                    <span class="hours-due">${currentHours + aCheckRemaining} hours</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="check-type">B-Check (if applicable)</span>
+                    <span class="hours-due">${currentHours + (intervals.aCheck * 4)} hours</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="check-type">C-Check</span>
+                    <span class="hours-due">${currentHours + cCheckRemaining} hours</span>
+                </div>
+            `;
+
+            const utilizationLevel = utilizationRate > 350 ? 'high' : 
+                                     utilizationRate > 250 ? 'medium' : 'low';
+            
+            let recommendations = '';
+            if (utilizationLevel === 'high') {
+                recommendations = 'High utilization detected. Consider implementing predictive maintenance to reduce unscheduled downtime. Monitor landing gear and engine components more frequently.';
+            } else if (utilizationLevel === 'medium') {
+                recommendations = 'Optimal utilization rate. Maintain current inspection intervals and consider implementing condition monitoring for critical systems.';
+            } else {
+                recommendations = 'Low utilization may lead to corrosion and deterioration. Increase inspection frequency for static components and consider preservation procedures.';
+            }
+
+            if (maintenanceProgram === 'msg3') {
+                recommendations += ' MSG-3 program selected - excellent for data-driven decision making. Leverage your digital twin systems for enhanced predictive capabilities.';
+            }
+
+            document.getElementById('recommendations').textContent = recommendations;
+
+            document.getElementById('results').classList.add('show');
+        }
+    </script>
+</body>
+</html>
