@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aircraft Systems Monitor - Digital Twin Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #a0aec0;
+            font-size: 1.1em;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .system-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .system-card.active {
+            border-color: #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .system-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .system-name {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-healthy { background: #48bb78; }
+        .status-warning { background: #f6ad55; }
+        .status-critical { background: #f56565; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-label {
+            color: #a0aec0;
+            font-size: 0.9em;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .aircraft-diagram {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .aircraft-svg {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .aircraft-part {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .aircraft-part:hover {
+            filter: brightness(1.5);
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .alert-panel {
+            background: rgba(245, 101, 101, 0.1);
+            border: 1px solid rgba(245, 101, 101, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .alert-title {
+            color: #f56565;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .alert-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✈️ Aircraft Digital Twin Monitor</h1>
+            <p class="subtitle">Real-time Structural Health & System Monitoring</p>
+            <p class="subtitle" style="font-size: 0.9em; margin-top: 5px;">Mohammed Bello Sani | Aerospace Engineer</p>
+        </header>
+
+        <div class="dashboard" id="systemCards"></div>
+
+        <div class="aircraft-diagram">
+            <h2 style="margin-bottom: 30px;">Aircraft System Overview</h2>
+            <svg class="aircraft-svg" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Fuselage -->
+                <ellipse cx="400" cy="150" rx="200" ry="40" fill="#4a5568" stroke="#667eea" stroke-width="2" class="aircraft-part" id="fuselage"/>
+                
+                <!-- Wings -->
+                <rect x="250" y="140" width="300" height="20" fill="#4a5568" stroke="#667eea" stroke-width="2" class="aircraft-part" id="wings"/>
+                
+                <!-- Engines -->
+                <circle cx="300" cy="150" r="25" fill="#667eea" class="aircraft-part" id="engine-left"/>
+                <circle cx="500" cy="150" r="25" fill="#667eea" class="aircraft-part" id="engine-right"/>
+                
+                <!-- Landing Gear -->
+                <rect x="350" y="185" width="15" height="40" fill="#f6ad55" class="aircraft-part" id="landing-gear-front"/>
+                <rect x="435" y="185" width="15" height="40" fill="#f6ad55" class="aircraft-part" id="landing-gear-rear"/>
+                
+                <!-- Tail -->
+                <polygon points="600,150 650,150 650,130 600,140" fill="#4a5568" stroke="#667eea" stroke-width="2" class="aircraft-part" id="tail"/>
+                
+                <!-- Nose -->
+                <ellipse cx="200" cy="150" rx="40" ry="35" fill="#4a5568" stroke="#667eea" stroke-width="2" class="aircraft-part" id="nose"/>
+            </svg>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color status-healthy"></div>
+                    <span>Healthy</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color status-warning"></div>
+                    <span>Warning</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color status-critical"></div>
+                    <span>Critical</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="startSimulation()">▶ Start Simulation</button>
+            <button onclick="stopSimulation()">⏸ Pause</button>
+            <button onclick="resetData()">↻ Reset</button>
+            <button onclick="generateReport()">📊 Generate Report</button>
+        </div>
+
+        <div id="alertPanel"></div>
+    </div>
+
+    <script>
+        const systems = {
+            'Landing Gear': {
+                status: 'healthy',
+                metrics: {
+                    'Pressure': '3250 PSI',
+                    'Temperature': '78°F',
+                    'Cycle Count': '12,453',
+                    'Health Score': '94%'
+                }
+            },
+            'Hydraulic System': {
+                status: 'healthy',
+                metrics: {
+                    'Pressure': '3000 PSI',
+                    'Fluid Level': '98%',
+                    'Temperature': '145°F',
+                    'Leak Rate': '0.2 L/hr'
+                }
+            },
+            'Wing Structure': {
+                status: 'warning',
+                metrics: {
+                    'Stress Level': '72%',
+                    'Fatigue Index': '0.68',
+                    'Crack Detection': 'None',
+                    'Vibration': '2.3 Hz'
+                }
+            },
+            'Engine Systems': {
+                status: 'healthy',
+                metrics: {
+                    'Thrust Output': '95%',
+                    'Temperature': '1850°F',
+                    'Fuel Flow': '1250 lb/hr',
+                    'Vibration': 'Normal'
+                }
+            },
+            'Avionics': {
+                status: 'healthy',
+                metrics: {
+                    'System Status': 'Operational',
+                    'Communication': 'Active',
+                    'Navigation': 'GPS Lock',
+                    'Power': '28.5V'
+                }
+            },
+            'Fuselage Integrity': {
+                status: 'healthy',
+                metrics: {
+                    'Pressure': '8.9 PSI',
+                    'Cabin Temp': '72°F',
+                    'Structural Load': '65%',
+                    'Corrosion Index': 'Low'
+                }
+            }
+        };
+
+        let simulationInterval;
+        let activeSystem = null;
+
+        function renderDashboard() {
+            const container = document.getElementById('systemCards');
+            container.innerHTML = '';
+
+            Object.keys(systems).forEach(systemName => {
+                const system = systems[systemName];
+                const card = document.createElement('div');
+                card.className = 'system-card';
+                if (activeSystem === systemName) card.classList.add('active');
+                
+                card.innerHTML = `
+                    <div class="system-header">
+                        <div class="system-name">${systemName}</div>
+                        <div class="status-indicator status-${system.status}"></div>
+                    </div>
+                    ${Object.entries(system.metrics).map(([label, value]) => `
+                        <div class="metric">
+                            <span class="metric-label">${label}</span>
+                            <span class="metric-value">${value}</span>
+                        </div>
+                    `).join('')}
+                `;
+                
+                card.onclick = () => {
+                    activeSystem = systemName;
+                    renderDashboard();
+                };
+                
+                container.appendChild(card);
+            });
+
+            updateAlerts();
+        }
+
+        function updateAlerts() {
+            const alertPanel = document.getElementById('alertPanel');
+            const warnings = Object.entries(systems).filter(([name, sys]) => 
+                sys.status === 'warning' || sys.status === 'critical'
+            );
+
+            if (warnings.length > 0) {
+                alertPanel.innerHTML = `
+                    <div class="alert-panel">
+                        <div class="alert-title">⚠️ Active Alerts (${warnings.length})</div>
+                        ${warnings.map(([name, sys]) => `
+                            <div class="alert-item">
+                                <strong>${name}:</strong> ${sys.status === 'critical' ? 'Critical' : 'Warning'} - Requires attention
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else {
+                alertPanel.innerHTML = '';
+            }
+        }
+
+        function startSimulation() {
+            if (simulationInterval) return;
+            
+            simulationInterval = setInterval(() => {
+                // Randomly update some metrics
+                Object.keys(systems).forEach(systemName => {
+                    if (Math.random() > 0.7) {
+                        const system = systems[systemName];
+                        const metricKeys = Object.keys(system.metrics);
+                        const randomMetric = metricKeys[Math.floor(Math.random() * metricKeys.length)];
+                        
+                        // Simulate slight changes
+                        if (systemName === 'Landing Gear' && randomMetric === 'Pressure') {
+                            const currentVal = parseInt(system.metrics[randomMetric]);
+                            const newVal = currentVal + Math.floor(Math.random() * 20 - 10);
+                            system.metrics[randomMetric] = newVal + ' PSI';
+                        }
+                        
+                        // Randomly change status
+                        if (Math.random() > 0.95) {
+                            const statuses = ['healthy', 'warning'];
+                            system.status = statuses[Math.floor(Math.random() * statuses.length)];
+                        }
+                    }
+                });
+                
+                renderDashboard();
+            }, 2000);
+        }
+
+        function stopSimulation() {
+            clearInterval(simulationInterval);
+            simulationInterval = null;
+        }
+
+        function resetData() {
+            stopSimulation();
+            Object.keys(systems).forEach(key => {
+                systems[key].status = 'healthy';
+            });
+            renderDashboard();
+        }
+
+        function generateReport() {
+            const timestamp = new Date().toLocaleString();
+            alert(`📊 Health Report Generated\n\nTimestamp: ${timestamp}\n\nAll systems operational. Report saved to digital twin database.\n\nThis would normally generate a PDF with detailed analytics, trend charts, and predictive maintenance recommendations.`);
+        }
+
+        // Initialize
+        renderDashboard();
+    </script>
+</body>
+</html>
