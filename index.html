@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Mohammed Bello Sani | Aerospace Digital Twin & Safety Systems</title>
-    <meta name="description" content="Portfolio of Mohammed Bello Sani. Aerospace Engineering Undergraduate focusing on Digital Twin Architecture, Aircraft Telemetry, and Predictive Maintenance Systems.">
+    <meta name="description" content="Portfolio of Mohammed Bello Sani, Aerospace Engineering Undergraduate specializing in Digital Twin Technology, Aircraft Telemetry, and MRO Optimization.">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,11 +18,11 @@
         }
         
         :root {
-            /* MILITARY / TECHNICAL PALETTE */
-            --primary-dark: #0f172a;  /* Deepest Navy */
-            --primary-light: #1e293b; /* Lighter Navy */
-            --accent-blue: #0ea5e9;   /* Tactical Sky Blue */
-            --text-main: #f8fafc;     /* White/Grey */
+            /* TACTICAL / SOOTHING NAVY PALETTE */
+            --primary-dark: #0f172a;  /* Deep Navy (Background) */
+            --primary-light: #1e293b; /* Slate Blue (Cards) */
+            --accent-blue: #38bdf8;   /* Soothing Sky Blue (Highlights) */
+            --text-main: #f1f5f9;     /* Soft White */
             --text-muted: #94a3b8;    /* Muted Grey */
             --border-color: #334155;
         }
@@ -35,31 +35,31 @@
             overflow-x: hidden;
         }
 
-        /* Navigation (Transparent on Home) */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 2rem;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.2rem; /* Adjusted for full name */
+            font-weight: 700;
             color: var(--text-main);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .logo i { color: var(--accent-blue); }
@@ -84,27 +84,41 @@
             color: var(--accent-blue);
         }
 
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-main);
+        }
+
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 2rem;
+            padding: 8rem 2rem 4rem;
             background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
             position: relative;
         }
 
-        /* Background Grid Effect */
+        /* Grid Effect Background */
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: linear-gradient(var(--border-color) 1px, transparent 1px),
             linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.05;
+            background-size: 40px 40px;
+            opacity: 0.07;
         }
 
         .hero-content {
@@ -115,7 +129,7 @@
 
         .status-badge {
             display: inline-block;
-            background: rgba(14, 165, 233, 0.1);
+            background: rgba(56, 189, 248, 0.1);
             border: 1px solid var(--accent-blue);
             color: var(--accent-blue);
             padding: 0.5rem 1rem;
@@ -129,13 +143,11 @@
         .status-badge i { margin-right: 8px; animation: pulse 2s infinite; }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: white;
         }
 
         .hero p {
@@ -166,13 +178,13 @@
 
         .btn-primary {
             background: var(--accent-blue);
-            color: white;
-            box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+            color: #0f172a;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(14, 165, 233, 0.5);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
         }
 
         .btn-secondary {
@@ -186,71 +198,151 @@
             background: rgba(255,255,255,0.05);
         }
 
-        /* Domain Cards Section */
-        .domains {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .domain-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: -5rem; /* Overlap hero */
+        /* Stats Section - The Truth */
+        .stats-section {
+            padding: 2rem;
+            background: var(--primary-light);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-top: -3rem; /* Overlap hero */
             position: relative;
             z-index: 10;
         }
 
-        .domain-card {
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 4rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .focus-card {
             background: var(--primary-light);
             padding: 2.5rem;
+            border-radius: 6px;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
             transition: transform 0.3s ease;
         }
 
-        .domain-card:hover {
+        .focus-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
         }
 
-        .card-icon {
-            font-size: 2rem;
+        .focus-card i {
+            font-size: 2.5rem;
             color: var(--accent-blue);
             margin-bottom: 1.5rem;
         }
 
-        .domain-card h3 {
-            font-size: 1.2rem;
+        .focus-card h3 {
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             color: white;
         }
 
-        .domain-card p {
+        .focus-card p {
             color: var(--text-muted);
+            line-height: 1.7;
             font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .domain-link {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         /* Footer */
         footer {
+            background: #0b1120;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
             text-align: center;
-            padding: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
             color: var(--text-muted);
             font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 3rem;
         }
 
         @keyframes pulse {
@@ -261,9 +353,21 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Mobile menu simplified for now */
-            .cta-buttons { flex-direction: column; }
-            .domain-grid { margin-top: 0; }
+            .nav-links { display: none; }
+            .menu-toggle { display: flex; }
+            
+            /* Mobile Nav Logic */
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-light);
+                padding: 2rem;
+                border-bottom: 1px solid var(--border-color);
+            }
         }
     </style>
 </head>
@@ -271,14 +375,21 @@
 
     <nav>
         <a href="/" class="logo">
-            <i class="fas fa-fighter-jet"></i>
-            <span>M.B. Sani</span>
+            <i class="fas fa-plane-departure"></i>
+            <span>Mohammed Bello Sani</span>
         </a>
-        <ul class="nav-links">
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
             <li><a href="/">Home</a></li>
-            <li><a href="/about.html">Profile</a></li>
-            <li><a href="/projects.html">Logbook</a></li>
-            <li><a href="/contact.html">Comms</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/contact.html">Contact</a></li>
         </ul>
     </nav>
 
@@ -287,55 +398,109 @@
             <div class="status-badge">
                 <i class="fas fa-circle"></i> SYSTEM STATUS: FINAL YEAR (500L) @ AFIT
             </div>
-            <h1>Aerospace Systems &<br>Digital Intelligence</h1>
+            <h1>
+                Aerospace Systems &<br>
+                <span style="color: var(--accent-blue);">Digital Intelligence</span>
+            </h1>
             <p>
-                Bridging the gap between <strong>Physical Airworthiness</strong> and <strong>Digital Telemetry</strong>. 
-                Building the next generation of predictive maintenance tools using InfluxDB, FlightGear, and Structural Analysis.
+                Developing intelligent systems at the intersection of aircraft structures and data-driven innovation. Bridging the gap between Physical Airworthiness and Digital Telemetry.
             </p>
             <div class="cta-buttons">
-                <a href="/projects.html" class="btn btn-primary">Open Logbook</a>
-                <a href="/about.html" class="btn btn-secondary">View Profile</a>
+                <a href="/projects.html" class="btn btn-primary">
+                    View My Work <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="/contact.html" class="btn btn-secondary">
+                    Contact Me <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="domains">
-        <div class="domain-grid">
+    <div class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>500L</h3>
+                <p>Academic Level (AFIT)</p>
+            </div>
+            <div class="stat-item">
+                <h3>2</h3>
+                <p>Industrial Attachments (NCAA & MRO)</p>
+            </div>
+            <div class="stat-item">
+                <h3>8+</h3>
+                <p>Engineering Tools (Simulink/Ansys/Influx)</p>
+            </div>
+            <div class="stat-item">
+                <h3>1</h3>
+                <p>Core Mission: Safety</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="expertise">
+        <h2 class="section-title">Technical Domains</h2>
+        <div class="focus-grid">
             
-            <div class="domain-card">
-                <div class="card-icon">
-                    <i class="fas fa-project-diagram"></i>
-                </div>
-                <h3>Digital Twin Research</h3>
-                <p>Developing high-fidelity virtual models of landing gear systems to predict seal failures and structural stress before they impact flight safety.</p>
-                <a href="/projects.html" class="domain-link">Inspect Data <i class="fas fa-arrow-right"></i></a>
+            <div class="focus-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Digital Twin & Simulation</h3>
+                <p>Developing physics-based digital replicas of landing gear systems to predict stress loads. Utilizing <strong>MATLAB</strong> and <strong>Simulink</strong> to model failure scenarios before they occur in the air.</p>
             </div>
-
-            <div class="domain-card">
-                <div class="card-icon">
-                    <i class="fas fa-server"></i>
-                </div>
-                <h3>Telemetry Stack</h3>
-                <p>Deploying real-time monitoring pipelines using <strong>InfluxDB 3 Core</strong>, <strong>Telegraf</strong>, and <strong>Grafana</strong> to visualize flight dynamics.</p>
-                <a href="https://github.com/Sm-bello" target="_blank" class="domain-link">View Repo <i class="fas fa-arrow-right"></i></a>
+            
+            <div class="focus-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>Telemetry Pipelines</h3>
+                <p>Building real-time data pipelines using <strong>InfluxDB 3 Core</strong>, <strong>Telegraf</strong>, and <strong>Grafana</strong>. Visualizing flight dynamics from simulation environments (FlightGear) to create "Black Box" style dashboards.</p>
             </div>
-
-            <div class="domain-card">
-                <div class="card-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h3>MRO Operations</h3>
-                <p>Field-tested experience at <strong>NCAA</strong> (Airworthiness Standards) and <strong>Executive Airlift</strong> (Hangar Maintenance). Understanding the regulations behind the code.</p>
-                <a href="/about.html" class="domain-link">Read Briefing <i class="fas fa-arrow-right"></i></a>
+            
+            <div class="focus-card">
+                <i class="fas fa-wrench"></i>
+                <h3>MRO & Airworthiness</h3>
+                <p>Applying field experience from <strong>NCAA</strong> (Regulatory) and <strong>Executive Airlift</strong> (Hangar Ops) to bridge the gap between theoretical engineering and practical maintenance requirements.</p>
             </div>
 
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Mohammed Bello Sani. <strong>FCT Abuja, Nigeria.</strong></p>
-        <p style="margin-top: 0.5rem; opacity: 0.7;">Aerospace Engineering | AFIT Kaduna</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mohammed Bello Sani</h3>
+                <p style="color: var(--text-muted);">Aerospace Engineering Undergraduate</p>
+                <p style="color: var(--text-muted);">AFIT Kaduna, Nigeria</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Logbook</h3>
+                <div class="footer-links">
+                    <a href="/about.html">About Profile</a>
+                    <a href="/projects.html">Technical Projects</a>
+                    <a href="/contact.html">Communicate</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Location</h3>
+                <p style="color: var(--text-muted);">FCT Abuja, Nigeria</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Mohammed Bello Sani. All systems nominal.</p>
+        </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
