@@ -18,24 +18,28 @@
         }
         
         :root {
-            /* TACTICAL / SOOTHING NAVY PALETTE */
-            --primary-dark: #0f172a;  /* Deep Navy (Background) */
-            --primary-light: #1e293b; /* Slate Blue (Cards) */
-            --accent-blue: #38bdf8;   /* Soothing Sky Blue (Highlights) */
-            --text-main: #f1f5f9;     /* Soft White */
-            --text-muted: #94a3b8;    /* Muted Grey */
-            --border-color: #334155;
+            /* NEW PALETTE: LABORATORY CLEAN + TACTICAL NEON */
+            --bg-milky: #f8fafc;      /* Milky White Background */
+            --text-dark: #0f172a;     /* Dark Slate (Main Text) */
+            --text-light: #64748b;    /* Muted Grey */
+            
+            --card-bg: #1e293b;       /* Dark Navy for Cards */
+            --footer-bg: #0b1120;     /* Deepest Navy/Black */
+            
+            /* NEON COLORS */
+            --neon-orange: #f97316;   /* Bright Safety Orange */
+            --neon-blue: #0ea5e9;     /* Electric Sky Blue */
         }
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--primary-dark);
-            color: var(--text-main);
+            background-color: var(--bg-milky);
+            color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* Navigation - Now darker to pop against white */
         nav {
             position: fixed;
             top: 0;
@@ -45,15 +49,15 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(248, 250, 252, 0.95); /* Milky white semi-transparent */
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .logo {
-            font-size: 1.2rem; /* Adjusted for full name */
-            font-weight: 700;
-            color: var(--text-main);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -62,7 +66,7 @@
             letter-spacing: 0.5px;
         }
 
-        .logo i { color: var(--accent-blue); }
+        .logo i { color: var(--neon-blue); }
 
         .nav-links {
             display: flex;
@@ -72,8 +76,8 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
+            color: var(--text-light);
+            font-weight: 600;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -81,7 +85,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--accent-blue);
+            color: var(--neon-blue);
         }
 
         /* Mobile Menu Toggle */
@@ -95,7 +99,7 @@
         .menu-toggle span {
             width: 25px;
             height: 3px;
-            background: var(--text-main);
+            background: var(--text-dark);
         }
 
         /* Hero Section */
@@ -106,19 +110,19 @@
             justify-content: center;
             text-align: center;
             padding: 8rem 2rem 4rem;
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            background: var(--bg-milky); /* Pure milky background */
             position: relative;
         }
 
-        /* Grid Effect Background */
+        /* Technical Grid for Hero (Subtle Grey) */
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(var(--border-color) 1px, transparent 1px),
-            linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+            background-image: linear-gradient(#e2e8f0 1px, transparent 1px),
+            linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
             background-size: 40px 40px;
-            opacity: 0.07;
+            opacity: 0.4;
         }
 
         .hero-content {
@@ -129,13 +133,13 @@
 
         .status-badge {
             display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid var(--accent-blue);
-            color: var(--accent-blue);
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue); /* Blue Text */
             padding: 0.5rem 1rem;
             border-radius: 50px;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 1.5rem;
             letter-spacing: 1px;
         }
@@ -147,12 +151,12 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            color: white;
+            color: var(--text-dark);
         }
 
         .hero p {
             font-size: 1.2rem;
-            color: var(--text-muted);
+            color: var(--text-light);
             margin-bottom: 2.5rem;
             max-width: 700px;
             margin-left: auto;
@@ -167,9 +171,9 @@
 
         .btn {
             padding: 1rem 2rem;
-            border-radius: 4px;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.9rem;
@@ -177,41 +181,47 @@
         }
 
         .btn-primary {
-            background: var(--accent-blue);
-            color: #0f172a;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            background: var(--text-dark);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+            background: var(--neon-blue);
+            box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
         }
 
         .btn-secondary {
             background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
+            border: 2px solid var(--text-dark);
+            color: var(--text-dark);
         }
 
         .btn-secondary:hover {
-            border-color: var(--text-main);
-            background: rgba(255,255,255,0.05);
+            background: var(--text-dark);
+            color: white;
         }
 
-        /* Stats Section - The Truth */
+        /* STATS SECTION - ORANGE NEON CARVED OUT 
+           Using a dark container on white background creates the "Carved" effect
+        */
         .stats-section {
-            padding: 2rem;
-            background: var(--primary-light);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            margin-top: -3rem; /* Overlap hero */
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: -4rem auto 0; /* Overlap hero */
             position: relative;
             z-index: 10;
+            
+            /* The Neon Carved Look */
+            background: #1a1a1a; /* Dark background to make neon pop */
+            border-radius: 16px;
+            border: 2px solid var(--neon-orange);
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.3), /* Outer Glow */
+                        inset 0 0 20px rgba(249, 115, 22, 0.1); /* Inner Glow (Carved feel) */
         }
 
         .stats-grid {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
@@ -219,21 +229,23 @@
         }
 
         .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--accent-blue);
+            font-size: 2.8rem;
+            color: var(--neon-orange);
             margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(249, 115, 22, 0.5); /* Neon Text Glow */
         }
 
         .stat-item p {
-            color: var(--text-muted);
+            color: #d1d5db; /* Light grey for contrast on dark bg */
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
         /* Expertise Section */
         .expertise {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -242,9 +254,10 @@
             text-align: center;
             font-size: 2rem;
             margin-bottom: 4rem;
-            color: var(--text-main);
+            color: var(--text-dark);
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-weight: 800;
         }
 
         .focus-grid {
@@ -253,42 +266,55 @@
             gap: 2rem;
         }
 
+        /* CARDS - Dark Neon on White Background */
         .focus-card {
-            background: var(--primary-light);
+            background: var(--card-bg); /* Dark Navy Card */
             padding: 2.5rem;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
+            border-radius: 12px;
             transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Shadow against white bg */
         }
 
         .focus-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
+            transform: translateY(-8px);
         }
+
+        /* Alternating Neon Borders */
+        .focus-card:nth-child(1) { border-bottom: 4px solid var(--neon-blue); }
+        .focus-card:nth-child(2) { border-bottom: 4px solid var(--neon-orange); }
+        .focus-card:nth-child(3) { border-bottom: 4px solid var(--neon-blue); }
 
         .focus-card i {
             font-size: 2.5rem;
-            color: var(--accent-blue);
             margin-bottom: 1.5rem;
         }
+
+        /* Icon Colors matching borders */
+        .focus-card:nth-child(1) i { color: var(--neon-blue); }
+        .focus-card:nth-child(2) i { color: var(--neon-orange); }
+        .focus-card:nth-child(3) i { color: var(--neon-blue); }
 
         .focus-card h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: white;
+            color: white; /* White text on dark card */
         }
 
         .focus-card p {
-            color: var(--text-muted);
+            color: #94a3b8; /* Muted grey text on dark card */
             line-height: 1.7;
             font-size: 0.95rem;
         }
 
-        /* Footer */
+        /* Footer - Navy Blue Black */
         footer {
-            background: #0b1120;
-            padding: 4rem 2rem;
-            border-top: 1px solid var(--border-color);
+            background: var(--footer-bg);
+            padding: 5rem 2rem 2rem;
+            color: white;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+            margin-top: 4rem;
         }
 
         .footer-content {
@@ -301,22 +327,23 @@
         }
 
         .footer-section h3 {
-            color: var(--text-main);
+            color: white;
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .footer-links a {
             display: block;
-            color: var(--text-muted);
+            color: #94a3b8;
             text-decoration: none;
             margin-bottom: 0.8rem;
             transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--accent-blue);
+            color: var(--neon-orange);
         }
 
         .social-links {
@@ -327,21 +354,21 @@
         }
 
         .social-links a {
-            color: var(--text-muted);
+            color: #94a3b8;
             font-size: 1.5rem;
             transition: color 0.3s ease;
         }
 
         .social-links a:hover {
-            color: var(--accent-blue);
+            color: var(--neon-blue);
         }
 
         .copyright {
             text-align: center;
             margin-top: 4rem;
             padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #64748b;
             font-size: 0.9rem;
         }
 
@@ -356,6 +383,11 @@
             .nav-links { display: none; }
             .menu-toggle { display: flex; }
             
+            .stats-section {
+                margin-top: 2rem;
+                padding: 2rem 1rem;
+            }
+
             /* Mobile Nav Logic */
             .nav-links.active {
                 display: flex;
@@ -364,9 +396,10 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--primary-light);
+                background: white;
                 padding: 2rem;
-                border-bottom: 1px solid var(--border-color);
+                border-bottom: 1px solid #e2e8f0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
         }
     </style>
@@ -400,7 +433,7 @@
             </div>
             <h1>
                 Aerospace Systems &<br>
-                <span style="color: var(--accent-blue);">Digital Intelligence</span>
+                <span style="color: var(--neon-blue);">Digital Intelligence</span>
             </h1>
             <p>
                 Developing intelligent systems at the intersection of aircraft structures and data-driven innovation. Bridging the gap between Physical Airworthiness and Digital Telemetry.
@@ -424,11 +457,11 @@
             </div>
             <div class="stat-item">
                 <h3>2</h3>
-                <p>Industrial Attachments (NCAA & MRO)</p>
+                <p>Industrial Attachments</p>
             </div>
             <div class="stat-item">
                 <h3>8+</h3>
-                <p>Engineering Tools (Simulink/Ansys/Influx)</p>
+                <p>Engineering Tools</p>
             </div>
             <div class="stat-item">
                 <h3>1</h3>
@@ -466,8 +499,8 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Mohammed Bello Sani</h3>
-                <p style="color: var(--text-muted);">Aerospace Engineering Undergraduate</p>
-                <p style="color: var(--text-muted);">AFIT Kaduna, Nigeria</p>
+                <p style="color: #94a3b8;">Aerospace Engineering Undergraduate</p>
+                <p style="color: #94a3b8;">AFIT Kaduna, Nigeria</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i></a>
@@ -486,7 +519,7 @@
             
             <div class="footer-section">
                 <h3>Location</h3>
-                <p style="color: var(--text-muted);">FCT Abuja, Nigeria</p>
+                <p style="color: #94a3b8;">FCT Abuja, Nigeria</p>
             </div>
         </div>
         
