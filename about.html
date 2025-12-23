@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Tags -->
-    <title>About Mohammed Bello Sani | Aerospace Engineer | Digital Twin Expert | Aviation Safety Researcher</title>
-    <meta name="description" content="Learn about Mohammed Bello Sani's journey in aerospace engineering, specializing in digital twin technology, predictive maintenance, MRO optimization, and aviation safety systems. AFIT Kaduna graduate and ICAS 2024 researcher.">
-    <meta name="keywords" content="aerospace engineer bio, digital twin specialist, aviation safety expert, MRO optimization engineer, predictive maintenance researcher, aircraft systems engineer, AFIT Kaduna, aviation management">
+    <title>About Mohammed Bello Sani | Aerospace Engineering Undergraduate | Digital Twin Researcher</title>
+    <meta name="description" content="Portfolio of Mohammed Bello Sani, a final year Aerospace Engineering student at AFIT specializing in Digital Twin architecture, telemetry stacks, and aviation safety systems.">
+    <meta name="keywords" content="aerospace engineer, AFIT student, digital twin, influxdb, grafana, aviation safety, NCAA intern, executive airlift group">
     
     <link rel="canonical" href="https://sm-bello.github.io/about.html">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,14 +20,15 @@
         }
         
         :root {
-            --primary-color: #0066cc;
-            --secondary-color: #004999;
-            --accent-color: #00a8ff;
-            --text-dark: #1a1a1a;
-            --text-light: #666666;
-            --bg-light: #f8f9fa;
+            /* MILITARY / TECHNICAL PALETTE */
+            --primary-color: #1e293b; /* Dark Slate (Navy) */
+            --secondary-color: #334155; /* Lighter Slate */
+            --accent-color: #0ea5e9; /* Tactical Sky Blue (Data) */
+            --text-dark: #0f172a;
+            --text-light: #475569;
+            --bg-light: #f1f5f9; /* Flight Deck Grey */
             --bg-white: #ffffff;
-            --border-color: #e0e0e0;
+            --border-color: #cbd5e1;
         }
         
         body {
@@ -38,7 +38,7 @@
             background: var(--bg-light);
         }
         
-        /* Navigation - Same as homepage */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -47,6 +47,7 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            border-bottom: 2px solid var(--primary-color);
         }
         
         .nav-container {
@@ -60,12 +61,14 @@
         
         .logo {
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary-color);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
         
         .nav-links {
@@ -77,64 +80,93 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
         }
         
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
         
-        /* Hero Section */
+        /* Hero Section - "The Briefing" */
         .page-hero {
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 9rem 2rem 5rem;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
         
         .page-hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
         
         .page-hero p {
             font-size: 1.2rem;
-            opacity: 0.95;
+            opacity: 0.9;
             max-width: 700px;
             margin: 0 auto;
+            font-weight: 300;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1rem;
+            text-align: left;
+            display: inline-block;
         }
         
         /* Main Content */
         .about-content {
             max-width: 1200px;
-            margin: -3rem auto 4rem;
+            margin: -4rem auto 4rem;
             padding: 0 2rem;
+            position: relative;
+            z-index: 2;
         }
         
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 300px 1fr;
             gap: 3rem;
             background: white;
-            border-radius: 12px;
+            border-radius: 4px; /* Sharper corners for military look */
             padding: 3rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-top: 4px solid var(--accent-color);
         }
         
         .profile-sidebar {
             text-align: center;
         }
         
+        /* IMAGE HANDLING */
         .profile-image {
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* If image fails to load, this gradient shows */
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 2rem;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden; /* Ensures the image stays in the circle */
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Fallback icon if no image */
+        .profile-image i {
             font-size: 5rem;
             color: white;
         }
@@ -142,11 +174,14 @@
         .profile-info h2 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
         }
         
         .profile-info p {
             color: var(--text-light);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
         }
         
         .profile-links {
@@ -163,41 +198,58 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
+            border-radius: 4px; /* Squared off */
             color: var(--primary-color);
             text-decoration: none;
             transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
         }
         
         .profile-links a:hover {
             background: var(--primary-color);
             color: white;
-            transform: translateY(-3px);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
         }
         
         .bio-content h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
-            color: var(--text-dark);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .bio-content h3::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 24px;
+            background: var(--accent-color);
         }
         
         .bio-content p {
             color: var(--text-light);
             margin-bottom: 1.5rem;
             line-height: 1.8;
+            text-align: justify;
         }
         
         .highlight-box {
-            background: var(--bg-light);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-left: 4px solid var(--primary-color);
             padding: 1.5rem;
             margin: 2rem 0;
-            border-radius: 8px;
         }
         
         .highlight-box h4 {
             color: var(--primary-color);
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
         
         /* Skills Section */
@@ -208,9 +260,12 @@
         }
         
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             text-align: center;
             margin-bottom: 3rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            text-transform: uppercase;
         }
         
         .skills-grid {
@@ -222,17 +277,27 @@
         .skill-category {
             background: white;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 4px;
+            border-top: 3px solid var(--border-color);
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--accent-color);
         }
         
         .skill-category h4 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
         }
         
         .skill-list {
@@ -243,24 +308,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed var(--border-color);
         }
         
         .skill-item:last-child {
             border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
         }
         
         .skill-name {
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
         
         .skill-level {
-            font-size: 0.9rem;
-            color: var(--primary-color);
+            font-size: 0.75rem;
+            background: var(--bg-light);
+            padding: 2px 8px;
+            border-radius: 10px;
+            color: var(--text-light);
+            font-weight: 500;
         }
         
         /* Education Timeline */
@@ -282,7 +350,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: var(--primary-color);
+            background: var(--border-color);
         }
         
         .timeline-item {
@@ -302,94 +370,102 @@
             align-items: center;
             justify-content: center;
             color: white;
+            box-shadow: 0 0 0 5px white;
+            z-index: 2;
         }
         
         .timeline-content {
             background: white;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 3px solid var(--accent-color);
         }
         
         .timeline-content h4 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
         }
         
         .timeline-content .institution {
             color: var(--primary-color);
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
         
         .timeline-content .date {
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 1rem;
+            font-family: monospace;
+            background: #e2e8f0;
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 3px;
         }
         
         /* Footer */
         footer {
-            background: var(--text-dark);
+            background: var(--primary-color);
             color: white;
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
-            margin-top: 4rem;
+            margin-top: 6rem;
+            border-top: 4px solid var(--accent-color);
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .about-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .page-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .profile-sidebar {
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 2rem;
+                margin-bottom: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="/" class="logo">
-                <i class="fas fa-plane"></i>
-                <span>Mohammed Bello Sani</span>
+                <i class="fas fa-fighter-jet"></i>
+                <span>M.B. Sani</span>
             </a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about.html">About</a></li>
-                <li><a href="/projects.html">Projects</a></li>
-                <li><a href="/publications.html">Publications</a></li>
-                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/projects.html">Logbook</a></li>
+                <li><a href="/contact.html">Comms</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Page Hero -->
     <section class="page-hero">
-        <h1>About Me</h1>
-        <p>Dedicated aerospace engineer passionate about transforming aviation safety and maintenance through innovative digital technologies</p>
+        <h1>Profile & Objective</h1>
+        <p>Aerospace Engineering Undergraduate & Digital Twin Researcher</p>
     </section>
 
-    <!-- Main Content -->
     <div class="about-content">
         <div class="about-grid">
             <div class="profile-sidebar">
                 <div class="profile-image">
-                    <i class="fas fa-user-tie"></i>
+                    <img src="profile.jpg" alt="Mohammed Bello Sani" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <i class="fas fa-user-astronaut" style="display:none"></i>
                 </div>
                 <div class="profile-info">
                     <h2>Mohammed Bello Sani</h2>
-                    <p>Aerospace Engineer</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Kaduna, Nigeria</p>
-                    <p><i class="fas fa-graduation-cap"></i> AFIT Kaduna</p>
+                    <p>500L Aerospace Student</p>
+                    <p><i class="fas fa-map-marker-alt"></i> FCT Abuja, Nigeria</p>
+                    <p><i class="fas fa-university"></i> AFIT Kaduna</p>
                     <div class="profile-links">
-                        <a href="https://github.com/SMBello" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284" target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
@@ -397,167 +473,174 @@
             </div>
             
             <div class="bio-content">
-                <h3>Building the Future of Aviation Safety</h3>
+                <h3>The Intersection of Flight & Data</h3>
                 <p>
-                    I am an aerospace engineering graduate from the Air Force Institute of Technology (AFIT) Kaduna, dedicated to advancing aviation safety through the strategic application of emerging technologies in aircraft structures and airworthiness systems. My passion lies at the convergence of traditional aerospace engineering and digital innovation—where physics-based analysis meets data-driven intelligence.
+                    I am a final-year Aerospace Engineering student (500L) at the Air Force Institute of Technology (AFIT), Kaduna. Unlike the traditional path of pure mechanical analysis, my focus has shifted toward the digital frontier of aviation: <strong>Data-Driven Maintenance and Digital Twins.</strong>
                 </p>
                 
                 <p>
-                    My work focuses on developing intelligent systems for aircraft health monitoring and predictive maintenance. Through my research in Digital Twin technology, I explore how virtual representations of physical aircraft systems can revolutionize maintenance strategies, reduce operational costs, and enhance safety margins in aviation operations.
+                    While my academic foundation covers aerodynamics, flight mechanics, and aircraft structures, my true expertise is being built in the "lab" and the hangar. I am actively developing systems that connect physical aircraft strut health to real-time dashboards (InfluxDB/Grafana), aiming to solve the industry's need for predictive rather than reactive maintenance.
                 </p>
                 
                 <div class="highlight-box">
-                    <h4><i class="fas fa-lightbulb"></i> Research Philosophy</h4>
+                    <h4><i class="fas fa-terminal"></i> Current Mission</h4>
                     <p>
-                        I believe the future of aviation safety lies in proactive, data-driven maintenance strategies. By integrating Digital Twin technology, machine learning algorithms, and structural health monitoring systems, we can transform reactive maintenance cultures into predictive, intelligent operations that prevent failures before they occur.
+                        I am currently working on integrating sensor telemetry with high-fidelity simulations. My goal is to graduate in 2026 not just with a degree, but with a portfolio of deployed, working systems that demonstrate how IoT can modernize Nigerian aviation safety.
                     </p>
                 </div>
                 
-                <h3>Professional Journey</h3>
+                <h3>Professional Evolution</h3>
                 <p>
-                    My academic journey at AFIT Kaduna provided me with a comprehensive foundation in aerospace principles, from aerodynamics and flight mechanics to aircraft structures and propulsion systems. However, it was during my advanced studies in aircraft maintenance engineering that I discovered my true calling: the intersection of MRO (Maintenance, Repair, and Overhaul) optimization and digital technologies.
+                   My journey hasn't been limited to the classroom. I have actively sought out the grit and oil of real-world aviation. From the documentation rigors of the NCAA to the hangar floors of Executive Airlift, I have seen the gap between theory and practice.
                 </p>
                 
                 <p>
-                    My contribution to the ICAS 2024 Conference paper on Landing Gear Digital Twin Architecture represents a significant milestone in my research journey. This work demonstrates how physics-based modeling combined with sensor data analytics can create comprehensive health monitoring systems for critical aircraft components, enabling predictive maintenance strategies that enhance both safety and operational efficiency.
+                    I realized that while mechanical repair keeps planes flying today, <strong>data</strong> will keep them flying safer tomorrow. This realization drives my current self-study in Python, Database Management, and Finite Element Analysis.
                 </p>
                 
                 <h3>Vision & Goals</h3>
                 <p>
-                    I aspire to pursue postgraduate studies in Aviation Management and Safety Systems, with the ultimate goal of contributing to safer, more efficient, and technology-driven air transport operations. I am particularly motivated to explore how emerging technologies—including AI, IoT, and advanced analytics—can improve aircraft maintenance practices, enhance operational reliability, and ensure regulatory compliance in an increasingly complex aviation environment.
-                </p>
-                
-                <div class="highlight-box">
-                    <h4><i class="fas fa-target"></i> Career Objectives</h4>
-                    <p>
-                        To become a leading expert in aviation maintenance systems and digital transformation, bridging the gap between aerospace engineering and data science to create next-generation solutions for aircraft health monitoring, predictive maintenance, and MRO optimization across the global aviation industry.
-                    </p>
-                </div>
-                
-                <p>
-                    I am actively seeking collaboration opportunities, research partnerships, and professional connections within the aviation and aerospace community. Whether you're working on innovative maintenance solutions, safety technologies, or digital transformation initiatives in aviation, I'd love to connect and explore potential synergies.
+                    Post-graduation, I intend to bridge the gap between MRO operations and Digital Transformation. I am aiming for roles that allow me to apply computational intelligence to airworthiness challenges—specifically in reducing AOG (Aircraft on Ground) time through better health monitoring.
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- Skills Section -->
     <section class="skills-section">
-        <h2 class="section-title">Technical Expertise</h2>
+        <h2 class="section-title">Technical Loadout</h2>
         <div class="skills-grid">
             <div class="skill-category">
-                <h4><i class="fas fa-cube"></i> Digital Technologies</h4>
+                <h4><i class="fas fa-network-wired"></i> Telemetry Stack</h4>
                 <ul class="skill-list">
                     <li class="skill-item">
-                        <span class="skill-name">Digital Twin Development</span>
+                        <span class="skill-name">InfluxDB 3 Core</span>
+                        <span class="skill-level">Deployed</span>
+                    </li>
+                    <li class="skill-item">
+                        <span class="skill-name">Telegraf (Data Collection)</span>
+                        <span class="skill-level">Competent</span>
+                    </li>
+                    <li class="skill-item">
+                        <span class="skill-name">Grafana Visualization</span>
                         <span class="skill-level">Advanced</span>
                     </li>
                     <li class="skill-item">
-                        <span class="skill-name">Predictive Maintenance</span>
-                        <span class="skill-level">Advanced</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Machine Learning</span>
-                        <span class="skill-level">Intermediate</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Data Analytics</span>
-                        <span class="skill-level">Advanced</span>
+                        <span class="skill-name">PostgreSQL</span>
+                        <span class="skill-level">Integration</span>
                     </li>
                 </ul>
             </div>
             
             <div class="skill-category">
-                <h4><i class="fas fa-plane"></i> Aerospace Engineering</h4>
+                <h4><i class="fas fa-code"></i> Simulation & Code</h4>
+                <ul class="skill-list">
+                    <li class="skill-item">
+                        <span class="skill-name">Python (Data/Scripting)</span>
+                        <span class="skill-level">Core Tool</span>
+                    </li>
+                    <li class="skill-item">
+                        <span class="skill-name">MATLAB/Simulink</span>
+                        <span class="skill-level">Academic</span>
+                    </li>
+                    <li class="skill-item">
+                        <span class="skill-name">FlightGear (Sim Interface)</span>
+                        <span class="skill-level">Advanced</span>
+                    </li>
+                    <li class="skill-item">
+                        <span class="skill-name">Ansys Workbench</span>
+                        <span class="skill-level">FEA Analysis</span>
+                    </li>
+                    <li class="skill-item">
+                        <span class="skill-name">Abaqus</span>
+                        <span class="skill-level">Structural</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h4><i class="fas fa-plane"></i> Aerospace Core</h4>
                 <ul class="skill-list">
                     <li class="skill-item">
                         <span class="skill-name">Aircraft Structures</span>
-                        <span class="skill-level">Advanced</span>
+                        <span class="skill-level">Academic</span>
                     </li>
                     <li class="skill-item">
-                        <span class="skill-name">Structural Analysis</span>
-                        <span class="skill-level">Advanced</span>
+                        <span class="skill-name">Airworthiness Standards</span>
+                        <span class="skill-level">NCAA Trained</span>
                     </li>
                     <li class="skill-item">
-                        <span class="skill-name">Airworthiness Systems</span>
-                        <span class="skill-level">Advanced</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Flight Operations</span>
-                        <span class="skill-level">Intermediate</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h4><i class="fas fa-tools"></i> Technical Tools</h4>
-                <ul class="skill-list">
-                    <li class="skill-item">
-                        <span class="skill-name">MATLAB/Simulink</span>
-                        <span class="skill-level">Advanced</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Python</span>
-                        <span class="skill-level">Intermediate</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">CATIA</span>
-                        <span class="skill-level">Intermediate</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Database Systems</span>
-                        <span class="skill-level">Intermediate</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h4><i class="fas fa-shield-alt"></i> Aviation Safety</h4>
-                <ul class="skill-list">
-                    <li class="skill-item">
-                        <span class="skill-name">MRO Optimization</span>
-                        <span class="skill-level">Advanced</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Safety Management Systems</span>
-                        <span class="skill-level">Intermediate</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Reliability Engineering</span>
-                        <span class="skill-level">Advanced</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Health Monitoring</span>
-                        <span class="skill-level">Advanced</span>
+                        <span class="skill-name">MRO Operations</span>
+                        <span class="skill-level">Field Experience</span>
                     </li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Education Timeline -->
     <section class="timeline-section">
-        <h2 class="section-title">Education & Training</h2>
+        <h2 class="section-title">Field Experience & Education</h2>
         <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-file-signature"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4>SIWES II Intern - Airworthiness & MRO</h4>
+                    <p class="institution">NCAA Headquarters & AeroTak Limited (Abuja)</p>
+                    <p class="date">400 Level (6 Months)</p>
+                    <p>
+                        A dual-exposure internship. At the <strong>NCAA (Dept. of Airworthiness Standards)</strong>, I assisted in the rigorous audit of technical logs, certification filing, and understanding the regulatory backbone of Nigerian aviation. At <strong>AeroTak</strong>, I moved to the hangar floor, assisting engineers in routine checks and bridging the gap between the paperwork I saw at NCAA and the physical reality of the aircraft.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-plane-departure"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4>SIWES I Intern - Hangar Operations</h4>
+                    <p class="institution">Executive Airlift Group, Nnamdi Azikiwe Int'l Airport</p>
+                    <p class="date">300 Level (3 Months)</p>
+                    <p>
+                        Direct immersion in VIP aircraft maintenance. I shadowed licensed engineers during Line Maintenance operations, assisted in wheel assembly overhauls, and learned the critical discipline required on a live flight line. This was my first "hands-dirty" experience with pressurized hydraulic systems and avionics bays.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4>Student Workshop Experience Program (SWEP)</h4>
+                    <p class="institution">AFIT Kaduna</p>
+                    <p class="date">200 Level (3 Months)</p>
+                    <p>
+                        Foundational mechanical training. Focused on machining, welding, and material fabrication techniques within the university workshops. Gained appreciation for the manufacturing tolerances required in aerospace components.
+                    </p>
+                </div>
+            </div>
+
             <div class="timeline-item">
                 <div class="timeline-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
                 <div class="timeline-content">
-                    <h4>Bachelor of Engineering in Aerospace Engineering</h4>
+                    <h4>B.Eng Aerospace Engineering</h4>
                     <p class="institution">Air Force Institute of Technology (AFIT), Kaduna</p>
-                    <p class="date">2019 - 2024 (Expected)</p>
-                    <p>Comprehensive aerospace engineering program covering aerodynamics, aircraft structures, propulsion systems, flight mechanics, and advanced maintenance engineering. Specialized in Digital Twin technology and predictive maintenance systems for aircraft applications.</p>
+                    <p class="date">2021 - 2026 (Expected)</p>
+                    <p>
+                        Currently in 500 Level (Final Year). Coursework covers Advanced Aerodynamics, Flight Dynamics, and Control Systems. My final year project focuses on Digital Twin applications for Landing Gear Systems.
+                    </p>
                 </div>
             </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <div class="timeline-content">
-                    <h4>Research Contribution - ICAS 2024</h4>
-                    <p class="institution">International Council of the Aeronautical Sciences</p>
-                    <p class="date">2024</p>
-                    <p>Contributed to conference paper on "Landing Gear Digital Twin Architecture" focusing on physics-based modeling for predictive maintenance and structural health monitoring applications.</p>
-                </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Mohammed Bello Sani. Cleared for Takeoff.</p>
+    </footer>
+
+</body>
+</html>
