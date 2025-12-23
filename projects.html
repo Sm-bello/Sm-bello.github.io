@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Mission Log | Mohammed Bello Sani</title>
-    <meta name="description" content="Technical project logbook of Mohammed Bello Sani. Featuring Digital Twin architectures, Telemetry Pipelines, and Structural Analysis.">
+    <meta name="description" content="Technical project logbook of Mohammed Bello Sani. Featuring Digital Twin architectures, Interactive Demos, and Future Research.">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,23 +18,26 @@
         }
         
         :root {
-            /* LAB + NEON PALETTE */
-            --bg-milky: #f8fafc;
-            --text-dark: #0f172a;
-            --text-light: #64748b;
-            --card-bg: #1e293b;       /* Dark Navy */
+            /* PALETTE: Creamy White + Tactical Neon */
+            --bg-creamy: #f8fafc;
+            --card-white: #ffffff;
+            
+            --text-dark: #0f172a;     /* Navy Black */
+            --text-light: #64748b;    /* Slate Grey */
             --footer-bg: #0b1120;
             
+            /* NEON ACCENTS */
             --neon-orange: #f97316;
             --neon-blue: #0ea5e9;
-            --neon-green: #22c55e;
+            --neon-purple: #8b5cf6;
+            --navy-stroke: #1e293b;
             
             --font-mono: 'JetBrains Mono', monospace;
         }
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-milky);
+            background-color: var(--bg-creamy);
             color: var(--text-dark);
             line-height: 1.6;
         }
@@ -87,7 +90,6 @@
             color: var(--neon-blue);
         }
 
-        /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -101,7 +103,7 @@
             background: var(--text-dark);
         }
 
-        /* Page Header */
+        /* Headers */
         .page-header {
             padding: 8rem 2rem 3rem;
             text-align: center;
@@ -121,29 +123,48 @@
             font-size: 1.1rem;
         }
 
+        .section-header {
+            max-width: 1200px;
+            margin: 4rem auto 2rem;
+            padding: 0 2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--navy-stroke);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header i {
+            color: var(--neon-orange);
+            font-size: 1.5rem;
+        }
+
         /* Main Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 2rem 4rem;
         }
 
-        /* FLAGSHIP PROJECT CARD (The Big One) */
+        /* 1. FLAGSHIP CARD (White with Navy/Orange Accent) 
+        */
         .flagship-card {
-            background: var(--card-bg);
+            background: var(--card-white);
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 4rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border: 1px solid var(--text-dark);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* Soft shadow */
+            border: 1px solid #e2e8f0;
+            /* Top border accent */
+            border-top: 4px solid var(--neon-orange);
             position: relative;
-        }
-
-        .flagship-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-orange));
         }
 
         .flagship-grid {
@@ -154,7 +175,7 @@
 
         .flagship-content {
             padding: 3rem;
-            color: white;
+            color: var(--text-dark);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -163,6 +184,7 @@
         .project-tag {
             font-family: var(--font-mono);
             color: var(--neon-orange);
+            font-weight: 700;
             font-size: 0.9rem;
             margin-bottom: 1rem;
             display: flex;
@@ -179,50 +201,49 @@
         }
 
         .flagship-content h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 1.5rem;
             line-height: 1.1;
+            color: var(--text-dark);
         }
 
         .tech-stack {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             margin: 1.5rem 0;
             flex-wrap: wrap;
         }
 
         .tech-pill {
-            background: rgba(255,255,255,0.1);
+            background: #f1f5f9;
+            color: var(--text-dark);
             padding: 5px 12px;
             border-radius: 4px;
             font-size: 0.85rem;
             font-family: var(--font-mono);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid #cbd5e1;
         }
 
-        /* Simulation Visual Placeholder */
+        /* Visual Area - Dark to contrast the white card */
         .flagship-visual {
-            background: #111;
+            background: var(--navy-stroke);
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-left: 1px solid rgba(255,255,255,0.1);
             overflow: hidden;
         }
         
-        /* Grid animation for visual */
         .grid-bg {
             position: absolute;
             width: 200%; height: 200%;
             background-image: 
-                linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
             transform: perspective(500px) rotateX(60deg);
             animation: gridMove 20s linear infinite;
         }
-
         @keyframes gridMove {
             0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
             100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
@@ -230,82 +251,146 @@
 
         .visual-icon {
             font-size: 5rem;
-            color: var(--neon-blue);
+            color: white;
             z-index: 2;
-            text-shadow: 0 0 30px rgba(14, 165, 233, 0.5);
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
         }
 
-        /* SECONDARY PROJECTS GRID */
-        .projects-grid {
+        /* 2. INTERACTIVE DEMOS (Creamy White with Neon Borders) 
+        */
+        .demos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-bottom: 4rem;
         }
 
-        .project-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
+        .demo-card {
+            background: var(--card-white);
             padding: 2rem;
-            transition: transform 0.3s ease;
+            border-radius: 12px;
+            /* The Neon Border Effect */
+            border: 2px solid transparent;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Distinct Color Borders for Demos */
+        .demo-card.blue { border-color: var(--neon-blue); box-shadow: 0 0 15px rgba(14, 165, 233, 0.15); }
+        .demo-card.orange { border-color: var(--neon-orange); box-shadow: 0 0 15px rgba(249, 115, 22, 0.15); }
+        .demo-card.purple { border-color: var(--neon-purple); box-shadow: 0 0 15px rgba(139, 92, 246, 0.15); }
+
+        .demo-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .demo-card.blue .demo-icon { color: var(--neon-blue); }
+        .demo-card.orange .demo-icon { color: var(--neon-orange); }
+        .demo-card.purple .demo-icon { color: var(--neon-purple); }
+
+        .demo-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--text-dark); }
+        .demo-card p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; }
+
+        .demo-btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .demo-card.blue .demo-btn { background: rgba(14, 165, 233, 0.1); color: var(--neon-blue); }
+        .demo-card.orange .demo-btn { background: rgba(249, 115, 22, 0.1); color: var(--neon-orange); }
+        .demo-card.purple .demo-btn { background: rgba(139, 92, 246, 0.1); color: var(--neon-purple); }
+        
+        .demo-btn:hover { background: #333; color: white; }
+
+
+        /* 3. LOGBOOK GRID (Secondary Projects) 
+        */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-white);
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--navy-stroke); /* Navy identifier */
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
         .project-card:hover {
             transform: translateY(-5px);
-            border-color: var(--neon-blue);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: var(--neon-blue); /* Highlights to blue on hover */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
         .card-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            color: var(--text-dark);
-        }
-
-        .folder-icon {
-            color: var(--text-light);
-            font-size: 1.2rem;
-        }
-
-        .project-card h3 {
-            font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--text-dark);
         }
 
-        .project-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-        }
+        .card-icon { font-size: 1.8rem; color: var(--navy-stroke); }
+        .project-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--text-dark); }
+        .project-card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.2rem; }
 
         .repo-link {
-            color: var(--text-dark);
+            color: var(--navy-stroke);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 5px;
         }
+        .repo-link:hover { color: var(--neon-blue); }
 
-        .repo-link:hover {
-            color: var(--neon-blue);
+
+        /* 4. FUTURE RESEARCH (Small Grid)
+        */
+        .future-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .future-card {
+            background: #fff;
+            border: 1px dashed #cbd5e1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .future-card i {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .future-card h4 {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .future-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
         }
 
         /* Footer */
@@ -316,31 +401,26 @@
             text-align: center;
             margin-top: 5rem;
         }
-
         .footer-links a {
-            color: var(--text-light);
+            color: #94a3b8;
             margin: 0 10px;
             text-decoration: none;
         }
+        .footer-links a:hover { color: var(--neon-orange); }
 
         @media (max-width: 900px) {
             .flagship-grid { grid-template-columns: 1fr; }
-            .flagship-visual { height: 200px; border-left: none; border-top: 1px solid rgba(255,255,255,0.1); }
+            .flagship-visual { height: 200px; }
             .nav-links { display: none; }
             .menu-toggle { display: flex; }
             
-             /* Mobile Nav Logic */
             .nav-links.active {
                 display: flex;
                 flex-direction: column;
                 position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: 2rem;
+                top: 100%; left: 0; width: 100%;
+                background: white; padding: 2rem;
                 border-bottom: 1px solid #e2e8f0;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
         }
     </style>
@@ -367,7 +447,7 @@
 
     <div class="page-header">
         <h1>Engineering Logbook</h1>
-        <p>A repository of my research in Digital Twins, Telemetry Systems, and Aviation Safety.</p>
+        <p>A repository of research, active demonstrations, and technical documentation.</p>
     </div>
 
     <div class="container">
@@ -378,19 +458,18 @@
                     <div class="project-tag active">
                         STATUS: ACTIVE RESEARCH (PHASE 1)
                     </div>
-                    <h2>Landing Gear Digital Twin Architecture</h2>
+                    <h2>Landing Gear Digital Twin</h2>
                     <p>
-                        A physics-based simulation aimed at predicting oleo-pneumatic strut failure. By modeling the internal gas and hydraulic dynamics in Simulink, this project seeks to create a "Virtual Twin" that compares real-time sensor data against ideal performance curves to detect seal degradation before leaks occur.
+                        A physics-based simulation predicting oleo-pneumatic strut failure. Modeling internal gas and hydraulic dynamics in Simulink to create a "Virtual Twin" that compares real-time sensor data against ideal performance curves.
                     </p>
                     <div class="tech-stack">
                         <span class="tech-pill">MATLAB</span>
                         <span class="tech-pill">Simulink</span>
-                        <span class="tech-pill">Mathematical Modeling</span>
                         <span class="tech-pill">Predictive Maintenance</span>
                     </div>
                     <div style="margin-top: 1rem;">
                         <a href="#" class="repo-link" style="color: var(--neon-orange);">
-                            <i class="fas fa-spinner fa-spin"></i> View Development Status
+                            <i class="fas fa-spinner fa-spin"></i> View Status
                         </a>
                     </div>
                 </div>
@@ -401,70 +480,94 @@
             </div>
         </div>
 
+        <div class="section-header">
+            <i class="fas fa-rocket"></i>
+            <h2>Interactive Tools & Concepts</h2>
+        </div>
+        
+        <div class="demos-grid">
+            <div class="demo-card blue">
+                <div class="demo-icon"><i class="fas fa-desktop"></i></div>
+                <h3>Aircraft Digital Twin Monitor</h3>
+                <p>Real-time structural health monitoring dashboard concept with interactive data visualizations.</p>
+                <a href="#" class="demo-btn">View Concept</a>
+            </div>
+
+            <div class="demo-card orange">
+                <div class="demo-icon"><i class="fas fa-calculator"></i></div>
+                <h3>MRO Interval Calculator</h3>
+                <p>Predictive maintenance planning tool logic for calculating optimized aircraft inspection intervals.</p>
+                <a href="#" class="demo-btn">Launch Tool</a>
+            </div>
+
+            <div class="demo-card purple">
+                <div class="demo-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Safety Analytics</h3>
+                <p>Aviation safety monitoring interface for tracking incident trends and airworthiness data.</p>
+                <a href="#" class="demo-btn">View Dashboard</a>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <i class="fas fa-folder-open"></i>
+            <h2>Technical Archives</h2>
+        </div>
+
         <div class="projects-grid">
-            
             <div class="project-card">
                 <div class="card-top">
                     <div class="card-icon"><i class="fas fa-satellite-dish"></i></div>
-                    <div class="folder-icon"><i class="far fa-folder"></i></div>
                 </div>
                 <h3>Flight Telemetry Stack</h3>
-                <p>
-                    A full data pipeline connecting <strong>FlightGear</strong> (Simulation) to a <strong>Grafana</strong> dashboard. Uses Python to parse UDP packets and <strong>InfluxDB</strong> to store high-frequency time-series data (pitch, roll, altitude) for post-flight analysis.
-                </p>
-                <div class="tech-stack" style="margin: 0 0 1.5rem 0;">
-                    <span class="tech-pill" style="color: #333; border-color: #ddd;">InfluxDB 3</span>
-                    <span class="tech-pill" style="color: #333; border-color: #ddd;">Telegraf</span>
-                    <span class="tech-pill" style="color: #333; border-color: #ddd;">Python</span>
-                </div>
-                <div class="card-footer">
-                    <a href="https://github.com/Sm-bello" target="_blank" class="repo-link">
-                        View Repository <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+                <p>Data pipeline connecting <strong>FlightGear</strong> to <strong>Grafana</strong>. Uses Python/UDP to parse packets and <strong>InfluxDB</strong> for time-series storage.</p>
+                <a href="https://github.com/Sm-bello" target="_blank" class="repo-link">View Repo <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="project-card">
                 <div class="card-top">
                     <div class="card-icon"><i class="fas fa-bezier-curve"></i></div>
-                    <div class="folder-icon"><i class="far fa-folder"></i></div>
                 </div>
                 <h3>Structural Beam Analysis</h3>
-                <p>
-                    Finite Element Analysis (FEA) of aircraft wing spars under critical aerodynamic loading. Utilized <strong>Ansys Workbench</strong> to determine stress concentration points and optimize material thickness for weight reduction without compromising safety factors.
-                </p>
-                <div class="tech-stack" style="margin: 0 0 1.5rem 0;">
-                    <span class="tech-pill" style="color: #333; border-color: #ddd;">Ansys</span>
-                    <span class="tech-pill" style="color: #333; border-color: #ddd;">Abaqus</span>
-                    <span class="tech-pill" style="color: #333; border-color: #ddd;">Structural Mechanics</span>
-                </div>
-                <div class="card-footer">
-                    <span class="repo-link" style="color: var(--text-light); cursor: default;">
-                        <i class="fas fa-check-circle"></i> Completed
-                    </span>
-                </div>
+                <p>FEA of aircraft wing spars using <strong>Ansys Workbench</strong>. Optimized material thickness for weight reduction vs safety factors.</p>
+                <span class="repo-link" style="color: #64748b; cursor: default;"><i class="fas fa-check-circle"></i> Completed</span>
             </div>
 
             <div class="project-card">
                 <div class="card-top">
                     <div class="card-icon"><i class="fas fa-file-contract"></i></div>
-                    <div class="folder-icon"><i class="far fa-folder"></i></div>
                 </div>
                 <h3>Airworthiness Documentation</h3>
-                <p>
-                    A digital compilation of regulatory compliance procedures learned during my time at the NCAA. Focuses on the "Paper Trail" of aviation safety—Technical Logs, Certificate of Airworthiness (C of A) renewals, and MEL (Minimum Equipment List) usage.
-                </p>
-                <div class="tech-stack" style="margin: 0 0 1.5rem 0;">
-                    <span class="tech-pill" style="color: #333; border-color: #ddd;">NCAA Regs</span>
-                    <span class="tech-pill" style="color: #333; border-color: #ddd;">Safety Management</span>
-                </div>
-                <div class="card-footer">
-                    <a href="/about.html" class="repo-link">
-                        Read Experience <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+                <p>Digital compilation of NCAA regulatory procedures. Focuses on Technical Logs, C of A renewals, and MEL usage.</p>
+                <a href="/about.html" class="repo-link">Read Experience <i class="fas fa-arrow-right"></i></a>
             </div>
+        </div>
 
+        <div class="section-header">
+            <i class="fas fa-lightbulb"></i>
+            <h2>Future Research Directions</h2>
+        </div>
+
+        <div class="future-grid">
+            <div class="future-card">
+                <i class="fas fa-brain"></i>
+                <h4>AI Maintenance Scheduling</h4>
+                <p>Optimizing resource allocation.</p>
+            </div>
+            <div class="future-card">
+                <i class="fas fa-network-wired"></i>
+                <h4>IoT Sensor Networks</h4>
+                <p>Wireless SHM deployment.</p>
+            </div>
+            <div class="future-card">
+                <i class="fas fa-atom"></i>
+                <h4>Advanced Composites</h4>
+                <p>Next-gen material analysis.</p>
+            </div>
+            <div class="future-card">
+                <i class="fas fa-project-diagram"></i>
+                <h4>Blockchain Records</h4>
+                <p>Immutable maintenance history.</p>
+            </div>
         </div>
 
     </div>
