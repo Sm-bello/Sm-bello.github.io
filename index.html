@@ -61,7 +61,7 @@
             gap: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            white-space: nowrap; /* Prevents name from breaking awkwardly */
+            white-space: nowrap; 
         }
 
         .logo i { color: var(--neon-blue); }
@@ -103,7 +103,7 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh; /* Changed to min-height so content doesn't overflow on short screens */
+            min-height: 100vh; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -141,7 +141,7 @@
             font-weight: 700;
             margin-bottom: 1.5rem;
             letter-spacing: 1px;
-            max-width: 100%; /* Prevents overflow */
+            max-width: 100%; 
         }
 
         .status-badge i { margin-right: 8px; animation: pulse 2s infinite; }
@@ -167,7 +167,7 @@
             display: flex;
             gap: 1.5rem;
             justify-content: center;
-            flex-wrap: wrap; /* Allows wrapping on small screens */
+            flex-wrap: wrap; 
         }
 
         .btn {
@@ -260,7 +260,7 @@
 
         .focus-grid {
             display: grid;
-            /* FIX: Reduced min-width to 280px to fit standard phones */
+            /* Responsive Grid: Cards will naturally wrap */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
@@ -374,18 +374,23 @@
             100% { opacity: 1; }
         }
 
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE DESIGN ADJUSTMENTS */
         @media (max-width: 768px) {
             nav {
                 padding: 1rem;
             }
 
+            .logo {
+                /* Slightly smaller font on mobile to fit full name + menu icon */
+                font-size: 0.9rem; 
+            }
+
             .hero {
-                padding: 6rem 1rem 4rem; /* Reduce padding significantly */
+                padding: 6rem 1rem 4rem;
             }
 
             .hero h1 { 
-                font-size: 2.2rem; /* Smaller font for mobile */
+                font-size: 2.2rem;
             }
             
             .hero p {
@@ -401,17 +406,16 @@
             }
             
             .cta-buttons {
-                flex-direction: column; /* Stack buttons vertically */
+                flex-direction: column;
                 width: 100%;
             }
 
             .btn {
-                width: 100%; /* Full width buttons */
+                width: 100%;
                 justify-content: center;
                 display: flex;
             }
             
-            /* Remove the overlap on mobile so it stacks naturally */
             .stats-section {
                 margin-top: 2rem;
                 padding: 2rem 1.5rem;
@@ -419,12 +423,12 @@
             }
 
             .stats-grid {
-                grid-template-columns: 1fr; /* Single column stats */
+                grid-template-columns: 1fr;
                 gap: 2.5rem;
             }
 
             .focus-grid {
-                grid-template-columns: 1fr; /* Force single column for cards */
+                grid-template-columns: 1fr;
             }
 
             .section-title {
@@ -432,7 +436,6 @@
                 margin-bottom: 2.5rem;
             }
 
-            /* Mobile Nav Logic */
             .nav-links.active {
                 display: flex;
                 flex-direction: column;
@@ -449,7 +452,7 @@
             
             footer {
                 padding: 3rem 1rem 2rem;
-                clip-path: none; /* Remove diagonal cut on mobile to save space */
+                clip-path: none;
             }
         }
     </style>
@@ -459,7 +462,8 @@
     <nav>
         <a href="/" class="logo">
             <i class="fas fa-plane-departure"></i>
-            <span>M.B. Sani</span> </a>
+            <span>Mohammed Bello Sani</span> 
+        </a>
         
         <div class="menu-toggle" onclick="toggleMenu()">
             <span></span>
@@ -478,7 +482,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="status-badge">
-                <i class="fas fa-circle"></i> SYSTEM STATUS: FINAL YEAR (500L)
+                <i class="fas fa-circle"></i> SYSTEM STATUS: FINAL YEAR (500L) @ AFIT
             </div>
             <h1>
                 Aerospace Systems &<br>
