@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Tags -->
-    <title>Contact Mohammed Bello Sani | Aerospace Engineer | Digital Twin Expert | Research Collaboration</title>
-    <meta name="description" content="Get in touch with Mohammed Bello Sani for research collaboration, aviation consultancy, digital twin projects, predictive maintenance solutions, or career opportunities in aerospace engineering and aviation safety.">
-    <meta name="keywords" content="contact aerospace engineer, aviation consultant, digital twin collaboration, research partnership aerospace, MRO consultant, predictive maintenance expert contact, aviation safety collaboration">
+    <title>Comms Link | Mohammed Bello Sani</title>
+    <meta name="description" content="Contact Mohammed Bello Sani for collaboration on Digital Twins, Aerospace Telemetry, and MRO Systems.">
     
-    <link rel="canonical" href="https://sm-bello.github.io/contact.html">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -21,596 +18,530 @@
         }
         
         :root {
-            --primary-color: #0066cc;
-            --secondary-color: #004999;
-            --accent-color: #00a8ff;
-            --text-dark: #1a1a1a;
-            --text-light: #666666;
-            --bg-light: #f8f9fa;
-            --bg-white: #ffffff;
-            --border-color: #e0e0e0;
-            --success-color: #28a745;
+            /* PALETTE: Creamy White + Tactical Neon */
+            --bg-milky: #f8fafc;
+            --card-white: #ffffff;
+            
+            --text-dark: #0f172a;     /* Navy Black */
+            --text-light: #64748b;    /* Slate Grey */
+            --footer-bg: #0b1120;
+            
+            /* NEON ACCENTS */
+            --neon-orange: #f97316;
+            --neon-blue: #0ea5e9;
+            --navy-stroke: #1e293b;
+            
+            --font-mono: 'JetBrains Mono', monospace;
         }
         
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            background-color: var(--bg-milky);
             color: var(--text-dark);
-            background: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        
+
         /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 1000;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
         }
-        
+
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-dark);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-transform: uppercase;
+            white-space: nowrap;
         }
-        
+
+        .logo i { color: var(--neon-blue); }
+
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
         }
-        
+
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s ease;
         }
-        
+
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--neon-blue);
         }
-        
-        /* Page Hero */
-        .page-hero {
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .page-header {
+            padding: 9rem 2rem 4rem;
             text-align: center;
+            background: var(--bg-milky);
+            position: relative;
         }
-        
-        .page-hero h1 {
-            font-size: 3rem;
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 1rem;
+            color: var(--text-dark);
+            letter-spacing: -1px;
         }
-        
-        .page-hero p {
+
+        .page-header p {
             font-size: 1.2rem;
-            opacity: 0.95;
-            max-width: 700px;
+            color: var(--text-light);
+            max-width: 600px;
             margin: 0 auto;
         }
-        
-        /* Contact Container */
+
+        /* Contact Grid */
         .contact-container {
             max-width: 1200px;
-            margin: 3rem auto 4rem;
+            margin: 0 auto 6rem;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
         }
-        
-        /* Contact Info Section */
+
+        /* Info Card */
         .contact-info {
-            background: white;
+            background: var(--card-white);
             padding: 3rem;
             border-radius: 12px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            height: fit-content;
         }
-        
+
         .contact-info h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-        
-        .contact-info p {
-            color: var(--text-light);
+            font-size: 1.8rem;
             margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-        
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .contact-method {
-            display: flex;
-            align-items: start;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background: var(--bg-light);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-method:hover {
-            background: #e8f4ff;
-            transform: translateX(5px);
-        }
-        
-        .method-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
+            color: var(--text-dark);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
+            gap: 10px;
         }
-        
-        .method-content h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            color: var(--text-dark);
+
+        .contact-info h2::before {
+            content: '';
+            width: 6px; height: 30px;
+            background: var(--neon-orange);
+            display: block;
         }
-        
-        .method-content a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .method-content a:hover {
-            text-decoration: underline;
-        }
-        
-        .social-links-section {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--border-color);
-        }
-        
-        .social-links-section h3 {
-            margin-bottom: 1rem;
-        }
-        
-        .social-icons {
+
+        .info-item {
+            margin-bottom: 2rem;
             display: flex;
+            align-items: flex-start;
             gap: 1rem;
         }
-        
-        .social-icon {
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            margin-top: 5px;
+        }
+
+        .info-content h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+            letter-spacing: 1px;
+        }
+
+        .info-content p, .info-content a {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-content a:hover {
+            color: var(--neon-blue);
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .social-btn {
             width: 50px;
             height: 50px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
-        
-        .social-icon:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
+
+        .social-btn:hover {
+            background: var(--text-dark);
+            color: white;
+            transform: translateY(-3px);
         }
-        
-        /* Contact Form */
-        .contact-form-section {
-            background: white;
+
+        /* Form Section */
+        .contact-form-wrapper {
+            background: var(--card-white);
             padding: 3rem;
             border-radius: 12px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            border-top: 4px solid var(--neon-blue);
         }
-        
-        .contact-form-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+
+        .form-header { margin-bottom: 2rem; }
+        .form-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .form-header p { color: var(--text-light); }
+
+        .form-group { margin-bottom: 1.5rem; }
         
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
             font-weight: 600;
+            margin-bottom: 0.5rem;
             color: var(--text-dark);
         }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+
+        .form-control {
             width: 100%;
-            padding: 0.8rem 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background: #f8fafc;
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
+
+        .form-control:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-color: var(--neon-blue);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
         }
-        
-        .form-group textarea {
-            min-height: 150px;
+
+        textarea.form-control {
             resize: vertical;
+            min-height: 150px;
         }
-        
+
         .submit-btn {
-            width: 100%;
-            padding: 1rem 2rem;
-            background: var(--primary-color);
+            background: var(--text-dark);
             color: white;
+            padding: 1rem 2rem;
             border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
             transition: all 0.3s ease;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 10px;
         }
-        
+
         .submit-btn:hover {
-            background: var(--secondary-color);
+            background: var(--neon-blue);
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 102, 204, 0.3);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
         }
-        
-        .form-note {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            border-radius: 4px;
-            color: #856404;
-            font-size: 0.9rem;
-        }
-        
-        /* Collaboration Areas */
-        .collaboration-section {
+
+        /* Collaboration Section */
+        .collab-section {
+            padding: 4rem 2rem;
             max-width: 1200px;
-            margin: 3rem auto 4rem;
-            padding: 0 2rem;
+            margin: 0 auto;
         }
-        
-        .collaboration-section h2 {
-            font-size: 2rem;
+
+        .section-title {
             text-align: center;
+            font-size: 2rem;
             margin-bottom: 3rem;
+            font-weight: 800;
+            color: var(--text-dark);
         }
-        
+
         .collab-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-        
+
         .collab-card {
             background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            text-align: center;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        
+
         .collab-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border-color: var(--neon-orange);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        
+
         .collab-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: var(--neon-blue);
+            margin-bottom: 1.5rem;
         }
-        
+
         .collab-card h3 {
+            font-size: 1.2rem;
             margin-bottom: 1rem;
             color: var(--text-dark);
         }
-        
+
         .collab-card p {
+            font-size: 0.95rem;
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.7;
         }
-        
+
         /* Footer */
         footer {
-            background: var(--text-dark);
+            background: var(--footer-bg);
+            padding: 3rem 2rem;
             color: white;
-            padding: 2rem;
             text-align: center;
-            margin-top: 4rem;
+            margin-top: 6rem;
         }
         
-        footer a {
-            color: var(--accent-color);
+        .footer-links a {
+            color: #94a3b8;
+            margin: 0 10px;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
-        
-        @media (max-width: 968px) {
+        .footer-links a:hover { color: var(--neon-orange); }
+
+        @media (max-width: 900px) {
             .contact-container {
                 grid-template-columns: 1fr;
             }
+            .page-hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .menu-toggle { display: flex; }
             
-            .page-hero h1 {
-                font-size: 2rem;
+            /* Mobile Nav Logic */
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; left: 0; width: 100%;
+                background: white; padding: 2rem;
+                border-bottom: 1px solid #e2e8f0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">
-                <i class="fas fa-plane"></i>
-                <span>Mohammed Bello Sani</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/projects.html">Projects</a></li>
-                <li><a href="/publications.html">Publications</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
+        <a href="/" class="logo">
+            <i class="fas fa-fighter-jet"></i>
+            <span>Mohammed Bello Sani</span>
+        </a>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/projects.html">Logbook</a></li>
+            <li><a href="/contact.html" style="color: var(--neon-blue);">Comms</a></li>
+        </ul>
     </nav>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <h1>Let's Connect</h1>
-        <p>Open to collaboration, research opportunities, and conversations about aviation technology and innovation</p>
-    </section>
+    <div class="page-header">
+        <h1>Comms Link Established</h1>
+        <p>Open channels for Research, Industry Collaboration, and Technical Exchange.</p>
+    </div>
 
-    <!-- Contact Container -->
     <div class="contact-container">
-        <!-- Contact Info -->
+        
         <div class="contact-info">
-            <h2>Get In Touch</h2>
-            <p>
-                I'm always interested in discussing research collaborations, innovative aviation projects, career opportunities, or simply connecting with fellow professionals in the aerospace and aviation industry.
-            </p>
+            <h2>Direct Lines</h2>
             
-            <div class="contact-methods">
-                <div class="contact-method">
-                    <div class="method-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="method-content">
-                        <h3>Email</h3>
-                        <a href="mailto:bellosani2drescue@gmail.com">bellosani2drescue@gmail.com</a>
-                        <p style="margin-top: 0.3rem; color: var(--text-light); font-size: 0.9rem;">Best for detailed inquiries</p>
-                    </div>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="method-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <div class="method-content">
-                        <h3>LinkedIn</h3>
-                        <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284" target="_blank">Connect on LinkedIn</a>
-                        <p style="margin-top: 0.3rem; color: var(--text-light); font-size: 0.9rem;">Professional networking</p>
-                    </div>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="method-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="method-content">
-                        <h3>GitHub</h3>
-                        <a href="https://github.com/SMBello" target="_blank">View My Code</a>
-                        <p style="margin-top: 0.3rem; color: var(--text-light); font-size: 0.9rem;">Technical projects & repositories</p>
-                    </div>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="method-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="method-content">
-                        <h3>Location</h3>
-                        <p style="margin: 0;">Kaduna, Nigeria</p>
-                        <p style="margin-top: 0.3rem; color: var(--text-light); font-size: 0.9rem;">Available for remote collaboration worldwide</p>
-                    </div>
+            <div class="info-item">
+                <i class="fas fa-envelope info-icon"></i>
+                <div class="info-content">
+                    <h4>Email Priority</h4>
+                    <a href="mailto:bellosani2drescue@gmail.com">bellosani2drescue@gmail.com</a>
                 </div>
             </div>
-            
-            <div class="social-links-section">
-                <h3>Connect on Social Media</h3>
-                <div class="social-icons">
-                    <a href="https://github.com/SMBello" target="_blank" class="social-icon" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284" target="_blank" class="social-icon" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="mailto:bellosani2drescue@gmail.com" class="social-icon" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt info-icon"></i>
+                <div class="info-content">
+                    <h4>Base of Operations</h4>
+                    <p>FCT Abuja, Nigeria</p>
                 </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-code-branch info-icon"></i>
+                <div class="info-content">
+                    <h4>Technical Repository</h4>
+                    <a href="https://github.com/Sm-bello/Landing-Gear-Digital-Twin" target="_blank">View Landing Gear Code <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
+                </div>
+            </div>
+
+            <div class="social-buttons">
+                <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Sm-bello" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
             </div>
         </div>
 
-        <!-- Contact Form -->
-        <div class="contact-form-section">
-            <h2>Send Me a Message</h2>
+        <div class="contact-form-wrapper">
+            <div class="form-header">
+                <h2>Send a Transmission</h2>
+                <p>Have a project idea or a technical query? Initialize contact below.</p>
+            </div>
+            
             <form id="contactForm" onsubmit="handleSubmit(event)">
                 <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                    <label>Identification (Name)</label>
+                    <input type="text" id="name" class="form-control" required placeholder="Dr. John Doe">
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Your Email *</label>
-                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    <label>Return Address (Email)</label>
+                    <input type="email" id="email" class="form-control" required placeholder="john@example.com">
                 </div>
                 
                 <div class="form-group">
-                    <label for="subject">Subject *</label>
-                    <select id="subject" name="subject" required>
-                        <option value="">Select a topic...</option>
-                        <option value="Research Collaboration">Research Collaboration</option>
-                        <option value="Project Inquiry">Project Inquiry</option>
-                        <option value="Career Opportunity">Career Opportunity</option>
-                        <option value="Consultancy">Consultancy Services</option>
-                        <option value="General Inquiry">General Inquiry</option>
-                        <option value="Other">Other</option>
+                    <label>Mission Directive (Subject)</label>
+                    <select id="subject" class="form-control">
+                        <option>Research Collaboration</option>
+                        <option>Technical Consultancy</option>
+                        <option>Project Inquiry</option>
+                        <option>Other</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Your Message *</label>
-                    <textarea id="message" name="message" required placeholder="Tell me about your inquiry..."></textarea>
+                    <label>Data Packet (Message)</label>
+                    <textarea id="message" class="form-control" required placeholder="Briefing details..."></textarea>
                 </div>
                 
                 <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i>
-                    Send Message
+                    Transmit Message <i class="fas fa-paper-plane"></i>
                 </button>
-                
-                <div class="form-note">
-                    <strong>Note:</strong> This form will open your default email client. Alternatively, you can email me directly at <strong>bellosani2drescue@gmail.com</strong>
-                </div>
             </form>
         </div>
+
     </div>
 
-    <!-- Collaboration Areas -->
-    <section class="collaboration-section">
-        <h2>Areas of Collaboration</h2>
+    <section class="collab-section">
+        <h2 class="section-title">Areas of Interface</h2>
         <div class="collab-grid">
-            <div class="collab-card">
-                <div class="collab-icon">
-                    <i class="fas fa-flask"></i>
-                </div>
-                <h3>Research Projects</h3>
-                <p>Collaborative research in digital twin technology, predictive maintenance, and aviation safety systems</p>
-            </div>
             
             <div class="collab-card">
-                <div class="collab-icon">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-                <h3>Knowledge Sharing</h3>
-                <p>Guest lectures, workshops, and technical presentations on aerospace engineering topics</p>
+                <i class="fas fa-flask collab-icon"></i>
+                <h3>Cross-Domain Research</h3>
+                <p>Synergizing on Digital Twin architectures and predictive models. I adapt academic rigor to solve dynamic industrial problems, regardless of the specific platform.</p>
             </div>
-            
+
             <div class="collab-card">
-                <div class="collab-icon">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-                <h3>Industry Projects</h3>
-                <p>Consulting and development work on MRO optimization and aviation technology solutions</p>
+                <i class="fas fa-wrench collab-icon"></i>
+                <h3>Technical Integration</h3>
+                <p>Deploying MRO optimization strategies. Whether it's Python scripting, mechanical design, or data pipelines, I build solutions that scale.</p>
             </div>
-            
+
             <div class="collab-card">
-                <div class="collab-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3>Academic Opportunities</h3>
-                <p>Postgraduate programs in Aviation Management, Safety Systems, and Engineering</p>
+                <i class="fas fa-network-wired collab-icon"></i>
+                <h3>Full-Stack Engineering</h3>
+                <p>Bridging the gap between hardware (Sensors/IoT) and software (Dashboards/Databases). I speak both the language of the machine and the server.</p>
             </div>
-            
-            <div class="collab-card">
-                <div class="collab-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3>Professional Network</h3>
-                <p>Building connections with aviation professionals, researchers, and industry leaders</p>
-            </div>
-            
-            <div class="collab-card">
-                <div class="collab-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>Open Source</h3>
-                <p>Contributing to open-source aviation software and collaborative development projects</p>
-            </div>
+
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Mohammed Bello Sani | Aerospace Engineer | Let's build the future of aviation together | <a href="/">Back to Home</a></p>
+        <p>&copy; 2025 Mohammed Bello Sani. Cleared for Takeoff.</p>
+        <div class="footer-links" style="margin-top: 1rem;">
+            <a href="https://github.com/Sm-bello"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
     </footer>
 
     <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
         function handleSubmit(event) {
             event.preventDefault();
-            
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Create mailto link
-            const mailtoLink = `mailto:bellosani2drescue@gmail.com?subject=${encodeURIComponent(subject + ' - from ' + name)}&body=${encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
+            const mailtoLink = `mailto:bellosani2drescue@gmail.com?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
             
-            // Open email client
             window.location.href = mailtoLink;
-            
-            // Show confirmation
-            alert('Opening your email client... If it doesn\'t open automatically, please email me directly at bellosani2drescue@gmail.com');
-            
-            return false;
         }
-
-        // Animate on scroll
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        });
-
-        document.querySelectorAll('.contact-info, .contact-form-section, .collab-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
     </script>
+
 </body>
 </html>
