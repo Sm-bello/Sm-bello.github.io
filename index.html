@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Mohammed Bello Sani | Aerospace Digital Twin & Safety Systems</title>
-    <meta name="description" content="Portfolio of Mohammed Bello Sani, Aerospace Engineering Undergraduate specializing in Digital Twin Technology, Aircraft Telemetry, and MRO Optimization.">
+    <title>Mohammed Bello Sani | Aerospace Digital Twin & AI Research</title>
+    <meta name="description" content="Portfolio of Mohammed Bello Sani, Aerospace Researcher specializing in Physics-Informed Digital Twins, AI Diagnostics, and Low-Speed Aerodynamics.">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,6 +26,7 @@
             --footer-bg: #0b1120;
             --neon-orange: #f97316;
             --neon-blue: #0ea5e9;
+            --success-green: #10b981;
         }
         
         body {
@@ -132,9 +133,9 @@
 
         .status-badge {
             display: inline-block;
-            background: rgba(14, 165, 233, 0.1);
-            border: 1px solid var(--neon-blue);
-            color: var(--neon-blue);
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success-green);
+            color: var(--success-green);
             padding: 0.5rem 1rem;
             border-radius: 50px;
             font-size: 0.8rem;
@@ -279,7 +280,7 @@
             transform: translateY(-8px);
         }
 
-        .focus-card:nth-child(1) { border-bottom: 4px solid var(--neon-blue); }
+        .focus-card:nth-child(1) { border-bottom: 4px solid var(--success-green); }
         .focus-card:nth-child(2) { border-bottom: 4px solid var(--neon-orange); }
         .focus-card:nth-child(3) { border-bottom: 4px solid var(--neon-blue); }
 
@@ -288,7 +289,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .focus-card:nth-child(1) i { color: var(--neon-blue); }
+        .focus-card:nth-child(1) i { color: var(--success-green); }
         .focus-card:nth-child(2) i { color: var(--neon-orange); }
         .focus-card:nth-child(3) i { color: var(--neon-blue); }
 
@@ -302,6 +303,17 @@
             color: #94a3b8;
             line-height: 1.7;
             font-size: 0.95rem;
+        }
+
+        .pill-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         /* Footer */
@@ -482,14 +494,14 @@
     <section class="hero">
         <div class="hero-content">
             <div class="status-badge">
-                <i class="fas fa-circle"></i> SYSTEM STATUS: FINAL YEAR (500L) @ AFIT
+                <i class="fas fa-check-circle"></i> MANUSCRIPT SUBMITTED: CJA (ELSEVIER)
             </div>
             <h1>
                 Aerospace Systems &<br>
                 <span style="color: var(--neon-blue);">Digital Intelligence</span>
             </h1>
             <p>
-                Developing intelligent systems at the intersection of aircraft structures and data-driven innovation. Bridging the gap between Physical Airworthiness and Digital Telemetry.
+                Bridging the gap between Physical Airworthiness and Digital Telemetry. Developing physics-informed AI for predictive maintenance in harsh operational environments.
             </p>
             <div class="cta-buttons">
                 <a href="/projects.html" class="btn btn-primary">
@@ -505,20 +517,20 @@
     <div class="stats-section">
         <div class="stats-grid">
             <div class="stat-item">
-                <h3>500L</h3>
-                <p>Academic Level (AFIT)</p>
+                <h3>94.3%</h3>
+                <p>AI Diagnostic Accuracy</p>
             </div>
             <div class="stat-item">
-                <h3>2</h3>
-                <p>Industrial Attachments</p>
+                <h3>100x</h3>
+                <p>Cost Reduction (MRO)</p>
             </div>
             <div class="stat-item">
-                <h3>8+</h3>
-                <p>Engineering Tools</p>
+                <h3>Q1</h3>
+                <p>Journal Submission</p>
             </div>
             <div class="stat-item">
-                <h3>1</h3>
-                <p>Core Mission: Safety</p>
+                <h3>NPU</h3>
+                <p>Certified in Aerodynamics</p>
             </div>
         </div>
     </div>
@@ -528,21 +540,24 @@
         <div class="focus-grid">
             
             <div class="focus-card">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Digital Twin & Simulation</h3>
-                <p>Developing physics-based digital replicas of landing gear systems to predict stress loads. Utilizing <strong>MATLAB</strong> and <strong>Simulink</strong> to model failure scenarios before they occur in the air.</p>
+                <div class="pill-badge">FLAGSHIP RESEARCH</div>
+                <i class="fas fa-microchip"></i>
+                <h3>Physics-Informed Digital Twin</h3>
+                <p>Developed a hybrid <strong>Simscape + LSTM</strong> architecture for Landing Gear RUL prediction. Currently under review at the <em>Chinese Journal of Aeronautics</em>. Validated on Do-228 flight profiles.</p>
             </div>
             
             <div class="focus-card">
-                <i class="fas fa-network-wired"></i>
-                <h3>Telemetry Pipelines</h3>
-                <p>Building real-time data pipelines using <strong>InfluxDB 3 Core</strong>, <strong>Telegraf</strong>, and <strong>Grafana</strong>. Visualizing flight dynamics from simulation environments (FlightGear) to create "Black Box" style dashboards.</p>
+                <div class="pill-badge">CERTIFICATION</div>
+                <i class="fas fa-wind"></i>
+                <h3>Computational Aerodynamics</h3>
+                <p>Certified by <strong>Northwestern Polytechnical University (NPU)</strong> in Fundamentals of Low Speed Aerodynamics. Bridging theoretical fluid dynamics with practical CFD applications.</p>
             </div>
             
             <div class="focus-card">
-                <i class="fas fa-wrench"></i>
-                <h3>MRO & Airworthiness</h3>
-                <p>Applying field experience from <strong>NCAA</strong> (Regulatory) and <strong>Executive Airlift</strong> (Hangar Ops) to bridge the gap between theoretical engineering and practical maintenance requirements.</p>
+                <div class="pill-badge">SYSTEMS</div>
+                <i class="fas fa-database"></i>
+                <h3>Telemetry & "Black Box" Ops</h3>
+                <p>Building real-time data pipelines using <strong>InfluxDB</strong>, <strong>PostgreSQL</strong>, and <strong>Grafana</strong>. Visualizing flight dynamics from simulation environments to create actionable maintenance insights.</p>
             </div>
 
         </div>
@@ -577,7 +592,7 @@
         </div>
         
         <div class="copyright">
-            <p>&copy; 2025 Mohammed Bello Sani. All systems nominal.</p>
+            <p>&copy; 2026 Mohammed Bello Sani. All systems nominal.</p>
         </div>
     </footer>
 
