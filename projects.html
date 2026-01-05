@@ -513,6 +513,12 @@
             letter-spacing: 1px;
         }
 
+        .project-tag.completed {
+            color: var(--neon-green);
+            background: rgba(16, 185, 129, 0.1);
+            border-color: var(--neon-green);
+        }
+
         .core-project-card i {
             font-size: 3rem;
             color: var(--neon-blue);
@@ -558,6 +564,158 @@
             font-family: var(--font-mono);
             font-weight: 700;
             flex-shrink: 0;
+        }
+
+        /* Airfoil Animation Container */
+        .airfoil-animation {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(139, 92, 246, 0.05));
+            border-radius: 12px;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .airfoil-bg-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: gridScroll 20s linear infinite;
+        }
+
+        @keyframes gridScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(20px); }
+        }
+
+        .airfoil-shape {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 50% 10% 50% 10%;
+            box-shadow: 0 0 40px rgba(14, 165, 233, 0.6);
+            animation: airfoilFloat 4s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes airfoilFloat {
+            0%, 100% { 
+                transform: translate(-50%, -50%) rotate(-3deg);
+            }
+            50% { 
+                transform: translate(-50%, -60%) rotate(3deg);
+            }
+        }
+
+        .flow-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--neon-blue);
+            animation: flowStream 3s linear infinite;
+        }
+
+        @keyframes flowStream {
+            0% { 
+                left: -10px; 
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                left: calc(100% + 10px); 
+                opacity: 0;
+            }
+        }
+
+        .flow-particle:nth-child(1) { top: 35%; animation-delay: 0s; }
+        .flow-particle:nth-child(2) { top: 45%; animation-delay: 0.5s; }
+        .flow-particle:nth-child(3) { top: 55%; animation-delay: 1s; }
+        .flow-particle:nth-child(4) { top: 65%; animation-delay: 1.5s; }
+        .flow-particle:nth-child(5) { top: 40%; animation-delay: 0.3s; }
+        .flow-particle:nth-child(6) { top: 60%; animation-delay: 1.2s; }
+
+        .airfoil-label {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 3;
+        }
+
+        .comparison-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(14, 165, 233, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid var(--neon-blue);
+        }
+
+        .comparison-box strong {
+            color: var(--neon-blue);
+        }
+
+        .comparison-box div {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .project-buttons {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--neon-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--neon-blue);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(14, 165, 233, 0.2);
+            transform: translateY(-2px);
         }
 
         /* Interactive Tools */
@@ -776,436 +934,4 @@
                 padding: 6rem 1rem 4rem;
                 clip-path: none;
             }
-            .page-hero h1 { font-size: 2.2rem; }
-            .page-hero p { font-size: 1rem; }
-
-            .flagship-content { padding: 2rem 1.5rem; }
-            .flagship-content h2 { font-size: 1.8rem; }
-            .section-header h2 { font-size: 1.5rem; }
-
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: 2rem;
-                border-bottom: 1px solid #e2e8f0;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-    <canvas id="particles-canvas"></canvas>
-
-    <nav id="navbar">
-        <a href="/" class="logo">
-            <i class="fas fa-microchip"></i>
-            <span>Mohammed Bello Sani</span>
-        </a>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/projects.html" style="color: var(--neon-blue);">Projects</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="page-hero">
-        <h1>PROJECTS LOGBOOK</h1>
-        <p>> Initializing Aerospace Research Data... [DONE]</p>
-    </div>
-
-    <div class="container">
-
-        <!-- FLAGSHIP PROJECT -->
-        <div class="flagship-card">
-            <div class="flagship-grid">
-                <div class="flagship-content">
-                    <div class="status-pill">
-                        <div class="status-dot"></div>
-                        MANUSCRIPT UNDER REVIEW: CJA (ELSEVIER)
-                    </div>
-                    <h2>
-                        Physics-Informed<br>
-                        <span class="highlight">Landing Gear Digital Twin</span>
-                    </h2>
-                    <p>
-                        A <strong>Cyber-Physical System (CPS)</strong> that replicates real-time oleo-pneumatic shock strut dynamics. By fusing multi-body physics (Simscape) with <strong>LSTM Deep Learning</strong>, the system detects structural failures 50 cycles before occurrence with unprecedented accuracy.
-                    </p>
-                    
-                    <div class="stats-strip">
-                        <div class="mini-stat">
-                            <h4 class="counter" data-target="94.3">0</h4>
-                            <span>AI Accuracy (%)</span>
-                        </div>
-                        <div class="mini-stat">
-                            <h4><span class="counter" data-target="100">0</span>x</h4>
-                            <span>Cost Reduction</span>
-                        </div>
-                        <div class="mini-stat">
-                            <h4>50ms</h4>
-                            <span>Latency</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack">
-                        <span class="tech-pill">SIMSCAPE</span>
-                        <span class="tech-pill">PYTHON/UDP</span>
-                        <span class="tech-pill">LSTM AI</span>
-                        <span class="tech-pill">INFLUXDB</span>
-                        <span class="tech-pill">GRAFANA</span>
-                    </div>
-                </div>
-
-                <div class="flagship-visual">
-                    <div class="grid-bg"></div>
-                    <span class="live-telemetry-label">LIVE PHYSICS SIMULATION (SINK RATE 3.2m/s)</span>
-                    <div class="strut-3d"></div>
-                    <div class="live-telemetry" id="telemetry">
-                        [SYSTEM] Monitoring Sink Rate...<br>
-                        [DATA] Piston Velocity: 0.612 m/s<br>
-                        [AI] Fault Detected: Nitrogen Leakage<br>
-                        [AI] Confidence: 97.4%
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CORE FUTURE INITIATIVES -->
-        <div class="section-header">
-            <i class="fas fa-flask"></i>
-            <h2>Core Future Initiatives</h2>
-        </div>
-
-        <div class="core-projects-grid">
-            <div class="core-project-card">
-                <span class="project-tag">NEXT-GEN RESEARCH</span>
-                <i class="fas fa-wind"></i>
-                <h3>AI for Fluids (Neural CFD)</h3>
-                <p>
-                    Revolutionizing computational fluid dynamics by replacing traditional Navier-Stokes solvers with <strong>Physics-Informed Neural Operators (PINNs)</strong>. The goal is to achieve real-time aerodynamic predictions on arbitrary geometries.
-                </p>
-                <ul>
-                    <li>Deep Learning for instantaneous lift/drag coefficient prediction</li>
-                    <li>Mesh-free flow field reconstruction using neural networks</li>
-                    <li>NPU-certified low-speed aerodynamics foundation</li>
-                    <li>Integration with existing CAD/CAE workflows</li>
-                    <li>GPU-accelerated inference for parametric design optimization</li>
-                </ul>
-            </div>
-
-            <div class="core-project-card">
-                <span class="project-tag">PROPOSAL STAGE</span>
-                <i class="fas fa-project-diagram"></i>
-                <h3>Ontology-Driven CMMS</h3>
-                <p>
-                    A semantic "Brain" for aircraft maintenance using <strong>Knowledge Graphs</strong> and ontologies. This system creates intelligent relationships between parts, procedures, and regulatory requirements to automate fleet health management.
-                </p>
-                <ul>
-                    <li>Context-aware spare parts inventory with predictive stocking</li>
-                    <li>Automated NCAA airworthiness compliance checking</li>
-                    <li>Semantic reasoning for MEL (Minimum Equipment List) decisions</li>
-                    <li>Predictive scheduling based on historical fault clustering</li>
-                    <li>Natural language query interface for maintenance engineers</li>
-                </ul>
-            </div>
-
-            <div class="core-project-card">
-                <span class="project-tag">OPERATIONAL</span>
-                <i class="fas fa-satellite-dish"></i>
-                <h3>Real-Time Telemetry Stack</h3>
-                <p>
-                    The technical backbone of the Digital Twin. Seamless data bridging between simulation environments and cloud infrastructure for live aircraft health monitoring.
-                </p>
-                <ul>
-                    <li>UDP packet parsing from FlightGear simulation environment</li>
-                    <li>InfluxDB 3 Core time-series database for high-velocity data</li>
-                    <li>PostgreSQL data warehouse for historical trend analysis</li>
-                    <li>Grafana real-time visualization dashboards</li>
-                    <li>Automated email alerts via Telegraf agent triggers</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- INTERACTIVE TOOLS & DEMOS -->
-        <div class="section-header">
-            <i class="fas fa-rocket"></i>
-            <h2>Interactive Tools & Concepts</h2>
-        </div>
-
-        <div class="interactive-grid">
-            <div class="interactive-card blue">
-                <i class="fas fa-desktop"></i>
-                <h3>Digital Twin Monitor</h3>
-                <p>Real-time structural health monitoring dashboard with live telemetry visualization and predictive analytics.</p>
-                <button class="demo-btn" onclick="launchMonitor()">
-                    Launch Demo <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-
-            <div class="interactive-card orange">
-                <i class="fas fa-calculator"></i>
-                <h3>MRO Interval Calculator</h3>
-                <p>Predictive maintenance planning tool for calculating optimized aircraft inspection intervals based on usage data.</p>
-                <button class="demo-btn" onclick="launchCalculator()">
-                    Open Tool <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-
-            <div class="interactive-card purple">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Safety Analytics</h3>
-                <p>Aviation safety monitoring interface for tracking incident trends and airworthiness compliance metrics.</p>
-                <button class="demo-btn" onclick="launchAnalytics()">
-                    View Dashboard <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- TECHNICAL ARCHIVES -->
-        <div class="section-header">
-            <i class="fas fa-folder-open"></i>
-            <h2>Technical Archives</h2>
-        </div>
-
-        <div class="archives-grid">
-            <div class="archive-card">
-                <div class="card-icon"><i class="fas fa-network-wired"></i></div>
-                <h3>UDP + FlightGear Integration</h3>
-                <p>
-                    Real-time telemetry bridge connecting FlightGear flight simulator to cloud databases. Implements UDP protocol parsing, data validation, and streaming to InfluxDB for time-series analysis.
-                </p>
-                <a href="https://github.com/Sm-bello" target="_blank" class="repo-link">
-                    View Repository <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="archive-card">
-                <div class="card-icon"><i class="fas fa-database"></i></div>
-                <h3>Telemetry Data Pipeline</h3>
-                <p>
-                    Complete ETL pipeline from simulation to visualization. Features Python UDP listeners, Telegraf data collection, and PostgreSQL/InfluxDB dual-database architecture for different query patterns.
-                </p>
-                <a href="https://github.com/Sm-bello" target="_blank" class="repo-link">
-                    Explore Code <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="archive-card">
-                <div class="card-icon"><i class="fas fa-bezier-curve"></i></div>
-                <h3>Structural Beam Analysis</h3>
-                <p>
-                    Finite Element Analysis of aircraft wing spars using Ansys Workbench. Optimized material thickness distribution for weight reduction while maintaining safety factors per FAA regulations.
-                </p>
-                <span class="repo-link" style="color: #64748b; cursor: default;">
-                    <i class="fas fa-check-circle"></i> Project Completed
-                </span>
-            </div>
-
-            <div class="archive-card">
-                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Grafana Monitoring Dashboards</h3>
-                <p>
-                    Custom-built aviation dashboards featuring real-time flight parameters, system health indicators, and predictive maintenance alerts. Integrated with InfluxDB and Telegraf agents.
-                </p>
-                <a href="#" class="repo-link">
-                    View Screenshots <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="archive-card">
-                <div class="card-icon"><i class="fas fa-file-contract"></i></div>
-                <h3>Airworthiness Documentation</h3>
-                <p>
-                    Digital compilation of NCAA regulatory procedures from field experience. Covers Technical Logs, Certificate of Airworthiness renewals, and MEL usage protocols.
-                </p>
-                <a href="/about.html" class="repo-link">
-                    Read Experience <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="archive-card">
-                <div class="card-icon"><i class="fas fa-brain"></i></div>
-                <h3>LSTM Fault Detection Model</h3>
-                <p>
-                    Deep learning model for predicting landing gear failures using time-series sensor data. Achieves 94.3% accuracy with 50-cycle early warning capability through recurrent neural networks.
-                </p>
-                <a href="https://github.com/Sm-bello" target="_blank" class="repo-link">
-                    View Model <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Mohammed Bello Sani | Aerospace Intelligence Research</p>
-        <div class="footer-links">
-            <a href="https://github.com/Sm-bello"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-        </div>
-    </footer>
-
-    <script>
-        // Particle System
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = [];
-        const particleCount = 70;
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
-                this.opacity = Math.random() * 0.5 + 0.2;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-
-            draw() {
-                ctx.fillStyle = `rgba(100, 116, 139, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function init() {
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-            }
-            requestAnimationFrame(animate);
-        }
-
-        init();
-        animate();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Telemetry Simulator
-        const telemetryBox = document.getElementById('telemetry');
-
-        setInterval(() => {
-            const vel = (0.5 + Math.random() * 0.2).toFixed(3);
-            const conf = (94 + Math.random() * 5).toFixed(1);
-
-            telemetryBox.innerHTML = `
-                [SYSTEM] Monitoring Sink Rate...<br>
-                [DATA] Piston Velocity: ${vel} m/s<br>
-                [AI] Fault Detected: Nitrogen Leakage<br>
-                [AI] Confidence: ${conf}%
-            `;
-        }, 1500);
-
-        // Counter Animation
-        function animateCounter(element, target, duration = 2000) {
-            const start = 0;
-            const increment = target / (duration / 16);
-            let current = start;
-
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target % 1 === 0 ? target : target.toFixed(1);
-                    clearInterval(timer);
-                } else {
-                    element.textContent = current % 1 === 0 ? Math.floor(current) : current.toFixed(1);
-                }
-            }, 16);
-        }
-
-        // Intersection Observer for counter animation
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.counter');
-                    counters.forEach(counter => {
-                        const target = parseFloat(counter.getAttribute('data-target'));
-                        animateCounter(counter, target);
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        const flagshipCard = document.querySelector('.flagship-card');
-        if (flagshipCard) {
-            observer.observe(flagshipCard);
-        }
-
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Interactive Tool Launches
-        function launchMonitor() {
-            alert('🚀 Digital Twin Monitor\n\nThis interactive demo will showcase:\n• Real-time telemetry visualization\n• Predictive failure detection\n• System health scoring\n\nComing soon!');
-        }
-
-        function launchCalculator() {
-            const flightHours = prompt('Enter aircraft flight hours:', '1000');
-            if (flightHours) {
-                const interval = Math.ceil(flightHours / 100) * 50;
-                alert(`📊 MRO Interval Calculator\n\nBased on ${flightHours} flight hours:\n• Next A-Check: ${interval} hours\n• Next C-Check: ${interval * 4} hours\n• Landing Gear Inspection: ${interval * 2} hours\n\nNote: This is a simplified calculation for demonstration.`);
-            }
-        }
-
-        function launchAnalytics() {
-            alert('📈 Safety Analytics Dashboard\n\nFeatures:\n• Incident trend analysis\n• Compliance tracking\n• Risk scoring matrices\n• Regulatory reporting\n\nFull dashboard in development!');
-        }
-    </script>
-
-
+            .page-hero h1
