@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* (Keep all existing styles exactly as they are) */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
@@ -34,7 +35,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background Particles */
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -45,7 +45,6 @@
             pointer-events: none;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -138,7 +137,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Hero Section */
         .page-hero {
             padding: 9rem 2rem 5rem;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -198,7 +196,6 @@
             }
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: -4rem auto 4rem;
@@ -207,7 +204,6 @@
             z-index: 2;
         }
 
-        /* Flagship Project Card */
         .flagship-card {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             border-radius: 20px;
@@ -353,7 +349,6 @@
             transform: translateY(-2px);
         }
 
-        /* 3D Visual Section */
         .flagship-visual {
             background: #000;
             display: flex;
@@ -436,7 +431,80 @@
             position: relative;
         }
 
-        /* Section Headers */
+        /* New: Project Highlights Section */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0 5rem;
+        }
+
+        .highlight-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid #e2e8f0;
+            transition: all 0.4s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: var(--neon-blue);
+        }
+
+        .highlight-image {
+            height: 200px;
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-blue);
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .highlight-image i {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 20px currentColor;
+        }
+
+        .highlight-content {
+            padding: 1.5rem;
+        }
+
+        .highlight-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .highlight-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-tag {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--neon-orange);
+            background: rgba(249,115,22,0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            border: 1px solid var(--neon-orange);
+        }
+
         .section-header {
             margin: 5rem 0 3rem;
             display: flex;
@@ -459,7 +527,29 @@
             font-weight: 800;
         }
 
-        /* Core Projects Grid */
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(14,165,233,0.15);
+            color: var(--neon-blue);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: 1px solid var(--neon-blue);
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        .btn-github:hover {
+            background: var(--neon-blue);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* (All remaining styles from footer, cards, etc. are unchanged) */
         .core-projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -560,7 +650,6 @@
             flex-shrink: 0;
         }
 
-        /* Interactive Tools */
         .interactive-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -660,7 +749,6 @@
             transform: translateX(5px);
         }
 
-        /* Archives Grid */
         .archives-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -718,7 +806,6 @@
             gap: 12px;
         }
 
-        /* Footer */
         footer {
             background: var(--footer-bg);
             padding: 3rem 2rem;
@@ -749,7 +836,6 @@
             color: var(--neon-orange);
         }
 
-        /* RESPONSIVE DESIGN */
         @media (max-width: 900px) {
             .flagship-grid {
                 grid-template-columns: 1fr;
@@ -762,6 +848,15 @@
             .stats-strip {
                 flex-wrap: wrap;
                 gap: 1.5rem;
+            }
+            .highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .highlights-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -797,49 +892,35 @@
                 text-align: center;
             }
         }
-        /* =========================================
-           LEGACY PATCH (iPhone 6 / 7 / 8 / SE Support)
-           ========================================= */
-        
-        /* 1. Force Hardware Acceleration for Animations on iOS */
+
+        /* Legacy patches (unchanged) */
         * {
-            -webkit-transform: translate3d(0,0,0); /* Triggers GPU */
+            -webkit-transform: translate3d(0,0,0);
         }
-
-        /* 2. Fix Missing Blur Effects */
         nav {
-            -webkit-backdrop-filter: blur(10px); /* Required for Safari */
+            -webkit-backdrop-filter: blur(10px);
         }
-
-        /* 3. Fix "Clip-Path" (The Slanted Hero Section) */
         .page-hero {
             -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
-
-        /* 4. Fix "Flex Gap" (The biggest layout breaker on old iPhones) 
-           iPhone 6 does not understand 'gap', so everything sticks together. 
-           We use margins as a fallback. */
         @supports not (gap: 10px) {
             .nav-links > li { margin-left: 2rem; }
             .logo > i { margin-right: 0.5rem; }
             .section-header > i { margin-right: 1rem; }
             .tech-stack > span { margin: 0 10px 10px 0; }
-            .interactive-grid, .core-projects-grid, .archives-grid {
-                display: block; /* Fallback from grid to stacked block */
+            .interactive-grid, .core-projects-grid, .archives-grid, .highlights-grid {
+                display: block;
             }
-            .interactive-card, .core-project-card, .archive-card {
+            .interactive-card, .core-project-card, .archive-card, .highlight-card {
                 margin-bottom: 2rem;
             }
         }
-
-        /* 5. Force Animations for Older WebKit Browsers */
         .logo i { -webkit-animation: planeFly 3s ease-in-out infinite; }
         .page-hero::before { -webkit-animation: scanLineHero 4s ease-in-out infinite; }
         .page-hero h1 { -webkit-animation: fadeInUp 0.8s ease-out; }
         .flagship-card { -webkit-animation: slideUp 0.8s ease-out; }
         .status-dot { -webkit-animation: pulse 2s infinite; }
         .strut-3d { -webkit-animation: compress 4s infinite alternate ease-in-out; }
-
     </style>
 </head>
 <body>
@@ -870,43 +951,50 @@
 
     <div class="container">
 
+        <!-- UPDATED FLAGSHIP CARD with refined AeroTwin details -->
         <div class="flagship-card">
             <div class="flagship-grid">
                 <div class="flagship-content">
                     <div class="status-pill">
                         <div class="status-dot"></div>
-                        MANUSCRIPT UNDER REVIEW: CJA (ELSEVIER)
+                        AIAA JOURNAL UNDER REVIEW · OPEN SOURCE
                     </div>
                     <h2>
-                        Physics-Informed<br>
+                        AeroTwin: Physics-AI<br>
                         <span class="highlight">Landing Gear Digital Twin</span>
                     </h2>
                     <p>
-                        A <strong>Cyber-Physical System (CPS)</strong> that replicates real-time oleo-pneumatic shock strut dynamics. By fusing multi-body physics (Simscape) with <strong>LSTM Deep Learning</strong>, the system detects structural failures 50 cycles before occurrence with unprecedented accuracy.
+                        A hybrid digital twin for the Dornier 228‑212 that fuses high‑fidelity MATLAB Simscape Multibody simulations with a dual‑input LSTM network. A novel confidence‑weighted fusion layer (τ = 0.65) ensures CS‑23.473 certification compliance by falling back to deterministic physics when AI uncertainty exceeds the limit. Achieves <strong>94.2% classification accuracy</strong> across 11 fault classes and <strong>RUL prediction MAE 2.68%</strong> (R² = 0.96). End‑to‑end latency <strong>47 ms</strong>; 350× cost reduction vs. commercial HUMS.
                     </p>
                     
                     <div class="stats-strip">
                         <div class="mini-stat">
-                            <h4 class="counter" data-target="94.3">0</h4>
+                            <h4 class="counter" data-target="94.2">0</h4>
                             <span>AI Accuracy (%)</span>
                         </div>
                         <div class="mini-stat">
-                            <h4><span class="counter" data-target="100">0</span>x</h4>
+                            <h4><span class="counter" data-target="350">0</span>x</h4>
                             <span>Cost Reduction</span>
                         </div>
                         <div class="mini-stat">
-                            <h4>50ms</h4>
+                            <h4>47ms</h4>
                             <span>Latency</span>
                         </div>
                     </div>
 
                     <div class="tech-stack">
                         <span class="tech-pill">SIMSCAPE</span>
-                        <span class="tech-pill">PYTHON/UDP</span>
+                        <span class="tech-pill">PYTHON/FUSION</span>
                         <span class="tech-pill">LSTM AI</span>
-                        <span class="tech-pill">INFLUXDB</span>
-                        <span class="tech-pill">GRAFANA</span>
+                        <span class="tech-pill">POSTGRESQL</span>
+                        <span class="tech-pill">PYVISTA 3D</span>
+                        <span class="tech-pill">TKINTER</span>
                     </div>
+
+                    <!-- GitHub button -->
+                    <a href="https://github.com/Sm-bello/AEROTWIN-Dornier228-LandingGear-Dataset" target="_blank" class="btn-github">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
                 </div>
 
                 <div class="flagship-visual">
@@ -923,6 +1011,77 @@
             </div>
         </div>
 
+        <!-- NEW: PROJECT HIGHLIGHTS (the 6 cool visuals) -->
+        <div class="section-header">
+            <i class="fas fa-camera-retro"></i>
+            <h2>Project Highlights</h2>
+        </div>
+
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <i class="fas fa-cube" style="color: #0ea5e9;"></i>
+                    <!-- Replace with actual screenshot: <img src="assets/strut_3d.png" alt="3D Strut Stress"> -->
+                </div>
+                <div class="highlight-content">
+                    <h3>3D Structural Stress</h3>
+                    <p>Real‑time PyVista rendering of oleo strut with stress colormap and severity ring.</p>
+                    <span class="highlight-tag">PyVista</span>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <i class="fas fa-chart-pie" style="color: #f97316;"></i>
+                </div>
+                <div class="highlight-content">
+                    <h3>Fault Confusion Matrix</h3>
+                    <p>94.2% accuracy across 11 classes – clear diagonal dominance.</p>
+                    <span class="highlight-tag">Classification</span>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <i class="fas fa-chart-line" style="color: #10b981;"></i>
+                </div>
+                <div class="highlight-content">
+                    <h3>RUL Scatter Plot</h3>
+                    <p>R² = 0.96, MAE 2.68% – tight clustering around perfect prediction.</p>
+                    <span class="highlight-tag">Prognostics</span>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <i class="fas fa-chart-bar" style="color: #8b5cf6;"></i>
+                </div>
+                <div class="highlight-content">
+                    <h3>Agreement Bars</h3>
+                    <p>AI vs. physics per‑class agreement from 5 missions – perfect on Tire Burst.</p>
+                    <span class="highlight-tag">Fusion</span>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <i class="fas fa-project-diagram" style="color: #0ea5e9;"></i>
+                </div>
+                <div class="highlight-content">
+                    <h3>Architecture Diagram</h3>
+                    <p>Four‑node cyber‑physical system: MATLAB ↔ PostgreSQL ↔ Python ↔ Viz.</p>
+                    <span class="highlight-tag">Design</span>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <i class="fas fa-tachometer-alt" style="color: #f97316;"></i>
+                </div>
+                <div class="highlight-content">
+                    <h3>Fleet Commander Dashboard</h3>
+                    <p>Tkinter GUI with real‑time PHM metrics, decision source, and cost tracking.</p>
+                    <span class="highlight-tag">UI</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- (The rest of the page remains exactly the same) -->
         <div class="section-header">
             <i class="fas fa-flask"></i>
             <h2>Core Future Initiatives</h2>
@@ -1110,7 +1269,7 @@
     </footer>
 
     <script>
-        // Particle System
+        // Particle System (unchanged)
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
@@ -1212,7 +1371,6 @@
             }, 16);
         }
 
-        // Intersection Observer for counter animation
         const observerOptions = {
             threshold: 0.5,
             rootMargin: '0px'
@@ -1236,13 +1394,11 @@
             observer.observe(flagshipCard);
         }
 
-        // Mobile menu toggle
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
 
-        // Interactive Tool Launches
         function launchMonitor() {
             alert('🚀 Digital Twin Monitor\n\nThis interactive demo will showcase:\n• Real-time telemetry visualization\n• Predictive failure detection\n• System health scoring\n\nComing soon!');
         }
