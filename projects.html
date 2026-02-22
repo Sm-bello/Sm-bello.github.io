@@ -207,7 +207,7 @@
             z-index: 2;
         }
 
-        /* Flagship Project Card – Enhanced */
+        /* Flagship Project Card */
         .flagship-card {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             border-radius: 20px;
@@ -300,7 +300,7 @@
             text-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
         }
 
-        .flagship-content > p {
+        .flagship-content p {
             color: #cbd5e1;
             font-size: 1.05rem;
             line-height: 1.8;
@@ -313,7 +313,6 @@
             margin: 2rem 0;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
-            flex-wrap: wrap;
         }
 
         .mini-stat h4 {
@@ -354,6 +353,7 @@
             transform: translateY(-2px);
         }
 
+        /* ── NEW: Action Buttons Row ── */
         .flagship-actions {
             display: flex;
             gap: 12px;
@@ -371,6 +371,8 @@
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
         }
 
         .flagship-btn.github {
@@ -378,7 +380,6 @@
             color: white;
             border: 1px solid rgba(255,255,255,0.2);
         }
-
         .flagship-btn.github:hover {
             background: white;
             color: #1a1a2e;
@@ -390,7 +391,6 @@
             color: #20ace6;
             border: 1px solid rgba(32,172,230,0.4);
         }
-
         .flagship-btn.kaggle:hover {
             background: #20ace6;
             color: white;
@@ -402,13 +402,13 @@
             color: var(--neon-orange);
             border: 1px solid rgba(249,115,22,0.4);
         }
-
         .flagship-btn.paper:hover {
             background: var(--neon-orange);
             color: white;
             transform: translateY(-2px);
         }
 
+        /* 3D Visual Section */
         .flagship-visual {
             background: #000;
             display: flex;
@@ -437,6 +437,7 @@
             100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
         }
 
+        /* ── NEW: Strut wrapper + severity ring ── */
         .strut-wrapper {
             position: relative;
             z-index: 2;
@@ -455,20 +456,20 @@
             justify-content: center;
             margin-bottom: 12px;
             box-shadow: 0 0 20px rgba(16,185,129,0.4);
-            transition: border-color 0.5s, box-shadow 0.5s;
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
             animation: ringPulse 3s ease-in-out infinite;
         }
 
         @keyframes ringPulse {
             0%,100% { box-shadow: 0 0 20px rgba(16,185,129,0.4); }
-            50% { box-shadow: 0 0 40px rgba(16,185,129,0.7); }
+            50%      { box-shadow: 0 0 40px rgba(16,185,129,0.7); }
         }
 
         .severity-ring.warning {
             border-color: #f59e0b;
             box-shadow: 0 0 20px rgba(245,158,11,0.5);
+            animation: none;
         }
-
         .severity-ring.danger {
             border-color: #ef4444;
             box-shadow: 0 0 30px rgba(239,68,68,0.6);
@@ -477,7 +478,7 @@
 
         @keyframes dangerPulse {
             0%,100% { box-shadow: 0 0 20px rgba(239,68,68,0.4); }
-            50% { box-shadow: 0 0 50px rgba(239,68,68,0.9); }
+            50%      { box-shadow: 0 0 50px rgba(239,68,68,0.9); }
         }
 
         .strut-3d {
@@ -510,16 +511,6 @@
             100% { height: 160px; }
         }
 
-        .live-telemetry-label {
-            color: #94a3b8;
-            font-size: 0.65rem;
-            margin-bottom: 15px;
-            text-align: center;
-            z-index: 2;
-            position: relative;
-            font-family: var(--font-mono);
-        }
-
         .live-telemetry {
             margin-top: 40px;
             font-family: var(--font-mono);
@@ -536,6 +527,17 @@
             line-height: 1.9;
         }
 
+        .live-telemetry-label {
+            color: #94a3b8;
+            font-size: 0.65rem;
+            margin-bottom: 15px;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            font-family: var(--font-mono);
+        }
+
+        /* ── NEW: Telemetry colour classes ── */
         .telem-warn  { color: #f59e0b; }
         .telem-alert { color: #ef4444; }
         .telem-info  { color: #94a3b8; }
@@ -975,7 +977,7 @@
 
     <div class="container">
 
-        <!-- ═══ FLAGSHIP: AeroTwin V16 (Enhanced) ═══ -->
+        <!-- ═══ FLAGSHIP: AeroTwin V16 — UPDATED ═══ -->
         <div class="flagship-card">
             <div class="flagship-grid">
                 <div class="flagship-content">
@@ -1043,10 +1045,10 @@
                         </div>
                     </div>
                     <div class="live-telemetry" id="telemetry">
-                        <span class="telem-info">[SYS]   </span> AeroTwin V16 — Initialising...<br>
-                        <span class="telem-info">[DATA]  </span> Sink Rate: 2.81 m/s | G: 1.22g<br>
-                        <span class="telem-ok">  [AI]    </span> Class 00: Normal<br>
-                        <span class="telem-ok">  [AI]    </span> Conf: 96.2% · Source: AI · ATA: N/A
+                        <span class="telem-info">[SYS]  </span> AeroTwin V16 — Initialising...<br>
+                        <span class="telem-info">[DATA] </span> Sink Rate: 2.81 m/s | G: 1.22g<br>
+                        <span class="telem-ok">  [AI]   </span> Class 00: Normal<br>
+                        <span class="telem-ok">  [AI]   </span> Conf: 96.2% · Source: AI · ATA: N/A
                     </div>
                 </div>
             </div>
@@ -1233,7 +1235,7 @@
         <p>&copy; 2026 Mohammed Bello Sani | Aerospace Intelligence Research</p>
         <div class="footer-links">
             <a href="https://github.com/Sm-bello"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/"><i class="fab fa-linkedin"></i> LinkedIn</a>
             <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         </div>
     </footer>
@@ -1309,22 +1311,24 @@
             }
         });
 
-        // ── AeroTwin V16 Telemetry Simulator (Enhanced) ──────────────────
+        // ── AeroTwin V16 Telemetry Simulator ────────────────────────────
         const FAULTS = [
-            { id:0,  name:'Normal',                severity:'ok',     ata:'N/A' },
-            { id:1,  name:'Nitrogen Leak',          severity:'warn',   ata:'ATA 32-11' },
-            { id:2,  name:'Worn Seal',              severity:'warn',   ata:'ATA 32-12' },
-            { id:3,  name:'Early Degradation',      severity:'warn',   ata:'ATA 32-20' },
-            { id:4,  name:'Thermal Degradation',    severity:'warn',   ata:'ATA 32-21' },
-            { id:5,  name:'Brake Fade',             severity:'warn',   ata:'ATA 32-40' },
-            { id:6,  name:'Tire Burst',             severity:'danger', ata:'ATA 32-40' },
-            { id:7,  name:'Corrosion',              severity:'warn',   ata:'ATA 32-13' },
-            { id:8,  name:'Hard Landing [CS-23.473]', severity:'danger', ata:'ATA 32-00' },
-            { id:9,  name:'Combined Faults',        severity:'danger', ata:'ATA 32-00' },
-            { id:10, name:'Impending Failure',      severity:'danger', ata:'ATA 32-00' }
+            { id:0,  name:'Normal',                   severity:'ok',     ata:'N/A' },
+            { id:1,  name:'Nitrogen Leak',             severity:'warn',   ata:'ATA 32-11' },
+            { id:2,  name:'Worn Seal',                 severity:'warn',   ata:'ATA 32-12' },
+            { id:3,  name:'Early Degradation',         severity:'warn',   ata:'ATA 32-20' },
+            { id:4,  name:'Thermal Degradation',       severity:'warn',   ata:'ATA 32-21' },
+            { id:5,  name:'Brake Fade',                severity:'warn',   ata:'ATA 32-40' },
+            { id:6,  name:'Tire Burst',                severity:'danger', ata:'ATA 32-40' },
+            { id:7,  name:'Corrosion',                 severity:'warn',   ata:'ATA 32-13' },
+            { id:8,  name:'Hard Landing [CS-23.473]',  severity:'danger', ata:'ATA 32-00' },
+            { id:9,  name:'Combined Faults',           severity:'danger', ata:'ATA 32-00' },
+            { id:10, name:'Impending Failure',         severity:'danger', ata:'ATA 32-00' }
         ];
+
         // Realistic weighting: mostly Normal, some warnings, rare danger
         const POOL = [0,0,0,0,0,0, 1,2,3,4, 5,7, 6,8];
+
         const ring = document.getElementById('severityRing');
         const tbox = document.getElementById('telemetry');
 
@@ -1337,12 +1341,15 @@
             const src  = parseFloat(conf) >= 65 ? 'AI' : 'PHYSICS_FALLBACK';
             const run  = Math.floor(Math.random() * 999) + 1;
 
-            // Update ring colour
+            // Update severity ring colour
             ring.className = 'severity-ring';
             if (f.severity === 'warn')   ring.classList.add('warning');
             if (f.severity === 'danger') ring.classList.add('danger');
 
-            const fc = f.severity === 'danger' ? 'telem-alert' : f.severity === 'warn' ? 'telem-warn' : 'telem-ok';
+            const fc = f.severity === 'danger' ? 'telem-alert'
+                     : f.severity === 'warn'   ? 'telem-warn'
+                     : 'telem-ok';
+
             const hardLand = parseFloat(sink) >= 3.05
                 ? `<span class="telem-alert">[CS-23.473] HARD LANDING DETECTED — ATA 32-00 MANDATORY</span><br>`
                 : '';
@@ -1354,6 +1361,7 @@
                 `<span class="${fc}">[AI]   </span> Conf: ${conf}% &nbsp;|&nbsp; Src: ${src} &nbsp;|&nbsp; Ref: ${f.ata}<br>` +
                 hardLand;
         }
+
         tick();
         setInterval(tick, 1800);
 
