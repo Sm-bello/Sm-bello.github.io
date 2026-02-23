@@ -977,7 +977,6 @@
 
     <div class="container">
 
-        <!-- ═══ FLAGSHIP: AeroTwin V16 — UPDATED ═══ -->
         <div class="flagship-card">
             <div class="flagship-grid">
                 <div class="flagship-content">
@@ -1078,7 +1077,7 @@
                 
                 <div style="width: 100%; height: 850px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #e0e0e0; margin-top: 20px;">
                     <iframe
-                      src="https://airfoil-digital-twin-vxgjaxt2oteqt9rczxfzte.streamlit.app/?embed=true"
+                      src="https://sm-bello-airfoil-digital-twin.hf.space"
                       width="100%"
                       height="100%"
                       frameborder="0"
@@ -1313,14 +1312,14 @@
 
         // ── AeroTwin V16 Telemetry Simulator ────────────────────────────
         const FAULTS = [
-            { id:0,  name:'Normal',                   severity:'ok',     ata:'N/A' },
-            { id:1,  name:'Nitrogen Leak',             severity:'warn',   ata:'ATA 32-11' },
-            { id:2,  name:'Worn Seal',                 severity:'warn',   ata:'ATA 32-12' },
-            { id:3,  name:'Early Degradation',         severity:'warn',   ata:'ATA 32-20' },
-            { id:4,  name:'Thermal Degradation',       severity:'warn',   ata:'ATA 32-21' },
-            { id:5,  name:'Brake Fade',                severity:'warn',   ata:'ATA 32-40' },
+            { id:0,  name:'Normal',                    severity:'ok',      ata:'N/A' },
+            { id:1,  name:'Nitrogen Leak',             severity:'warn',    ata:'ATA 32-11' },
+            { id:2,  name:'Worn Seal',                 severity:'warn',    ata:'ATA 32-12' },
+            { id:3,  name:'Early Degradation',         severity:'warn',    ata:'ATA 32-20' },
+            { id:4,  name:'Thermal Degradation',       severity:'warn',    ata:'ATA 32-21' },
+            { id:5,  name:'Brake Fade',                severity:'warn',    ata:'ATA 32-40' },
             { id:6,  name:'Tire Burst',                severity:'danger', ata:'ATA 32-40' },
-            { id:7,  name:'Corrosion',                 severity:'warn',   ata:'ATA 32-13' },
+            { id:7,  name:'Corrosion',                 severity:'warn',    ata:'ATA 32-13' },
             { id:8,  name:'Hard Landing [CS-23.473]',  severity:'danger', ata:'ATA 32-00' },
             { id:9,  name:'Combined Faults',           severity:'danger', ata:'ATA 32-00' },
             { id:10, name:'Impending Failure',         severity:'danger', ata:'ATA 32-00' }
@@ -1357,8 +1356,8 @@
             tbox.innerHTML =
                 `<span class="telem-info">[SYS]  </span> AeroTwin V16 · Run ${run}<br>` +
                 `<span class="telem-info">[DATA] </span> Sink: ${sink} m/s &nbsp;|&nbsp; G: ${gld}g &nbsp;|&nbsp; Piston: ${pv} m/s<br>` +
-                `<span class="${fc}">[AI]   </span> Class ${String(f.id).padStart(2,'0')}: ${f.name}<br>` +
-                `<span class="${fc}">[AI]   </span> Conf: ${conf}% &nbsp;|&nbsp; Src: ${src} &nbsp;|&nbsp; Ref: ${f.ata}<br>` +
+                `<span class="${fc}">[AI]    </span> Class ${String(f.id).padStart(2,'0')}: ${f.name}<br>` +
+                `<span class="${fc}">[AI]    </span> Conf: ${conf}% &nbsp;|&nbsp; Src: ${src} &nbsp;|&nbsp; Ref: ${f.ata}<br>` +
                 hardLand;
         }
 
