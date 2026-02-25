@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* ... (existing styles, unchanged) ... */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
@@ -1087,6 +1088,65 @@
                     ></iframe>
                 </div>
             </div>
+
+            <!-- ==================== NEW PHI-CHAIN CARD ==================== -->
+            <div class="core-project-card" style="grid-column: 1 / -1; max-width: 100%; margin-top: 1rem;">
+                <span class="project-tag">PAPER SUBMITTED · IEEE TAES 2026</span>
+                <i class="fas fa-link"></i>
+                <h3>PHI‑CHAIN: Blockchain + Physics‑Informed Digital Twin for Avionics Security</h3>
+                <p>
+                    A <strong>multi‑protocol security framework</strong> that integrates a permissioned blockchain (Hyperledger Fabric) with a four‑layer Physics‑Informed Digital Twin (PIDT) to detect both cyber‑attacks and physically impossible data injections. Captures real‑time telemetry from ADS‑B, ADS‑C, CPDLC, ACARS, and engine health, signs every packet with Ed25519, and stores Merkle‑batched roots on the blockchain with a semantic integrity status (VERIFIED, INTEGRITY_VIOLATION, SEMANTIC_ATTACK_DETECTED).
+                </p>
+                <ul>
+                    <li><strong>Multi‑protocol coverage</strong> – ADS‑B, ADS‑C, CPDLC, ACARS, engine telemetry (17 fields @10 Hz from FlightGear B787‑8).</li>
+                    <li><strong>Cryptographic layer</strong> – Ed25519 signing, Merkle batching (10 packets/batch), stored on Hyperledger Fabric via WSL bridge.</li>
+                    <li><strong>Physics‑Informed Digital Twin</strong> – four detection layers (static range, cross‑parameter, temporal delta, ADS‑B spoofing).</li>
+                    <li><strong>Real‑time dashboard</strong> – live map, engine gauges, alerts, and batch status visualisation (Matplotlib/Cartopy).</li>
+                    <li><strong>Attack detection</strong> – catches spoofed positions, impossible engine states, fuel fraud, and ADS‑B injection attacks.</li>
+                </ul>
+
+                <div class="stats-strip" style="margin-top: 1.5rem;">
+                    <div class="mini-stat">
+                        <h4>10 Hz</h4>
+                        <span>Data Rate</span>
+                    </div>
+                    <div class="mini-stat">
+                        <h4>36k</h4>
+                        <span>Packets/hr</span>
+                    </div>
+                    <div class="mini-stat">
+                        <h4>1.8 s</h4>
+                        <span>Batch Latency</span>
+                    </div>
+                    <div class="mini-stat">
+                        <h4>100%</h4>
+                        <span>Attack Detection</span>
+                    </div>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-pill">HYPERLEDGER FABRIC</span>
+                    <span class="tech-pill">ED25519</span>
+                    <span class="tech-pill">FLIGHTGEAR</span>
+                    <span class="tech-pill">PYTHON</span>
+                    <span class="tech-pill">WSL2</span>
+                    <span class="tech-pill">MATPLOTLIB</span>
+                    <span class="tech-pill">CARTOPY</span>
+                    <span class="tech-pill">ADS‑B</span>
+                    <span class="tech-pill">ACARS</span>
+                    <span class="tech-pill">CPDLC</span>
+                </div>
+
+                <div class="flagship-actions">
+                    <a href="https://github.com/Sm-bello/phi-chain" target="_blank" class="flagship-btn github">
+                        <i class="fab fa-github"></i> GitHub Repo (coming soon)
+                    </a>
+                    <a href="#" class="flagship-btn paper" onclick="alert('Paper under review – details will be shared upon publication.'); return false;">
+                        <i class="fas fa-file-alt"></i> IEEE TAES Paper
+                    </a>
+                </div>
+            </div>
+            <!-- ==================== END PHI-CHAIN CARD ==================== -->
 
             <div class="core-project-card">
                 <span class="project-tag">PROPOSAL STAGE</span>
