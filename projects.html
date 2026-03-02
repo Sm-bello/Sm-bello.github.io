@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ... (existing styles, unchanged) ... */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
@@ -35,7 +34,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background Particles */
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -46,7 +44,6 @@
             pointer-events: none;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -57,6 +54,7 @@
             align-items: center;
             z-index: 1000;
             background: rgba(248, 250, 252, 0.95);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid #e2e8f0;
             transition: all 0.3s ease;
@@ -85,9 +83,15 @@
 
         .logo i { 
             color: var(--neon-blue);
+            -webkit-animation: planeFly 3s ease-in-out infinite;
             animation: planeFly 3s ease-in-out infinite;
+            margin-right: 0.5rem;
         }
 
+        @-webkit-keyframes planeFly {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(-5deg); }
+        }
         @keyframes planeFly {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-5px) rotate(-5deg); }
@@ -139,12 +143,12 @@
             transition: all 0.3s ease;
         }
 
-        /* Hero Section */
         .page-hero {
             padding: 9rem 2rem 5rem;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             text-align: center;
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
             clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
             position: relative;
             overflow: hidden;
@@ -159,9 +163,14 @@
             bottom: 0;
             background: 
                 linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.1) 50%, transparent 100%);
+            -webkit-animation: scanLineHero 4s ease-in-out infinite;
             animation: scanLineHero 4s ease-in-out infinite;
         }
 
+        @-webkit-keyframes scanLineHero {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
         @keyframes scanLineHero {
             0%, 100% { transform: translateX(-100%); }
             50% { transform: translateX(100%); }
@@ -172,6 +181,7 @@
             margin-bottom: 1rem;
             font-weight: 800;
             letter-spacing: -1px;
+            -webkit-animation: fadeInUp 0.8s ease-out;
             animation: fadeInUp 0.8s ease-out;
             position: relative;
             z-index: 2;
@@ -182,12 +192,23 @@
             color: #94a3b8;
             max-width: 700px;
             margin: 0 auto;
+            -webkit-animation: fadeInUp 0.8s ease-out 0.2s both;
             animation: fadeInUp 0.8s ease-out 0.2s both;
             position: relative;
             z-index: 2;
             font-family: var(--font-mono);
         }
 
+        @-webkit-keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -199,7 +220,6 @@
             }
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: -4rem auto 4rem;
@@ -208,7 +228,6 @@
             z-index: 2;
         }
 
-        /* Flagship Project Card */
         .flagship-card {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             border-radius: 20px;
@@ -217,9 +236,20 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             border: 1px solid rgba(14, 165, 233, 0.3);
             position: relative;
+            -webkit-animation: slideUp 0.8s ease-out;
             animation: slideUp 0.8s ease-out;
         }
 
+        @-webkit-keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         @keyframes slideUp {
             from {
                 opacity: 0;
@@ -280,10 +310,15 @@
             height: 10px;
             background: var(--neon-green);
             border-radius: 50%;
+            -webkit-animation: pulse 2s infinite;
             animation: pulse 2s infinite;
             box-shadow: 0 0 10px var(--neon-green);
         }
 
+        @-webkit-keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
         @keyframes pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(0.8); }
@@ -354,7 +389,6 @@
             transform: translateY(-2px);
         }
 
-        /* ── NEW: Action Buttons Row ── */
         .flagship-actions {
             display: flex;
             gap: 12px;
@@ -409,7 +443,6 @@
             transform: translateY(-2px);
         }
 
-        /* 3D Visual Section */
         .flagship-visual {
             background: #000;
             display: flex;
@@ -430,15 +463,19 @@
                 linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
             background-size: 40px 40px;
             transform: perspective(500px) rotateX(60deg);
+            -webkit-animation: gridMove 15s linear infinite;
             animation: gridMove 15s linear infinite;
         }
 
+        @-webkit-keyframes gridMove {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
+        }
         @keyframes gridMove {
             0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
             100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
         }
 
-        /* ── NEW: Strut wrapper + severity ring ── */
         .strut-wrapper {
             position: relative;
             z-index: 2;
@@ -458,9 +495,14 @@
             margin-bottom: 12px;
             box-shadow: 0 0 20px rgba(16,185,129,0.4);
             transition: border-color 0.5s ease, box-shadow 0.5s ease;
+            -webkit-animation: ringPulse 3s ease-in-out infinite;
             animation: ringPulse 3s ease-in-out infinite;
         }
 
+        @-webkit-keyframes ringPulse {
+            0%,100% { box-shadow: 0 0 20px rgba(16,185,129,0.4); }
+            50%      { box-shadow: 0 0 40px rgba(16,185,129,0.7); }
+        }
         @keyframes ringPulse {
             0%,100% { box-shadow: 0 0 20px rgba(16,185,129,0.4); }
             50%      { box-shadow: 0 0 40px rgba(16,185,129,0.7); }
@@ -469,14 +511,20 @@
         .severity-ring.warning {
             border-color: #f59e0b;
             box-shadow: 0 0 20px rgba(245,158,11,0.5);
+            -webkit-animation: none;
             animation: none;
         }
         .severity-ring.danger {
             border-color: #ef4444;
             box-shadow: 0 0 30px rgba(239,68,68,0.6);
+            -webkit-animation: dangerPulse 0.8s ease-in-out infinite;
             animation: dangerPulse 0.8s ease-in-out infinite;
         }
 
+        @-webkit-keyframes dangerPulse {
+            0%,100% { box-shadow: 0 0 20px rgba(239,68,68,0.4); }
+            50%      { box-shadow: 0 0 50px rgba(239,68,68,0.9); }
+        }
         @keyframes dangerPulse {
             0%,100% { box-shadow: 0 0 20px rgba(239,68,68,0.4); }
             50%      { box-shadow: 0 0 50px rgba(239,68,68,0.9); }
@@ -488,6 +536,7 @@
             background: linear-gradient(135deg, #1e293b, #334155, #1e293b);
             border-radius: 8px;
             position: relative;
+            -webkit-animation: compress 4s infinite alternate ease-in-out;
             animation: compress 4s infinite alternate ease-in-out;
             box-shadow: 0 0 40px rgba(14, 165, 233, 0.4);
             z-index: 2;
@@ -507,6 +556,10 @@
             opacity: 0.6;
         }
 
+        @-webkit-keyframes compress {
+            0% { height: 220px; }
+            100% { height: 160px; }
+        }
         @keyframes compress {
             0% { height: 220px; }
             100% { height: 160px; }
@@ -538,13 +591,11 @@
             font-family: var(--font-mono);
         }
 
-        /* ── NEW: Telemetry colour classes ── */
         .telem-warn  { color: #f59e0b; }
         .telem-alert { color: #ef4444; }
         .telem-info  { color: #94a3b8; }
         .telem-ok    { color: var(--neon-green); }
 
-        /* Section Headers */
         .section-header {
             margin: 5rem 0 3rem;
             display: flex;
@@ -567,7 +618,6 @@
             font-weight: 800;
         }
 
-        /* Core Projects Grid */
         .core-projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -668,7 +718,6 @@
             flex-shrink: 0;
         }
 
-        /* Interactive Tools */
         .interactive-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -768,7 +817,6 @@
             transform: translateX(5px);
         }
 
-        /* Archives Grid */
         .archives-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -826,7 +874,6 @@
             gap: 12px;
         }
 
-        /* Footer */
         footer {
             background: var(--footer-bg);
             padding: 3rem 2rem;
@@ -857,7 +904,6 @@
             color: var(--neon-orange);
         }
 
-        /* RESPONSIVE DESIGN */
         @media (max-width: 900px) {
             .flagship-grid {
                 grid-template-columns: 1fr;
@@ -905,49 +951,23 @@
                 text-align: center;
             }
         }
-        /* =========================================
-           LEGACY PATCH (iPhone 6 / 7 / 8 / SE Support)
-           ========================================= */
-        
-        /* 1. Force Hardware Acceleration for Animations on iOS */
+
+        /* Legacy iOS / old browser support */
         * {
-            -webkit-transform: translate3d(0,0,0); /* Triggers GPU */
+            -webkit-transform: translate3d(0,0,0);
         }
 
-        /* 2. Fix Missing Blur Effects */
-        nav {
-            -webkit-backdrop-filter: blur(10px); /* Required for Safari */
-        }
-
-        /* 3. Fix "Clip-Path" (The Slanted Hero Section) */
-        .page-hero {
-            -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        }
-
-        /* 4. Fix "Flex Gap" (The biggest layout breaker on old iPhones) 
-           iPhone 6 does not understand 'gap', so everything sticks together. 
-           We use margins as a fallback. */
         @supports not (gap: 10px) {
             .nav-links > li { margin-left: 2rem; }
-            .logo > i { margin-right: 0.5rem; }
             .section-header > i { margin-right: 1rem; }
             .tech-stack > span { margin: 0 10px 10px 0; }
             .interactive-grid, .core-projects-grid, .archives-grid {
-                display: block; /* Fallback from grid to stacked block */
+                display: block;
             }
             .interactive-card, .core-project-card, .archive-card {
                 margin-bottom: 2rem;
             }
         }
-
-        /* 5. Force Animations for Older WebKit Browsers */
-        .logo i { -webkit-animation: planeFly 3s ease-in-out infinite; }
-        .page-hero::before { -webkit-animation: scanLineHero 4s ease-in-out infinite; }
-        .page-hero h1 { -webkit-animation: fadeInUp 0.8s ease-out; }
-        .flagship-card { -webkit-animation: slideUp 0.8s ease-out; }
-        .status-dot { -webkit-animation: pulse 2s infinite; }
-        .strut-3d { -webkit-animation: compress 4s infinite alternate ease-in-out; }
-
     </style>
 </head>
 <body>
@@ -978,6 +998,7 @@
 
     <div class="container">
 
+        <!-- ==================== EXISTING AEROTWIN CARD ==================== -->
         <div class="flagship-card">
             <div class="flagship-grid">
                 <div class="flagship-content">
@@ -1054,6 +1075,84 @@
             </div>
         </div>
 
+        <!-- ==================== NEW B787 IGNITION CARD ==================== -->
+        <div class="flagship-card">
+            <div class="flagship-grid">
+                <div class="flagship-content">
+                    <div class="status-pill">
+                        <div class="status-dot"></div>
+                        PAPER SUBMITTED · RESS 2026
+                    </div>
+                    <h2>
+                        B787 Ignition Digital Twin<br>
+                        <span class="highlight">PHM & Deep Feature Spoofing</span>
+                    </h2>
+                    <p>
+                        A closed‑loop Prognostics and Health Management (PHM) Digital Twin for the Boeing 787‑8 ignition system (ATA 74). Overcomes aviation's run‑to‑failure data scarcity with a <strong>physics‑informed MATLAB ODE solver</strong> generating 27,000 samples across 11 fault modes. A <strong>LightGBM regressor</strong> (R² 0.87, MAE 39 cycles) maps micro‑electrical degradation to Remaining Useful Life. Deployed via a decoupled <strong>FastAPI microservice</strong> and validated using a novel “Deep Feature Spoofing” GUI (God Mode) that safely injects out‑of‑distribution anomalies into live telemetry.
+                    </p>
+
+                    <div class="stats-strip">
+                        <div class="mini-stat">
+                            <h4>0.87</h4>
+                            <span>R² Score</span>
+                        </div>
+                        <div class="mini-stat">
+                            <h4>39</h4>
+                            <span>MAE (cycles)</span>
+                        </div>
+                        <div class="mini-stat">
+                            <h4>27k</h4>
+                            <span>Samples</span>
+                        </div>
+                        <div class="mini-stat">
+                            <h4>11</h4>
+                            <span>Fault Modes</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-stack">
+                        <span class="tech-pill">LIGHTGBM</span>
+                        <span class="tech-pill">FASTAPI</span>
+                        <span class="tech-pill">TKINTER</span>
+                        <span class="tech-pill">PYTHON</span>
+                        <span class="tech-pill">MATLAB ODE</span>
+                        <span class="tech-pill">FLIGHTGEAR</span>
+                        <span class="tech-pill">UDP</span>
+                    </div>
+
+                    <div class="flagship-actions">
+                        <a href="https://github.com/Sm-bello/B787-ignition-digital-twin"
+                           target="_blank" class="flagship-btn github">
+                            <i class="fab fa-github"></i> GitHub Repo
+                        </a>
+                        <a href="https://www.kaggle.com/datasets/mohammedbellosani/boeing-787-ignition-digital-twin-and-phm-dataset"
+                           target="_blank" class="flagship-btn kaggle">
+                            <i class="fas fa-database"></i> Kaggle Dataset
+                        </a>
+                        <a href="#" class="flagship-btn paper" onclick="alert('Paper under review – details will be shared upon publication.'); return false;">
+                            <i class="fas fa-file-alt"></i> RESS Paper
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flagship-visual">
+                    <div class="grid-bg"></div>
+                    <span class="live-telemetry-label">B787 IGNITION · LIVE DEEP FEATURE SPOOF</span>
+                    <div class="strut-wrapper">
+                        <div class="severity-ring" id="ignitionSeverityRing">
+                            <div class="strut-3d"></div>
+                        </div>
+                    </div>
+                    <div class="live-telemetry" id="ignitionTelemetry">
+                        <span class="telem-info">[ENG]   </span> Spark: 3.85 J | EGT: 682°F<br>
+                        <span class="telem-ok">[RUL]   </span> 421 cycles · Health: FAILURE<br>
+                        <span class="telem-alert">[FAULT] </span> Injecting: Flameout<br>
+                        <span class="telem-warn">[AMM]   </span> ATA 74-00-00 · AOG NO‑GO
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="section-header">
             <i class="fas fa-flask"></i>
             <h2>Core Future Initiatives</h2>
@@ -1089,7 +1188,7 @@
                 </div>
             </div>
 
-            <!-- ==================== NEW PHI-CHAIN CARD ==================== -->
+            <!-- ==================== PHI-CHAIN CARD ==================== -->
             <div class="core-project-card" style="grid-column: 1 / -1; max-width: 100%; margin-top: 1rem;">
                 <span class="project-tag">PAPER SUBMITTED · IEEE TAES 2026</span>
                 <i class="fas fa-link"></i>
@@ -1146,7 +1245,6 @@
                     </a>
                 </div>
             </div>
-            <!-- ==================== END PHI-CHAIN CARD ==================== -->
 
             <div class="core-project-card">
                 <span class="project-tag">PROPOSAL STAGE</span>
@@ -1385,7 +1483,6 @@
             { id:10, name:'Impending Failure',         severity:'danger', ata:'ATA 32-00' }
         ];
 
-        // Realistic weighting: mostly Normal, some warnings, rare danger
         const POOL = [0,0,0,0,0,0, 1,2,3,4, 5,7, 6,8];
 
         const ring = document.getElementById('severityRing');
@@ -1400,7 +1497,6 @@
             const src  = parseFloat(conf) >= 65 ? 'AI' : 'PHYSICS_FALLBACK';
             const run  = Math.floor(Math.random() * 999) + 1;
 
-            // Update severity ring colour
             ring.className = 'severity-ring';
             if (f.severity === 'warn')   ring.classList.add('warning');
             if (f.severity === 'danger') ring.classList.add('danger');
@@ -1424,6 +1520,38 @@
         tick();
         setInterval(tick, 1800);
 
+        // ── Ignition Card Telemetry Simulator ────────────────────────────
+        const IGNITION_STATES = [
+            { health: 'HEALTHY',   spark: 3.85, egt: 682, rul: 421, class: 'HEALTHY',  colour: 'ok',   fault: 'None' },
+            { health: 'MONITOR',   spark: 2.90, egt: 700, rul: 280, class: 'MONITOR',  colour: 'warn', fault: 'Weak Spark' },
+            { health: 'CAUTION',   spark: 1.50, egt: 750, rul: 142, class: 'CAUTION',  colour: 'warn', fault: 'Igniter Fouling' },
+            { health: 'CRITICAL',  spark: 0.80, egt: 820, rul: 45,  class: 'CRITICAL', colour: 'alert', fault: 'Electrode Erosion' },
+            { health: 'FAILURE',   spark: 0.00, egt: 400, rul: 5,   class: 'FAILURE',  colour: 'alert', fault: 'Flameout' }
+        ];
+        let ignIdx = 0;
+        const ignRing = document.getElementById('ignitionSeverityRing');
+        const ignTbox = document.getElementById('ignitionTelemetry');
+
+        function tickIgnition() {
+            ignIdx = (ignIdx + 1) % IGNITION_STATES.length;
+            const s = IGNITION_STATES[ignIdx];
+
+            ignRing.className = 'severity-ring';
+            if (s.colour === 'warn') ignRing.classList.add('warning');
+            if (s.colour === 'alert') ignRing.classList.add('danger');
+
+            const telemClass = s.colour === 'alert' ? 'telem-alert' : s.colour === 'warn' ? 'telem-warn' : 'telem-ok';
+
+            ignTbox.innerHTML =
+                `<span class="telem-info">[ENG]   </span> Spark: ${s.spark.toFixed(2)} J | EGT: ${s.egt}°F<br>` +
+                `<span class="${telemClass}">[RUL]   </span> ${s.rul} cycles · Health: ${s.class}<br>` +
+                `<span class="telem-alert">[FAULT] </span> Injecting: ${s.fault}<br>` +
+                `<span class="telem-warn">[AMM]   </span> ATA 74-00-00 · ${s.class === 'FAILURE' ? 'AOG NO‑GO' : 'Monitor'}`;
+        }
+
+        tickIgnition();
+        setInterval(tickIgnition, 2500);
+
         // Counter Animation
         function animateCounter(element, target, duration = 2000) {
             const start = 0;
@@ -1441,12 +1569,7 @@
             }, 16);
         }
 
-        // Intersection Observer for counter animation
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
-
+        const observerOptions = { threshold: 0.5, rootMargin: '0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1460,10 +1583,8 @@
             });
         }, observerOptions);
 
-        const flagshipCard = document.querySelector('.flagship-card');
-        if (flagshipCard) {
-            observer.observe(flagshipCard);
-        }
+        const flagshipCards = document.querySelectorAll('.flagship-card');
+        flagshipCards.forEach(card => observer.observe(card));
 
         // Mobile menu toggle
         function toggleMenu() {
