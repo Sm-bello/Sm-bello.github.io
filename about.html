@@ -3,1138 +3,755 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>About Mohammed Bello Sani | Aerospace Engineering Undergraduate</title>
     <meta name="description" content="Profile of Mohammed Bello Sani, Aerospace Engineering student at AFIT. Specializing in Digital Twin architecture, Telemetry, and Aviation Safety.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --bg:#f8fafc;--dark:#0f172a;--mid:#1e293b;--light:#64748b;
+            --blue:#0ea5e9;--orange:#f97316;--green:#10b981;--purple:#8b5cf6;
+            --border:#e2e8f0;--mono:'JetBrains Mono',monospace;
         }
-        
-        :root {
-            --bg-milky: #f8fafc;
-            --text-dark: #0f172a;
-            --text-light: #64748b;
-            --card-bg: #ffffff;
-            --footer-bg: #0b1120;
-            --neon-orange: #f97316;
-            --neon-blue: #0ea5e9;
-            --border-color: #e2e8f0;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-milky);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.6;overflow-x:hidden}
+        #particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none}
 
-        /* Animated Background */
-        #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
+        /* ── NAV ── */
+        nav{position:fixed;top:0;width:100%;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:rgba(248,250,252,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:all .3s}
+        nav.scrolled{padding:.7rem 2rem;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+        .logo{font-size:1.1rem;font-weight:800;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;transition:transform .3s}
+        .logo:hover{transform:translateX(5px)}
+        .logo i{color:var(--blue);animation:planeFly 3s ease-in-out infinite}
+        @keyframes planeFly{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-5deg)}}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--light);font-weight:600;font-size:.9rem;text-transform:uppercase;letter-spacing:1px;transition:all .3s;position:relative}
+        .nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--blue);transition:width .3s}
+        .nav-links a:hover::after{width:100%}.nav-links a:hover{color:var(--blue)}
+        .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px}
+        .menu-toggle span{width:25px;height:3px;background:var(--dark);border-radius:2px;transition:all .3s}
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(248, 250, 252, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
+        /* ── HERO ── */
+        .page-hero{padding:9rem 2rem 6rem;background:linear-gradient(135deg,#050e1a 0%,#0f172a 50%,#1a0d30 100%);color:white;text-align:center;clip-path:polygon(0 0,100% 0,100% 90%,0 100%);-webkit-clip-path:polygon(0 0,100% 0,100% 90%,0 100%);position:relative;overflow:hidden}
+        #heroCanvas{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.6}
+        .hero-content{position:relative;z-index:2}
+        .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(14,165,233,.15);color:#38bdf8;padding:6px 16px;border-radius:50px;font-size:.75rem;font-weight:700;font-family:var(--mono);letter-spacing:1px;border:1px solid rgba(14,165,233,.3);margin-bottom:1.5rem}
+        .hero-tag span{width:8px;height:8px;background:#10b981;border-radius:50%;animation:blink 1.4s infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+        .page-hero h1{font-size:3.2rem;margin-bottom:1rem;font-weight:800;letter-spacing:-1.5px;animation:fadeUp .8s ease-out both}
+        .page-hero h1 span{color:#38bdf8;text-shadow:0 0 30px rgba(14,165,233,.5)}
+        .hero-sub{font-size:1.1rem;color:#94a3b8;font-family:var(--mono);animation:fadeUp .8s .2s ease-out both}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-        nav.scrolled {
-            padding: 0.7rem 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
+        /* ── STATS BAR ── */
+        .stats-bar{background:linear-gradient(135deg,#0f172a,#1e293b);padding:2.5rem 2rem;position:relative;z-index:3;margin-top:-1px}
+        .stats-bar-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+        .stat-block{text-align:center;padding:1.5rem;border:1px solid rgba(14,165,233,.15);border-radius:12px;background:rgba(14,165,233,.05);transition:all .3s}
+        .stat-block:hover{border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);transform:translateY(-4px)}
+        .stat-num{font-size:2.5rem;font-weight:800;font-family:var(--mono);color:#38bdf8;text-shadow:0 0 20px rgba(14,165,233,.4);line-height:1}
+        .stat-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:#64748b;margin-top:.5rem;font-family:var(--mono)}
+        .stat-icon{font-size:1.4rem;margin-bottom:.5rem;display:block}
 
-        .logo {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-            transition: transform 0.3s ease;
-        }
+        /* ── ABOUT GRID ── */
+        .about-content{max-width:1200px;margin:0 auto;padding:4rem 2rem;position:relative;z-index:2}
+        .about-grid{display:grid;grid-template-columns:300px 1fr;gap:3rem}
 
-        .logo:hover { transform: translateX(5px); }
+        /* ── SIDEBAR ── */
+        .profile-sidebar{display:flex;flex-direction:column;gap:0}
+        .profile-card{background:#0f172a;border-radius:16px;padding:2.5rem 2rem;text-align:center;border:1px solid rgba(14,165,233,.2);position:relative;overflow:hidden}
+        .profile-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--orange),var(--purple))}
+        .profile-image{width:160px;height:160px;border-radius:50%;margin:0 auto 1.5rem;position:relative;overflow:hidden;border:3px solid rgba(14,165,233,.4);box-shadow:0 0 0 6px rgba(14,165,233,.1),0 0 40px rgba(14,165,233,.2)}
+        .profile-image img{width:100%;height:100%;object-fit:cover;position:relative;z-index:2}
+        .profile-image .fallback-icon{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:4rem;color:#38bdf8;background:linear-gradient(135deg,#0f172a,#1e293b)}
+        .orbit-ring{position:absolute;top:50%;left:50%;width:180px;height:180px;margin:-90px 0 0 -90px;border:1px dashed rgba(14,165,233,.3);border-radius:50%;animation:spin 8s linear infinite}
+        .orbit-dot{position:absolute;top:-4px;left:50%;width:8px;height:8px;background:#0ea5e9;border-radius:50%;margin-left:-4px;box-shadow:0 0 8px var(--blue)}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .profile-name{color:white;font-size:1.3rem;font-weight:700;margin-bottom:.3rem}
+        .profile-role{color:#38bdf8;font-size:.8rem;font-family:var(--mono);margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.5px}
+        .profile-meta{color:#64748b;font-size:.82rem;margin:.25rem 0}
+        .profile-meta i{color:var(--orange);margin-right:.4rem}
+        .profile-links{display:flex;justify-content:center;gap:.8rem;margin-top:1.5rem}
+        .profile-links a{width:42px;height:42px;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#94a3b8;text-decoration:none;transition:all .3s;border:1px solid rgba(255,255,255,.1)}
+        .profile-links a:hover{background:var(--blue);color:white;border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 20px rgba(14,165,233,.3)}
 
-        .logo i { 
-            color: var(--neon-blue);
-            animation: planeFly 3s ease-in-out infinite;
-        }
+        /* System status panel */
+        .sys-panel{background:#0f172a;border:1px solid rgba(14,165,233,.2);border-radius:12px;padding:1.2rem;margin-top:1rem;font-family:var(--mono)}
+        .sys-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.68rem}
+        .sys-row:last-child{border-bottom:none}
+        .sys-key{color:#475569}
+        .sys-val{color:#10b981;font-weight:700}
+        .sys-val.orange{color:var(--orange)}.sys-val.blue{color:#38bdf8}.sys-val.purple{color:#a78bfa}
+        .sys-header{color:#38bdf8;font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+        .sys-dot{width:6px;height:6px;background:#10b981;border-radius:50%;animation:blink 1.4s infinite;box-shadow:0 0 6px #10b981}
 
-        @keyframes planeFly {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(-5deg); }
-        }
+        /* ── BIO CONTENT ── */
+        .bio-content{}
+        .bio-content h3{font-size:1.5rem;margin-bottom:1rem;color:var(--dark);display:flex;align-items:center;gap:10px;font-weight:700}
+        .bio-content h3::before{content:'';display:block;width:4px;height:22px;background:linear-gradient(var(--blue),var(--orange));border-radius:2px;flex-shrink:0}
+        .bio-content p{color:var(--light);margin-bottom:1.4rem;line-height:1.8}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+        .terminal-box{background:#0f172a;border-radius:12px;padding:1.5rem;margin:2rem 0;border:1px solid rgba(14,165,233,.3);position:relative;overflow:hidden}
+        .terminal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--orange))}
+        .term-bar{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;padding-bottom:.8rem;border-bottom:1px solid rgba(255,255,255,.08)}
+        .term-dot{width:12px;height:12px;border-radius:50%}
+        .term-title{color:#475569;font-size:.72rem;font-family:var(--mono);margin-left:.5rem;text-transform:uppercase;letter-spacing:1px}
+        .term-body{font-family:var(--mono);font-size:.82rem;color:#94a3b8;line-height:2}
+        .term-body .t-prompt{color:#38bdf8}.term-body .t-ok{color:#10b981}.term-body .t-orange{color:var(--orange)}.term-body .t-purple{color:#a78bfa}
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+        .mission-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);padding:6px 14px;border-radius:6px;font-size:.75rem;font-family:var(--mono);color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--neon-blue);
-            transition: width 0.3s ease;
-        }
+        /* ── SKILLS SECTION ── */
+        .skills-section{background:linear-gradient(180deg,#f8fafc 0%,#f1f5f9 100%);padding:5rem 2rem;position:relative;z-index:2}
+        .skills-inner{max-width:1200px;margin:0 auto}
+        .section-title{font-size:1.8rem;text-align:center;margin-bottom:3.5rem;color:var(--dark);font-weight:800;text-transform:uppercase;letter-spacing:1px;position:relative}
+        .section-title::after{content:'';position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);width:80px;height:3px;background:linear-gradient(90deg,var(--blue),var(--orange));border-radius:2px}
 
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--neon-blue); }
+        .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem}
+        .skill-card{background:#0f172a;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.06);transition:all .4s}
+        .skill-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+        .skill-canvas-wrap{height:160px;position:relative;overflow:hidden;background:#000}
+        .skill-card-body{padding:1.5rem}
+        .skill-card-title{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem;font-family:var(--mono);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+        .skill-card-title i{font-size:.9rem}
+        .skill-items{display:flex;flex-direction:column;gap:.5rem}
+        .sk-row{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+        .sk-row:last-child{border-bottom:none}
+        .sk-name{color:#94a3b8;font-size:.82rem}
+        .sk-badge{font-family:var(--mono);font-size:.6rem;padding:3px 8px;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+        .badge-deployed{background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.3)}
+        .badge-advanced{background:rgba(14,165,233,.15);color:#38bdf8;border:1px solid rgba(14,165,233,.3)}
+        .badge-core{background:rgba(249,115,22,.15);color:var(--orange);border:1px solid rgba(249,115,22,.3)}
+        .badge-research{background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.3)}
+        .badge-field{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3)}
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
+        /* ── TIMELINE ── */
+        .timeline-section{max-width:1100px;margin:0 auto;padding:5rem 2rem;position:relative;z-index:2}
+        .timeline{position:relative;padding:1rem 0}
+        .timeline::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--blue),var(--orange),var(--purple))}
+        .tl-item{position:relative;padding-left:76px;margin-bottom:2.5rem}
+        .tl-icon{position:absolute;left:12px;width:34px;height:34px;background:linear-gradient(135deg,var(--blue),var(--orange));border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:.85rem;box-shadow:0 0 0 5px var(--bg),0 0 20px rgba(14,165,233,.4);z-index:2;transition:all .4s}
+        .tl-item:hover .tl-icon{transform:scale(1.2);box-shadow:0 0 0 5px var(--bg),0 0 30px rgba(14,165,233,.6)}
+        .tl-card{background:white;border-radius:12px;padding:1.8rem;border:1px solid var(--border);border-left:3px solid var(--blue);box-shadow:0 4px 15px rgba(0,0,0,.06);transition:all .4s;position:relative;overflow:hidden}
+        .tl-card::after{content:'';position:absolute;top:0;right:0;width:0;height:100%;background:linear-gradient(270deg,rgba(14,165,233,.04),transparent);transition:width .4s}
+        .tl-item:hover .tl-card{transform:translateX(8px);border-left-width:4px;box-shadow:0 8px 30px rgba(14,165,233,.12)}
+        .tl-item:hover .tl-card::after{width:100%}
+        .tl-card h4{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;color:var(--dark)}
+        .tl-inst{color:var(--blue);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.3rem}
+        .tl-date{display:inline-block;background:#f1f5f9;color:var(--light);font-size:.78rem;font-family:var(--mono);padding:3px 10px;border-radius:4px;margin-bottom:.8rem;font-weight:600}
+        .tl-card p{color:var(--light);font-size:.9rem;line-height:1.7}
 
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-dark);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
+        /* ── FOOTER ── */
+        footer{background:#0b1120;padding:3rem 2rem;color:white;text-align:center;position:relative;z-index:2}
+        footer p{font-size:.85rem;color:#64748b;font-family:var(--mono)}
+        .footer-links{margin-top:1rem}
+        .footer-links a{color:#475569;margin:0 12px;text-decoration:none;transition:color .3s;font-size:.9rem}
+        .footer-links a:hover{color:var(--orange)}
 
-        /* Hero Section */
-        .page-hero {
-            padding: 9rem 2rem 5rem;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.1) 50%, transparent 100%);
-            animation: scanLineHero 4s ease-in-out infinite;
-        }
-
-        @keyframes scanLineHero {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
-        }
-        
-        .page-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            animation: fadeInUp 0.8s ease-out;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .page-hero p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            max-width: 700px;
-            margin: 0 auto;
-            border-left: 3px solid var(--neon-blue);
-            padding-left: 1rem;
-            text-align: left;
-            display: inline-block;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-            position: relative;
-            z-index: 2;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Main Content Grid */
-        .about-content {
-            max-width: 1200px;
-            margin: -4rem auto 4rem;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .about-grid {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid var(--neon-blue);
-            animation: slideUp 0.8s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .profile-sidebar {
-            text-align: center;
-        }
-        
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #cbd5e1 0%, #64748b 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            border: 4px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            overflow: hidden;
-            position: relative;
-            transition: transform 0.4s ease;
-        }
-
-        .profile-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(14, 165, 233, 0.3),
-                transparent
-            );
-            animation: rotateGlow 3s linear infinite;
-        }
-
-        @keyframes rotateGlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .profile-image:hover {
-            transform: scale(1.05);
-        }
-        
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .profile-info h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-        
-        .profile-info p {
-            color: var(--text-light);
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-        
-        .profile-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .profile-links a {
-            width: 45px;
-            height: 45px;
-            background: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: all 0.4s ease;
-            border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-links a::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: var(--neon-blue);
-            transform: translate(-50%, -50%);
-            transition: width 0.4s, height 0.4s;
-            z-index: 0;
-        }
-
-        .profile-links a:hover::before {
-            width: 200px;
-            height: 200px;
-        }
-
-        .profile-links a i {
-            position: relative;
-            z-index: 1;
-            transition: color 0.3s ease;
-        }
-        
-        .profile-links a:hover {
-            border-color: var(--neon-blue);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
-        }
-
-        .profile-links a:hover i {
-            color: white;
-        }
-
-        /* Bio Content */
-        .bio-content h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            opacity: 0;
-            animation: fadeInLeft 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .bio-content h3:nth-of-type(1) { animation-delay: 0.3s; }
-        .bio-content h3:nth-of-type(2) { animation-delay: 0.5s; }
-        .bio-content h3:nth-of-type(3) { animation-delay: 0.7s; }
-        
-        .bio-content h3::before {
-            content: '';
-            display: block;
-            width: 5px;
-            height: 24px;
-            background: var(--neon-blue);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .bio-content p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            text-align: justify;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(249, 115, 22, 0.05) 100%);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--neon-orange);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 8px 8px 0;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .highlight-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--neon-orange), var(--neon-blue));
-            animation: slideDown 2s ease-in-out infinite;
-        }
-
-        @keyframes slideDown {
-            0%, 100% { transform: translateY(-100%); }
-            50% { transform: translateY(100%); }
-        }
-
-        .highlight-box:hover {
-            transform: translateX(5px);
-        }
-        
-        .highlight-box h4 {
-            color: var(--neon-orange);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-            font-weight: 800;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-orange));
-            animation: expandWidth 2s ease-in-out infinite;
-        }
-
-        @keyframes expandWidth {
-            0%, 100% { width: 80px; }
-            50% { width: 120px; }
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            border-top: 3px solid var(--text-light);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.05), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .skill-category:hover::before {
-            left: 100%;
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-8px);
-            border-top-color: var(--neon-blue);
-            box-shadow: 0 15px 40px rgba(14, 165, 233, 0.15);
-        }
-        
-        .skill-category h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 700;
-        }
-
-        .skill-category h4 i {
-            color: var(--neon-blue);
-            transition: transform 0.3s ease;
-        }
-
-        .skill-category:hover h4 i {
-            transform: scale(1.2) rotate(5deg);
-        }
-        
-        .skill-list { list-style: none; }
-        
-        .skill-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px dashed var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover {
-            padding-left: 10px;
-            border-bottom-color: var(--neon-blue);
-        }
-        
-        .skill-item:last-child { border-bottom: none; }
-        
-        .skill-name { 
-            font-weight: 600; 
-            font-size: 0.9rem; 
-            color: var(--text-dark);
-            transition: color 0.3s ease;
-        }
-
-        .skill-item:hover .skill-name {
-            color: var(--neon-blue);
-        }
-        
-        .skill-level {
-            font-size: 0.75rem;
-            background: #f1f5f9;
-            padding: 4px 10px;
-            border-radius: 12px;
-            color: var(--text-light);
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover .skill-level {
-            background: var(--neon-blue);
-            color: white;
-        }
-
-        /* Timeline Section */
-        .timeline-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--neon-blue), var(--neon-orange));
-            animation: pulseTimeline 3s ease-in-out infinite;
-        }
-
-        @keyframes pulseTimeline {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; box-shadow: 0 0 10px var(--neon-blue); }
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-left: 80px;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeInRight 0.8s ease-out forwards;
-        }
-
-        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .timeline-icon {
-            position: absolute;
-            left: 14px;
-            width: 34px;
-            height: 34px;
-            background: linear-gradient(135deg, var(--neon-blue), var(--neon-orange));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            box-shadow: 0 0 0 5px white, 0 0 20px rgba(14, 165, 233, 0.4);
-            z-index: 2;
-            transition: all 0.4s ease;
-            animation: iconPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes iconPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .timeline-item:hover .timeline-icon {
-            transform: scale(1.2) rotate(360deg);
-            box-shadow: 0 0 0 5px white, 0 0 30px rgba(14, 165, 233, 0.6);
-        }
-        
-        .timeline-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border-color);
-            border-left: 3px solid var(--neon-blue);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.05));
-            transition: width 0.4s ease;
-        }
-
-        .timeline-item:hover .timeline-content::before {
-            width: 100%;
-        }
-
-        .timeline-item:hover .timeline-content {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.15);
-            border-left-width: 5px;
-        }
-        
-        .timeline-content h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-        
-        .timeline-content .institution {
-            color: var(--neon-blue);
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-        }
-        
-        .timeline-content .date {
-            color: var(--text-light);
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            font-family: monospace;
-            background: #f1f5f9;
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--footer-bg);
-            padding: 3rem 2rem;
-            color: white;
-            text-align: center;
-            margin-top: 6rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            color: #94a3b8;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 900px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .profile-sidebar {
-                border-bottom: 1px solid var(--border-color);
-                padding-bottom: 2rem;
-                margin-bottom: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav { padding: 1rem; }
-            .logo { font-size: 0.9rem; }
-            
-            .nav-links { display: none; }
-            .menu-toggle { display: flex; }
-            
-            .page-hero { 
-                padding: 6rem 1rem 4rem; 
-                clip-path: none;
-            }
-            .page-hero h1 { font-size: 2.2rem; }
-            .page-hero p { font-size: 1rem; }
-
-            .about-grid { padding: 2rem 1.5rem; }
-            
-            .timeline::before { left: 15px; }
-            .timeline-icon { left: 0; width: 30px; height: 30px; font-size: 0.8rem; }
-            .timeline-item { padding-left: 50px; }
-            .timeline-content { padding: 1.5rem; }
-
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%; 
-                left: 0; 
-                width: 100%;
-                background: white; 
-                padding: 2rem;
-                border-bottom: 1px solid #e2e8f0;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                text-align: center;
-            }
-        }
-        /* =========================================
-           LEGACY PATCH (iPhone 6 / 7 / 8 / SE Support)
-           ========================================= */
-        
-        /* 1. Force Hardware Acceleration for Animations on iOS */
-        * {
-            -webkit-transform: translate3d(0,0,0); /* Triggers GPU */
-        }
-
-        /* 2. Fix Missing Blur Effects */
-        nav {
-            -webkit-backdrop-filter: blur(10px); /* Required for Safari */
-        }
-
-        /* 3. Fix "Clip-Path" (The Slanted Hero Section) */
-        .page-hero {
-            -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        }
-
-        /* 4. Fix "Flex Gap" (The biggest layout breaker on old iPhones) 
-           iPhone 6 does not understand 'gap', so everything sticks together. 
-           We use margins as a fallback. */
-        @supports not (gap: 10px) {
-            .nav-links > li { margin-left: 2rem; }
-            .logo > i { margin-right: 0.5rem; }
-            .section-header > i { margin-right: 1rem; }
-            .tech-stack > span { margin: 0 10px 10px 0; }
-            .interactive-grid, .core-projects-grid, .archives-grid {
-                display: block; /* Fallback from grid to stacked block */
-            }
-            .interactive-card, .core-project-card, .archive-card {
-                margin-bottom: 2rem;
-            }
-        }
-
-        /* 5. Force Animations for Older WebKit Browsers */
-        .logo i { -webkit-animation: planeFly 3s ease-in-out infinite; }
-        .page-hero::before { -webkit-animation: scanLineHero 4s ease-in-out infinite; }
-        .page-hero h1 { -webkit-animation: fadeInUp 0.8s ease-out; }
-        .flagship-card { -webkit-animation: slideUp 0.8s ease-out; }
-        .status-dot { -webkit-animation: pulse 2s infinite; }
-        .strut-3d { -webkit-animation: compress 4s infinite alternate ease-in-out; }
-
+        /* ── RESPONSIVE ── */
+        @media(max-width:900px){.about-grid{grid-template-columns:1fr}.stats-bar-inner{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:768px){
+            nav{padding:1rem}.logo{font-size:.9rem}.nav-links{display:none}.menu-toggle{display:flex}
+            .page-hero{padding:6rem 1rem 4rem;clip-path:none;-webkit-clip-path:none}
+            .page-hero h1{font-size:2.2rem}
+            .stats-bar-inner{grid-template-columns:repeat(2,1fr)}
+            .about-content{padding:2rem 1rem}
+            .timeline::before{left:14px}.tl-icon{left:0;width:28px;height:28px;font-size:.75rem}.tl-item{padding-left:48px}
+            .nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:white;padding:2rem;border-bottom:1px solid var(--border);box-shadow:0 10px 20px rgba(0,0,0,.1);text-align:center;gap:1rem}
+        }
+        @media(max-width:480px){.stats-bar-inner{grid-template-columns:1fr 1fr}}
     </style>
 </head>
 <body>
-    <canvas id="particles-canvas"></canvas>
+<canvas id="particles-canvas"></canvas>
 
-    <nav id="navbar">
-        <a href="/" class="logo">
-            <i class="fas fa-fighter-jet"></i>
-            <span>Mohammed Bello Sani</span>
-        </a>
-        
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+<nav id="navbar">
+    <a href="/" class="logo"><i class="fas fa-microchip"></i><span>Mohammed Bello Sani</span></a>
+    <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html" style="color:var(--blue)">About</a></li>
+        <li><a href="/projects.html">Logbook</a></li>
+        <li><a href="/contact.html">Comms</a></li>
+    </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="page-hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-content">
+        <div class="hero-tag"><span></span>SYSTEM ONLINE · AFIT KADUNA · 500L</div>
+        <h1>Profile & <span>Objective</span></h1>
+        <p class="hero-sub">> Aerospace Engineering Undergraduate & Digital Twin Researcher</p>
+    </div>
+</section>
+
+<!-- ══ STATS BAR ══ -->
+<div class="stats-bar">
+    <div class="stats-bar-inner">
+        <div class="stat-block">
+            <span class="stat-icon">📄</span>
+            <div class="stat-num"><span class="counter" data-target="3">0</span></div>
+            <div class="stat-label">Papers Submitted</div>
+        </div>
+        <div class="stat-block">
+            <span class="stat-icon">🗄️</span>
+            <div class="stat-num"><span class="counter" data-target="3">0</span></div>
+            <div class="stat-label">Kaggle Datasets</div>
+        </div>
+        <div class="stat-block">
+            <span class="stat-icon">⚙️</span>
+            <div class="stat-num"><span class="counter" data-target="8">0</span>+</div>
+            <div class="stat-label">Active Projects</div>
+        </div>
+        <div class="stat-block">
+            <span class="stat-icon">🧠</span>
+            <div class="stat-num"><span class="counter" data-target="100">0</span>k+</div>
+            <div class="stat-label">Training Samples</div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ ABOUT GRID ══ -->
+<div class="about-content">
+    <div class="about-grid">
+        <!-- Sidebar -->
+        <div class="profile-sidebar">
+            <div class="profile-card">
+                <div class="profile-image" style="position:relative;width:160px;height:160px;margin:0 auto 1.5rem">
+                    <div class="orbit-ring"><div class="orbit-dot"></div></div>
+                    <img src="profile.jpg" alt="Mohammed Bello Sani" style="width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="fallback-icon" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:4rem;color:#38bdf8;background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:50%;position:absolute;top:0;left:0;z-index:2"><i class="fas fa-user-astronaut"></i></div>
+                </div>
+                <div class="profile-name">Mohammed Bello Sani</div>
+                <div class="profile-role">Final Year · Aerospace Eng.</div>
+                <div class="profile-meta"><i class="fas fa-map-marker-alt"></i> FCT Abuja, Nigeria</div>
+                <div class="profile-meta"><i class="fas fa-university"></i> AFIT Kaduna</div>
+                <div class="profile-links">
+                    <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- System Status Panel -->
+            <div class="sys-panel">
+                <div class="sys-header"><div class="sys-dot"></div>SYSTEM STATUS</div>
+                <div class="sys-row"><span class="sys-key">Status</span><span class="sys-val">ONLINE · 500L</span></div>
+                <div class="sys-row"><span class="sys-key">Research</span><span class="sys-val blue">3 PAPERS LIVE</span></div>
+                <div class="sys-row"><span class="sys-key">CJA</span><span class="sys-val orange">UNDER REVIEW</span></div>
+                <div class="sys-row"><span class="sys-key">IEEE TAES</span><span class="sys-val orange">UNDER REVIEW</span></div>
+                <div class="sys-row"><span class="sys-key">RESS 2026</span><span class="sys-val orange">UNDER REVIEW</span></div>
+                <div class="sys-row"><span class="sys-key">Kaggle Datasets</span><span class="sys-val">3 PUBLIC</span></div>
+                <div class="sys-row"><span class="sys-key">Collab</span><span class="sys-val purple">CRANFIELD UNIV.</span></div>
+                <div class="sys-row"><span class="sys-key">Stack</span><span class="sys-val blue">i7-12700H LOCAL</span></div>
+                <div class="sys-row"><span class="sys-key">Grad.</span><span class="sys-val">2026 EXPECTED</span></div>
+            </div>
         </div>
 
-        <ul class="nav-links" id="navLinks">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/projects.html">Logbook</a></li>
-            <li><a href="/contact.html">Comms</a></li>
-        </ul>
-    </nav>
+        <!-- Bio Content -->
+        <div class="bio-content">
+            <h3>The Intersection of Flight &amp; Data</h3>
+            <p>I am a final-year Aerospace Engineering student (500L) at the Air Force Institute of Technology (AFIT), Kaduna. Unlike the traditional path of pure mechanical analysis, my focus has shifted toward the digital frontier of aviation: <strong>Data-Driven Maintenance and Digital Twins.</strong></p>
+            <p>While my academic foundation covers aerodynamics, flight mechanics, and aircraft structures, my true expertise is being built in the "lab" and the hangar. I am actively developing systems that connect physical aircraft strut health to real-time dashboards (InfluxDB/Grafana), aiming to solve the industry's need for predictive rather than reactive maintenance.</p>
 
-    <section class="page-hero">
-        <h1>Profile & Objective</h1>
-        <p>Aerospace Engineering Undergraduate & Digital Twin Researcher</p>
-    </section>
-
-    <div class="about-content">
-        <div class="about-grid">
-            <div class="profile-sidebar">
-                <div class="profile-image">
-                    <img src="profile.jpg" alt="Mohammed Bello Sani" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <i class="fas fa-user-astronaut" style="display:none; font-size: 5rem; color: white;"></i>
+            <div class="terminal-box">
+                <div class="term-bar">
+                    <div class="term-dot" style="background:#ef4444"></div>
+                    <div class="term-dot" style="background:#f59e0b"></div>
+                    <div class="term-dot" style="background:#10b981"></div>
+                    <span class="term-title">MISSION.SH — CURRENT DIRECTIVE</span>
                 </div>
-                <div class="profile-info">
-                    <h2>Mohammed Bello Sani</h2>
-                    <p>500L Aerospace Student</p>
-                    <p><i class="fas fa-map-marker-alt"></i> FCT Abuja, Nigeria</p>
-                    <p><i class="fas fa-university"></i> AFIT Kaduna</p>
-                    <div class="profile-links">
-                        <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i></a>
+                <div class="term-body">
+                    <span class="t-prompt">$ </span><span class="t-ok">status</span> --research<br>
+                    <span style="color:#475569">▸ </span>AeroTwin B787 LG Prognostics → <span class="t-orange">CJA UNDER REVIEW</span><br>
+                    <span style="color:#475569">▸ </span>PHI-CHAIN Avionics Security → <span class="t-orange">IEEE TAES UNDER REVIEW</span><br>
+                    <span style="color:#475569">▸ </span>B787 Ignition Digital Twin → <span class="t-orange">RESS UNDER REVIEW</span><br>
+                    <span class="t-prompt">$ </span><span class="t-ok">mission</span> --2026<br>
+                    <span style="color:#475569">▸ </span>Graduate with <span class="t-purple">deployed, working systems</span><br>
+                    <span style="color:#475569">▸ </span>Demonstrate how IoT modernises Nigerian aviation safety<span id="termCursor" style="color:#38bdf8">▌</span>
+                </div>
+            </div>
+
+            <h3>Professional Evolution</h3>
+            <p>My journey hasn't been limited to the classroom. I have actively sought out the grit and oil of real-world aviation. From the documentation rigors of the NCAA to the hangar floors of Executive Airlift, I have seen the gap between theory and practice.</p>
+            <p>I realized that while mechanical repair keeps planes flying today, <strong>data</strong> will keep them flying safer tomorrow. This realization drives my current work in Python, PyTorch, time-series forecasting, and physics-informed neural architectures — published at international journal level.</p>
+
+            <h3>Vision &amp; Goals</h3>
+            <p>Post-graduation, I intend to bridge the gap between MRO operations and Digital Transformation. I am aiming for roles that allow me to apply computational intelligence to airworthiness challenges, specifically in reducing AOG (Aircraft on Ground) time through better health monitoring — and continuing active research collaboration with institutions like Cranfield University, UK.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ══ TECHNICAL LOADOUT ══ -->
+<section class="skills-section">
+    <div class="skills-inner">
+        <h2 class="section-title">Technical Loadout</h2>
+        <div class="skills-grid">
+
+            <!-- AI & Machine Learning -->
+            <div class="skill-card" style="border-color:rgba(14,165,233,.25)">
+                <div class="skill-canvas-wrap"><canvas id="cvAI" width="400" height="160" style="width:100%;height:100%;display:block"></canvas></div>
+                <div class="skill-card-body">
+                    <div class="skill-card-title" style="color:#38bdf8"><i class="fas fa-brain" style="color:#38bdf8"></i> AI & Machine Learning</div>
+                    <div class="skill-items">
+                        <div class="sk-row"><span class="sk-name">PyTorch / CNN-BiLSTM</span><span class="sk-badge badge-deployed">Deployed</span></div>
+                        <div class="sk-row"><span class="sk-name">Transformer-LSTM Hybrid</span><span class="sk-badge badge-deployed">Research</span></div>
+                        <div class="sk-row"><span class="sk-name">LightGBM / XGBoost</span><span class="sk-badge badge-advanced">Advanced</span></div>
+                        <div class="sk-row"><span class="sk-name">SHAP Explainability (XAI)</span><span class="sk-badge badge-advanced">Applied</span></div>
+                        <div class="sk-row"><span class="sk-name">Ollama 3.2 (Offline LLM)</span><span class="sk-badge badge-deployed">Integrated</span></div>
+                        <div class="sk-row"><span class="sk-name">MLflow Versioning</span><span class="sk-badge badge-advanced">Operational</span></div>
                     </div>
                 </div>
             </div>
-            
-            <div class="bio-content">
-                <h3>The Intersection of Flight & Data</h3>
-                <p>
-                    I am a final-year Aerospace Engineering student (500L) at the Air Force Institute of Technology (AFIT), Kaduna. Unlike the traditional path of pure mechanical analysis, my focus has shifted toward the digital frontier of aviation: <strong>Data-Driven Maintenance and Digital Twins.</strong>
-                </p>
-                
-                <p>
-                    While my academic foundation covers aerodynamics, flight mechanics, and aircraft structures, my true expertise is being built in the "lab" and the hangar. I am actively developing systems that connect physical aircraft strut health to real-time dashboards (InfluxDB/Grafana), aiming to solve the industry's need for predictive rather than reactive maintenance.
-                </p>
-                
-                <div class="highlight-box">
-                    <h4><i class="fas fa-terminal"></i> Current Mission</h4>
-                    <p>
-                        I am currently working on integrating sensor telemetry with high-fidelity simulations. My goal is to graduate in 2026 not just with a degree, but with a portfolio of deployed, working systems that demonstrate how IoT can modernize Nigerian aviation safety.
-                    </p>
+
+            <!-- Telemetry & DevOps -->
+            <div class="skill-card" style="border-color:rgba(16,185,129,.25)">
+                <div class="skill-canvas-wrap"><canvas id="cvTelemetry" width="400" height="160" style="width:100%;height:100%;display:block"></canvas></div>
+                <div class="skill-card-body">
+                    <div class="skill-card-title" style="color:#10b981"><i class="fas fa-network-wired" style="color:#10b981"></i> Telemetry & DevOps Stack</div>
+                    <div class="skill-items">
+                        <div class="sk-row"><span class="sk-name">InfluxDB 3 Core (TSDB)</span><span class="sk-badge badge-deployed">Deployed</span></div>
+                        <div class="sk-row"><span class="sk-name">Telegraf · Grafana</span><span class="sk-badge badge-deployed">Live</span></div>
+                        <div class="sk-row"><span class="sk-name">PostgreSQL · FastAPI</span><span class="sk-badge badge-advanced">Advanced</span></div>
+                        <div class="sk-row"><span class="sk-name">FlightGear UDP Bridge</span><span class="sk-badge badge-deployed">Deployed</span></div>
+                        <div class="sk-row"><span class="sk-name">Node-RED · MQTT · IoT</span><span class="sk-badge badge-advanced">Applied</span></div>
+                        <div class="sk-row"><span class="sk-name">Hyperledger Fabric</span><span class="sk-badge badge-research">Research</span></div>
+                    </div>
                 </div>
-                
-                <h3>Professional Evolution</h3>
-                <p>
-                   My journey hasn't been limited to the classroom. I have actively sought out the grit and oil of real-world aviation. From the documentation rigors of the NCAA to the hangar floors of Executive Airlift, I have seen the gap between theory and practice.
-                </p>
-                
-                <p>
-                    I realized that while mechanical repair keeps planes flying today, <strong>data</strong> will keep them flying safer tomorrow. This realization drives my current self-study in Python, Database Management, and Finite Element Analysis.
-                </p>
-                
-                <h3>Vision & Goals</h3>
-                <p>
-                    Post-graduation, I intend to bridge the gap between MRO operations and Digital Transformation. I am aiming for roles that allow me to apply computational intelligence to airworthiness challenges, specifically in reducing AOG (Aircraft on Ground) time through better health monitoring.
-                </p>
+            </div>
+
+            <!-- Simulation & Code -->
+            <div class="skill-card" style="border-color:rgba(249,115,22,.25)">
+                <div class="skill-canvas-wrap"><canvas id="cvSim" width="400" height="160" style="width:100%;height:100%;display:block"></canvas></div>
+                <div class="skill-card-body">
+                    <div class="skill-card-title" style="color:var(--orange)"><i class="fas fa-code" style="color:var(--orange)"></i> Simulation & Code</div>
+                    <div class="skill-items">
+                        <div class="sk-row"><span class="sk-name">Python (Data/ML)</span><span class="sk-badge badge-core">Core Tool</span></div>
+                        <div class="sk-row"><span class="sk-name">MATLAB ODE / Simulink</span><span class="sk-badge badge-deployed">Applied</span></div>
+                        <div class="sk-row"><span class="sk-name">ANSYS Mechanical / FEA</span><span class="sk-badge badge-advanced">Academic</span></div>
+                        <div class="sk-row"><span class="sk-name">Simscape Multibody</span><span class="sk-badge badge-deployed">Applied</span></div>
+                        <div class="sk-row"><span class="sk-name">Abaqus (Structural)</span><span class="sk-badge badge-advanced">Structural</span></div>
+                        <div class="sk-row"><span class="sk-name">Python FEniCS / PINN</span><span class="sk-badge badge-research">Research</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aerospace Core -->
+            <div class="skill-card" style="border-color:rgba(139,92,246,.25)">
+                <div class="skill-canvas-wrap"><canvas id="cvAero" width="400" height="160" style="width:100%;height:100%;display:block"></canvas></div>
+                <div class="skill-card-body">
+                    <div class="skill-card-title" style="color:#a78bfa"><i class="fas fa-plane" style="color:#a78bfa"></i> Aerospace & Regulatory</div>
+                    <div class="skill-items">
+                        <div class="sk-row"><span class="sk-name">Aircraft Structures & ATA</span><span class="sk-badge badge-core">Academic</span></div>
+                        <div class="sk-row"><span class="sk-name">CS-23 / CS-25 Compliance</span><span class="sk-badge badge-deployed">Applied</span></div>
+                        <div class="sk-row"><span class="sk-name">Airworthiness Standards</span><span class="sk-badge badge-field">NCAA Trained</span></div>
+                        <div class="sk-row"><span class="sk-name">MRO Operations</span><span class="sk-badge badge-field">Field Exp.</span></div>
+                        <div class="sk-row"><span class="sk-name">Digital Twin / PHM</span><span class="sk-badge badge-research">Published</span></div>
+                        <div class="sk-row"><span class="sk-name">EASA AMC / FAA AC</span><span class="sk-badge badge-advanced">Applied</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section class="timeline-section">
+    <h2 class="section-title">Field Experience &amp; Education</h2>
+    <div class="timeline">
+        <div class="tl-item">
+            <div class="tl-icon"><i class="fas fa-file-signature"></i></div>
+            <div class="tl-card">
+                <h4>SIWES II Intern — Airworthiness &amp; MRO</h4>
+                <p class="tl-inst">NCAA Headquarters &amp; AeroTak Limited (Abuja)</p>
+                <span class="tl-date">400 Level · 6 Months</span>
+                <p>A dual-exposure internship. At the <strong>NCAA (Dept. of Airworthiness Standards)</strong>, I assisted in the rigorous audit of technical logs, certification filing, and understanding the regulatory backbone of Nigerian aviation. At <strong>AeroTak</strong>, I moved to the hangar floor, assisting engineers in routine checks and bridging the gap between the paperwork I saw at NCAA and the physical reality of the aircraft.</p>
+            </div>
+        </div>
+        <div class="tl-item">
+            <div class="tl-icon"><i class="fas fa-plane-departure"></i></div>
+            <div class="tl-card">
+                <h4>SIWES I Intern — Hangar Operations</h4>
+                <p class="tl-inst">Executive Airlift Group, Nnamdi Azikiwe Int'l Airport</p>
+                <span class="tl-date">300 Level · 3 Months</span>
+                <p>Direct immersion in VIP aircraft maintenance. I shadowed licensed engineers during Line Maintenance operations, assisted in wheel assembly overhauls, and learned the critical discipline required on a live flight line. This was my first "hands-dirty" experience with pressurized hydraulic systems and avionics bays.</p>
+            </div>
+        </div>
+        <div class="tl-item">
+            <div class="tl-icon"><i class="fas fa-cogs"></i></div>
+            <div class="tl-card">
+                <h4>Student Workshop Experience Program (SWEP)</h4>
+                <p class="tl-inst">AFIT Kaduna</p>
+                <span class="tl-date">200 Level · 3 Months</span>
+                <p>Foundational mechanical training. Focused on machining, welding, and material fabrication techniques within the university workshops. Gained appreciation for the manufacturing tolerances required in aerospace components.</p>
+            </div>
+        </div>
+        <div class="tl-item">
+            <div class="tl-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="tl-card">
+                <h4>B.Eng Aerospace Engineering</h4>
+                <p class="tl-inst">Air Force Institute of Technology (AFIT), Kaduna</p>
+                <span class="tl-date">2021 – 2026 (Expected)</span>
+                <p>Currently in 500 Level (Final Year). Coursework covers Advanced Aerodynamics, Flight Dynamics, and Control Systems. My final year project focuses on Digital Twin applications for Landing Gear Systems — with three journal submissions already under review at CJA, IEEE TAES, and RESS.</p>
             </div>
         </div>
     </div>
+</section>
 
-    <section class="skills-section">
-        <h2 class="section-title">Technical Loadout</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h4><i class="fas fa-network-wired"></i> Telemetry Stack</h4>
-                <ul class="skill-list">
-                    <li class="skill-item">
-                        <span class="skill-name">InfluxDB 3 Core</span>
-                        <span class="skill-level">Deployed</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Telegraf (Data Collection)</span>
-                        <span class="skill-level">Competent</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Grafana Visualization</span>
-                        <span class="skill-level">Advanced</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">PostgreSQL</span>
-                        <span class="skill-level">Integration</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h4><i class="fas fa-code"></i> Simulation & Code</h4>
-                <ul class="skill-list">
-                    <li class="skill-item">
-                        <span class="skill-name">Python (Data/Scripting)</span>
-                        <span class="skill-level">Core Tool</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">MATLAB/Simulink</span>
-                        <span class="skill-level">Academic</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">FlightGear (Sim Interface)</span>
-                        <span class="skill-level">Advanced</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Ansys Workbench</span>
-                        <span class="skill-level">FEA Analysis</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Abaqus</span>
-                        <span class="skill-level">Structural</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h4><i class="fas fa-plane"></i> Aerospace Core</h4>
-                <ul class="skill-list">
-                    <li class="skill-item">
-                        <span class="skill-name">Aircraft Structures</span>
-                        <span class="skill-level">Academic</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">Airworthiness Standards</span>
-                        <span class="skill-level">NCAA Trained</span>
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-name">MRO Operations</span>
-                        <span class="skill-level">Field Experience</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<footer>
+    <p>&copy; 2026 Mohammed Bello Sani &nbsp;|&nbsp; Aerospace Intelligence Research</p>
+    <div class="footer-links">
+        <a href="https://github.com/Sm-bello"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+</footer>
 
-    <section class="timeline-section">
-        <h2 class="section-title">Field Experience & Education</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <i class="fas fa-file-signature"></i>
-                </div>
-                <div class="timeline-content">
-                    <h4>SIWES II Intern - Airworthiness & MRO</h4>
-                    <p class="institution">NCAA Headquarters & AeroTak Limited (Abuja)</p>
-                    <p class="date">400 Level (6 Months)</p>
-                    <p>
-                        A dual-exposure internship. At the <strong>NCAA (Dept. of Airworthiness Standards)</strong>, I assisted in the rigorous audit of technical logs, certification filing, and understanding the regulatory backbone of Nigerian aviation. At <strong>AeroTak</strong>, I moved to the hangar floor, assisting engineers in routine checks and bridging the gap between the paperwork I saw at NCAA and the physical reality of the aircraft.
-                    </p>
-                </div>
-            </div>
+<script>
+/* ═══ HELPERS ═══ */
+function lerp(a,b,t){return a+(b-a)*t;}
+function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v));}
 
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <i class="fas fa-plane-departure"></i>
-                </div>
-                <div class="timeline-content">
-                    <h4>SIWES I Intern - Hangar Operations</h4>
-                    <p class="institution">Executive Airlift Group, Nnamdi Azikiwe Int'l Airport</p>
-                    <p class="date">300 Level (3 Months)</p>
-                    <p>
-                        Direct immersion in VIP aircraft maintenance. I shadowed licensed engineers during Line Maintenance operations, assisted in wheel assembly overhauls, and learned the critical discipline required on a live flight line. This was my first "hands-dirty" experience with pressurized hydraulic systems and avionics bays.
-                    </p>
-                </div>
-            </div>
+/* ═══ PARTICLES ═══ */
+(function(){
+    var c=document.getElementById('particles-canvas');if(!c)return;
+    var x=c.getContext('2d');
+    c.width=window.innerWidth;c.height=window.innerHeight;
+    var pts=[];for(var i=0;i<70;i++)pts.push({x:Math.random()*c.width,y:Math.random()*c.height,sz:Math.random()*1.5+.5,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,op:Math.random()*.3+.1});
+    (function draw(){x.clearRect(0,0,c.width,c.height);pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;x.fillStyle='rgba(100,116,139,'+p.op+')';x.beginPath();x.arc(p.x,p.y,p.sz,0,Math.PI*2);x.fill();});requestAnimationFrame(draw);})();
+    window.addEventListener('resize',function(){c.width=window.innerWidth;c.height=window.innerHeight;});
+})();
 
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <div class="timeline-content">
-                    <h4>Student Workshop Experience Program (SWEP)</h4>
-                    <p class="institution">AFIT Kaduna</p>
-                    <p class="date">200 Level (3 Months)</p>
-                    <p>
-                        Foundational mechanical training. Focused on machining, welding, and material fabrication techniques within the university workshops. Gained appreciation for the manufacturing tolerances required in aerospace components.
-                    </p>
-                </div>
-            </div>
+/* ═══ NAV ═══ */
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}
 
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="timeline-content">
-                    <h4>B.Eng Aerospace Engineering</h4>
-                    <p class="institution">Air Force Institute of Technology (AFIT), Kaduna</p>
-                    <p class="date">2021 - 2026 (Expected)</p>
-                    <p>
-                        Currently in 500 Level (Final Year). Coursework covers Advanced Aerodynamics, Flight Dynamics, and Control Systems. My final year project focuses on Digital Twin applications for Landing Gear Systems.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+/* ═══ CURSOR BLINK ═══ */
+setInterval(function(){var c=document.getElementById('termCursor');if(c)c.style.opacity=c.style.opacity==='0'?'1':'0';},500);
 
-    <footer>
-        <p>&copy; 2025 Mohammed Bello Sani. Cleared for Takeoff.</p>
-    </footer>
+/* ═══ HERO CANVAS — RADAR + FLIGHT PATH ═══ */
+(function(){
+    var cv=document.getElementById('heroCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d');
+    var W,H,ft=0,sweep=0,planeX=0;
+    function resize(){W=cv.parentElement.offsetWidth;H=cv.parentElement.offsetHeight;cv.width=W;cv.height=H;planeX=W*.15;}
+    resize();window.addEventListener('resize',resize);
 
-    <script>
-        // Particle System
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    var dots=[];for(var i=0;i<5;i++)dots.push({x:Math.random()*W,y:Math.random()*H*.7+H*.1,life:Math.random()*200,maxLife:200+Math.random()*100,bright:Math.random()>.7});
 
-        const particles = [];
-        const particleCount = 60;
+    function draw(){
+        ctx.fillStyle='rgba(5,14,26,.4)';ctx.fillRect(0,0,W,H);ft++;sweep+=(Math.PI*2)/360;
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
-                this.opacity = Math.random() * 0.5 + 0.2;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-
-            draw() {
-                ctx.fillStyle = `rgba(100, 116, 139, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+        // Radar circles
+        var cx=W*.5,cy=H*.55,maxR=Math.min(W,H)*.42;
+        for(var r=1;r<=5;r++){
+            ctx.strokeStyle='rgba(14,165,233,'+(0.04+r*.018)+')';ctx.lineWidth=1;
+            ctx.beginPath();ctx.arc(cx,cy,r*maxR/5,0,Math.PI*2);ctx.stroke();
         }
+        // Radar crosshairs
+        ctx.strokeStyle='rgba(14,165,233,.08)';ctx.lineWidth=1;
+        ctx.beginPath();ctx.moveTo(cx-maxR,cy);ctx.lineTo(cx+maxR,cy);ctx.stroke();
+        ctx.beginPath();ctx.moveTo(cx,cy-maxR);ctx.lineTo(cx,cy+maxR);ctx.stroke();
 
-        function init() {
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-        }
+        // Sweep beam
+        ctx.save();
+        var sweep2=ctx.createConicalGradient?null:null; // fallback
+        ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,maxR,sweep-Math.PI*.28,sweep,false);ctx.closePath();
+        var g=ctx.createRadialGradient(cx,cy,0,cx,cy,maxR);
+        g.addColorStop(0,'rgba(14,165,233,.25)');g.addColorStop(1,'rgba(14,165,233,0)');
+        ctx.fillStyle=g;ctx.fill();
+        ctx.restore();
+        // Sweep leading edge
+        ctx.strokeStyle='rgba(14,165,233,.6)';ctx.lineWidth=1.5;
+        ctx.shadowColor='rgba(14,165,233,.8)';ctx.shadowBlur=8;
+        ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+maxR*Math.cos(sweep),cy+maxR*Math.sin(sweep));ctx.stroke();
+        ctx.shadowBlur=0;
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-            }
-            requestAnimationFrame(animate);
-        }
-
-        init();
-        animate();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+        // Blips
+        dots.forEach(function(d){
+            d.life--;if(d.life<0){d.life=d.maxLife;d.x=cx+(Math.random()-.5)*maxR*1.6;d.y=cy+(Math.random()-.5)*maxR*1.4;}
+            var a=clamp(d.life/d.maxLife,0,1);
+            ctx.save();ctx.fillStyle='rgba(16,185,129,'+a*(d.bright?.8:.4)+')';
+            if(d.bright){ctx.shadowColor='#10b981';ctx.shadowBlur=8;}
+            ctx.beginPath();ctx.arc(d.x,d.y,d.bright?3:2,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.restore();
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+        // Flying plane silhouette
+        planeX+=.6;if(planeX>W+60)planeX=-60;
+        var py=H*.3+Math.sin(ft*.015)*18;
+        ctx.save();ctx.fillStyle='rgba(14,165,233,.55)';ctx.strokeStyle='rgba(14,165,233,.3)';ctx.lineWidth=1;
+        ctx.translate(planeX,py);ctx.scale(.55,.55);
+        ctx.beginPath();ctx.moveTo(28,0);ctx.lineTo(8,-8);ctx.lineTo(-28,-4);ctx.lineTo(-28,4);ctx.lineTo(8,8);ctx.closePath();ctx.fill();
+        ctx.beginPath();ctx.moveTo(0,-4);ctx.lineTo(-20,-18);ctx.lineTo(-22,-18);ctx.lineTo(-6,-4);ctx.closePath();ctx.fill();
+        ctx.beginPath();ctx.moveTo(0,4);ctx.lineTo(-20,18);ctx.lineTo(-22,18);ctx.lineTo(-6,4);ctx.closePath();ctx.fill();
+        ctx.restore();
+
+        // Grid lines
+        ctx.strokeStyle='rgba(14,165,233,.04)';ctx.lineWidth=1;
+        for(var gx=0;gx<W;gx+=60){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+        for(var gy=0;gy<H;gy+=60){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ═══ STAT COUNTERS ═══ */
+function animCounter(el,target){
+    var inc=target/80,cur=0;
+    var t=setInterval(function(){cur+=inc;if(cur>=target){el.textContent=target;clearInterval(t);}else el.textContent=Math.floor(cur);},20);
+}
+var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+        if(e.isIntersecting){
+            e.target.querySelectorAll('.counter').forEach(function(c){animCounter(c,parseInt(c.getAttribute('data-target')));});
+            obs.unobserve(e.target);
+        }
+    });
+},{threshold:.5});
+document.querySelectorAll('.stats-bar').forEach(function(el){obs.observe(el);});
+
+/* ═══════════════════════════════════════════
+   SKILL CANVAS 1 — AI NEURAL NETWORK
+   ═══════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('cvAI');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height,ft=0;
+    var layers=[[3,4],[4,5],[5,4],[4,3]];
+    var nodes=[];var edges=[];
+    // Build node positions
+    layers.forEach(function(l,li){
+        var n=l[0];var xpos=W*.12+li*(W*.76/3);nodes.push([]);
+        for(var ni=0;ni<n;ni++){
+            var ypos=H/2+(ni-(n-1)/2)*28;
+            nodes[li].push({x:xpos,y:ypos,act:Math.random(),pulse:Math.random()*Math.PI*2});
+        }
+    });
+    // Build edges
+    for(var li2=0;li2<nodes.length-1;li2++){
+        nodes[li2].forEach(function(a){
+            nodes[li2+1].forEach(function(b){edges.push({ax:a.x,ay:a.y,bx:b.x,by:b.y,w:Math.random()>.5?1:-1,pt:Math.random(),active:false});});
+        });
+    }
+
+    function draw(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
+        // Edges
+        edges.forEach(function(e){
+            e.pt+=.008;if(e.pt>1)e.pt=0;
+            var col=e.w>0?'rgba(14,165,233,.25)':'rgba(239,68,68,.15)';
+            ctx.strokeStyle=col;ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(e.ax,e.ay);ctx.lineTo(e.bx,e.by);ctx.stroke();
+            // Flowing particle
+            var px=lerp(e.ax,e.bx,e.pt),py=lerp(e.ay,e.by,e.pt);
+            ctx.fillStyle=e.w>0?'rgba(56,189,248,.7)':'rgba(239,68,68,.5)';
+            ctx.beginPath();ctx.arc(px,py,1.8,0,Math.PI*2);ctx.fill();
+        });
+        // Nodes
+        nodes.forEach(function(layer,li){
+            layer.forEach(function(n){
+                n.pulse+=.04;n.act=(.5+.5*Math.sin(n.pulse));
+                var col=li===0?'#0ea5e9':li===nodes.length-1?'#10b981':'#8b5cf6';
+                ctx.save();ctx.fillStyle=col+'22';ctx.strokeStyle=col;ctx.lineWidth=1.5;
+                ctx.shadowColor=col;ctx.shadowBlur=6+n.act*8;
+                ctx.beginPath();ctx.arc(n.x,n.y,7+n.act*3,0,Math.PI*2);ctx.fill();ctx.stroke();
+                ctx.fillStyle=col;ctx.beginPath();ctx.arc(n.x,n.y,3,0,Math.PI*2);ctx.fill();
+                ctx.shadowBlur=0;ctx.restore();
+            });
+        });
+        // Labels
+        ctx.fillStyle='rgba(14,165,233,.5)';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';
+        ['INPUT','HIDDEN','HIDDEN','OUTPUT'].forEach(function(l,i){ctx.fillText(l,W*.12+i*(W*.76/3),H-8);});
+        ctx.fillStyle='rgba(255,255,255,.15)';ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='right';
+        ctx.fillText('CNN-BiLSTM · TRANSFORMER · LIGHTGBM',W-8,H-8);
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ═══════════════════════════════════════════
+   SKILL CANVAS 2 — TELEMETRY FLOW
+   ═══════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('cvTelemetry');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height,ft=0;
+    var NODES=[
+        {x:.05,y:.5,label:'FG UDP',col:'#0ea5e9',icon:'✈'},
+        {x:.22,y:.5,label:'PYTHON',col:'#f59e0b',icon:'⬡'},
+        {x:.4,y:.28,label:'TELEGRAF',col:'#06b6d4',icon:'⚡'},
+        {x:.4,y:.72,label:'FASTAPI',col:'#10b981',icon:'⚡'},
+        {x:.58,y:.28,label:'INFLUXDB',col:'#10b981',icon:'📈'},
+        {x:.58,y:.72,label:'POSTGRES',col:'#3b82f6',icon:'🐘'},
+        {x:.76,y:.5,label:'GRAFANA',col:'#f97316',icon:'📊'},
+        {x:.94,y:.5,label:'LIVE',col:'#10b981',icon:'●'}
+    ];
+    var EDGES=[[0,1],[1,2],[1,3],[2,4],[3,5],[4,6],[5,6],[6,7]];
+    var pkts=EDGES.map(function(e){return{ci:e,t:Math.random(),spd:.012+Math.random()*.008};});
+
+    function draw(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
+        // Edge beams
+        EDGES.forEach(function(e){
+            var a=NODES[e[0]],b=NODES[e[1]];
+            ctx.strokeStyle='rgba(16,185,129,.15)';ctx.lineWidth=1;
+            ctx.beginPath();ctx.moveTo(a.x*W,a.y*H);ctx.lineTo(b.x*W,b.y*H);ctx.stroke();
+        });
+        // Packets
+        pkts.forEach(function(p){
+            p.t+=p.spd;if(p.t>1)p.t=0;
+            var a=NODES[p.ci[0]],b=NODES[p.ci[1]];
+            var px=lerp(a.x*W,b.x*W,p.t),py=lerp(a.y*H,b.y*H,p.t);
+            ctx.fillStyle=a.col;ctx.shadowColor=a.col;ctx.shadowBlur=6;
+            ctx.beginPath();ctx.arc(px,py,2.5,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+        });
+        // Nodes
+        NODES.forEach(function(n,i){
+            var pulse=Math.sin(ft*.07+i)*.5+.5;
+            var nx=n.x*W,ny=n.y*H;
+            ctx.save();var g=ctx.createRadialGradient(nx,ny,0,nx,ny,18);g.addColorStop(0,n.col+'33');g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.beginPath();ctx.arc(nx,ny,18,0,Math.PI*2);ctx.fill();
+            ctx.fillStyle='#0a1625';ctx.strokeStyle=n.col;ctx.lineWidth=1.5;ctx.shadowColor=n.col;ctx.shadowBlur=4+pulse*6;
+            ctx.fillRect(nx-18,ny-12,36,24);ctx.strokeRect(nx-18,ny-12,36,24);ctx.shadowBlur=0;
+            ctx.font='9px serif';ctx.textAlign='center';ctx.fillText(n.icon,nx,ny-1);
+            ctx.fillStyle=n.col;ctx.font='bold 5px JetBrains Mono,monospace';ctx.fillText(n.label,nx,ny+10);ctx.restore();
+        });
+        ctx.fillStyle='rgba(255,255,255,.12)';ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='right';ctx.fillText('FLIGHTGEAR→TELEGRAF→INFLUXDB→GRAFANA',W-8,H-8);
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ═══════════════════════════════════════════
+   SKILL CANVAS 3 — SIMULATION / CODE
+   ═══════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('cvSim');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height,ft=0;
+    var angle=0;
+    var ORBIT_TOOLS=[
+        {label:'MATLAB',col:'#f97316',r:52,phase:0,icon:'∫'},
+        {label:'PYTHON',col:'#f59e0b',r:52,phase:Math.PI*.66,icon:'⬡'},
+        {label:'PYTORCH',col:'#ef4444',r:52,phase:Math.PI*1.33,icon:'🔥'},
+        {label:'ANSYS',col:'#0ea5e9',r:82,phase:.4,icon:'⊕'},
+        {label:'SIMULINK',col:'#8b5cf6',r:82,phase:Math.PI*.8,icon:'⊞'},
+        {label:'ABAQUS',col:'#06b6d4',r:82,phase:Math.PI*1.5,icon:'△'},
+    ];
+
+    function draw(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;angle+=.008;
+        var cx=W*.44,cy=H*.5;
+        // Orbit rings
+        [52,82].forEach(function(r,ri){
+            ctx.strokeStyle=ri===0?'rgba(249,115,22,.15)':'rgba(14,165,233,.12)';ctx.lineWidth=1;ctx.setLineDash([3,5]);
+            ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+        });
+        // Centre hub
+        ctx.save();
+        var g=ctx.createRadialGradient(cx,cy,0,cx,cy,26);
+        g.addColorStop(0,'rgba(249,115,22,.35)');g.addColorStop(1,'rgba(249,115,22,0)');
+        ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,26,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle='#0f1e2e';ctx.strokeStyle='rgba(249,115,22,.7)';ctx.lineWidth=2;ctx.shadowColor='#f97316';ctx.shadowBlur=12;
+        ctx.beginPath();ctx.arc(cx,cy,16,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;
+        ctx.fillStyle='#f97316';ctx.font='bold 8px JetBrains Mono,monospace';ctx.textAlign='center';ctx.fillText('SIM',cx,cy+3);
+        ctx.restore();
+        // Orbiting tools
+        ORBIT_TOOLS.forEach(function(t,i){
+            var a=angle*(i<3?1:-0.6)+t.phase;
+            var tx=cx+t.r*Math.cos(a),ty=cy+t.r*Math.sin(a);
+            var pulse=Math.sin(ft*.09+i)*.5+.5;
+            ctx.save();ctx.fillStyle='#0a1625';ctx.strokeStyle=t.col;ctx.lineWidth=1.5;ctx.shadowColor=t.col;ctx.shadowBlur=4+pulse*6;
+            ctx.fillRect(tx-16,ty-11,32,22);ctx.strokeRect(tx-16,ty-11,32,22);ctx.shadowBlur=0;
+            ctx.font='9px serif';ctx.textAlign='center';ctx.fillText(t.icon,tx,ty-1);
+            ctx.fillStyle=t.col;ctx.font='bold 5px JetBrains Mono,monospace';ctx.fillText(t.label,tx,ty+9);ctx.restore();
+        });
+        // Right side: code snippet
+        var cx2=W*.76,cy2=H*.5;
+        var lines=['def ode_solve():','  t=np.linspace(0,10)','  y=odeint(model,y0,t)','  return y  # 18k pts','','model.eval()','pred=model(X_test)'];
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.4)';ctx.fillRect(cx2-6,12,W*.22,H-24);ctx.strokeStyle='rgba(249,115,22,.2)';ctx.lineWidth=1;ctx.strokeRect(cx2-6,12,W*.22,H-24);
+        lines.forEach(function(l,i){
+            var col=i===0||i===4?'#f59e0b':i===5?'#38bdf8':i===6?'#10b981':'#94a3b8';
+            ctx.fillStyle=col;ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='left';
+            ctx.fillText(l,cx2,20+i*17+(ft*.8%17<8&&i===6?1:0));
+        });
+        // Blinking cursor
+        if(ft%14<7){ctx.fillStyle='#38bdf8';ctx.fillRect(cx2+55,95,5,8);}
+        ctx.restore();
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ═══════════════════════════════════════════
+   SKILL CANVAS 4 — AEROSPACE ATA RADAR
+   ═══════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('cvAero');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height,ft=0,activeATA=0,ataTimer=0;
+    var ATA=[
+        {ch:'ATA 32',name:'LANDING GEAR',col:'#8b5cf6',angle:-.5*Math.PI,score:.92},
+        {ch:'ATA 74',name:'IGNITION',col:'#f97316',angle:-.5*Math.PI+Math.PI*2/5,score:.88},
+        {ch:'ATA 27',name:'FLIGHT CTRL',col:'#0ea5e9',angle:-.5*Math.PI+Math.PI*4/5,score:.7},
+        {ch:'ATA 28',name:'FUEL SYSTEM',col:'#10b981',angle:-.5*Math.PI+Math.PI*6/5,score:.6},
+        {ch:'ATA 29',name:'HYDRAULIC',col:'#ef4444',angle:-.5*Math.PI+Math.PI*8/5,score:.82},
+    ];
+    var REGS=[
+        {label:'CS-23.473',x:.72,y:.18,col:'#8b5cf6'},
+        {label:'CS-25.571',x:.85,y:.38,col:'#0ea5e9'},
+        {label:'EASA AMC',x:.85,y:.62,col:'#10b981'},
+        {label:'NCAA Std.',x:.72,y:.82,col:'#f59e0b'},
+    ];
+    var cx=W*.38,cy=H*.5,maxR=58;
+
+    function draw(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
+        ataTimer--;if(ataTimer<=0){activeATA=(activeATA+1)%ATA.length;ataTimer=80;}
+
+        // Radar grid
+        for(var r=1;r<=4;r++){ctx.strokeStyle='rgba(139,92,246,'+(r*.06)+')';ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,r*maxR/4,0,Math.PI*2);ctx.stroke();}
+        ATA.forEach(function(a){ctx.strokeStyle='rgba(139,92,246,.1)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+maxR*Math.cos(a.angle),cy+maxR*Math.sin(a.angle));ctx.stroke();});
+
+        // Radar polygon
+        ctx.save();ctx.beginPath();
+        ATA.forEach(function(a,i){var r2=a.score*maxR;if(i===0)ctx.moveTo(cx+r2*Math.cos(a.angle),cy+r2*Math.sin(a.angle));else ctx.lineTo(cx+r2*Math.cos(a.angle),cy+r2*Math.sin(a.angle));});
+        ctx.closePath();ctx.fillStyle='rgba(139,92,246,.12)';ctx.strokeStyle='rgba(139,92,246,.5)';ctx.lineWidth=1.5;ctx.fill();ctx.stroke();ctx.restore();
+
+        // Sweep
+        var sweepA=ft*.022;ctx.save();ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,maxR,sweepA-Math.PI*.25,sweepA,false);ctx.closePath();
+        var g=ctx.createRadialGradient(cx,cy,0,cx,cy,maxR);g.addColorStop(0,'rgba(139,92,246,.2)');g.addColorStop(1,'rgba(139,92,246,0)');ctx.fillStyle=g;ctx.fill();ctx.restore();
+
+        // ATA nodes
+        ATA.forEach(function(a,i){
+            var r2=a.score*maxR;var nx=cx+r2*Math.cos(a.angle),ny=cy+r2*Math.sin(a.angle);
+            var isAct=i===activeATA;var pulse=Math.sin(ft*.08+i)*.5+.5;
+            ctx.save();ctx.fillStyle=a.col+(isAct?'44':'22');ctx.strokeStyle=a.col+(isAct?'ff':'88');ctx.lineWidth=isAct?2:1;
+            if(isAct){ctx.shadowColor=a.col;ctx.shadowBlur=12;}
+            ctx.beginPath();ctx.arc(nx,ny,isAct?8:5,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;
+            ctx.fillStyle=isAct?a.col:'#64748b';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.fillText(a.ch,nx,ny-(isAct?14:11));ctx.restore();
         });
 
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-    </script>
+        // Centre
+        ctx.save();ctx.fillStyle='#0f1e2e';ctx.strokeStyle='rgba(139,92,246,.6)';ctx.lineWidth=1.5;ctx.shadowColor='#8b5cf6';ctx.shadowBlur=10;
+        ctx.beginPath();ctx.arc(cx,cy,10,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;
+        ctx.fillStyle='#a78bfa';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';ctx.fillText('ATA',cx,cy+2);ctx.restore();
 
+        // Regulatory badges (right side)
+        REGS.forEach(function(r){
+            ctx.save();ctx.fillStyle='rgba(0,0,0,.4)';ctx.strokeStyle=r.col+'55';ctx.lineWidth=1;
+            ctx.fillRect(r.x*W,r.y*H-8,W*(1-r.x)*.9,15);ctx.strokeRect(r.x*W,r.y*H-8,W*(1-r.x)*.9,15);
+            ctx.fillStyle=r.col;ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='left';ctx.fillText(r.label,r.x*W+5,r.y*H+3);ctx.restore();
+        });
+
+        // Active ATA label
+        var A=ATA[activeATA];
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.5)';ctx.fillRect(8,H-20,W*.62,14);
+        ctx.fillStyle=A.col;ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('ACTIVE: '+A.ch+' · '+A.name+' · SCORE: '+Math.round(A.score*100)+'%',12,H-10);ctx.restore();
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+</script>
 </body>
 </html>
