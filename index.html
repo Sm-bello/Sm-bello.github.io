@@ -6,775 +6,1414 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Bello Sani | Aerospace Engineer & Digital Twin Researcher</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
-    <meta name="description" content="Mohammed Bello Sani — Final-year Aerospace Engineering undergraduate at AFIT Kaduna, Nigeria. Five research submissions (4 journals + 1 conference abstract). AIAA JAIS Peer Reviewer. M.Sc. Candidate at Beihang University. Digital Twin, RDE CFD, avionics cybersecurity.">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Mohammed Bello Sani — Final-year Aerospace Engineering undergraduate at AFIT Kaduna, Nigeria. Five research submissions. AIAA JAIS Peer Reviewer. M.Sc. Candidate at Beihang University. Digital Twin, RDE CFD, avionics cybersecurity.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-/* ═══ RESET & TOKENS ═══════════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════════════
+   AEROSPACE PORTFOLIO — MOHAMMED BELLO SANI
+   Pure white foundation. Ambient floating elements.
+   Dense credibility footer extracted from CV & Career Report.
+   ════════════════════════════════════════════════════════════════ */
+
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
 :root{
-    --void:#f8f5f0;        /* warm creamy white */
-    --deep:#f0ece5;        /* slightly deeper cream for contrast */
-    --surface:#ffffff;     /* pure white cards */
-    --border:rgba(60,60,80,0.06);
-    --border-o:rgba(154,52,18,0.12);
-    --blue:#1e3a5f;        /* muted navy accent */
-    --orange:#9a3412;       /* rust orange */
-    --green:#065f46;        /* forest green */
-    --purple:#5b21b6;       /* deep violet */
-    --teal:#115e59;         /* deep teal */
-    --text:#1a1a2e;         /* soft ink */
-    --muted:#5a5a6e;        /* warm gray */
-    --dim:#7a7a8e;         /* lighter gray */
-    --fd:'Rajdhani',sans-serif;--fm:'DM Mono',monospace;--fb:'Sora',sans-serif;
+    --bg:#ffffff;
+    --bg-warm:#faf9f7;
+    --text:#0f0f1a;
+    --text-secondary:#4a4a5a;
+    --text-tertiary:#8a8a9a;
+    --accent:#1a3a5c;
+    --accent-light:#2d5a8a;
+    --accent-orange:#c45a1a;
+    --accent-green:#0d6b4a;
+    --accent-purple:#5a2d8a;
+    --accent-teal:#0d5a5a;
+    --border:rgba(15,15,26,0.08);
+    --border-light:rgba(15,15,26,0.04);
+    --ff-body:'Inter',sans-serif;
+    --ff-display:'Space Grotesk',sans-serif;
+    --ff-mono:'JetBrains Mono',monospace;
 }
-::selection{background:rgba(30,58,95,.12);color:var(--text)}
+
 html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--void);color:var(--text);line-height:1.6;overflow-x:hidden;cursor:none}
+body{
+    font-family:var(--ff-body);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
 
-/* ═══ CURSOR ════════════════════════════════════════════════════ */
-.cur-dot{position:fixed;width:5px;height:5px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);box-shadow:0 0 8px rgba(30,58,95,.3);transition:background .15s,box-shadow .15s}
-.cur-ring{position:fixed;width:28px;height:28px;border:1px solid rgba(30,58,95,.35);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:border-color .15s,transform .2s}
-.cur-ring::before,.cur-ring::after{content:'';position:absolute;background:rgba(30,58,95,.25)}
-.cur-ring::before{width:1px;height:8px;top:-4px;left:50%;transform:translateX(-50%)}
-.cur-ring::after{width:8px;height:1px;top:50%;left:-4px;transform:translateY(-50%)}
+/* ─── AMBIENT BACKGROUND CANVAS ─── */
+#ambient-canvas{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    z-index:0;
+    pointer-events:none;
+    opacity:0.45;
+}
 
-/* ═══ PARTICLES ═════════════════════════════════════════════════ */
-#pxc{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none}
-
-/* ═══ DYNAMIC ISLAND NAV ═════════════════════════════════════════ */
+/* ─── NAVIGATION ─── */
 nav{
     position:fixed;
-    top:16px;
-    left:50%;
-    transform:translateX(-50%);
-    width:auto;
-    min-width:280px;
-    max-width:860px;
-    padding:.55rem .55rem .55rem 1.1rem;
+    top:0;left:0;right:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+    transition:box-shadow .3s ease;
+}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.nav-inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 2rem;
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.nav-brand{
+    font-family:var(--ff-display);
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--text);
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    letter-spacing:-0.02em;
+}
+.nav-brand i{
+    color:var(--accent);
+    font-size:0.9rem;
+}
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:0.2rem;
+    list-style:none;
+}
+.nav-links a{
+    font-family:var(--ff-display);
+    font-size:0.82rem;
+    font-weight:500;
+    color:var(--text-secondary);
+    text-decoration:none;
+    padding:0.5rem 1rem;
+    border-radius:6px;
+    transition:all .2s ease;
+    letter-spacing:0.02em;
+}
+.nav-links a:hover{
+    color:var(--accent);
+    background:var(--bg-warm);
+}
+.nav-links a.active{
+    color:var(--accent);
+    background:rgba(26,58,92,0.06);
+}
+.nav-cta{
+    font-family:var(--ff-display);
+    font-size:0.8rem;
+    font-weight:600;
+    color:var(--bg);
+    background:var(--accent);
+    text-decoration:none;
+    padding:0.55rem 1.2rem;
+    border-radius:6px;
+    transition:all .2s ease;
+    margin-left:0.5rem;
+}
+.nav-cta:hover{
+    background:var(--accent-orange);
+    transform:translateY(-1px);
+}
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    font-size:1.2rem;
+    color:var(--text);
+    cursor:pointer;
+}
+
+/* ─── HERO SECTION ─── */
+.hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8rem 2rem 5rem;
+    z-index:1;
+}
+.hero-inner{
+    max-width:900px;
+    text-align:center;
+}
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    font-family:var(--ff-mono);
+    font-size:0.7rem;
+    font-weight:500;
+    color:var(--accent);
+    background:rgba(26,58,92,0.06);
+    border:1px solid rgba(26,58,92,0.12);
+    padding:0.4rem 1rem;
+    border-radius:100px;
+    margin-bottom:1.8rem;
+    letter-spacing:0.05em;
+}
+.hero-badge .dot{
+    width:6px;height:6px;
+    background:var(--accent-green);
+    border-radius:50%;
+    animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+.hero h1{
+    font-family:var(--ff-display);
+    font-size:clamp(2.4rem,5.5vw,4.2rem);
+    font-weight:700;
+    line-height:1.1;
+    letter-spacing:-0.03em;
+    color:var(--text);
+    margin-bottom:1.2rem;
+}
+.hero h1 .accent{
+    color:var(--accent);
+    position:relative;
+}
+.hero h1 .accent::after{
+    content:'';
+    position:absolute;
+    bottom:2px;left:0;right:0;
+    height:3px;
+    background:linear-gradient(90deg,var(--accent),transparent);
+    opacity:0.25;
+    border-radius:2px;
+}
+
+.hero-sub{
+    font-size:1.1rem;
+    color:var(--text-secondary);
+    max-width:620px;
+    margin:0 auto 2.5rem;
+    line-height:1.7;
+}
+
+.hero-pills{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:0.6rem;
+    margin-bottom:2.5rem;
+}
+.pill{
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
+    font-family:var(--ff-mono);
+    font-size:0.68rem;
+    font-weight:500;
+    letter-spacing:0.04em;
+    padding:0.35rem 0.9rem;
+    border-radius:100px;
+    border:1px solid;
+}
+.pill-blue{border-color:rgba(26,58,92,0.15);color:var(--accent);background:rgba(26,58,92,0.03)}
+.pill-orange{border-color:rgba(196,90,26,0.15);color:var(--accent-orange);background:rgba(196,90,26,0.03)}
+.pill-green{border-color:rgba(13,107,74,0.15);color:var(--accent-green);background:rgba(13,107,74,0.03)}
+.pill-purple{border-color:rgba(90,45,138,0.15);color:var(--accent-purple);background:rgba(90,45,138,0.03)}
+
+.hero-cta{
+    display:flex;
+    justify-content:center;
+    gap:1rem;
+    flex-wrap:wrap;
+}
+.btn{
+    font-family:var(--ff-display);
+    font-size:0.9rem;
+    font-weight:600;
+    text-decoration:none;
+    padding:0.85rem 1.8rem;
+    border-radius:8px;
+    transition:all .2s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+}
+.btn-primary{
+    background:var(--accent);
+    color:#fff;
+    box-shadow:0 4px 14px rgba(26,58,92,0.2);
+}
+.btn-primary:hover{
+    background:var(--accent-light);
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(26,58,92,0.25);
+}
+.btn-secondary{
+    background:transparent;
+    color:var(--text);
+    border:1.5px solid var(--border);
+}
+.btn-secondary:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+    background:rgba(26,58,92,0.02);
+}
+
+/* ─── SECTION DIVIDER ─── */
+.section-divider{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 2rem;
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    position:relative;
+    z-index:1;
+}
+.section-divider .line{
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--border),transparent);
+}
+.section-divider .label{
+    font-family:var(--ff-mono);
+    font-size:0.65rem;
+    font-weight:500;
+    color:var(--text-tertiary);
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    white-space:nowrap;
+}
+
+/* ─── STATS SECTION ─── */
+.stats-section{
+    padding:4rem 2rem;
+    position:relative;
+    z-index:1;
+}
+.stats-grid{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1.5rem;
+}
+.stat-card{
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:1.8rem 1.5rem;
+    text-align:center;
+    transition:all .3s ease;
+    position:relative;
+    overflow:hidden;
+}
+.stat-card::before{
+    content:'';
+    position:absolute;
+    top:0;left:0;right:0;
+    height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-orange));
+    transform:scaleX(0);
+    transition:transform .4s ease;
+}
+.stat-card:hover::before{transform:scaleX(1)}
+.stat-card:hover{
+    border-color:rgba(26,58,92,0.15);
+    box-shadow:0 8px 30px rgba(0,0,0,0.05);
+    transform:translateY(-3px);
+}
+.stat-number{
+    font-family:var(--ff-display);
+    font-size:2.8rem;
+    font-weight:700;
+    color:var(--accent);
+    line-height:1;
+    margin-bottom:0.4rem;
+    letter-spacing:-0.02em;
+}
+.stat-number .unit{
+    font-size:1.2rem;
+    color:var(--accent-orange);
+    font-weight:600;
+}
+.stat-label{
+    font-family:var(--ff-mono);
+    font-size:0.65rem;
+    font-weight:500;
+    color:var(--text-tertiary);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-bottom:0.6rem;
+}
+.stat-desc{
+    font-size:0.82rem;
+    color:var(--text-secondary);
+    line-height:1.5;
+}
+
+/* ─── TICKER ─── */
+.ticker-section{
+    background:var(--bg-warm);
+    border-top:1px solid var(--border-light);
+    border-bottom:1px solid var(--border-light);
+    padding:1.2rem 0;
+    overflow:hidden;
+    position:relative;
+    z-index:1;
+}
+.ticker-track{
+    display:flex;
+    gap:3rem;
+    animation:ticker-scroll 40s linear infinite;
+    width:max-content;
+}
+.ticker-item{
+    font-family:var(--ff-mono);
+    font-size:0.72rem;
+    font-weight:500;
+    color:var(--text-tertiary);
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    display:flex;
+    align-items:center;
+    gap:0.8rem;
+}
+.ticker-item .sep{color:var(--border);font-weight:300}
+.ticker-item .highlight{color:var(--accent);font-weight:600}
+.ticker-item .highlight-orange{color:var(--accent-orange);font-weight:600}
+.ticker-item .highlight-green{color:var(--accent-green);font-weight:600}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── PUBLICATIONS SECTION ─── */
+.pubs-section{
+    padding:5rem 2rem;
+    position:relative;
+    z-index:1;
+}
+.section-header{
+    max-width:1200px;
+    margin:0 auto 2.5rem;
+}
+.section-eyebrow{
+    font-family:var(--ff-mono);
+    font-size:0.7rem;
+    font-weight:500;
+    color:var(--accent-orange);
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    margin-bottom:0.6rem;
+    display:flex;
+    align-items:center;
+    gap:0.8rem;
+}
+.section-eyebrow::before{
+    content:'';
+    width:24px;
+    height:1.5px;
+    background:var(--accent-orange);
+}
+.section-title{
+    font-family:var(--ff-display);
+    font-size:clamp(1.6rem,3vw,2.2rem);
+    font-weight:700;
+    color:var(--text);
+    letter-spacing:-0.02em;
+}
+.section-title span{color:var(--accent)}
+
+.pubs-grid{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.2rem;
+}
+.pub-card{
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:1.8rem;
+    transition:all .3s ease;
+    display:flex;
+    flex-direction:column;
+    gap:0.8rem;
+    position:relative;
+    overflow:hidden;
+}
+.pub-card:hover{
+    border-color:rgba(26,58,92,0.15);
+    box-shadow:0 8px 30px rgba(0,0,0,0.06);
+    transform:translateY(-3px);
+}
+.pub-card::after{
+    content:'';
+    position:absolute;
+    bottom:0;left:0;
+    width:0;height:3px;
+    transition:width .4s ease;
+}
+.pub-card:nth-child(1)::after{background:var(--accent)}
+.pub-card:nth-child(2)::after{background:var(--accent-orange)}
+.pub-card:nth-child(3)::after{background:var(--accent-green)}
+.pub-card:nth-child(4)::after{background:var(--accent-purple)}
+.pub-card:nth-child(5)::after{background:var(--accent-teal)}
+.pub-card:hover::after{width:100%}
+
+.pub-venue{
+    font-family:var(--ff-mono);
+    font-size:0.65rem;
+    font-weight:500;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+}
+.pub-venue::before{
+    content:'';
+    width:16px;
+    height:1.5px;
+    background:currentColor;
+}
+.pub-card:nth-child(1) .pub-venue{color:var(--accent)}
+.pub-card:nth-child(2) .pub-venue{color:var(--accent-orange)}
+.pub-card:nth-child(3) .pub-venue{color:var(--accent-green)}
+.pub-card:nth-child(4) .pub-venue{color:var(--accent-purple)}
+.pub-card:nth-child(5) .pub-venue{color:var(--accent-teal)}
+
+.pub-status{
+    position:absolute;
+    top:1.5rem;right:1.5rem;
+    font-family:var(--ff-mono);
+    font-size:0.6rem;
+    font-weight:500;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:0.25rem 0.7rem;
+    border-radius:4px;
+    border:1px solid;
+}
+.pub-status.review{
+    color:var(--accent-orange);
+    border-color:rgba(196,90,26,0.2);
+    background:rgba(196,90,26,0.04);
+}
+.pub-status.abstract{
+    color:var(--accent);
+    border-color:rgba(26,58,92,0.2);
+    background:rgba(26,58,92,0.04);
+}
+
+.pub-title{
+    font-family:var(--ff-display);
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--text);
+    line-height:1.35;
+    padding-right:3rem;
+    flex:1;
+}
+.pub-meta{
+    font-size:0.8rem;
+    color:var(--text-tertiary);
+}
+.pub-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.4rem;
+    margin-top:0.3rem;
+}
+.tag{
+    font-family:var(--ff-mono);
+    font-size:0.6rem;
+    font-weight:500;
+    letter-spacing:0.05em;
+    padding:0.2rem 0.55rem;
+    border-radius:4px;
+    text-transform:uppercase;
+}
+.tag-blue{background:rgba(26,58,92,0.06);color:var(--accent);border:1px solid rgba(26,58,92,0.1)}
+.tag-orange{background:rgba(196,90,26,0.06);color:var(--accent-orange);border:1px solid rgba(196,90,26,0.1)}
+.tag-green{background:rgba(13,107,74,0.06);color:var(--accent-green);border:1px solid rgba(13,107,74,0.1)}
+.tag-purple{background:rgba(90,45,138,0.06);color:var(--accent-purple);border:1px solid rgba(90,45,138,0.1)}
+.tag-teal{background:rgba(13,90,90,0.06);color:var(--accent-teal);border:1px solid rgba(13,90,90,0.1)}
+
+/* ─── EXPERTISE SECTION ─── */
+.exp-section{
+    padding:5rem 2rem;
+    background:var(--bg-warm);
+    position:relative;
+    z-index:1;
+}
+.exp-grid{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1.2rem;
+}
+.exp-card{
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:2rem 1.8rem;
+    transition:all .3s ease;
+    position:relative;
+    overflow:hidden;
+}
+.exp-card:hover{
+    border-color:rgba(26,58,92,0.15);
+    box-shadow:0 8px 30px rgba(0,0,0,0.06);
+    transform:translateY(-3px);
+}
+.exp-card::after{
+    content:'';
+    position:absolute;
+    bottom:0;left:0;
+    width:0;height:3px;
+    transition:width .4s ease;
+}
+.exp-card:nth-child(1)::after{background:var(--accent)}
+.exp-card:nth-child(2)::after{background:var(--accent-orange)}
+.exp-card:nth-child(3)::after{background:var(--accent-green)}
+.exp-card:nth-child(4)::after{background:var(--accent-purple)}
+.exp-card:hover::after{width:100%}
+
+.exp-num{
+    font-family:var(--ff-mono);
+    font-size:0.6rem;
+    font-weight:500;
+    color:var(--text-tertiary);
+    letter-spacing:0.1em;
+    margin-bottom:1.2rem;
+}
+.exp-icon{
+    font-size:1.4rem;
+    margin-bottom:1rem;
+    display:block;
+}
+.exp-card:nth-child(1) .exp-icon{color:var(--accent)}
+.exp-card:nth-child(2) .exp-icon{color:var(--accent-orange)}
+.exp-card:nth-child(3) .exp-icon{color:var(--accent-green)}
+.exp-card:nth-child(4) .exp-icon{color:var(--accent-purple)}
+
+.exp-card h3{
+    font-family:var(--ff-display);
+    font-size:1.1rem;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:0.7rem;
+    letter-spacing:-0.01em;
+}
+.exp-card p{
+    font-size:0.87rem;
+    color:var(--text-secondary);
+    line-height:1.7;
+}
+.exp-card p strong{
+    color:var(--text);
+    font-weight:600;
+}
+
+/* ─── FOOTER — DENSE CREDIBILITY SECTION ─── */
+.footer-main{
+    background:#0a0a12;
+    color:#e8e8f0;
+    padding:5rem 2rem 3rem;
+    position:relative;
+    z-index:1;
+}
+.footer-inner{
+    max-width:1200px;
+    margin:0 auto;
+}
+
+/* Footer Header */
+.footer-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:3rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.footer-name{
+    font-family:var(--ff-display);
+    font-size:1.8rem;
+    font-weight:700;
+    color:#fff;
+    letter-spacing:-0.02em;
+    margin-bottom:0.4rem;
+}
+.footer-tagline{
+    font-size:0.95rem;
+    color:#8a8a9a;
+    max-width:500px;
+    line-height:1.6;
+}
+.footer-contact{
+    text-align:right;
+}
+.footer-contact a{
+    display:block;
+    color:#a0a0b0;
+    text-decoration:none;
+    font-size:0.9rem;
+    margin-bottom:0.3rem;
+    transition:color .2s;
+}
+.footer-contact a:hover{color:#fff}
+.footer-contact .location{
+    font-size:0.8rem;
+    color:#6a6a7a;
+    margin-top:0.5rem;
+}
+
+/* Footer Grid */
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:2.5rem;
+    margin-bottom:3rem;
+}
+
+.footer-col h4{
+    font-family:var(--ff-display);
+    font-size:0.75rem;
+    font-weight:600;
+    color:#6a6a7a;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    margin-bottom:1.2rem;
+}
+
+/* Bio Column */
+.footer-bio p{
+    font-size:0.88rem;
+    color:#a0a0b0;
+    line-height:1.8;
+    margin-bottom:1rem;
+}
+.footer-bio .highlight-box{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:8px;
+    padding:1rem 1.2rem;
+    margin-top:1rem;
+}
+.footer-bio .highlight-box p{
+    font-size:0.82rem;
+    color:#b0b0c0;
+    margin:0;
+    line-height:1.7;
+}
+.footer-bio .highlight-box strong{
+    color:#e8e8f0;
+    font-weight:600;
+}
+
+/* Peer Review Badge */
+.peer-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    background:rgba(26,58,92,0.15);
+    border:1px solid rgba(26,58,92,0.25);
+    border-radius:6px;
+    padding:0.5rem 0.9rem;
+    margin-top:1rem;
+}
+.peer-badge i{color:#4a90d9;font-size:0.8rem}
+.peer-badge span{
+    font-family:var(--ff-mono);
+    font-size:0.65rem;
+    font-weight:500;
+    color:#8ab4f8;
+    letter-spacing:0.05em;
+}
+
+/* Lists */
+.footer-list{
+    list-style:none;
+}
+.footer-list li{
+    margin-bottom:0.7rem;
+    font-size:0.85rem;
+    color:#a0a0b0;
+    display:flex;
+    align-items:baseline;
+    gap:0.5rem;
+}
+.footer-list li::before{
+    content:'›';
+    color:var(--accent-orange);
+    font-size:1rem;
+    line-height:1;
+}
+.footer-list a{
+    color:#a0a0b0;
+    text-decoration:none;
+    transition:color .2s;
+}
+.footer-list a:hover{color:#fff}
+
+/* Research Status */
+.research-status li{
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    margin-bottom:0.6rem;
+    font-size:0.82rem;
+    color:#a0a0b0;
+}
+.research-status .status-dot{
+    width:7px;height:7px;
+    border-radius:50%;
+    flex-shrink:0;
+}
+.research-status .dot-blue{background:#4a90d9;box-shadow:0 0 6px rgba(74,144,217,0.4)}
+.research-status .dot-orange{background:#d4843c;box-shadow:0 0 6px rgba(212,132,60,0.4)}
+.research-status .dot-green{background:#3cb371;box-shadow:0 0 6px rgba(60,179,113,0.4)}
+.research-status .dot-purple{background:#9b6bd9;box-shadow:0 0 6px rgba(155,107,217,0.4)}
+.research-status .dot-teal{background:#3cb3a3;box-shadow:0 0 6px rgba(60,179,163,0.4)}
+
+.research-status .status-note{
+    margin-top:1rem;
+    padding-top:0.8rem;
+    border-top:1px solid rgba(255,255,255,0.06);
+    font-family:var(--ff-mono);
+    font-size:0.65rem;
+    color:#6a6a7a;
+    letter-spacing:0.05em;
+}
+
+/* Socials */
+.footer-socials{
+    display:flex;
+    gap:0.6rem;
+    margin-top:1.2rem;
+}
+.footer-socials a{
+    width:36px;height:36px;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#8a8a9a;
+    text-decoration:none;
+    font-size:0.9rem;
+    transition:all .2s;
+}
+.footer-socials a:hover{
+    border-color:rgba(74,144,217,0.4);
+    color:#4a90d9;
+    background:rgba(74,144,217,0.08);
+}
+
+/* Footer Bottom */
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.06);
+    padding-top:1.5rem;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:0;
-    z-index:1000;
-    background:rgba(255,255,255,.92);
-    backdrop-filter:blur(28px);
-    -webkit-backdrop-filter:blur(28px);
-    border:1px solid rgba(30,58,95,.1);
-    border-radius:100px;
-    box-shadow:
-        0 4px 24px rgba(0,0,0,.06),
-        0 1px 0 rgba(255,255,255,.8) inset,
-        0 0 0 1px rgba(255,255,255,.5);
-    transition:
-        background .4s cubic-bezier(.22,1,.36,1),
-        border-color .4s ease,
-        box-shadow .4s ease,
-        padding .4s cubic-bezier(.22,1,.36,1);
-    animation:islandBreath 5s ease-in-out infinite;
+    flex-wrap:wrap;
+    gap:1rem;
 }
-@keyframes islandBreath{
-    0%,100%{box-shadow:0 4px 24px rgba(0,0,0,.06),0 1px 0 rgba(255,255,255,.8) inset,0 0 0 1px rgba(255,255,255,.5)}
-    50%{box-shadow:0 4px 24px rgba(0,0,0,.06),0 0 20px rgba(30,58,95,.06),0 1px 0 rgba(255,255,255,.8) inset,0 0 0 1px rgba(255,255,255,.5)}
+.footer-bottom p{
+    font-family:var(--ff-mono);
+    font-size:0.7rem;
+    color:#5a5a6a;
+    letter-spacing:0.05em;
 }
-nav.scrolled{
-    background:rgba(248,245,240,.97);
-    border-color:rgba(30,58,95,.2);
-    box-shadow:
-        0 8px 40px rgba(0,0,0,.08),
-        0 0 28px rgba(30,58,95,.05),
-        0 1px 0 rgba(255,255,255,.9) inset;
+.footer-system{
+    font-family:var(--ff-mono);
+    font-size:0.7rem;
+    color:#3cb371;
+    display:flex;
+    align-items:center;
+    gap:0.4rem;
 }
-
-/* Logo */
-.logo{
-    font-family:var(--fd);font-size:.95rem;font-weight:700;
-    color:var(--text);text-decoration:none;
-    display:flex;align-items:center;gap:.6rem;
-    text-transform:uppercase;letter-spacing:2px;
-    flex-shrink:0;white-space:nowrap;
-}
-.logo-box{
-    width:27px;height:27px;
-    border:1px solid rgba(30,58,95,.4);
+.footer-system::before{
+    content:'';
+    width:6px;height:6px;
     border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--blue);font-size:.75rem;
-    background:rgba(30,58,95,.05);
-    transition:all .3s;
-    flex-shrink:0;
-}
-.logo:hover .logo-box{background:rgba(30,58,95,.12);box-shadow:0 0 14px rgba(30,58,95,.2);border-color:var(--blue)}
-
-/* Island divider */
-.nav-sep{
-    width:1px;height:16px;
-    background:rgba(30,58,95,.15);
-    flex-shrink:0;margin:0 .5rem;
+    background:#3cb371;
+    box-shadow:0 0 8px rgba(60,179,113,0.5);
+    animation:pulse 2s ease-in-out infinite;
 }
 
-/* Nav links */
-.nav-links{display:flex;gap:0;list-style:none;align-items:center}
-.nav-links a{
-    text-decoration:none;color:var(--muted);
-    font-family:var(--fd);font-weight:600;font-size:.77rem;
-    text-transform:uppercase;letter-spacing:1.5px;
-    padding:.42rem .85rem;
-    transition:all .25s;
-    border-radius:100px;
-    display:block;white-space:nowrap;
-}
-.nav-links a:hover{color:var(--text);background:rgba(30,58,95,.06)}
-.nav-active{color:var(--text)!important;background:rgba(30,58,95,.08)!important}
-
-/* Hire Me pill inside island */
-.nav-pill{
-    display:inline-flex;align-items:center;gap:.4rem;
-    font-family:var(--fd);font-size:.73rem;font-weight:700;
-    text-transform:uppercase;letter-spacing:1.5px;
-    padding:.4rem 1rem;
-    background:var(--blue);color:var(--void);
-    border-radius:100px;text-decoration:none;
-    transition:all .3s;flex-shrink:0;margin-left:.4rem;
-    white-space:nowrap;
-}
-.nav-pill:hover{background:var(--orange);box-shadow:0 0 18px rgba(154,52,18,.25)}
-
-/* Mobile */
-.menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:4px;padding:.35rem;flex-shrink:0;margin-left:.4rem}
-.menu-toggle span{width:17px;height:1.5px;background:var(--muted);border-radius:2px;transition:all .3s;display:block}
-.nav-links.active{
-    display:flex!important;flex-direction:column;
-    position:absolute;top:calc(100% + 10px);left:50%;
-    transform:translateX(-50%);
-    width:200px;
-    background:rgba(248,245,240,.97);
-    border:1px solid rgba(30,58,95,.15);
-    border-radius:16px;padding:.8rem .5rem;
-    text-align:center;gap:0;
-    backdrop-filter:blur(24px);
-    box-shadow:0 14px 44px rgba(0,0,0,.08);
-    animation:dropIn .22s cubic-bezier(.22,1,.36,1) both;
-}
-@keyframes dropIn{from{opacity:0;transform:translateX(-50%) translateY(-6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-
-/* ═══ HERO ═══════════════════════════════════════════════════════ */
-.hero{
-    min-height:100vh;display:flex;align-items:center;justify-content:center;
-    text-align:center;padding:8rem 2rem 6rem;
-    position:relative;overflow:hidden;
-    background: linear-gradient(180deg, var(--void) 0%, var(--deep) 100%);
-}
-.hero::before{
-    content:'';position:absolute;inset:0;
-    background-image:
-        linear-gradient(rgba(30,58,95,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(30,58,95,.025) 1px,transparent 1px);
-    background-size:55px 55px;pointer-events:none;
-}
-.hero::after{
-    content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
-    background:linear-gradient(90deg,transparent,var(--blue),var(--orange),transparent);
-    opacity:.35;
-}
-
-/* Radar */
-.radar-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
-.rr{position:absolute;top:50%;left:50%;border:1px solid var(--blue);border-radius:50%;transform:translate(-50%,-50%)}
-.rr:nth-child(1){width:160px;height:160px;opacity:.06}
-.rr:nth-child(2){width:300px;height:300px;opacity:.045}
-.rr:nth-child(3){width:480px;height:480px;opacity:.03}
-.rr:nth-child(4){width:680px;height:680px;opacity:.02}
-.rr:nth-child(5){width:920px;height:920px;opacity:.01}
-.rsweep{position:absolute;top:50%;left:50%;width:460px;height:460px;transform-origin:0 0;animation:rsw 7s linear infinite}
-.rsweep::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:conic-gradient(from 0deg,transparent 0deg,rgba(30,58,95,.3) 16deg,transparent 16deg);border-radius:50%;opacity:.05}
-@keyframes rsw{to{transform:rotate(360deg)}}
-
-.hero-content{position:relative;z-index:2;max-width:960px;width:100%}
-
-/* Grad banner */
-.grad-banner{
-    display:inline-flex;align-items:center;gap:.7rem;
-    font-family:var(--fm);font-size:.65rem;letter-spacing:2px;
-    color:var(--dim);text-transform:uppercase;
-    margin-bottom:1.8rem;
-    padding:.45rem 1.2rem;
-    border:1px solid rgba(30,58,95,.08);
-    border-radius:2px;
-    background:rgba(30,58,95,.03);
-    animation:fu .8s ease-out both;
-}
-.grad-banner .gb-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);box-shadow:0 0 6px rgba(30,58,95,.3);animation:bl 1.8s step-start infinite;flex-shrink:0}
-.grad-banner .gb-hl{color:var(--blue)}
-.grad-banner .gb-sep{color:rgba(30,58,95,.2)}
-
-/* Pills */
-.pill-row{display:flex;justify-content:center;flex-wrap:wrap;gap:.65rem;margin-bottom:2rem;animation:fu .8s ease-out .1s both}
-.pill{display:inline-flex;align-items:center;gap:.42rem;font-family:var(--fm);font-size:.63rem;font-weight:500;letter-spacing:1.5px;padding:5px 12px;border-radius:2px;text-transform:uppercase;white-space:nowrap}
-.pill-g{background:rgba(6,95,70,.05);border:1px solid rgba(6,95,70,.18);color:var(--green)}
-.pill-b{background:rgba(30,58,95,.05);border:1px solid rgba(30,58,95,.18);color:var(--blue)}
-.pill-o{background:rgba(154,52,18,.05);border:1px solid rgba(154,52,18,.18);color:var(--orange)}
-.pill-p{background:rgba(91,33,182,.05);border:1px solid rgba(91,33,182,.18);color:var(--purple)}
-.pdot{width:5px;height:5px;border-radius:50%;animation:bl 1.6s step-start infinite;flex-shrink:0}
-.pill-g .pdot{background:var(--green);box-shadow:0 0 6px rgba(6,95,70,.3)}
-.pill-b .pdot{background:var(--blue);box-shadow:0 0 6px rgba(30,58,95,.3)}
-.pill-o .pdot{background:var(--orange);box-shadow:0 0 6px rgba(154,52,18,.3);animation-delay:.5s}
-.pill-p .pdot{background:var(--purple);box-shadow:0 0 6px rgba(91,33,182,.3);animation-delay:1s}
-@keyframes bl{0%,100%{opacity:1}50%{opacity:.15}}
-
-.hero h1{font-family:var(--fd);font-size:clamp(2.8rem,6.5vw,5.2rem);font-weight:700;line-height:1.03;letter-spacing:-1px;color:var(--text);margin-bottom:1.5rem;animation:fu .8s ease-out .2s both}
-.hero h1 .ac{color:var(--blue);position:relative}
-.hero h1 .ac::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),transparent)}
-
-.hero-sub{font-family:var(--fm);font-size:.95rem;color:var(--muted);margin:0 auto 3rem;max-width:680px;line-height:1.9;animation:fu .8s ease-out .4s both;min-height:2.8em}
-.twc{display:inline-block;width:2px;height:1em;background:var(--blue);margin-left:2px;animation:cb 1s step-start infinite;vertical-align:text-bottom}
-@keyframes cb{0%,100%{opacity:1}50%{opacity:0}}
-
-.cta-row{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;animation:fu .8s ease-out .6s both}
-.btn-main{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fd);font-size:.88rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;padding:.82rem 1.9rem;text-decoration:none;clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);transition:all .3s}
-.btn-fill{background:var(--blue);color:var(--void)}
-.btn-fill:hover{background:var(--orange);box-shadow:0 0 36px rgba(154,52,18,.25);transform:translateY(-2px)}
-.btn-line{background:transparent;color:var(--text);border:1px solid rgba(26,26,46,.12);clip-path:none}
-.btn-line:hover{border-color:var(--blue);color:var(--blue);background:rgba(30,58,95,.05);transform:translateY(-2px)}
-@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-/* ═══ HUD DIVIDER ════════════════════════════════════════════════ */
-.hdiv{display:flex;align-items:center;gap:1rem;padding:0 3rem;max-width:1200px;margin:0 auto;position:relative;z-index:2}
-.hdiv-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
-.hdiv-lbl{font-family:var(--fm);font-size:.6rem;letter-spacing:3px;color:var(--dim);text-transform:uppercase;white-space:nowrap}
-.hdiv-dia{width:5px;height:5px;background:var(--orange);transform:rotate(45deg);flex-shrink:0}
-
-/* ═══ STATS ══════════════════════════════════════════════════════ */
-.stats-wrap{padding:4.5rem 3rem;max-width:1200px;margin:0 auto;position:relative;z-index:2}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
-.stat{background:var(--surface);padding:2.2rem 1.8rem;position:relative;overflow:hidden;transition:background .3s}
-.stat:hover{background:rgba(30,58,95,.03)}
-.stat::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--blue),var(--orange));transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.stat:hover::before{transform:scaleX(1)}
-.stat-lbl{font-family:var(--fm);font-size:.6rem;letter-spacing:3px;color:var(--dim);text-transform:uppercase;margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
-.stat-lbl::before{content:'◆';font-size:.35rem;color:var(--orange)}
-.stat-val{font-family:var(--fd);font-size:3.4rem;font-weight:700;line-height:1;letter-spacing:-2px;color:var(--text)}
-.stat-val .n{color:var(--blue)}
-.stat-val .u{font-size:1.5rem;color:var(--orange);letter-spacing:0}
-.stat-note{font-size:.77rem;color:var(--muted);margin-top:.45rem}
-.stat-bar{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(10,10,20,.03)}
-.stat-bar-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--orange));width:0;animation:fb 2s ease-out forwards}
-@keyframes fb{to{width:100%}}
-
-/* ═══ TICKER ══════════════════════════════════════════════════════ */
-.ticker{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.3rem 0;overflow:hidden;position:relative;z-index:2}
-.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2}
-.ticker::before{left:0;background:linear-gradient(90deg,var(--surface),transparent)}
-.ticker::after{right:0;background:linear-gradient(270deg,var(--surface),transparent)}
-.ticker-t{display:flex;gap:3rem;animation:tk 42s linear infinite;font-family:var(--fm);font-size:.67rem;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase;white-space:nowrap;padding:0 3rem}
-.ticker-t .tbl{color:var(--blue)}.ticker-t .tor{color:var(--orange);font-weight:500}.ticker-t .tgr{color:var(--green)}
-@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ═══ PUBLICATIONS ════════════════════════════════════════════════ */
-.pubs-wrap{padding:5.5rem 3rem 4rem;max-width:1200px;margin:0 auto;position:relative;z-index:2}
-.eyebrow{font-family:var(--fm);font-size:.67rem;letter-spacing:4px;color:var(--orange);text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:1rem}
-.eyebrow::before{content:'';width:38px;height:1px;background:var(--orange)}
-.sec-h{font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:1px;margin-bottom:3rem}
-.sec-h span{color:var(--blue)}
-
-.pub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
-.pub-card{background:var(--surface);padding:2rem 1.8rem;position:relative;overflow:hidden;transition:all .35s;display:flex;flex-direction:column;gap:.55rem}
-.pub-card:hover{background:rgba(30,58,95,.02)}
-.pub-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;transition:width .4s}
-.pub-card:nth-child(1)::after{background:var(--blue)}
-.pub-card:nth-child(2)::after{background:var(--orange)}
-.pub-card:nth-child(3)::after{background:var(--green)}
-.pub-card:nth-child(4)::after{background:var(--purple)}
-.pub-card:nth-child(5)::after{background:var(--teal)}
-.pub-card:hover::after{width:100%}
-.pub-j{font-family:var(--fm);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;display:flex;align-items:center;gap:.5rem}
-.pub-j::before{content:'';width:18px;height:1px;background:currentColor}
-.pub-card:nth-child(1) .pub-j{color:var(--blue)}
-.pub-card:nth-child(2) .pub-j{color:var(--orange)}
-.pub-card:nth-child(3) .pub-j{color:var(--green)}
-.pub-card:nth-child(4) .pub-j{color:var(--purple)}
-.pub-card:nth-child(5) .pub-j{color:var(--teal)}
-.pub-status{position:absolute;top:1.4rem;right:1.4rem;font-family:var(--fm);font-size:.55rem;letter-spacing:1.5px;padding:3px 8px;text-transform:uppercase;background:rgba(154,52,18,.07);color:var(--orange);border:1px solid rgba(154,52,18,.15);border-radius:2px}
-.pub-status.abs{background:rgba(30,58,95,.07);color:var(--blue);border:1px solid rgba(30,58,95,.15)}
-.pub-title{font-family:var(--fd);font-size:1.02rem;font-weight:600;color:var(--text);line-height:1.35;padding-right:2.5rem;flex:1}
-.pub-meta{font-size:.76rem;color:var(--muted)}
-.pub-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.3rem}
-.ptag{font-family:var(--fm);font-size:.55rem;letter-spacing:1px;padding:2px 6px;border-radius:2px;text-transform:uppercase}
-.ptag-b{background:rgba(30,58,95,.06);color:var(--blue);border:1px solid rgba(30,58,95,.12)}
-.ptag-o{background:rgba(154,52,18,.06);color:var(--orange);border:1px solid rgba(154,52,18,.12)}
-.ptag-g{background:rgba(6,95,70,.06);color:var(--green);border:1px solid rgba(6,95,70,.12)}
-.ptag-p{background:rgba(91,33,182,.06);color:var(--purple);border:1px solid rgba(91,33,182,.12)}
-.ptag-t{background:rgba(17,94,89,.06);color:var(--teal);border:1px solid rgba(17,94,89,.12)}
-
-/* ═══ EXPERTISE ══════════════════════════════════════════════════ */
-.exp-wrap{padding:5rem 3rem;max-width:1200px;margin:0 auto;position:relative;z-index:2}
-.focus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
-.fc{background:var(--surface);padding:2.8rem 2.2rem;position:relative;overflow:hidden;transition:background .3s}
-.fc:hover{background:rgba(30,58,95,.02)}
-.fc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;transition:width .4s}
-.fc-1::after{background:var(--blue)}.fc-2::after{background:var(--orange)}.fc-3::after{background:var(--green)}.fc-4::after{background:var(--purple)}
-.fc:hover::after{width:100%}
-.fc-num{font-family:var(--fm);font-size:.58rem;letter-spacing:2px;color:var(--dim);margin-bottom:1.8rem;display:flex;align-items:center;gap:.7rem}
-.fc-num::after{content:'';flex:1;height:1px;background:var(--border)}
-.fc-chip{position:absolute;top:1.8rem;right:1.8rem;font-family:var(--fm);font-size:.54rem;letter-spacing:1.5px;padding:3px 9px;border-radius:2px;text-transform:uppercase}
-.chip-r{background:rgba(30,58,95,.06);color:var(--blue);border:1px solid rgba(30,58,95,.12)}
-.chip-d{background:rgba(154,52,18,.06);color:var(--orange);border:1px solid rgba(154,52,18,.12)}
-.chip-o{background:rgba(6,95,70,.06);color:var(--green);border:1px solid rgba(6,95,70,.12)}
-.chip-c{background:rgba(91,33,182,.06);color:var(--purple);border:1px solid rgba(91,33,182,.12)}
-.fc-icon{font-size:1.7rem;margin-bottom:1.2rem;display:block;transition:transform .3s}
-.fc-1 .fc-icon{color:var(--blue)}.fc-2 .fc-icon{color:var(--orange)}.fc-3 .fc-icon{color:var(--green)}.fc-4 .fc-icon{color:var(--purple)}
-.fc:hover .fc-icon{transform:scale(1.1) translateY(-3px)}
-.fc h3{font-family:var(--fd);font-size:1.22rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.8rem;transition:color .3s}
-.fc:hover h3{color:var(--blue)}
-.fc p{color:var(--muted);font-size:.86rem;line-height:1.8}
-.fc p strong{color:var(--text);font-weight:500}
-
-/* ═══ FOOTER ══════════════════════════════════════════════════════ */
-footer{background:var(--deep);border-top:1px solid var(--border);padding:5rem 3rem 2.5rem;position:relative;z-index:2}
-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),var(--orange),transparent)}
-.ft-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:4rem}
-.ft-brand h3{font-family:var(--fd);font-size:1.15rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:2px;margin-bottom:.7rem}
-.ft-brand p{color:var(--muted);font-size:.83rem;line-height:1.8;margin-bottom:1.4rem}
-.ft-lbl{font-family:var(--fd);font-size:.7rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:3px;margin-bottom:1.4rem}
-.ft-links{list-style:none}
-.ft-links li{margin-bottom:.75rem}
-.ft-links a{color:var(--muted);text-decoration:none;font-size:.87rem;display:flex;align-items:center;gap:.5rem;transition:color .25s}
-.ft-links a::before{content:'›';color:var(--orange);font-size:.95rem;transition:transform .25s}
-.ft-links a:hover{color:var(--text)}
-.ft-links a:hover::before{transform:translateX(3px)}
-.ft-status{list-style:none}
-.ft-status li{margin-bottom:.75rem;font-size:.83rem;color:var(--muted);display:flex;align-items:baseline;gap:.5rem}
-.socials{display:flex;gap:.65rem;margin-top:1.4rem}
-.soc{width:35px;height:35px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.85rem;border-radius:2px;transition:all .3s}
-.soc:hover{border-color:var(--blue);color:var(--blue);background:rgba(30,58,95,.05);box-shadow:0 0 12px rgba(30,58,95,.1)}
-.ft-copy{max-width:1200px;margin:3.5rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.ft-copy p{font-family:var(--fm);font-size:.66rem;letter-spacing:1px;color:var(--dim)}
-.sys-ok{font-family:var(--fm);font-size:.62rem;letter-spacing:2px;color:var(--green);display:flex;align-items:center;gap:.45rem}
-.sys-ok::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);animation:bl 2s step-start infinite}
-
-/* ═══ RESPONSIVE ══════════════════════════════════════════════════ */
-@media(max-width:1024px){.ft-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:820px){
-    nav{max-width:calc(100vw - 2.5rem);padding:.5rem .5rem .5rem .9rem}
-    .nav-sep{display:none}
-    .nav-links{display:none}
-    .nav-pill{display:none}
-    .menu-toggle{display:flex}
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .pubs-grid{grid-template-columns:repeat(2,1fr)}
+    .exp-grid{grid-template-columns:repeat(2,1fr)}
+    .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-    body{cursor:auto}.cur-dot,.cur-ring{display:none}
-    .hero{padding:6.5rem 1.2rem 4rem}.hero h1{font-size:2.4rem}
-    .stats-wrap,.pubs-wrap,.exp-wrap{padding:3rem 1.2rem}
-    .hdiv,.ticker{padding-left:1.2rem;padding-right:1.2rem}
-    .ft-grid{grid-template-columns:1fr;gap:2.5rem}
-    footer{padding:3rem 1.2rem 2rem}
-    .grad-banner{font-size:.58rem;letter-spacing:1.5px;padding:.4rem .9rem}
+    .nav-links{display:none}
+    .nav-cta{display:none}
+    .menu-toggle{display:block}
+    .hero{padding:6rem 1.5rem 4rem}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:1rem}
+    .pubs-grid{grid-template-columns:1fr}
+    .exp-grid{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr;gap:2rem}
+    .footer-header{flex-direction:column;gap:1.5rem}
+    .footer-contact{text-align:left}
+    .stats-section,.pubs-section,.exp-section{padding:3rem 1.5rem}
 }
 @media(max-width:480px){
+    .stats-grid{grid-template-columns:1fr}
     .hero h1{font-size:2rem}
-    .cta-row{flex-direction:column}
-    .btn-main{width:100%;justify-content:center}
-    .stats-grid{grid-template-columns:1fr 1fr}
-    .pill-row{gap:.4rem}
+    .hero-cta{flex-direction:column}
+    .btn{width:100%;justify-content:center}
 }
-nav{-webkit-backdrop-filter:blur(28px)}
     </style>
 </head>
 <body>
 
-<!-- Cursor -->
-<div class="cur-dot" id="cd"></div>
-<div class="cur-ring" id="cr"></div>
+<!-- Ambient Background Canvas -->
+<canvas id="ambient-canvas"></canvas>
 
-<<canvas id="pxc"></canvas>
-
-<!-- ══ DYNAMIC ISLAND NAV ══ -->
-<<nav id="navbar">
-    <a href="/" class="logo">
-        <div class="logo-box"><i class="fas fa-plane-departure"></i></div>
-        <span>Mohammed Bello Sani</span>
-    </a>
-    <div class="nav-sep"></div>
-    <ul class="nav-links" id="navLinks">
-        <li><a href="/" class="nav-active">Home</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/projects.html">Logbook</a></li>
-        <li><a href="/contact.html">Comms</a></li>
-    </ul>
-    <a href="/contact.html" class="nav-pill"><i class="fas fa-satellite-dish"></i> Hire Me</a>
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
+<!-- ════════════════════════════════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="/" class="nav-brand">
+            <i class="fas fa-plane-departure"></i>
+            <span>Mohammed Bello Sani</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/projects.html">Research</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+            <a href="/contact.html" class="nav-cta">Hire Me</a>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </div>
 </nav>
 
-<!-- ══ HERO ══ -->
+<!-- ════════════════════════════════════════════════════════════════
+     HERO SECTION
+     ════════════════════════════════════════════════════════════════ -->
 <section class="hero">
-    <div class="radar-wrap">
-        <div class="rr"></div><div class="rr"></div><div class="rr"></div>
-        <div class="rr"></div><div class="rr"></div>
-        <div class="rsweep"></div>
-    </div>
-
-    <div class="hero-content">
-
-        <!-- Graduation context banner -->
-        <div class="grad-banner">
-            <div class="gb-dot"></div>
-            <span>B.Eng Aerospace Engineering</span>
-            <span class="gb-sep">·</span>
-            <span class="gb-hl">AFIT Kaduna — 500L Final Year</span>
-            <span class="gb-sep">·</span>
-            <span>CGPA 4.13 · Expected June 2026</span>
-            <span class="gb-sep">·</span>
-            <span class="gb-hl">Beihang M.Sc. Sept 2026</span>
+    <div class="hero-inner">
+        <div class="hero-badge">
+            <div class="dot"></div>
+            <span>B.Eng Aerospace Engineering · AFIT Kaduna · 500L Final Year · CGPA 4.13/5.00</span>
         </div>
 
-        <div class="pill-row">
-            <div class="pill pill-g"><div class="pdot"></div>5 Research Submissions</div>
-            <div class="pill pill-b"><div class="pdot"></div>CGPA 4.13 / 5.00</div>
-            <div class="pill pill-o"><div class="pdot"></div>AIAA JAIS Peer Reviewer</div>
-            <div class="pill pill-p"><div class="pdot"></div>Beihang M.Sc. · Sept 2026</div>
+        <div class="hero-pills">
+            <div class="pill pill-green"><i class="fas fa-flask" style="font-size:0.6rem"></i> 5 Research Submissions</div>
+            <div class="pill pill-blue"><i class="fas fa-graduation-cap" style="font-size:0.6rem"></i> Beihang M.Sc. Sept 2026</div>
+            <div class="pill pill-orange"><i class="fas fa-gavel" style="font-size:0.6rem"></i> AIAA JAIS Peer Reviewer</div>
+            <div class="pill pill-purple"><i class="fas fa-database" style="font-size:0.6rem"></i> 4 Open Datasets Published</div>
         </div>
 
         <h1>
             Aerospace Engineer<br>
-            &amp;&nbsp;<span class="ac">Digital Twin Researcher</span>
+            & <span class="accent">Digital Twin Researcher</span>
         </h1>
 
-        <p class="hero-sub"><span id="tw"></span><span class="twc"></span></p>
+        <p class="hero-sub">
+            Building physics-informed intelligent systems for aircraft health monitoring, 
+            predictive maintenance, and avionics cybersecurity. Four journal manuscripts under review 
+            at CJA, IEEE TAES, Elsevier RESS, and AIAA JAIS. One abstract submitted to AIAA SciTech 2027. 
+            Ad Hoc Reviewer for AIAA Journal of Aerospace Information Systems.
+        </p>
 
-        <div class="cta-row">
-            <a href="/projects.html" class="btn-main btn-fill">
-                <i class="fas fa-microchip"></i> Research &amp; Projects
+        <div class="hero-cta">
+            <a href="/projects.html" class="btn btn-primary">
+                <i class="fas fa-microchip"></i> View Research & Projects
             </a>
-            <a href="/about.html" class="btn-main btn-line">
-                <i class="fas fa-user-astronaut"></i> About Me
+            <a href="/about.html" class="btn btn-secondary">
+                <i class="fas fa-user"></i> About Me
             </a>
         </div>
     </div>
 </section>
 
-<!-- ══ DIVIDER ══ -->
-<div class="hdiv">
-    <div class="hdiv-line"></div><div class="hdiv-dia"></div>
-    <div class="hdiv-lbl">35.5k Physics Samples · 72 RDE Fields · 5 Submissions · 4 Datasets</div>
-    <div class="hdiv-dia"></div><div class="hdiv-line"></div>
+<!-- ════════════════════════════════════════════════════════════════
+     STATS SECTION
+     ════════════════════════════════════════════════════════════════ -->
+<div class="section-divider">
+    <div class="line"></div>
+    <div class="label">Key Metrics</div>
+    <div class="line"></div>
 </div>
 
-<!-- ══ STATS ══ -->
-<section class="stats-wrap">
+<section class="stats-section">
     <div class="stats-grid">
-        <div class="stat">
-            <div class="stat-lbl">Research Submissions</div>
-            <div class="stat-val"><span class="n counter" data-target="5">0</span><span class="u"> Total</span></div>
-            <div class="stat-note">4 Journals Under Review · 1 AIAA SciTech Abstract Submitted</div>
-            <div class="stat-bar"><div class="stat-bar-fill" style="animation-delay:.1s"></div></div>
+        <div class="stat-card">
+            <div class="stat-label">Research Submissions</div>
+            <div class="stat-number"><span class="counter" data-target="5">0</span><span class="unit"> Total</span></div>
+            <div class="stat-desc">4 journals under review + 1 AIAA SciTech abstract submitted</div>
         </div>
-        <div class="stat">
-            <div class="stat-lbl">Synthetic Training Data</div>
-            <div class="stat-val"><span class="n counter" data-target="35.5">0</span><span class="u">k</span></div>
-            <div class="stat-note">B787 (26k · 12 classes) + Dornier 228 (9.5k · 11 classes)</div>
-            <div class="stat-bar"><div class="stat-bar-fill" style="animation-delay:.3s"></div></div>
+        <div class="stat-card">
+            <div class="stat-label">Synthetic Training Samples</div>
+            <div class="stat-number"><span class="counter" data-target="35.5">0</span><span class="unit">k</span></div>
+            <div class="stat-desc">B787 (26k · 12 classes) + Dornier 228 (9.5k · 11 classes)</div>
         </div>
-        <div class="stat">
-            <div class="stat-lbl">Dornier 228 LSTM Accuracy</div>
-            <div class="stat-val"><span class="n counter" data-target="98.5">0</span><span class="u">%</span></div>
-            <div class="stat-note">Dual-Input LSTM · 11 ATA-32 Fault Classes · 47ms Inference</div>
-            <div class="stat-bar"><div class="stat-bar-fill" style="animation-delay:.5s"></div></div>
+        <div class="stat-card">
+            <div class="stat-label">Dornier 228 Accuracy</div>
+            <div class="stat-number"><span class="counter" data-target="98.5">0</span><span class="unit">%</span></div>
+            <div class="stat-desc">Dual-Input LSTM · 11 ATA-32 fault classes · 47ms inference</div>
         </div>
-        <div class="stat">
-            <div class="stat-lbl">RDE Synthetic Fields</div>
-            <div class="stat-val"><span class="n counter" data-target="72">0</span><span class="u"> Fields</span></div>
-            <div class="stat-note">12 OpenFOAM Sims → 72 Augmented · 4.3M Param CVAE · HuggingFace</div>
-            <div class="stat-bar"><div class="stat-bar-fill" style="animation-delay:.7s"></div></div>
+        <div class="stat-card">
+            <div class="stat-label">RDE Synthetic Fields</div>
+            <div class="stat-number"><span class="counter" data-target="72">0</span><span class="unit"> Fields</span></div>
+            <div class="stat-desc">12 OpenFOAM sims → 72 augmented · 4.3M-param CVAE</div>
         </div>
     </div>
 </section>
 
-<!-- ══ TICKER ══════════════════════════════════════════════════════ -->
-<div class="ticker">
-    <div class="ticker-t">
-        <span class="tbl">CJA</span> · AeroTwin B787 Landing Gear Prognostics ◆
-        <span class="tor">IEEE TAES</span> · PHI-CHAIN Avionics Blockchain Security ◆
-        <span class="tgr">RESS/Elsevier</span> · B787 Ignition System Digital Twin ◆
-        <span class="tbl">AIAA JAIS</span> · Dornier 228 Certification-Compliant LG Twin ◆
-        <span class="tor">AIAA SciTech</span> · RDE CFD Data Augmentation · 72 Synthetic Fields ◆
-        <span class="tgr">Beihang Univ.</span> · Smart Aviation Center · M.Sc. Sept 2026 ◆
-        <span class="tbl">Peer Review</span> · AIAA JAIS · 2 Manuscripts Reviewed ◆
-        <span class="tor">B787 Dataset</span> 26,000 Samples · 12 Fault Classes ◆
-        <span class="tgr">Dornier 228</span> 9,500 Samples · 11 Fault Classes ◆
-        <span class="tbl">Cranfield Univ. UK</span> · Active Collaboration ◆
-        <span class="tor">CGPA</span> 4.13 / 5.00 · 500L Final Year · AFIT Kaduna ◆
-        <span class="tgr">SHAP XAI</span> · Explainable Fault Attribution Maps ◆
-        <span class="tbl">PHI-CHAIN</span> · Ed25519 · ADS-B · ACARS · CPDLC ◆
-        <span class="tor">OpenFOAM</span> · RDE · 300×150 Mesh · 4.3M CVAE ◆
-        <span class="tbl">CJA</span> · AeroTwin B787 Landing Gear Prognostics ◆
-        <span class="tor">IEEE TAES</span> · PHI-CHAIN Avionics Blockchain Security ◆
-        <span class="tgr">RESS/Elsevier</span> · B787 Ignition System Digital Twin ◆
-        <span class="tbl">AIAA JAIS</span> · Dornier 228 Certification-Compliant LG Twin ◆
-        <span class="tor">AIAA SciTech</span> · RDE CFD Data Augmentation · 72 Synthetic Fields ◆
-        <span class="tgr">Beihang Univ.</span> · Smart Aviation Center · M.Sc. Sept 2026 ◆
-        <span class="tbl">Peer Review</span> · AIAA JAIS · 2 Manuscripts Reviewed ◆
-        <span class="tor">B787 Dataset</span> 26,000 Samples · 12 Fault Classes ◆
-        <span class="tgr">Dornier 228</span> 9,500 Samples · 11 Fault Classes ◆
-        <span class="tbl">Cranfield Univ. UK</span> · Active Collaboration ◆
-        <span class="tor">CGPA</span> 4.13 / 5.00 · 500L Final Year · AFIT Kaduna ◆
-        <span class="tgr">SHAP XAI</span> · Explainable Fault Attribution Maps ◆
-        <span class="tbl">PHI-CHAIN</span> · Ed25519 · ADS-B · ACARS · CPDLC ◆
-        <span class="tor">OpenFOAM</span> · RDE · 300×150 Mesh · 4.3M CVAE ◆
+<!-- ════════════════════════════════════════════════════════════════
+     TICKER
+     ════════════════════════════════════════════════════════════════ -->
+<section class="ticker-section">
+    <div class="ticker-track">
+        <div class="ticker-item"><span class="highlight">CJA</span> <span class="sep">·</span> AeroTwin B787 Landing Gear Prognostics</div>
+        <div class="ticker-item"><span class="highlight-orange">IEEE TAES</span> <span class="sep">·</span> PHI-CHAIN Blockchain Avionics Security</div>
+        <div class="ticker-item"><span class="highlight-green">RESS/Elsevier</span> <span class="sep">·</span> B787 Ignition System Digital Twin</div>
+        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">·</span> Dornier 228 Certification-Compliant LG Twin</div>
+        <div class="ticker-item"><span class="highlight-orange">AIAA SciTech</span> <span class="sep">·</span> RDE CFD Data Augmentation · 72 Synthetic Fields</div>
+        <div class="ticker-item"><span class="highlight-green">Beihang Univ.</span> <span class="sep">·</span> Smart Aviation Center · M.Sc. Sept 2026</div>
+        <div class="ticker-item"><span class="highlight">Peer Review</span> <span class="sep">·</span> AIAA JAIS · 2 Manuscripts Reviewed</div>
+        <div class="ticker-item"><span class="highlight-orange">OpenFOAM</span> <span class="sep">·</span> RDE v2406 · 300×150 Mesh · 4.3M CVAE</div>
+        <div class="ticker-item"><span class="highlight">CJA</span> <span class="sep">·</span> AeroTwin B787 Landing Gear Prognostics</div>
+        <div class="ticker-item"><span class="highlight-orange">IEEE TAES</span> <span class="sep">·</span> PHI-CHAIN Blockchain Avionics Security</div>
+        <div class="ticker-item"><span class="highlight-green">RESS/Elsevier</span> <span class="sep">·</span> B787 Ignition System Digital Twin</div>
+        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">·</span> Dornier 228 Certification-Compliant LG Twin</div>
+        <div class="ticker-item"><span class="highlight-orange">AIAA SciTech</span> <span class="sep">·</span> RDE CFD Data Augmentation · 72 Synthetic Fields</div>
+        <div class="ticker-item"><span class="highlight-green">Beihang Univ.</span> <span class="sep">·</span> Smart Aviation Center · M.Sc. Sept 2026</div>
+        <div class="ticker-item"><span class="highlight">Peer Review</span> <span class="sep">·</span> AIAA JAIS · 2 Manuscripts Reviewed</div>
+        <div class="ticker-item"><span class="highlight-orange">OpenFOAM</span> <span class="sep">·</span> RDE v2406 · 300×150 Mesh · 4.3M CVAE</div>
     </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     PUBLICATIONS SECTION
+     ════════════════════════════════════════════════════════════════ -->
+<div class="section-divider" style="margin-top:3rem">
+    <div class="line"></div>
+    <div class="label">Published Research</div>
+    <div class="line"></div>
 </div>
 
-<!-- ══ DIVIDER ══ -->
-<div class="hdiv" style="margin-top:0">
-    <div class="hdiv-line"></div><div class="hdiv-dia"></div>
-    <div class="hdiv-lbl">Published Research · 2025 – 2026</div>
-    <div class="hdiv-dia"></div><div class="hdiv-line"></div>
-</div>
+<section class="pubs-section">
+    <div class="section-header">
+        <div class="section-eyebrow">Peer-Reviewed Research</div>
+        <h2 class="section-title">Journal <span>Submissions</span></h2>
+    </div>
 
-<!-- ══ PUBLICATIONS ══ -->
-<section class="pubs-wrap">
-    <div class="eyebrow">Peer-Reviewed Research</div>
-    <div class="sec-h">Journal <span>Submissions</span></div>
-
-    <div class="pub-grid">
+    <div class="pubs-grid">
         <div class="pub-card">
-            <div class="pub-j">Chinese Journal of Aeronautics (CJA)</div>
-            <div class="pub-status">Under Review</div>
+            <div class="pub-venue">Chinese Journal of Aeronautics</div>
+            <div class="pub-status review">Under Review</div>
             <div class="pub-title">AeroTwin: B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture</div>
             <div class="pub-meta">Lead Researcher · Cranfield University Collaboration · Submitted 2026</div>
             <div class="pub-tags">
-                <span class="ptag ptag-b">CNN-BiLSTM</span>
-                <span class="ptag ptag-b">SHAP XAI</span>
-                <span class="ptag ptag-b">26k Samples</span>
-                <span class="ptag ptag-b">12 Fault Classes</span>
-                <span class="ptag ptag-b">ATA 32</span>
+                <span class="tag tag-blue">CNN-BiLSTM</span>
+                <span class="tag tag-blue">SHAP XAI</span>
+                <span class="tag tag-blue">26k Samples</span>
+                <span class="tag tag-blue">12 Fault Classes</span>
+                <span class="tag tag-blue">ATA 32</span>
             </div>
         </div>
+
         <div class="pub-card">
-            <div class="pub-j">IEEE TAES · Aerospace &amp; Electronic Systems</div>
-            <div class="pub-status">Under Review</div>
+            <div class="pub-venue">IEEE TAES</div>
+            <div class="pub-status review">Under Review</div>
             <div class="pub-title">PHI-CHAIN: Blockchain-Secured Avionics Data Integrity Framework</div>
-            <div class="pub-meta">Lead Researcher &amp; Sole Author · Submitted 2026</div>
+            <div class="pub-meta">Lead Researcher & Sole Author · Submitted 2026</div>
             <div class="pub-tags">
-                <span class="ptag ptag-o">Hyperledger Fabric</span>
-                <span class="ptag ptag-o">Ed25519</span>
-                <span class="ptag ptag-o">ADS-B / ACARS</span>
-                <span class="ptag ptag-o">DO-326A</span>
+                <span class="tag tag-orange">Hyperledger Fabric</span>
+                <span class="tag tag-orange">Ed25519</span>
+                <span class="tag tag-orange">ADS-B / ACARS</span>
+                <span class="tag tag-orange">DO-326A</span>
             </div>
         </div>
+
         <div class="pub-card">
-            <div class="pub-j">RESS · Reliability Eng. &amp; System Safety (Elsevier)</div>
-            <div class="pub-status">Under Review</div>
+            <div class="pub-venue">RESS / Elsevier</div>
+            <div class="pub-status review">Under Review</div>
             <div class="pub-title">Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring</div>
-            <div class="pub-meta">Lead Researcher &amp; Sole Author · Submitted 2026</div>
+            <div class="pub-meta">Lead Researcher & Sole Author · Submitted 2026</div>
             <div class="pub-tags">
-                <span class="ptag ptag-g">LightGBM</span>
-                <span class="ptag ptag-g">R² = 0.87</span>
-                <span class="ptag ptag-g">27k Samples</span>
-                <span class="ptag ptag-g">11 Fault Modes</span>
-                <span class="ptag ptag-g">FastAPI</span>
+                <span class="tag tag-green">LightGBM</span>
+                <span class="tag tag-green">R² = 0.87</span>
+                <span class="tag tag-green">27k Samples</span>
+                <span class="tag tag-green">11 Fault Modes</span>
+                <span class="tag tag-green">FastAPI</span>
             </div>
         </div>
+
         <div class="pub-card">
-            <div class="pub-j">AIAA · American Inst. of Aeronautics &amp; Astronautics</div>
-            <div class="pub-status">Under Review</div>
+            <div class="pub-venue">AIAA Journal of Aerospace Information Systems</div>
+            <div class="pub-status review">Under Review</div>
             <div class="pub-title">Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems</div>
-            <div class="pub-meta">Lead Researcher &amp; Sole Author · Also NIGERCON 2026 (IEEE)</div>
+            <div class="pub-meta">Lead Researcher & Sole Author · Also NIGERCON 2026 (IEEE)</div>
             <div class="pub-tags">
-                <span class="ptag ptag-p">CS-23.473/479</span>
-                <span class="ptag ptag-p">EASA AMC</span>
-                <span class="ptag ptag-p">9.5k Samples</span>
-                <span class="ptag ptag-p">11 Fault Classes</span>
+                <span class="tag tag-purple">CS-23.473/479</span>
+                <span class="tag tag-purple">EASA AMC</span>
+                <span class="tag tag-purple">9.5k Samples</span>
+                <span class="tag tag-purple">11 Fault Classes</span>
             </div>
         </div>
-        <div class="pub-card">
-            <div class="pub-j">AIAA SciTech Forum 2027 · Orlando, FL</div>
-            <div class="pub-status abs">Abstract Submitted</div>
-            <div class="pub-title">Physics-Consistent CVAE for RDE Spatiotemporal Augmentation &amp; Neural Surrogate Mapping</div>
+
+        <div class="pub-card" style="grid-column:span 1">
+            <div class="pub-venue">AIAA SciTech Forum 2027 · Orlando, FL</div>
+            <div class="pub-status abstract">Abstract Submitted</div>
+            <div class="pub-title">Physics-Consistent CVAE for RDE Spatiotemporal Augmentation & Neural Surrogate Mapping</div>
             <div class="pub-meta">Lead Researcher · Abstract Submitted May 2026</div>
             <div class="pub-tags">
-                <span class="ptag ptag-t">OpenFOAM v2406</span>
-                <span class="ptag ptag-t">CNN-BiLSTM CVAE</span>
-                <span class="ptag ptag-t">4.3M Params</span>
-                <span class="ptag ptag-t">72 Synthetic Fields</span>
-                <span class="ptag ptag-t">HuggingFace Dataset</span>
+                <span class="tag tag-teal">OpenFOAM v2406</span>
+                <span class="tag tag-teal">CNN-BiLSTM CVAE</span>
+                <span class="tag tag-teal">4.3M Params</span>
+                <span class="tag tag-teal">72 Synthetic Fields</span>
+                <span class="tag tag-teal">HuggingFace</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ══ DIVIDER ══ -->
-<div class="hdiv">
-    <div class="hdiv-line"></div><div class="hdiv-dia"></div>
-    <div class="hdiv-lbl">Technical Domains</div>
-    <div class="hdiv-dia"></div><div class="hdiv-line"></div>
+<!-- ════════════════════════════════════════════════════════════════
+     EXPERTISE SECTION
+     ════════════════════════════════════════════════════════════════ -->
+<div class="section-divider">
+    <div class="line"></div>
+    <div class="label">Core Capabilities</div>
+    <div class="line"></div>
 </div>
 
-<!-- ══ EXPERTISE ══ -->
-<section class="exp-wrap">
-    <div class="eyebrow">Core Capabilities</div>
-    <div class="sec-h">Technical <span>Domains</span></div>
-    <div class="focus-grid">
-        <div class="fc fc-1">
-            <div class="fc-num">01 / 04</div>
-            <div class="fc-chip chip-r">Research</div>
-            <i class="fas fa-laptop-code fc-icon"></i>
+<section class="exp-section">
+    <div class="section-header">
+        <div class="section-eyebrow">Technical Domains</div>
+        <h2 class="section-title">Areas of <span>Expertise</span></h2>
+    </div>
+
+    <div class="exp-grid">
+        <div class="exp-card">
+            <div class="exp-num">01 / 04</div>
+            <i class="fas fa-laptop-code exp-icon"></i>
             <h3>Digital Twin Architecture</h3>
-            <p>Physics-informed replicas of aircraft systems — fusing <strong>MATLAB Simscape</strong> multidomain physics with deep learning to model oleo-pneumatic dynamics, classify faults across <strong>11–12 severity states</strong>, predict RUL, and generate <strong>ATA-compliant maintenance directives</strong> via embedded on-device LLM. <strong>OpenFOAM v2406</strong> reactive-flow RDE simulation with 4.3M-parameter Conditional VAE for spatiotemporal augmentation. No cloud required.</p>
+            <p>Physics-informed replicas of aircraft systems — fusing <strong>MATLAB Simscape</strong> multidomain physics with deep learning to model oleo-pneumatic dynamics, classify faults across <strong>11–12 severity states</strong>, predict RUL, and generate <strong>ATA-compliant maintenance directives</strong> via embedded on-device LLM. <strong>OpenFOAM v2406</strong> reactive-flow RDE simulation with 4.3M-parameter Conditional VAE. No cloud required.</p>
         </div>
-        <div class="fc fc-2">
-            <div class="fc-num">02 / 04</div>
-            <div class="fc-chip chip-d">Security</div>
-            <i class="fas fa-shield-alt fc-icon"></i>
+
+        <div class="exp-card">
+            <div class="exp-num">02 / 04</div>
+            <i class="fas fa-shield-alt exp-icon"></i>
             <h3>Avionics Cybersecurity</h3>
-            <p><strong>Hyperledger Fabric</strong> blockchain architecture securing <strong>ADS-B, ACARS, ADS-C, CPDLC</strong> and operational telemetry. <strong>Ed25519 cryptographic signing</strong> at ingestion layer with semantic attack detection — validated against ICAO Doc 10037 and <strong>RTCA DO-326A</strong>.</p>
+            <p><strong>Hyperledger Fabric</strong> blockchain architecture securing <strong>ADS-B, ACARS, ADS-C, CPDLC</strong> and operational telemetry. <strong>Ed25519 cryptographic signing</strong> at ingestion layer with semantic attack detection — validated against ICAO Doc 10037 and <strong>RTCA DO-326A</strong>. Split-Payload Architecture resolving the TCAS Paradox.</p>
         </div>
-        <div class="fc fc-3">
-            <div class="fc-num">03 / 04</div>
-            <div class="fc-chip chip-o">Operations</div>
-            <i class="fas fa-network-wired fc-icon"></i>
-            <h3>Telemetry &amp; MRO Intelligence</h3>
-            <p>End-to-end pipelines: <strong>FlightGear UDP → Telegraf → InfluxDB → Grafana</strong>. Field experience at <strong>NCAA</strong> (airworthiness regulatory) and <strong>Executive Airlift</strong> (line maintenance, King Air 350). <strong>Ad Hoc Reviewer</strong> for AIAA Journal of Aerospace Information Systems. M.Sc. candidate at Beihang University Smart Aviation Center.</p>
+
+        <div class="exp-card">
+            <div class="exp-num">03 / 04</div>
+            <i class="fas fa-network-wired exp-icon"></i>
+            <h3>Telemetry & MRO Intelligence</h3>
+            <p>End-to-end pipelines: <strong>FlightGear UDP → Telegraf → InfluxDB → Grafana</strong>. Field experience at <strong>NCAA</strong> (Airworthiness Standards, technical log audits, CoA renewals, MEL protocols) and <strong>Executive Airlift Group</strong> (line maintenance, King Air 350, wheel overhauls, hydraulic inspections). <strong>Ad Hoc Reviewer</strong> for AIAA JAIS.</p>
         </div>
-        <div class="fc fc-4">
-            <div class="fc-num">04 / 04</div>
-            <div class="fc-chip chip-c">Regulatory</div>
-            <i class="fas fa-certificate fc-icon"></i>
-            <h3>Certification &amp; Compliance</h3>
-            <p>Systems traceable to <strong>CS-23.473/479</strong>, <strong>CS-25</strong>, and <strong>EASA AMC guidelines</strong>. Fault signatures mapped to <strong>ATA chapters</strong>, maintenance outputs formatted for direct MRO workflow use — not just academic prototypes. <strong>Nigeria Civil Aviation Regulations</strong> field experience.</p>
+
+        <div class="exp-card">
+            <div class="exp-num">04 / 04</div>
+            <i class="fas fa-certificate exp-icon"></i>
+            <h3>Certification & Compliance</h3>
+            <p>Systems traceable to <strong>CS-23.473/479</strong>, <strong>CS-25</strong>, and <strong>EASA AMC guidelines</strong>. Fault signatures mapped to <strong>ATA chapters</strong>, maintenance outputs formatted for direct MRO workflow use — not just academic prototypes. <strong>Nigeria Civil Aviation Regulations (NCARs)</strong> field experience. Hard-landing detection at 3.05 m/s sink rate.</p>
         </div>
     </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
-<<footer>
-    <div class="ft-grid">
-        <div class="ft-brand">
-            <h3>Mohammed Bello Sani</h3>
-            <p>Final-year Aerospace Engineering undergraduate at Air Force Institute of Technology Kaduna (500L) — CGPA 4.13/5.00. M.Sc. candidate at Beihang University Smart Aviation Center (Sept 2026). Ad Hoc Reviewer for AIAA Journal of Aerospace Information Systems. Four concurrent journal submissions and one conference abstract, building certification-aligned intelligent systems at the intersection of aircraft physics, deep learning, and real-time telemetry. Based in Abuja, Nigeria.</p>
-            <div class="socials">
-                <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="soc"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Sm-bello" target="_blank" class="soc"><i class="fab fa-github"></i></a>
-                <a href="https://www.kaggle.com/datasets/mohammedbellosani" target="_blank" class="soc"><i class="fas fa-database"></i></a>
-                <a href="mailto:bellosani2drescue@gmail.com" class="soc"><i class="fas fa-envelope"></i></a>
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER — DENSE CREDIBILITY SECTION
+     Extracted from CV & Career Report for maximum impact
+     ════════════════════════════════════════════════════════════════ -->
+<footer class="footer-main">
+    <div class="footer-inner">
+
+        <!-- Header -->
+        <div class="footer-header">
+            <div>
+                <div class="footer-name">Mohammed Bello Sani</div>
+                <div class="footer-tagline">Aerospace Engineer & Digital Twin Researcher · Founder, Penelope Inc. · M.Sc. Candidate, Beihang University</div>
+            </div>
+            <div class="footer-contact">
+                <a href="mailto:bellosani2drescue@gmail.com">bellosani2drescue@gmail.com</a>
+                <a href="https://smbello.vercel.app" target="_blank">smbello.vercel.app</a>
+                <a href="https://github.com/Sm-bello" target="_blank">github.com/Sm-bello</a>
+                <div class="location"><i class="fas fa-map-marker-alt" style="margin-right:0.3rem"></i>Abuja, Nigeria · +234 906 788 3192</div>
             </div>
         </div>
-        <div>
-            <div class="ft-lbl">Navigate</div>
-            <ul class="ft-links">
-                <li><a href="/about.html">About &amp; Profile</a></li>
-                <li><a href="/projects.html">Research Logbook</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
+
+        <!-- Grid -->
+        <div class="footer-grid">
+
+            <!-- Column 1: Dense Bio -->
+            <div class="footer-col footer-bio">
+                <h4>Profile</h4>
+                <p>
+                    Final-year B.Eng Aerospace Engineering student at <strong>Air Force Institute of Technology (AFIT), Kaduna, Nigeria</strong> 
+                    — CGPA <strong>4.13/5.00</strong> (Second Class Upper Honours). Provisional M.Sc. acceptance at <strong>Beihang University (BUAA), 
+                    Smart Aviation Center, Hangzhou, China</strong> under Prof. Hu Yang, beginning September 2026. Beihang is ranked among the 
+                    top five aerospace universities globally and #1 in China for aeronautics and astronautics.
+                </p>
+                <p>
+                    While completing degree requirements, I have independently authored and submitted <strong>four full research manuscripts</strong> 
+                    to international engineering journals and one abstract to <strong>AIAA SciTech Forum 2027</strong> — all conceived, researched, 
+                    coded, and written independently. I have also been invited as an <strong>Ad Hoc Reviewer</strong> for the 
+                    <strong>AIAA Journal of Aerospace Information Systems</strong> by Associate Editor Prof. Peng Wei of George Washington University 
+                    — an invitation typically extended to faculty and senior researchers. I have reviewed two manuscripts in full compliance with 
+                    AIAA ethical standards.
+                </p>
+                <div class="highlight-box">
+                    <p>
+                        <strong>Field Experience:</strong> Six months at <strong>Nigerian Civil Aviation Authority (NCAA)</strong> Airworthiness Standards 
+                        department — technical log audits, Certificate of Airworthiness renewals, MEL protocols, and direct exposure to Nigeria Civil 
+                        Aviation Regulations (NCARs). Three months at <strong>Executive Airlift Group (EAG 307)</strong>, Nnamdi Azikiwe International Airport 
+                        — hands-on MRO experience on King Air 350: routine line maintenance, structural inspections, wheel assembly overhauls, 
+                        hydraulic system inspections, and avionics bay servicing. Three months at <strong>AFIT Workshops</strong> — foundational aerospace 
+                        manufacturing training in machining, welding, and precision fabrication.
+                    </p>
+                </div>
+                <div class="peer-badge">
+                    <i class="fas fa-check-circle"></i>
+                    <span>AIAA JAIS PEER REVIEWER · 2 MANUSCRIPTS REVIEWED</span>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Sm-bello" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.kaggle.com/datasets/mohammedbellosani" target="_blank" title="Kaggle"><i class="fas fa-database"></i></a>
+                    <a href="mailto:bellosani2drescue@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Education & Next Steps -->
+            <div class="footer-col">
+                <h4>Education & Trajectory</h4>
+                <ul class="footer-list">
+                    <li><strong>Beihang University (BUAA)</strong> — M.Sc. Smart Aviation, Sept 2026</li>
+                    <li><strong>AFIT Kaduna</strong> — B.Eng Aerospace Engineering, Expected June 2026</li>
+                    <li>CGPA: <strong>4.13 / 5.00</strong> — Second Class Upper Honours</li>
+                    <li>Student ID: <strong>U21-AE-1018</strong></li>
+                    <li>Final Year Project: <strong>Digital Twin for Landing Gear Systems</strong></li>
+                    <li>Relevant Coursework: Flight Dynamics, Aerospace Structures, CFD, Automatic Control Systems</li>
+                    <li>Supervisor: <strong>Dr. Godwin E. Abbe</strong></li>
+                </ul>
+
+                <h4 style="margin-top:1.5rem">Professional Affiliations</h4>
+                <ul class="footer-list">
+                    <li>Student Member, <strong>AIAA</strong></li>
+                    <li>Student Member, <strong>Nigeria Society of Engineers (NSE)</strong></li>
+                    <li>Student Member, <strong>Nigeria Institution of Safety Engineers</strong></li>
+                    <li>Student Member, <strong>Chartered Institute of Logistics & Transport</strong></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Research Portfolio -->
+            <div class="footer-col">
+                <h4>Research Portfolio</h4>
+                <ul class="footer-list">
+                    <li><strong>AeroTwin</strong> — B787 LG Prognostics (CJA, Under Review)</li>
+                    <li><strong>PHI-CHAIN</strong> — Blockchain Avionics (IEEE TAES, Under Review)</li>
+                    <li><strong>B787 Ignition DT</strong> — LightGBM, R²=0.87 (RESS, Under Review)</li>
+                    <li><strong>Dornier 228 LG DT</strong> — CS-23 Compliant (AIAA JAIS, Under Review)</li>
+                    <li><strong>RDE CVAE</strong> — 72 Synthetic Fields (SciTech 2027, Abstract)</li>
+                    <li><strong>Peer Review</strong> — AIAA JAIS, 2 manuscripts</li>
+                </ul>
+
+                <h4 style="margin-top:1.5rem">Open Datasets</h4>
+                <ul class="footer-list">
+                    <li><strong>HuggingFace:</strong> SM-Bello/rde-72-dataset (DOI: 10.57967/hf/8884)</li>
+                    <li><strong>Kaggle:</strong> B787 Ignition System DT — 27k samples, 11 faults</li>
+                    <li><strong>Kaggle:</strong> AeroTwin B787 Landing Gear Physics Dataset</li>
+                    <li><strong>Kaggle:</strong> Dornier 228 Synthetic Landing Gear — 9.5k cycles</li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Research Status -->
+            <div class="footer-col">
+                <h4>Research Status</h4>
+                <ul class="research-status">
+                    <li><span class="status-dot dot-blue"></span> CJA — AeroTwin B787 LG</li>
+                    <li><span class="status-dot dot-orange"></span> IEEE TAES — PHI-CHAIN</li>
+                    <li><span class="status-dot dot-green"></span> RESS — B787 Ignition DT</li>
+                    <li><span class="status-dot dot-purple"></span> AIAA JAIS — Dornier 228 LG</li>
+                    <li><span class="status-dot dot-teal"></span> AIAA SciTech — RDE CVAE</li>
+                    <li class="status-note">4 UNDER REVIEW · 1 ABSTRACT SUBMITTED · 2026</li>
+                </ul>
+
+                <h4 style="margin-top:1.5rem">Company</h4>
+                <ul class="footer-list">
+                    <li><strong>Penelope Inc.</strong> — Founder</li>
+                    <li>Aerospace AI & Intelligent Systems</li>
+                    <li>Product Lines: PHI-Twin, PHI-CHAIN, PHI-Arc</li>
+                    <li>Mission: Indigenous African aerospace AI infrastructure</li>
+                </ul>
+
+                <h4 style="margin-top:1.5rem">Technical Stack</h4>
+                <ul class="footer-list">
+                    <li>PyTorch, OpenFOAM v2406, MATLAB/Simscape</li>
+                    <li>Hyperledger Fabric, Ed25519, FastAPI</li>
+                    <li>FlightGear UDP, InfluxDB, Grafana</li>
+                    <li>LaTeX (AIAA/IEEE/Elsevier), Docker, WSL2</li>
+                </ul>
+            </div>
         </div>
-        <div>
-            <div class="ft-lbl">Research Status</div>
-            <ul class="ft-status">
-                <li><span style="color:var(--blue)">◆</span> CJA - AeroTwin B787 LG</li>
-                <li><span style="color:var(--orange)">◆</span> IEEE TAES - PHI-CHAIN</li>
-                <li><span style="color:var(--green)">◆</span> RESS - B787 Ignition DT</li>
-                <li><span style="color:var(--purple)">◆</span> AIAA JAIS - Dornier 228 LG DT</li>
-                <li><span style="color:var(--teal)">◆</span> AIAA SciTech - RDE CVAE</li>
-                <li style="margin-top:.6rem;font-size:.72rem;color:var(--dim);font-family:var(--fm);letter-spacing:1px">4 UNDER REVIEW · 1 ABSTRACT SUBMITTED · 2026</li>
-            </ul>
+
+        <!-- Bottom -->
+        <div class="footer-bottom">
+            <p>© 2026 Mohammed Bello Sani · Aerospace Intelligence Research · AFIT Kaduna, Nigeria</p>
+            <div class="footer-system">
+                <span>All Systems Nominal</span>
+            </div>
         </div>
-    </div>
-    <div class="ft-copy">
-        <p>&copy; 2026 Mohammed Bello Sani · Aerospace Intelligence Research · Air Force Institute of Technology Kaduna, Nigeria</p>
-        <div class="sys-ok">All Systems Nominal</div>
     </div>
 </footer>
 
 <script>
-/* ── CURSOR ── */
-const cd=document.getElementById('cd'),cr=document.getElementById('cr');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px';});
-(function ring(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(ring);})();
-document.querySelectorAll('a,button,.fc,.stat,.pub-card').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{cd.style.background='#9a3412';cd.style.boxShadow='0 0 10px rgba(154,52,18,.3)';cr.style.borderColor='rgba(154,52,18,.4)';cr.style.transform='translate(-50%,-50%) scale(1.5)';});
-    el.addEventListener('mouseleave',()=>{cd.style.background='#1e3a5f';cd.style.boxShadow='0 0 8px rgba(30,58,95,.3)';cr.style.borderColor='rgba(30,58,95,.35)';cr.style.transform='translate(-50%,-50%) scale(1)';});
-});
-
-/* ── PARTICLES ── */
+/* ─── AMBIENT BACKGROUND — Floating Soft Orbs ─── */
 (function(){
-    var cv=document.getElementById('pxc'),c=cv.getContext('2d');
-    cv.width=window.innerWidth;cv.height=window.innerHeight;
-    var pts=[];
-    for(var i=0;i<<85;i++)pts.push({
-        x:Math.random()*cv.width,y:Math.random()*cv.height,
-        sz:Math.random()*1.4+.4,
-        vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,
-        op:Math.random()*.32+.08
-    });
-    (function lp(){
-        c.clearRect(0,0,cv.width,cv.height);
-        pts.forEach(p=>{
-            p.x+=p.vx;p.y+=p.vy;
-            if(p.x<<0||p.x>cv.width)p.vx*=-1;
-            if(p.y<<0||p.y>cv.height)p.vy*=-1;
-            c.fillStyle='rgba(120,120,130,'+p.op+')';
-            c.beginPath();c.arc(p.x,p.y,p.sz,0,Math.PI*2);c.fill();
+    const canvas = document.getElementById('ambient-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize(){
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const orbs = [];
+    const orbCount = 12;
+
+    for(let i = 0; i < orbCount; i++){
+        orbs.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 180 + 120,
+            vx: (Math.random() - 0.5) * 0.15,
+            vy: (Math.random() - 0.5) * 0.12,
+            opacity: Math.random() * 0.03 + 0.01,
+            hue: Math.random() > 0.5 ? 210 : 25 // blue or warm orange tint
         });
-        requestAnimationFrame(lp);
-    })();
-    window.addEventListener('resize',()=>{cv.width=window.innerWidth;cv.height=window.innerHeight;});
+    }
+
+    let frame = 0;
+    function animate(){
+        frame++;
+        ctx.clearRect(0, 0, width, height);
+
+        orbs.forEach(orb => {
+            orb.x += orb.vx;
+            orb.y += orb.vy;
+
+            if(orb.x < -orb.radius) orb.x = width + orb.radius;
+            if(orb.x > width + orb.radius) orb.x = -orb.radius;
+            if(orb.y < -orb.radius) orb.y = height + orb.radius;
+            if(orb.y > height + orb.radius) orb.y = -orb.radius;
+
+            // Very slow breathing opacity
+            const breathe = Math.sin(frame * 0.005 + orb.x * 0.001) * 0.008;
+            const currentOpacity = Math.max(0, orb.opacity + breathe);
+
+            const gradient = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.radius);
+            if(orb.hue === 210){
+                gradient.addColorStop(0, `rgba(26, 58, 92, ${currentOpacity})`);
+                gradient.addColorStop(0.5, `rgba(26, 58, 92, ${currentOpacity * 0.3})`);
+                gradient.addColorStop(1, 'rgba(26, 58, 92, 0)');
+            } else {
+                gradient.addColorStop(0, `rgba(196, 90, 26, ${currentOpacity})`);
+                gradient.addColorStop(0.5, `rgba(196, 90, 26, ${currentOpacity * 0.3})`);
+                gradient.addColorStop(1, 'rgba(196, 90, 26, 0)');
+            }
+
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(orb.x, orb.y, orb.radius, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        requestAnimationFrame(animate);
+    }
+    animate();
 })();
 
-/* ── NAV ── */
-window.addEventListener('scroll',()=>{
-    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+/* ─── NAV SCROLL EFFECT ─── */
+window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
 });
-function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}
 
-/* ── TYPEWRITER ── */
-var lines=[
-    "Final-year B.Eng Aerospace Engineering at AFIT Kaduna — 5 research submissions in parallel.",
-    "M.Sc. Candidate at Beihang University, Smart Aviation Center — Sept 2026 under Prof. Hu Yang.",
-    "Ad Hoc Reviewer for AIAA Journal of Aerospace Information Systems — invited by Prof. Peng Wei.",
-    "RDE CFD Research: 12 OpenFOAM v2406 simulations, 72 synthetic fields, 4.3M-param CVAE.",
-    "Corrected 4× Chapman-Jouguet velocity error in widely-used RDE correlations.",
-    "B787 Landing Gear: 26,000 samples · 12 fault classes · CNN-BiLSTM · 80.6% accuracy.",
-    "Dornier 228: 9,500 samples · 11 fault classes · CS-23.473/479 · 98.5% accuracy.",
-];
-var li=0,ci=0,del=false,el=document.getElementById('tw');
-function tw(){
-    var ln=lines[li];
-    if(!del){
-        el.textContent=ln.slice(0,++ci);
-        if(ci===ln.length){del=true;setTimeout(tw,2800);return;}
-    } else {
-        el.textContent=ln.slice(0,--ci);
-        if(ci===0){del=false;li=(li+1)%lines.length;setTimeout(tw,300);return;}
+function toggleMenu(){
+    const links = document.getElementById('navLinks');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    if(links.style.display === 'flex'){
+        links.style.position = 'absolute';
+        links.style.top = '64px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.background = 'rgba(255,255,255,0.98)';
+        links.style.flexDirection = 'column';
+        links.style.padding = '1rem 2rem';
+        links.style.borderBottom = '1px solid var(--border)';
+        links.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
     }
-    setTimeout(tw,del?16:34);
 }
-tw();
 
-/* ── COUNTERS ── */
-var counted=false;
-new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-        if(e.isIntersecting&&!counted){
-            counted=true;
-            e.target.querySelectorAll('.counter').forEach(function(c){
-                var target=parseFloat(c.dataset.target),dur=1800,inc=target/(dur/16),cur=0;
-                var isInt=Number.isInteger(target);
-                var decimals=isInt?0:1;
-                var t=setInterval(function(){
-                    cur+=inc;
-                    if(cur>=target){
-                        c.textContent=target.toFixed(decimals);
-                        clearInterval(t);
-                    } else {
-                        c.textContent=cur.toFixed(decimals);
-                    }
-                },16);
+/* ─── COUNTER ANIMATION ─── */
+const counted = false;
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting && !window.countersDone){
+            window.countersDone = true;
+            document.querySelectorAll('.counter').forEach(counter => {
+                const target = parseFloat(counter.dataset.target);
+                const duration = 2000;
+                const start = performance.now();
+                const isInt = Number.isInteger(target);
+
+                function update(now){
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = target * eased;
+                    counter.textContent = isInt ? Math.floor(current) : current.toFixed(1);
+                    if(progress < 1) requestAnimationFrame(update);
+                    else counter.textContent = isInt ? target : target.toFixed(1);
+                }
+                requestAnimationFrame(update);
             });
         }
     });
-},{threshold:.4}).observe(document.querySelector('.stats-wrap'));
+}, {threshold: 0.3});
+
+observer.observe(document.querySelector('.stats-section'));
 </script>
+
 </body>
 </html>
