@@ -34,45 +34,13 @@
         .nav-links a:hover{color:var(--neon-blue)}
         .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px}
         .menu-toggle span{width:25px;height:3px;background:var(--text-dark);border-radius:2px;transition:all .3s ease}
-        .page-hero{padding:9rem 2rem 5rem;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:white;text-align:center;clip-path:polygon(0 0,100% 0,100% 95%,0 100%);position:relative;overflow:hidden}
+        .page-hero{padding:9rem 2rem 5rem;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:white;text-align:center;clip-path:polygon(0 0,100% 0,100% 90%,0 100%);position:relative;overflow:hidden}
         .page-hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,transparent 0%,rgba(14,165,233,.1) 50%,transparent 100%);animation:scanLineHero 4s ease-in-out infinite}
         @keyframes scanLineHero{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
         .page-hero h1{font-size:3rem;margin-bottom:1rem;font-weight:800;letter-spacing:-1px;animation:fadeInUp .8s ease-out;position:relative;z-index:2}
         .page-hero p{font-size:1.2rem;color:#94a3b8;max-width:700px;margin:0 auto;animation:fadeInUp .8s ease-out .2s both;position:relative;z-index:2;font-family:var(--font-mono)}
         @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-        .container{max-width:1200px;margin:2rem auto 4rem;padding:0 2rem;position:relative;z-index:2}
-        
-        /* ═══════════════════════════════════════════════════════════
-           SLIDER CLASSIFICATION ARCHITECTURE (NEW LAYER)
-           ═══════════════════════════════════════════════════════════ */
-        .classification-layer {max-width:1200px;margin:-2rem auto 2rem;padding:0 2rem;position:relative;z-index:10}
-        .slider-section-container {background:white;padding:2rem;border-radius:16px;box-shadow:0 10px 30px rgba(15,23,42,0.05);border:1px solid #e2e8f0;margin-bottom:2.5rem}
-        .slider-track-title {font-size:1.4rem;font-weight:800;color:var(--text-dark);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem}
-        .slider-track-title i {color:var(--neon-blue)}
-        .slider-outer-wrapper {position:relative;width:100%;overflow:hidden;padding:0.5rem 0}
-        .slider-inner-track {display:flex;gap:1.5rem;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:0.5rem}
-        .slider-inner-track::-webkit-scrollbar {display:none}
-        
-        .compact-slider-card {flex:0 0 360px;background:linear-gradient(145deg,#111827 0%,#1f2937 100%);border-radius:12px;border:1px solid rgba(255,255,255,0.08);padding:1.5rem;color:white;display:flex;flex-direction:column;justify-content:between;position:relative;transition:transform 0.3s ease,border-color 0.3s ease}
-        .compact-slider-card:hover {transform:translateY(-5px);border-color:var(--neon-blue)}
-        .card-class-badge {font-family:var(--font-mono);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:1px;width:fit-content;margin-bottom:0.75rem;background:rgba(14,165,233,0.15);color:var(--neon-blue);border:1px solid rgba(14,165,233,0.3)}
-        .compact-slider-card h3 {font-size:1.15rem;font-weight:700;line-height:1.3;margin-bottom:0.5rem;color:white}
-        .compact-slider-card p {font-size:0.82rem;color:#94a3b8;line-height:1.5;margin-bottom:1rem}
-        
-        .card-motion-graphic {width:100%;height:100px;background:#030712;border-radius:6px;margin-bottom:1rem;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.05)}
-        .card-metrics-strip {display:flex;gap:1rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:0.75rem;margin-bottom:1rem}
-        .metric-item {display:flex;flex-direction:column}
-        .metric-item .m-val {font-family:var(--font-mono);font-size:1.1rem;font-weight:700;color:var(--neon-orange)}
-        .metric-item .m-lbl {font-size:0.62rem;color:#64748b;text-transform:uppercase;letter-spacing:0.5px}
-        
-        .card-actions-row {display:flex;gap:8px;flex-wrap:wrap}
-        .card-action-btn {display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;font-size:0.75rem;font-weight:700;text-decoration:none;color:white;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);transition:all 0.2s ease}
-        .card-action-btn:hover {background:white;color:#0f172a}
-        .card-nav-arrow {position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:white;box-shadow:0 4px 12px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:20;border:1px solid #e2e8f0;transition:all 0.2s ease}
-        .card-nav-arrow:hover {background:var(--neon-blue);color:white;border-color:var(--neon-blue)}
-        .card-nav-arrow.prev-arrow {left:-18px}
-        .card-nav-arrow.next-arrow {right:-18px}
-
+        .container{max-width:1200px;margin:-4rem auto 4rem;padding:0 2rem;position:relative;z-index:2}
         /* ── Flagship card ── */
         .flagship-card{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border-radius:20px;overflow:hidden;margin-bottom:5rem;box-shadow:0 20px 60px rgba(0,0,0,.3);border:1px solid rgba(14,165,233,.3);position:relative;animation:slideUp .8s ease-out}
         @keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
@@ -102,19 +70,19 @@
         .flagship-visual{background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;border-left:1px solid rgba(14,165,233,.2);overflow:hidden}
         .grid-bg{position:absolute;width:200%;height:200%;background-image:linear-gradient(rgba(14,165,233,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.1) 1px,transparent 1px);background-size:40px 40px;transform:perspective(500px) rotateX(60deg);animation:gridMove 15s linear infinite}
         @keyframes gridMove{0%{transform:perspective(500px) rotateX(60deg) translateY(0)}100%{transform:perspective(500px) rotateX(60deg) translateY(40px)}}
-        
+        /* ── canvas wrappers ── */
         .cv-wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;padding:16px 0}
         .cv-label{color:#94a3b8;font-size:.63rem;margin-bottom:8px;text-align:center;font-family:var(--font-mono);position:relative;z-index:2}
         .cv-telem{margin-top:12px;font-family:var(--font-mono);font-size:.67rem;text-align:left;width:88%;background:rgba(0,0,0,.65);padding:12px;border-radius:8px;border:1px solid rgba(14,165,233,.3);line-height:2.0;position:relative;z-index:2}
         .t-ok{color:#10b981}.t-warn{color:#f59e0b}.t-alert{color:#ef4444}.t-info{color:#94a3b8}.t-blue{color:#38bdf8}.t-purple{color:#a78bfa}.t-teal{color:#06b6d4}
-        
+        /* ── PHI-CHAIN ── */
         .phichain-visual{background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;border-left:1px solid rgba(139,92,246,.25);overflow:hidden}
         .phichain-grid-bg{position:absolute;width:200%;height:200%;background-image:linear-gradient(rgba(139,92,246,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.08) 1px,transparent 1px);background-size:40px 40px;transform:perspective(500px) rotateX(60deg);animation:gridMove 20s linear infinite}
-        
+        /* ── Section headers ── */
         .section-header{margin:5rem 0 3rem;display:flex;align-items:center;gap:1rem;border-bottom:2px solid #e2e8f0;padding-bottom:1rem}
         .section-header i{color:var(--neon-orange);font-size:2rem}
         .section-header h2{font-size:2rem;color:var(--text-dark);text-transform:uppercase;letter-spacing:1px;font-weight:800}
-        
+        /* ── Future grid cards (upgraded) ── */
         .future-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;margin-bottom:4rem}
         .future-card{background:#0f172a;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:all .4s ease;position:relative}
         .future-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
@@ -125,30 +93,20 @@
         .future-card p{color:#94a3b8;font-size:.88rem;line-height:1.8;margin-bottom:1rem}
         .future-tech{display:flex;gap:6px;flex-wrap:wrap;margin-top:.8rem}
         .future-pill{font-family:var(--font-mono);font-size:.62rem;padding:3px 8px;border-radius:3px;border:1px solid rgba(255,255,255,.1);color:#64748b;background:rgba(255,255,255,.03)}
-        
-        /* ═══════════════════════════════════════════════════════════
-           BEAUTIFIED INTERACTIVE SIMULATORS LAYER
-           ═══════════════════════════════════════════════════════════ */
-        .interactive-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem;margin-bottom:4rem}
-        .interactive-card{background:white;padding:2rem;border-radius:16px;border:1px solid #e2e8f0;box-shadow:0 4px 20px rgba(0,0,0,0.03);transition:all .4s ease;display:flex;flex-direction:column}
-        .interactive-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(14,165,233,0.1)}
-        .interactive-card i{font-size:2rem;margin-bottom:1rem;display:block}
-        .interactive-card.blue i{color:var(--neon-blue)}
-        .interactive-card.orange i{color:var(--neon-orange)}
-        .interactive-card.purple i{color:var(--neon-purple)}
-        .interactive-card.green i{color:var(--neon-green)}
-        .interactive-card h3{font-size:1.25rem;margin-bottom:0.5rem;color:var(--text-dark)}
-        .interactive-card p{color:var(--text-light);font-size:0.88rem;margin-bottom:1.25rem;line-height:1.5}
-        
-        /* Inline Live Embedded UI Widgets */
-        .live-sim-widget {background:#0f172a;border-radius:10px;padding:1rem;margin-top:auto;border:1px solid rgba(255,255,255,0.08);color:white;font-family:var(--font-mono);font-size:0.75rem}
-        .sim-input-row {display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;gap:8px}
-        .sim-input-row span {color:#94a3b8}
-        .sim-input-row input, .sim-input-row select {background:#1e293b;border:1px solid #334155;color:white;border-radius:4px;padding:2px 6px;width:80px;font-family:var(--font-mono);font-size:0.72rem;outline:none}
-        .sim-trigger-btn {width:100%;background:var(--neon-blue);color:white;border:none;padding:6px;border-radius:4px;font-weight:700;cursor:pointer;margin-top:0.5rem;transition:background 0.2s}
-        .sim-trigger-btn:hover {background:#0284c7}
-        .sim-output-box {background:#020617;border-radius:4px;padding:8px;margin-top:0.5rem;border:1px solid rgba(255,255,255,0.05);min-height:45px;color:#38bdf8}
-
+        /* ── Interactive / Archives ── */
+        .interactive-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:4rem}
+        .interactive-card{background:white;padding:2.5rem;border-radius:12px;border:2px solid transparent;box-shadow:0 5px 20px rgba(0,0,0,.08);transition:all .4s ease;cursor:pointer}
+        .interactive-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
+        .interactive-card.blue{border-color:var(--neon-blue)}.interactive-card.orange{border-color:var(--neon-orange)}.interactive-card.purple{border-color:var(--neon-purple)}
+        .interactive-card i{font-size:2.5rem;margin-bottom:1.5rem;display:block}
+        .interactive-card.blue i{color:var(--neon-blue)}.interactive-card.orange i{color:var(--neon-orange)}.interactive-card.purple i{color:var(--neon-purple)}
+        .interactive-card h3{font-size:1.4rem;margin-bottom:1rem;color:var(--text-dark)}
+        .interactive-card p{color:var(--text-light);margin-bottom:1.5rem}
+        .demo-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:6px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .3s ease;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+        .interactive-card.blue .demo-btn{background:rgba(14,165,233,.1);color:var(--neon-blue)}
+        .interactive-card.orange .demo-btn{background:rgba(249,115,22,.1);color:var(--neon-orange)}
+        .interactive-card.purple .demo-btn{background:rgba(139,92,246,.1);color:var(--neon-purple)}
+        .demo-btn:hover{background:var(--text-dark);color:white;transform:translateX(5px)}
         .archives-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:4rem}
         .archive-card{background:white;border:1px solid #e2e8f0;border-left:4px solid var(--navy-stroke);border-radius:8px;padding:2rem;transition:all .3s ease}
         .archive-card:hover{transform:translateY(-5px);border-left-color:var(--neon-blue);box-shadow:0 10px 30px rgba(0,0,0,.1)}
@@ -157,14 +115,13 @@
         .archive-card p{font-size:.95rem;color:var(--text-light);margin-bottom:1.2rem;line-height:1.7}
         .repo-link{color:var(--navy-stroke);text-decoration:none;font-weight:600;font-size:.9rem;display:inline-flex;align-items:center;gap:8px;transition:all .3s ease}
         .repo-link:hover{color:var(--neon-blue);gap:12px}
-        
         footer{background:var(--footer-bg);padding:3rem 2rem;color:white;text-align:center;margin-top:6rem;position:relative;z-index:2}
         footer p{font-size:.9rem;color:#94a3b8}
         .footer-links{margin-top:1rem}
         .footer-links a{color:#94a3b8;margin:0 15px;text-decoration:none;transition:all .3s ease}
         .footer-links a:hover{color:var(--neon-orange)}
         @media(max-width:900px){.flagship-grid{grid-template-columns:1fr}.flagship-visual,.phichain-visual{height:350px;border-left:none;border-top:1px solid rgba(14,165,233,.2)}.stats-strip{flex-wrap:wrap;gap:1.5rem}}
-        @media(max-width:768px){nav{padding:1rem} .logo{font-size:.9rem}.nav-links{display:none}.menu-toggle{display:flex}.page-hero{padding:6rem 1rem 4rem;clip-path:none}.page-hero h1{font-size:2.2rem}.page-hero p{font-size:1rem}.flagship-content{padding:2rem 1.5rem}.flagship-content h2{font-size:1.8rem}.section-header h2{font-size:1.5rem}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:white;padding:2rem;border-bottom:1px solid #e2e8f0;box-shadow:0 10px 20px rgba(0,0,0,.1);text-align:center}}
+        @media(max-width:768px){nav{padding:1rem}.logo{font-size:.9rem}.nav-links{display:none}.menu-toggle{display:flex}.page-hero{padding:6rem 1rem 4rem;clip-path:none}.page-hero h1{font-size:2.2rem}.page-hero p{font-size:1rem}.flagship-content{padding:2rem 1.5rem}.flagship-content h2{font-size:1.8rem}.section-header h2{font-size:1.5rem}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:white;padding:2rem;border-bottom:1px solid #e2e8f0;box-shadow:0 10px 20px rgba(0,0,0,.1);text-align:center}}
     </style>
 </head>
 <body>
@@ -180,287 +137,13 @@
 </nav>
 
 <div class="page-hero">
-    <h1>TECHNICAL LOGBOOK & SHOWCASE</h1>
-    <p>> Classifying Cyber-Physical Architectures & Intelligent Systems... [DONE]</p>
+    <h1>PROJECTS LOGBOOK</h1>
+    <p>> Initializing Aerospace Research Data... [DONE]</p>
 </div>
 
-<div class="classification-layer">
+<div class="container">
 
-    <div class="slider-section-container">
-        <div class="slider-track-title"><i class="fas fa-server"></i> Deployed Systems — Production Ready</div>
-        <div class="slider-outer-wrapper">
-            <div class="card-nav-arrow prev-arrow" onclick="scrollSlider('track-deployed', -1)"><i class="fas fa-chevron-left"></i></div>
-            <div class="card-nav-arrow next-arrow" onclick="scrollSlider('track-deployed', 1)"><i class="fas fa-chevron-right"></i></div>
-            <div class="slider-inner-track" id="track-deployed">
-                
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Aerospace / Edge AI</div>
-                    <h3>AeroTwin: B787 Landing Gear</h3>
-                    <p>3-layer edge prognostics parsing ODE models, deep CNN-BiLSTM feature sequences, and local LLM maintenance directives.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-b787lg" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">80.6%</span><span class="m-lbl">Accuracy</span></div>
-                        <div class="metric-item"><span class="m-val">±244h</span><span class="m-lbl">RUL MAE</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Sm-bello/AeroTwin-B787-Prognostics" class="card-action-btn" target="_blank"><i class="fab fa-github"></i> Core</a>
-                        <a href="https://www.kaggle.com/datasets/mohammedbellosani/aerotwin-boeing-787-landing-gear-physics-dataset" class="card-action-btn" target="_blank"><i class="fas fa-database"></i> Dataset</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Cybersecurity / Blockchain</div>
-                    <h3>PHI-CHAIN Avionics Framework</h3>
-                    <p>Hyperledger Fabric stack validating five data protocols under cryptographic constraints to counter spoofing attempts.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-phichain" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">100%</span><span class="m-lbl">Detection</span></div>
-                        <div class="metric-item"><span class="m-val">1.8s</span><span class="m-lbl">Batch Lat</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Sm-bello/Securing-Aircraft-Comms-with-PHI-CHAIN" class="card-action-btn" target="_blank"><i class="fab fa-github"></i> Core</a>
-                        <a href="https://github.com/Penelope-Inco" class="card-action-btn" target="_blank"><i class="fas fa-building"></i> Org</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Aviation / PHM</div>
-                    <h3>B787 Ignition Digital Twin</h3>
-                    <p>LightGBM asset monitoring module integrated via FastAPI with full decoupled synthetic degradation injectors.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-b787ign" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">0.87</span><span class="m-lbl">R² Score</span></div>
-                        <div class="metric-item"><span class="m-val">39 cyc</span><span class="m-lbl">MAE</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Sm-bello/B787-ignition-digital-twin" class="card-action-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        <a href="https://www.kaggle.com/datasets/mohammedbellosani/boeing-787-ignition-digital-twin-and-phm-dataset" class="card-action-btn" target="_blank"><i class="fas fa-database"></i> Kaggle</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Aerospace / Regulations</div>
-                    <h3>AeroTwin: Dornier 228 Gear</h3>
-                    <p>Simscape Multibody physical assembly tracing landing tolerances mapped against structural CS-23 airworthiness guidelines.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-do228" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">98.74%</span><span class="m-lbl">LSTM Acc</span></div>
-                        <div class="metric-item"><span class="m-val">47ms</span><span class="m-lbl">Inference</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Sm-bello/AEROTWIN-Dornier228-LandingGear-Dataset" class="card-action-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://www.kaggle.com/datasets/mohammedbellosani/dornier-228-synthetic-aircraft-landinggear-dataset" class="card-action-btn" target="_blank"><i class="fas fa-database"></i> Dataset</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Infrastructure / IoT</div>
-                    <h3>NNPC Pipeline Monitor</h3>
-                    <p>Fibre-optic distribution emulator mapped across 614 km corridors utilizing deep autoencoders to track corrosion parameters.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-nnpc" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">&lt;50m</span><span class="m-lbl">GPS Res</span></div>
-                        <div class="metric-item"><span class="m-val">22 Nodes</span><span class="m-lbl">Topology</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="#" class="card-action-btn" onclick="alert('Enterprise telemetry architecture. Ground assets configured locally.');return false;"><i class="fas fa-shield-alt"></i> Internal Log</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Supply Chain / MRO</div>
-                    <h3>AI-Powered Inventory Forecast</h3>
-                    <p>Transformer-LSTM architecture analyzing material lead-times to alleviate Aircraft-on-Ground logistics backlogs.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-mroinv" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">91%</span><span class="m-lbl">MAPE Acc</span></div>
-                        <div class="metric-item"><span class="m-val">14 Days</span><span class="m-lbl">Horizon</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Sm-bello" class="card-action-btn" target="_blank"><i class="fab fa-github"></i> Profile</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="slider-section-container">
-        <div class="slider-track-title"><i class="fas fa-atom"></i> Active Research & Conceptual Design</div>
-        <div class="slider-outer-wrapper">
-            <div class="card-nav-arrow prev-arrow" onclick="scrollSlider('track-research', -1)"><i class="fas fa-chevron-left"></i></div>
-            <div class="card-nav-arrow next-arrow" onclick="scrollSlider('track-research', 1)"><i class="fas fa-chevron-right"></i></div>
-            <div class="slider-inner-track" id="track-research">
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Propulsion / CFD</div>
-                    <h3>RDE-72 Fluid Neural Surrogate</h3>
-                    <p>OpenFOAM reactive workspace compressing Navier-Stokes fluid matrices into structural CVAE field configurations.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-rdecfd" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">4.3M</span><span class="m-lbl">Parameters</span></div>
-                        <div class="metric-item"><span class="m-val">4× Error</span><span class="m-lbl">Corrected</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://www.kaggle.com/datasets/mohammedbellosani/rde-72-spatiotemporal-cfd-dataset" class="card-action-btn" target="_blank"><i class="fas fa-cube"></i> Kaggle Repo</a>
-                        <a href="https://huggingface.co/datasets/SM-Bello/rde-72-dataset" class="card-action-btn" target="_blank"><i class="fas fa-smile"></i> HuggingFace</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Aerospace / PHM</div>
-                    <h3>Gas Turbine Blade Digital Twin</h3>
-                    <p>AGTF30 physics-based engine configured with a 13-sensor instrument suite routing time-series parameters to model spools.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-gtblade" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">BiLSTM</span><span class="m-lbl">Core Arch</span></div>
-                        <div class="metric-item"><span class="m-val">HIL</span><span class="m-lbl">FlightGear</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Sm-bello" class="card-action-btn" target="_blank"><i class="fab fa-github"></i> Research Workspace</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Cybersecurity / Avionics</div>
-                    <h3>PHI-CHAIN Live Ground Station</h3>
-                    <p>Deployed terminal routing high-fidelity hardware identifiers under a permissioned multi-node distributed configuration.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-groundst" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">10 Hz</span><span class="m-lbl">Telemetry Rate</span></div>
-                        <div class="metric-item"><span class="m-val">36k/hr</span><span class="m-lbl">Packet Flow</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Penelope-Inco" class="card-action-btn" target="_blank"><i class="fas fa-network-wired"></i> Hyperledger Link</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Aircraft Design</div>
-                    <h3>STRATOS-14E VIP Transport</h3>
-                    <p>Conceptual aeronautical layout of a 14-seat intercontinental aircraft tracking PHI-SENSE sensory arrays from first principles.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-stratos" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">Mach 0.85</span><span class="m-lbl">Cruise Speed</span></div>
-                        <div class="metric-item"><span class="m-val">1027</span><span class="m-lbl">Sensors</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://smbello.vercel.app" class="card-action-btn" target="_blank"><i class="fas fa-globe"></i> Project Link</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">AI Systems / ReAct</div>
-                    <h3>Penelope Sovereign AI Agent</h3>
-                    <p>Hardware-locked, offline-resilient local operational stack executing physics and aerospace unit verification layers.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-penelope" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">GF(2⁸)</span><span class="m-lbl">Fingerprint</span></div>
-                        <div class="metric-item"><span class="m-val">6+ Cloud</span><span class="m-lbl">Failovers</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Sm-bello" class="card-action-btn" target="_blank"><i class="fab fa-github"></i> Repository</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="slider-section-container">
-        <div class="slider-track-title"><i class="fas fa-church"></i> Software & Ministry Tools</div>
-        <div class="slider-outer-wrapper">
-            <div class="card-nav-arrow prev-arrow" onclick="scrollSlider('track-software', -1)"><i class="fas fa-chevron-left"></i></div>
-            <div class="card-nav-arrow next-arrow" onclick="scrollSlider('track-software', 1)"><i class="fas fa-chevron-right"></i></div>
-            <div class="slider-inner-track" id="track-software">
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Systems Programming / NLP</div>
-                    <h3>Lifestone: Sermon Intelligence</h3>
-                    <p>Desktop engine compiling localized Whisper speech-to-text components coupled with fast pattern-matching graphs.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-lifestone" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">311k</span><span class="m-lbl">Verses DB</span></div>
-                        <div class="metric-item"><span class="m-val">0 Cloud</span><span class="m-lbl">Dependency</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Sm-bello" class="card-action-btn" target="_blank"><i class="fab fa-github"></i> Codebase</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Full-Stack / WebRTC</div>
-                    <h3>COLIG Church Platform</h3>
-                    <p>Next.js application tracking structured media storage configurations across isolated, reliable backend layers.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-colig" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">LiveKit</span><span class="m-lbl">WebRTC Audio</span></div>
-                        <div class="metric-item"><span class="m-val">PocketBase</span><span class="m-lbl">DB Core</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://colig-app.vercel.app" class="card-action-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live App</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="slider-section-container">
-        <div class="slider-track-title"><i class="fas fa-graduation-cap"></i> Infrastructure, Open Science & Academic Service</div>
-        <div class="slider-outer-wrapper">
-            <div class="card-nav-arrow prev-arrow" onclick="scrollSlider('track-infra', -1)"><i class="fas fa-chevron-left"></i></div>
-            <div class="card-nav-arrow next-arrow" onclick="scrollSlider('track-infra', 1)"><i class="fas fa-chevron-right"></i></div>
-            <div class="slider-inner-track" id="track-infra">
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Academic Service / Expert Review</div>
-                    <h3>AIAA JAIS Peer Review Service</h3>
-                    <p>Invited manuscript validation evaluating deep models for autonomous drogue tracking and data simulation arrays.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-review" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">2 Papers</span><span class="m-lbl">Reviewed</span></div>
-                        <div class="metric-item"><span class="m-val">AIAA</span><span class="m-lbl">Compliance</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://www.webofscience.com/wos/author/record/PYW-0574-2026" class="card-action-btn" target="_blank"><i class="fas fa-certificate"></i> Web of Science Profile</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Semantic Engineering</div>
-                    <h3>Ontology-Driven Aircraft CAMP</h3>
-                    <p>Encoding compliance items and regulatory task card hierarchies inside structured descriptive semantic frameworks.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-ontology" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">OWL/RDF</span><span class="m-lbl">Data Format</span></div>
-                        <div class="metric-item"><span class="m-val">SPARQL</span><span class="m-lbl">Engine</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Sm-bello" class="card-action-btn" target="_blank"><i class="fab fa-github"></i> Profile</a>
-                    </div>
-                </div>
-
-                <div class="compact-slider-card">
-                    <div class="card-class-badge">Data Engineering</div>
-                    <h3>Real-Time Telemetry DevOps Stack</h3>
-                    <p>High-speed telemetry collection engine streaming raw UDP packets through local persistence architectures natively.</p>
-                    <div class="card-motion-graphic"><canvas id="s-anim-devops" width="320" height="100"></canvas></div>
-                    <div class="card-metrics-strip">
-                        <div class="metric-item"><span class="m-val">InfluxDB 3</span><span class="m-lbl">Time-Series</span></div>
-                        <div class="metric-item"><span class="m-val">Grafana</span><span class="m-lbl">Pipeline</span></div>
-                    </div>
-                    <div class="card-actions-row">
-                        <a href="https://github.com/Sm-bello" class="card-action-btn" target="_blank"><i class="fab fa-github"></i> Core Scripts</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-</div>
-
+<!-- ══════════════  CARD 1: AEROTWIN CJA  ══════════════ -->
 <div class="flagship-card" style="border-color:rgba(14,165,233,.5);box-shadow:0 20px 80px rgba(14,165,233,.15);">
     <div class="flagship-grid">
         <div class="flagship-content">
@@ -477,13 +160,13 @@
                 <div class="mini-stat"><h4>&lt;1.5s</h4><span>Edge Latency</span></div>
             </div>
             <div class="tech-stack">
-                <span class="tech-pill">ODE ENGINE</span>
-                <span class="tech-pill">CNN-BiLSTM</span>
-                <span class="tech-pill">OLLAMA 3.2</span>
-                <span class="tech-pill">SHAP XAI</span>
-                <span class="tech-pill">PYTORCH</span>
-                <span class="tech-pill">FOCAL LOSS</span>
-                <span class="tech-pill">CS-25.473</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">ODE ENGINE</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">CNN-BiLSTM</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">OLLAMA 3.2</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">SHAP XAI</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">PYTORCH</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">FOCAL LOSS</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">CS-25.473</span>
             </div>
             <div class="flagship-actions">
                 <a href="https://github.com/Sm-bello/AeroTwin-B787-Prognostics" target="_blank" class="flagship-btn github"><i class="fab fa-github"></i> GitHub</a>
@@ -507,6 +190,7 @@
     </div>
 </div>
 
+<!-- ══════════════  CARD 2: PHI-CHAIN  ══════════════ -->
 <div class="flagship-card" style="border-color:rgba(139,92,246,.4);">
     <div class="flagship-grid">
         <div class="flagship-content">
@@ -528,12 +212,12 @@
                 <div class="mini-stat"><h4 style="color:#a78bfa;">100%</h4><span>Attack Detect</span></div>
             </div>
             <div class="tech-stack">
-                <span class="tech-pill">HYPERLEDGER FABRIC</span>
-                <span class="tech-pill">ED25519</span>
-                <span class="tech-pill">ADS‑B</span>
-                <span class="tech-pill">CPDLC</span>
-                <span class="tech-pill">FLIGHTGEAR</span>
-                <span class="tech-pill">WSL2</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">HYPERLEDGER FABRIC</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">ED25519</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">ADS‑B</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">CPDLC</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">FLIGHTGEAR</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">WSL2</span>
             </div>
             <div class="flagship-actions">
                 <a href="https://github.com/Sm-bello/Securing-Aircraft-Comms-with-PHI-CHAIN" target="_blank" class="flagship-btn github"><i class="fab fa-github"></i> GitHub</a>
@@ -554,6 +238,7 @@
     </div>
 </div>
 
+<!-- ══════════════  CARD 3: B787 IGNITION  ══════════════ -->
 <div class="flagship-card">
     <div class="flagship-grid">
         <div class="flagship-content">
@@ -593,6 +278,7 @@
     </div>
 </div>
 
+<!-- ══════════════  CARD 4: DORNIER 228 (IMPROVED VISUAL)  ══════════════ -->
 <div class="flagship-card">
     <div class="flagship-grid">
         <div class="flagship-content">
@@ -632,8 +318,10 @@
     </div>
 </div>
 
+<!-- ══════════════  FUTURE INITIATIVES SECTION  ══════════════ -->
 <div class="section-header"><i class="fas fa-flask"></i><h2>Active & Future Initiatives</h2></div>
 
+<!-- Neural CFD full-width -->
 <div style="background:white;border-radius:16px;padding:3rem;border:2px solid #e2e8f0;margin-bottom:3rem;">
     <span style="font-family:var(--font-mono);font-size:.7rem;color:var(--neon-orange);font-weight:700;padding:4px 10px;background:rgba(249,115,22,.1);border-radius:4px;border:1px solid var(--neon-orange);text-transform:uppercase;letter-spacing:1px;display:inline-block;margin-bottom:1.5rem;">LIVE PROOF OF CONCEPT</span>
     <i class="fas fa-wind" style="font-size:3rem;color:var(--neon-blue);margin-bottom:2rem;display:block;"></i>
@@ -644,6 +332,7 @@
     </div>
 </div>
 
+<!-- NNPC Pipeline — flagship-style future card -->
 <div class="flagship-card" style="border-color:rgba(16,185,129,.4);">
     <div class="flagship-grid">
         <div class="flagship-content">
@@ -652,6 +341,11 @@
             </div>
             <h2>NNPC Pipeline<br><span class="highlight" style="color:#34d399;text-shadow:0 0 20px rgba(16,185,129,.5);">Health Monitoring System</span></h2>
             <p>A real-time, IoT-driven <strong>pipeline integrity monitoring platform</strong> designed for the Nigerian National Petroleum Corporation (NNPC) crude oil network. The system fuses distributed fibre-optic and MEMS pressure sensor arrays with an <strong>LSTM-Autoencoder anomaly engine</strong> to detect leaks, corrosion hotspots, third-party interference, and wax deposition — hours before catastrophic failure. A <strong>GIS-integrated dashboard</strong> maps every fault event to its GPS coordinate on the Trans-Niger Pipeline corridor in real time.</p>
+            <ul style="list-style:none;margin:0 0 1.5rem;padding:0;">
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#34d399;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Leak detection</strong> — sub-1 bar pressure anomaly detection along 614 km corridor with GPS fault localisation &lt;50 m accuracy</span></li>
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#34d399;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Corrosion RUL prediction</strong> — physics-informed electrochemical ODE model feeding BiLSTM wall-thickness degradation estimator</span></li>
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#34d399;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Bunkering/tampering alerts</strong> — acoustic emission signature classifier differentiates equipment noise from unauthorised tapping</span></li>
+            </ul>
             <div class="stats-strip">
                 <div class="mini-stat"><h4 style="color:#34d399;">614km</h4><span>Pipeline</span></div>
                 <div class="mini-stat"><h4 style="color:#34d399;">&lt;50m</h4><span>Fault GPS</span></div>
@@ -659,9 +353,13 @@
                 <div class="mini-stat"><h4 style="color:#34d399;">LSTM</h4><span>Anomaly AI</span></div>
             </div>
             <div class="tech-stack">
-                <span class="tech-pill">LSTM-AUTOENCODER</span><span class="tech-pill">NODE-RED IOT</span>
-                <span class="tech-pill">INFLUXDB</span><span class="tech-pill">GRAFANA GIS</span>
-                <span class="tech-pill">MQTT</span><span class="tech-pill">FASTAPI</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">LSTM-AUTOENCODER</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">NODE-RED IOT</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">INFLUXDB</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">GRAFANA GIS</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">MQTT</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">FASTAPI</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">PYTORCH</span>
             </div>
         </div>
         <div class="flagship-visual" style="border-left-color:rgba(16,185,129,.25);background:#000;">
@@ -680,6 +378,7 @@
     </div>
 </div>
 
+<!-- MRO Inventory AI — flagship-style -->
 <div class="flagship-card" style="border-color:rgba(249,115,22,.4);">
     <div class="flagship-grid">
         <div class="flagship-content">
@@ -689,6 +388,12 @@
             </div>
             <h2>AI-Powered MRO<br><span class="highlight" style="color:#fb923c;text-shadow:0 0 20px rgba(249,115,22,.5);">Inventory Forecasting Platform</span></h2>
             <p>A joint initiative with <strong>Muhammed Fikri (PhD Researcher, Cranfield University)</strong> — building an end-to-end AI platform that transforms MRO parts management from reactive stockpiling to <strong>predictive, zero-AOG inventory control</strong>. The system ingests flight cycles, component MTBF curves, supplier lead times, and live maintenance records to produce a <strong>time-series demand forecast</strong> for every line-replaceable unit, triggering purchase orders autonomously before a stock-out can ground an aircraft.</p>
+            <ul style="list-style:none;margin:0 0 1.5rem;padding:0;">
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#fb923c;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Demand forecasting</strong> — Transformer-LSTM hybrid trained on 5-year consumption records; 14-day rolling horizon with 91% MAPE accuracy</span></li>
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#fb923c;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Supplier chain optimisation</strong> — multi-echelon inventory model balancing safety stock, EOQ, and AOG risk scores per part number</span></li>
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#fb923c;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">CMMS integration</strong> — REST API bridge to AMOS / SAP PM for real-time part consumption feedback and auto-replenishment orders</span></li>
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#fb923c;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Explainability dashboard</strong> — SHAP-driven "why this order?" interface giving engineers full visibility into every AI recommendation</span></li>
+            </ul>
             <div class="stats-strip">
                 <div class="mini-stat"><h4 style="color:#fb923c;">91%</h4><span>MAPE Acc.</span></div>
                 <div class="mini-stat"><h4 style="color:#fb923c;">14-day</h4><span>Forecast</span></div>
@@ -696,9 +401,14 @@
                 <div class="mini-stat"><h4 style="color:#fb923c;">0-AOG</h4><span>Target</span></div>
             </div>
             <div class="tech-stack">
-                <span class="tech-pill">TRANSFORMER-LSTM</span><span class="tech-pill">PYTORCH</span>
-                <span class="tech-pill">PROPHET</span><span class="tech-pill">FASTAPI</span>
-                <span class="tech-pill">POSTGRESQL</span><span class="tech-pill">SHAP XAI</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">TRANSFORMER-LSTM</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">PYTORCH</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">PROPHET</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">FASTAPI</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">POSTGRESQL</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">SHAP XAI</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">REACT DASHBOARD</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">SAP-PM API</span>
             </div>
             <p style="color:#64748b;font-size:.8rem;margin-top:1rem;font-style:italic;">🎓 Joint research with <strong style="color:#fb923c;">Muhammed Fikri</strong>, PhD Researcher · Cranfield University, UK</p>
         </div>
@@ -718,8 +428,10 @@
     </div>
 </div>
 
+<!-- Future grid: Bearing DT, Airframe DT, Ontology, Telemetry Stack -->
 <div class="future-grid">
 
+    <!-- Rotating/Bearing DT -->
     <div class="future-card" style="border-color:rgba(6,182,212,.3);">
         <div class="future-card-visual">
             <canvas id="bearingCanvas" width="400" height="220" style="width:100%;height:100%;display:block;"></canvas>
@@ -727,14 +439,16 @@
         <div class="future-card-body">
             <span class="future-tag" style="color:#06b6d4;border-color:#06b6d4;background:rgba(6,182,212,.08);">IN DEVELOPMENT</span>
             <h3>Rotating Machinery & Bearing Digital Twin</h3>
-            <p>A vibration-signature-driven Digital Twin architecture for rotating equipment — aircraft engines, APU shafts, and gearboxes. Combines <strong>FFT/envelope analysis</strong> with a CNN-LSTM fault classifier trained on CWRU bearing datasets to predict wear parameters under complex operational speeds.</p>
+            <p>A vibration-signature-driven Digital Twin architecture for rotating equipment — aircraft engines, APU shafts, and gearboxes. Combines <strong>FFT/envelope analysis</strong> with a CNN-LSTM fault classifier trained on CWRU bearing datasets to predict spall, pitting, and cage fracture up to 50 duty cycles before detectable wear. Integrates MATLAB Simulink multi-body dynamics with a real-time Python inference layer for continuous RUL tracking under variable load and speed conditions.</p>
             <div class="future-tech">
                 <span class="future-pill">CWRU DATASET</span><span class="future-pill">FFT/ENVELOPE</span>
                 <span class="future-pill">CNN-LSTM</span><span class="future-pill">SIMULINK</span>
+                <span class="future-pill">SCIPY SIGNAL</span><span class="future-pill">PYTORCH</span><span class="future-pill">INFLUXDB</span>
             </div>
         </div>
     </div>
 
+    <!-- Airframe DT -->
     <div class="future-card" style="border-color:rgba(239,68,68,.3);">
         <div class="future-card-visual">
             <canvas id="airframeCanvas" width="400" height="220" style="width:100%;height:100%;display:block;"></canvas>
@@ -742,29 +456,35 @@
         <div class="future-card-body">
             <span class="future-tag" style="color:#f87171;border-color:#ef4444;background:rgba(239,68,68,.08);">CONCEPT PHASE</span>
             <h3>Airframe Structural Digital Twin</h3>
-            <p>A full-aircraft structural health monitoring Digital Twin combining <strong>Finite Element Analysis</strong> (ANSYS Mechanical) with Physics-Informed Neural Networks to track fatigue crack propagation across load paths.</p>
+            <p>A full-aircraft structural health monitoring Digital Twin combining <strong>Finite Element Analysis</strong> (ANSYS Mechanical) with Physics-Informed Neural Networks to track fatigue crack propagation, composite delamination, and buckling risk across the primary load-bearing structure. The FEM mesh is updated continuously from a distributed <strong>Structural Health Monitoring (SHM) network</strong> of piezoelectric Lamb-wave sensors and strain gauges, enabling real-time stress mapping and remaining fatigue life prediction compliant with EASA AMC 25.571.</p>
             <div class="future-tech">
                 <span class="future-pill">ANSYS MECHANICAL</span><span class="future-pill">PINN</span>
                 <span class="future-pill">SHM SENSORS</span><span class="future-pill">LAMB WAVES</span>
+                <span class="future-pill">FEM MESH</span><span class="future-pill">PYTORCH</span>
+                <span class="future-pill">EASA AMC 25.571</span><span class="future-pill">PYTHON FEniCS</span>
             </div>
         </div>
     </div>
 
+    <!-- Ontology CAMP -->
     <div class="future-card" style="border-color:rgba(139,92,246,.3);">
         <div class="future-card-visual">
             <canvas id="ontologyCanvas" width="400" height="220" style="width:100%;height:100%;display:block;"></canvas>
         </div>
         <div class="future-card-body">
             <span class="future-tag" style="color:#a78bfa;border-color:#8b5cf6;background:rgba(139,92,246,.08);">IN DEVELOPMENT</span>
-            <h3>Ontology-Driven Aircraft Maintenance</h3>
-            <p>A semantic reasoning brain for aircraft maintenance documentation, parsing structural chapter constraints as an <strong>OWL/RDF knowledge graph</strong> query system natively.</p>
+            <h3>Ontology-Driven Computerized Aircraft Maintenance Program</h3>
+            <p>A semantic "reasoning brain" for aircraft maintenance, encoding the full ATA iSpec 2200 chapter structure as an <strong>OWL/RDF knowledge graph</strong>. The system uses SPARQL inference to autonomously cross-reference airworthiness directives, task card dependencies, and MEL items — eliminating manual cross-referencing errors. A <strong>natural language interface</strong> (LLM + SPARQL backend) lets engineers query the maintenance program in plain English: "What deferred defects affect my dispatch today?"</p>
             <div class="future-tech">
                 <span class="future-pill">OWL/RDF</span><span class="future-pill">SPARQL</span>
-                <span class="future-pill">NEO4J</span><span class="future-pill">ATA iSpec 2200</span>
+                <span class="future-pill">PROTÉGÉ</span><span class="future-pill">NEO4J</span>
+                <span class="future-pill">LLM INTERFACE</span><span class="future-pill">ATA iSpec 2200</span>
+                <span class="future-pill">FASTAPI</span><span class="future-pill">REACT</span>
             </div>
         </div>
     </div>
 
+    <!-- Telemetry Stack -->
     <div class="future-card" style="border-color:rgba(14,165,233,.3);">
         <div class="future-card-visual">
             <canvas id="stackCanvas" width="400" height="220" style="width:100%;height:100%;display:block;"></canvas>
@@ -772,84 +492,45 @@
         <div class="future-card-body">
             <span class="future-tag" style="color:#38bdf8;border-color:#0ea5e9;background:rgba(14,165,233,.08);">OPERATIONAL</span>
             <h3>Real-Time Telemetry & DevOps Stack</h3>
-            <p>The core data pipeline collection layer parsing continuous high-speed parameters streamed into <strong>InfluxDB 3 Core</strong> and <strong>PostgreSQL</strong> warehouses natively.</p>
+            <p>The backbone powering every project in this logbook — a production-grade data engineering pipeline from simulation to insight. FlightGear telemetry arrives via UDP, is parsed in Python, streamed through Telegraf to <strong>InfluxDB 3 Core</strong> (time-series) and <strong>PostgreSQL</strong> (warehouse), visualised live in <strong>Grafana</strong>, and served via FastAPI microservices. MATLAB ODE engines feed PyTorch training pipelines; models are versioned in MLflow and deployed as REST endpoints. The full stack runs on a single Intel i7-12700H workstation — proving that enterprise-grade aerospace AI needs no cloud.</p>
             <div class="future-tech">
-                <span class="future-pill">FLIGHTGEAR UDP</span><span class="future-pill">TELEGRAF</span>
-                <span class="future-pill">INFLUXDB 3</span><span class="future-pill">FASTAPI</span>
+                <span class="future-pill">FLIGHTGEAR UDP</span><span class="future-pill">PYTHON</span>
+                <span class="future-pill">TELEGRAF</span><span class="future-pill">INFLUXDB 3</span>
+                <span class="future-pill">POSTGRESQL</span><span class="future-pill">GRAFANA</span>
+                <span class="future-pill">FASTAPI</span><span class="future-pill">PYTORCH</span>
+                <span class="future-pill">MATLAB ODE</span><span class="future-pill">MLFLOW</span>
+                <span class="future-pill">HYPERLEDGER</span><span class="future-pill">OLLAMA</span>
             </div>
         </div>
     </div>
 
-</div>
+</div><!-- /future-grid -->
 
-<div class="section-header"><i class="fas fa-rocket"></i><h2>Interactive Engineering Simulators</h2></div>
+<!-- ══════════════  INTERACTIVE TOOLS  ══════════════ -->
+<div class="section-header"><i class="fas fa-rocket"></i><h2>Interactive Tools & Concepts</h2></div>
 <div class="interactive-grid">
-    
-    <div class="interactive-card blue">
-        <i class="fas fa-calculator"></i>
-        <h3>MRO Interval & Structural Lifecycle Calculator</h3>
-        <p>Input real-time operational metrics to compute adaptive inspection windows compliant with CS-23/CS-25 regulatory fatigue cycles.</p>
-        <div class="live-sim-widget">
-            <div class="sim-input-row"><span>Flight Hours:</span><input type="number" id="calc-hours" value="1200"></div>
-            <div class="sim-input-row"><span>Landing G-Load:</span><input type="number" step="0.1" id="calc-gload" value="1.4"></div>
-            <button class="sim-trigger-btn" onclick="runAdaptiveMRO()">Analyze Structural Health</button>
-            <div class="sim-output-box" id="mro-output">Status: Ready for initialization...</div>
-        </div>
-    </div>
-
-    <div class="interactive-card orange">
-        <i class="fas fa-route"></i>
-        <h3>Flight-Path & Trajectory Tourism Planner</h3>
-        <p>Simulate flight corridor telemetry profiles mapping long-range transitions between global aerospace hubs dynamically.</p>
-        <div class="live-sim-widget">
-            <div class="sim-input-row"><span>Destination:</span>
-                <select id="tour-dest">
-                    <option value="buaa">AFIT ➔ Beihang (BUAA)</option>
-                    <option value="cranfield">AFIT ➔ Cranfield (UK)</option>
-                    <option value="orlando">AFIT ➔ SciTech Orlando</option>
-                </select>
-            </div>
-            <div class="sim-input-row"><span>Cruise Mach:</span><input type="number" step="0.01" id="tour-mach" value="0.85"></div>
-            <button class="sim-trigger-btn" onclick="runFlightPlanner()">Compute Optimal Path</button>
-            <div class="sim-output-box" id="tour-output">Awaiting waypoint metrics...</div>
-        </div>
-    </div>
-
-    <div class="interactive-card purple">
-        <i class="fas fa-shield-virus"></i>
-        <h3>PHI-CHAIN Threat Anomaly Diagnostic Suite</h3>
-        <p>Trigger semantic data forgery attempts to test real-time physics-informed cryptographic network validators inline.</p>
-        <div class="live-sim-widget">
-            <div class="sim-input-row"><span>Attack Vector:</span>
-                <select id="attack-vector">
-                    <option value="adsb">ADS-B Spoofed Altitude</option>
-                    <option value="acars">Forged ACARS Clearance</option>
-                    <option value="telemetry">Fuel Layer Modification</option>
-                </select>
-            </div>
-            <button class="sim-trigger-btn" onclick="runThreatSimulation()" style="background:var(--neon-purple)">Inject Spoofed Vector</button>
-            <div class="sim-output-box" id="threat-output">Ledger network nominal [100% Validated]</div>
-        </div>
-    </div>
+    <div class="interactive-card blue"><i class="fas fa-desktop"></i><h3>Digital Twin Monitor</h3><p>Real-time structural health monitoring dashboard with live telemetry visualization and predictive analytics.</p><button class="demo-btn" onclick="launchMonitor()">Launch Demo <i class="fas fa-arrow-right"></i></button></div>
+    <div class="interactive-card orange"><i class="fas fa-calculator"></i><h3>MRO Interval Calculator</h3><p>Predictive maintenance planning tool for calculating optimized aircraft inspection intervals based on usage data.</p><button class="demo-btn" onclick="launchCalculator()">Open Tool <i class="fas fa-arrow-right"></i></button></div>
+    <div class="interactive-card purple"><i class="fas fa-shield-alt"></i><h3>Safety Analytics</h3><p>Aviation safety monitoring interface for tracking incident trends and airworthiness compliance metrics.</p><button class="demo-btn" onclick="launchAnalytics()">View Dashboard <i class="fas fa-arrow-right"></i></button></div>
 </div>
 
+<!-- ══════════════  ARCHIVES  ══════════════ -->
 <div class="section-header"><i class="fas fa-folder-open"></i><h2>Technical Archives</h2></div>
 <div class="archives-grid">
     <div class="archive-card"><div class="card-icon"><i class="fas fa-network-wired"></i></div><h3>UDP + FlightGear Integration</h3><p>Real-time telemetry bridge connecting FlightGear to cloud databases — UDP parsing, data validation, streaming to InfluxDB.</p><a href="https://github.com/Sm-bello" target="_blank" class="repo-link">View Repository <i class="fas fa-arrow-right"></i></a></div>
     <div class="archive-card"><div class="card-icon"><i class="fas fa-database"></i></div><h3>Telemetry Data Pipeline</h3><p>Complete ETL pipeline from simulation to visualization. Python UDP listeners, Telegraf, PostgreSQL/InfluxDB dual-database architecture.</p><a href="https://github.com/Sm-bello" target="_blank" class="repo-link">Explore Code <i class="fas fa-arrow-right"></i></a></div>
     <div class="archive-card"><div class="card-icon"><i class="fas fa-bezier-curve"></i></div><h3>Structural Beam Analysis</h3><p>FEA of aircraft wing spars using Ansys Workbench. Optimized material thickness for weight reduction while maintaining FAA safety factors.</p><span class="repo-link" style="color:#64748b;cursor:default;"><i class="fas fa-check-circle"></i> Project Completed</span></div>
-    <div class="archive-card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Grafana Monitoring Dashboards</h3><p>Custom aviation dashboards — real-time flight parameters, system health indicators, predictive maintenance alerts.</p><a href="https://github.com/Sm-bello" class="repo-link">View Screenshots <i class="fas fa-arrow-right"></i></a></div>
+    <div class="archive-card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Grafana Monitoring Dashboards</h3><p>Custom aviation dashboards — real-time flight parameters, system health indicators, predictive maintenance alerts.</p><a href="#" class="repo-link">View Screenshots <i class="fas fa-arrow-right"></i></a></div>
     <div class="archive-card"><div class="card-icon"><i class="fas fa-file-contract"></i></div><h3>Airworthiness Documentation</h3><p>Digital compilation of NCAA regulatory procedures — Technical Logs, CoA renewals, MEL protocols.</p><a href="/about.html" class="repo-link">Read Experience <i class="fas fa-arrow-right"></i></a></div>
     <div class="archive-card"><div class="card-icon"><i class="fas fa-brain"></i></div><h3>LSTM Fault Detection Model</h3><p>Deep learning model for predicting landing gear failures from time-series sensor data. 94.3% accuracy with 50-cycle early warning.</p><a href="https://github.com/Sm-bello" target="_blank" class="repo-link">View Model <i class="fas fa-arrow-right"></i></a></div>
 </div>
 
-</div>
+</div><!-- /container -->
 
 <footer>
     <p>&copy; 2026 Mohammed Bello Sani | Aerospace Intelligence Research</p>
     <div class="footer-links">
-        <a href="https://github.com/Sm-bello"><i class="fab fa-github"></i> GitHub Profile</a>
-        <a href="https://github.com/Penelope-Inco"><i class="fas fa-building"></i> Penelope Org</a>
+        <a href="https://github.com/Sm-bello"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/"><i class="fab fa-linkedin"></i> LinkedIn</a>
         <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i> Email</a>
     </div>
@@ -857,22 +538,32 @@
 
 <script>
 /* ═══════════════════════════════════════════════════════════
-   GLOBAL NAV & UTILITIES
+   GLOBAL HELPERS
    ═══════════════════════════════════════════════════════════ */
-window.addEventListener('scroll',function(){
-    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
-});
-function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}
 function lerp(a,b,t){return a+(b-a)*t;}
 function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v));}
+function randHex(n){let s='';for(let i=0;i<n;i++)s+='0123456789abcdef'[Math.floor(Math.random()*16)];return s;}
 
-function scrollSlider(id, direction) {
-    const el = document.getElementById(id);
-    if(el) el.scrollLeft += direction * 380;
+/* cross-browser rounded rect — avoids roundRect() API */
+function rrect(ctx,x,y,w,h,r){
+    r=Math.min(r,w/2,h/2);
+    ctx.moveTo(x+r,y);
+    ctx.lineTo(x+w-r,y);
+    ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r);
+    ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h);
+    ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r);
+    ctx.quadraticCurveTo(x,y,x+r,y);
+    ctx.closePath();
 }
+function fillRR(ctx,x,y,w,h,r){ctx.beginPath();rrect(ctx,x,y,w,h,r);ctx.fill();}
+function strokeRR(ctx,x,y,w,h,r){ctx.beginPath();rrect(ctx,x,y,w,h,r);ctx.stroke();}
+function fillStrokeRR(ctx,x,y,w,h,r){ctx.beginPath();rrect(ctx,x,y,w,h,r);ctx.fill();ctx.stroke();}
 
 /* ═══════════════════════════════════════════════════════════
-   PARTICLE ENGINE BACKGROUND
+   PARTICLE BACKGROUND
    ═══════════════════════════════════════════════════════════ */
 (function(){
     var c=document.getElementById('particles-canvas');if(!c)return;
@@ -893,325 +584,1382 @@ function scrollSlider(id, direction) {
         requestAnimationFrame(draw);
     }
     draw();
+    window.addEventListener('resize',function(){c.width=window.innerWidth;c.height=window.innerHeight;});
 })();
 
 /* ═══════════════════════════════════════════════════════════
-   FLAGSHIP CONTENT LOOP RENDERING ENGINES
+   NAV SCROLL
    ═══════════════════════════════════════════════════════════ */
-// Canvas 1: AeroTwin B787 Pipeline
+window.addEventListener('scroll',function(){
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}
+
+/* ═══════════════════════════════════════════════════════════
+   1. AEROTWIN TII — 3-LAYER PIPELINE  (300 × 270)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
-    var cv=document.getElementById('tiiCanvas'); if(!cv)return;
-    var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    var t=0;
-    function loop(){
-        ctx.clearRect(0,0,W,H); t++;
-        ctx.fillStyle='rgba(14,165,233,0.05)'; ctx.fillRect(10,10,W-20,H-20);
-        ctx.strokeStyle='#0ea5e9'; ctx.lineWidth=1.5;
-        ctx.beginPath();
-        for(var i=0;i<W;i++){
-            var y = H/2 + Math.sin(i*0.05 + t*0.1)*20 * Math.exp(-Math.pow((i-W/2)/(W/4),2));
-            i===0?ctx.moveTo(i,y):ctx.lineTo(i,y);
+    var cv=document.getElementById('tiiCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,wOff=0;
+    var probs=[.961,.018,.009,.006,.003,.002,.001];
+    var tgt=[.961,.018,.009,.006,.003,.002,.001];
+    var rul=20420,rulTgt=20420;
+    var llmTxt='',llmFull='ATA 32 · Routine monitor. No action.',llmCur=0;
+    var faultOn=false,faultTick=0;
+    var faultFlash=0;
+    var shapW=[];for(var si=0;si<22;si++)shapW.push(Math.random());
+
+    var SCEN=[
+        {p:[.04,.72,.09,.06,.04,.03,.02],llm:'ATA 32-11 · N2 leak detected. Inspect now.',rul:8200},
+        {p:[.03,.04,.81,.05,.03,.02,.02],llm:'ATA 32-12 · Seal wear critical. Schedule repl.',rul:6100},
+        {p:[.02,.02,.03,.04,.03,.02,.84],llm:'ATA 32-00 · AOG! GROUND AIRCRAFT IMMEDIATELY.',rul:320}
+    ];
+    var STATES=[
+        {l1:'Normal landing synthesised',l2:'Normal | 96.1%',l3:'ATA 32 · No action required',fault:false},
+        {l1:'Impact · ODE batch · 7.9 min',l2:'N2 Leak | 72.1%',l3:'ATA 32-11 · Inspect strut',fault:true,sc:0},
+        {l1:'Hard landing · Seal signature',l2:'Seal Wear | 81.2%',l3:'ATA 32-12 · Schedule repl.',fault:true,sc:1},
+        {l1:'CRITICAL IMPACT · 15ms inference',l2:'AOG | 83.5% | ZeroFN ✓',l3:'ATA 32-00 · GROUND NOW',fault:true,sc:2},
+        {l1:'Cleared · Normal profile restored',l2:'Normal | 94.8% | 20.4k h',l3:'ATA 32 · Cleared. Resume ops.',fault:false}
+    ];
+    var stIdx=0;
+
+    function frame(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);
+        ft++;
+
+        // ── Grid background ──
+        ctx.strokeStyle='rgba(14,165,233,0.07)';ctx.lineWidth=1;
+        for(var gx=0;gx<W;gx+=20){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+        for(var gy=0;gy<H;gy+=20){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+        // Fault flash overlay
+        if(faultFlash>0){
+            ctx.fillStyle='rgba(239,68,68,'+(faultFlash/25*.18)+')';
+            ctx.fillRect(0,0,W,H);faultFlash--;
         }
-        ctx.stroke();
-        requestAnimationFrame(loop);
+
+        // ── L1 PANEL ──
+        var p1y=8,p1h=70;
+        ctx.fillStyle='rgba(14,165,233,0.05)';fillRR(ctx,6,p1y,W-12,p1h,4);
+        ctx.strokeStyle='rgba(14,165,233,0.5)';ctx.lineWidth=1;strokeRR(ctx,6,p1y,W-12,p1h,4);
+        ctx.fillStyle='#38bdf8';ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('L1  ODE PHYSICS ENGINE',12,p1y+11);
+
+        var chCols=['#0ea5e9','#10b981','#f59e0b','#f97316','#8b5cf6','#ec4899'];
+        var chH=9;
+        for(var ci=0;ci<6;ci++){
+            var wy=p1y+16+ci*chH;
+            ctx.strokeStyle=faultOn?chCols[ci]:chCols[ci]+'99';
+            ctx.lineWidth=faultOn?1.8:1.2;
+            ctx.shadowColor=faultOn?chCols[ci]:'transparent';
+            ctx.shadowBlur=faultOn?5:0;
+            ctx.beginPath();
+            for(var pp=0;pp<52;pp++){
+                var px=8+(pp/51)*(W-16);
+                var ph=(pp/51)*Math.PI*5+wOff+ci*1.1;
+                var amp=faultOn?chH*.42:chH*.25;
+                var env=Math.exp(-Math.pow(pp/51-.28,2)*7)+.15;
+                var py2=wy+chH/2+Math.sin(ph)*amp*env+(Math.random()-.5)*(faultOn?1.2:.4);
+                pp===0?ctx.moveTo(px,py2):ctx.lineTo(px,py2);
+            }
+            ctx.stroke();ctx.shadowBlur=0;
+        }
+        wOff+=faultOn?.14:.06;
+
+        // ── L2 PANEL ──
+        var p2x=6,p2y=86,p2w=W*.56,p2h=100;
+        ctx.fillStyle='rgba(16,185,129,0.06)';fillRR(ctx,p2x,p2y,p2w,p2h,4);
+        ctx.strokeStyle='rgba(16,185,129,0.5)';ctx.lineWidth=1;strokeRR(ctx,p2x,p2y,p2w,p2h,4);
+        ctx.fillStyle='#10b981';ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('L2  CNN-BiLSTM',p2x+5,p2y+11);
+
+        var bLabels=['NRM','N2','SL','TI','HL','CB','AOG'];
+        var bCols=['#10b981','#38bdf8','#f59e0b','#f97316','#ef4444','#ec4899','#dc2626'];
+        var barW=(p2w-14)/7,maxH=p2h-24;
+        for(var bi=0;bi<7;bi++){
+            probs[bi]=lerp(probs[bi],tgt[bi],.05);
+            var bx=p2x+7+bi*barW;
+            var bh=probs[bi]*maxH;
+            var by2=p2y+14+maxH-bh;
+            ctx.fillStyle=bCols[bi]+(probs[bi]>.45?'ee':'55');
+            if(probs[bi]>.45){ctx.shadowColor=bCols[bi];ctx.shadowBlur=10;}
+            ctx.fillRect(bx+1,by2,barW-3,bh);
+            ctx.shadowBlur=0;
+            ctx.fillStyle='#475569';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.fillText(bLabels[bi],bx+barW/2,p2y+p2h-3);
+        }
+
+        // ── RUL GAUGE ──
+        rul=lerp(rul,rulTgt,.03);
+        var gx=W*.79,gy=136,gr=32;
+        var rn=clamp(rul/35000,0,1);
+        var rc=rul>15000?'#10b981':rul>5000?'#f59e0b':'#ef4444';
+        ctx.strokeStyle='#1a2a3a';ctx.lineWidth=6;
+        ctx.beginPath();ctx.arc(gx,gy,gr,-Math.PI*.8,Math.PI*.8);ctx.stroke();
+        ctx.strokeStyle=rc;ctx.lineWidth=6;
+        ctx.shadowColor=rc;ctx.shadowBlur=12;
+        ctx.beginPath();ctx.arc(gx,gy,gr,-Math.PI*.8,-Math.PI*.8+rn*Math.PI*1.6);ctx.stroke();
+        ctx.shadowBlur=0;
+        ctx.fillStyle=rc;ctx.font='bold 9px JetBrains Mono,monospace';ctx.textAlign='center';
+        var rulStr=rul>999?(rul/1000).toFixed(1)+'k':Math.round(rul)+'';
+        ctx.fillText(rulStr,gx,gy+3);
+        ctx.fillStyle='#64748b';ctx.font='6px JetBrains Mono,monospace';
+        ctx.fillText('RUL hrs',gx,gy+14);
+        ctx.fillStyle='#38bdf8';ctx.font='bold 6px JetBrains Mono,monospace';
+        ctx.fillText('L2·RUL',gx,gy-gr-6);
+
+        // ── SHAP STRIP ──
+        var shY=196;
+        ctx.fillStyle='rgba(139,92,246,0.07)';fillRR(ctx,6,shY,W-12,26,4);
+        ctx.strokeStyle='rgba(139,92,246,0.45)';ctx.lineWidth=1;strokeRR(ctx,6,shY,W-12,26,4);
+        ctx.fillStyle='#a78bfa';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('SHAP ATTRIBUTION  r=0.781  p<0.0001',10,shY+8);
+        if(ft%28===0){
+            for(var shi=0;shi<22;shi++){
+                var contact=Math.exp(-Math.pow(shi/22-.3,2)*5);
+                shapW[shi]=contact*(.5+Math.random()*.5)*(faultOn?1.5:1);
+            }
+        }
+        var cellW=(W-14)/22;
+        for(var shi=0;shi<22;shi++){
+            var alpha=clamp(shapW[shi],0,1);
+            ctx.fillStyle=faultOn?'rgba(239,68,68,'+alpha*.9+')':'rgba(14,165,233,'+alpha*.85+')';
+            ctx.fillRect(7+shi*cellW,shY+11,cellW-1,11);
+        }
+
+        // ── LLM PANEL ──
+        var llY=229;
+        ctx.fillStyle='rgba(249,115,22,0.07)';fillRR(ctx,6,llY,W-12,33,4);
+        ctx.strokeStyle=faultOn?'rgba(239,68,68,0.7)':'rgba(249,115,22,0.5)';
+        ctx.lineWidth=faultOn?1.5:1;
+        if(faultOn){ctx.shadowColor='rgba(239,68,68,.5)';ctx.shadowBlur=8;}
+        strokeRR(ctx,6,llY,W-12,33,4);ctx.shadowBlur=0;
+        ctx.fillStyle=faultOn?'#ef4444':'#f97316';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('L3  OLLAMA 3.2  OFFLINE LLM  <1.5s',10,llY+8);
+        if(ft%3===0&&llmCur<llmFull.length)llmTxt=llmFull.slice(0,llmCur++);
+        ctx.fillStyle=faultOn?'#fca5a5':'#cbd5e1';ctx.font='7px JetBrains Mono,monospace';
+        ctx.fillText(llmTxt+(ft%18<9?'▌':''),10,llY+23);
+
+        // fault countdown
+        if(faultOn){faultTick--;if(faultTick<=0){faultOn=false;tgt=[.961,.018,.009,.006,.003,.002,.001];rulTgt=20420;llmFull='ATA 32 · Routine monitor. No action.';llmTxt='';llmCur=0;}}
+        requestAnimationFrame(frame);
     }
-    loop();
+    frame();
+
+    // telemetry ticker
+    var tb=document.getElementById('tiiTelem');
+    function tick(){
+        stIdx=(stIdx+1)%STATES.length;var s=STATES[stIdx];
+        var c2=s.fault?(s.sc===2?'t-alert':'t-warn'):'t-ok';
+        if(tb)tb.innerHTML='<span class="t-info">[L1] </span>'+s.l1+'<br><span class="'+c2+'">[L2] </span>'+s.l2+'<br><span class="t-info">[SH] </span>SHAP r=0.781 | contact-phase ✓<br><span class="'+c2+'">[L3] </span>'+s.l3;
+        if(s.fault&&s.sc!==undefined){
+            faultOn=true;faultTick=90;faultFlash=25;
+            var sc=SCEN[s.sc];tgt=sc.p.slice();rulTgt=sc.rul;
+            llmFull=sc.llm;llmTxt='';llmCur=0;
+        }else if(!s.fault){faultOn=false;tgt=[.961,.018,.009,.006,.003,.002,.001];rulTgt=20420;llmFull='ATA 32 · Routine monitor. No action.';llmTxt='';llmCur=0;}
+    }
+    tick();setInterval(tick,3200);
 })();
 
-// Canvas 2: PHI-CHAIN Ledger Node
+/* ═══════════════════════════════════════════════════════════
+   2. DORNIER 228 — SPECTACULAR LANDING GEAR  (300 × 270)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
-    var cv=document.getElementById('phiChainCanvas'); if(!cv)return;
-    var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    var r=0;
-    function loop(){
-        ctx.clearRect(0,0,W,H); r+=0.01;
-        ctx.save(); ctx.translate(W/2, H/2); ctx.rotate(r);
-        ctx.strokeStyle='#8b5cf6'; ctx.lineWidth=2;
-        ctx.strokeRect(-40,-40,80,80);
-        ctx.strokeStyle='#06b6d4'; ctx.strokeRect(-25,-25,50,50);
+    var cv=document.getElementById('dornierCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,comp=0,compD=1,fMode=0,alertF=0,conf=96.2;
+    var rotorAngle=0;
+
+    var FAULTS=[
+        {name:'Normal',col:'#10b981',sev:0},{name:'N2 Leak',col:'#f59e0b',sev:1},
+        {name:'Seal Wear',col:'#f59e0b',sev:1},{name:'Hard Landing',col:'#ef4444',sev:2},
+        {name:'Tire Burst',col:'#ef4444',sev:2},{name:'Normal',col:'#10b981',sev:0}
+    ];
+    var POOL=[0,0,0,0,1,2,3,4];
+
+    function drawFrame(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);
+        ft++;rotorAngle+=.08;
+        comp+=compD*.007;
+        if(comp>1){comp=1;compD=-1;}
+        if(comp<0){comp=0;compD=1;}
+
+        var F=FAULTS[fMode];
+        var col=F.col;
+
+        // ── Starfield ──
+        if(ft%3===0){
+            ctx.fillStyle='rgba(14,165,233,0.12)';
+            ctx.fillRect(Math.random()*W,Math.random()*H,1,1);
+        }
+
+        // ── Top scan line ──
+        var scanY=(ft*1.5)%H;
+        var scanGrad=ctx.createLinearGradient(0,scanY-12,0,scanY+2);
+        scanGrad.addColorStop(0,'transparent');scanGrad.addColorStop(1,'rgba(14,165,233,0.08)');
+        ctx.fillStyle=scanGrad;ctx.fillRect(0,scanY-12,W,14);
+
+        // ── Aircraft body (top-down looking up from below) ──
+        var acX=W/2,acY=60;
+
+        // Fuselage
+        ctx.save();
+        var fug=ctx.createLinearGradient(acX-14,acY,acX+14,acY);
+        fug.addColorStop(0,'#1e293b');fug.addColorStop(.3,'#3f5168');fug.addColorStop(.7,'#4a6278');fug.addColorStop(1,'#1e293b');
+        ctx.fillStyle=fug;ctx.strokeStyle='rgba(14,165,233,0.6)';ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.ellipse(acX,acY,14,55,0,0,Math.PI*2);ctx.fill();ctx.stroke();
         ctx.restore();
-        requestAnimationFrame(loop);
-    }
-    loop();
-})();
 
-// Canvas 3: Ignition Arc Spark
-(function(){
-    var cv=document.getElementById('ignitionCanvas'); if(!cv)return;
-    var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    function loop(){
-        ctx.clearRect(0,0,W,H);
-        ctx.strokeStyle='#10b981'; ctx.lineWidth=2;
-        ctx.beginPath(); ctx.moveTo(W/4, H/2);
-        for(var i=W/4; i<=3*W/4; i+=10){
-            ctx.lineTo(i, H/2 + (Math.random()-0.5)*15);
+        // Wings
+        ctx.save();
+        var wg=ctx.createLinearGradient(acX-80,acY+5,acX+80,acY+5);
+        wg.addColorStop(0,'#0f1e2e');wg.addColorStop(.3,'#243548');wg.addColorStop(.5,'#2d4460');wg.addColorStop(.7,'#243548');wg.addColorStop(1,'#0f1e2e');
+        ctx.fillStyle=wg;ctx.strokeStyle='rgba(14,165,233,0.5)';ctx.lineWidth=1;
+        ctx.beginPath();ctx.moveTo(acX-5,acY-8);ctx.lineTo(acX-85,acY+30);ctx.lineTo(acX-85,acY+38);ctx.lineTo(acX+5,acY+4);ctx.closePath();ctx.fill();ctx.stroke();
+        ctx.beginPath();ctx.moveTo(acX+5,acY-8);ctx.lineTo(acX+85,acY+30);ctx.lineTo(acX+85,acY+38);ctx.lineTo(acX-5,acY+4);ctx.closePath();ctx.fill();ctx.stroke();
+        ctx.restore();
+
+        // Engines with spinning props
+        [acX-58,acX+58].forEach(function(ex){
+            ctx.save();
+            ctx.fillStyle='#1a2d40';ctx.strokeStyle='rgba(14,165,233,0.6)';ctx.lineWidth=1.5;
+            ctx.beginPath();ctx.ellipse(ex,acY+18,10,18,0,0,Math.PI*2);ctx.fill();ctx.stroke();
+            // Prop blur disc
+            ctx.strokeStyle='rgba(14,165,233,0.35)';ctx.lineWidth=2;
+            ctx.beginPath();ctx.ellipse(ex,acY+18,7,12,rotorAngle,0,Math.PI*2);ctx.stroke();
+            ctx.beginPath();ctx.ellipse(ex,acY+18,7,12,rotorAngle+Math.PI/2,0,Math.PI*2);ctx.stroke();
+            // Centre hub
+            ctx.fillStyle='#38bdf8';ctx.beginPath();ctx.arc(ex,acY+18,3,0,Math.PI*2);ctx.fill();
+            ctx.restore();
+        });
+
+        // Cockpit glass
+        ctx.save();ctx.fillStyle='rgba(56,189,248,0.3)';ctx.strokeStyle='rgba(56,189,248,0.7)';ctx.lineWidth=1;
+        ctx.beginPath();ctx.ellipse(acX,acY-40,8,12,0,0,Math.PI*2);ctx.fill();ctx.stroke();
+        // Cockpit gleam
+        ctx.fillStyle='rgba(255,255,255,0.15)';ctx.beginPath();ctx.ellipse(acX-2,acY-44,3,5,.3,0,Math.PI*2);ctx.fill();
+        ctx.restore();
+
+        // Nav lights
+        ctx.save();
+        ctx.fillStyle='#ef4444';ctx.shadowColor='#ef4444';ctx.shadowBlur=8;
+        ctx.beginPath();ctx.arc(acX-85,acY+34,4,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle='#10b981';ctx.shadowColor='#10b981';
+        ctx.beginPath();ctx.arc(acX+85,acY+34,4,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle='#ffffff';ctx.shadowColor='#ffffff';
+        ctx.beginPath();ctx.arc(acX,acY-55,3,0,Math.PI*2);ctx.fill();
+        ctx.shadowBlur=0;ctx.restore();
+
+        // ── MAIN LANDING GEAR ──
+        var lgY=115+comp*55; // compressed position
+        var strutH=90-comp*35;
+
+        // Glow ring around gear zone
+        if(F.sev>0){
+            var gr=ctx.createRadialGradient(acX,lgY+20,5,acX,lgY+20,60);
+            gr.addColorStop(0,col+'44');gr.addColorStop(1,'transparent');
+            ctx.fillStyle=gr;ctx.beginPath();ctx.arc(acX,lgY+20,60,0,Math.PI*2);ctx.fill();
         }
-        ctx.stroke();
-        requestAnimationFrame(loop);
-    }
-    loop();
-})();
 
-// Canvas 4: Dornier 228 Strut Assembly
-(function(){
-    var cv=document.getElementById('dornierCanvas'); if(!cv)return;
-    var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    var ph=0;
-    function loop(){
-        ctx.clearRect(0,0,W,H); ph+=0.05;
-        var ext = Math.sin(ph)*30;
-        ctx.fillStyle='#334155'; ctx.fillRect(W/2-10, 20, 20, 60);
-        ctx.fillStyle='#94a3b8'; ctx.fillRect(W/2-6, 80, 12, 40+ext);
-        ctx.fillStyle='#0f172a'; ctx.beginPath(); ctx.arc(W/2, 120+ext, 15, 0, Math.PI*2); ctx.fill();
-        requestAnimationFrame(loop);
-    }
-    loop();
-})();
+        // Main oleo strut
+        ctx.save();
+        var sg=ctx.createLinearGradient(acX-10,lgY,acX+10,lgY);
+        sg.addColorStop(0,'#0f1e2e');sg.addColorStop(.35,'#2d4a65');sg.addColorStop(.65,'#4a7a9b');sg.addColorStop(1,'#0f1e2e');
+        ctx.fillStyle=sg;ctx.strokeStyle=F.sev>0?col:'rgba(56,189,248,0.6)';ctx.lineWidth=F.sev>0?2:1;
+        if(F.sev>0){ctx.shadowColor=col;ctx.shadowBlur=12;}
+        ctx.fillRect(acX-9,acY+5,18,strutH);
+        ctx.strokeRect(acX-9,acY+5,18,strutH);
+        ctx.shadowBlur=0;ctx.restore();
 
-// Canvas 5: NNPC Flow Channel
-(function(){
-    var cv=document.getElementById('pipelineCanvas'); if(!cv)return;
-    var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    var offset=0;
-    function loop(){
-        ctx.clearRect(0,0,W,H); offset=(offset+2)%40;
-        ctx.strokeStyle='#10b981'; ctx.lineWidth=3;
-        ctx.strokeRect(10, H/2-15, W-20, 30);
-        ctx.fillStyle='rgba(16,185,129,0.3)';
-        for(var i=offset; i<W; i+=40){
-            ctx.fillRect(i, H/2-10, 15, 20);
+        // Chrome lower section
+        ctx.save();
+        var cg=ctx.createLinearGradient(acX-7,0,acX+7,0);
+        cg.addColorStop(0,'#1e3a52');cg.addColorStop(.4,'#7fb3d3');cg.addColorStop(.6,'#aed6ea');cg.addColorStop(1,'#1e3a52');
+        ctx.fillStyle=cg;ctx.strokeStyle=col;ctx.lineWidth=1;
+        ctx.shadowColor=col;ctx.shadowBlur=F.sev>0?14:4;
+        ctx.fillRect(acX-7,acY+5+strutH*.6,14,strutH*.4);
+        ctx.shadowBlur=0;ctx.restore();
+
+        // Torque scissors
+        ctx.save();ctx.strokeStyle='#4a7a9b';ctx.lineWidth=2;ctx.lineCap='round';
+        var linkY=acY+5+strutH*.45;
+        ctx.beginPath();ctx.moveTo(acX-9,linkY);ctx.lineTo(acX-16,linkY+12);ctx.lineTo(acX-9,linkY+24);ctx.stroke();
+        ctx.beginPath();ctx.moveTo(acX+9,linkY);ctx.lineTo(acX+16,linkY+12);ctx.lineTo(acX+9,linkY+24);ctx.stroke();
+        ctx.restore();
+
+        // Axle
+        ctx.save();ctx.strokeStyle='#94a3b8';ctx.lineWidth=4;ctx.lineCap='round';
+        ctx.shadowColor='#64748b';ctx.shadowBlur=3;
+        ctx.beginPath();ctx.moveTo(acX-30,lgY+8);ctx.lineTo(acX+30,lgY+8);ctx.stroke();
+        ctx.shadowBlur=0;ctx.restore();
+
+        // Dual tyres
+        [-22,22].forEach(function(ox){
+            ctx.save();
+            // Tyre body
+            ctx.fillStyle='#0f172a';ctx.strokeStyle=col;ctx.lineWidth=F.sev>0?2.5:1.5;
+            ctx.shadowColor=col;ctx.shadowBlur=F.sev>0?14:6;
+            ctx.beginPath();ctx.ellipse(acX+ox,lgY+8,11,16,0,0,Math.PI*2);ctx.fill();ctx.stroke();
+            ctx.shadowBlur=0;
+            // Tread grooves
+            ctx.strokeStyle='#1e293b';ctx.lineWidth=1;
+            for(var ti=0;ti<5;ti++){
+                var ta=ti*Math.PI*.4+ft*.025;
+                ctx.beginPath();ctx.moveTo(acX+ox+Math.cos(ta)*4,lgY+8+Math.sin(ta)*6);ctx.lineTo(acX+ox+Math.cos(ta)*10,lgY+8+Math.sin(ta)*14);ctx.stroke();
+            }
+            // Hub
+            ctx.fillStyle=col+'cc';ctx.beginPath();ctx.arc(acX+ox,lgY+8,4,0,Math.PI*2);ctx.fill();
+            ctx.fillStyle='#e2e8f0';ctx.beginPath();ctx.arc(acX+ox,lgY+8,2,0,Math.PI*2);ctx.fill();
+            ctx.restore();
+        });
+
+        // Ground shadow
+        var gsA=clamp(1-comp*.4,.3,1);
+        ctx.save();ctx.fillStyle='rgba(0,0,0,'+gsA*.5+')';
+        ctx.beginPath();ctx.ellipse(acX,lgY+26,36+comp*10,7,0,0,Math.PI*2);ctx.fill();ctx.restore();
+
+        // ── Compression force arrows (fault) ──
+        if(F.sev===2){
+            ctx.save();ctx.strokeStyle='#ef4444';ctx.lineWidth=2;ctx.shadowColor='#ef4444';ctx.shadowBlur=10;
+            [[acX-36,lgY-14],[acX+36,lgY-14]].forEach(function(pt){
+                ctx.beginPath();ctx.moveTo(pt[0],pt[1]-2);ctx.lineTo(pt[0],pt[1]+14);
+                ctx.moveTo(pt[0]-5,pt[1]+9);ctx.lineTo(pt[0],pt[1]+14);ctx.lineTo(pt[0]+5,pt[1]+9);
+                ctx.stroke();
+            });
+            ctx.shadowBlur=0;ctx.restore();
         }
-        requestAnimationFrame(loop);
-    }
-    loop();
-})();
 
-// Canvas 6: MRO Inventory Horizon Grid
-(function(){
-    var cv=document.getElementById('inventoryCanvas'); if(!cv)return;
-    var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    var step=0;
-    function loop(){
-        ctx.clearRect(0,0,W,H); step=(step+1)%50;
-        ctx.strokeStyle='rgba(249,115,22,0.15)'; ctx.lineWidth=1;
-        for(var i=0; i<W; i+=25){ ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, H); ctx.stroke(); }
-        ctx.fillStyle='#f97316'; ctx.fillRect(W/2-25, H-20-step, 50, 10);
-        requestAnimationFrame(loop);
+        // ── Health / RUL gauge ──
+        var gaugeX=32,gaugeY=30,gaugeR=22;
+        var hn=F.sev===0?.88:F.sev===1?.45:.18;
+        var gc2=F.sev===0?'#10b981':F.sev===1?'#f59e0b':'#ef4444';
+        ctx.save();ctx.strokeStyle='#1a2a3a';ctx.lineWidth=5;
+        ctx.beginPath();ctx.arc(gaugeX,gaugeY,gaugeR,-Math.PI*.7,Math.PI*2.3);ctx.stroke();
+        ctx.strokeStyle=gc2;ctx.shadowColor=gc2;ctx.shadowBlur=10;ctx.lineWidth=5;
+        ctx.beginPath();ctx.arc(gaugeX,gaugeY,gaugeR,-Math.PI*.7,-Math.PI*.7+hn*Math.PI*3);ctx.stroke();
+        ctx.shadowBlur=0;
+        ctx.fillStyle=gc2;ctx.font='bold 8px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText(Math.round(hn*100)+'%',gaugeX,gaugeY+3);
+        ctx.fillStyle='#64748b';ctx.font='5px JetBrains Mono,monospace';ctx.fillText('HEALTH',gaugeX,gaugeY+12);
+        ctx.restore();
+
+        // ── Confidence bar ──
+        ctx.save();
+        var cbX=W-18,cbY=8,cbH=58;
+        ctx.fillStyle='#0f1e2e';ctx.fillRect(cbX-10,cbY,10,cbH);
+        var cbG=ctx.createLinearGradient(0,cbY+cbH,0,cbY);
+        cbG.addColorStop(0,'#10b981');cbG.addColorStop(.6,'#f59e0b');cbG.addColorStop(1,'#ef4444');
+        ctx.fillStyle=cbG;ctx.shadowColor=F.col;ctx.shadowBlur=6;
+        ctx.fillRect(cbX-10,cbY+cbH-cbH*(conf/100),10,cbH*(conf/100));
+        ctx.shadowBlur=0;
+        ctx.fillStyle='#64748b';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('CONF',cbX-5,cbY+cbH+9);
+        ctx.fillStyle=F.col;ctx.font='bold 6px JetBrains Mono,monospace';
+        ctx.fillText(conf.toFixed(0)+'%',cbX-5,cbY+cbH+18);
+        ctx.restore();
+
+        // Alert flash
+        if(alertF>0){ctx.fillStyle='rgba(239,68,68,'+alertF*.016+')';ctx.fillRect(0,0,W,H);alertF--;}
+
+        requestAnimationFrame(drawFrame);
     }
-    loop();
+    drawFrame();
+
+    var tb=document.getElementById('dornierTelem');
+    function tick(){
+        fMode=POOL[Math.floor(Math.random()*POOL.length)];
+        var F=FAULTS[fMode];
+        var sink=(2.1+Math.random()*1.9).toFixed(2),g=(0.8+Math.random()*1.4).toFixed(2);
+        conf=80+Math.random()*19;
+        if(F.sev>0)alertF=25;
+        var cls=F.sev===2?'t-alert':F.sev===1?'t-warn':'t-ok';
+        var hl=parseFloat(sink)>=3.05?'<br><span class="t-alert">[CS-23.473] HARD LANDING — ATA 32-00 MANDATORY</span>':'';
+        if(tb)tb.innerHTML='<span class="t-info">[SYS] </span>Run '+Math.floor(Math.random()*999+1)+'<br><span class="t-info">[DAT] </span>Sink:'+sink+'m/s G:'+g+'g<br><span class="'+cls+'">[AI]  </span>'+F.name+' | Conf:'+conf.toFixed(1)+'%<br><span class="'+cls+'">[ATA] </span>'+(F.sev===0?'N/A':'ATA 32-'+String(11+fMode).padStart(2,'0'))+hl;
+    }
+    tick();setInterval(tick,1900);
 })();
 
 /* ═══════════════════════════════════════════════════════════
-   FUTURE INITIATIVES ENGINE BLOCKS
+   3. B787 IGNITION  (300 × 260)
    ═══════════════════════════════════════════════════════════ */
-// Canvas 7: Bearing Multi-body Dynamics
 (function(){
-    var cv=document.getElementById('bearingCanvas'); if(!cv)return;
-    var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    var a=0;
-    function loop(){
-        ctx.clearRect(0,0,W,H); a+=0.02;
-        ctx.strokeStyle='#06b6d4'; ctx.lineWidth=2;
-        ctx.beginPath(); ctx.arc(W/2, H/2, 40, 0, Math.PI*2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(W/2, H/2, 20, 0, Math.PI*2); ctx.stroke();
-        for(var i=0; i<8; i++){
-            var cx = W/2 + Math.cos(a + i*Math.PI/4)*30;
-            var cy = H/2 + Math.sin(a + i*Math.PI/4)*30;
-            ctx.fillStyle='#22d3ee'; ctx.beginPath(); ctx.arc(cx, cy, 5, 0, Math.PI*2); ctx.fill();
-        }
-        requestAnimationFrame(loop);
-    }
-    loop();
-})();
+    var cv=document.getElementById('ignitionCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,arcPh=0,sFlash=0,stIdx=0;
+    var STATES=[
+        {label:'HEALTHY',spark:3.85,egt:682,rul:421,col:'#00ffcc',telemClass:'t-ok',note:'Monitor',fault:'None'},
+        {label:'MONITOR',spark:2.9,egt:700,rul:280,col:'#38bdf8',telemClass:'t-info',note:'Monitor',fault:'Weak Spark'},
+        {label:'CAUTION',spark:1.5,egt:745,rul:142,col:'#f59e0b',telemClass:'t-warn',note:'Inspect',fault:'Fouling'},
+        {label:'CRITICAL',spark:.8,egt:820,rul:45,col:'#f97316',telemClass:'t-warn',note:'AMM 74-21',fault:'Erosion'},
+        {label:'FAILURE',spark:0,egt:410,rul:5,col:'#ef4444',telemClass:'t-alert',note:'AOG NO-GO',fault:'Flameout'}
+    ];
 
-// Canvas 8: Airframe Mesh Spline Nodes
-(function(){
-    var cv=document.getElementById('airframeCanvas'); if(!cv)return;
-    var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    var t=0;
-    function loop(){
-        ctx.clearRect(0,0,W,H); t+=0.05;
-        ctx.strokeStyle='rgba(239,68,68,0.4)'; ctx.lineWidth=1;
-        for(var i=0; i<W; i+=20){
-            ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i + Math.sin(t)*5, H); ctx.stroke();
-        }
-        ctx.fillStyle='#ef4444'; ctx.fillRect(W/2-5, H/2-5, 10, 10);
-        requestAnimationFrame(loop);
-    }
-    loop();
-})();
+    function draw(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;arcPh+=.06;
+        var S=STATES[stIdx];
 
-// Canvas 9: Ontology Graph
-(function(){
-    var cv=document.getElementById('ontologyCanvas'); if(!cv)return;
-    var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    var t=0;
-    function loop(){
-        ctx.clearRect(0,0,W,H); t+=0.02;
-        var points = [[W/2, H/2], [W/2-50, H/2-30], [W/2+50, H/2-30], [W/2-30, H/2+40], [W/2+30, H/2+40]];
-        ctx.strokeStyle='#8b5cf6'; ctx.lineWidth=1.5;
+        // ── Background grid ──
+        ctx.strokeStyle='rgba(14,165,233,0.06)';ctx.lineWidth=1;
+        for(var gx=0;gx<W;gx+=22){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+        for(var gy=0;gy<H;gy+=22){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+        var cx2=W/2,cy2=H/2-22;
+
+        // ── Igniter assembly ──
+        // Hex body
+        ctx.save();
+        var hexG=ctx.createRadialGradient(cx2,cy2-45,2,cx2,cy2-45,22);
+        hexG.addColorStop(0,'#2d4a65');hexG.addColorStop(1,'#0f1e2e');
+        ctx.fillStyle=hexG;ctx.strokeStyle='rgba(148,163,184,0.5)';ctx.lineWidth=1.5;
         ctx.beginPath();
-        points.forEach((p, idx)=>{
-            if(idx>0){ ctx.moveTo(points[0][0], points[0][1]); ctx.lineTo(p[0]+Math.sin(t+idx)*5, p[1]); }
-        });
-        ctx.stroke();
-        points.forEach((p)=>{ ctx.fillStyle='#a78bfa'; ctx.beginPath(); ctx.arc(p[0], p[1], 4, 0, Math.PI*2); ctx.fill(); });
-        requestAnimationFrame(loop);
+        for(var hi=0;hi<6;hi++){var ha=hi*Math.PI/3-Math.PI/6;if(hi===0)ctx.moveTo(cx2+20*Math.cos(ha),cy2-42+20*Math.sin(ha));else ctx.lineTo(cx2+20*Math.cos(ha),cy2-42+20*Math.sin(ha));}
+        ctx.closePath();ctx.fill();ctx.stroke();
+        ctx.restore();
+
+        // Ceramic body
+        ctx.save();
+        var cG=ctx.createLinearGradient(cx2-14,0,cx2+14,0);
+        cG.addColorStop(0,'#1e293b');cG.addColorStop(.35,'#7fb3d3');cG.addColorStop(.65,'#aed6ea');cG.addColorStop(1,'#1e293b');
+        ctx.fillStyle=cG;ctx.strokeStyle='rgba(148,163,184,0.4)';ctx.lineWidth=1;
+        ctx.fillRect(cx2-13,cy2-32,26,62);ctx.strokeRect(cx2-13,cy2-32,26,62);
+        // Thread rings
+        for(var ri=0;ri<5;ri++){
+            ctx.strokeStyle='rgba(30,41,59,0.8)';ctx.lineWidth=2.5;
+            ctx.beginPath();ctx.moveTo(cx2-13,cy2-10+ri*9);ctx.lineTo(cx2+13,cy2-10+ri*9);ctx.stroke();
+        }
+        ctx.restore();
+
+        // Ground electrode
+        var tipY=cy2+32;
+        ctx.save();ctx.strokeStyle='#94a3b8';ctx.lineWidth=3.5;ctx.lineCap='round';
+        ctx.beginPath();ctx.moveTo(cx2-12,tipY-4);ctx.lineTo(cx2-5,tipY+6);ctx.stroke();
+        ctx.fillStyle='#94a3b8';ctx.beginPath();ctx.arc(cx2-5,tipY+6,3.5,0,Math.PI*2);ctx.fill();
+        // Centre electrode
+        ctx.fillStyle='#e2e8f0';ctx.fillRect(cx2-3,tipY-2,6,10);
+        ctx.restore();
+
+        // ── Electric Arc ──
+        if(S.spark>.05){
+            var g1x=cx2,g1y=tipY+8;var g2x=cx2-5,g2y=tipY+6;
+            var al=(Math.sin(arcPh*3.5)*.5+.5)*(S.spark/3.85);
+            var nArcs=S.spark>2.5?4:S.spark>1.2?3:2;
+            for(var ai=0;ai<nArcs;ai++){
+                ctx.save();ctx.strokeStyle=S.col;ctx.lineWidth=1.5-ai*.3;
+                ctx.globalAlpha=al*(1-ai*.2);ctx.shadowColor=S.col;ctx.shadowBlur=14+ai*6;
+                ctx.beginPath();ctx.moveTo(g1x,g1y);
+                for(var ak=1;ak<7;ak++){
+                    var t=ak/7;
+                    ctx.lineTo(lerp(g1x,g2x,t)+(Math.random()-.5)*6*(1-Math.abs(t-.5)*1.5),
+                               lerp(g1y,g2y,t)+(Math.random()-.5)*6);
+                }
+                ctx.lineTo(g2x,g2y);ctx.stroke();ctx.restore();
+            }
+            // Glow halo
+            if(al>.35){
+                var midX=(g1x+g2x)/2,midY=(g1y+g2y)/2;
+                var glow=ctx.createRadialGradient(midX,midY,0,midX,midY,16);
+                glow.addColorStop(0,S.col+'bb');glow.addColorStop(.5,S.col+'44');glow.addColorStop(1,'transparent');
+                ctx.save();ctx.fillStyle=glow;ctx.globalAlpha=al;ctx.beginPath();ctx.arc(midX,midY,16,0,Math.PI*2);ctx.fill();ctx.restore();
+            }
+        } else {
+            // X for no spark
+            ctx.save();ctx.strokeStyle='#ef4444';ctx.lineWidth=2.5;ctx.shadowColor='#ef4444';ctx.shadowBlur=8;
+            var mx=(cx2+(cx2-5))/2,my=tipY+6;
+            ctx.beginPath();ctx.moveTo(mx-8,my-8);ctx.lineTo(mx+8,my+8);ctx.stroke();
+            ctx.beginPath();ctx.moveTo(mx+8,my-8);ctx.lineTo(mx-8,my+8);ctx.stroke();
+            ctx.shadowBlur=0;ctx.restore();
+        }
+
+        // ── EGT Gauge (top-left) ──
+        var gx=36,gy=28,gr=22;
+        var en=clamp((S.egt-400)/500,0,1);
+        var ec=en<.45?'#10b981':en<.75?'#f59e0b':'#ef4444';
+        ctx.save();ctx.strokeStyle='#1a2a3a';ctx.lineWidth=5;
+        ctx.beginPath();ctx.arc(gx,gy,gr,Math.PI*.75,Math.PI*2.25);ctx.stroke();
+        ctx.strokeStyle=ec;ctx.shadowColor=ec;ctx.shadowBlur=10;ctx.lineWidth=5;
+        ctx.beginPath();ctx.arc(gx,gy,gr,Math.PI*.75,Math.PI*.75+en*Math.PI*1.5);ctx.stroke();
+        ctx.shadowBlur=0;
+        ctx.fillStyle='#e2e8f0';ctx.font='bold 8px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('EGT',gx,gy+3);
+        ctx.fillStyle=ec;ctx.font='bold 7px JetBrains Mono,monospace';ctx.fillText(S.egt+'°F',gx,gy+13);
+        ctx.restore();
+
+        // ── Spark energy bar (top-right) ──
+        var bx=W-14,by=8,bH=60;
+        ctx.save();ctx.fillStyle='#0f1e2e';ctx.fillRect(bx-10,by,10,bH);
+        var bg2=ctx.createLinearGradient(0,by+bH,0,by);
+        bg2.addColorStop(0,'#10b981');bg2.addColorStop(.55,'#f59e0b');bg2.addColorStop(1,'#ef4444');
+        ctx.fillStyle=bg2;ctx.shadowColor=S.col;ctx.shadowBlur=8;
+        ctx.fillRect(bx-10,by+bH-bH*(S.spark/3.85),10,bH*(S.spark/3.85));
+        ctx.shadowBlur=0;
+        ctx.fillStyle='#64748b';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('SPAK',bx-5,by+bH+10);
+        ctx.fillStyle=S.col;ctx.font='bold 7px JetBrains Mono,monospace';
+        ctx.fillText(S.spark.toFixed(2)+'J',bx-5,by+bH+20);
+        ctx.restore();
+
+        // ── RUL ring (bottom) ──
+        var rx=W/2,ry=tipY+46;
+        if(ry<H-14){
+            var rn=clamp(S.rul/500,0,1);
+            var rc=S.rul>200?'#10b981':S.rul>80?'#f59e0b':'#ef4444';
+            ctx.save();ctx.strokeStyle='#1a2a3a';ctx.lineWidth=4;
+            ctx.beginPath();ctx.arc(rx,ry,20,-Math.PI/2,Math.PI*1.5);ctx.stroke();
+            ctx.strokeStyle=rc;ctx.shadowColor=rc;ctx.shadowBlur=8;ctx.lineWidth=4;
+            ctx.beginPath();ctx.arc(rx,ry,20,-Math.PI/2,lerp(-Math.PI/2,Math.PI*1.5,rn));ctx.stroke();
+            ctx.shadowBlur=0;
+            ctx.fillStyle=rc;ctx.font='bold 9px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.fillText(S.rul,rx,ry+3);
+            ctx.fillStyle='#64748b';ctx.font='6px JetBrains Mono,monospace';ctx.fillText('RUL cyc',rx,ry+13);
+            ctx.fillStyle=rc;ctx.font='bold 9px JetBrains Mono,monospace';ctx.shadowColor=rc;ctx.shadowBlur=6;
+            ctx.fillText('● '+S.label,rx,ry+27);ctx.shadowBlur=0;
+            ctx.restore();
+        }
+
+        if(sFlash>0){ctx.fillStyle='rgba(239,68,68,'+sFlash*.018+')';ctx.fillRect(0,0,W,H);sFlash--;}
+        requestAnimationFrame(draw);
     }
-    loop();
+    draw();
+
+    var tb=document.getElementById('ignTelem');
+    function tick(){
+        stIdx=(stIdx+1)%STATES.length;var S=STATES[stIdx];
+        if(S.label!=='HEALTHY')sFlash=20;
+        if(tb)tb.innerHTML='<span class="t-info">[ENG] </span>Spark:'+S.spark.toFixed(2)+'J | EGT:'+S.egt+'°F<br><span class="'+S.telemClass+'">[RUL] </span>'+S.rul+' cycles · '+S.label+'<br><span class="'+(S.fault==='None'?'t-info':'t-alert')+'">[FLT] </span>'+S.fault+'<br><span class="'+(S.label==='FAILURE'?'t-alert':'t-warn')+'">[AMM] </span>ATA 74-00-00 · '+S.note;
+    }
+    tick();setInterval(tick,2600);
 })();
 
-// Canvas 10: DevOps Stack Streamers
+/* ═══════════════════════════════════════════════════════════
+   4. PHI-CHAIN (300 × 300)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
-    var cv=document.getElementById('stackCanvas'); if(!cv)return;
-    var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    var lines = [{x:10, y:20}, {x:50, y:60}, {x:100, y:40}];
-    function loop(){
-        ctx.clearRect(0,0,W,H);
-        ctx.fillStyle='#0ea5e9';
-        lines.forEach((l)=>{
-            l.x = (l.x + 2) % W;
-            ctx.fillRect(l.x, l.y, 8, 8);
-        });
-        requestAnimationFrame(loop);
+    var cv=document.getElementById('phiChainCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,blockNum=1200,bat=40,atkMode=false,vFlash=0;
+    var pkts=[];
+
+    var PROTOS=[{label:'ADS-B',col:'#10b981'},{label:'ACARS',col:'#38bdf8'},{label:'CPDLC',col:'#a78bfa'}];
+    var PSTATES=[
+        {p:'ADS-B',loc:'Lat:9.072 Lon:7.491 Alt:FL350',ba:41,bl:1204,st:'VERIFIED',c:'t-ok'},
+        {p:'ACARS',loc:'Payload signed + verified',ba:42,bl:1204,st:'VERIFIED',c:'t-ok'},
+        {p:'ADS-B',loc:'Lat:9.800 Lon:6.990 Alt:FL200',ba:44,bl:1205,st:'INTEGRITY_VIOLATION',c:'t-warn'},
+        {p:'ADS-B',loc:'Lat:50.1 Lon:6.1 Alt:FL900',ba:45,bl:1206,st:'SEMANTIC_ATTACK',c:'t-alert'},
+        {p:'CPDLC',loc:'Payload verified OK',ba:46,bl:1206,st:'VERIFIED',c:'t-ok'}
+    ];
+    var psIdx=0;
+
+    function spawnPkt(){
+        var pr=PROTOS[Math.floor(Math.random()*3)];
+        var atk=atkMode&&Math.random()<.35;
+        pkts.push({proto:pr.label,col:atk?'#ef4444':pr.col,
+            x:12,y:38+PROTOS.indexOf(pr)*60+Math.random()*20,
+            spd:1.2+Math.random()*.8,w:44+Math.random()*16,
+            hash:randHex(6),signed:false,atk:atk,alpha:1});
     }
-    loop();
+
+    function draw(){
+        ctx.fillStyle='#050814';ctx.fillRect(0,0,W,H);ft++;
+
+        // Grid
+        ctx.strokeStyle='rgba(139,92,246,0.07)';ctx.lineWidth=1;
+        for(var gx=0;gx<W;gx+=22){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+        for(var gy=0;gy<H;gy+=22){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+        if(ft%20===0)spawnPkt();
+        if(ft%120===0)atkMode=!atkMode;
+
+        // Protocol lane labels
+        ctx.fillStyle='#64748b';ctx.font='7px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('PROTOCOLS',8,14);
+        PROTOS.forEach(function(pr,i){
+            ctx.save();ctx.strokeStyle=pr.col+'44';ctx.lineWidth=1;ctx.setLineDash([4,5]);
+            ctx.beginPath();ctx.moveTo(8,52+i*60);ctx.lineTo(W*.47,52+i*60);ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle=pr.col;ctx.font='bold 8px JetBrains Mono,monospace';ctx.textAlign='left';
+            ctx.fillText(pr.label,8,48+i*60);ctx.restore();
+        });
+
+        // Packets
+        var cnX=W*.5,cnY=H*.44;
+        pkts=pkts.filter(function(p){
+            if(p.x>W+12||p.alpha<=0)return false;
+            if(!p.signed){
+                var dx=cnX-p.x-20,dy=cnY-p.y,d=Math.sqrt(dx*dx+dy*dy);
+                if(d<28){p.signed=true;if(!p.atk)vFlash=14;bat++;if(bat%10===0)blockNum++;}
+                p.x+=(dx/d)*p.spd*.9;p.y+=(dy/d)*p.spd*.4;
+            } else {
+                p.x+=p.spd*1.5;p.y+=(cnY-p.y)*.05;
+                if(p.x>W*.72)p.alpha-=.06;
+            }
+            ctx.save();ctx.globalAlpha=p.alpha;
+            ctx.fillStyle=p.signed?(p.atk?'rgba(239,68,68,.4)':p.col+'cc'):p.col+(p.atk?'aa':'77');
+            ctx.strokeStyle=p.atk?'#ef4444':p.col;ctx.lineWidth=p.atk?2:1;
+            if(p.atk){ctx.shadowColor='#ef4444';ctx.shadowBlur=12;}
+            ctx.fillRect(p.x,p.y-7,p.w,14);ctx.strokeRect(p.x,p.y-7,p.w,14);
+            ctx.shadowBlur=0;
+            ctx.fillStyle=p.signed?'#fff':'#e2e8f0';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.fillText(p.atk?'⚠SPOOF':p.proto,p.x+p.w/2,p.y+1);
+            ctx.fillStyle='#94a3b8';ctx.font='5px JetBrains Mono,monospace';
+            ctx.fillText(p.hash,p.x+p.w/2,p.y+9);ctx.restore();
+            return true;
+        });
+
+        // Central crypto node
+        var pulse=Math.sin(ft*.06)*.5+.5;
+        ctx.save();
+        var nodeGlow=ctx.createRadialGradient(cnX,cnY,4,cnX,cnY,34);
+        nodeGlow.addColorStop(0,'rgba(139,92,246,'+(pulse*.5+.15)+')');
+        nodeGlow.addColorStop(1,'transparent');
+        ctx.fillStyle=nodeGlow;ctx.beginPath();ctx.arc(cnX,cnY,34,0,Math.PI*2);ctx.fill();
+        ctx.strokeStyle='rgba(139,92,246,'+(pulse*.5+.3)+')';ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.arc(cnX,cnY,26,0,Math.PI*2);ctx.stroke();
+        ctx.fillStyle='#1e1b4b';ctx.shadowColor='#8b5cf6';ctx.shadowBlur=16+pulse*10;
+        ctx.beginPath();ctx.arc(cnX,cnY,20,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+        // Key icon
+        ctx.strokeStyle='#a78bfa';ctx.lineWidth=2;ctx.lineCap='round';
+        ctx.beginPath();ctx.arc(cnX-3,cnY-4,6,0,Math.PI*2);ctx.stroke();
+        ctx.beginPath();ctx.moveTo(cnX+3,cnY-2);ctx.lineTo(cnX+12,cnY-2);ctx.lineTo(cnX+12,cnY+2);ctx.lineTo(cnX+10,cnY+2);ctx.lineTo(cnX+10,cnY+5);ctx.lineTo(cnX+8,cnY+5);ctx.lineTo(cnX+8,cnY+2);ctx.stroke();
+        ctx.fillStyle='#a78bfa';ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('Ed25519',cnX,cnY+36);ctx.restore();
+
+        // Blockchain column
+        var bx=W*.76,bHt=28,bgap=10,nb=Math.min(7,Math.floor((H-40)/(bHt+bgap)));
+        ctx.fillStyle='#94a3b8';ctx.font='7px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('CHAIN',bx,12);
+        for(var bi=0;bi<nb;bi++){
+            var bn=blockNum-bi,by2=18+bi*(bHt+bgap),isFresh=bi===0;
+            ctx.save();ctx.fillStyle=isFresh?'#1e1b4b':'#0a0f1e';
+            ctx.strokeStyle=isFresh?'#8b5cf6':'#2d3748';ctx.lineWidth=isFresh?2:1;
+            if(isFresh){ctx.shadowColor='#8b5cf6';ctx.shadowBlur=10;}
+            ctx.fillRect(bx-22,by2,44,bHt);ctx.strokeRect(bx-22,by2,44,bHt);ctx.shadowBlur=0;
+            ctx.fillStyle=isFresh?'#a78bfa':'#475569';ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.fillText('#'+bn,bx,by2+11);
+            ctx.fillStyle='#2d3748';ctx.font='5px JetBrains Mono,monospace';
+            ctx.fillText(randHex(4)+'..'+randHex(4),bx,by2+22);
+            if(bi<nb-1){ctx.strokeStyle='#2d3748';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(bx,by2+bHt);ctx.lineTo(bx,by2+bHt+bgap);ctx.stroke();}
+            ctx.restore();
+        }
+
+        // Attack overlay
+        if(atkMode){
+            ctx.fillStyle='rgba(239,68,68,0.05)';ctx.fillRect(0,0,W,H);
+            ctx.fillStyle='#ef4444';ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.shadowColor='#ef4444';ctx.shadowBlur=8;
+            ctx.fillText('⚠ SEMANTIC ATTACK DETECTED',W/2,H-12);ctx.shadowBlur=0;
+        }
+        if(vFlash>0){ctx.fillStyle='rgba(16,185,129,'+(vFlash*.022)+')';ctx.fillRect(0,0,W,H);vFlash--;}
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+
+    var tb=document.getElementById('phiTelem');
+    function tick(){
+        psIdx=(psIdx+1)%PSTATES.length;var s=PSTATES[psIdx];
+        var ic=s.st==='VERIFIED'?'✓':s.st==='INTEGRITY_VIOLATION'?'⚡':'⚠';
+        if(tb)tb.innerHTML='<span class="t-info">[NET] </span><span class="'+s.c+'">'+s.p+' </span>'+s.loc+'<br><span class="t-info">[SIG] </span>Ed25519 · Batch #'+String(s.ba).padStart(4,'0')+'<br><span class="t-info">[CHN] </span>Block #'+s.bl+' · '+randHex(4)+'…'+randHex(4)+'<br><span class="'+s.c+'">[DT]  </span>'+ic+' '+s.st;
+    }
+    tick();setInterval(tick,2200);
 })();
 
 /* ═══════════════════════════════════════════════════════════
-   NEW LAYER: RECURSIVE MINI-COMPACT SLIDER COMPONENT LOOPS
+   5. NNPC PIPELINE  (300 × 270)
    ═══════════════════════════════════════════════════════════ */
-function runSliderAnims(){
-    const createLoop = (id, drawFn) => {
-        const c = document.getElementById(id); if(!c) return;
-        const ctx = c.getContext('2d');
-        let frame = 0;
-        const render = () => { frame++; drawFn(ctx, c.width, c.height, frame); requestAnimationFrame(render); };
-        render();
-    };
+(function(){
+    var cv=document.getElementById('pipelineCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,faultSeg=-1;
+    var ptcls=[];
+    for(var i=0;i<55;i++)ptcls.push({x:Math.random(),spd:.0015+Math.random()*.002,y:0,sz:2+Math.random()*2.5,alpha:.6+Math.random()*.4});
+    var NODES=[.08,.22,.36,.52,.67,.82,.93];
 
-    createLoop('s-anim-b787lg', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.fillStyle='rgba(14,165,233,0.3)';
-        ctx.fillRect(20, h/2-5, w-40, 10); ctx.fillStyle='#0ea5e9';
-        ctx.fillRect(20 + (f % (w-60)), h/2-8, 20, 16);
-    });
-    createLoop('s-anim-phichain', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.strokeStyle='#8b5cf6'; ctx.lineWidth=1;
-        for(let i=0; i<w; i+=30) ctx.strokeRect(i + (f%30), 20, 15, 15);
-    });
-    createLoop('s-anim-b787ign', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.strokeStyle='#f97316';
-        ctx.beginPath(); ctx.moveTo(10, h/2);
-        for(let i=10; i<w-10; i+=15) ctx.lineTo(i, h/2 + Math.sin(f*0.2 + i)*10);
-        ctx.stroke();
-    });
-    createLoop('s-anim-do228', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.fillStyle='#10b981';
-        let y = h/2 + Math.sin(f*0.1)*15; ctx.fillRect(w/2-25, y, 50, 8);
-    });
-    createLoop('s-anim-nnpc', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.fillStyle='rgba(16,185,129,0.4)';
-        for(let i=0; i<5; i++) ctx.arc(40 + i*50 + (f%50), h/2, 4, 0, Math.PI*2);
-        ctx.fill();
-    });
-    createLoop('s-anim-mroinv', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.fillStyle='#fb923c';
-        for(let i=0; i<4; i++){ let barH = 20 + Math.sin(f*0.05 + i)*15; ctx.fillRect(40+i*60, h-barH-10, 30, barH); }
-    });
-    createLoop('s-anim-rdecfd', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h);
-        let grad = ctx.createLinearGradient(0,0,w,0);
-        grad.addColorStop(0,'#0f172a'); grad.addColorStop(0.5, '#ef4444'); grad.addColorStop(1,'#0f172a');
-        ctx.fillStyle=grad; ctx.fillRect(10,10,w-20,h-20);
-    });
-    createLoop('s-anim-gtblade', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.save(); ctx.translate(w/2, h/2); ctx.rotate(f*0.05);
-        ctx.strokeStyle='#64748b'; for(let i=0;i<4;i++){ ctx.strokeRect(-15,-15,30,30); } ctx.restore();
-    });
-    createLoop('s-anim-groundst', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.fillStyle='#8b5cf6'; ctx.font='9px monospace';
-        ctx.fillText('TX-PACKET: '+f.toString(16).toUpperCase(), 20, h/2);
-    });
-    createLoop('s-anim-stratos', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.strokeStyle='#0ea5e9'; ctx.beginPath();
-        ctx.moveTo(30,h/2); ctx.quadraticCurveTo(w/2, 10, w-30, h/2); ctx.stroke();
-    });
-    createLoop('s-anim-penelope', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.fillStyle='#ec4899';
-        ctx.beginPath(); ctx.arc(w/2 + Math.sin(f*0.1)*20, h/2, 6, 0, Math.PI*2); ctx.fill();
-    });
-    createLoop('s-anim-lifestone', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.strokeStyle='#06b6d4';
-        ctx.beginPath(); for(let i=0;i<w;i++) ctx.lineTo(i, h/2 + Math.sin(i*0.1 + f*0.1)*8); ctx.stroke();
-    });
-    createLoop('s-anim-colig', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.fillStyle='#10b981';
-        ctx.fillRect(20, 20, w-40, h-40);
-    });
-    createLoop('s-anim-review', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.fillStyle='#38bdf8'; ctx.font='10px Arial';
-        ctx.fillText('AIAA-JAIS [VERIFIED]', 40, h/2);
-    });
-    createLoop('s-anim-ontology', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.strokeStyle='#a78bfa';
-        ctx.strokeRect(w/2-20, h/2-20, 40, 40);
-    });
-    createLoop('s-anim-devops', (ctx, w, h, f) => {
-        ctx.clearRect(0,0,w,h); ctx.fillStyle='#0ea5e9';
-        ctx.fillRect(10 + (f%w), 40, 10, 10);
-    });
-}
-window.addEventListener('load', runSliderAnims);
+    function draw(){
+        ctx.fillStyle='#020c08';ctx.fillRect(0,0,W,H);ft++;
+        if(ft%220===0)faultSeg=Math.random()<.32?Math.floor(Math.random()*NODES.length):-1;
+
+        // Grid
+        ctx.strokeStyle='rgba(16,185,129,0.07)';ctx.lineWidth=1;
+        for(var gx=0;gx<W;gx+=22){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+        for(var gy=0;gy<H;gy+=22){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+        var pipeY=H*.42,pR=24;
+
+        // ── Pipe outer shell ──
+        ctx.save();
+        var og=ctx.createLinearGradient(0,pipeY-pR,0,pipeY+pR);
+        og.addColorStop(0,'#0f2318');og.addColorStop(.25,'#1e4730');og.addColorStop(.5,'#2d6b46');og.addColorStop(.75,'#1e4730');og.addColorStop(1,'#0f2318');
+        ctx.fillStyle=og;ctx.strokeStyle='rgba(16,185,129,.5)';ctx.lineWidth=1.5;
+        ctx.fillRect(8,pipeY-pR,W-16,pR*2);ctx.strokeRect(8,pipeY-pR,W-16,pR*2);
+        ctx.restore();
+
+        // Inner bore
+        ctx.save();
+        var ig2=ctx.createLinearGradient(0,pipeY-16,0,pipeY+16);
+        ig2.addColorStop(0,'#050e08');ig2.addColorStop(.5,'#0a1c10');ig2.addColorStop(1,'#050e08');
+        ctx.fillStyle=ig2;ctx.fillRect(10,pipeY-16,W-20,32);ctx.restore();
+
+        // Weld rings
+        for(var wx=65;wx<W-20;wx+=85){
+            ctx.save();ctx.strokeStyle='rgba(16,185,129,.4)';ctx.lineWidth=3.5;
+            ctx.beginPath();ctx.moveTo(wx,pipeY-pR);ctx.lineTo(wx,pipeY+pR);ctx.stroke();ctx.restore();
+        }
+
+        // ── Flowing oil particles ──
+        ptcls.forEach(function(p){
+            p.x+=p.spd;if(p.x>1)p.x=0;
+            var px=10+(p.x*(W-20));
+            var isFaultZone=faultSeg>=0&&Math.abs(px-NODES[faultSeg]*W)<38;
+            var col=isFaultZone?'#ef4444':'#10b981';
+            ctx.save();ctx.fillStyle=col;ctx.globalAlpha=isFaultZone?p.alpha*.5:p.alpha*.8;
+            ctx.shadowColor=col;ctx.shadowBlur=isFaultZone?6:3;
+            ctx.beginPath();ctx.arc(px,pipeY+(Math.sin(ft*.04+p.x*10))*7,p.sz*.8,0,Math.PI*2);
+            ctx.fill();ctx.shadowBlur=0;ctx.restore();
+        });
+
+        // Fault zone glow + crack
+        if(faultSeg>=0){
+            var fx2=NODES[faultSeg]*W;
+            var fg=ctx.createRadialGradient(fx2,pipeY,4,fx2,pipeY,52);
+            fg.addColorStop(0,'rgba(239,68,68,.35)');fg.addColorStop(1,'transparent');
+            ctx.fillStyle=fg;ctx.beginPath();ctx.arc(fx2,pipeY,52,0,Math.PI*2);ctx.fill();
+            // Crack
+            ctx.save();ctx.strokeStyle='#ef4444';ctx.lineWidth=1.5;ctx.shadowColor='#ef4444';ctx.shadowBlur=8;
+            ctx.beginPath();ctx.moveTo(fx2-7,pipeY-22);ctx.lineTo(fx2+2,pipeY-10);ctx.lineTo(fx2-3,pipeY+2);ctx.lineTo(fx2+7,pipeY+20);ctx.stroke();ctx.shadowBlur=0;ctx.restore();
+            // Drip
+            ctx.save();ctx.fillStyle='#ef4444';ctx.shadowColor='#ef4444';ctx.shadowBlur=6;
+            ctx.beginPath();ctx.arc(fx2+3,pipeY+26+(Math.sin(ft*.08))*6,4,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.restore();
+        }
+
+        // ── Sensor Nodes ──
+        NODES.forEach(function(nx,i){
+            var npx=nx*W,npy=pipeY;
+            var isFault=i===faultSeg;
+            var nc=isFault?'#ef4444':'#10b981';
+            var pulse2=Math.sin(ft*.06+i)*.5+.5;
+
+            // Pulse ring
+            ctx.save();ctx.strokeStyle=nc;ctx.lineWidth=1.5;ctx.globalAlpha=pulse2*.55;
+            ctx.beginPath();ctx.arc(npx,npy-pR-16,10+pulse2*6,0,Math.PI*2);ctx.stroke();ctx.restore();
+
+            // Stem
+            ctx.save();ctx.strokeStyle=nc+'88';ctx.lineWidth=1.5;ctx.setLineDash([3,3]);
+            ctx.beginPath();ctx.moveTo(npx,npy-pR);ctx.lineTo(npx,npy-pR-12);ctx.stroke();ctx.setLineDash([]);ctx.restore();
+
+            // Node body
+            ctx.save();ctx.fillStyle='#0a1c10';ctx.strokeStyle=nc;ctx.lineWidth=isFault?2:1.5;
+            if(isFault){ctx.shadowColor='#ef4444';ctx.shadowBlur=14;}
+            ctx.beginPath();ctx.arc(npx,npy-pR-16,10,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;
+            ctx.fillStyle=nc;ctx.beginPath();ctx.arc(npx,npy-pR-16,4,0,Math.PI*2);ctx.fill();ctx.restore();
+
+            // Pressure label
+            var pval=(36+i*2.5+Math.sin(ft*.03+i)*2.5).toFixed(1);
+            ctx.save();ctx.fillStyle=isFault?'#fca5a5':'#6ee7b7';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.fillText(pval+'b',npx,npy-pR-31);
+            ctx.fillStyle='#374151';ctx.font='5px JetBrains Mono,monospace';
+            ctx.fillText('N'+(i+1),npx,npy-pR-22);ctx.restore();
+        });
+
+        // ── Mini GIS map (bottom) ──
+        var mx=8,my=H-46,mw=W-16,mh=38;
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.55)';ctx.strokeStyle='rgba(16,185,129,.3)';ctx.lineWidth=1;
+        ctx.fillRect(mx,my,mw,mh);ctx.strokeRect(mx,my,mw,mh);
+        ctx.fillStyle='#374151';ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('GIS · TRANS-NIGER PIPELINE · 5.4°N – 7.8°E',mx+5,my+9);
+        ctx.strokeStyle='rgba(16,185,129,.6)';ctx.lineWidth=2;
+        ctx.beginPath();ctx.moveTo(mx+16,my+26);ctx.lineTo(mx+mw-16,my+26);ctx.stroke();
+        if(faultSeg>=0){
+            var gfx=mx+16+NODES[faultSeg]*(mw-32);
+            ctx.fillStyle='#ef4444';ctx.shadowColor='#ef4444';ctx.shadowBlur=8;
+            ctx.beginPath();ctx.arc(gfx,my+26,5,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+            ctx.fillStyle='#fca5a5';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.fillText('FAULT',gfx,my+36);
+        }
+        NODES.forEach(function(nx){
+            ctx.fillStyle='rgba(16,185,129,.7)';ctx.beginPath();ctx.arc(mx+16+nx*(mw-32),my+26,3,0,Math.PI*2);ctx.fill();
+        });ctx.restore();
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+
+    var tb=document.getElementById('pipelineTelem');
+    function tick(){
+        var ni=Math.floor(Math.random()*NODES.length);var pr=(36+Math.random()*10).toFixed(1);
+        var hasFault=faultSeg>=0;var cls=hasFault?'t-alert':'t-ok';
+        if(tb)tb.innerHTML='<span class="t-info">[SEN] </span>Node-'+(ni+10)+' · P:'+pr+'bar T:'+(50+Math.random()*22).toFixed(1)+'°C<br><span class="'+cls+'">[AI]  </span>'+(hasFault?'ANOMALY: Leak detected at N'+(faultSeg+1):'Anomaly: NONE · All nominal')+'<br><span class="t-info">[GPS] </span>'+(5.3+Math.random()*.5).toFixed(3)+'°N '+(6.3+Math.random()*.6).toFixed(3)+'°E<br><span class="'+(hasFault?'t-warn':'t-ok')+'">[SYS] </span>'+(hasFault?'⚠ NOC alert sent':'All 22 nodes nominal');
+    }
+    tick();setInterval(tick,2500);
+})();
 
 /* ═══════════════════════════════════════════════════════════
-   INLINE INTERACTIVE SIMULATION LOGIC BLOCKS
+   6. MRO INVENTORY  (300 × 270)
    ═══════════════════════════════════════════════════════════ */
-function runAdaptiveMRO(){
-    const hrs = parseFloat(document.getElementById('calc-hours').value) || 0;
-    const g = parseFloat(document.getElementById('calc-gload').value) || 1.0;
-    const box = document.getElementById('mro-output');
-    
-    let baseCycles = 50000 - (hrs * 12);
-    if(g > 2.0) baseCycles -= 5000;
-    
-    let status = "NORMAL";
-    if(g >= 1.8) status = "INSPECTION REQUIRED [CS-23.473 Violation]";
-    
-    box.innerHTML = `Remaining Useful Life: ${Math.max(0, Math.round(baseCycles))} cycles<br>Airworthiness Status: ${status}`;
-}
+(function(){
+    var cv=document.getElementById('inventoryCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0;
+    var PARTS=[
+        {name:'LG-SEAL-032',stock:14,min:8,max:50,col:'#0ea5e9'},
+        {name:'ENG-IGNITER',stock:6, min:10,max:40,col:'#f97316'},
+        {name:'HYD-VALVE-7',stock:28,min:5, max:35,col:'#10b981'},
+        {name:'BRAKE-DISC', stock:4, min:8, max:30,col:'#ef4444'}
+    ];
 
-function runFlightPlanner(){
-    const dest = document.getElementById('tour-dest').value;
-    const mach = parseFloat(document.getElementById('tour-mach').value) || 0.85;
-    const box = document.getElementById('tour-output');
-    
-    let distance = 0; // km
-    let route = "";
-    if(dest === 'buaa') { distance = 11200; route = "Kaduna (AFIT) ➔ N'Djamena ➔ Islamabad ➔ Hangzhou (BUAA)"; }
-    else if(dest === 'cranfield') { distance = 5800; route = "Kaduna (AFIT) ➔ Algiers ➔ Paris ➔ Cranfield (UK)"; }
-    else { distance = 10400; route = "Kaduna (AFIT) ➔ Sal Island ➔ San Juan ➔ Orlando SciTech"; }
-    
-    let speed = mach * 1062; // approximate km/h at altitude
-    let time = distance / speed;
-    
-    box.innerHTML = `Route: ${route}<br>Distance: ${distance} km | Time: ${time.toFixed(1)} hours`;
-}
+    function draw(){
+        ctx.fillStyle='#0d0812';ctx.fillRect(0,0,W,H);ft++;
 
-function runThreatSimulation(){
-    const vec = document.getElementById('attack-vector').value;
-    const box = document.getElementById('threat-output');
-    
-    box.innerHTML = `Intercepting spoof vector [${vec.toUpperCase()}]...`;
-    box.style.color = 'var(--neon-red)';
-    
-    setTimeout(() => {
-        box.innerHTML = `Attack Rejected! Cryptographic Ed25519 signature validation matched physics model constraints safely.`;
-        box.style.color = 'var(--neon-green)';
-    }, 1500);
+        // Grid
+        ctx.strokeStyle='rgba(249,115,22,0.07)';ctx.lineWidth=1;
+        for(var gx=0;gx<W;gx+=22){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+        for(var gy=0;gy<H;gy+=22){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+        // ── Stock Cards (4 across top) ──
+        var cw=(W-12)/4,cy=8;
+        PARTS.forEach(function(p,i){
+            var cx2=4+i*cw;var isLow=p.stock<=p.min;
+            // Animate stock decay
+            if(ft%150===i*38)p.stock=Math.max(2,p.stock-1);
+            if(ft%300===i*75)p.stock=Math.min(p.max,p.stock+Math.floor(Math.random()*15)+8);
+
+            ctx.save();
+            ctx.fillStyle=isLow?'rgba(239,68,68,.12)':'rgba('+hexToRgb(p.col)+',.08)';
+            ctx.strokeStyle=isLow?'rgba(239,68,68,.7)':p.col+'88';
+            ctx.lineWidth=isLow?1.5:1;
+            if(isLow){ctx.shadowColor='#ef4444';ctx.shadowBlur=10;}
+            ctx.fillRect(cx2,cy,cw-2,72);ctx.strokeRect(cx2,cy,cw-2,72);ctx.shadowBlur=0;
+            // Name
+            ctx.fillStyle=p.col;ctx.font='bold 5.5px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.fillText(p.name.slice(0,8),cx2+cw/2,cy+10);
+            // Stock number
+            ctx.fillStyle=isLow?'#ef4444':p.col;ctx.font='bold 16px JetBrains Mono,monospace';ctx.shadowColor=isLow?'#ef4444':p.col;ctx.shadowBlur=8;
+            ctx.fillText(p.stock,cx2+cw/2,cy+34);ctx.shadowBlur=0;
+            ctx.fillStyle='#64748b';ctx.font='5px JetBrains Mono,monospace';ctx.fillText('STOCK',cx2+cw/2,cy+44);
+            // Status
+            if(isLow){ctx.fillStyle='#fca5a5';ctx.font='bold 6px JetBrains Mono,monospace';ctx.fillText('⚠LOW',cx2+cw/2,cy+55);ctx.fillStyle='rgba(239,68,68,.7)';ctx.font='5px JetBrains Mono,monospace';ctx.fillText('AUTO-PO',cx2+cw/2,cy+64);}
+            else{ctx.fillStyle='#34d399';ctx.font='bold 6px JetBrains Mono,monospace';ctx.fillText('OK',cx2+cw/2,cy+55);}
+            // Stock bar
+            ctx.fillStyle='#1a0d20';ctx.fillRect(cx2+4,cy+66,cw-10,5);
+            ctx.fillStyle=isLow?'#ef4444':p.col;ctx.shadowColor=p.col;ctx.shadowBlur=4;
+            ctx.fillRect(cx2+4,cy+66,(cw-10)*(p.stock/p.max),5);ctx.shadowBlur=0;
+            ctx.restore();
+        });
+
+        // ── AI Forecast Label ──
+        ctx.save();ctx.fillStyle='rgba(249,115,22,.08)';
+        ctx.strokeStyle='rgba(249,115,22,.4)';ctx.lineWidth=1;
+        ctx.fillRect(4,84,W-8,12);ctx.strokeRect(4,84,W-8,12);
+        ctx.fillStyle='#fb923c';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('▶ TRANSFORMER-LSTM · 14-DAY HORIZON · Cranfield × AFIT',8,93);ctx.restore();
+
+        // ── Forecast Chart ──
+        var chartX=8,chartY=100,chartW=W-16,chartH=130;
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.4)';ctx.strokeStyle='rgba(249,115,22,.2)';ctx.lineWidth=1;
+        ctx.fillRect(chartX,chartY,chartW,chartH);ctx.strokeRect(chartX,chartY,chartW,chartH);
+
+        // Grid lines
+        for(var gl=0;gl<5;gl++){
+            ctx.strokeStyle='rgba(255,255,255,.05)';ctx.lineWidth=1;
+            ctx.beginPath();ctx.moveTo(chartX,chartY+gl*(chartH/4));ctx.lineTo(chartX+chartW,chartY+gl*(chartH/4));ctx.stroke();
+        }
+
+        // Today line
+        var todX=chartX+chartW*.48;
+        ctx.strokeStyle='rgba(255,255,255,.25)';ctx.lineWidth=1;ctx.setLineDash([3,4]);
+        ctx.beginPath();ctx.moveTo(todX,chartY);ctx.lineTo(todX,chartY+chartH);ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle='#94a3b8';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('TODAY',todX,chartY+chartH+10);
+
+        // Plot lines for each part
+        PARTS.forEach(function(p,pi){
+            var dW=chartW/28;
+            ctx.save();ctx.strokeStyle=p.col+'cc';ctx.lineWidth=2;ctx.shadowColor=p.col;ctx.shadowBlur=4;
+            ctx.beginPath();
+            for(var d=0;d<14;d++){
+                var x2=chartX+d*dW;
+                var y2=chartY+chartH-(Math.max(0,p.stock-(d*.4+Math.sin(ft*.01+d+pi)*.8))/p.max)*chartH*.9-4;
+                d===0?ctx.moveTo(x2,y2):ctx.lineTo(x2,y2);
+            }
+            ctx.stroke();ctx.setLineDash([4,4]);ctx.strokeStyle=p.col+'66';ctx.lineWidth=1.5;
+            var startY=chartY+chartH-(Math.max(0,p.stock-5.6)/p.max)*chartH*.9-4;
+            ctx.beginPath();ctx.moveTo(chartX+13*dW,startY);
+            for(var d2=14;d2<28;d2++){
+                var x3=chartX+d2*dW;
+                var y3=chartY+chartH-(Math.max(0,p.stock-(d2*.8))/p.max)*chartH*.9-4;
+                ctx.lineTo(x3,y3);
+            }
+            ctx.stroke();ctx.setLineDash([]);
+
+            // Reorder line
+            ctx.strokeStyle='rgba(239,68,68,.3)';ctx.lineWidth=.5;ctx.setLineDash([2,6]);
+            var rpy=chartY+chartH-(p.min/p.max)*chartH*.9;
+            ctx.beginPath();ctx.moveTo(chartX,rpy);ctx.lineTo(chartX+chartW,rpy);ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.restore();
+        });
+        ctx.restore();
+
+        // Legend
+        ctx.save();ctx.font='bold 5px JetBrains Mono,monospace';ctx.textAlign='left';
+        PARTS.forEach(function(p,i){ctx.fillStyle=p.col;ctx.fillRect(4+i*38,chartY+chartH+2,10,5);ctx.fillStyle=p.col;ctx.fillText(p.name.slice(0,6),4+i*38+12,chartY+chartH+8);});
+        ctx.restore();
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+
+    var tb=document.getElementById('inventoryTelem');
+    var PNAMES=['LG-SEAL-032','ENG-IGNITER-74','HYD-VALVE-7','BRAKE-DISC-32','NLG-TORQUE','OLEO-SEAL'];
+    var ii=0;
+    function tick(){
+        ii=(ii+1)%PNAMES.length;var s=Math.floor(3+Math.random()*25);var lo=s<=10;
+        if(tb)tb.innerHTML='<span class="t-info">[PRD] </span>'+PNAMES[ii]+' | Stock:'+s+'<br><span class="'+(lo?'t-alert':'t-ok')+'">[AI]  </span>Forecast: '+(Math.floor(8+Math.random()*20))+' units / 14d<br><span class="'+(lo?'t-warn':'t-info')+'">[ROP] </span>'+(lo?'⚠ AUTO-PO triggered!':'ROP in '+(3+Math.floor(Math.random()*12))+'d')+'<br><span class="t-info">[PO]  </span>'+(lo?'Auto-PO: '+Math.floor(20+Math.random()*40)+' units · Lead:8d':'Safety stock nominal');
+    }
+    tick();setInterval(tick,2800);
+})();
+
+// Helper: parse hex color to rgb
+function hexToRgb(hex){
+    var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+    return r+','+g+','+b;
 }
 
 /* ═══════════════════════════════════════════════════════════
-   INCREMENTAL INTERSECTION COUNTERS
+   7. BEARING DT  (400 × 220)
+   ═══════════════════════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('bearingCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,angle=0,faultMode=false,faultTimer=0;
+    var fftData=[];for(var i=0;i<42;i++)fftData.push(Math.random()*.25+.05);
+
+    function draw(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
+        if(ft%200===0){faultMode=Math.random()<.3;}
+        angle+=faultMode?.026:.018;
+
+        // Grid
+        ctx.strokeStyle='rgba(6,182,212,0.06)';ctx.lineWidth=1;
+        for(var gx=0;gx<W;gx+=22){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+        for(var gy=0;gy<H;gy+=22){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+        var cx2=W*.32,cy2=H*.5,OR=78,IR=48,BR=10;
+
+        // Outer race gradient
+        ctx.save();
+        var og=ctx.createRadialGradient(cx2,cy2,IR-2,cx2,cy2,OR+4);
+        og.addColorStop(0,'#1a2a3a');og.addColorStop(.4,'#243548');og.addColorStop(.7,'#2d4a65');og.addColorStop(1,'#1a2a3a');
+        ctx.fillStyle=og;ctx.strokeStyle=faultMode?'rgba(239,68,68,.6)':'rgba(6,182,212,.5)';ctx.lineWidth=2;
+        if(faultMode){ctx.shadowColor='#ef4444';ctx.shadowBlur=16;}
+        ctx.beginPath();ctx.arc(cx2,cy2,OR,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;
+        ctx.restore();
+
+        // Race grooves
+        ctx.save();ctx.strokeStyle='rgba(100,116,139,.3)';ctx.lineWidth=1;
+        ctx.beginPath();ctx.arc(cx2,cy2,OR-5,0,Math.PI*2);ctx.stroke();
+        ctx.beginPath();ctx.arc(cx2,cy2,IR+5,0,Math.PI*2);ctx.stroke();ctx.restore();
+
+        // Inner race
+        ctx.save();
+        var ig3=ctx.createRadialGradient(cx2,cy2,0,cx2,cy2,IR);
+        ig3.addColorStop(0,'#050f1a');ig3.addColorStop(.7,'#0f1e2e');ig3.addColorStop(1,'#1a2a3a');
+        ctx.fillStyle=ig3;ctx.strokeStyle='rgba(6,182,212,.4)';ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.arc(cx2,cy2,IR,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.restore();
+
+        // Rolling elements
+        var nB=8,rc=(OR+IR)/2;
+        for(var bi=0;bi<nB;bi++){
+            var ba=angle+bi*(Math.PI*2/nB);
+            var bx=cx2+rc*Math.cos(ba),by2=cy2+rc*Math.sin(ba);
+            var isFault=faultMode&&bi===2;
+            ctx.save();
+            var bg=ctx.createRadialGradient(bx-BR*.3,by2-BR*.3,1,bx,by2,BR);
+            bg.addColorStop(0,isFault?'#fca5a5':'#aed6ea');
+            bg.addColorStop(.5,isFault?'#ef4444':'#4a7a9b');
+            bg.addColorStop(1,isFault?'#7f1d1d':'#1a2a3a');
+            ctx.fillStyle=bg;ctx.strokeStyle=isFault?'#ef4444':'rgba(56,189,248,.5)';ctx.lineWidth=1;
+            if(isFault){ctx.shadowColor='#ef4444';ctx.shadowBlur=14;}
+            ctx.beginPath();ctx.arc(bx,by2,BR,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;
+            ctx.restore();
+        }
+
+        // Shaft
+        ctx.save();
+        var sg2=ctx.createRadialGradient(cx2-5,cy2-5,2,cx2,cy2,18);
+        sg2.addColorStop(0,'#4a7a9b');sg2.addColorStop(.6,'#1a2a3a');sg2.addColorStop(1,'#0f1e2e');
+        ctx.fillStyle=sg2;ctx.strokeStyle='rgba(148,163,184,.5)';ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.arc(cx2,cy2,18,0,Math.PI*2);ctx.fill();ctx.stroke();
+        // Keyway
+        ctx.fillStyle='rgba(100,116,139,.4)';ctx.fillRect(cx2-3,cy2-18,6,-8);ctx.restore();
+
+        // Rotation arrows
+        ctx.save();ctx.strokeStyle='rgba(6,182,212,.4)';ctx.lineWidth=2;
+        ctx.beginPath();ctx.arc(cx2,cy2,OR+12,angle,angle+Math.PI*.45);ctx.stroke();
+        var ax=cx2+(OR+12)*Math.cos(angle+Math.PI*.45);
+        var ay=cy2+(OR+12)*Math.sin(angle+Math.PI*.45);
+        ctx.fillStyle='rgba(6,182,212,.4)';ctx.beginPath();
+        ctx.moveTo(ax,ay);ctx.lineTo(ax+Math.cos(angle+2.2)*7,ay+Math.sin(angle+2.2)*7);
+        ctx.lineTo(ax+Math.cos(angle+.9)*7,ay+Math.sin(angle+.9)*7);ctx.closePath();ctx.fill();
+        ctx.restore();
+
+        // Health arc
+        var hc=faultMode?'#ef4444':'#06b6d4';var hn2=faultMode?.28:.88;
+        ctx.save();ctx.strokeStyle='#1a2a3a';ctx.lineWidth=5;ctx.beginPath();ctx.arc(cx2,cy2,OR+20,0,Math.PI*2);ctx.stroke();
+        ctx.strokeStyle=hc;ctx.shadowColor=hc;ctx.shadowBlur=10;ctx.lineWidth=5;
+        ctx.beginPath();ctx.arc(cx2,cy2,OR+20,-Math.PI/2,-Math.PI/2+hn2*Math.PI*2);ctx.stroke();ctx.shadowBlur=0;ctx.restore();
+        ctx.save();ctx.fillStyle=hc;ctx.font='bold 9px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.shadowColor=hc;ctx.shadowBlur=6;ctx.fillText(Math.round(hn2*100)+'%',cx2,cy2+OR+36);ctx.shadowBlur=0;
+        ctx.fillStyle='#64748b';ctx.font='6px JetBrains Mono,monospace';ctx.fillText('HEALTH',cx2,cy2+OR+48);ctx.restore();
+
+        // ── FFT Spectrum Panel ──
+        var fx=W*.56,fy=10,fw=W*.42,fh=H*.82;
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.55)';ctx.strokeStyle='rgba(6,182,212,.3)';ctx.lineWidth=1;
+        ctx.fillRect(fx,fy,fw,fh);ctx.strokeRect(fx,fy,fw,fh);
+        ctx.fillStyle='#06b6d4';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('FFT SPECTRUM',fx+5,fy+9);ctx.restore();
+
+        // Update FFT data
+        if(ft%7===0){
+            for(var fi=0;fi<fftData.length;fi++){
+                var base=fi<4?.75:fi<9?.4:fi<18?.2:.08;
+                var spike=faultMode&&(fi===3||fi===8||fi===15)?.95:0;
+                fftData[fi]=lerp(fftData[fi],base*(1+Math.random()*.5)+spike,.25);
+            }
+        }
+        var bW2=(fw-10)/fftData.length;
+        for(var fi2=0;fi2<fftData.length;fi2++){
+            var bh=clamp(fftData[fi2],0,1)*(fh*.76);
+            var bx2=fx+5+fi2*bW2;var by3=fy+12+fh*.76-bh;
+            var isFaultFreq=faultMode&&(fi2===3||fi2===8||fi2===15);
+            ctx.save();ctx.fillStyle=isFaultFreq?'#ef4444':'rgba(6,182,212,'+(0.35+fftData[fi2]*.6)+')';
+            if(isFaultFreq){ctx.shadowColor='#ef4444';ctx.shadowBlur=10;}
+            ctx.fillRect(bx2,by3,bW2-.5,bh);ctx.shadowBlur=0;ctx.restore();
+        }
+        // Fault frequency lines
+        if(faultMode){
+            [3,8,15].forEach(function(ffi){
+                var lx=fx+5+ffi*bW2+bW2/2;
+                ctx.save();ctx.strokeStyle='rgba(239,68,68,.5)';ctx.lineWidth=1;ctx.setLineDash([2,3]);
+                ctx.beginPath();ctx.moveTo(lx,fy+12);ctx.lineTo(lx,fy+12+fh*.76);ctx.stroke();ctx.setLineDash([]);ctx.restore();
+            });
+            ctx.fillStyle='rgba(239,68,68,.08)';ctx.fillRect(fx,fy,fw,fh);
+            ctx.fillStyle='#fca5a5';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.fillText('⚠ FAULT FREQS',fx+fw/2,fy+fh*.94);
+        }
+        // Axis
+        ctx.fillStyle='#374151';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('0',fx+5,fy+fh*.9);ctx.fillText('BPFO',fx+fw*.25,fy+fh*.9);
+        ctx.fillText('BPFI',fx+fw*.5,fy+fh*.9);ctx.fillText('BSF',fx+fw*.75,fy+fh*.9);
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   8. AIRFRAME DT  (400 × 220)
+   ═══════════════════════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('airframeCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,crackT=0,crackMax=28,scanY=0;
+    var sensorPulses=[0,0,0,0,0,0];
+
+    function stressAt(x,y){
+        var wR=Math.exp(-Math.pow(x/W-.38,2)*22-Math.pow(y/H-.5,2)*20);
+        var fus=Math.exp(-Math.pow(x/W-.55,2)*12-Math.pow(y/H-.5,2)*8)*.35;
+        var dyn=Math.sin(ft*.018+x*.04)*.1+.1;
+        return clamp(wR+fus+dyn,0,1);
+    }
+    function sCol(s){
+        if(s<.2)return[14,165,233];if(s<.4)return[16,185,129];if(s<.6)return[245,158,11];
+        if(s<.8)return[249,115,22];return[239,68,68];
+    }
+
+    function draw(){
+        ctx.fillStyle='#030d14';ctx.fillRect(0,0,W,H);ft++;
+        crackT+=.4;if(crackT>crackMax)crackT=0;
+        scanY=(scanY+1.8)%H;
+
+        // Scan line
+        var scanG=ctx.createLinearGradient(0,scanY-10,0,scanY+3);
+        scanG.addColorStop(0,'transparent');scanG.addColorStop(1,'rgba(14,165,233,.1)');
+        ctx.fillStyle=scanG;ctx.fillRect(0,scanY-10,W,13);
+
+        // ── Mesh cells ──
+        var gX=14,gY=6,gW=W-28,gH=H*.79,cols=36,rows=16;
+        var cw=gW/cols,rh=gH/rows;
+        for(var r=0;r<rows;r++){
+            for(var c=0;c<cols;c++){
+                var x=gX+c*cw,y=gY+r*rh,cx3=x+cw/2,cy3=y+rh/2;
+                // Wing mask
+                var frac=r/rows,cfrac=c/cols;
+                var inWing=(frac>.22&&frac<.78&&cfrac>.06&&cfrac<.94)||(frac>.3&&frac<.7&&cfrac>.01&&cfrac<.99);
+                var inFus=(frac>.25&&frac<.75&&cfrac>.32&&cfrac<.72);
+                if(!inWing&&!inFus)continue;
+                var s=stressAt(cx3,cy3);var rgb=sCol(s);
+                ctx.fillStyle='rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+(0.12+s*.28)+')';
+                ctx.strokeStyle='rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+(0.18+s*.35)+')';
+                ctx.lineWidth=.4;ctx.fillRect(x,y,cw,rh);ctx.strokeRect(x,y,cw,rh);
+            }
+        }
+
+        // ── Wing outline ──
+        ctx.save();ctx.strokeStyle='rgba(14,165,233,.65)';ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.moveTo(gX,gY+rows*.25*rh);ctx.lineTo(gX+cols*.06*cw,gY+rows*.22*rh);
+        ctx.lineTo(gX+cols*.94*cw,gY+rows*.22*rh);ctx.lineTo(gX+gW,gY+rows*.25*rh);
+        ctx.lineTo(gX+gW,gY+rows*.75*rh);ctx.lineTo(gX+cols*.94*cw,gY+rows*.78*rh);
+        ctx.lineTo(gX+cols*.06*cw,gY+rows*.78*rh);ctx.lineTo(gX,gY+rows*.75*rh);
+        ctx.closePath();ctx.stroke();ctx.restore();
+
+        // Fuselage ellipse
+        ctx.save();ctx.strokeStyle='rgba(14,165,233,.55)';ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.ellipse(gX+cols*.52*cw,gY+rows*.5*rh,cols*.18*cw,rows*.28*rh,0,0,Math.PI*2);
+        ctx.stroke();ctx.restore();
+
+        // ── Crack propagation at wing root ──
+        var crackX=gX+cols*.38*cw,crackY=gY+rows*.42*rh;
+        if(crackT>0){
+            ctx.save();ctx.strokeStyle='#ef4444';ctx.lineWidth=1.8;ctx.shadowColor='#ef4444';ctx.shadowBlur=10;
+            ctx.beginPath();ctx.moveTo(crackX,crackY);
+            var cx4=crackX,cy4=crackY;
+            for(var cs=0;cs<crackT&&cs<crackMax;cs++){
+                cx4+=(0.6+Math.sin(cs*.8)*.3);cy4+=(Math.sin(cs*.4+1.5)*.8);
+                ctx.lineTo(cx4,cy4);
+            }
+            ctx.stroke();ctx.shadowBlur=0;
+            // Alert ring
+            ctx.strokeStyle='rgba(239,68,68,.3)';ctx.lineWidth=1;
+            var pct=crackT/crackMax;ctx.beginPath();ctx.arc(crackX+crackT*.3,crackY,10+pct*8,0,Math.PI*2);ctx.stroke();
+            ctx.restore();
+        }
+
+        // ── SHM Sensors ──
+        var sensors=[[.35,.45],[.55,.46],[.46,.36],[.45,.56],[.66,.48],[.28,.48]];
+        sensors.forEach(function(s2,i){
+            var sx=s2[0]*W,sy=s2[1]*H;
+            if(ft%30===i*5)sensorPulses[i]=1;
+            if(sensorPulses[i]>0)sensorPulses[i]-=.025;
+            var p=sensorPulses[i];
+            // Lamb wave rings
+            if(p>.02){
+                for(var ri2=1;ri2<=4;ri2++){
+                    ctx.save();ctx.strokeStyle='rgba(6,182,212,'+(p*(5-ri2)*.1)+')';ctx.lineWidth=1;
+                    ctx.beginPath();ctx.arc(sx,sy,ri2*14*p,0,Math.PI*2);ctx.stroke();ctx.restore();
+                }
+            }
+            // Node
+            ctx.save();ctx.fillStyle='#020c14';ctx.strokeStyle=p>.3?'#06b6d4':'rgba(6,182,212,.5)';
+            ctx.lineWidth=p>.3?2:1;if(p>.3){ctx.shadowColor='#06b6d4';ctx.shadowBlur=10;}
+            ctx.beginPath();ctx.arc(sx,sy,5,0,Math.PI*2);ctx.fill();ctx.stroke();
+            ctx.fillStyle='#06b6d4';ctx.beginPath();ctx.arc(sx,sy,2,0,Math.PI*2);ctx.fill();
+            ctx.shadowBlur=0;ctx.restore();
+        });
+
+        // ── Stress legend ──
+        var lx=gX,ly=H*.84;
+        ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='left';
+        var sNames=['LOW','MOD','MED','HIGH','CRIT'];
+        var sCols=['#0ea5e9','#10b981','#f59e0b','#f97316','#ef4444'];
+        sCols.forEach(function(c,i){
+            ctx.fillStyle=c;ctx.fillRect(lx+i*44,ly,10,6);
+            ctx.fillStyle='#64748b';ctx.fillText(sNames[i],lx+i*44+13,ly+7);
+        });
+        ctx.fillStyle='#94a3b8';ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('SHM · LAMB-WAVE NETWORK · ANSYS FEM · EASA AMC 25.571',W/2,ly+20);
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   9. ONTOLOGY GRAPH  (400 × 220)
+   ═══════════════════════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('ontologyCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,activeEdge=-1,edgeTimer=0;
+
+    var cx5=W*.5,cy5=H*.46;
+    var nodes=[
+        {label:'ATA 32',sub:'LANDING GEAR',r:24,col:'#8b5cf6',orb:null},
+        {label:'Task Card',sub:'32-10-01',r:14,col:'#0ea5e9',orb:{a:0,   ar:.22,d:90}},
+        {label:'ATA 74',sub:'IGNITION',r:14,col:'#f97316',orb:{a:1.05,ar:.2, d:80}},
+        {label:'MEL ITEM',sub:'32-31',r:14,col:'#f59e0b',orb:{a:2.1, ar:.21,d:88}},
+        {label:'AD 2024',sub:'MANDATORY',r:14,col:'#ef4444',orb:{a:3.14,ar:.22,d:92}},
+        {label:'IPC PARTS',sub:'ATA iSpec',r:13,col:'#10b981',orb:{a:4.2, ar:.2, d:84}},
+        {label:'SPARQL',sub:'QUERY',r:11,col:'#06b6d4',orb:{a:5.2, ar:.19,d:76}},
+        {label:'LLM NL',sub:'INTERFACE',r:11,col:'#ec4899',orb:{a:.52, ar:.23,d:96}}
+    ];
+    var edges=[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[1,3],[2,4],[5,1],[6,7]];
+    var pktT=edges.map(function(){return Math.random();});
+    var pktD=edges.map(function(){return 1;});
+
+    var QUERIES=['SELECT ?fault WHERE {?comp ata:32 ?fault}','INFER deferred_items AFFECTING dispatch TODAY','MATCH task FROM MEL WHERE compliant=TRUE','EXPLAIN maintenance_window FOR LG-SEAL-032'];
+    var qIdx=0,qTxt='',qCur=0;
+
+    function draw(){
+        ctx.fillStyle='#050814';ctx.fillRect(0,0,W,H);ft++;
+        // Grid
+        ctx.strokeStyle='rgba(139,92,246,0.07)';ctx.lineWidth=1;
+        for(var gx=0;gx<W;gx+=22){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+        for(var gy=0;gy<H;gy+=22){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+        // Orbit nodes
+        nodes.forEach(function(n,i){
+            if(!n.orb){n.nx=cx5;n.ny=cy5;}
+            else{n.orb.a+=.005*(1+(i*.03));n.nx=cx5+n.orb.d*Math.cos(n.orb.a);n.ny=cy5+n.orb.d*Math.sin(n.orb.a)*(n.orb.ar/.22);}
+        });
+
+        // Edge timer
+        edgeTimer--;if(edgeTimer<=0){activeEdge=Math.floor(Math.random()*edges.length);edgeTimer=60;}
+
+        // Edges
+        edges.forEach(function(e,ei){
+            var na=nodes[e[0]],nb=nodes[e[1]];
+            var isAct=ei===activeEdge;
+            ctx.save();ctx.strokeStyle=isAct?'rgba(139,92,246,.7)':'rgba(139,92,246,.18)';
+            ctx.lineWidth=isAct?1.8:1;if(isAct){ctx.shadowColor='#8b5cf6';ctx.shadowBlur=6;}
+            ctx.beginPath();ctx.moveTo(na.nx,na.ny);ctx.lineTo(nb.nx,nb.ny);ctx.stroke();ctx.shadowBlur=0;
+            // Packet
+            pktT[ei]+=pktD[ei]*.012;if(pktT[ei]>1||pktT[ei]<0)pktD[ei]*=-1;
+            var px=lerp(na.nx,nb.nx,pktT[ei]),py=lerp(na.ny,nb.ny,pktT[ei]);
+            ctx.fillStyle=isAct?'#a78bfa':'rgba(139,92,246,.6)';ctx.shadowColor='#8b5cf6';ctx.shadowBlur=isAct?8:3;
+            ctx.beginPath();ctx.arc(px,py,isAct?3.5:2,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.restore();
+        });
+
+        // Nodes
+        nodes.forEach(function(n,i){
+            var isAct=edges[activeEdge]&&(edges[activeEdge][0]===i||edges[activeEdge][1]===i);
+            var pulse3=Math.sin(ft*.07+i)*.5+.5;
+            // Glow
+            if(isAct||i===0){
+                var g2=ctx.createRadialGradient(n.nx,n.ny,0,n.nx,n.ny,n.r*2.5);
+                g2.addColorStop(0,n.col+(i===0?'55':'33'));g2.addColorStop(1,'transparent');
+                ctx.fillStyle=g2;ctx.beginPath();ctx.arc(n.nx,n.ny,n.r*2.5,0,Math.PI*2);ctx.fill();
+            }
+            // Body
+            ctx.save();ctx.fillStyle='#0a0f1e';ctx.strokeStyle=n.col+(isAct?'ff':'99');
+            ctx.lineWidth=isAct?2:1.5;if(isAct||i===0){ctx.shadowColor=n.col;ctx.shadowBlur=12+pulse3*6;}
+            ctx.beginPath();ctx.arc(n.nx,n.ny,n.r,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;
+            ctx.fillStyle=n.col;ctx.font='bold '+(i===0?7:6)+'px JetBrains Mono,monospace';ctx.textAlign='center';
+            ctx.fillText(n.label,n.nx,n.ny+(i===0?-2:0));
+            ctx.fillStyle='#64748b';ctx.font=(i===0?5:5)+'px JetBrains Mono,monospace';
+            ctx.fillText(n.sub,n.nx,n.ny+(i===0?8:9));ctx.restore();
+        });
+
+        // Query bar
+        if(ft%3===0&&qCur<QUERIES[qIdx].length)qTxt=QUERIES[qIdx].slice(0,qCur++);
+        if(qCur>=QUERIES[qIdx].length+18){qIdx=(qIdx+1)%QUERIES.length;qTxt='';qCur=0;}
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.5)';ctx.strokeStyle='rgba(139,92,246,.35)';ctx.lineWidth=1;
+        ctx.fillRect(6,H*.88,W-12,H*.1);ctx.strokeRect(6,H*.88,W-12,H*.1);
+        ctx.fillStyle='#a78bfa';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('▶  '+qTxt+(ft%10<5?'▌':''),10,H*.88+H*.07);ctx.restore();
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   10. TELEMETRY STACK — FLOATING ICONS  (400 × 220)
+   ═══════════════════════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('stackCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0;
+
+    var TOOLS=[
+        {n:'FlightGear',s:'SIM',col:'#0ea5e9',ox:.08,oy:.18,icon:'✈'},
+        {n:'MATLAB',s:'ODE',col:'#f97316',ox:.27,oy:.14,icon:'∫'},
+        {n:'Python',s:'CORE',col:'#f59e0b',ox:.5,oy:.12,icon:'⬡'},
+        {n:'PyTorch',s:'AI',col:'#ef4444',ox:.72,oy:.16,icon:'🔥'},
+        {n:'Telegraf',s:'AGENT',col:'#06b6d4',ox:.08,oy:.52,icon:'⚡'},
+        {n:'InfluxDB',s:'TSDB',col:'#10b981',ox:.28,oy:.55,icon:'📈'},
+        {n:'PostgreSQL',s:'WHOUSE',col:'#3b82f6',ox:.52,oy:.52,icon:'🐘'},
+        {n:'Grafana',s:'DASH',col:'#f97316',ox:.74,oy:.54,icon:'📊'},
+        {n:'FastAPI',s:'REST',col:'#10b981',ox:.15,oy:.82,icon:'⚡'},
+        {n:'Ollama 3.2',s:'LLM',col:'#8b5cf6',ox:.46,oy:.84,icon:'🤖'},
+        {n:'MLflow',s:'VERSN',col:'#06b6d4',ox:.72,oy:.82,icon:'🔬'},
+        {n:'Hyperledger',s:'CHAIN',col:'#a78bfa',ox:.90,oy:.38,icon:'⛓'}
+    ];
+    TOOLS.forEach(function(t){t.x=t.ox;t.y=t.oy;});
+
+    var CONNS=[[0,4],[4,5],[5,6],[6,7],[0,2],[2,3],[3,9],[5,8],[8,9],[9,10],[1,2],[1,5],[11,5],[7,10],[2,9],[0,1]];
+    var pkts=CONNS.map(function(c){return{ci:c,t:Math.random(),spd:.007+Math.random()*.007};});
+
+    function draw(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
+
+        // Subtle dot grid
+        ctx.fillStyle='rgba(14,165,233,0.06)';
+        for(var gx=0;gx<W;gx+=28){for(var gy=0;gy<H;gy+=28){ctx.beginPath();ctx.arc(gx,gy,1,0,Math.PI*2);ctx.fill();}}
+
+        // Animated tool positions
+        TOOLS.forEach(function(t,i){
+            t.x=t.ox+Math.sin(ft*.009+i*.72)*.025;
+            t.y=t.oy+Math.cos(ft*.011+i*.95)*.025;
+        });
+
+        // Connections
+        CONNS.forEach(function(c,ci){
+            var ta=TOOLS[c[0]],tb=TOOLS[c[1]];
+            var ax=ta.x*W,ay=ta.y*H,bx=tb.x*W,by=tb.y*H;
+            // Beam
+            var beamG=ctx.createLinearGradient(ax,ay,bx,by);
+            beamG.addColorStop(0,ta.col+'25');beamG.addColorStop(.5,ta.col+'40');beamG.addColorStop(1,tb.col+'25');
+            ctx.strokeStyle=beamG;ctx.lineWidth=1;
+            ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(bx,by);ctx.stroke();
+        });
+
+        // Data packets
+        pkts.forEach(function(p){
+            p.t+=p.spd;if(p.t>1)p.t=0;
+            var ta=TOOLS[p.ci[0]],tb=TOOLS[p.ci[1]];
+            var px=lerp(ta.x*W,tb.x*W,p.t),py=lerp(ta.y*H,tb.y*H,p.t);
+            var pc=ta.col;
+            ctx.save();ctx.fillStyle=pc;ctx.shadowColor=pc;ctx.shadowBlur=8;
+            ctx.beginPath();ctx.arc(px,py,2.8,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.restore();
+        });
+
+        // Tool icons
+        TOOLS.forEach(function(t,i){
+            var nx=t.x*W,ny=t.y*H;
+            var pulse4=Math.sin(ft*.07+i)*.5+.5;
+            var cw=46,ch=38;
+            // Glow
+            ctx.save();var glow=ctx.createRadialGradient(nx,ny,2,nx,ny,30);
+            glow.addColorStop(0,t.col+(Math.floor(40+pulse4*50).toString(16).padStart(2,'0')));
+            glow.addColorStop(1,'transparent');ctx.fillStyle=glow;ctx.beginPath();ctx.arc(nx,ny,30,0,Math.PI*2);ctx.fill();
+            // Card body
+            ctx.fillStyle='#0a1625';ctx.strokeStyle=t.col+'bb';
+            ctx.lineWidth=1.5;ctx.shadowColor=t.col;ctx.shadowBlur=6+pulse4*8;
+            ctx.fillRect(nx-cw/2,ny-ch/2,cw,ch);ctx.strokeRect(nx-cw/2,ny-ch/2,cw,ch);
+            ctx.shadowBlur=0;
+            // Icon
+            ctx.font='13px serif';ctx.textAlign='center';ctx.fillText(t.icon,nx,ny-2);
+            // Label
+            ctx.fillStyle=t.col;ctx.font='bold 6px JetBrains Mono,monospace';ctx.fillText(t.n.slice(0,9),nx,ny+9);
+            ctx.fillStyle='#475569';ctx.font='5px JetBrains Mono,monospace';ctx.fillText(t.s,nx,ny+17);
+            ctx.restore();
+        });
+
+        // Title bar
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.45)';ctx.strokeStyle='rgba(14,165,233,.25)';ctx.lineWidth=1;
+        ctx.fillRect(4,H*.91,W-8,H*.08);ctx.strokeRect(4,H*.91,W-8,H*.08);
+        ctx.fillStyle='#38bdf8';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('12 TOOLS · SINGLE i7-12700H WORKSTATION · NO CLOUD REQUIRED',W/2,H*.97);ctx.restore();
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   COUNTER ANIMATION
    ═══════════════════════════════════════════════════════════ */
 function animateCounter(el,target){
     var inc=target/125,cur=0;
@@ -1230,6 +1978,13 @@ var obs=new IntersectionObserver(function(entries){
     });
 },{threshold:.4});
 document.querySelectorAll('.flagship-card').forEach(function(c){obs.observe(c);});
+
+/* ═══════════════════════════════════════════════════════════
+   MISC UI
+   ═══════════════════════════════════════════════════════════ */
+function launchMonitor(){alert('🚀 Digital Twin Monitor\nComing soon — interactive telemetry dashboard in development.');}
+function launchCalculator(){var f=prompt('Enter flight hours:','1000');if(f){var iv=Math.ceil(f/100)*50;alert('📊 MRO Interval\nA-Check: '+iv+'h\nC-Check: '+(iv*4)+'h\nLanding Gear: '+(iv*2)+'h');}}
+function launchAnalytics(){alert('📈 Safety Analytics Dashboard\nIn development!');}
 </script>
 </body>
 </html>
