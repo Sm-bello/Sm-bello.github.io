@@ -1,757 +1,647 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Mohammed Bello Sani | Aerospace Engineering Undergraduate</title>
-    <meta name="description" content="Profile of Mohammed Bello Sani, Aerospace Engineering student at AFIT. Specializing in Digital Twin architecture, Telemetry, and Aviation Safety.">
+    <title>About | Mohammed Bello Sani</title>
+    <meta name="description" content="Mohammed Bello Sani — Aerospace Engineer, Digital Twin Researcher, Founder of Penelope Inc. Building the future of aviation AI from Nigeria.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{
-            --bg:#f8fafc;--dark:#0f172a;--mid:#1e293b;--light:#64748b;
-            --blue:#0ea5e9;--orange:#f97316;--green:#10b981;--purple:#8b5cf6;
-            --border:#e2e8f0;--mono:'JetBrains Mono',monospace;
-        }
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.6;overflow-x:hidden}
-        #particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none}
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* ── NAV ── */
-        nav{position:fixed;top:0;width:100%;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:rgba(248,250,252,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:all .3s}
-        nav.scrolled{padding:.7rem 2rem;box-shadow:0 4px 20px rgba(0,0,0,.1)}
-        .logo{font-size:1.1rem;font-weight:800;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;transition:transform .3s}
-        .logo:hover{transform:translateX(5px)}
-        .logo i{color:var(--blue);animation:planeFly 3s ease-in-out infinite}
-        @keyframes planeFly{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-5deg)}}
-        .nav-links{display:flex;gap:2rem;list-style:none}
-        .nav-links a{text-decoration:none;color:var(--light);font-weight:600;font-size:.9rem;text-transform:uppercase;letter-spacing:1px;transition:all .3s;position:relative}
-        .nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--blue);transition:width .3s}
-        .nav-links a:hover::after{width:100%}.nav-links a:hover{color:var(--blue)}
-        .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px}
-        .menu-toggle span{width:25px;height:3px;background:var(--dark);border-radius:2px;transition:all .3s}
+        :root {
+            --bg:       #f8fafc;
+            --dark:     #0f172a;
+            --mid:      #1e293b;
+            --text:     #0f172a;
+            --muted:    #64748b;
+            --light:    #e2e8f0;
+            --blue:     #0ea5e9;
+            --orange:   #f97316;
+            --green:    #10b981;
+            --purple:   #8b5cf6;
+            --gold:     #f59e0b;
+            --mono:     'JetBrains Mono', monospace;
+            --sans:     'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ── NAV (same as rest of site) ── */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(248,250,252,.96);
+            backdrop-filter: blur(10px); border-bottom: 1px solid var(--light);
+            transition: all .3s;
+        }
+        nav.scrolled { padding: .7rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+        .logo {
+            font-size: 1.05rem; font-weight: 800; color: var(--text);
+            text-decoration: none; display: flex; align-items: center; gap: .5rem;
+            text-transform: uppercase; letter-spacing: .5px;
+        }
+        .logo i { color: var(--blue); animation: planeFly 3s ease-in-out infinite; }
+        @keyframes planeFly { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px) rotate(-5deg)} }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none; color: var(--muted); font-weight: 600;
+            font-size: .88rem; text-transform: uppercase; letter-spacing: 1px;
+            transition: color .3s; position: relative;
+        }
+        .nav-links a::after {
+            content:''; position:absolute; bottom:-4px; left:0; width:0;
+            height:2px; background:var(--blue); transition:width .3s;
+        }
+        .nav-links a:hover { color: var(--blue); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { color: var(--blue); }
+        .menu-toggle { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+        .menu-toggle span { width:24px; height:2.5px; background:var(--text); border-radius:2px; transition:.3s; }
 
         /* ── HERO ── */
-        .page-hero{padding:9rem 2rem 6rem;background:linear-gradient(135deg,#050e1a 0%,#0f172a 50%,#1a0d30 100%);color:white;text-align:center;clip-path:polygon(0 0,100% 0,100% 90%,0 100%);-webkit-clip-path:polygon(0 0,100% 0,100% 90%,0 100%);position:relative;overflow:hidden}
-        #heroCanvas{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.6}
-        .hero-content{position:relative;z-index:2}
-        .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(14,165,233,.15);color:#38bdf8;padding:6px 16px;border-radius:50px;font-size:.75rem;font-weight:700;font-family:var(--mono);letter-spacing:1px;border:1px solid rgba(14,165,233,.3);margin-bottom:1.5rem}
-        .hero-tag span{width:8px;height:8px;background:#10b981;border-radius:50%;animation:blink 1.4s infinite}
-        @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-        .page-hero h1{font-size:3.2rem;margin-bottom:1rem;font-weight:800;letter-spacing:-1.5px;animation:fadeUp .8s ease-out both}
-        .page-hero h1 span{color:#38bdf8;text-shadow:0 0 30px rgba(14,165,233,.5)}
-        .hero-sub{font-size:1.1rem;color:#94a3b8;font-family:var(--mono);animation:fadeUp .8s .2s ease-out both}
-        @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f2240 100%);
+            display: flex; align-items: center;
+            padding: 7rem 2rem 4rem;
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content:''; position:absolute; inset:0;
+            background: radial-gradient(ellipse 60% 60% at 70% 40%, rgba(14,165,233,.12) 0%, transparent 70%);
+        }
+        .hero-inner {
+            max-width: 900px; margin: 0 auto; position: relative; z-index: 2;
+        }
+        .hero-eyebrow {
+            font-family: var(--mono); font-size: .78rem; color: var(--blue);
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: .75rem;
+        }
+        .hero-eyebrow::before {
+            content:''; display:inline-block; width:28px; height:1.5px; background:var(--blue);
+        }
+        .hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 900; color: #fff; line-height: 1.08;
+            letter-spacing: -1.5px; margin-bottom: 1.5rem;
+        }
+        .hero h1 em {
+            font-style: normal; color: var(--blue);
+            text-shadow: 0 0 40px rgba(14,165,233,.4);
+        }
+        .hero-sub {
+            font-size: 1.15rem; color: #94a3b8; max-width: 620px;
+            line-height: 1.8; margin-bottom: 2.5rem; font-weight: 400;
+        }
+        .hero-sub strong { color: #cbd5e1; }
+        .hero-tags {
+            display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.5rem;
+        }
+        .hero-tag {
+            font-family: var(--mono); font-size: .72rem; font-weight: 700;
+            padding: 5px 14px; border-radius: 4px; border: 1px solid;
+            text-transform: uppercase; letter-spacing: .5px;
+        }
+        .tag-blue  { color:var(--blue);   border-color:rgba(14,165,233,.5);  background:rgba(14,165,233,.08); }
+        .tag-orange{ color:var(--orange); border-color:rgba(249,115,22,.5); background:rgba(249,115,22,.08); }
+        .tag-green { color:var(--green);  border-color:rgba(16,185,129,.5);  background:rgba(16,185,129,.08); }
+        .tag-purple{ color:var(--purple); border-color:rgba(139,92,246,.5); background:rgba(139,92,246,.08); }
+        .tag-gold  { color:var(--gold);   border-color:rgba(245,158,11,.5);  background:rgba(245,158,11,.08); }
+        .hero-cta {
+            display: flex; gap: 1rem; flex-wrap: wrap;
+        }
+        .btn-primary {
+            display:inline-flex; align-items:center; gap:.6rem;
+            padding:12px 24px; border-radius:8px; font-weight:700;
+            font-size:.9rem; text-decoration:none; transition:.3s;
+            background:var(--blue); color:#fff; border:none;
+        }
+        .btn-primary:hover { background:#0284c7; transform:translateY(-2px); box-shadow:0 8px 24px rgba(14,165,233,.35); }
+        .btn-ghost {
+            display:inline-flex; align-items:center; gap:.6rem;
+            padding:12px 24px; border-radius:8px; font-weight:700;
+            font-size:.9rem; text-decoration:none; transition:.3s;
+            background:transparent; color:#94a3b8; border:1px solid rgba(148,163,184,.3);
+        }
+        .btn-ghost:hover { border-color:var(--blue); color:var(--blue); transform:translateY(-2px); }
 
-        /* ── STATS BAR ── */
-        .stats-bar{background:linear-gradient(135deg,#0f172a,#1e293b);padding:2.5rem 2rem;position:relative;z-index:3;margin-top:-1px}
-        .stats-bar-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-        .stat-block{text-align:center;padding:1.5rem;border:1px solid rgba(14,165,233,.15);border-radius:12px;background:rgba(14,165,233,.05);transition:all .3s}
-        .stat-block:hover{border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);transform:translateY(-4px)}
-        .stat-num{font-size:2.5rem;font-weight:800;font-family:var(--mono);color:#38bdf8;text-shadow:0 0 20px rgba(14,165,233,.4);line-height:1}
-        .stat-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:#64748b;margin-top:.5rem;font-family:var(--mono)}
-        .stat-icon{font-size:1.4rem;margin-bottom:.5rem;display:block}
+        /* ── STATS BAND ── */
+        .stats-band {
+            background: var(--dark); border-top: 1px solid rgba(14,165,233,.15);
+            border-bottom: 1px solid rgba(14,165,233,.15); padding: 3rem 2rem;
+        }
+        .stats-inner {
+            max-width: 1000px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+            gap: 2.5rem; text-align: center;
+        }
+        .stat-item {}
+        .stat-num {
+            font-family: var(--mono); font-size: 2.4rem; font-weight: 700;
+            color: var(--blue); line-height: 1; margin-bottom: .3rem;
+            text-shadow: 0 0 20px rgba(14,165,233,.4);
+        }
+        .stat-num.orange { color:var(--orange); text-shadow:0 0 20px rgba(249,115,22,.3); }
+        .stat-num.green  { color:var(--green);  text-shadow:0 0 20px rgba(16,185,129,.3); }
+        .stat-num.gold   { color:var(--gold);   text-shadow:0 0 20px rgba(245,158,11,.3); }
+        .stat-label {
+            font-size:.78rem; color:#64748b; text-transform:uppercase;
+            letter-spacing:1.5px; font-weight:600;
+        }
 
-        /* ── ABOUT GRID ── */
-        .about-content{max-width:1200px;margin:0 auto;padding:4rem 2rem;position:relative;z-index:2}
-        .about-grid{display:grid;grid-template-columns:300px 1fr;gap:3rem}
+        /* ── MAIN CONTENT ── */
+        .content { max-width: 820px; margin: 0 auto; padding: 5rem 2rem 6rem; }
 
-        /* ── SIDEBAR ── */
-        .profile-sidebar{display:flex;flex-direction:column;gap:0}
-        .profile-card{background:#0f172a;border-radius:16px;padding:2.5rem 2rem;text-align:center;border:1px solid rgba(14,165,233,.2);position:relative;overflow:hidden}
-        .profile-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--orange),var(--purple))}
-        .profile-image{width:160px;height:160px;border-radius:50%;margin:0 auto 1.5rem;position:relative;overflow:hidden;border:3px solid rgba(14,165,233,.4);box-shadow:0 0 0 6px rgba(14,165,233,.1),0 0 40px rgba(14,165,233,.2)}
-        .profile-image img{width:100%;height:100%;object-fit:cover;position:relative;z-index:2}
-        .profile-image .fallback-icon{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:4rem;color:#38bdf8;background:linear-gradient(135deg,#0f172a,#1e293b)}
-        .orbit-ring{position:absolute;top:50%;left:50%;width:180px;height:180px;margin:-90px 0 0 -90px;border:1px dashed rgba(14,165,233,.3);border-radius:50%;animation:spin 8s linear infinite}
-        .orbit-dot{position:absolute;top:-4px;left:50%;width:8px;height:8px;background:#0ea5e9;border-radius:50%;margin-left:-4px;box-shadow:0 0 8px var(--blue)}
-        @keyframes spin{to{transform:rotate(360deg)}}
-        .profile-name{color:white;font-size:1.3rem;font-weight:700;margin-bottom:.3rem}
-        .profile-role{color:#38bdf8;font-size:.8rem;font-family:var(--mono);margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.5px}
-        .profile-meta{color:#64748b;font-size:.82rem;margin:.25rem 0}
-        .profile-meta i{color:var(--orange);margin-right:.4rem}
-        .profile-links{display:flex;justify-content:center;gap:.8rem;margin-top:1.5rem}
-        .profile-links a{width:42px;height:42px;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#94a3b8;text-decoration:none;transition:all .3s;border:1px solid rgba(255,255,255,.1)}
-        .profile-links a:hover{background:var(--blue);color:white;border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 20px rgba(14,165,233,.3)}
+        /* Section eyebrow label */
+        .section-label {
+            font-family: var(--mono); font-size: .72rem; font-weight: 700;
+            color: var(--blue); letter-spacing: 2px; text-transform: uppercase;
+            margin-bottom: .75rem; display: flex; align-items: center; gap: .6rem;
+        }
+        .section-label::before { content:''; display:inline-block; width:20px; height:1.5px; background:var(--blue); }
 
-        /* System status panel */
-        .sys-panel{background:#0f172a;border:1px solid rgba(14,165,233,.2);border-radius:12px;padding:1.2rem;margin-top:1rem;font-family:var(--mono)}
-        .sys-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.68rem}
-        .sys-row:last-child{border-bottom:none}
-        .sys-key{color:#475569}
-        .sys-val{color:#10b981;font-weight:700}
-        .sys-val.orange{color:var(--orange)}.sys-val.blue{color:#38bdf8}.sys-val.purple{color:#a78bfa}
-        .sys-header{color:#38bdf8;font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
-        .sys-dot{width:6px;height:6px;background:#10b981;border-radius:50%;animation:blink 1.4s infinite;box-shadow:0 0 6px #10b981}
+        .story-block { margin-bottom: 4.5rem; }
+        .story-block h2 {
+            font-size: 1.85rem; font-weight: 800; color: var(--text);
+            letter-spacing: -0.5px; margin-bottom: 1.2rem; line-height: 1.2;
+        }
+        .story-block p {
+            font-size: 1.05rem; color: #334155; line-height: 1.85;
+            margin-bottom: 1rem;
+        }
+        .story-block p:last-child { margin-bottom: 0; }
+        .story-block strong { color: var(--text); font-weight: 700; }
+        .story-block a { color: var(--blue); text-decoration: none; font-weight:600; }
+        .story-block a:hover { text-decoration: underline; }
 
-        /* ── BIO CONTENT ── */
-        .bio-content{}
-        .bio-content h3{font-size:1.5rem;margin-bottom:1rem;color:var(--dark);display:flex;align-items:center;gap:10px;font-weight:700}
-        .bio-content h3::before{content:'';display:block;width:4px;height:22px;background:linear-gradient(var(--blue),var(--orange));border-radius:2px;flex-shrink:0}
-        .bio-content p{color:var(--light);margin-bottom:1.4rem;line-height:1.8}
+        /* Pull quote */
+        .pull-quote {
+            border-left: 3px solid var(--blue);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: rgba(14,165,233,.04);
+            border-radius: 0 8px 8px 0;
+        }
+        .pull-quote p {
+            font-size: 1.1rem !important;
+            color: #1e3a5f !important;
+            font-style: italic;
+            margin: 0 !important;
+        }
 
-        .terminal-box{background:#0f172a;border-radius:12px;padding:1.5rem;margin:2rem 0;border:1px solid rgba(14,165,233,.3);position:relative;overflow:hidden}
-        .terminal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--orange))}
-        .term-bar{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;padding-bottom:.8rem;border-bottom:1px solid rgba(255,255,255,.08)}
-        .term-dot{width:12px;height:12px;border-radius:50%}
-        .term-title{color:#475569;font-size:.72rem;font-family:var(--mono);margin-left:.5rem;text-transform:uppercase;letter-spacing:1px}
-        .term-body{font-family:var(--mono);font-size:.82rem;color:#94a3b8;line-height:2}
-        .term-body .t-prompt{color:#38bdf8}.term-body .t-ok{color:#10b981}.term-body .t-orange{color:var(--orange)}.term-body .t-purple{color:#a78bfa}
-
-        .mission-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);padding:6px 14px;border-radius:6px;font-size:.75rem;font-family:var(--mono);color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem}
-
-        /* ── SKILLS SECTION ── */
-        .skills-section{background:linear-gradient(180deg,#f8fafc 0%,#f1f5f9 100%);padding:5rem 2rem;position:relative;z-index:2}
-        .skills-inner{max-width:1200px;margin:0 auto}
-        .section-title{font-size:1.8rem;text-align:center;margin-bottom:3.5rem;color:var(--dark);font-weight:800;text-transform:uppercase;letter-spacing:1px;position:relative}
-        .section-title::after{content:'';position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);width:80px;height:3px;background:linear-gradient(90deg,var(--blue),var(--orange));border-radius:2px}
-
-        .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem}
-        .skill-card{background:#0f172a;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.06);transition:all .4s}
-        .skill-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.3)}
-        .skill-canvas-wrap{height:160px;position:relative;overflow:hidden;background:#000}
-        .skill-card-body{padding:1.5rem}
-        .skill-card-title{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem;font-family:var(--mono);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
-        .skill-card-title i{font-size:.9rem}
-        .skill-items{display:flex;flex-direction:column;gap:.5rem}
-        .sk-row{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
-        .sk-row:last-child{border-bottom:none}
-        .sk-name{color:#94a3b8;font-size:.82rem}
-        .sk-badge{font-family:var(--mono);font-size:.6rem;padding:3px 8px;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-        .badge-deployed{background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.3)}
-        .badge-advanced{background:rgba(14,165,233,.15);color:#38bdf8;border:1px solid rgba(14,165,233,.3)}
-        .badge-core{background:rgba(249,115,22,.15);color:var(--orange);border:1px solid rgba(249,115,22,.3)}
-        .badge-research{background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.3)}
-        .badge-field{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3)}
+        /* ── WHAT I BUILD CARDS ── */
+        .build-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1.25rem; margin: 1.5rem 0 0;
+        }
+        .build-card {
+            background: var(--dark); border-radius: 12px; padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,.06); transition: transform .3s, box-shadow .3s;
+        }
+        .build-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.25); }
+        .build-card-icon {
+            font-size: 1.4rem; margin-bottom: .8rem;
+        }
+        .build-card h3 {
+            font-size: 1rem; font-weight: 700; color: #f1f5f9; margin-bottom: .4rem;
+        }
+        .build-card p {
+            font-size: .85rem; color: #64748b; line-height: 1.6; margin: 0;
+        }
+        .build-card .card-tag {
+            font-family: var(--mono); font-size: .65rem; font-weight: 700;
+            padding: 3px 8px; border-radius: 3px; border: 1px solid;
+            text-transform: uppercase; display: inline-block; margin-bottom: .75rem;
+        }
 
         /* ── TIMELINE ── */
-        .timeline-section{max-width:1100px;margin:0 auto;padding:5rem 2rem;position:relative;z-index:2}
-        .timeline{position:relative;padding:1rem 0}
-        .timeline::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--blue),var(--orange),var(--purple))}
-        .tl-item{position:relative;padding-left:76px;margin-bottom:2.5rem}
-        .tl-icon{position:absolute;left:12px;width:34px;height:34px;background:linear-gradient(135deg,var(--blue),var(--orange));border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:.85rem;box-shadow:0 0 0 5px var(--bg),0 0 20px rgba(14,165,233,.4);z-index:2;transition:all .4s}
-        .tl-item:hover .tl-icon{transform:scale(1.2);box-shadow:0 0 0 5px var(--bg),0 0 30px rgba(14,165,233,.6)}
-        .tl-card{background:white;border-radius:12px;padding:1.8rem;border:1px solid var(--border);border-left:3px solid var(--blue);box-shadow:0 4px 15px rgba(0,0,0,.06);transition:all .4s;position:relative;overflow:hidden}
-        .tl-card::after{content:'';position:absolute;top:0;right:0;width:0;height:100%;background:linear-gradient(270deg,rgba(14,165,233,.04),transparent);transition:width .4s}
-        .tl-item:hover .tl-card{transform:translateX(8px);border-left-width:4px;box-shadow:0 8px 30px rgba(14,165,233,.12)}
-        .tl-item:hover .tl-card::after{width:100%}
-        .tl-card h4{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;color:var(--dark)}
-        .tl-inst{color:var(--blue);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.3rem}
-        .tl-date{display:inline-block;background:#f1f5f9;color:var(--light);font-size:.78rem;font-family:var(--mono);padding:3px 10px;border-radius:4px;margin-bottom:.8rem;font-weight:600}
-        .tl-card p{color:var(--light);font-size:.9rem;line-height:1.7}
+        .timeline { position:relative; padding-left: 1.5rem; margin: 1.5rem 0 0; }
+        .timeline::before {
+            content:''; position:absolute; left:0; top:6px; bottom:6px;
+            width:2px; background:linear-gradient(to bottom, var(--blue), var(--purple), var(--green));
+            border-radius:2px;
+        }
+        .tl-item { position:relative; padding: 0 0 2rem 1.75rem; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-dot {
+            position:absolute; left:-6px; top:4px;
+            width:14px; height:14px; border-radius:50%; border:2px solid var(--bg);
+        }
+        .tl-date {
+            font-family:var(--mono); font-size:.72rem; font-weight:700; color:var(--blue);
+            letter-spacing:1px; text-transform:uppercase; margin-bottom:.3rem;
+        }
+        .tl-title { font-size:1rem; font-weight:700; color:var(--text); margin-bottom:.25rem; }
+        .tl-desc  { font-size:.9rem; color:var(--muted); line-height:1.6; }
+
+        /* ── RESEARCH PILLS LIST ── */
+        .paper-list { list-style:none; margin:1.2rem 0; }
+        .paper-list li {
+            display:flex; gap:1rem; align-items:flex-start;
+            padding:.85rem 1rem; margin-bottom:.6rem;
+            background:#fff; border:1px solid var(--light);
+            border-radius:8px; transition: border-color .2s, box-shadow .2s;
+        }
+        .paper-list li:hover { border-color:var(--blue); box-shadow:0 4px 16px rgba(14,165,233,.1); }
+        .paper-badge {
+            font-family:var(--mono); font-size:.65rem; font-weight:700;
+            padding:3px 8px; border-radius:4px; border:1px solid;
+            text-transform:uppercase; white-space:nowrap; flex-shrink:0;
+            align-self:center;
+        }
+        .badge-cja    { color:#0ea5e9; border-color:#0ea5e9; background:rgba(14,165,233,.08); }
+        .badge-ieee   { color:#8b5cf6; border-color:#8b5cf6; background:rgba(139,92,246,.08); }
+        .badge-ress   { color:#10b981; border-color:#10b981; background:rgba(16,185,129,.08); }
+        .badge-aiaa   { color:#f97316; border-color:#f97316; background:rgba(249,115,22,.08); }
+        .badge-scitech{ color:#06b6d4; border-color:#06b6d4; background:rgba(6,182,212,.08); }
+        .paper-text { font-size:.88rem; color:#334155; line-height:1.55; }
+        .paper-text strong { color:var(--text); font-weight:700; }
+
+        /* ── SKILLS CHIPS ── */
+        .skill-section { margin-bottom:1.8rem; }
+        .skill-category {
+            font-family:var(--mono); font-size:.72rem; font-weight:700;
+            color:var(--blue); letter-spacing:1.5px; text-transform:uppercase;
+            margin-bottom:.6rem;
+        }
+        .chip-cloud { display:flex; flex-wrap:wrap; gap:.5rem; }
+        .chip {
+            font-family:var(--mono); font-size:.72rem; padding:4px 12px;
+            border-radius:4px; background:#fff; border:1px solid var(--light);
+            color:#475569; font-weight:500; transition: .2s;
+        }
+        .chip:hover { border-color:var(--blue); color:var(--blue); }
+
+        /* ── CLOSING ── */
+        .closing {
+            background: linear-gradient(135deg, #0f172a 0%, #1a2e4a 100%);
+            border-radius: 16px; padding: 3rem 2.5rem;
+            border: 1px solid rgba(14,165,233,.2);
+            text-align: center; margin-top: 2rem;
+        }
+        .closing p {
+            font-size: 1.1rem; color: #94a3b8; line-height: 1.8;
+            max-width: 580px; margin: 0 auto 1.5rem;
+        }
+        .closing p strong { color: #e2e8f0; }
+        .closing-links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
+        .closing-link {
+            display:inline-flex; align-items:center; gap:.5rem;
+            padding:9px 20px; border-radius:6px; font-size:.85rem; font-weight:700;
+            text-decoration:none; transition:.3s; border:1px solid rgba(255,255,255,.15);
+            color:#94a3b8;
+        }
+        .closing-link:hover { border-color:var(--blue); color:var(--blue); transform:translateY(-2px); }
 
         /* ── FOOTER ── */
-        footer{background:#0b1120;padding:3rem 2rem;color:white;text-align:center;position:relative;z-index:2}
-        footer p{font-size:.85rem;color:#64748b;font-family:var(--mono)}
-        .footer-links{margin-top:1rem}
-        .footer-links a{color:#475569;margin:0 12px;text-decoration:none;transition:color .3s;font-size:.9rem}
-        .footer-links a:hover{color:var(--orange)}
+        footer { background:#0b1120; padding:2.5rem; color:#94a3b8; text-align:center; }
+        footer a { color:#64748b; margin:0 12px; text-decoration:none; transition:.3s; }
+        footer a:hover { color:var(--orange); }
 
         /* ── RESPONSIVE ── */
-        @media(max-width:900px){.about-grid{grid-template-columns:1fr}.stats-bar-inner{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:768px){
-            nav{padding:1rem}.logo{font-size:.9rem}.nav-links{display:none}.menu-toggle{display:flex}
-            .page-hero{padding:6rem 1rem 4rem;clip-path:none;-webkit-clip-path:none}
-            .page-hero h1{font-size:2.2rem}
-            .stats-bar-inner{grid-template-columns:repeat(2,1fr)}
-            .about-content{padding:2rem 1rem}
-            .timeline::before{left:14px}.tl-icon{left:0;width:28px;height:28px;font-size:.75rem}.tl-item{padding-left:48px}
-            .nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:white;padding:2rem;border-bottom:1px solid var(--border);box-shadow:0 10px 20px rgba(0,0,0,.1);text-align:center;gap:1rem}
+            .nav-links{display:none}
+            .nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:var(--bg);padding:1.5rem 2rem;border-bottom:1px solid var(--light);}
+            .menu-toggle{display:flex}
+            .hero h1{font-size:2.2rem}
+            .build-grid{grid-template-columns:1fr}
         }
-        @media(max-width:480px){.stats-bar-inner{grid-template-columns:1fr 1fr}}
     </style>
 </head>
 <body>
-<canvas id="particles-canvas"></canvas>
 
+<!-- ── NAV ── -->
 <nav id="navbar">
-    <a href="/" class="logo"><i class="fas fa-microchip"></i><span>Mohammed Bello Sani</span></a>
-    <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <a href="/" class="logo"><i class="fas fa-microchip"></i> Mohammed Bello Sani</a>
+    <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+        <span></span><span></span><span></span>
+    </div>
     <ul class="nav-links" id="navLinks">
         <li><a href="/">Home</a></li>
-        <li><a href="/about.html" style="color:var(--blue)">About</a></li>
-        <li><a href="/projects.html">Logbook</a></li>
-        <li><a href="/contact.html">Comms</a></li>
+        <li><a href="/about.html" class="active">About</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/contact.html">Contact</a></li>
     </ul>
 </nav>
 
-<!-- ══ HERO ══ -->
-<section class="page-hero">
-    <canvas id="heroCanvas"></canvas>
-    <div class="hero-content">
-        <div class="hero-tag"><span></span>SYSTEM ONLINE · AFIT KADUNA · 500L</div>
-        <h1>Profile & <span>Objective</span></h1>
-        <p class="hero-sub">> Aerospace Engineering Undergraduate & Digital Twin Researcher</p>
+<!-- ══════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">Aerospace Engineer &amp; AI Researcher</div>
+        <h1>Building the future<br>of <em>aviation intelligence</em><br>from Nigeria.</h1>
+        <p class="hero-sub">
+            I'm <strong>Mohammed Bello Sani</strong> — a final-year Aerospace Engineering student at AFIT Kaduna,
+            researcher, and founder of <strong>Penelope Inc.</strong> I build physics-informed AI systems,
+            blockchain-secured avionics, and full-stack tools — all the way from journal submissions
+            to deployed software.
+        </p>
+        <div class="hero-tags">
+            <span class="hero-tag tag-blue">Digital Twins</span>
+            <span class="hero-tag tag-purple">Aviation Cybersecurity</span>
+            <span class="hero-tag tag-green">PHM &amp; MRO AI</span>
+            <span class="hero-tag tag-orange">Rust · Next.js · PyTorch</span>
+            <span class="hero-tag tag-gold">Beihang M.Sc. 2026</span>
+        </div>
+        <div class="hero-cta">
+            <a href="/projects.html" class="btn-primary"><i class="fas fa-rocket"></i> See My Projects</a>
+            <a href="https://github.com/Sm-bello" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="btn-ghost"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
     </div>
 </section>
 
-<!-- ══ STATS BAR ══ -->
-<div class="stats-bar">
-    <div class="stats-bar-inner">
-        <div class="stat-block">
-            <span class="stat-icon">📄</span>
-            <div class="stat-num"><span class="counter" data-target="3">0</span></div>
-            <div class="stat-label">Papers Submitted</div>
+<!-- ══════════════════════════════════════════════════════
+     STATS BAND
+══════════════════════════════════════════════════════ -->
+<div class="stats-band">
+    <div class="stats-inner">
+        <div class="stat-item">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Papers Under Review</div>
         </div>
-        <div class="stat-block">
-            <span class="stat-icon">🗄️</span>
-            <div class="stat-num"><span class="counter" data-target="3">0</span></div>
-            <div class="stat-label">Kaggle Datasets</div>
+        <div class="stat-item">
+            <div class="stat-num orange">4.13</div>
+            <div class="stat-label">CGPA / 5.00</div>
         </div>
-        <div class="stat-block">
-            <span class="stat-icon">⚙️</span>
-            <div class="stat-num"><span class="counter" data-target="8">0</span>+</div>
-            <div class="stat-label">Active Projects</div>
+        <div class="stat-item">
+            <div class="stat-num green">72k+</div>
+            <div class="stat-label">Open Dataset Samples</div>
         </div>
-        <div class="stat-block">
-            <span class="stat-icon">🧠</span>
-            <div class="stat-num"><span class="counter" data-target="100">0</span>k+</div>
-            <div class="stat-label">Training Samples</div>
+        <div class="stat-item">
+            <div class="stat-num gold">10+</div>
+            <div class="stat-label">Production Systems Built</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num" style="color:#8b5cf6;text-shadow:0 0 20px rgba(139,92,246,.4);">Sept '26</div>
+            <div class="stat-label">Beihang M.Sc. Starts</div>
         </div>
     </div>
 </div>
 
-<!-- ══ ABOUT GRID ══ -->
-<div class="about-content">
-    <div class="about-grid">
-        <!-- Sidebar -->
-        <div class="profile-sidebar">
-            <div class="profile-card">
-                <div class="profile-image" style="position:relative;width:160px;height:160px;margin:0 auto 1.5rem">
-                    <div class="orbit-ring"><div class="orbit-dot"></div></div>
-                    <img src="profile.jpg" alt="Mohammed Bello Sani" style="width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                    <div class="fallback-icon" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:4rem;color:#38bdf8;background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:50%;position:absolute;top:0;left:0;z-index:2"><i class="fas fa-user-astronaut"></i></div>
-                </div>
-                <div class="profile-name">Mohammed Bello Sani</div>
-                <div class="profile-role">Final Year · Aerospace Eng.</div>
-                <div class="profile-meta"><i class="fas fa-map-marker-alt"></i> FCT Abuja, Nigeria</div>
-                <div class="profile-meta"><i class="fas fa-university"></i> AFIT Kaduna</div>
-                <div class="profile-links">
-                    <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
+<!-- ══════════════════════════════════════════════════════
+     MAIN CONTENT — 3-MINUTE PORTFOLIO READ
+══════════════════════════════════════════════════════ -->
+<div class="content">
 
-            <!-- System Status Panel -->
-            <div class="sys-panel">
-                <div class="sys-header"><div class="sys-dot"></div>SYSTEM STATUS</div>
-                <div class="sys-row"><span class="sys-key">Status</span><span class="sys-val">ONLINE · 500L</span></div>
-                <div class="sys-row"><span class="sys-key">Research</span><span class="sys-val blue">3 PAPERS LIVE</span></div>
-                <div class="sys-row"><span class="sys-key">CJA</span><span class="sys-val orange">UNDER REVIEW</span></div>
-                <div class="sys-row"><span class="sys-key">IEEE TAES</span><span class="sys-val orange">UNDER REVIEW</span></div>
-                <div class="sys-row"><span class="sys-key">RESS 2026</span><span class="sys-val orange">UNDER REVIEW</span></div>
-                <div class="sys-row"><span class="sys-key">Kaggle Datasets</span><span class="sys-val">3 PUBLIC</span></div>
-                <div class="sys-row"><span class="sys-key">Collab</span><span class="sys-val purple">CRANFIELD UNIV.</span></div>
-                <div class="sys-row"><span class="sys-key">Stack</span><span class="sys-val blue">i7-12700H LOCAL</span></div>
-                <div class="sys-row"><span class="sys-key">Grad.</span><span class="sys-val">2026 EXPECTED</span></div>
-            </div>
+    <!-- 1. WHO I AM -->
+    <div class="story-block">
+        <div class="section-label">Who I Am</div>
+        <h2>An engineer who codes, researches, and ships — all at once.</h2>
+        <p>
+            I'm in the final year of my Aerospace Engineering degree at the <strong>Air Force Institute of Technology (AFIT), Kaduna</strong>,
+            Nigeria — graduating with a CGPA of 4.13/5.00. But my undergraduate years look less like a typical student's
+            and more like a research lab's output log.
+        </p>
+        <p>
+            While completing coursework in Flight Dynamics, Aerospace Structures, and Propulsion,
+            I simultaneously authored four original research papers — all now under peer review at
+            top international journals. I built and deployed production software. I designed a
+            conceptual aircraft. I engineered a blockchain security system for aviation.
+            I published open datasets used by researchers worldwide. And I did most of it independently,
+            from a laptop in Abuja.
+        </p>
+        <div class="pull-quote">
+            <p>"I am not waiting to graduate before doing real engineering. The work is already here."</p>
         </div>
-
-        <!-- Bio Content -->
-        <div class="bio-content">
-            <h3>The Intersection of Flight &amp; Data</h3>
-            <p>I am a final-year Aerospace Engineering student (500L) at the Air Force Institute of Technology (AFIT), Kaduna. Unlike the traditional path of pure mechanical analysis, my focus has shifted toward the digital frontier of aviation: <strong>Data-Driven Maintenance and Digital Twins.</strong></p>
-            <p>While my academic foundation covers aerodynamics, flight mechanics, and aircraft structures, my true expertise is being built in the "lab" and the hangar. I am actively developing systems that connect physical aircraft strut health to real-time dashboards (InfluxDB/Grafana), aiming to solve the industry's need for predictive rather than reactive maintenance.</p>
-
-            <div class="terminal-box">
-                <div class="term-bar">
-                    <div class="term-dot" style="background:#ef4444"></div>
-                    <div class="term-dot" style="background:#f59e0b"></div>
-                    <div class="term-dot" style="background:#10b981"></div>
-                    <span class="term-title">MISSION.SH — CURRENT DIRECTIVE</span>
-                </div>
-                <div class="term-body">
-                    <span class="t-prompt">$ </span><span class="t-ok">status</span> --research<br>
-                    <span style="color:#475569">▸ </span>AeroTwin B787 LG Prognostics → <span class="t-orange">CJA UNDER REVIEW</span><br>
-                    <span style="color:#475569">▸ </span>PHI-CHAIN Avionics Security → <span class="t-orange">IEEE TAES UNDER REVIEW</span><br>
-                    <span style="color:#475569">▸ </span>B787 Ignition Digital Twin → <span class="t-orange">RESS UNDER REVIEW</span><br>
-                    <span class="t-prompt">$ </span><span class="t-ok">mission</span> --2026<br>
-                    <span style="color:#475569">▸ </span>Graduate with <span class="t-purple">deployed, working systems</span><br>
-                    <span style="color:#475569">▸ </span>Demonstrate how IoT modernises Nigerian aviation safety<span id="termCursor" style="color:#38bdf8">▌</span>
-                </div>
-            </div>
-
-            <h3>Professional Evolution</h3>
-            <p>My journey hasn't been limited to the classroom. I have actively sought out the grit and oil of real-world aviation. From the documentation rigors of the NCAA to the hangar floors of Executive Airlift, I have seen the gap between theory and practice.</p>
-            <p>I realized that while mechanical repair keeps planes flying today, <strong>data</strong> will keep them flying safer tomorrow. This realization drives my current work in Python, PyTorch, time-series forecasting, and physics-informed neural architectures — published at international journal level.</p>
-
-            <h3>Vision &amp; Goals</h3>
-            <p>Post-graduation, I intend to bridge the gap between MRO operations and Digital Transformation. I am aiming for roles that allow me to apply computational intelligence to airworthiness challenges, specifically in reducing AOG (Aircraft on Ground) time through better health monitoring — and continuing active research collaboration with institutions like Cranfield University, UK.</p>
-        </div>
+        <p>
+            In September 2026, I begin an M.Sc. in Smart Aviation at <strong>Beihang University</strong>
+            (BUAA), Hangzhou, China — ranked #1 in China and top-5 globally for aerospace —
+            under Professor Hu Yang at the Smart Aviation Center. My research will focus on
+            digital twin-based intelligent maintenance for aircraft systems.
+        </p>
     </div>
-</div>
 
-<!-- ══ TECHNICAL LOADOUT ══ -->
-<section class="skills-section">
-    <div class="skills-inner">
-        <h2 class="section-title">Technical Loadout</h2>
-        <div class="skills-grid">
-
-            <!-- AI & Machine Learning -->
-            <div class="skill-card" style="border-color:rgba(14,165,233,.25)">
-                <div class="skill-canvas-wrap"><canvas id="cvAI" width="400" height="160" style="width:100%;height:100%;display:block"></canvas></div>
-                <div class="skill-card-body">
-                    <div class="skill-card-title" style="color:#38bdf8"><i class="fas fa-brain" style="color:#38bdf8"></i> AI & Machine Learning</div>
-                    <div class="skill-items">
-                        <div class="sk-row"><span class="sk-name">PyTorch / CNN-BiLSTM</span><span class="sk-badge badge-deployed">Deployed</span></div>
-                        <div class="sk-row"><span class="sk-name">Transformer-LSTM Hybrid</span><span class="sk-badge badge-deployed">Research</span></div>
-                        <div class="sk-row"><span class="sk-name">LightGBM / XGBoost</span><span class="sk-badge badge-advanced">Advanced</span></div>
-                        <div class="sk-row"><span class="sk-name">SHAP Explainability (XAI)</span><span class="sk-badge badge-advanced">Applied</span></div>
-                        <div class="sk-row"><span class="sk-name">Ollama 3.2 (Offline LLM)</span><span class="sk-badge badge-deployed">Integrated</span></div>
-                        <div class="sk-row"><span class="sk-name">MLflow Versioning</span><span class="sk-badge badge-advanced">Operational</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Telemetry & DevOps -->
-            <div class="skill-card" style="border-color:rgba(16,185,129,.25)">
-                <div class="skill-canvas-wrap"><canvas id="cvTelemetry" width="400" height="160" style="width:100%;height:100%;display:block"></canvas></div>
-                <div class="skill-card-body">
-                    <div class="skill-card-title" style="color:#10b981"><i class="fas fa-network-wired" style="color:#10b981"></i> Telemetry & DevOps Stack</div>
-                    <div class="skill-items">
-                        <div class="sk-row"><span class="sk-name">InfluxDB 3 Core (TSDB)</span><span class="sk-badge badge-deployed">Deployed</span></div>
-                        <div class="sk-row"><span class="sk-name">Telegraf · Grafana</span><span class="sk-badge badge-deployed">Live</span></div>
-                        <div class="sk-row"><span class="sk-name">PostgreSQL · FastAPI</span><span class="sk-badge badge-advanced">Advanced</span></div>
-                        <div class="sk-row"><span class="sk-name">FlightGear UDP Bridge</span><span class="sk-badge badge-deployed">Deployed</span></div>
-                        <div class="sk-row"><span class="sk-name">Node-RED · MQTT · IoT</span><span class="sk-badge badge-advanced">Applied</span></div>
-                        <div class="sk-row"><span class="sk-name">Hyperledger Fabric</span><span class="sk-badge badge-research">Research</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Simulation & Code -->
-            <div class="skill-card" style="border-color:rgba(249,115,22,.25)">
-                <div class="skill-canvas-wrap"><canvas id="cvSim" width="400" height="160" style="width:100%;height:100%;display:block"></canvas></div>
-                <div class="skill-card-body">
-                    <div class="skill-card-title" style="color:var(--orange)"><i class="fas fa-code" style="color:var(--orange)"></i> Simulation & Code</div>
-                    <div class="skill-items">
-                        <div class="sk-row"><span class="sk-name">Python (Data/ML)</span><span class="sk-badge badge-core">Core Tool</span></div>
-                        <div class="sk-row"><span class="sk-name">MATLAB ODE / Simulink</span><span class="sk-badge badge-deployed">Applied</span></div>
-                        <div class="sk-row"><span class="sk-name">ANSYS Mechanical / FEA</span><span class="sk-badge badge-advanced">Academic</span></div>
-                        <div class="sk-row"><span class="sk-name">Simscape Multibody</span><span class="sk-badge badge-deployed">Applied</span></div>
-                        <div class="sk-row"><span class="sk-name">Abaqus (Structural)</span><span class="sk-badge badge-advanced">Structural</span></div>
-                        <div class="sk-row"><span class="sk-name">Python FEniCS / PINN</span><span class="sk-badge badge-research">Research</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Aerospace Core -->
-            <div class="skill-card" style="border-color:rgba(139,92,246,.25)">
-                <div class="skill-canvas-wrap"><canvas id="cvAero" width="400" height="160" style="width:100%;height:100%;display:block"></canvas></div>
-                <div class="skill-card-body">
-                    <div class="skill-card-title" style="color:#a78bfa"><i class="fas fa-plane" style="color:#a78bfa"></i> Aerospace & Regulatory</div>
-                    <div class="skill-items">
-                        <div class="sk-row"><span class="sk-name">Aircraft Structures & ATA</span><span class="sk-badge badge-core">Academic</span></div>
-                        <div class="sk-row"><span class="sk-name">CS-23 / CS-25 Compliance</span><span class="sk-badge badge-deployed">Applied</span></div>
-                        <div class="sk-row"><span class="sk-name">Airworthiness Standards</span><span class="sk-badge badge-field">NCAA Trained</span></div>
-                        <div class="sk-row"><span class="sk-name">MRO Operations</span><span class="sk-badge badge-field">Field Exp.</span></div>
-                        <div class="sk-row"><span class="sk-name">Digital Twin / PHM</span><span class="sk-badge badge-research">Published</span></div>
-                        <div class="sk-row"><span class="sk-name">EASA AMC / FAA AC</span><span class="sk-badge badge-advanced">Applied</span></div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <!-- 2. WHAT DRIVES ME -->
+    <div class="story-block">
+        <div class="section-label">What Drives Me</div>
+        <h2>African aviation needs infrastructure it can call its own.</h2>
+        <p>
+            My SIWES internships — at the <strong>Nigerian Civil Aviation Authority (NCAA)</strong>
+            working on airworthiness compliance, and at <strong>Executive Airlift Group</strong>
+            maintaining King Air 350 aircraft at Nnamdi Azikiwe International Airport — gave me
+            something textbooks cannot: a direct view of where African aviation breaks down.
+        </p>
+        <p>
+            The maintenance tools, the health monitoring systems, the security infrastructure — almost
+            all of it is foreign-built, foreign-licensed, and foreign-maintained. African operators
+            pay enormous sums for systems designed for different contexts and different fleets.
+            I want to change that.
+        </p>
+        <p>
+            Every system I build — every paper I write — is aimed at that gap. The long-term vision
+            behind <strong>Penelope Inc.</strong>, the company I'm founding, is to become the
+            leading indigenous aerospace AI engineering practice in Africa: building digital maintenance
+            infrastructure that airlines, MROs, and regulators on this continent can actually own.
+        </p>
     </div>
-</section>
 
-<!-- ══ TIMELINE ══ -->
-<section class="timeline-section">
-    <h2 class="section-title">Field Experience &amp; Education</h2>
-    <div class="timeline">
-        <div class="tl-item">
-            <div class="tl-icon"><i class="fas fa-file-signature"></i></div>
-            <div class="tl-card">
-                <h4>SIWES II Intern — Airworthiness &amp; MRO</h4>
-                <p class="tl-inst">NCAA Headquarters &amp; AeroTak Limited (Abuja)</p>
-                <span class="tl-date">400 Level · 6 Months</span>
-                <p>A dual-exposure internship. At the <strong>NCAA (Dept. of Airworthiness Standards)</strong>, I assisted in the rigorous audit of technical logs, certification filing, and understanding the regulatory backbone of Nigerian aviation. At <strong>AeroTak</strong>, I moved to the hangar floor, assisting engineers in routine checks and bridging the gap between the paperwork I saw at NCAA and the physical reality of the aircraft.</p>
+    <!-- 3. WHAT I RESEARCH -->
+    <div class="story-block">
+        <div class="section-label">Research &amp; Publications</div>
+        <h2>Four papers. Four journals. All as an undergraduate.</h2>
+        <ul class="paper-list">
+            <li>
+                <span class="paper-badge badge-cja">CJA</span>
+                <span class="paper-text"><strong>AeroTwin: B787 Landing Gear Prognostics</strong> — Three-layer edge AI with ODE physics engine, CNN-BiLSTM classifier, and offline Ollama LLM. Cranfield University collaboration. Under review at Chinese Journal of Aeronautics.</span>
+            </li>
+            <li>
+                <span class="paper-badge badge-ieee">IEEE TAES</span>
+                <span class="paper-text"><strong>PHI-CHAIN: Blockchain-Secured Avionics</strong> — Ed25519 + Hyperledger Fabric securing ADS-B, ACARS, CPDLC. Split-Payload Architecture resolves the TCAS Paradox. 100% attack detection rate.</span>
+            </li>
+            <li>
+                <span class="paper-badge badge-ress">RESS</span>
+                <span class="paper-text"><strong>B787 Ignition Digital Twin</strong> — Physics-derived 27,000-sample dataset, LightGBM (R²=0.87), FastAPI microservice. Under review at Elsevier Reliability Engineering &amp; System Safety.</span>
+            </li>
+            <li>
+                <span class="paper-badge badge-aiaa">AIAA JAIS</span>
+                <span class="paper-text"><strong>Dornier 228 Certification-Compliant DT</strong> — Simscape Multibody + dual-input LSTM (98.74% accuracy), CS-23.473 compliant, 47ms latency. Under review at AIAA Journal of Aerospace Information Systems.</span>
+            </li>
+            <li>
+                <span class="paper-badge badge-scitech">SciTech 2027</span>
+                <span class="paper-text"><strong>RDE CFD Augmentation via CVAE</strong> — 12 OpenFOAM simulations → 72 synthetic spatiotemporal fields (CNN-BiLSTM CVAE, 4.3M params). Novel finding: 4× CJ velocity overestimate at off-stoichiometric conditions.</span>
+            </li>
+        </ul>
+        <p style="margin-top:1rem;font-size:.9rem;color:var(--muted);">
+            I also serve as an <strong>invited peer reviewer</strong> for AIAA JAIS — on behalf of
+            Prof. Peng Wei, George Washington University — an honour normally extended to
+            faculty and senior researchers.
+        </p>
+    </div>
+
+    <!-- 4. WHAT I BUILD -->
+    <div class="story-block">
+        <div class="section-label">What I Build</div>
+        <h2>Research that runs. Software that ships.</h2>
+        <p>
+            I don't just write about systems. I build them — end to end, from physics simulation
+            to deployed product.
+        </p>
+        <div class="build-grid">
+            <div class="build-card">
+                <span class="card-tag tag-purple" style="font-family:var(--mono);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:3px;border:1px solid rgba(139,92,246,.5);background:rgba(139,92,246,.08);color:#a78bfa;display:inline-block;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px;">Cybersecurity</span>
+                <div class="build-card-icon">🔐</div>
+                <h3>PHI-CHAIN v3.0</h3>
+                <p>Live blockchain ground station for ADS-B/ACARS/CPDLC integrity — three-node Hyperledger Fabric network, GF(2⁸) Shamir key splitting, live anomaly detection.</p>
             </div>
-        </div>
-        <div class="tl-item">
-            <div class="tl-icon"><i class="fas fa-plane-departure"></i></div>
-            <div class="tl-card">
-                <h4>SIWES I Intern — Hangar Operations</h4>
-                <p class="tl-inst">Executive Airlift Group, Nnamdi Azikiwe Int'l Airport</p>
-                <span class="tl-date">300 Level · 3 Months</span>
-                <p>Direct immersion in VIP aircraft maintenance. I shadowed licensed engineers during Line Maintenance operations, assisted in wheel assembly overhauls, and learned the critical discipline required on a live flight line. This was my first "hands-dirty" experience with pressurized hydraulic systems and avionics bays.</p>
+            <div class="build-card">
+                <span class="card-tag" style="font-family:var(--mono);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:3px;border:1px solid rgba(14,165,233,.5);background:rgba(14,165,233,.08);color:#38bdf8;display:inline-block;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px;">Digital Twin</span>
+                <div class="build-card-icon">🛬</div>
+                <h3>PHI-Twin Suite</h3>
+                <p>Gas turbine ignition + landing gear digital twins — MATLAB Simscape physics, LSTM/LightGBM inference, FastAPI endpoints, PyVista 3D visualisation.</p>
             </div>
-        </div>
-        <div class="tl-item">
-            <div class="tl-icon"><i class="fas fa-cogs"></i></div>
-            <div class="tl-card">
-                <h4>Student Workshop Experience Program (SWEP)</h4>
-                <p class="tl-inst">AFIT Kaduna</p>
-                <span class="tl-date">200 Level · 3 Months</span>
-                <p>Foundational mechanical training. Focused on machining, welding, and material fabrication techniques within the university workshops. Gained appreciation for the manufacturing tolerances required in aerospace components.</p>
+            <div class="build-card">
+                <span class="card-tag" style="font-family:var(--mono);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:3px;border:1px solid rgba(245,158,11,.5);background:rgba(245,158,11,.08);color:#fbbf24;display:inline-block;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px;">Desktop App</span>
+                <div class="build-card-icon">⛪</div>
+                <h3>Lifestone</h3>
+                <p>Tauri v2 + Rust sermon intelligence desktop app — offline Whisper STT, Aho-Corasick + ONNX verse detection, NDI/PowerPoint/Verse Screen output plugins.</p>
             </div>
-        </div>
-        <div class="tl-item">
-            <div class="tl-icon"><i class="fas fa-graduation-cap"></i></div>
-            <div class="tl-card">
-                <h4>B.Eng Aerospace Engineering</h4>
-                <p class="tl-inst">Air Force Institute of Technology (AFIT), Kaduna</p>
-                <span class="tl-date">2021 – 2026 (Expected)</span>
-                <p>Currently in 500 Level (Final Year). Coursework covers Advanced Aerodynamics, Flight Dynamics, and Control Systems. My final year project focuses on Digital Twin applications for Landing Gear Systems — with three journal submissions already under review at CJA, IEEE TAES, and RESS.</p>
+            <div class="build-card">
+                <span class="card-tag" style="font-family:var(--mono);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:3px;border:1px solid rgba(16,185,129,.5);background:rgba(16,185,129,.08);color:#34d399;display:inline-block;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px;">Full-Stack</span>
+                <div class="build-card-icon">📱</div>
+                <h3>COLIG Church App</h3>
+                <p>Next.js + PocketBase + LiveKit — deployed at colig-app.vercel.app. Real-time chat, 31-day Bible reading, broadcast meetings, sermon recording. Android APK shipped.</p>
             </div>
         </div>
     </div>
-</section>
+
+    <!-- 5. JOURNEY TIMELINE -->
+    <div class="story-block">
+        <div class="section-label">The Journey</div>
+        <h2>From AFIT Kaduna to Beihang University.</h2>
+        <div class="timeline">
+            <div class="tl-item">
+                <div class="tl-dot" style="background:var(--blue);"></div>
+                <div class="tl-date">2021 — Present</div>
+                <div class="tl-title">B.Eng Aerospace Engineering · AFIT Kaduna</div>
+                <div class="tl-desc">CGPA 4.13/5.00 · Second Class Upper · Final Year Project: Digital Twin for Landing Gear Systems</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot" style="background:var(--orange);"></div>
+                <div class="tl-date">Aug 2024 – Nov 2024</div>
+                <div class="tl-title">Maintenance Intern · Executive Airlift Group, Abuja</div>
+                <div class="tl-desc">King Air 350 line maintenance, landing gear checks, avionics bay servicing at Nnamdi Azikiwe International Airport.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot" style="background:var(--green);"></div>
+                <div class="tl-date">Mar 2025 – Aug 2025</div>
+                <div class="tl-title">Engineering Intern · Nigerian Civil Aviation Authority (NCAA)</div>
+                <div class="tl-desc">Airworthiness Standards dept. — technical log audits, CoA renewals, MEL protocols, Nigeria Civil Aviation Regulations.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot" style="background:var(--purple);"></div>
+                <div class="tl-date">2024 – Present</div>
+                <div class="tl-title">Founder · Penelope Inc.</div>
+                <div class="tl-desc">PHI Suite (PHI-Twin, PHI-CHAIN, PHI-Arc) · Lifestone · COLIG App · Penelope AI Agent · 4 papers · 5 open datasets.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot" style="background:var(--gold);"></div>
+                <div class="tl-date">September 2026</div>
+                <div class="tl-title">M.Sc. Smart Aviation · Beihang University, Hangzhou, China</div>
+                <div class="tl-desc">Smart Aviation Center · Supervisor: Prof. Hu Yang · Focus: Digital Twin-Based Intelligent Maintenance · Application No. WS20262LS0621</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. SKILLS -->
+    <div class="story-block">
+        <div class="section-label">Technical Depth</div>
+        <h2>The stack behind the work.</h2>
+
+        <div class="skill-section">
+            <div class="skill-category">Aerospace &amp; Aviation</div>
+            <div class="chip-cloud">
+                <span class="chip">Digital Twin Dev</span><span class="chip">PHM / MRO Optimization</span>
+                <span class="chip">Aviation Cybersecurity</span><span class="chip">Airworthiness (CS-23/25)</span>
+                <span class="chip">OpenFOAM CFD</span><span class="chip">MATLAB Simscape</span>
+                <span class="chip">ADS-B / ACARS / CPDLC</span><span class="chip">Conceptual Aircraft Design</span>
+            </div>
+        </div>
+        <div class="skill-section">
+            <div class="skill-category">AI &amp; Machine Learning</div>
+            <div class="chip-cloud">
+                <span class="chip">CNN-BiLSTM-Attention</span><span class="chip">CVAE (Generative)</span>
+                <span class="chip">LightGBM</span><span class="chip">Physics-Informed ML</span>
+                <span class="chip">SHAP XAI</span><span class="chip">ONNX Deployment</span>
+                <span class="chip">Synthetic Data Generation</span><span class="chip">PyTorch</span>
+            </div>
+        </div>
+        <div class="skill-section">
+            <div class="skill-category">Blockchain &amp; Security</div>
+            <div class="chip-cloud">
+                <span class="chip">Hyperledger Fabric 2.5</span><span class="chip">Ed25519 Signatures</span>
+                <span class="chip">Shamir Secret Sharing GF(2⁸)</span><span class="chip">Merkle Batching</span>
+                <span class="chip">Smart Contracts (Go/Node)</span>
+            </div>
+        </div>
+        <div class="skill-section">
+            <div class="skill-category">Software &amp; Systems</div>
+            <div class="chip-cloud">
+                <span class="chip">Rust / Tauri v2</span><span class="chip">Next.js / React</span>
+                <span class="chip">Flutter / Dart</span><span class="chip">FastAPI</span>
+                <span class="chip">PostgreSQL / InfluxDB</span><span class="chip">Docker / WSL2</span>
+                <span class="chip">GitHub Actions CI/CD</span><span class="chip">LiveKit WebRTC</span>
+            </div>
+        </div>
+        <div class="skill-section">
+            <div class="skill-category">Research &amp; Publishing</div>
+            <div class="chip-cloud">
+                <span class="chip">LaTeX (AIAA / IEEE / Elsevier)</span><span class="chip">HuggingFace Datasets</span>
+                <span class="chip">Kaggle Publishing</span><span class="chip">AIAA Peer Review</span>
+                <span class="chip">Cranfield Collaboration</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. CLOSING -->
+    <div class="closing">
+        <div class="section-label" style="justify-content:center;margin-bottom:1.2rem;">
+            <span>Let's connect</span>
+        </div>
+        <p>
+            I'm always open to <strong>research collaborations</strong>, <strong>aerospace AI projects</strong>,
+            and conversations about the future of aviation in Africa. If what you've read resonates
+            with something you're building — reach out.
+        </p>
+        <p style="font-size:.92rem;color:#475569;">
+            <strong style="color:#94a3b8;">bellosani2drescue@gmail.com</strong>
+        </p>
+        <div class="closing-links">
+            <a href="https://github.com/Sm-bello" target="_blank" class="closing-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="closing-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.kaggle.com/mohammedbellosani" target="_blank" class="closing-link"><i class="fas fa-database"></i> Kaggle</a>
+            <a href="https://huggingface.co/SM-Bello" target="_blank" class="closing-link">🤗 HuggingFace</a>
+            <a href="/projects.html" class="closing-link"><i class="fas fa-rocket"></i> Projects</a>
+        </div>
+    </div>
+
+</div><!-- /content -->
 
 <footer>
-    <p>&copy; 2026 Mohammed Bello Sani &nbsp;|&nbsp; Aerospace Intelligence Research</p>
-    <div class="footer-links">
+    <p>&copy; 2026 Mohammed Bello Sani | Aerospace Intelligence Research</p>
+    <div style="margin-top:.75rem;">
         <a href="https://github.com/Sm-bello"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/"><i class="fab fa-linkedin"></i> LinkedIn</a>
         <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i> Email</a>
     </div>
 </footer>
 
 <script>
-/* ═══ HELPERS ═══ */
-function lerp(a,b,t){return a+(b-a)*t;}
-function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v));}
-
-/* ═══ PARTICLES ═══ */
-(function(){
-    var c=document.getElementById('particles-canvas');if(!c)return;
-    var x=c.getContext('2d');
-    c.width=window.innerWidth;c.height=window.innerHeight;
-    var pts=[];for(var i=0;i<70;i++)pts.push({x:Math.random()*c.width,y:Math.random()*c.height,sz:Math.random()*1.5+.5,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,op:Math.random()*.3+.1});
-    (function draw(){x.clearRect(0,0,c.width,c.height);pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;x.fillStyle='rgba(100,116,139,'+p.op+')';x.beginPath();x.arc(p.x,p.y,p.sz,0,Math.PI*2);x.fill();});requestAnimationFrame(draw);})();
-    window.addEventListener('resize',function(){c.width=window.innerWidth;c.height=window.innerHeight;});
-})();
-
-/* ═══ NAV ═══ */
-window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
-function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}
-
-/* ═══ CURSOR BLINK ═══ */
-setInterval(function(){var c=document.getElementById('termCursor');if(c)c.style.opacity=c.style.opacity==='0'?'1':'0';},500);
-
-/* ═══ HERO CANVAS — RADAR + FLIGHT PATH ═══ */
-(function(){
-    var cv=document.getElementById('heroCanvas');if(!cv)return;
-    var ctx=cv.getContext('2d');
-    var W,H,ft=0,sweep=0,planeX=0;
-    function resize(){W=cv.parentElement.offsetWidth;H=cv.parentElement.offsetHeight;cv.width=W;cv.height=H;planeX=W*.15;}
-    resize();window.addEventListener('resize',resize);
-
-    var dots=[];for(var i=0;i<5;i++)dots.push({x:Math.random()*W,y:Math.random()*H*.7+H*.1,life:Math.random()*200,maxLife:200+Math.random()*100,bright:Math.random()>.7});
-
-    function draw(){
-        ctx.fillStyle='rgba(5,14,26,.4)';ctx.fillRect(0,0,W,H);ft++;sweep+=(Math.PI*2)/360;
-
-        // Radar circles
-        var cx=W*.5,cy=H*.55,maxR=Math.min(W,H)*.42;
-        for(var r=1;r<=5;r++){
-            ctx.strokeStyle='rgba(14,165,233,'+(0.04+r*.018)+')';ctx.lineWidth=1;
-            ctx.beginPath();ctx.arc(cx,cy,r*maxR/5,0,Math.PI*2);ctx.stroke();
-        }
-        // Radar crosshairs
-        ctx.strokeStyle='rgba(14,165,233,.08)';ctx.lineWidth=1;
-        ctx.beginPath();ctx.moveTo(cx-maxR,cy);ctx.lineTo(cx+maxR,cy);ctx.stroke();
-        ctx.beginPath();ctx.moveTo(cx,cy-maxR);ctx.lineTo(cx,cy+maxR);ctx.stroke();
-
-        // Sweep beam
-        ctx.save();
-        var sweep2=ctx.createConicalGradient?null:null; // fallback
-        ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,maxR,sweep-Math.PI*.28,sweep,false);ctx.closePath();
-        var g=ctx.createRadialGradient(cx,cy,0,cx,cy,maxR);
-        g.addColorStop(0,'rgba(14,165,233,.25)');g.addColorStop(1,'rgba(14,165,233,0)');
-        ctx.fillStyle=g;ctx.fill();
-        ctx.restore();
-        // Sweep leading edge
-        ctx.strokeStyle='rgba(14,165,233,.6)';ctx.lineWidth=1.5;
-        ctx.shadowColor='rgba(14,165,233,.8)';ctx.shadowBlur=8;
-        ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+maxR*Math.cos(sweep),cy+maxR*Math.sin(sweep));ctx.stroke();
-        ctx.shadowBlur=0;
-
-        // Blips
-        dots.forEach(function(d){
-            d.life--;if(d.life<0){d.life=d.maxLife;d.x=cx+(Math.random()-.5)*maxR*1.6;d.y=cy+(Math.random()-.5)*maxR*1.4;}
-            var a=clamp(d.life/d.maxLife,0,1);
-            ctx.save();ctx.fillStyle='rgba(16,185,129,'+a*(d.bright?.8:.4)+')';
-            if(d.bright){ctx.shadowColor='#10b981';ctx.shadowBlur=8;}
-            ctx.beginPath();ctx.arc(d.x,d.y,d.bright?3:2,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.restore();
-        });
-
-        // Flying plane silhouette
-        planeX+=.6;if(planeX>W+60)planeX=-60;
-        var py=H*.3+Math.sin(ft*.015)*18;
-        ctx.save();ctx.fillStyle='rgba(14,165,233,.55)';ctx.strokeStyle='rgba(14,165,233,.3)';ctx.lineWidth=1;
-        ctx.translate(planeX,py);ctx.scale(.55,.55);
-        ctx.beginPath();ctx.moveTo(28,0);ctx.lineTo(8,-8);ctx.lineTo(-28,-4);ctx.lineTo(-28,4);ctx.lineTo(8,8);ctx.closePath();ctx.fill();
-        ctx.beginPath();ctx.moveTo(0,-4);ctx.lineTo(-20,-18);ctx.lineTo(-22,-18);ctx.lineTo(-6,-4);ctx.closePath();ctx.fill();
-        ctx.beginPath();ctx.moveTo(0,4);ctx.lineTo(-20,18);ctx.lineTo(-22,18);ctx.lineTo(-6,4);ctx.closePath();ctx.fill();
-        ctx.restore();
-
-        // Grid lines
-        ctx.strokeStyle='rgba(14,165,233,.04)';ctx.lineWidth=1;
-        for(var gx=0;gx<W;gx+=60){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
-        for(var gy=0;gy<H;gy+=60){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
-
-        requestAnimationFrame(draw);
-    }
-    draw();
-})();
-
-/* ═══ STAT COUNTERS ═══ */
-function animCounter(el,target){
-    var inc=target/80,cur=0;
-    var t=setInterval(function(){cur+=inc;if(cur>=target){el.textContent=target;clearInterval(t);}else el.textContent=Math.floor(cur);},20);
-}
-var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-        if(e.isIntersecting){
-            e.target.querySelectorAll('.counter').forEach(function(c){animCounter(c,parseInt(c.getAttribute('data-target')));});
-            obs.unobserve(e.target);
-        }
+    window.addEventListener('scroll', function(){
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
-},{threshold:.5});
-document.querySelectorAll('.stats-bar').forEach(function(el){obs.observe(el);});
-
-/* ═══════════════════════════════════════════
-   SKILL CANVAS 1 — AI NEURAL NETWORK
-   ═══════════════════════════════════════════ */
-(function(){
-    var cv=document.getElementById('cvAI');if(!cv)return;
-    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height,ft=0;
-    var layers=[[3,4],[4,5],[5,4],[4,3]];
-    var nodes=[];var edges=[];
-    // Build node positions
-    layers.forEach(function(l,li){
-        var n=l[0];var xpos=W*.12+li*(W*.76/3);nodes.push([]);
-        for(var ni=0;ni<n;ni++){
-            var ypos=H/2+(ni-(n-1)/2)*28;
-            nodes[li].push({x:xpos,y:ypos,act:Math.random(),pulse:Math.random()*Math.PI*2});
-        }
-    });
-    // Build edges
-    for(var li2=0;li2<nodes.length-1;li2++){
-        nodes[li2].forEach(function(a){
-            nodes[li2+1].forEach(function(b){edges.push({ax:a.x,ay:a.y,bx:b.x,by:b.y,w:Math.random()>.5?1:-1,pt:Math.random(),active:false});});
-        });
-    }
-
-    function draw(){
-        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
-        // Edges
-        edges.forEach(function(e){
-            e.pt+=.008;if(e.pt>1)e.pt=0;
-            var col=e.w>0?'rgba(14,165,233,.25)':'rgba(239,68,68,.15)';
-            ctx.strokeStyle=col;ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(e.ax,e.ay);ctx.lineTo(e.bx,e.by);ctx.stroke();
-            // Flowing particle
-            var px=lerp(e.ax,e.bx,e.pt),py=lerp(e.ay,e.by,e.pt);
-            ctx.fillStyle=e.w>0?'rgba(56,189,248,.7)':'rgba(239,68,68,.5)';
-            ctx.beginPath();ctx.arc(px,py,1.8,0,Math.PI*2);ctx.fill();
-        });
-        // Nodes
-        nodes.forEach(function(layer,li){
-            layer.forEach(function(n){
-                n.pulse+=.04;n.act=(.5+.5*Math.sin(n.pulse));
-                var col=li===0?'#0ea5e9':li===nodes.length-1?'#10b981':'#8b5cf6';
-                ctx.save();ctx.fillStyle=col+'22';ctx.strokeStyle=col;ctx.lineWidth=1.5;
-                ctx.shadowColor=col;ctx.shadowBlur=6+n.act*8;
-                ctx.beginPath();ctx.arc(n.x,n.y,7+n.act*3,0,Math.PI*2);ctx.fill();ctx.stroke();
-                ctx.fillStyle=col;ctx.beginPath();ctx.arc(n.x,n.y,3,0,Math.PI*2);ctx.fill();
-                ctx.shadowBlur=0;ctx.restore();
-            });
-        });
-        // Labels
-        ctx.fillStyle='rgba(14,165,233,.5)';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';
-        ['INPUT','HIDDEN','HIDDEN','OUTPUT'].forEach(function(l,i){ctx.fillText(l,W*.12+i*(W*.76/3),H-8);});
-        ctx.fillStyle='rgba(255,255,255,.15)';ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='right';
-        ctx.fillText('CNN-BiLSTM · TRANSFORMER · LIGHTGBM',W-8,H-8);
-        requestAnimationFrame(draw);
-    }
-    draw();
-})();
-
-/* ═══════════════════════════════════════════
-   SKILL CANVAS 2 — TELEMETRY FLOW
-   ═══════════════════════════════════════════ */
-(function(){
-    var cv=document.getElementById('cvTelemetry');if(!cv)return;
-    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height,ft=0;
-    var NODES=[
-        {x:.05,y:.5,label:'FG UDP',col:'#0ea5e9',icon:'✈'},
-        {x:.22,y:.5,label:'PYTHON',col:'#f59e0b',icon:'⬡'},
-        {x:.4,y:.28,label:'TELEGRAF',col:'#06b6d4',icon:'⚡'},
-        {x:.4,y:.72,label:'FASTAPI',col:'#10b981',icon:'⚡'},
-        {x:.58,y:.28,label:'INFLUXDB',col:'#10b981',icon:'📈'},
-        {x:.58,y:.72,label:'POSTGRES',col:'#3b82f6',icon:'🐘'},
-        {x:.76,y:.5,label:'GRAFANA',col:'#f97316',icon:'📊'},
-        {x:.94,y:.5,label:'LIVE',col:'#10b981',icon:'●'}
-    ];
-    var EDGES=[[0,1],[1,2],[1,3],[2,4],[3,5],[4,6],[5,6],[6,7]];
-    var pkts=EDGES.map(function(e){return{ci:e,t:Math.random(),spd:.012+Math.random()*.008};});
-
-    function draw(){
-        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
-        // Edge beams
-        EDGES.forEach(function(e){
-            var a=NODES[e[0]],b=NODES[e[1]];
-            ctx.strokeStyle='rgba(16,185,129,.15)';ctx.lineWidth=1;
-            ctx.beginPath();ctx.moveTo(a.x*W,a.y*H);ctx.lineTo(b.x*W,b.y*H);ctx.stroke();
-        });
-        // Packets
-        pkts.forEach(function(p){
-            p.t+=p.spd;if(p.t>1)p.t=0;
-            var a=NODES[p.ci[0]],b=NODES[p.ci[1]];
-            var px=lerp(a.x*W,b.x*W,p.t),py=lerp(a.y*H,b.y*H,p.t);
-            ctx.fillStyle=a.col;ctx.shadowColor=a.col;ctx.shadowBlur=6;
-            ctx.beginPath();ctx.arc(px,py,2.5,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
-        });
-        // Nodes
-        NODES.forEach(function(n,i){
-            var pulse=Math.sin(ft*.07+i)*.5+.5;
-            var nx=n.x*W,ny=n.y*H;
-            ctx.save();var g=ctx.createRadialGradient(nx,ny,0,nx,ny,18);g.addColorStop(0,n.col+'33');g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.beginPath();ctx.arc(nx,ny,18,0,Math.PI*2);ctx.fill();
-            ctx.fillStyle='#0a1625';ctx.strokeStyle=n.col;ctx.lineWidth=1.5;ctx.shadowColor=n.col;ctx.shadowBlur=4+pulse*6;
-            ctx.fillRect(nx-18,ny-12,36,24);ctx.strokeRect(nx-18,ny-12,36,24);ctx.shadowBlur=0;
-            ctx.font='9px serif';ctx.textAlign='center';ctx.fillText(n.icon,nx,ny-1);
-            ctx.fillStyle=n.col;ctx.font='bold 5px JetBrains Mono,monospace';ctx.fillText(n.label,nx,ny+10);ctx.restore();
-        });
-        ctx.fillStyle='rgba(255,255,255,.12)';ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='right';ctx.fillText('FLIGHTGEAR→TELEGRAF→INFLUXDB→GRAFANA',W-8,H-8);
-        requestAnimationFrame(draw);
-    }
-    draw();
-})();
-
-/* ═══════════════════════════════════════════
-   SKILL CANVAS 3 — SIMULATION / CODE
-   ═══════════════════════════════════════════ */
-(function(){
-    var cv=document.getElementById('cvSim');if(!cv)return;
-    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height,ft=0;
-    var angle=0;
-    var ORBIT_TOOLS=[
-        {label:'MATLAB',col:'#f97316',r:52,phase:0,icon:'∫'},
-        {label:'PYTHON',col:'#f59e0b',r:52,phase:Math.PI*.66,icon:'⬡'},
-        {label:'PYTORCH',col:'#ef4444',r:52,phase:Math.PI*1.33,icon:'🔥'},
-        {label:'ANSYS',col:'#0ea5e9',r:82,phase:.4,icon:'⊕'},
-        {label:'SIMULINK',col:'#8b5cf6',r:82,phase:Math.PI*.8,icon:'⊞'},
-        {label:'ABAQUS',col:'#06b6d4',r:82,phase:Math.PI*1.5,icon:'△'},
-    ];
-
-    function draw(){
-        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;angle+=.008;
-        var cx=W*.44,cy=H*.5;
-        // Orbit rings
-        [52,82].forEach(function(r,ri){
-            ctx.strokeStyle=ri===0?'rgba(249,115,22,.15)':'rgba(14,165,233,.12)';ctx.lineWidth=1;ctx.setLineDash([3,5]);
-            ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
-        });
-        // Centre hub
-        ctx.save();
-        var g=ctx.createRadialGradient(cx,cy,0,cx,cy,26);
-        g.addColorStop(0,'rgba(249,115,22,.35)');g.addColorStop(1,'rgba(249,115,22,0)');
-        ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,26,0,Math.PI*2);ctx.fill();
-        ctx.fillStyle='#0f1e2e';ctx.strokeStyle='rgba(249,115,22,.7)';ctx.lineWidth=2;ctx.shadowColor='#f97316';ctx.shadowBlur=12;
-        ctx.beginPath();ctx.arc(cx,cy,16,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;
-        ctx.fillStyle='#f97316';ctx.font='bold 8px JetBrains Mono,monospace';ctx.textAlign='center';ctx.fillText('SIM',cx,cy+3);
-        ctx.restore();
-        // Orbiting tools
-        ORBIT_TOOLS.forEach(function(t,i){
-            var a=angle*(i<3?1:-0.6)+t.phase;
-            var tx=cx+t.r*Math.cos(a),ty=cy+t.r*Math.sin(a);
-            var pulse=Math.sin(ft*.09+i)*.5+.5;
-            ctx.save();ctx.fillStyle='#0a1625';ctx.strokeStyle=t.col;ctx.lineWidth=1.5;ctx.shadowColor=t.col;ctx.shadowBlur=4+pulse*6;
-            ctx.fillRect(tx-16,ty-11,32,22);ctx.strokeRect(tx-16,ty-11,32,22);ctx.shadowBlur=0;
-            ctx.font='9px serif';ctx.textAlign='center';ctx.fillText(t.icon,tx,ty-1);
-            ctx.fillStyle=t.col;ctx.font='bold 5px JetBrains Mono,monospace';ctx.fillText(t.label,tx,ty+9);ctx.restore();
-        });
-        // Right side: code snippet
-        var cx2=W*.76,cy2=H*.5;
-        var lines=['def ode_solve():','  t=np.linspace(0,10)','  y=odeint(model,y0,t)','  return y  # 18k pts','','model.eval()','pred=model(X_test)'];
-        ctx.save();ctx.fillStyle='rgba(0,0,0,.4)';ctx.fillRect(cx2-6,12,W*.22,H-24);ctx.strokeStyle='rgba(249,115,22,.2)';ctx.lineWidth=1;ctx.strokeRect(cx2-6,12,W*.22,H-24);
-        lines.forEach(function(l,i){
-            var col=i===0||i===4?'#f59e0b':i===5?'#38bdf8':i===6?'#10b981':'#94a3b8';
-            ctx.fillStyle=col;ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='left';
-            ctx.fillText(l,cx2,20+i*17+(ft*.8%17<8&&i===6?1:0));
-        });
-        // Blinking cursor
-        if(ft%14<7){ctx.fillStyle='#38bdf8';ctx.fillRect(cx2+55,95,5,8);}
-        ctx.restore();
-        requestAnimationFrame(draw);
-    }
-    draw();
-})();
-
-/* ═══════════════════════════════════════════
-   SKILL CANVAS 4 — AEROSPACE ATA RADAR
-   ═══════════════════════════════════════════ */
-(function(){
-    var cv=document.getElementById('cvAero');if(!cv)return;
-    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height,ft=0,activeATA=0,ataTimer=0;
-    var ATA=[
-        {ch:'ATA 32',name:'LANDING GEAR',col:'#8b5cf6',angle:-.5*Math.PI,score:.92},
-        {ch:'ATA 74',name:'IGNITION',col:'#f97316',angle:-.5*Math.PI+Math.PI*2/5,score:.88},
-        {ch:'ATA 27',name:'FLIGHT CTRL',col:'#0ea5e9',angle:-.5*Math.PI+Math.PI*4/5,score:.7},
-        {ch:'ATA 28',name:'FUEL SYSTEM',col:'#10b981',angle:-.5*Math.PI+Math.PI*6/5,score:.6},
-        {ch:'ATA 29',name:'HYDRAULIC',col:'#ef4444',angle:-.5*Math.PI+Math.PI*8/5,score:.82},
-    ];
-    var REGS=[
-        {label:'CS-23.473',x:.72,y:.18,col:'#8b5cf6'},
-        {label:'CS-25.571',x:.85,y:.38,col:'#0ea5e9'},
-        {label:'EASA AMC',x:.85,y:.62,col:'#10b981'},
-        {label:'NCAA Std.',x:.72,y:.82,col:'#f59e0b'},
-    ];
-    var cx=W*.38,cy=H*.5,maxR=58;
-
-    function draw(){
-        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
-        ataTimer--;if(ataTimer<=0){activeATA=(activeATA+1)%ATA.length;ataTimer=80;}
-
-        // Radar grid
-        for(var r=1;r<=4;r++){ctx.strokeStyle='rgba(139,92,246,'+(r*.06)+')';ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,r*maxR/4,0,Math.PI*2);ctx.stroke();}
-        ATA.forEach(function(a){ctx.strokeStyle='rgba(139,92,246,.1)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+maxR*Math.cos(a.angle),cy+maxR*Math.sin(a.angle));ctx.stroke();});
-
-        // Radar polygon
-        ctx.save();ctx.beginPath();
-        ATA.forEach(function(a,i){var r2=a.score*maxR;if(i===0)ctx.moveTo(cx+r2*Math.cos(a.angle),cy+r2*Math.sin(a.angle));else ctx.lineTo(cx+r2*Math.cos(a.angle),cy+r2*Math.sin(a.angle));});
-        ctx.closePath();ctx.fillStyle='rgba(139,92,246,.12)';ctx.strokeStyle='rgba(139,92,246,.5)';ctx.lineWidth=1.5;ctx.fill();ctx.stroke();ctx.restore();
-
-        // Sweep
-        var sweepA=ft*.022;ctx.save();ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,maxR,sweepA-Math.PI*.25,sweepA,false);ctx.closePath();
-        var g=ctx.createRadialGradient(cx,cy,0,cx,cy,maxR);g.addColorStop(0,'rgba(139,92,246,.2)');g.addColorStop(1,'rgba(139,92,246,0)');ctx.fillStyle=g;ctx.fill();ctx.restore();
-
-        // ATA nodes
-        ATA.forEach(function(a,i){
-            var r2=a.score*maxR;var nx=cx+r2*Math.cos(a.angle),ny=cy+r2*Math.sin(a.angle);
-            var isAct=i===activeATA;var pulse=Math.sin(ft*.08+i)*.5+.5;
-            ctx.save();ctx.fillStyle=a.col+(isAct?'44':'22');ctx.strokeStyle=a.col+(isAct?'ff':'88');ctx.lineWidth=isAct?2:1;
-            if(isAct){ctx.shadowColor=a.col;ctx.shadowBlur=12;}
-            ctx.beginPath();ctx.arc(nx,ny,isAct?8:5,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;
-            ctx.fillStyle=isAct?a.col:'#64748b';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';
-            ctx.fillText(a.ch,nx,ny-(isAct?14:11));ctx.restore();
-        });
-
-        // Centre
-        ctx.save();ctx.fillStyle='#0f1e2e';ctx.strokeStyle='rgba(139,92,246,.6)';ctx.lineWidth=1.5;ctx.shadowColor='#8b5cf6';ctx.shadowBlur=10;
-        ctx.beginPath();ctx.arc(cx,cy,10,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;
-        ctx.fillStyle='#a78bfa';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';ctx.fillText('ATA',cx,cy+2);ctx.restore();
-
-        // Regulatory badges (right side)
-        REGS.forEach(function(r){
-            ctx.save();ctx.fillStyle='rgba(0,0,0,.4)';ctx.strokeStyle=r.col+'55';ctx.lineWidth=1;
-            ctx.fillRect(r.x*W,r.y*H-8,W*(1-r.x)*.9,15);ctx.strokeRect(r.x*W,r.y*H-8,W*(1-r.x)*.9,15);
-            ctx.fillStyle=r.col;ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='left';ctx.fillText(r.label,r.x*W+5,r.y*H+3);ctx.restore();
-        });
-
-        // Active ATA label
-        var A=ATA[activeATA];
-        ctx.save();ctx.fillStyle='rgba(0,0,0,.5)';ctx.fillRect(8,H-20,W*.62,14);
-        ctx.fillStyle=A.col;ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='left';
-        ctx.fillText('ACTIVE: '+A.ch+' · '+A.name+' · SCORE: '+Math.round(A.score*100)+'%',12,H-10);ctx.restore();
-
-        requestAnimationFrame(draw);
-    }
-    draw();
-})();
 </script>
 </body>
 </html>
