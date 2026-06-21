@@ -36,7 +36,7 @@
             overflow-x: hidden;
         }
 
-        /* ── NAV (same as rest of site) ── */
+        /* ── NAV ── */
         nav {
             position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
             display: flex; justify-content: space-between; align-items: center;
@@ -72,17 +72,129 @@
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f2240 100%);
-            display: flex; align-items: center;
+            display: flex;
+            align-items: center;
             padding: 7rem 2rem 4rem;
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
         }
         .hero::before {
-            content:''; position:absolute; inset:0;
-            background: radial-gradient(ellipse 60% 60% at 70% 40%, rgba(14,165,233,.12) 0%, transparent 70%);
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 55% 65% at 75% 42%, rgba(14,165,233,.14) 0%, transparent 65%);
+            pointer-events: none;
         }
+
+        /* ── TWO-COLUMN HERO LAYOUT ── */
+        .hero-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Text column */
         .hero-inner {
-            max-width: 900px; margin: 0 auto; position: relative; z-index: 2;
+            flex: 1;
+            min-width: 0;
+            position: relative;
+            z-index: 2;
         }
+
+        /* ── PHOTO COLUMN ── */
+        .hero-photo-col {
+            flex: 0 0 420px;
+            width: 420px;
+            position: relative;
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        /* Atmospheric glow behind photo — fades in after reveal */
+        .hero-photo-col::before {
+            content: '';
+            position: absolute;
+            inset: -50px;
+            background: radial-gradient(
+                ellipse 80% 80% at 65% 50%,
+                rgba(14,165,233,.22) 0%,
+                rgba(14,165,233,.06) 45%,
+                transparent 70%
+            );
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            animation: auraReveal 1.4s ease-out 2.4s forwards;
+        }
+        @keyframes auraReveal {
+            to { opacity: 1; }
+        }
+
+        /* Image wrapper — permanent left-edge spatial fade */
+        .hero-photo-wrap {
+            position: relative;
+            width: 100%;
+            height: 540px;
+            z-index: 1;
+            /* The magic: fades left edge into the hero's dark bg */
+            -webkit-mask-image: linear-gradient(to right,
+                transparent 0%,
+                rgba(0,0,0,.18) 12%,
+                rgba(0,0,0,.60) 26%,
+                rgba(0,0,0,.90) 40%,
+                black 56%
+            );
+            mask-image: linear-gradient(to right,
+                transparent 0%,
+                rgba(0,0,0,.18) 12%,
+                rgba(0,0,0,.60) 26%,
+                rgba(0,0,0,.90) 40%,
+                black 56%
+            );
+        }
+
+        /* The actual photo — starts dark & blurred, reveals with brightness boom */
+        .hero-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+            display: block;
+            border-radius: 14px;
+            filter: brightness(0.05) saturate(0) blur(8px);
+            animation: photoReveal 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+            will-change: filter;
+        }
+        @keyframes photoReveal {
+            0%   { filter: brightness(0.05) saturate(0.0) blur(8px); }
+            38%  { filter: brightness(0.35) saturate(0.2) blur(4px); }
+            75%  { filter: brightness(1.20) saturate(1.1) blur(0px); } /* ← BOOM */
+            100% { filter: brightness(1.02) saturate(1.0) blur(0px); }
+        }
+
+        /* Dark veil — the "shadow" that lifts, creating the reveal moment */
+        .hero-photo-veil {
+            position: absolute;
+            inset: 0;
+            background: #0f172a;
+            border-radius: 14px;
+            z-index: 3;
+            animation: veilLift 1.35s cubic-bezier(0.77, 0, 0.18, 1) 0.55s forwards;
+            will-change: opacity;
+        }
+        @keyframes veilLift {
+            0%   { opacity: 1; }
+            100% { opacity: 0; pointer-events: none; }
+        }
+
+        /* ── HERO TEXT ELEMENTS (unchanged) ── */
         .hero-eyebrow {
             font-family: var(--mono); font-size: .78rem; color: var(--blue);
             letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;
@@ -92,7 +204,7 @@
             content:''; display:inline-block; width:28px; height:1.5px; background:var(--blue);
         }
         .hero h1 {
-            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.8rem);
             font-weight: 900; color: #fff; line-height: 1.08;
             letter-spacing: -1.5px; margin-bottom: 1.5rem;
         }
@@ -101,7 +213,7 @@
             text-shadow: 0 0 40px rgba(14,165,233,.4);
         }
         .hero-sub {
-            font-size: 1.15rem; color: #94a3b8; max-width: 620px;
+            font-size: 1.05rem; color: #94a3b8; max-width: 560px;
             line-height: 1.8; margin-bottom: 2.5rem; font-weight: 400;
         }
         .hero-sub strong { color: #cbd5e1; }
@@ -146,7 +258,6 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
             gap: 2.5rem; text-align: center;
         }
-        .stat-item {}
         .stat-num {
             font-family: var(--mono); font-size: 2.4rem; font-weight: 700;
             color: var(--blue); line-height: 1; margin-bottom: .3rem;
@@ -163,7 +274,6 @@
         /* ── MAIN CONTENT ── */
         .content { max-width: 820px; margin: 0 auto; padding: 5rem 2rem 6rem; }
 
-        /* Section eyebrow label */
         .section-label {
             font-family: var(--mono); font-size: .72rem; font-weight: 700;
             color: var(--blue); letter-spacing: 2px; text-transform: uppercase;
@@ -185,7 +295,6 @@
         .story-block a { color: var(--blue); text-decoration: none; font-weight:600; }
         .story-block a:hover { text-decoration: underline; }
 
-        /* Pull quote */
         .pull-quote {
             border-left: 3px solid var(--blue);
             padding: 1rem 1.5rem;
@@ -200,7 +309,7 @@
             margin: 0 !important;
         }
 
-        /* ── WHAT I BUILD CARDS ── */
+        /* ── BUILD CARDS ── */
         .build-grid {
             display: grid; grid-template-columns: 1fr 1fr;
             gap: 1.25rem; margin: 1.5rem 0 0;
@@ -210,15 +319,9 @@
             border: 1px solid rgba(255,255,255,.06); transition: transform .3s, box-shadow .3s;
         }
         .build-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.25); }
-        .build-card-icon {
-            font-size: 1.4rem; margin-bottom: .8rem;
-        }
-        .build-card h3 {
-            font-size: 1rem; font-weight: 700; color: #f1f5f9; margin-bottom: .4rem;
-        }
-        .build-card p {
-            font-size: .85rem; color: #64748b; line-height: 1.6; margin: 0;
-        }
+        .build-card-icon { font-size: 1.4rem; margin-bottom: .8rem; }
+        .build-card h3 { font-size: 1rem; font-weight: 700; color: #f1f5f9; margin-bottom: .4rem; }
+        .build-card p { font-size: .85rem; color: #64748b; line-height: 1.6; margin: 0; }
         .build-card .card-tag {
             font-family: var(--mono); font-size: .65rem; font-weight: 700;
             padding: 3px 8px; border-radius: 3px; border: 1px solid;
@@ -245,7 +348,7 @@
         .tl-title { font-size:1rem; font-weight:700; color:var(--text); margin-bottom:.25rem; }
         .tl-desc  { font-size:.9rem; color:var(--muted); line-height:1.6; }
 
-        /* ── RESEARCH PILLS LIST ── */
+        /* ── PAPER LIST ── */
         .paper-list { list-style:none; margin:1.2rem 0; }
         .paper-list li {
             display:flex; gap:1rem; align-items:flex-start;
@@ -257,8 +360,7 @@
         .paper-badge {
             font-family:var(--mono); font-size:.65rem; font-weight:700;
             padding:3px 8px; border-radius:4px; border:1px solid;
-            text-transform:uppercase; white-space:nowrap; flex-shrink:0;
-            align-self:center;
+            text-transform:uppercase; white-space:nowrap; flex-shrink:0; align-self:center;
         }
         .badge-cja    { color:#0ea5e9; border-color:#0ea5e9; background:rgba(14,165,233,.08); }
         .badge-ieee   { color:#8b5cf6; border-color:#8b5cf6; background:rgba(139,92,246,.08); }
@@ -272,8 +374,7 @@
         .skill-section { margin-bottom:1.8rem; }
         .skill-category {
             font-family:var(--mono); font-size:.72rem; font-weight:700;
-            color:var(--blue); letter-spacing:1.5px; text-transform:uppercase;
-            margin-bottom:.6rem;
+            color:var(--blue); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:.6rem;
         }
         .chip-cloud { display:flex; flex-wrap:wrap; gap:.5rem; }
         .chip {
@@ -290,17 +391,13 @@
             border: 1px solid rgba(14,165,233,.2);
             text-align: center; margin-top: 2rem;
         }
-        .closing p {
-            font-size: 1.1rem; color: #94a3b8; line-height: 1.8;
-            max-width: 580px; margin: 0 auto 1.5rem;
-        }
+        .closing p { font-size: 1.1rem; color: #94a3b8; line-height: 1.8; max-width: 580px; margin: 0 auto 1.5rem; }
         .closing p strong { color: #e2e8f0; }
         .closing-links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
         .closing-link {
             display:inline-flex; align-items:center; gap:.5rem;
             padding:9px 20px; border-radius:6px; font-size:.85rem; font-weight:700;
-            text-decoration:none; transition:.3s; border:1px solid rgba(255,255,255,.15);
-            color:#94a3b8;
+            text-decoration:none; transition:.3s; border:1px solid rgba(255,255,255,.15); color:#94a3b8;
         }
         .closing-link:hover { border-color:var(--blue); color:var(--blue); transform:translateY(-2px); }
 
@@ -310,12 +407,44 @@
         footer a:hover { color:var(--orange); }
 
         /* ── RESPONSIVE ── */
-        @media(max-width:768px){
-            .nav-links{display:none}
-            .nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:var(--bg);padding:1.5rem 2rem;border-bottom:1px solid var(--light);}
-            .menu-toggle{display:flex}
-            .hero h1{font-size:2.2rem}
-            .build-grid{grid-template-columns:1fr}
+
+        /* Tablet: stack hero columns, show circular avatar */
+        @media(max-width:960px) {
+            .hero-layout { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
+            .hero-photo-col {
+                width: 100%;
+                flex: 0 0 auto;
+                order: -1;            /* photo slides above text on mobile */
+                justify-content: flex-start;
+                align-self: auto;
+            }
+            .hero-photo-col::before { display: none; }
+            .hero-photo-wrap {
+                width: 160px;
+                height: 160px;
+                border-radius: 50%;
+                overflow: hidden;
+                /* Remove the side-fade on mobile — just a clean circle */
+                -webkit-mask-image: none;
+                mask-image: none;
+                border: 3px solid rgba(14,165,233,.4);
+                box-shadow: 0 0 0 6px rgba(14,165,233,.08), 0 8px 32px rgba(0,0,0,.5);
+            }
+            .hero-photo { object-position: center 12%; border-radius: 50%; }
+            .hero-photo-veil { border-radius: 50%; }
+        }
+
+        @media(max-width:768px) {
+            .nav-links { display: none; }
+            .nav-links.active {
+                display: flex; flex-direction: column;
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: var(--bg); padding: 1.5rem 2rem;
+                border-bottom: 1px solid var(--light);
+            }
+            .menu-toggle { display: flex; }
+            .hero h1 { font-size: 2rem; }
+            .build-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -335,37 +464,61 @@
     </ul>
 </nav>
 
-<!-- ══════════════════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════
+     HERO — two-column split with photo reveal
+══════════════════════════════════════════════ -->
 <section class="hero">
-    <div class="hero-inner">
-        <div class="hero-eyebrow">Aerospace Engineer &amp; Digital Twin Technologies + Aerospace AI Researcher</div>
-        <h1>Building the future<br>of <em>aviation intelligence</em><br>from Nigeria.</h1>
-        <p class="hero-sub">
-            I'm <strong>Mohammed Bello Sani</strong> — a final-year Aerospace Engineering student at AFIT Kaduna,
-            researcher, and founder of <strong>Penelope Inc.</strong> I build physics-informed AI systems,
-            blockchain-secured avionics, and full-stack tools — all the way from journal submissions
-            to deployed software.
-        </p>
-        <div class="hero-tags">
-            <span class="hero-tag tag-blue">Digital Twins</span>
-            <span class="hero-tag tag-purple">Aviation Cybersecurity</span>
-            <span class="hero-tag tag-green">PHM &amp; MRO AI</span>
-            <span class="hero-tag tag-orange">Rust · Next.js · PyTorch</span>
-            <span class="hero-tag tag-gold">Beihang M.Sc. 2026</span>
+    <div class="hero-layout">
+
+        <!-- LEFT: Text column -->
+        <div class="hero-inner">
+            <div class="hero-eyebrow">Aerospace Engineer &amp; Digital Twin Technologies + Aerospace AI Researcher</div>
+            <h1>Building the future<br>of <em>aviation intelligence</em><br>from Nigeria.</h1>
+            <p class="hero-sub">
+                I'm <strong>Mohammed Bello Sani</strong> — a final-year Aerospace Engineering student at AFIT Kaduna,
+                researcher, and founder of <strong>Penelope Inc.</strong> I build physics-informed AI systems,
+                blockchain-secured avionics, and full-stack tools — all the way from journal submissions
+                to deployed software.
+            </p>
+            <div class="hero-tags">
+                <span class="hero-tag tag-blue">Digital Twins</span>
+                <span class="hero-tag tag-purple">Aviation Cybersecurity</span>
+                <span class="hero-tag tag-green">PHM &amp; MRO AI</span>
+                <span class="hero-tag tag-orange">Rust · Next.js · PyTorch</span>
+                <span class="hero-tag tag-gold">Beihang M.Sc. 2026</span>
+            </div>
+            <div class="hero-cta">
+                <a href="/projects.html" class="btn-primary"><i class="fas fa-rocket"></i> See My Projects</a>
+                <a href="https://github.com/Sm-bello" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="btn-ghost"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
         </div>
-        <div class="hero-cta">
-            <a href="/projects.html" class="btn-primary"><i class="fas fa-rocket"></i> See My Projects</a>
-            <a href="https://github.com/Sm-bello" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="btn-ghost"><i class="fab fa-linkedin"></i> LinkedIn</a>
+
+        <!-- RIGHT: Photo column -->
+        <!--
+            📸 IMAGE SETUP:
+            Save your photo as  /assets/bello.webp  in your project root.
+            (i.e. same folder level as index.html / about.html / public/)
+            Then it will load at the path below automatically on Vercel.
+        -->
+        <div class="hero-photo-col">
+            <div class="hero-photo-wrap">
+                <img
+                    src="/assets/bello.webp"
+                    alt="Mohammed Bello Sani — Aerospace Engineer & Researcher"
+                    class="hero-photo"
+                >
+                <!-- Dark veil that lifts for the "boom" reveal -->
+                <div class="hero-photo-veil"></div>
+            </div>
         </div>
+
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      STATS BAND
-══════════════════════════════════════════════════════ -->
+══════════════════════════════════════════════ -->
 <div class="stats-band">
     <div class="stats-inner">
         <div class="stat-item">
@@ -391,9 +544,9 @@
     </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════
-     MAIN CONTENT — 3-MINUTE PORTFOLIO READ
-══════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════ -->
 <div class="content">
 
     <!-- 1. WHO I AM -->
@@ -448,7 +601,7 @@
         </p>
     </div>
 
-    <!-- 3. WHAT I RESEARCH -->
+    <!-- 3. RESEARCH -->
     <div class="story-block">
         <div class="section-label">Research &amp; Publications</div>
         <h2>Four papers. Four journals. All as an undergraduate.</h2>
@@ -491,7 +644,7 @@
         </p>
         <div class="build-grid">
             <div class="build-card">
-                <span class="card-tag tag-purple" style="font-family:var(--mono);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:3px;border:1px solid rgba(139,92,246,.5);background:rgba(139,92,246,.08);color:#a78bfa;display:inline-block;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px;">Cybersecurity</span>
+                <span class="card-tag" style="font-family:var(--mono);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:3px;border:1px solid rgba(139,92,246,.5);background:rgba(139,92,246,.08);color:#a78bfa;display:inline-block;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px;">Cybersecurity</span>
                 <div class="build-card-icon">🔐</div>
                 <h3>PHI-CHAIN v3.0</h3>
                 <p>Live blockchain ground station for ADS-B/ACARS/CPDLC integrity — three-node Hyperledger Fabric network, GF(2⁸) Shamir key splitting, live anomaly detection.</p>
@@ -517,7 +670,7 @@
         </div>
     </div>
 
-    <!-- 5. JOURNEY TIMELINE -->
+    <!-- 5. TIMELINE -->
     <div class="story-block">
         <div class="section-label">The Journey</div>
         <h2>From AFIT Kaduna to Beihang University.</h2>
@@ -559,7 +712,6 @@
     <div class="story-block">
         <div class="section-label">Technical Depth</div>
         <h2>The stack behind the work.</h2>
-
         <div class="skill-section">
             <div class="skill-category">Aerospace &amp; Aviation</div>
             <div class="chip-cloud">
