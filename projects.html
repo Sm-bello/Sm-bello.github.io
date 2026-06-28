@@ -17,7 +17,7 @@
             --neon-orange:#f97316;--neon-blue:#0ea5e9;--neon-green:#10b981;
             --neon-purple:#8b5cf6;--navy-stroke:#1e293b;
             --neon-red:#ef4444;--neon-yellow:#f59e0b;--neon-teal:#06b6d4;
-            --neon-pink:#ec4899;--deep-space:#050b14;
+            --neon-pink:#ec4899;
             --font-mono:'JetBrains Mono',monospace;
         }
         body{font-family:'Inter',sans-serif;background:var(--bg-milky);color:var(--text-dark);line-height:1.6;overflow-x:hidden}
@@ -42,13 +42,14 @@
         .page-hero p{font-size:1.2rem;color:#94a3b8;max-width:700px;margin:0 auto;animation:fadeInUp .8s ease-out .2s both;position:relative;z-index:2;font-family:var(--font-mono)}
         @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
         .container{max-width:1200px;margin:-4rem auto 4rem;padding:0 2rem;position:relative;z-index:2}
+        /* ── Flagship card ── */
         .flagship-card{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border-radius:20px;overflow:hidden;margin-bottom:5rem;box-shadow:0 20px 60px rgba(0,0,0,.3);border:1px solid rgba(14,165,233,.3);position:relative;animation:slideUp .8s ease-out}
         @keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
         .flagship-grid{display:grid;grid-template-columns:1.3fr 1fr;min-height:500px}
         .flagship-content{padding:4rem;color:white;display:flex;flex-direction:column;justify-content:center}
         .status-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(16,185,129,.15);color:var(--neon-green);padding:8px 18px;border-radius:50px;font-size:.75rem;font-weight:800;margin-bottom:2rem;border:1px solid var(--neon-green);width:fit-content;text-transform:uppercase;letter-spacing:1px}
         .status-dot{width:10px;height:10px;background:var(--neon-green);border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 10px var(--neon-green)}
-        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+        @shadow-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
         .flagship-content h2{font-size:2.5rem;margin-bottom:1.5rem;line-height:1.1;color:white}
         .flagship-content h2 .highlight{color:var(--neon-blue);text-shadow:0 0 20px rgba(14,165,233,.5)}
         .flagship-content p{color:#cbd5e1;font-size:1.05rem;line-height:1.8;margin-bottom:2rem}
@@ -69,15 +70,19 @@
         .flagship-visual{background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;border-left:1px solid rgba(14,165,233,.2);overflow:hidden}
         .grid-bg{position:absolute;width:200%;height:200%;background-image:linear-gradient(rgba(14,165,233,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.1) 1px,transparent 1px);background-size:40px 40px;transform:perspective(500px) rotateX(60deg);animation:gridMove 15s linear infinite}
         @keyframes gridMove{0%{transform:perspective(500px) rotateX(60deg) translateY(0)}100%{transform:perspective(500px) rotateX(60deg) translateY(40px)}}
+        /* ── canvas wrappers ── */
         .cv-wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;padding:16px 0}
         .cv-label{color:#94a3b8;font-size:.63rem;margin-bottom:8px;text-align:center;font-family:var(--font-mono);position:relative;z-index:2}
         .cv-telem{margin-top:12px;font-family:var(--font-mono);font-size:.67rem;text-align:left;width:88%;background:rgba(0,0,0,.65);padding:12px;border-radius:8px;border:1px solid rgba(14,165,233,.3);line-height:2.0;position:relative;z-index:2}
         .t-ok{color:#10b981}.t-warn{color:#f59e0b}.t-alert{color:#ef4444}.t-info{color:#94a3b8}.t-blue{color:#38bdf8}.t-purple{color:#a78bfa}.t-teal{color:#06b6d4}
+        /* ── PHI-CHAIN ── */
         .phichain-visual{background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;border-left:1px solid rgba(139,92,246,.25);overflow:hidden}
         .phichain-grid-bg{position:absolute;width:200%;height:200%;background-image:linear-gradient(rgba(139,92,246,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.08) 1px,transparent 1px);background-size:40px 40px;transform:perspective(500px) rotateX(60deg);animation:gridMove 20s linear infinite}
+        /* ── Section headers ── */
         .section-header{margin:5rem 0 3rem;display:flex;align-items:center;gap:1rem;border-bottom:2px solid #e2e8f0;padding-bottom:1rem}
         .section-header i{color:var(--neon-orange);font-size:2rem}
         .section-header h2{font-size:2rem;color:var(--text-dark);text-transform:uppercase;letter-spacing:1px;font-weight:800}
+        /* ── Future grid cards (upgraded) ── */
         .future-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;margin-bottom:4rem}
         .future-card{background:#0f172a;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:all .4s ease;position:relative}
         .future-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
@@ -88,6 +93,7 @@
         .future-card p{color:#94a3b8;font-size:.88rem;line-height:1.8;margin-bottom:1rem}
         .future-tech{display:flex;gap:6px;flex-wrap:wrap;margin-top:.8rem}
         .future-pill{font-family:var(--font-mono);font-size:.62rem;padding:3px 8px;border-radius:3px;border:1px solid rgba(255,255,255,.1);color:#64748b;background:rgba(255,255,255,.03)}
+        /* ── Interactive / Archives ── */
         .interactive-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:4rem}
         .interactive-card{background:white;padding:2.5rem;border-radius:12px;border:2px solid transparent;box-shadow:0 5px 20px rgba(0,0,0,.08);transition:all .4s ease;cursor:pointer}
         .interactive-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
@@ -153,9 +159,13 @@
                 <div class="mini-stat"><h4>&lt;1.5s</h4><span>Edge Latency</span></div>
             </div>
             <div class="tech-stack">
-                <span class="tech-pill">ODE ENGINE</span><span class="tech-pill">CNN-BiLSTM</span>
-                <span class="tech-pill">OLLAMA 3.2</span><span class="tech-pill">SHAP XAI</span>
-                <span class="tech-pill">PYTORCH</span><span class="tech-pill">FOCAL LOSS</span><span class="tech-pill">CS-25.473</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">ODE ENGINE</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">CNN-BiLSTM</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">OLLAMA 3.2</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">SHAP XAI</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">PYTORCH</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">FOCAL LOSS</span>
+                <span class="tech-pill" style="color:#38bdf8;border-color:rgba(14,165,233,.5);background:rgba(14,165,233,.1);">CS-25.473</span>
             </div>
             <div class="flagship-actions">
                 <a href="https://github.com/Sm-bello/AeroTwin-B787-Prognostics" target="_blank" class="flagship-btn github"><i class="fab fa-github"></i> GitHub</a>
@@ -200,8 +210,12 @@
                 <div class="mini-stat"><h4 style="color:#a78bfa;">100%</h4><span>Attack Detect</span></div>
             </div>
             <div class="tech-stack">
-                <span class="tech-pill">HYPERLEDGER FABRIC</span><span class="tech-pill">ED25519</span>
-                <span class="tech-pill">ADS‑B</span><span class="tech-pill">CPDLC</span><span class="tech-pill">FLIGHTGEAR</span><span class="tech-pill">WSL2</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">HYPERLEDGER FABRIC</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">ED25519</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">ADS‑B</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">CPDLC</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">FLIGHTGEAR</span>
+                <span class="tech-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.1);">WSL2</span>
             </div>
             <div class="flagship-actions">
                 <a href="https://github.com/Sm-bello/Securing-Aircraft-Comms-with-PHI-CHAIN" target="_blank" class="flagship-btn github"><i class="fab fa-github"></i> GitHub</a>
@@ -230,11 +244,11 @@
                 MANUSCRIPT READY · AIAA SCITECH 2027
             </div>
             <h2>RDE Combustion Dynamics<br><span class="highlight" style="color:#f472b6; text-shadow:0 0 20px rgba(236,72,153,.5);">Physics-Consistent CVAE & Surrogate</span></h2>
-            <p>An advanced generative and predictive architecture for modeling <strong>Rotating Detonation Engine (RDE)</strong> flowfields. Resolves the severe computational bottlenecks of traditional Navier-Stokes solvers by leveraging a high-fidelity <strong>72-case OpenFOAM CFD dataset</strong>. Implements a <strong>Conditional Variational Autoencoder (CVAE)</strong> to reconstruct physics-consistent latent topologies, matching detonation wave configurations with extreme speedups.</p>
+            <p>An advanced generative and predictive architecture for modeling <strong>Rotating Detonation Engine (RDE)</strong> flowfields. Resolves severe computational tracking penalties of traditional Navier-Stokes configurations by utilizing a high-fidelity <strong>72-case OpenFOAM CFD dataset</strong>. Implements a <strong>Conditional Variational Autoencoder (CVAE)</strong> to mathematically construct physics-consistent synthetic latent topologies, paired with neural surrogates for instant waveform parsing.</p>
             <div class="stats-strip">
                 <div class="mini-stat"><h4 style="color:#f472b6;">72</h4><span>CFD Cases</span></div>
                 <div class="mini-stat"><h4 style="color:#f472b6;">CVAE</h4><span>Augment</span></div>
-                <div class="mini-stat"><h4 style="color:#f472b6;">1000x</h4><span>Inference Speed</span></div>
+                <div class="mini-stat"><h4 style="color:#f472b6;">1000x</h4><span>Speedup</span></div>
                 <div class="mini-stat"><h4 style="color:#f472b6;">98.4%</h4><span>Wave Match</span></div>
             </div>
             <div class="tech-stack">
@@ -344,39 +358,45 @@
     </div>
 </div>
 
-<div class="section-header"><i class="fas fa-wave-square"></i><h2>Live AI & Fluid Proof of Concepts</h2></div>
+<div class="section-header"><i class="fas fa-wave-square"></i><h2>Fluid PoCs & Intelligent Agents</h2></div>
 
-<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; margin-bottom: 3rem;">
-    <div style="background:white; border-radius:16px; padding:2.5rem; border:2px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--neon-blue); font-weight:700; padding:4px 10px; background:rgba(14,165,233,.1); border-radius:4px; border:1px solid var(--neon-blue); text-transform:uppercase; letter-spacing:1px; display:inline-block; margin-bottom:1.5rem;">LIVE INTERACTIVE RUNTIME</span>
-            <i class="fas fa-wind" style="font-size:2.5rem; color:var(--neon-blue); margin-bottom:1.5rem; display:block;"></i>
-            <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--text-dark);">AI for Fluids (Neural CFD)</h3>
-            <p style="color:var(--text-light); font-size:.9rem; margin-bottom:1.5rem; line-height:1.7;">Revolutionizing traditional aerodynamic computational loops by implementing <strong>Physics-Informed Neural Operators (PINNs)</strong>. Swaps iterative Navier-Stokes calculations for near-instant execution profiles using specialized web runtime clusters.</p>
-        </div>
-        <div style="width:100%; height:450px; border-radius:12px; overflow:hidden; border:1px solid #e0e0e0; box-shadow:0 8px 24px rgba(0,0,0,.08);">
-            <iframe src="https://sm-bello-airfoil-digital-twin.hf.space" width="100%" height="100%" frameborder="0" style="border:none;" loading="lazy" allow="camera;microphone;geolocation"></iframe>
-        </div>
+<div style="background:white;border-radius:16px;padding:3rem;border:2px solid #e2e8f0;margin-bottom:3rem;">
+    <span style="font-family:var(--font-mono);font-size:.7rem;color:var(--neon-orange);font-weight:700;padding:4px 10px;background:rgba(249,115,22,.1);border-radius:4px;border:1px solid var(--neon-orange);text-transform:uppercase;letter-spacing:1px;display:inline-block;margin-bottom:1.5rem;">LIVE PROOF OF CONCEPT</span>
+    <i class="fas fa-wind" style="font-size:3rem;color:var(--neon-blue);margin-bottom:2rem;display:block;"></i>
+    <h3 style="font-size:1.6rem;margin-bottom:1rem;color:var(--text-dark);">AI for Fluids (Neural CFD)</h3>
+    <p style="color:var(--text-light);margin-bottom:1.5rem;line-height:1.8;">Revolutionizing computational fluid dynamics by replacing traditional Navier-Stokes solvers with <strong>Physics-Informed Neural Operators (PINNs)</strong>. The interactive engine below uses Aerosandbox/XFoil for real-time demonstration; final deployment will transition to <strong>ANSYS Fluent</strong> for industrial-grade predictions.</p>
+    <div style="width:100%;height:850px;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.15);border:1px solid #e0e0e0;">
+        <iframe src="https://sm-bello-airfoil-digital-twin.hf.space" width="100%" height="100%" frameborder="0" style="border:none;" loading="eager" allow="camera;microphone;geolocation"></iframe>
     </div>
+</div>
 
-    <div class="flagship-card" style="margin-bottom:0; border-color:rgba(16,185,129,.4); display:flex; flex-direction:column; justify-content:center; padding:2.5rem; background:linear-gradient(135deg, #091e14 0%, #030a07 100%);">
-        <span class="future-tag" style="color:var(--neon-green); border-color:var(--neon-green); background:rgba(16,185,129,.1); width:fit-content;">LOCAL SYSTEM AUTONOMY</span>
-        <i class="fas fa-brain" style="font-size:2.5rem; color:var(--neon-green); margin-bottom:1.5rem; display:block;"></i>
-        <h3 style="font-size:1.6rem; color:white; margin-bottom:1rem;">Penelope: Autonomous Engineering Agent</h3>
-        <p style="color:#94a3b8; font-size:.92rem; line-height:1.7; margin-bottom:1.5rem;">
-            A custom local autonomous AI engine architected to execute algorithmic design optimization loops and streamline documentation workflows. Powered by a high-resiliency cloud intelligence pipeline cascade (DeepSeek R1, Groq, Gemini, Qwen) backed by an entirely air-gapped local Llama 3.2 Ollama deployment. Operates inside a strict operational ReAct execution frame secured by a custom Galois Field GF(2^8) soul-lock protection routine.
-        </p>
-        <div class="cv-telem" style="color:var(--neon-green); border-color:rgba(16,185,129,.3); background:rgba(0,0,0,.6); width:100%; font-size:.7rem; line-height:1.8; margin-bottom:1.5rem;">
-            <span class="t-ok">[AGENT]</span> State Initialized: Penelope V2 Core<br>
-            <span class="t-info">[REACT]</span> Thought: Auditing structural margins for wing assembly templates...<br>
-            <span class="t-purple">[LOCK] </span> Galois matrix activation sequence verified.<br>
-            <span class="t-warn">[EXEC] </span> Routing inference context over local Llama 3.2 node via Ollama.
+<div class="flagship-card" style="border-color:rgba(16,185,129,.45); background:linear-gradient(135deg, #091e14 0%, #030a07 100%);">
+    <div class="flagship-grid">
+        <div class="flagship-content">
+            <div class="status-pill" style="background:rgba(16,185,129,.15); color:var(--neon-green); border-color:var(--neon-green);">
+                <div class="status-dot" style="background:var(--neon-green); box-shadow:0 0 10px var(--neon-green);"></div>
+                LOCAL DEPLOYMENT INSTANCE
+            </div>
+            <h2>Penelope Agent<br><span class="highlight" style="color:var(--neon-green); text-shadow:0 0 20px rgba(16,185,129,.5);">Autonomous Engineering Agent System</span></h2>
+            <p>A native autonomous workflows orchestrator built to manage structural optimization studies and compile regulatory compliance pipelines. Driven by a high-availability <strong>multi-provider cloud cascade routine</strong> (DeepSeek R1, Groq, Gemini, Qwen) with air-gapped local LLM **Llama 3.2 fallbacks via Ollama**. Evaluates structural parameters within strict automated **ReAct loops** shielded behind a Galois Field $\text{GF}(2^8)$ cryptographic soul-lock security matrix.</p>
+            <div class="tech-stack">
+                <span class="tech-pill" style="color:var(--neon-green); border-color:rgba(16,185,129,.4); background:rgba(16,185,129,.05);">REACT AGENT CONTROL</span>
+                <span class="tech-pill" style="color:var(--neon-green); border-color:rgba(16,185,129,.4); background:rgba(16,185,129,.05);">OLLAMA STANDALONE</span>
+                <span class="tech-pill" style="color:var(--neon-green); border-color:rgba(16,185,129,.4); background:rgba(16,185,129,.05);">GALOIS PROTECTION</span>
+                <span class="tech-pill" style="color:var(--neon-green); border-color:rgba(16,185,129,.4); background:rgba(16,185,129,.05);">INTELLIGENCE CASCADE</span>
+            </div>
         </div>
-        <div class="tech-stack" style="margin-top:0;">
-            <span class="tech-pill" style="color:var(--neon-green); border-color:rgba(16,185,129,.3); background:rgba(16,185,129,.05);">REACT LOOP</span>
-            <span class="tech-pill" style="color:var(--neon-green); border-color:rgba(16,185,129,.3); background:rgba(16,185,129,.05);">OLLAMA INSTANCE</span>
-            <span class="tech-pill" style="color:var(--neon-green); border-color:rgba(16,185,129,.3); background:rgba(16,185,129,.05);">GALOIS MATRIX</span>
-            <span class="tech-pill" style="color:var(--neon-green); border-color:rgba(16,185,129,.3); background:rgba(16,185,129,.05);">MULTI-MODEL CASCADE</span>
+        <div class="flagship-visual" style="border-left-color:rgba(16,185,129,.25);">
+            <div class="grid-bg" style="background-image:linear-gradient(rgba(16,185,129,.08) 1px,transparent 1px), linear-gradient(90deg,rgba(16,185,129,.08) 1px,transparent 1px);"></div>
+            <div class="cv-wrap">
+                <span class="cv-label" style="color:var(--neon-green);">PENELOPE DEPLOYMENT PIPELINE · AUTOMATED LOGS</span>
+                <div class="cv-telem" style="color:var(--neon-green); border-color:rgba(16,185,129,.35); width:88%; background:rgba(0,0,0,0.75);">
+                    <span class="t-ok">[AGENT]</span> Standby loop broken: Initializing Penelope V2 Core<br>
+                    <span class="t-info">[REACT]</span> Thought: Querying fatigue lifespan margins for DO228 beams.<br>
+                    <span class="t-purple">[LOCK] </span> GF(2^8) Authorization string verified. Memory safe.<br>
+                    <span class="t-warn">[EXEC] </span> Tunneling inference over local Llama 3.2 container.
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -386,36 +406,36 @@
 
     <div class="future-card" style="border-color:rgba(14,165,233,0.25);">
         <div class="future-card-body">
-            <span class="future-tag" style="color:var(--neon-blue); border-color:var(--neon-blue); background:rgba(14,165,233,.05);">TAURI V2 + RUST NATIVE</span>
+            <span class="future-tag" style="color:var(--neon-blue); border-color:var(--neon-blue); background:rgba(14,165,233,.05);">TAURI V2 + RUST HANDLERS</span>
             <h3 style="margin-top:0.5rem; color:white;">Lifestone Desktop App</h3>
-            <p style="color:#94a3b8; font-size:.88rem;">An offline-optimized native system interface running over React and Rust handlers. Couples a native whisper-rs framework for high-speed speech-to-text audio ingestion with an ultra-low latency Aho-Corasick data detection pattern and fast ONNX pipelines. Features fully-integrated NewTek NDI broadcast layers and background PowerPoint COM bridge controllers.</p>
+            <p style="color:#94a3b8; font-size:.88rem;">An offline-native orchestration runtime built over React and Rust structures. Features integrated local **whisper-rs pipelines** for fast audio parsing, combined with **Aho-Corasick searching arrays** and ONNX stacks for sub-millisecond transcript logging. Hooks directly into active NewTek NDI broad streams and background PowerPoint COM slots.</p>
             <div class="future-tech">
-                <span class="future-pill">TAURI V2</span><span class="future-pill">RUST NATIVE</span><span class="future-pill">WHISPER-RS</span>
-                <span class="future-pill">ONNX ENGINE</span><span class="future-pill">NDI STREAMS</span><span class="future-pill">COM INTEROP</span>
+                <span class="future-pill">TAURI V2</span><span class="future-pill">RUST CORE</span><span class="future-pill">WHISPER-RS</span>
+                <span class="future-pill">ONNX ENGINE</span><span class="future-pill">NDI LAYER</span>
             </div>
         </div>
     </div>
 
     <div class="future-card" style="border-color:rgba(249,115,22,0.25);">
         <div class="future-card-body">
-            <span class="future-tag" style="color:var(--neon-orange); border-color:var(--neon-orange); background:rgba(249,115,22,.05);">FLUTTER FRAMEWORKS</span>
-            <h3 style="margin-top:0.5rem; color:white;">Lifestones Mobile Application</h3>
-            <p style="color:#94a3b8; font-size:.88rem;">A cross-platform production interface designed around a clean 5-tier architecture scheme. Features persistent text rendering pipelines paired with asynchronous background media synchronization blocks. Connected directly to Firebase synchronization engines and decentralized LiveKit streaming rooms, managed over automated GitHub Actions workflows.</p>
+            <span class="future-tag" style="color:var(--neon-orange); border-color:var(--neon-orange); background:rgba(249,115,22,.05);">CROSS-PLATFORM PRODUCTION</span>
+            <h3 style="margin-top:0.5rem; color:white;">Lifestones Mobile Portal</h3>
+            <p style="color:#94a3b8; font-size:.88rem;">A robust application deployment running over a clean 5-tier architecture configuration. Incorporates optimized offline text parsing schemas and media play controllers linked directly to global **Firebase database layers** and **LiveKit channels**. Fully maintained via automated GitHub Actions testing procedures.</p>
             <div class="future-tech">
-                <span class="future-pill">FLUTTER 3.x</span><span class="future-pill">LIVEKIT REALTIME</span><span class="future-pill">FIREBASE RTDB</span>
-                <span class="future-pill">ACTIONS CI/CD</span><span class="future-pill">AUDIO SERVICES</span>
+                <span class="future-pill">FLUTTER 3.x</span><span class="future-pill">FIREBASE DB</span><span class="future-pill">LIVEKIT INFRA</span>
+                <span class="future-pill">ACTIONS CI/CD</span>
             </div>
         </div>
     </div>
 
     <div class="future-card" style="border-color:rgba(139,92,246,0.25);">
         <div class="future-card-body">
-            <span class="future-tag" style="color:var(--neon-purple); border-color:var(--neon-purple); background:rgba(139,92,246,.05);">FULL-STACK APPLICATION</span>
-            <h3 style="margin-top:0.5rem; color:white;">COLIG Cloud Portal</h3>
-            <p style="color:#94a3b8; font-size:.88rem;">A responsive full-stack network application utilizing a Next.js framework combined with an optimized PocketBase instance containerized on Fly.io clusters. Drives low-latency chat metrics and video transmission over an enterprise LiveKit cloud layout. Features structured control views handling database registries and secure asset access layers.</p>
+            <span class="future-tag" style="color:var(--neon-purple); border-color:var(--neon-purple); background:rgba(139,92,246,.05);">FULL-STACK ARCHITECTURE</span>
+            <h3 style="margin-top:0.5rem; color:white;">COLIG Cloud Infrastructure</h3>
+            <p style="color:#94a3b8; font-size:.88rem;">A production cloud interface featuring Next.js backbones hooked to lightweight **PocketBase servers inside Fly.io edge microcontainers**. Manages real-time data metrics, messaging queues, and direct streaming spaces over a LiveKit network map, fitted with high-density storage access dashboards.</p>
             <div class="future-tech">
-                <span class="future-pill">NEXT.JS</span><span class="future-pill">POCKETBASE</span><span class="future-pill">FLY.IO INSTANCE</span>
-                <span class="future-pill">LIVEKIT INFRA</span><span class="future-pill">TAILWIND STYLES</span>
+                <span class="future-pill">NEXT.JS</span><span class="future-pill">POCKETBASE</span><span class="future-pill">FLY.IO EDGE</span>
+                <span class="future-pill">LIVEKIT WEB</span>
             </div>
         </div>
     </div>
@@ -423,17 +443,18 @@
 
 <div class="section-header"><i class="fas fa-flask"></i><h2>Active & Future Initiatives</h2></div>
 
-<div class="flagship-card" style="border-color:rgba(16,185,129,.4);">
+<div class="flagship-card" style="border-color:rgba(16,185,129,.4); margin-bottom: 5rem;">
     <div class="flagship-grid">
         <div class="flagship-content">
             <div class="status-pill" style="background:rgba(16,185,129,.15);color:#34d399;border-color:#10b981;">
                 <div class="status-dot"></div>ACTIVE DEVELOPMENT · ENERGY SECTOR
             </div>
             <h2>NNPC Pipeline<br><span class="highlight" style="color:#34d399;text-shadow:0 0 20px rgba(16,185,129,.5);">Health Monitoring System</span></h2>
-            <p>A real-time, IoT-driven <strong>pipeline integrity monitoring platform</strong> designed for the Nigerian National Petroleum Corporation (NNPC) crude oil network. The system fuses distributed fibre-optic and MEMS pressure sensor arrays with an <strong>LSTM-Autoencoder anomaly engine</strong> to detect leaks, corrosion hotspots, third-party interference, and wax deposition — hours before catastrophic failure.</p>
+            <p>A real-time, IoT-driven <strong>pipeline integrity monitoring platform</strong> designed for the Nigerian National Petroleum Corporation (NNPC) crude oil network. The system fuses distributed fibre-optic and MEMS pressure sensor arrays with an <strong>LSTM-Autoencoder anomaly engine</strong> to detect leaks, corrosion hotspots, third-party interference, and wax deposition — hours before catastrophic failure. A <strong>GIS-integrated dashboard</strong> maps every fault event to its GPS coordinate on the Trans-Niger Pipeline corridor in real time.</p>
             <ul style="list-style:none;margin:0 0 1.5rem;padding:0;">
                 <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#34d399;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Leak detection</strong> — sub-1 bar pressure anomaly detection along 614 km corridor with GPS fault localisation &lt;50 m accuracy</span></li>
                 <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#34d399;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Corrosion RUL prediction</strong> — physics-informed electrochemical ODE model feeding BiLSTM wall-thickness degradation estimator</span></li>
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#34d399;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Bunkering/tampering alerts</strong> — acoustic emission signature classifier differentiates equipment noise from unauthorised tapping</span></li>
             </ul>
             <div class="stats-strip">
                 <div class="mini-stat"><h4 style="color:#34d399;">614km</h4><span>Pipeline</span></div>
@@ -442,9 +463,13 @@
                 <div class="mini-stat"><h4 style="color:#34d399;">LSTM</h4><span>Anomaly AI</span></div>
             </div>
             <div class="tech-stack">
-                <span class="tech-pill">LSTM-AUTOENCODER</span><span class="tech-pill">NODE-RED IOT</span>
-                <span class="tech-pill">INFLUXDB</span><span class="tech-pill">GRAFANA GIS</span>
-                <span class="tech-pill">MQTT</span><span class="tech-pill">FASTAPI</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">LSTM-AUTOENCODER</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">NODE-RED IOT</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">INFLUXDB</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">GRAFANA GIS</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">MQTT</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">FASTAPI</span>
+                <span class="tech-pill" style="color:#34d399;border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.08);">PYTORCH</span>
             </div>
         </div>
         <div class="flagship-visual" style="border-left-color:rgba(16,185,129,.25);background:#000;">
@@ -463,7 +488,7 @@
     </div>
 </div>
 
-<div class="flagship-card" style="border-color:rgba(249,115,22,.4);">
+<div class="flagship-card" style="border-color:rgba(249,115,22,.4); margin-bottom: 5rem;">
     <div class="flagship-grid">
         <div class="flagship-content">
             <div class="status-pill" style="background:rgba(249,115,22,.15);color:#fb923c;border-color:#f97316;">
@@ -471,7 +496,13 @@
                 IN DEVELOPMENT · CRANFIELD COLLABORATION
             </div>
             <h2>AI-Powered MRO<br><span class="highlight" style="color:#fb923c;text-shadow:0 0 20px rgba(249,115,22,.5);">Inventory Forecasting Platform</span></h2>
-            <p>A joint initiative with <strong>Muhammed Fikri (PhD Researcher, Cranfield University)</strong> — building an end-to-end AI platform that transforms MRO parts management from reactive stockpiling to <strong>predictive, zero-AOG inventory control</strong>. The system ingests flight cycles, component MTBF curves, supplier lead times, and live maintenance records to produce a <strong>time-series demand forecast</strong> for every line-replaceable unit.</p>
+            <p>A joint initiative with <strong>Muhammed Fikri (PhD Researcher, Cranfield University)</strong> — building an end-to-end AI platform that transforms MRO parts management from reactive stockpiling to <strong>predictive, zero-AOG inventory control</strong>. The system ingests flight cycles, component MTBF curves, supplier lead times, and live maintenance records to produce a <strong>time-series demand forecast</strong> for every line-replaceable unit, triggering purchase orders autonomously before a stock-out can ground an aircraft.</p>
+            <ul style="list-style:none;margin:0 0 1.5rem;padding:0;">
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#fb923c;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Demand forecasting</strong> — Transformer-LSTM hybrid trained on 5-year consumption records; 14-day rolling horizon with 91% MAPE accuracy</span></li>
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#fb923c;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Supplier chain optimisation</strong> — multi-echelon inventory model balancing safety stock, EOQ, and AOG risk scores per part number</span></li>
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#fb923c;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">CMMS integration</strong> — REST API bridge to AMOS / SAP PM for real-time part consumption feedback and auto-replenishment orders</span></li>
+                <li style="font-size:.9rem;color:#94a3b8;margin-bottom:8px;display:flex;gap:12px;line-height:1.6;"><span style="color:#fb923c;font-family:var(--font-mono);font-weight:700;">→</span><span><strong style="color:#cbd5e1;">Explainability dashboard</strong> — SHAP-driven "why this order?" interface giving engineers full visibility into every AI recommendation</span></li>
+            </ul>
             <div class="stats-strip">
                 <div class="mini-stat"><h4 style="color:#fb923c;">91%</h4><span>MAPE Acc.</span></div>
                 <div class="mini-stat"><h4 style="color:#fb923c;">14-day</h4><span>Forecast</span></div>
@@ -479,9 +510,14 @@
                 <div class="mini-stat"><h4 style="color:#fb923c;">0-AOG</h4><span>Target</span></div>
             </div>
             <div class="tech-stack">
-                <span class="tech-pill">TRANSFORMER-LSTM</span><span class="tech-pill">PYTORCH</span>
-                <span class="tech-pill">PROPHET</span><span class="tech-pill">FASTAPI</span>
-                <span class="tech-pill">POSTGRESQL</span><span class="tech-pill">SHAP XAI</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">TRANSFORMER-LSTM</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">PYTORCH</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">PROPHET</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">FASTAPI</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">POSTGRESQL</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">SHAP XAI</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">REACT DASHBOARD</span>
+                <span class="tech-pill" style="color:#fb923c;border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.08);">SAP-PM API</span>
             </div>
             <p style="color:#64748b;font-size:.8rem;margin-top:1rem;font-style:italic;">🎓 Joint research with <strong style="color:#fb923c;">Muhammed Fikri</strong>, PhD Researcher · Cranfield University, UK</p>
         </div>
@@ -510,10 +546,11 @@
         <div class="future-card-body">
             <span class="future-tag" style="color:#06b6d4;border-color:#06b6d4;background:rgba(6,182,212,.08);">IN DEVELOPMENT</span>
             <h3>Rotating Machinery & Bearing Digital Twin</h3>
-            <p>A vibration-signature-driven Digital Twin architecture for rotating equipment. Combines <strong>FFT/envelope analysis</strong> with a CNN-LSTM fault classifier trained on CWRU bearing datasets to predict spall, pitting, and cage fracture up to 50 duty cycles before wear.</p>
+            <p>A vibration-signature-driven Digital Twin architecture for rotating equipment — aircraft engines, APU shafts, and gearboxes. Combines <strong>FFT/envelope analysis</strong> with a CNN-LSTM fault classifier trained on CWRU bearing datasets to predict spall, pitting, and cage fracture up to 50 duty cycles before detectable wear. Integrates MATLAB Simulink multi-body dynamics with a real-time Python inference layer for continuous RUL tracking under variable load and speed conditions.</p>
             <div class="future-tech">
                 <span class="future-pill">CWRU DATASET</span><span class="future-pill">FFT/ENVELOPE</span>
                 <span class="future-pill">CNN-LSTM</span><span class="future-pill">SIMULINK</span>
+                <span class="future-pill">SCIPY SIGNAL</span><span class="future-pill">PYTORCH</span><span class="future-pill">INFLUXDB</span>
             </div>
         </div>
     </div>
@@ -525,10 +562,12 @@
         <div class="future-card-body">
             <span class="future-tag" style="color:#f87171;border-color:#ef4444;background:rgba(239,68,68,.08);">CONCEPT PHASE</span>
             <h3>Airframe Structural Digital Twin</h3>
-            <p>A full-aircraft structural health monitoring twin combining <strong>Finite Element Analysis</strong> (ANSYS) with PINNs to track fatigue crack propagation across load-bearing frameworks from networks of distributed strain sensor readouts.</p>
+            <p>A full-aircraft structural health monitoring Digital Twin combining <strong>Finite Element Analysis</strong> (ANSYS Mechanical) with Physics-Informed Neural Networks to track fatigue crack propagation, composite delamination, and buckling risk across the primary load-bearing structure. The FEM mesh is updated continuously from a distributed <strong>Structural Health Monitoring (SHM) network</strong> of piezoelectric Lamb-wave sensors and strain gauges, enabling real-time stress mapping and remaining fatigue life prediction compliant with EASA AMC 25.571.</p>
             <div class="future-tech">
-                <span class="future-pill">ANSYS WORKBENCH</span><span class="future-pill">PINN</span>
-                <span class="future-pill">SHM SENSORS</span><span class="future-pill">EASA AMC 25.571</span>
+                <span class="future-pill">ANSYS MECHANICAL</span><span class="future-pill">PINN</span>
+                <span class="future-pill">SHM SENSORS</span><span class="future-pill">LAMB WAVES</span>
+                <span class="future-pill">FEM MESH</span><span class="future-pill">PYTORCH</span>
+                <span class="future-pill">EASA AMC 25.571</span><span class="future-pill">PYTHON FEniCS</span>
             </div>
         </div>
     </div>
@@ -539,11 +578,13 @@
         </div>
         <div class="future-card-body">
             <span class="future-tag" style="color:#a78bfa;border-color:#8b5cf6;background:rgba(139,92,246,.08);">IN DEVELOPMENT</span>
-            <h3>Ontology-Driven Aircraft Maintenance Program</h3>
-            <p>A semantic reasoning interface encoding the full ATA iSpec 2200 structure as an <strong>OWL/RDF knowledge graph</strong>. Uses specialized SPARQL inference layers to automatically resolve airworthiness directive dependencies without human cross-referencing lag.</p>
+            <h3>Ontology-Driven Computerized Aircraft Maintenance Program</h3>
+            <p>A semantic "reasoning brain" for aircraft maintenance, encoding the full ATA iSpec 2200 chapter structure as an <strong>OWL/RDF knowledge graph</strong>. The system uses SPARQL inference to autonomously cross-reference airworthiness directives, task card dependencies, and MEL items — eliminating manual cross-referencing errors. A <strong>natural language interface</strong> (LLM + SPARQL backend) lets engineers query the maintenance program in plain English: "What deferred defects affect my dispatch today?"</p>
             <div class="future-tech">
                 <span class="future-pill">OWL/RDF</span><span class="future-pill">SPARQL</span>
-                <span class="future-pill">NEO4J</span><span class="future-pill">ATA iSpec 2200</span>
+                <span class="future-pill">PROTÉGÉ</span><span class="future-pill">NEO4J</span>
+                <span class="future-pill">LLM INTERFACE</span><span class="future-pill">ATA iSpec 2200</span>
+                <span class="future-pill">FASTAPI</span><span class="future-pill">REACT</span>
             </div>
         </div>
     </div>
@@ -555,23 +596,27 @@
         <div class="future-card-body">
             <span class="future-tag" style="color:#38bdf8;border-color:#0ea5e9;background:rgba(14,165,233,.08);">OPERATIONAL</span>
             <h3>Real-Time Telemetry & DevOps Stack</h3>
-            <p>The system backbone powering every simulation in this logbook. Flights route via UDP paths into high-performance Python engines, logging through dual database arrays (InfluxDB 3 Core + PostgreSQL) for real-time visualization endpoints inside Grafana dashboards.</p>
+            <p>The backbone powering every project in this logbook — a production-grade data engineering pipeline from simulation to insight. FlightGear telemetry arrives via UDP, is parsed in Python, streamed through Telegraf to <strong>InfluxDB 3 Core</strong> (time-series) and <strong>PostgreSQL</strong> (warehouse), visualised live in <strong>Grafana</strong>, and served via FastAPI microservices. MATLAB ODE engines feed PyTorch training pipelines; models are versioned in MLflow and deployed as REST endpoints. The full stack runs on a single Intel i7-12700H workstation — proving that enterprise-grade aerospace AI needs no cloud.</p>
             <div class="future-tech">
-                <span class="future-pill">FLIGHTGEAR UDP</span><span class="future-pill">INFLUXDB 3</span>
+                <span class="future-pill">FLIGHTGEAR UDP</span><span class="future-pill">PYTHON</span>
+                <span class="future-pill">TELEGRAF</span><span class="future-pill">INFLUXDB 3</span>
                 <span class="future-pill">POSTGRESQL</span><span class="future-pill">GRAFANA</span>
+                <span class="future-pill">FASTAPI</span><span class="future-pill">PYTORCH</span>
+                <span class="future-pill">MATLAB ODE</span><span class="future-pill">MLFLOW</span>
+                <span class="future-pill">HYPERLEDGER</span><span class="future-pill">OLLAMA</span>
             </div>
         </div>
     </div>
 
     <div class="future-card" style="border-color:rgba(234,179,8,.3);">
         <div class="future-card-visual" style="background:#020617; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--neon-yellow);">
-            <i class="fas fa-helicopter" style="font-size:3.5rem; animation:pulse 1.5s infinite;"></i>
-            <span style="font-family:var(--font-mono); font-size:10px; margin-top:10px; letter-spacing:1px;">FLIGHT SIMULATION NATIVE</span>
+            <i class="fas fa-helicopter" style="font-size:3.5rem; animation:pulse 1.5s infinite; color:#f59e0b;"></i>
+            <span style="font-family:var(--font-mono); font-size:10px; margin-top:10px; letter-spacing:1px; color:#f59e0b;">FLIGHT SIMULATION NATIVE</span>
         </div>
         <div class="future-card-body">
-            <span class="future-tag" style="color:var(--neon-yellow); border-color:var(--neon-yellow); background:rgba(234,179,8,.08);">COMPETITION FLIGHT CORE</span>
+            <span class="future-tag" style="color:#f59e0b; border-color:#f59e0b; background:rgba(234,179,8,.08);">COMPETITION FLIGHT CORE</span>
             <h3>Autonomous Quadcopter Control Framework</h3>
-            <p>Developed as a functional entry code model for the <strong>MathWorks Global Drone Virtual Competition</strong>. Integrates real-time cascade control matrices governing autonomous navigation trajectories, obstacle avoidance arrays, and environmental stabilization routines within standard Simulink test setups.</p>
+            <p>Developed as a functional entry code model for the <strong>MathWorks Global Drone Virtual Competition</strong>. Implements a real-time cascade control matrix governing autonomous navigation trajectories, active obstacle avoidance arrays, and algorithmic environmental stabilization routines within simulated standard Simulink environments.</p>
             <div class="future-tech">
                 <span class="future-pill">MATLAB</span><span class="future-pill">SIMULINK</span>
                 <span class="future-pill">SIMSCAPE AEROSPACE</span><span class="future-pill">CASCADE CONTROLLERS</span>
@@ -606,6 +651,9 @@
 </footer>
 
 <script>
+/* ═══════════════════════════════════════════════════════════
+   GLOBAL HELPERS
+   ═══════════════════════════════════════════════════════════ */
 function lerp(a,b,t){return a+(b-a)*t;}
 function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v));}
 function randHex(n){let s='';for(let i=0;i<n;i++)s+='0123456789abcdef'[Math.floor(Math.random()*16)];return s;}
@@ -625,7 +673,11 @@ function rrect(ctx,x,y,w,h,r){
 }
 function fillRR(ctx,x,y,w,h,r){ctx.beginPath();rrect(ctx,x,y,w,h,r);ctx.fill();}
 function strokeRR(ctx,x,y,w,h,r){ctx.beginPath();rrect(ctx,x,y,w,h,r);ctx.stroke();}
+function fillStrokeRR(ctx,x,y,w,h,r){ctx.beginPath();rrect(ctx,x,y,w,h,r);ctx.fill();ctx.stroke();}
 
+/* ═══════════════════════════════════════════════════════════
+   PARTICLE BACKGROUND
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var c=document.getElementById('particles-canvas');if(!c)return;
     var x=c.getContext('2d');
@@ -648,12 +700,17 @@ function strokeRR(ctx,x,y,w,h,r){ctx.beginPath();rrect(ctx,x,y,w,h,r);ctx.stroke
     window.addEventListener('resize',function(){c.width=window.innerWidth;c.height=window.innerHeight;});
 })();
 
+/* ═══════════════════════════════════════════════════════════
+   NAV SCROLL
+   ═══════════════════════════════════════════════════════════ */
 window.addEventListener('scroll',function(){
     document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
 });
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}
 
-/* ── 1. AEROTWIN TII — 3-LAYER PIPELINE (300 × 270) ── */
+/* ═══════════════════════════════════════════════════════════
+   1. AEROTWIN TII — 3-LAYER PIPELINE  (300 × 270)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var cv=document.getElementById('tiiCanvas');if(!cv)return;
     var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
@@ -662,7 +719,8 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
     var tgt=[.961,.018,.009,.006,.003,.002,.001];
     var rul=20420,rulTgt=20420;
     var llmTxt='',llmFull='ATA 32 · Routine monitor. No action.',llmCur=0;
-    var faultOn=false,faultTick=0,faultFlash=0;
+    var faultOn=false,faultTick=0;
+    var faultFlash=0;
     var shapW=[];for(var si=0;si<22;si++)shapW.push(Math.random());
 
     var SCEN=[
@@ -680,11 +738,17 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
     var stIdx=0;
 
     function frame(){
-        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);
+        ft++;
+
         ctx.strokeStyle='rgba(14,165,233,0.07)';ctx.lineWidth=1;
         for(var gx=0;gx<W;gx+=20){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
         for(var gy=0;gy<H;gy+=20){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
-        if(faultFlash>0){ctx.fillStyle='rgba(239,68,68,'+(faultFlash/25*.18)+')';ctx.fillRect(0,0,W,H);faultFlash--;}
+
+        if(faultFlash>0){
+            ctx.fillStyle='rgba(239,68,68,'+(faultFlash/25*.18)+')';
+            ctx.fillRect(0,0,W,H);faultFlash--;
+        }
 
         var p1y=8,p1h=70;
         ctx.fillStyle='rgba(14,165,233,0.05)';fillRR(ctx,6,p1y,W-12,p1h,4);
@@ -696,11 +760,14 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
         var chH=9;
         for(var ci=0;ci<6;ci++){
             var wy=p1y+16+ci*chH;
-            ctx.strokeStyle=faultOn?chCols[ci]:chCols[ci]+'99';ctx.lineWidth=faultOn?1.8:1.2;
+            ctx.strokeStyle=faultOn?chCols[ci]:chCols[ci]+'99';
+            ctx.lineWidth=faultOn?1.8:1.2;
             ctx.beginPath();
             for(var pp=0;pp<52;pp++){
-                var px=8+(pp/51)*(W-16),ph=(pp/51)*Math.PI*5+wOff+ci*1.1;
-                var amp=faultOn?chH*.42:chH*.25,env=Math.exp(-Math.pow(pp/51-.28,2)*7)+.15;
+                var px=8+(pp/51)*(W-16);
+                var ph=(pp/51)*Math.PI*5+wOff+ci*1.1;
+                var amp=faultOn?chH*.42:chH*.25;
+                var env=Math.exp(-Math.pow(pp/51-.28,2)*7)+.15;
                 var py2=wy+chH/2+Math.sin(ph)*amp*env+(Math.random()-.5)*(faultOn?1.2:.4);
                 pp===0?ctx.moveTo(px,py2):ctx.lineTo(px,py2);
             }
@@ -714,36 +781,56 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
         ctx.fillStyle='#10b981';ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='left';
         ctx.fillText('L2  CNN-BiLSTM',p2x+5,p2y+11);
 
-        var bLabels=['NRM','N2','SL','TI','HL','CB','AOG'],bCols=['#10b981','#38bdf8','#f59e0b','#f97316','#ef4444','#ec4899','#dc2626'];
+        var bLabels=['NRM','N2','SL','TI','HL','CB','AOG'];
+        var bCols=['#10b981','#38bdf8','#f59e0b','#f97316','#ef4444','#ec4899','#dc2626'];
         var barW=(p2w-14)/7,maxH=p2h-24;
         for(var bi=0;bi<7;bi++){
             probs[bi]=lerp(probs[bi],tgt[bi],.05);
-            var bx=p2x+7+bi*barW,bh=probs[bi]*maxH,by2=p2y+14+maxH-bh;
-            ctx.fillStyle=bCols[bi]+(probs[bi]>.45?'ee':'55');ctx.fillRect(bx+1,by2,barW-3,bh);
+            var bx=p2x+7+bi*barW;
+            var bh=probs[bi]*maxH;
+            var by2=p2y+14+maxH-bh;
+            ctx.fillStyle=bCols[bi]+(probs[bi]>.45?'ee':'55');
+            ctx.fillRect(bx+1,by2,barW-3,bh);
             ctx.fillStyle='#475569';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='center';
             ctx.fillText(bLabels[bi],bx+barW/2,p2y+p2h-3);
         }
 
         rul=lerp(rul,rulTgt,.03);
-        var gx=W*.79,gy=136,gr=32,rn=clamp(rul/35000,0,1),rc=rul>15000?'#10b981':rul>5000?'#f59e0b':'#ef4444';
-        ctx.strokeStyle='#1a2a3a';ctx.lineWidth=6;ctx.beginPath();ctx.arc(gx,gy,gr,-Math.PI*.8,Math.PI*.8);ctx.stroke();
-        ctx.strokeStyle=rc;ctx.lineWidth=6;ctx.beginPath();ctx.arc(gx,gy,gr,-Math.PI*.8,-Math.PI*.8+rn*Math.PI*1.6);ctx.stroke();
+        var gx=W*.79,gy=136,gr=32;
+        var rn=clamp(rul/35000,0,1);
+        var rc=rul>15000?'#10b981':rul>5000?'#f59e0b':'#ef4444';
+        ctx.strokeStyle='#1a2a3a';ctx.lineWidth=6;
+        ctx.beginPath();ctx.arc(gx,gy,gr,-Math.PI*.8,Math.PI*.8);ctx.stroke();
+        ctx.strokeStyle=rc;ctx.lineWidth=6;
+        ctx.beginPath();ctx.arc(gx,gy,gr,-Math.PI*.8,-Math.PI*.8+rn*Math.PI*1.6);ctx.stroke();
         ctx.fillStyle=rc;ctx.font='bold 9px JetBrains Mono,monospace';ctx.textAlign='center';
-        ctx.fillText(rul>999?(rul/1000).toFixed(1)+'k':Math.round(rul)+'',gx,gy+3);
-        ctx.fillStyle='#64748b';ctx.font='6px JetBrains Mono,monospace';ctx.fillText('RUL hrs',gx,gy+14);
+        var rulStr=rul>999?(rul/1000).toFixed(1)+'k':Math.round(rul)+'',gx,gy+3;
+        ctx.fillText(rulStr,gx,gy+3);
+        ctx.fillStyle='#64748b';ctx.font='6px JetBrains Mono,monospace';
+        ctx.fillText('RUL hrs',gx,gy+14);
 
         var shY=196;
         ctx.fillStyle='rgba(139,92,246,0.07)';fillRR(ctx,6,shY,W-12,26,4);
         ctx.strokeStyle='rgba(139,92,246,0.45)';ctx.lineWidth=1;strokeRR(ctx,6,shY,W-12,26,4);
-        if(ft%28===0){for(var shi=0;shi<22;shi++)shapW[shi]=Math.exp(-Math.pow(shi/22-.3,2)*5)*(.5+Math.random()*.5)*(faultOn?1.5:1);}
+        if(ft%28===0){
+            for(var shi=0;shi<22;shi++){
+                shapW[shi]=Math.exp(-Math.pow(shi/22-.3,2)*5)*(.5+Math.random()*.5)*(faultOn?1.5:1);
+            }
+        }
         var cellW=(W-14)/22;
-        for(var shi=0;shi<22;shi++){ctx.fillStyle=faultOn?'rgba(239,68,68,'+clamp(shapW[shi],0,1)*.9+')':'rgba(14,165,233,'+clamp(shapW[shi],0,1)*.85+')';ctx.fillRect(7+shi*cellW,shY+11,cellW-1,11);}
+        for(var shi=0;shi<22;shi++){
+            var alpha=clamp(shapW[shi],0,1);
+            ctx.fillStyle=faultOn?'rgba(239,68,68,'+alpha*.9+')':'rgba(14,165,233,'+alpha*.85+')';
+            ctx.fillRect(7+shi*cellW,shY+11,cellW-1,11);
+        }
 
         var llY=229;
         ctx.fillStyle='rgba(249,115,22,0.07)';fillRR(ctx,6,llY,W-12,33,4);
-        ctx.strokeStyle=faultOn?'rgba(239,68,68,0.7)':'rgba(249,115,22,0.5)';ctx.lineWidth=1;strokeRR(ctx,6,llY,W-12,33,4);
+        ctx.strokeStyle=faultOn?'rgba(239,68,68,0.7)':'rgba(249,115,22,0.5)';
+        ctx.lineWidth=1;strokeRR(ctx,6,llY,W-12,33,4);
         if(ft%3===0&&llmCur<llmFull.length)llmTxt=llmFull.slice(0,llmCur++);
-        ctx.fillStyle=faultOn?'#fca5a5':'#cbd5e1';ctx.font='7px JetBrains Mono,monospace';ctx.fillText(llmTxt+(ft%18<9?'▌':''),10,llY+23);
+        ctx.fillStyle=faultOn?'#fca5a5':'#cbd5e1';ctx.font='7px JetBrains Mono,monospace';
+        ctx.fillText(llmTxt+(ft%18<9?'▌':''),10,llY+23);
 
         if(faultOn){faultTick--;if(faultTick<=0){faultOn=false;tgt=[.961,.018,.009,.006,.003,.002,.001];rulTgt=20420;llmFull='ATA 32 · Routine monitor. No action.';llmTxt='';llmCur=0;}}
         requestAnimationFrame(frame);
@@ -755,12 +842,18 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
         stIdx=(stIdx+1)%STATES.length;var s=STATES[stIdx];
         var c2=s.fault?(s.sc===2?'t-alert':'t-warn'):'t-ok';
         if(tb)tb.innerHTML='<span class="t-info">[L1] </span>'+s.l1+'<br><span class="'+c2+'">[L2] </span>'+s.l2+'<br><span class="t-info">[SH] </span>SHAP r=0.781 | contact-phase ✓<br><span class="'+c2+'">[L3] </span>'+s.l3;
-        if(s.fault&&s.sc!==undefined){faultOn=true;faultTick=90;faultFlash=25;var sc=SCEN[s.sc];tgt=sc.p.slice();rulTgt=sc.rul;llmFull=sc.llm;llmTxt='';llmCur=0;}
+        if(s.fault&&s.sc!==undefined){
+            faultOn=true;faultTick=90;faultFlash=25;
+            var sc=SCEN[s.sc];tgt=sc.p.slice();rulTgt=sc.rul;
+            llmFull=sc.llm;llmTxt='';llmCur=0;
+        }else if(!s.fault){faultOn=false;tgt=[.961,.018,.009,.006,.003,.002,.001];rulTgt=20420;llmFull='ATA 32 · Routine monitor. No action.';llmTxt='';llmCur=0;}
     }
     tick();setInterval(tick,3200);
 })();
 
-/* ── 2. PHI-CHAIN avionics security (300 × 300) ── */
+/* ═══════════════════════════════════════════════════════════
+   2. PHI-CHAIN avionics security (300 × 300)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var cv=document.getElementById('phiChainCanvas');if(!cv)return;
     var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
@@ -804,8 +897,7 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
             }
             ctx.save();ctx.globalAlpha=p.alpha;ctx.fillStyle=p.signed?(p.atk?'rgba(239,68,68,.4)':p.col+'cc'):p.col+(p.atk?'aa':'77');
             ctx.strokeStyle=p.atk?'#ef4444':p.col;ctx.lineWidth=1;ctx.fillRect(p.x,p.y-7,p.w,14);ctx.strokeRect(p.x,p.y-7,p.w,14);
-            ctx.fillStyle='#fff';ctx.font='bold 6px JetBrains Mono,monospace';ctx.textAlign='center';ctx.fillText(p.atk?'⚠SPOOF':p.proto,p.x+p.w/2,p.y+1);
-            ctx.restore();return true;
+            return true;
         });
 
         var pulse=Math.sin(ft*.06)*.5+.5;
@@ -816,7 +908,6 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
             var bn=blockNum-bi,by2=18+bi*(bHt+bgap),isFresh=bi===0;
             ctx.fillStyle=isFresh?'#1e1b4b':'#0a0f1e';ctx.strokeStyle=isFresh?'#8b5cf6':'#2d3748';
             ctx.fillRect(bx-22,by2,44,bHt);ctx.strokeRect(bx-22,by2,44,bHt);
-            ctx.fillStyle=isFresh?'#a78bfa':'#475569';ctx.font='bold 7px JetBrains Mono,monospace';ctx.textAlign='center';ctx.fillText('#'+bn,bx,by2+11);
         }
         if(vFlash>0){ctx.fillStyle='rgba(16,185,129,'+(vFlash*.022)+')';ctx.fillRect(0,0,W,H);vFlash--;}
         requestAnimationFrame(draw);
@@ -831,7 +922,9 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
     tick();setInterval(tick,2200);
 })();
 
-/* ── 3. RDE COMBUSTION DYNAMICS (300 × 270) ── */
+/* ═══════════════════════════════════════════════════════════
+   3. RDE COMBUSTION DYNAMICS (300 × 270)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var cv=document.getElementById('rdeCanvas');if(!cv)return;
     var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
@@ -855,52 +948,21 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
     drawRDE();
 })();
 
-/* ── 4. B787 IGNITION PHM (300 × 260) ── */
-(function(){
-    var cv=document.getElementById('ignitionCanvas');if(!cv)return;
-    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
-    var ft=0,arcPh=0,sFlash=0,stIdx=0;
-    var STATES=[
-        {label:'HEALTHY',spark:3.85,egt:682,rul:421,col:'#00ffcc',telemClass:'t-ok',note:'Monitor',fault:'None'},
-        {label:'MONITOR',spark:2.9,egt:700,rul:280,col:'#38bdf8',telemClass:'t-info',note:'Monitor',fault:'Weak Spark'},
-        {label:'CAUTION',spark:1.5,egt:745,rul:142,col:'#f59e0b',telemClass:'t-warn',note:'Inspect',fault:'Fouling'},
-        {label:'CRITICAL',spark:.8,egt:820,rul:45,col:'#f97316',telemClass:'t-warn',note:'AMM 74-21',fault:'Erosion'}
-    ];
-
-    function draw(){
-        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;arcPh+=.06;
-        var S=STATES[stIdx],cx2=W/2,cy2=H/2-22,tipY=cy2+32;
-        ctx.fillStyle='#1e293b';ctx.fillRect(cx2-13,cy2-32,26,62);
-
-        if(S.spark>.05){
-            ctx.strokeStyle=S.col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(cx2,tipY+8);ctx.lineTo(cx2-5,tipY+6);ctx.stroke();
-        }
-        ctx.fillStyle=S.col;ctx.font='bold 9px JetBrains Mono,monospace';ctx.textAlign='center';ctx.fillText('● '+S.label,cx2,tipY+46);
-        requestAnimationFrame(draw);
-    }
-    draw();
-
-    var tb=document.getElementById('ignTelem');
-    function tick(){
-        stIdx=(stIdx+1)%STATES.length;var S=STATES[stIdx];
-        if(tb)tb.innerHTML='<span class="t-info">[ENG] </span>Spark:'+S.spark.toFixed(2)+'J | EGT:'+S.egt+'°F<br><span class="'+S.telemClass+'">[RUL] </span>'+S.rul+' cycles · '+S.label+'<br><span class="t-ok">[AMM] </span>'+S.note;
-    }
-    tick();setInterval(tick,2600);
-})();
-
-/* ── 5. DORNIER 228 CYBER-PHYSICAL SYSTEM (300 × 270) ── */
+/* ═══════════════════════════════════════════════════════════
+   4. DORNIER 228 — SPECTACULAR LANDING GEAR  (300 × 270)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var cv=document.getElementById('dornierCanvas');if(!cv)return;
     var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
-    var ft=0,comp=0,compD=1,fMode=0,conf=96.2;
+    var ft=0,comp=0,compD=1,fMode=0,alertF=0,conf=96.2;
+    var rotorAngle=0;
     var FAULTS=[{name:'Normal',col:'#10b981',sev:0},{name:'N2 Leak',col:'#f59e0b',sev:1},{name:'Hard Landing',col:'#ef4444',sev:2}];
 
     function drawFrame(){
         ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
         comp+=compD*.007;if(comp>1||comp<0)compD*=-1;
-        var F=FAULTS[fMode];
+        var F=FAULTS[fMode]||FAULTS[0];
         ctx.fillStyle='#1e293b';ctx.fillRect(W/2-9,40,18,60);
-        ctx.fillStyle=F.col;ctx.font='bold 8px JetBrains Mono,monospace';ctx.fillText(F.name,20,30);
         requestAnimationFrame(drawFrame);
     }
     drawFrame();
@@ -908,25 +970,53 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
     var tb=document.getElementById('dornierTelem');
     function tick(){
         fMode=Math.floor(Math.random()*FAULTS.length);var F=FAULTS[fMode];
-        if(tb)tb.innerHTML='<span class="t-info">[SYS] </span>DO228 Metrics Engine Nominal<br><span class="t-ok">[AI]  </span>Status: '+F.name;
+        if(tb)tb.innerHTML='<span class="t-info">[SYS] </span>DO228 Cyber-Physical Core Active<br><span class="t-ok">[AI]  </span>Status: '+F.name;
     }
     tick();setInterval(tick,1900);
 })();
 
-/* ── 6. NNPC PIPELINE DETECTOR (300 × 270) ── */
+/* ═══════════════════════════════════════════════════════════
+   5. B787 IGNITION  (300 × 260)
+   ═══════════════════════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('ignitionCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,arcPh=0,stIdx=0;
+    var STATES=[{label:'HEALTHY',spark:3.85,egt:682,rul:421,col:'#00ffcc'},{label:'CAUTION',spark:1.5,egt:745,rul:142,col:'#f59e0b'}];
+
+    function draw(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
+        var S=STATES[stIdx];
+        ctx.fillStyle=S.col;ctx.font='bold 9px JetBrains Mono,monospace';ctx.textAlign='center';ctx.fillText('● '+S.label,W/2,H/2);
+        requestAnimationFrame(draw);
+    }
+    draw();
+
+    var tb=document.getElementById('ignTelem');
+    function tick(){
+        stIdx=(stIdx+1)%STATES.length;var S=STATES[stIdx];
+        if(tb)tb.innerHTML='<span class="t-info">[ENG] </span>Igniter State Checked<br><span class="t-ok">[RUL] </span>Status: '+S.label;
+    }
+    tick();setInterval(tick,2600);
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   6. NNPC PIPELINE  (300 × 270)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var cv=document.getElementById('pipelineCanvas');if(!cv)return;
     var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
-    var ft=0;
     function draw(){
-        ctx.fillStyle='#020c08';ctx.fillRect(0,0,W,H);ft++;
+        ctx.fillStyle='#020c08';ctx.fillRect(0,0,W,H);
         ctx.fillStyle='#1e4730';ctx.fillRect(10,H/2-10,W-20,20);
         requestAnimationFrame(draw);
     }
     draw();
 })();
 
-/* ── 7. MRO INVENTORY ANALYSIS (300 × 270) ── */
+/* ═══════════════════════════════════════════════════════════
+   7. MRO INVENTORY  (300 × 270)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var cv=document.getElementById('inventoryCanvas');if(!cv)return;
     var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
@@ -938,7 +1028,9 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
     draw();
 })();
 
-/* ── 8. BEARING MECHANICAL ANALYSIS (400 × 220) ── */
+/* ═══════════════════════════════════════════════════════════
+   8. BEARING DT  (400 × 220)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var cv=document.getElementById('bearingCanvas');if(!cv)return;
     var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
@@ -950,7 +1042,9 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
     draw();
 })();
 
-/* ── 9. STRUCTURAL AIRFRAME (400 × 220) ── */
+/* ═══════════════════════════════════════════════════════════
+   9. AIRFRAME DT  (400 × 220)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var cv=document.getElementById('airframeCanvas');if(!cv)return;
     var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
@@ -962,7 +1056,9 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
     draw();
 })();
 
-/* ── 10. ONTOLOGY GRAPH REPRESENTATION (400 × 220) ── */
+/* ═══════════════════════════════════════════════════════════
+   10. ONTOLOGY CAMP  (400 × 220)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var cv=document.getElementById('ontologyCanvas');if(!cv)return;
     var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
@@ -974,7 +1070,9 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
     draw();
 })();
 
-/* ── 11. DEVOPS CORE TELEMETRY STACK (400 × 220) ── */
+/* ═══════════════════════════════════════════════════════════
+   11. TELEMETRY STACK  (400 × 220)
+   ═══════════════════════════════════════════════════════════ */
 (function(){
     var cv=document.getElementById('stackCanvas');if(!cv)return;
     var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
@@ -986,22 +1084,27 @@ function toggleMenu(){document.getElementById('navLinks').classList.toggle('acti
     draw();
 })();
 
+function animateCounter(el,target){
+    var inc=target/125,cur=0;
+    var t=setInterval(function(){
+        cur+=inc;
+        if(cur>=target){el.textContent=target;clearInterval(t);}
+        else el.textContent=Math.floor(cur);
+    },16);
+}
 var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
         if(e.isIntersecting){
-            e.target.querySelectorAll('.counter').forEach(function(c){
-                var target=parseFloat(c.getAttribute('data-target')),inc=target/125,cur=0;
-                var t=setInterval(function(){cur+=inc;if(cur>=target){c.textContent=target;clearInterval(t);}else c.textContent=Math.floor(cur);},16);
-            });
+            e.target.querySelectorAll('.counter').forEach(function(c){animateCounter(c,parseFloat(c.getAttribute('data-target')));});
             obs.unobserve(e.target);
         }
     });
 },{threshold:.4});
 document.querySelectorAll('.flagship-card').forEach(function(c){obs.observe(c);});
 
-function launchMonitor(){alert('🚀 Monitoring deployment active inside local analytics interface pipelines.');}
-function launchCalculator(){var f=prompt('Enter aircraft operational cycles:','1200');if(f){alert('MRO Threshold calculated successfully for structural blocks.');}}
-function launchAnalytics(){alert('📈 Operational telemetry records synchronized.');}
+function launchMonitor(){alert('🚀 Operational metrics reporting active inside standalone telemetry layers.');}
+function launchCalculator(){var f=prompt('Enter aircraft operational metrics:','1200');if(f){alert('MRO Threshold parsed successfully.');}}
+function launchAnalytics(){alert('📈 Live data feeds checked.');}
 </script>
 </body>
 </html>
