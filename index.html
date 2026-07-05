@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Bello Sani | Aerospace Intelligence & Digital Twin Systems Engineer</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-    <meta name="description" content="Mohammed Bello Sani — Final-year Aerospace Engineering student at AFIT Kaduna. Ad Hoc Reviewer for AIAA JAIS. Incoming M.Sc. at Beihang University Smart Aviation Center. Developing physics-informed AI digital twins and secure avionics blockchain architectures.">
+    <meta name="description" content="Mohammed Bello Sani — Aerospace Engineering Graduate from AFIT Kaduna. Ad Hoc Reviewer for AIAA JAIS. Incoming M.Sc. at Beihang University Smart Aviation Center. Developing physics-informed AI digital twins and secure avionics blockchain architectures.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
 /* ════════════════════════════════════════════════════════════════
    AEROSPACE ARCHITECTURAL PORTFOLIO — MOHAMMED BELLO SANI
-   Clean white base foundation. Futuristic telemetry telemetry overlays.
+   Pure White Foundation. Geometric Vector Overlays.
    ════════════════════════════════════════════════════════════════ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,7 +30,6 @@
     --accent-teal: #0f766e;
     --border: rgba(11, 15, 25, 0.08);
     --border-light: rgba(11, 15, 25, 0.04);
-    --glow: rgba(15, 44, 89, 0.05);
     --ff-body: 'Inter', sans-serif;
     --ff-display: 'Space Grotesk', sans-serif;
     --ff-mono: 'JetBrains Mono', monospace;
@@ -55,6 +54,33 @@ body {
     z-index: 0;
     pointer-events: none;
     opacity: 0.85;
+}
+
+/* ─── FLIGHT FLUID DYNAMICS ANIMATION ─── */
+.flight-path-container {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 250px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 2;
+}
+.paper-plane {
+    position: absolute;
+    color: var(--accent-orange);
+    font-size: 1.4rem;
+    animation: flightLoop 8s infinite linear;
+    transform-origin: center;
+}
+@keyframes flightLoop {
+    0% { transform: translate(0, 80px) rotate(-15deg); opacity: 0; }
+    10% { opacity: 1; }
+    30% { transform: translate(90px, 20px) rotate(-35deg); }
+    50% { transform: translate(160px, 60px) rotate(15deg); }
+    75% { transform: translate(210px, 10px) rotate(-45deg); opacity: 1; }
+    90% { opacity: 0; }
+    100% { transform: translate(250px, 0px) rotate(-15deg); opacity: 0; }
 }
 
 /* ─── SCROLL INTERSECTION ANIMATION BASIS ─── */
@@ -139,7 +165,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
     padding: 9rem 2rem 6rem;
     z-index: 1;
 }
-.hero-inner { max-width: 1040px; text-align: center; }
+.hero-inner { max-width: 1040px; text-align: center; position: relative; }
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -274,17 +300,28 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 .pubs-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .pub-card {
     background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 2.2rem;
-    transition: var(--transition); display: flex; flex-direction: column; gap: 1rem; position: relative;
+    transition: var(--transition); display: flex; flex-direction: column; gap: 1.2rem; position: relative;
 }
 .pub-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.04); }
-.pub-venue { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+
+/* Unified Header Row to avoid absolute position overlap */
+.pub-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+.pub-venue { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); flex: 1; }
 .pub-status {
-    position: absolute; top: 2.2rem; right: 2.2rem; font-family: var(--ff-mono); font-size: 0.62rem;
+    font-family: var(--ff-mono); font-size: 0.62rem;
     font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 4px;
+    white-space: nowrap;
 }
 .pub-status.review { color: var(--accent-orange); background: rgba(221,90,18,0.06); border: 1px solid rgba(221,90,18,0.15); }
 .pub-status.abstract { color: var(--accent-light); background: rgba(29,78,216,0.06); border: 1px solid rgba(29,78,216,0.15); }
-.pub-title { font-family: var(--ff-display); font-size: 1.15rem; font-weight: 600; color: var(--text); line-height: 1.4; padding-right: 4rem; flex: 1; }
+
+.pub-title { font-family: var(--ff-display); font-size: 1.15rem; font-weight: 600; color: var(--text); line-height: 1.4; flex: 1; }
 .pub-meta { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
 .pub-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
 .tag { font-family: var(--ff-mono); font-size: 0.62rem; font-weight: 500; padding: 0.25rem 0.65rem; border-radius: 4px; border: 1px solid var(--border); color: var(--text-secondary); background: var(--bg-warm); }
@@ -394,17 +431,21 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 </nav>
 
 <section class="hero">
+    <div class="flight-path-container">
+        <div class="paper-plane"><i class="fas fa-paper-plane"></i></div>
+    </div>
+
     <div class="hero-inner reveal">
         <div class="hero-badge">
             <div class="dot"></div>
-            <span>AIR FORCE INSTITUTE OF TECHNOLOGY (AFIT) • FINAL YEAR UNDERGRADUATE RESEARCHER [cite: 5, 9]</span>
+            <span>AIR FORCE INSTITUTE OF TECHNOLOGY (AFIT) • B.ENG AEROSPACE ENGINEERING GRADUATE</span>
         </div>
 
         <div class="hero-pills">
-            <div class="pill pill-blue"><i class="fas fa-microchip"></i> 4 Journals Under Peer Review [cite: 6, 9]</div>
-            <div class="pill pill-green"><i class="fas fa-graduation-cap"></i> Beihang M.Sc Candidate Sept '26 [cite: 1, 9]</div>
-            <div class="pill pill-orange"><i class="fas fa-pen-nib"></i> AIAA JAIS Ad Hoc Reviewer [cite: 111, 171]</div>
-            <div class="pill pill-purple"><i class="fas fa-database"></i> 4 Public Benchmark Datasets [cite: 104]</div>
+            <div class="pill pill-blue"><i class="fas fa-microchip"></i> 4 Journals Under Peer Review</div>
+            <div class="pill pill-green"><i class="fas fa-graduation-cap"></i> Beihang M.Sc Candidate Sept '26</div>
+            <div class="pill pill-orange"><i class="fas fa-pen-nib"></i> AIAA JAIS Ad Hoc Reviewer</div>
+            <div class="pill pill-purple"><i class="fas fa-database"></i> 4 Public Benchmark Datasets</div>
         </div>
 
         <h1>
@@ -413,7 +454,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
         </h1>
 
         <p class="hero-sub">
-            Engineering robust, physics-informed intelligent systems for aircraft structural health monitoring (SHM), real-time diagnostics, and critical avionics cybersecurity infrastructure[cite: 16, 25, 197]. Bridging regulatory airworthiness requirements with real-world hangar execution[cite: 40].
+            Engineering robust, physics-informed intelligent systems for aircraft structural health monitoring (SHM), real-time diagnostics, and critical avionics cybersecurity infrastructure. Bridging regulatory airworthiness requirements with real-world hangar execution.
         </p>
 
         <div class="hero-cta">
@@ -436,41 +477,41 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 <section class="stats-section reveal">
     <div class="stats-grid">
         <div class="stat-card">
-            <div class="stat-label">Academic Standing [cite: 5, 15]</div>
+            <div class="stat-label">Academic Standing</div>
             <div class="stat-number"><span class="counter" data-target="4.13">0.00</span><span class="unit">/5.00</span></div>
-            <div class="stat-desc">B.Eng Aerospace Engineering (Honours) graduation path[cite: 1, 159].</div>
+            <div class="stat-desc">B.Eng Aerospace Engineering Graduate (Second Class Upper Honours).</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Dornier 228 Twin Accuracy [cite: 99, 212]</div>
+            <div class="stat-label">Dornier 228 Twin Accuracy</div>
             <div class="stat-number"><span class="counter" data-target="98.74">0.00</span><span class="unit">%</span></div>
-            <div class="stat-desc">Dual-Input LSTM across 11 ATA-32 landing gear fault states running at 47ms latency[cite: 99, 102].</div>
+            <div class="stat-desc">Dual-Input LSTM across 11 ATA-32 landing gear fault states running at 47ms latency.</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Ignition Synthesis [cite: 87, 207]</div>
+            <div class="stat-label">Ignition Synthesis</div>
             <div class="stat-number"><span class="counter" data-target="27">0</span><span class="unit">k Samples</span></div>
-            <div class="stat-desc">B787 system mathematical regression data overcoming physical training scarcity[cite: 87, 120].</div>
+            <div class="stat-desc">B787 system mathematical regression data overcoming physical training scarcity.</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">RDE CFD Synthesis [cite: 122, 184]</div>
+            <div class="stat-label">RDE CFD Synthesis</div>
             <div class="stat-number"><span class="counter" data-target="72">0</span><span class="unit"> Fields</span></div>
-            <div class="stat-desc">1.48 GB spatiotemporal tensor matrices engineered via 4.3M parameter CVAE architectures[cite: 184].</div>
+            <div class="stat-desc">1.48 GB spatiotemporal tensor matrices engineered via 4.3M parameter CVAE architectures.</div>
         </div>
     </div>
 </section>
 
 <section class="ticker-section">
     <div class="ticker-track">
-        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> AeroTwin B787 Landing Gear Prognostics [cite: 57]</div>
-        <div class="ticker-item"><span class="highlight-orange">IEEE TAES</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Ledger [cite: 68, 199]</div>
-        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics [cite: 82, 207]</div>
-        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">▪</span> Dornier 228 Certification-Compliant Multibody Twin [cite: 92, 98]</div>
-        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH FORUM 2027</span> <span class="sep">▪</span> Hydrogen-Air Rotary Detonation Engine Modeling [cite: 122, 181]</div>
-        <div class="ticker-item"><span class="highlight-green">BEIHANG UNIVERSITY</span> <span class="sep">▪</span> Smart Aviation Center M.Sc Trajectory [cite: 21, 23]</div>
-        <div class="ticker-item"><span class="highlight">AIAA AD HOC SERVICE</span> <span class="sep">▪</span> Verification of YOLOv8 Drogue Detection Algorithms [cite: 171, 175]</div>
-        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> AeroTwin B787 Landing Gear Prognostics [cite: 57]</div>
-        <div class="ticker-item"><span class="highlight-orange">IEEE TAES</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Ledger [cite: 68, 199]</div>
-        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics [cite: 82, 207]</div>
-        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">▪</span> Dornier 228 Certification-Compliant Multibody Twin [cite: 92, 98]</div>
+        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> AeroTwin B787 Landing Gear Prognostics</div>
+        <div class="ticker-item"><span class="highlight-orange">IEEE TAES</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Ledger</div>
+        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics</div>
+        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">▪</span> Dornier 228 Certification-Compliant Multibody Twin</div>
+        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH FORUM 2027</span> <span class="sep">▪</span> Hydrogen-Air Rotary Detonation Engine Modeling</div>
+        <div class="ticker-item"><span class="highlight-green">BEIHANG UNIVERSITY</span> <span class="sep">▪</span> Smart Aviation Center M.Sc Trajectory</div>
+        <div class="ticker-item"><span class="highlight">AIAA AD HOC SERVICE</span> <span class="sep">▪</span> Verification of YOLOv8 Drogue Detection Algorithms</div>
+        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> AeroTwin B787 Landing Gear Prognostics</div>
+        <div class="ticker-item"><span class="highlight-orange">IEEE TAES</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Ledger</div>
+        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics</div>
+        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">▪</span> Dornier 228 Certification-Compliant Multibody Twin</div>
     </div>
 </section>
 
@@ -482,16 +523,20 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 
 <section class="pubs-section reveal">
     <div class="section-header">
-        <div class="section-eyebrow">Academic Engineering Contributions [cite: 53]</div>
-        <h2 class="section-title">Journal Manuscripts <span>Under Review</span></h2>
+        <div class="section-header-inner">
+            <div class="section-eyebrow">Academic Engineering Contributions</div>
+            <h2 class="section-title">Journal Manuscripts <span>Under Review</span></h2>
+        </div>
     </div>
 
     <div class="pubs-grid">
         <div class="pub-card">
-            <div class="pub-venue">Chinese Journal of Aeronautics [cite: 58]</div>
-            <div class="pub-status review">Under Review [cite: 59]</div>
-            <div class="pub-title">AeroTwin: B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture with SHAP Explainability [cite: 118, 168]</div>
-            <div class="pub-meta">Lead Researcher. Cranfield University Collaboration. Air-gapped pipeline linking physics ODE solvers with a local LLM processing layer[cite: 60, 63, 65].</div>
+            <div class="pub-header-row">
+                <div class="pub-venue">Chinese Journal of Aeronautics</div>
+                <div class="pub-status review">Under Review</div>
+            </div>
+            <div class="pub-title">AeroTwin: B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture with SHAP Explainability</div>
+            <div class="pub-meta">Lead Researcher. Cranfield University Collaboration. Air-gapped pipeline linking physics ODE solvers with a local LLM processing layer.</div>
             <div class="pub-tags">
                 <span class="tag">CNN-BiLSTM</span>
                 <span class="tag">Ollama 3.2</span>
@@ -501,10 +546,12 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
         </div>
 
         <div class="pub-card">
-            <div class="pub-venue">IEEE Transactions on Aerospace & Electronic Systems [cite: 168]</div>
-            <div class="pub-status review">Under Review [cite: 70]</div>
-            <div class="pub-title">PHI-CHAIN: Blockchain-Secured Multi-Protocol Avionics Data Integrity Framework with Physics-Informed Attack Detection [cite: 167]</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. Permissioned ledger managing 36,000 packets/hr, filtering physical telemetry anomalies via mathematical constraints[cite: 71, 77, 78].</div>
+            <div class="pub-header-row">
+                <div class="pub-venue">IEEE Transactions on Aerospace & Electronic Systems</div>
+                <div class="pub-status review">Under Review</div>
+            </div>
+            <div class="pub-title">PHI-CHAIN: Blockchain-Secured Multi-Protocol Avionics Data Integrity Framework with Physics-Informed Attack Detection</div>
+            <div class="pub-meta">Lead Researcher & Sole Author. Permissioned ledger managing 36,000 packets/hr, filtering physical telemetry anomalies via mathematical constraints.</div>
             <div class="pub-tags">
                 <span class="tag">Hyperledger Fabric 2.5</span>
                 <span class="tag">Ed25519</span>
@@ -514,10 +561,12 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
         </div>
 
         <div class="pub-card">
-            <div class="pub-venue">Reliability Engineering & System Safety [cite: 166]</div>
-            <div class="pub-status review">Under Review [cite: 83]</div>
-            <div class="pub-title">Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring Using Physics-Derived Degradation Models [cite: 165]</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. Built an R²=0.87 degradation regressor mapped directly via a real-time FastAPI interface to FlightGear telemetry[cite: 84, 88, 89].</div>
+            <div class="pub-header-row">
+                <div class="pub-venue">Reliability Engineering & System Safety</div>
+                <div class="pub-status review">Under Review</div>
+            </div>
+            <div class="pub-title">Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring Using Physics-Derived Degradation Models</div>
+            <div class="pub-meta">Lead Researcher & Sole Author. Built an R²=0.87 degradation regressor mapped directly via a real-time FastAPI interface to FlightGear telemetry.</div>
             <div class="pub-tags">
                 <span class="tag">LightGBM</span>
                 <span class="tag">FastAPI Microservice</span>
@@ -527,10 +576,12 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
         </div>
 
         <div class="pub-card">
-            <div class="pub-venue">AIAA Journal of Aerospace Information Systems [cite: 164]</div>
-            <div class="pub-status review">Under Review [cite: 94]</div>
-            <div class="pub-title">Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems with Multi-Domain PHM Architecture [cite: 163]</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. High-fidelity multibody physical reproduction checking landing compliance envelopes[cite: 95, 98, 100].</div>
+            <div class="pub-header-row">
+                <div class="pub-venue">AIAA Journal of Aerospace Information Systems</div>
+                <div class="pub-status review">Under Review</div>
+            </div>
+            <div class="pub-title">Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems with Multi-Domain PHM Architecture</div>
+            <div class="pub-meta">Lead Researcher & Sole Author. High-fidelity multibody physical reproduction checking landing compliance envelopes.</div>
             <div class="pub-tags">
                 <span class="tag">Simscape Multibody</span>
                 <span class="tag">CS-23.473</span>
@@ -540,10 +591,12 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
         </div>
 
         <div class="pub-card">
-            <div class="pub-venue">AIAA SciTech Forum 2027 (Orlando, FL) [cite: 162]</div>
-            <div class="pub-status abstract">Abstract Submitted [cite: 162]</div>
-            <div class="pub-title">Physics-Consistent Conditional VAE for Spatiotemporal Augmentation of Rotating Detonation Engine CFD Data [cite: 161]</div>
-            <div class="pub-meta">Lead Researcher. Documented a significant 4x Chapman-Jouguet overestimation error found in traditional velocity equations within RDE literature[cite: 179, 183].</div>
+            <div class="pub-header-row">
+                <div class="pub-venue">AIAA SciTech Forum 2027 (Orlando, FL)</div>
+                <div class="pub-status abstract">Abstract Submitted</div>
+            </div>
+            <div class="pub-title">Physics-Consistent Conditional VAE for Spatiotemporal Augmentation of Rotating Detonation Engine CFD Data</div>
+            <div class="pub-meta">Lead Researcher. Documented a significant 4x Chapman-Jouguet overestimation error found in traditional velocity equations within RDE literature.</div>
             <div class="pub-tags">
                 <span class="tag">OpenFOAM v2406</span>
                 <span class="tag">Reactive Flow Solver</span>
@@ -565,29 +618,29 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
         <div class="exp-card">
             <div class="exp-num">01 / 04</div>
             <i class="fas fa-server exp-icon"></i>
-            <h3>Digital Twin Engineering [cite: 129]</h3>
-            <p>Fusing <strong>MATLAB Simscape Multibody [cite: 129]</strong> and high-fidelity numerical solvers with neural sequence architectures. Skilled in generating high-utility failure matrices to overcome the classic data-scarcity bottlenecks in aerospace Prognostics and Health Management (PHM)[cite: 87, 120].</p>
+            <h3>Digital Twin Engineering</h3>
+            <p>Fusing <strong>MATLAB Simscape Multibody</strong> and high-fidelity numerical solvers with neural sequence architectures. Skilled in generating high-utility failure matrices to overcome the classic data-scarcity bottlenecks in aerospace Prognostics and Health Management (PHM).</p>
         </div>
 
         <div class="exp-card">
             <div class="exp-num">02 / 04</div>
             <i class="fas fa-shield-halved exp-icon"></i>
-            <h3>Avionics Cybersecurity [cite: 129]</h3>
-            <p>Implementing strict permissioned ledger architectures like <strong>Hyperledger Fabric [cite: 129]</strong> to cryptographically sign multi-protocol avionics payloads (ADS-B, ACARS, CPDLC)[cite: 117, 199]. Grounded explicitly in global regulatory criteria like **RTCA DO-326A [cite: 80, 202]**.</p>
+            <h3>Avionics Cybersecurity</h3>
+            <p>Implementing strict permissioned ledger architectures like <strong>Hyperledger Fabric</strong> to cryptographically sign multi-protocol avionics payloads (ADS-B, ACARS, CPDLC). Grounded explicitly in global regulatory criteria like **RTCA DO-326A**.</p>
         </div>
 
         <div class="exp-card">
             <div class="exp-num">03 / 04</div>
             <i class="fas fa-gauge-high exp-icon"></i>
-            <h3>Regulatory Audit & Hangar Ops [cite: 31, 34]</h3>
-            <p>6 months at the <strong>NCAA Department of Airworthiness Standards </strong> executing technical log checks, Minimum Equipment List (MEL) profiles, and Certificate of Airworthiness audits[cite: 37]. Complemented by 3 months of line maintenance on King Air 350 airframes[cite: 42, 45].</p>
+            <h3>Regulatory Audit & Hangar Ops</h3>
+            <p>Executed structural log checks, Minimum Equipment List (MEL) profiles, and Certificate of Airworthiness audits during field residency at the <strong>NCAA Department of Airworthiness Standards</strong>. Complemented by active line maintenance tasks on King Air 350 airframes.</p>
         </div>
 
         <div class="exp-card">
             <div class="exp-num">04 / 04</div>
             <i class="fas fa-microchip exp-icon"></i>
-            <h3>Sovereign On-Device AI [cite: 126]</h3>
-            <p>Architecting production pipelines designed to execute inside completely air-gapped operational flight systems[cite: 66, 118]. Experienced in hardware fingerprinting, multi-provider API fallback trees, and semantic translation of neural metrics into human-readable ATA maintenance directives[cite: 65, 126].</p>
+            <h3>Sovereign On-Device AI</h3>
+            <p>Architecting production pipelines designed to execute inside completely air-gapped operational flight systems. Experienced in hardware fingerprinting, multi-provider API fallback trees, and semantic translation of neural metrics into human-readable ATA maintenance directives.</p>
         </div>
     </div>
 </section>
@@ -596,14 +649,14 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
     <div class="footer-inner">
         <div class="footer-header">
             <div>
-                <div class="footer-name">Mohammed Bello Sani [cite: 1]</div>
-                <div class="footer-tagline">Aerospace Systems Engineering Researcher • Digital Twin Specialist • Founder, Penelope Inc. [cite: 9, 152]</div>
+                <div class="footer-name">Mohammed Bello Sani</div>
+                <div class="footer-tagline">Aerospace Systems Engineering Researcher • Digital Twin Specialist • Founder, Penelope Inc.</div>
             </div>
             <div class="footer-contact">
-                <a href="mailto:bellosanidrescue@gmail.com">bellosanidrescue@gmail.com [cite: 154]</a>
-                <a href="https://smbello.vercel.app" target="_blank">smbello.vercel.app [cite: 9]</a>
-                <a href="https://github.com/Sm-bello" target="_blank">github.com/Sm-bello [cite: 9]</a>
-                <div class="location"><i class="fas fa-location-dot" style="margin-right:0.4rem"></i>Abuja, Nigeria • +234 906 788 3192 [cite: 154]</div>
+                <a href="mailto:bellosanidrescue@gmail.com">bellosanidrescue@gmail.com</a>
+                <a href="https://smbello.vercel.app" target="_blank">smbello.vercel.app</a>
+                <a href="https://github.com/Sm-bello" target="_blank">github.com/Sm-bello</a>
+                <div class="location"><i class="fas fa-location-dot" style="margin-right:0.4rem"></i>Abuja, Nigeria • +234 906 788 3192</div>
             </div>
         </div>
 
@@ -611,14 +664,14 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
             <div class="footer-col footer-bio">
                 <h4>Executive Profile</h4>
                 <p>
-                    Final-year Aerospace Engineering student at the <strong>Air Force Institute of Technology (AFIT), Kaduna [cite: 5, 9]</strong>, carrying a graduation CGPA of <strong>4.13/5.00 [cite: 5, 9]</strong>. Provisional Master of Science candidate at <strong>Beihang University (BUAA) [cite: 6, 21]</strong> within the Hangzhou Innovation Institute's <strong>Smart Aviation Center [cite: 22, 23]</strong> under Prof. Hu Yang, specialized in digital-twin aircraft maintenance optimization[cite: 24, 25].
+                    Aerospace Engineering Alumnus from the <strong>Air Force Institute of Technology (AFIT), Kaduna</strong>, carrying a final graduation CGPA of <strong>4.13/5.00</strong>. Provisional Master of Science candidate at <strong>Beihang University (BUAA)</strong> within the Hangzhou Innovation Institute's <strong>Smart Aviation Center</strong> under Prof. Hu Yang, specialized in digital-twin aircraft maintenance optimization.
                 </p>
                 <p>
-                    Invited as an external <strong>Ad Hoc Peer Reviewer for the AIAA Journal of Aerospace Information Systems [cite: 111, 171]</strong> by Associate Editor Prof. Peng Wei (George Washington University)[cite: 111, 172]. Conducted rigorous technical assessments of structural methodology, autonomous drone vision training parameters, and air data test interfaces[cite: 112, 175, 176].
+                    Invited as an external <strong>Ad Hoc Peer Reviewer for the AIAA Journal of Aerospace Information Systems</strong> by Associate Editor Prof. Peng Wei (George Washington University). Conducted rigorous technical assessments of structural methodology, autonomous drone vision training parameters, and air data test interfaces.
                 </p>
                 <div class="peer-badge">
                     <i class="fas fa-shield"></i>
-                    <span>VALIDATED AIAA EXPERT PEER REVIEW UNDERGRADUATE CREDENTIAL [cite: 113, 174]</span>
+                    <span>VALIDATED AIAA EXPERT PEER REVIEW CREDENTIAL</span>
                 </div>
                 <div class="footer-socials">
                     <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -631,36 +684,36 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
             <div class="footer-col">
                 <h4>Education Timeline</h4>
                 <ul class="footer-list">
-                    <li><strong>Beihang University (BUAA):</strong> M.Sc. Smart Aviation — Term Commencing Sept 2026[cite: 21, 26].</li>
-                    <li><strong>AFIT Kaduna:</strong> B.Eng Aerospace Engineering — Expected June 2026 graduation[cite: 14, 158].</li>
-                    <li><strong>Academic Metrics:</strong> 4.13 / 5.00 CGPA (Second Class Upper Honours)[cite: 15, 159].</li>
-                    <li><strong>Core Syllabus:</strong> Advanced Aerodynamics, Fluid Dynamics, Control Systems, Airworthiness Structures[cite: 18, 159].</li>
-                    <li><strong>Professional Memberships:</strong> Student Member AIAA, NSE, Nigeria Institution of Safety Engineers[cite: 245, 246, 247].</li>
+                    <li><strong>Beihang University (BUAA):</strong> M.Sc. Smart Aviation — Term Commencing Sept 2026.</li>
+                    <li><strong>AFIT Kaduna:</strong> B.Eng Aerospace Engineering — Completed June 2026.</li>
+                    <li><strong>Academic Metrics:</strong> 4.13 / 5.00 CGPA (Second Class Upper Honours).</li>
+                    <li><strong>Core Syllabus:</strong> Advanced Aerodynamics, Fluid Dynamics, Control Systems, Airworthiness Structures.</li>
+                    <li><strong>Professional Memberships:</strong> Student Member AIAA, NSE, Nigeria Institution of Safety Engineers.</li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>Hangar & Open Benchmarks</h4>
                 <ul class="footer-list">
-                    <li><strong>NCAA Airworthiness:</strong> 6 Months structural log audits and Nig. CARs adherence tracking[cite: 36, 37, 239].</li>
-                    <li><strong>EAG 307 MRO Hangar:</strong> 3 Months line maintenance on King Air 350 aircraft[cite: 42, 45].</li>
-                    <li><strong>HuggingFace Open Source:</strong> SM-Bello/rde-72-dataset (Propulsion Field Matrices)[cite: 105].</li>
-                    <li><strong>Kaggle Datasets:</strong> 27k-sample B787 Ignition logs, AeroTwin Landing Gear Multibody cycles[cite: 106, 107].</li>
-                    <li><strong>AFIT Production Hangar:</strong> Foundational metallurgy, welding tolerances, precision fabrication[cite: 51, 52].</li>
+                    <li><strong>NCAA Airworthiness:</strong> Technical log audits and Nig. CARs adherence tracking metrics.</li>
+                    <li><strong>EAG 307 MRO Hangar:</strong> Line maintenance operations on active King Air 350 aircraft.</li>
+                    <li><strong>HuggingFace Open Source:</strong> SM-Bello/rde-72-dataset (Propulsion Field Matrices).</li>
+                    <li><strong>Kaggle Datasets:</strong> 27k-sample B787 Ignition logs, AeroTwin Landing Gear Multibody cycles.</li>
+                    <li><strong>AFIT Production Hangar:</strong> Foundational metallurgy, welding tolerances, precision fabrication.</li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>Pipeline Integrity</h4>
                 <ul class="research-status">
-                    <li><span class="status-dot dot-blue"></span> Under Review — CJA (AeroTwin Framework) [cite: 59]</li>
-                    <li><span class="status-dot dot-orange"></span> Under Review — IEEE TAES (PHI-CHAIN Security) [cite: 70]</li>
-                    <li><span class="status-dot dot-green"></span> Under Review — Elsevier RESS (GEnx Diagnostics) [cite: 166]</li>
-                    <li><span class="status-dot dot-purple"></span> Under Review — AIAA JAIS (Dornier Airworthiness) [cite: 164]</li>
-                    <li><span class="status-dot dot-teal"></span> Submitted — AIAA SciTech 2027 (RDE CFD) [cite: 162]</li>
+                    <li><span class="status-dot dot-blue"></span> Under Review — CJA (AeroTwin Framework)</li>
+                    <li><span class="status-dot dot-orange"></span> Under Review — IEEE TAES (PHI-CHAIN Security)</li>
+                    <li><span class="status-dot dot-green"></span> Under Review — Elsevier RESS (GEnx Diagnostics)</li>
+                    <li><span class="status-dot dot-purple"></span> Under Review — AIAA JAIS (Dornier Airworthiness)</li>
+                    <li><span class="status-dot dot-teal"></span> Submitted — AIAA SciTech 2027 (RDE CFD)</li>
                     <div class="status-note">
-                        <strong>Penelope Inc. Infrastructure [cite: 131]</strong><br>
-                        Developing three native product pipelines (PHI-Twin, PHI-CHAIN, PHI-Arc) to establish autonomous aerospace AI infrastructure[cite: 134, 138].
+                        <strong>Penelope Inc. Infrastructure</strong><br>
+                        Developing three native product pipelines (PHI-Twin, PHI-CHAIN, PHI-Arc) to establish autonomous aerospace AI infrastructure.
                     </div>
                 </ul>
             </div>
@@ -708,7 +761,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
             y: Math.random() * h,
             r: Math.random() * 2 + 1,
             vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.3) * 0.5, // Subtle upward drift like a thermal wing lift
+            vy: (Math.random() - 0.3) * 0.5, 
             seed: Math.random() * 100
         });
     }
@@ -716,7 +769,6 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
     function draw() {
         ctx.clearRect(0, 0, w, h);
         
-        // Draw modern structural grid system matrix points
         points.forEach((p, index) => {
             p.x += p.vx;
             p.y += p.vy;
@@ -725,7 +777,6 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
             if(p.y < 0) p.y = h;
             if(p.y > h) p.y = 0;
 
-            // Mouse interact vector displacement
             if (mouse.x != null && mouse.y != null) {
                 let dx = p.x - mouse.x;
                 let dy = p.y - mouse.y;
@@ -742,7 +793,6 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
             ctx.fillStyle = index % 5 === 0 ? 'rgba(221, 90, 18, 0.18)' : 'rgba(15, 44, 89, 0.08)';
             ctx.fill();
 
-            // Inter-node telemetry mesh connections (Vector twins simulation)
             for(let j = index + 1; j < points.length; j++) {
                 const p2 = points[j];
                 let distNode = Math.sqrt(Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2));
@@ -805,7 +855,6 @@ const counterObserver = new IntersectionObserver((entries) => {
                 function step(now){
                     const elapsed = now - start;
                     const progress = Math.min(elapsed / duration, 1);
-                    // Premium ease-out cubic curve
                     const easeOut = 1 - Math.pow(1 - progress, 3);
                     const current = target * easeOut;
                     
