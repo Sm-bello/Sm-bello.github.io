@@ -11,7 +11,7 @@
     <style>
 /* ════════════════════════════════════════════════════════════════
    AEROSPACE ARCHITECTURAL PORTFOLIO — MOHAMMED BELLO SANI
-   Pure White Foundation. Geometric Vector Overlays.
+   Pure White Base Foundation. Atmospheric & Aviation Canvas Layers.
    ════════════════════════════════════════════════════════════════ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,44 +46,70 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ─── DYNAMIC TECH VECTOR CANVAS ─── */
+/* ─── DYNAMIC WEATEHR REALSITIC BACKGROUND CANVAS ─── */
 #ambient-canvas {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.85;
 }
 
-/* ─── FLIGHT FLUID DYNAMICS ANIMATION ─── */
-.flight-path-container {
+/* ─── DYNAMIC SQUADRON FLIGHT PATH ANIMATION LAYER ─── */
+.sky-fleet-container {
     position: absolute;
-    top: 15%;
-    right: 10%;
-    width: 250px;
-    height: 150px;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     pointer-events: none;
-    z-index: 2;
+    overflow: hidden;
+    z-index: 1;
 }
-.paper-plane {
+.fleet-aircraft {
     position: absolute;
-    color: var(--accent-orange);
-    font-size: 1.4rem;
-    animation: flightLoop 8s infinite linear;
+    font-size: 1.5rem;
+    opacity: 0;
     transform-origin: center;
 }
-@keyframes flightLoop {
-    0% { transform: translate(0, 80px) rotate(-15deg); opacity: 0; }
-    10% { opacity: 1; }
-    30% { transform: translate(90px, 20px) rotate(-35deg); }
-    50% { transform: translate(160px, 60px) rotate(15deg); }
-    75% { transform: translate(210px, 10px) rotate(-45deg); opacity: 1; }
-    90% { opacity: 0; }
-    100% { transform: translate(250px, 0px) rotate(-15deg); opacity: 0; }
+.aircraft-paper {
+    color: var(--accent-orange);
+    animation: paperFlight 12s infinite linear;
+}
+.aircraft-f22 {
+    color: rgba(15, 44, 89, 0.25);
+    font-size: 1.8rem;
+    animation: interceptFlight 16s infinite linear;
+    animation-delay: 3s;
+}
+.aircraft-b747 {
+    color: rgba(133, 146, 166, 0.18);
+    font-size: 2.5rem;
+    animation: cruiseFlight 24s infinite linear;
+    animation-delay: 6s;
 }
 
-/* ─── SCROLL INTERSECTION ANIMATION BASIS ─── */
+@keyframes paperFlight {
+    0% { transform: translate(-50px, 40vh) rotate(15deg); opacity: 0; }
+    5% { opacity: 0.8; }
+    35% { transform: translate(30vw, 20vh) rotate(-10deg); }
+    65% { transform: translate(65vw, 35vh) rotate(20deg); }
+    95% { opacity: 0.8; }
+    100% { transform: translate(105vw, 15vh) rotate(-5deg); opacity: 0; }
+}
+@keyframes interceptFlight {
+    0% { transform: translate(105vw, 65vh) rotate(-165deg) scale(0.7); opacity: 0; }
+    10% { opacity: 0.6; }
+    50% { transform: translate(50vw, 35vh) rotate(-155deg) scale(1); }
+    90% { opacity: 0.6; }
+    100% { transform: translate(-10vw, 5vh) rotate(-145deg) scale(1.3); opacity: 0; }
+}
+@keyframes cruiseFlight {
+    0% { transform: translate(-10vw, 10vh) rotate(5deg); opacity: 0; }
+    8% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { transform: translate(110vw, 45vh) rotate(10deg); opacity: 0; }
+}
+
+/* ─── SCROLL INTERSECTION REVEAL BASIS ─── */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -165,7 +191,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
     padding: 9rem 2rem 6rem;
     z-index: 1;
 }
-.hero-inner { max-width: 1040px; text-align: center; position: relative; }
+.hero-inner { max-width: 1040px; text-align: center; position: relative; z-index: 5; }
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -257,7 +283,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 .section-divider .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
 .section-divider .label { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; color: var(--text-tertiary); letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
 
-/* ─── REAL-TIME ENGINE STATUS METRICS ─── */
+/* ─── QUANTITATIVE Baselines ─── */
 .stats-section { padding: 5rem 2rem; position: relative; z-index: 1; }
 .stats-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns:repeat(4,1fr); gap: 1.5rem; }
 .stat-card {
@@ -274,6 +300,9 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 }
 .stat-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.03); }
 .stat-card:hover::after { height: 3px; }
+.stat-card .card-link { position: absolute; top: 1.5rem; right: 1.5rem; color: var(--text-tertiary); font-size: 0.85rem; transition: var(--transition); }
+.stat-card:hover .card-link { color: var(--accent-orange); }
+
 .stat-number { font-family: var(--ff-display); font-size: 3rem; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
 .stat-number .unit { font-size: 1.1rem; color: var(--accent-orange); font-weight: 600; margin-left: 0.1rem; }
 .stat-label { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; color: var(--text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.8rem; }
@@ -289,7 +318,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 .ticker-item .highlight-green { color: var(--accent-green); }
 @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* ─── PEER-REVIEWED JOURNAL MANUSCRIPTS ─── */
+/* ─── PUBLICATIONS GRID ─── */
 .pubs-section { padding: 7rem 2rem; position: relative; z-index: 1; }
 .section-header { max-width: 1280px; margin: 0 auto 4rem; }
 .section-eyebrow { font-family: var(--ff-mono); font-size: 0.72rem; font-weight: 600; color: var(--accent-orange); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 1rem; }
@@ -301,17 +330,11 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 .pub-card {
     background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 2.2rem;
     transition: var(--transition); display: flex; flex-direction: column; gap: 1.2rem; position: relative;
+    text-decoration: none; color: inherit;
 }
 .pub-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.04); }
 
-/* Unified Header Row to avoid absolute position overlap */
-.pub-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-}
+.pub-header-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%; }
 .pub-venue { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); flex: 1; }
 .pub-status {
     font-family: var(--ff-mono); font-size: 0.62rem;
@@ -326,7 +349,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 .pub-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
 .tag { font-family: var(--ff-mono); font-size: 0.62rem; font-weight: 500; padding: 0.25rem 0.65rem; border-radius: 4px; border: 1px solid var(--border); color: var(--text-secondary); background: var(--bg-warm); }
 
-/* ─── ENGINEERING LAB EXPERTISE ─── */
+/* ─── CAPABILITIES GRID ─── */
 .exp-section { padding: 7rem 2rem; background: var(--bg-warm); position: relative; z-index: 1; }
 .exp-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 .exp-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem 2rem; transition: var(--transition); }
@@ -335,9 +358,8 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 .exp-icon { font-size: 1.6rem; color: var(--text); margin-bottom: 1.2rem; display: block; }
 .exp-card h3 { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.01em; }
 .exp-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
-.exp-card p strong { color: var(--text); font-weight: 600; }
 
-/* ─── EXECUTIVE RECRUITMENT DEEP FOOTER ─── */
+/* ─── RECRUITMENT DEEP FOOTER ─── */
 .footer-main { background: #07090e; color: #cbd5e1; padding: 7rem 2rem 4rem; position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-inner { max-width: 1280px; margin: 0 auto; }
 .footer-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -431,8 +453,10 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 </nav>
 
 <section class="hero">
-    <div class="flight-path-container">
-        <div class="paper-plane"><i class="fas fa-paper-plane"></i></div>
+    <div class="sky-fleet-container">
+        <div class="fleet-aircraft aircraft-paper"><i class="fas fa-paper-plane"></i></div>
+        <div class="fleet-aircraft aircraft-f22"><i class="fas fa-jet-fighter"></i></div>
+        <div class="fleet-aircraft aircraft-b747"><i class="fas fa-plane"></i></div>
     </div>
 
     <div class="hero-inner reveal">
@@ -479,39 +503,39 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
         <div class="stat-card">
             <div class="stat-label">Academic Standing</div>
             <div class="stat-number"><span class="counter" data-target="4.13">0.00</span><span class="unit">/5.00</span></div>
-            <div class="stat-desc">B.Eng Aerospace Engineering Graduate (Second Class Upper Honours).</div>
+            <div class="stat-desc">B.Eng Aerospace Engineering Graduate (Second Class Upper Honours)[cite: 159].</div>
         </div>
         <div class="stat-card">
             <div class="stat-label">Dornier 228 Twin Accuracy</div>
             <div class="stat-number"><span class="counter" data-target="98.74">0.00</span><span class="unit">%</span></div>
-            <div class="stat-desc">Dual-Input LSTM across 11 ATA-32 landing gear fault states running at 47ms latency.</div>
+            <div class="stat-desc">Dual-Input LSTM across 11 ATA-32 landing gear fault states running at 47ms latency[cite: 99, 102].</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Ignition Synthesis</div>
-            <div class="stat-number"><span class="counter" data-target="27">0</span><span class="unit">k Samples</span></div>
-            <div class="stat-desc">B787 system mathematical regression data overcoming physical training scarcity.</div>
+            <a href="https://www.kaggle.com/mohammedbellosani" target="_blank" class="card-link"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            <div class="stat-label">Open Repository Footprint</div>
+            <div class="stat-number"><span class="counter" data-target="54.5">0.00</span><span class="unit">k Cycles</span></div>
+            <div class="stat-desc">Global open data contributions spanning 27k Ignition, 18k B788, and 9.5k DO228 cycles[cite: 63, 87, 99].</div>
         </div>
         <div class="stat-card">
             <div class="stat-label">RDE CFD Synthesis</div>
             <div class="stat-number"><span class="counter" data-target="72">0</span><span class="unit"> Fields</span></div>
-            <div class="stat-desc">1.48 GB spatiotemporal tensor matrices engineered via 4.3M parameter CVAE architectures.</div>
+            <div class="stat-desc">1.48 GB spatiotemporal tensor matrices engineered via 4.3M parameter CVAE architectures[cite: 184].</div>
         </div>
     </div>
 </section>
 
 <section class="ticker-section">
     <div class="ticker-track">
-        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> AeroTwin B787 Landing Gear Prognostics</div>
-        <div class="ticker-item"><span class="highlight-orange">IEEE TAES</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Ledger</div>
-        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics</div>
-        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">▪</span> Dornier 228 Certification-Compliant Multibody Twin</div>
-        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH FORUM 2027</span> <span class="sep">▪</span> Hydrogen-Air Rotary Detonation Engine Modeling</div>
-        <div class="ticker-item"><span class="highlight-green">BEIHANG UNIVERSITY</span> <span class="sep">▪</span> Smart Aviation Center M.Sc Trajectory</div>
-        <div class="ticker-item"><span class="highlight">AIAA AD HOC SERVICE</span> <span class="sep">▪</span> Verification of YOLOv8 Drogue Detection Algorithms</div>
-        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> AeroTwin B787 Landing Gear Prognostics</div>
-        <div class="ticker-item"><span class="highlight-orange">IEEE TAES</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Ledger</div>
-        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics</div>
-        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">▪</span> Dornier 228 Certification-Compliant Multibody Twin</div>
+        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> AeroTwin B787 Landing Gear Prognostics [cite: 169]</div>
+        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH COMPETITION</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Security </div>
+        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics [cite: 166]</div>
+        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">▪</span> Dornier 228 Certification-Compliant Multibody Twin [cite: 164]</div>
+        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH FORUM 2027</span> <span class="sep">▪</span> Hydrogen-Air Rotary Detonation Engine Modeling [cite: 162]</div>
+        <div class="ticker-item"><span class="highlight-green">BEIHANG UNIVERSITY</span> <span class="sep">▪</span> Smart Aviation Center M.Sc Trajectory [cite: 22, 23]</div>
+        <div class="ticker-item"><span class="highlight">AIAA AD HOC SERVICE</span> <span class="sep">▪</span> Verification of YOLOv8 Drogue Detection Algorithms [cite: 171, 175]</div>
+        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> AeroTwin B787 Landing Gear Prognostics [cite: 169]</div>
+        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH COMPETITION</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Security </div>
+        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics [cite: 166]</div>
     </div>
 </section>
 
@@ -525,7 +549,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
     <div class="section-header">
         <div class="section-header-inner">
             <div class="section-eyebrow">Academic Engineering Contributions</div>
-            <h2 class="section-title">Journal Manuscripts <span>Under Review</span></h2>
+            <h2 class="section-title">Manuscripts & Papers <span>Under Review</span></h2>
         </div>
     </div>
 
@@ -535,8 +559,8 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
                 <div class="pub-venue">Chinese Journal of Aeronautics</div>
                 <div class="pub-status review">Under Review</div>
             </div>
-            <div class="pub-title">AeroTwin: B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture with SHAP Explainability</div>
-            <div class="pub-meta">Lead Researcher. Cranfield University Collaboration. Air-gapped pipeline linking physics ODE solvers with a local LLM processing layer.</div>
+            <div class="pub-title">AeroTwin: B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture with SHAP Explainability [cite: 169]</div>
+            <div class="pub-meta">Lead Researcher. Cranfield University Collaboration[cite: 60]. Air-gapped pipeline linking physics ODE solvers with a local LLM processing layer[cite: 65, 66].</div>
             <div class="pub-tags">
                 <span class="tag">CNN-BiLSTM</span>
                 <span class="tag">Ollama 3.2</span>
@@ -545,28 +569,28 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
             </div>
         </div>
 
-        <div class="pub-card">
+        <a href="https://www.kaggle.com/writeups/mohammedbellosani/phi-chain-blockchain-avionics-security" target="_blank" class="pub-card">
             <div class="pub-header-row">
-                <div class="pub-venue">IEEE Transactions on Aerospace & Electronic Systems</div>
-                <div class="pub-status review">Under Review</div>
+                <div class="pub-venue">AIAA SciTech 2027 Student Competition</div>
+                <div class="pub-status abstract">Abstract Submitted</div>
             </div>
-            <div class="pub-title">PHI-CHAIN: Blockchain-Secured Multi-Protocol Avionics Data Integrity Framework with Physics-Informed Attack Detection</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. Permissioned ledger managing 36,000 packets/hr, filtering physical telemetry anomalies via mathematical constraints.</div>
+            <div class="pub-title">PHI-CHAIN: Blockchain-Secured Multi-Protocol Avionics Data Integrity Framework with Physics-Informed Attack Detection </div>
+            <div class="pub-meta">Lead Researcher & Sole Author[cite: 71]. Introduces Split-Payload Transponder Architecture to resolve the TCAS Paradox , executing 4-layer PIDT validation filters  alongside joint Shamir key decryption ceremonies.</div>
             <div class="pub-tags">
                 <span class="tag">Hyperledger Fabric 2.5</span>
-                <span class="tag">Ed25519</span>
+                <span class="tag">Split-Payload</span>
                 <span class="tag">RTCA DO-326A</span>
-                <span class="tag">ICAO Doc 10037</span>
+                <span class="tag">Kaggle Writeup</span>
             </div>
-        </div>
+        </a>
 
         <div class="pub-card">
             <div class="pub-header-row">
                 <div class="pub-venue">Reliability Engineering & System Safety</div>
                 <div class="pub-status review">Under Review</div>
             </div>
-            <div class="pub-title">Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring Using Physics-Derived Degradation Models</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. Built an R²=0.87 degradation regressor mapped directly via a real-time FastAPI interface to FlightGear telemetry.</div>
+            <div class="pub-title">Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring Using Physics-Derived Degradation Models [cite: 165, 166]</div>
+            <div class="pub-meta">Lead Researcher & Sole Author[cite: 84]. Built an R²=0.87 degradation regressor mapped directly via a real-time FastAPI interface to FlightGear telemetry[cite: 88, 89, 90].</div>
             <div class="pub-tags">
                 <span class="tag">LightGBM</span>
                 <span class="tag">FastAPI Microservice</span>
@@ -580,8 +604,8 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
                 <div class="pub-venue">AIAA Journal of Aerospace Information Systems</div>
                 <div class="pub-status review">Under Review</div>
             </div>
-            <div class="pub-title">Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems with Multi-Domain PHM Architecture</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. High-fidelity multibody physical reproduction checking landing compliance envelopes.</div>
+            <div class="pub-title">Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems with Multi-Domain PHM Architecture [cite: 163, 164]</div>
+            <div class="pub-meta">Lead Researcher & Sole Author[cite: 95]. High-fidelity multibody physical reproduction checking structural landing compliance envelopes[cite: 97, 98].</div>
             <div class="pub-tags">
                 <span class="tag">Simscape Multibody</span>
                 <span class="tag">CS-23.473</span>
@@ -595,8 +619,8 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
                 <div class="pub-venue">AIAA SciTech Forum 2027 (Orlando, FL)</div>
                 <div class="pub-status abstract">Abstract Submitted</div>
             </div>
-            <div class="pub-title">Physics-Consistent Conditional VAE for Spatiotemporal Augmentation of Rotating Detonation Engine CFD Data</div>
-            <div class="pub-meta">Lead Researcher. Documented a significant 4x Chapman-Jouguet overestimation error found in traditional velocity equations within RDE literature.</div>
+            <div class="pub-title">Physics-Consistent Conditional VAE for Spatiotemporal Augmentation of Rotating Detonation Engine CFD Data [cite: 161, 162]</div>
+            <div class="pub-meta">Lead Researcher[cite: 179]. Documented a significant 4x Chapman-Jouguet overestimation error found in traditional velocity equations within RDE literature[cite: 183].</div>
             <div class="pub-tags">
                 <span class="tag">OpenFOAM v2406</span>
                 <span class="tag">Reactive Flow Solver</span>
@@ -619,28 +643,28 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
             <div class="exp-num">01 / 04</div>
             <i class="fas fa-server exp-icon"></i>
             <h3>Digital Twin Engineering</h3>
-            <p>Fusing <strong>MATLAB Simscape Multibody</strong> and high-fidelity numerical solvers with neural sequence architectures. Skilled in generating high-utility failure matrices to overcome the classic data-scarcity bottlenecks in aerospace Prognostics and Health Management (PHM).</p>
+            <p>Fusing <strong>MATLAB Simscape Multibody</strong> and high-fidelity numerical solvers with neural sequence architectures[cite: 98, 99]. Skilled in generating high-utility failure matrices to overcome the classic data-scarcity bottlenecks in aerospace Prognostics and Health Management (PHM)[cite: 87].</p>
         </div>
 
         <div class="exp-card">
             <div class="exp-num">02 / 04</div>
             <i class="fas fa-shield-halved exp-icon"></i>
             <h3>Avionics Cybersecurity</h3>
-            <p>Implementing strict permissioned ledger architectures like <strong>Hyperledger Fabric</strong> to cryptographically sign multi-protocol avionics payloads (ADS-B, ACARS, CPDLC). Grounded explicitly in global regulatory criteria like **RTCA DO-326A**.</p>
+            <p>Implementing strict permissioned ledger architectures like <strong>Hyperledger Fabric</strong> to cryptographically sign multi-protocol avionics payloads (ADS-B, ACARS, CPDLC)[cite: 199, 200]. Grounded explicitly in global regulatory criteria like **RTCA DO-326A**[cite: 202].</p>
         </div>
 
         <div class="exp-card">
             <div class="exp-num">03 / 04</div>
             <i class="fas fa-gauge-high exp-icon"></i>
             <h3>Regulatory Audit & Hangar Ops</h3>
-            <p>Executed structural log checks, Minimum Equipment List (MEL) profiles, and Certificate of Airworthiness audits during field residency at the <strong>NCAA Department of Airworthiness Standards</strong>. Complemented by active line maintenance tasks on King Air 350 airframes.</p>
+            <p>Executed structural log checks, Minimum Equipment List (MEL) profiles, and Certificate of Airworthiness audits during field residency at the <strong>NCAA Department of Airworthiness Standards</strong>[cite: 37]. Complemented by active line maintenance tasks on King Air 350 airframes[cite: 45].</p>
         </div>
 
         <div class="exp-card">
             <div class="exp-num">04 / 04</div>
             <i class="fas fa-microchip exp-icon"></i>
             <h3>Sovereign On-Device AI</h3>
-            <p>Architecting production pipelines designed to execute inside completely air-gapped operational flight systems. Experienced in hardware fingerprinting, multi-provider API fallback trees, and semantic translation of neural metrics into human-readable ATA maintenance directives.</p>
+            <p>Architecting production pipelines designed to execute inside completely air-gapped operational flight systems[cite: 66, 118]. Experienced in hardware fingerprinting, multi-provider API fallback trees, and semantic translation of neural metrics into human-readable ATA maintenance directives[cite: 65, 126].</p>
         </div>
     </div>
 </section>
@@ -650,13 +674,13 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
         <div class="footer-header">
             <div>
                 <div class="footer-name">Mohammed Bello Sani</div>
-                <div class="footer-tagline">Aerospace Systems Engineering Researcher • Digital Twin Specialist • Founder, Penelope Inc.</div>
+                <div class="footer-tagline">Aerospace Systems Engineering Researcher • Digital Twin Specialist • Founder, Penelope Inc. [cite: 152]</div>
             </div>
             <div class="footer-contact">
                 <a href="mailto:bellosanidrescue@gmail.com">bellosanidrescue@gmail.com</a>
                 <a href="https://smbello.vercel.app" target="_blank">smbello.vercel.app</a>
                 <a href="https://github.com/Sm-bello" target="_blank">github.com/Sm-bello</a>
-                <div class="location"><i class="fas fa-location-dot" style="margin-right:0.4rem"></i>Abuja, Nigeria • +234 906 788 3192</div>
+                <div class="location"><i class="fas fa-location-dot" style="margin-right:0.4rem"></i>Abuja, Nigeria • +234 906 788 3192 [cite: 154]</div>
             </div>
         </div>
 
@@ -664,14 +688,14 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
             <div class="footer-col footer-bio">
                 <h4>Executive Profile</h4>
                 <p>
-                    Aerospace Engineering Alumnus from the <strong>Air Force Institute of Technology (AFIT), Kaduna</strong>, carrying a final graduation CGPA of <strong>4.13/5.00</strong>. Provisional Master of Science candidate at <strong>Beihang University (BUAA)</strong> within the Hangzhou Innovation Institute's <strong>Smart Aviation Center</strong> under Prof. Hu Yang, specialized in digital-twin aircraft maintenance optimization.
+                    Aerospace Engineering Alumnus from the <strong>Air Force Institute of Technology (AFIT), Kaduna</strong>, carrying a final graduation CGPA of <strong>4.13/5.00</strong>[cite: 159]. Provisional Master of Science candidate at <strong>Beihang University (BUAA)</strong> within the Hangzhou Innovation Institute's <strong>Smart Aviation Center</strong> under Prof. Hu Yang, specialized in digital-twin aircraft maintenance optimization[cite: 22, 23, 24, 25].
                 </p>
                 <p>
-                    Invited as an external <strong>Ad Hoc Peer Reviewer for the AIAA Journal of Aerospace Information Systems</strong> by Associate Editor Prof. Peng Wei (George Washington University). Conducted rigorous technical assessments of structural methodology, autonomous drone vision training parameters, and air data test interfaces.
+                    Invited as an external <strong>Ad Hoc Peer Reviewer for the AIAA Journal of Aerospace Information Systems</strong> by Associate Editor Prof. Peng Wei (George Washington University)[cite: 171, 172]. Conducted rigorous technical assessments of structural methodology, autonomous drone vision training parameters, and air data test interfaces[cite: 174, 175, 176].
                 </p>
                 <div class="peer-badge">
                     <i class="fas fa-shield"></i>
-                    <span>VALIDATED AIAA EXPERT PEER REVIEW CREDENTIAL</span>
+                    <span>VALIDATED AIAA EXPERT PEER REVIEW CREDENTIAL [cite: 174]</span>
                 </div>
                 <div class="footer-socials">
                     <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -684,36 +708,36 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
             <div class="footer-col">
                 <h4>Education Timeline</h4>
                 <ul class="footer-list">
-                    <li><strong>Beihang University (BUAA):</strong> M.Sc. Smart Aviation — Term Commencing Sept 2026.</li>
-                    <li><strong>AFIT Kaduna:</strong> B.Eng Aerospace Engineering — Completed June 2026.</li>
-                    <li><strong>Academic Metrics:</strong> 4.13 / 5.00 CGPA (Second Class Upper Honours).</li>
-                    <li><strong>Core Syllabus:</strong> Advanced Aerodynamics, Fluid Dynamics, Control Systems, Airworthiness Structures.</li>
-                    <li><strong>Professional Memberships:</strong> Student Member AIAA, NSE, Nigeria Institution of Safety Engineers.</li>
+                    <li><strong>Beihang University (BUAA):</strong> M.Sc. Smart Aviation — Term Commencing Sept 2026[cite: 22, 26].</li>
+                    <li><strong>AFIT Kaduna:</strong> B.Eng Aerospace Engineering — Completed June 2026[cite: 143].</li>
+                    <li><strong>Academic Metrics:</strong> 4.13 / 5.00 CGPA (Second Class Upper Honours)[cite: 159].</li>
+                    <li><strong>Core Syllabus:</strong> Advanced Aerodynamics, Fluid Dynamics, Control Systems, Airworthiness Structures[cite: 159].</li>
+                    <li><strong>Professional Memberships:</strong> Student Member AIAA, NSE, Nigeria Institution of Safety Engineers[cite: 245, 246, 247].</li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>Hangar & Open Benchmarks</h4>
                 <ul class="footer-list">
-                    <li><strong>NCAA Airworthiness:</strong> Technical log audits and Nig. CARs adherence tracking metrics.</li>
-                    <li><strong>EAG 307 MRO Hangar:</strong> Line maintenance operations on active King Air 350 aircraft.</li>
-                    <li><strong>HuggingFace Open Source:</strong> SM-Bello/rde-72-dataset (Propulsion Field Matrices).</li>
-                    <li><strong>Kaggle Datasets:</strong> 27k-sample B787 Ignition logs, AeroTwin Landing Gear Multibody cycles.</li>
-                    <li><strong>AFIT Production Hangar:</strong> Foundational metallurgy, welding tolerances, precision fabrication.</li>
+                    <li><strong>NCAA Airworthiness:</strong> Technical log audits and Nig. CARs adherence tracking metrics[cite: 238, 239].</li>
+                    <li><strong>EAG 307 MRO Hangar:</strong> Line maintenance operations on active King Air 350 aircraft[cite: 242, 245].</li>
+                    <li><strong>HuggingFace Open Source:</strong> SM-Bello/rde-72-dataset (Propulsion Field Matrices)[cite: 105].</li>
+                    <li><strong>Kaggle Datasets:</strong> 27k-sample B787 Ignition logs, AeroTwin Landing Gear Multibody cycles[cite: 106, 107].</li>
+                    <li><strong>AFIT Production Hangar:</strong> Foundational metallurgy, welding tolerances, precision fabrication[cite: 51, 52].</li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>Pipeline Integrity</h4>
                 <ul class="research-status">
-                    <li><span class="status-dot dot-blue"></span> Under Review — CJA (AeroTwin Framework)</li>
-                    <li><span class="status-dot dot-orange"></span> Under Review — IEEE TAES (PHI-CHAIN Security)</li>
-                    <li><span class="status-dot dot-green"></span> Under Review — Elsevier RESS (GEnx Diagnostics)</li>
-                    <li><span class="status-dot dot-purple"></span> Under Review — AIAA JAIS (Dornier Airworthiness)</li>
-                    <li><span class="status-dot dot-teal"></span> Submitted — AIAA SciTech 2027 (RDE CFD)</li>
+                    <li><span class="status-dot dot-blue"></span> Under Review — CJA (AeroTwin Framework) [cite: 169]</li>
+                    <li><span class="status-dot dot-orange"></span> Abstract Submitted — AIAA SciTech (PHI-CHAIN Security) </li>
+                    <li><span class="status-dot dot-green"></span> Under Review — Elsevier RESS (GEnx Diagnostics) [cite: 166]</li>
+                    <li><span class="status-dot dot-purple"></span> Under Review — AIAA JAIS (Dornier Airworthiness) [cite: 164]</li>
+                    <li><span class="status-dot dot-teal"></span> Submitted — AIAA SciTech 2027 (RDE CFD) [cite: 162]</li>
                     <div class="status-note">
-                        <strong>Penelope Inc. Infrastructure</strong><br>
-                        Developing three native product pipelines (PHI-Twin, PHI-CHAIN, PHI-Arc) to establish autonomous aerospace AI infrastructure.
+                        <strong>Penelope Inc. Infrastructure [cite: 130]</strong><br>
+                        Developing three native product pipelines (PHI-Twin, PHI-CHAIN, PHI-Arc) to establish autonomous aerospace AI infrastructure[cite: 134, 137].
                     </div>
                 </ul>
             </div>
@@ -729,7 +753,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
 </footer>
 
 <script>
-/* ─── FUTURISTIC AERODYNAMIC FLOW VECTOR FIELD CANVAS ─── */
+/* ─── METEOROLOGICAL SKYBOX DIURNAL CYCLE BACKDROP SOLVER ─── */
 (function(){
     const canvas = document.getElementById('ambient-canvas');
     const ctx = canvas.getContext('2d');
@@ -742,73 +766,77 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); background: rgba(255,
     setSize();
     window.addEventListener('resize', setSize);
 
-    const points = [];
-    const maxPoints = 55;
-    const mouse = { x: null, y: null, radius: 180 };
+    const clouds = [];
+    const maxClouds = 18;
+    let timeEpoch = 0;
+    const mouse = { x: 0, y: 0 };
 
     window.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    });
-    window.addEventListener('mouseout', () => {
-        mouse.x = null;
-        mouse.y = null;
+        mouse.x = (e.clientX / w) - 0.5;
+        mouse.y = (e.clientY / h) - 0.5;
     });
 
-    for(let i=0; i<maxPoints; i++) {
-        points.push({
+    for(let i=0; i<maxClouds; i++) {
+        clouds.push({
             x: Math.random() * w,
-            y: Math.random() * h,
-            r: Math.random() * 2 + 1,
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.3) * 0.5, 
-            seed: Math.random() * 100
+            y: Math.random() * (h * 0.7),
+            w: Math.random() * 240 + 160,
+            h: Math.random() * 60 + 40,
+            speed: Math.random() * 0.15 + 0.05,
+            opacity: Math.random() * 0.06 + 0.02
         });
     }
 
-    function draw() {
-        ctx.clearRect(0, 0, w, h);
+    function drawWeather() {
+        timeEpoch += 0.0005; // Master cycle variable
         
-        points.forEach((p, index) => {
-            p.x += p.vx;
-            p.y += p.vy;
+        // Compute atmospheric layer color shift based on time loop
+        let cycleFactor = (Math.sin(timeEpoch) + 1) / 2; // Bounds to 0 -> 1
+        
+        // Horizon layers (Day sky vs twilight transition)
+        let r1 = Math.floor(250 - (cycleFactor * 15));
+        let g1 = Math.floor(251 - (cycleFactor * 25));
+        let b1 = Math.floor(253 - (cycleFactor * 15));
+        
+        let r2 = Math.floor(242 + (cycleFactor * 8));
+        let g2 = Math.floor(244 + (cycleFactor * 5));
+        let b2 = Math.floor(248 - (cycleFactor * 10));
 
-            if(p.x < 0 || p.x > w) p.vx *= -1;
-            if(p.y < 0) p.y = h;
-            if(p.y > h) p.y = 0;
+        let bgGradient = ctx.createLinearGradient(0, 0, 0, h);
+        bgGradient.addColorStop(0, `rgb(${r1}, ${g1}, ${b1})`);
+        bgGradient.addColorStop(0.6, `rgb(${r2}, ${g2}, ${b2})`);
+        bgGradient.addColorStop(1, '#ffffff');
+        
+        ctx.fillStyle = bgGradient;
+        ctx.fillRect(0, 0, w, h);
 
-            if (mouse.x != null && mouse.y != null) {
-                let dx = p.x - mouse.x;
-                let dy = p.y - mouse.y;
-                let dist = Math.sqrt(dx*dx + dy*dy);
-                if(dist < mouse.radius) {
-                    let force = (mouse.radius - dist) / mouse.radius;
-                    p.x += (dx / dist) * force * 2;
-                    p.y += (dy / dist) * force * 2;
-                }
-            }
-
+        // Render ambient air masses (altocumulus cloud systems)
+        clouds.forEach(c => {
+            c.x += c.speed + (mouse.x * 0.2); // Parallax factor
+            if (c.x > w + c.w) c.x = -c.w;
+            
             ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = index % 5 === 0 ? 'rgba(221, 90, 18, 0.18)' : 'rgba(15, 44, 89, 0.08)';
+            let cloudGrad = ctx.createRadialGradient(c.x + c.w/2, c.y + c.h/2, 0, c.x + c.w/2, c.y + c.h/2, c.w/2);
+            cloudGrad.addColorStop(0, `rgba(15, 44, 89, ${c.opacity})`);
+            cloudGrad.addColorStop(0.6, `rgba(240, 244, 248, ${c.opacity * 0.2})`);
+            cloudGrad.addColorStop(1, 'rgba(255,255,255,0)');
+            
+            ctx.fillStyle = cloudGrad;
+            ctx.ellipse(c.x + c.w/2, c.y + c.h/2, c.w/2, c.h/2, 0, 0, Math.PI * 2);
             ctx.fill();
-
-            for(let j = index + 1; j < points.length; j++) {
-                const p2 = points[j];
-                let distNode = Math.sqrt(Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2));
-                if(distNode < 120) {
-                    ctx.beginPath();
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = `rgba(15, 44, 89, ${0.04 * (1 - distNode/120)})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.stroke();
-                }
-            }
         });
-        requestAnimationFrame(draw);
+
+        // Subtle structural vector crosshair points
+        ctx.strokeStyle = 'rgba(15, 44, 89, 0.02)';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(w/2 + (mouse.x * 20), 0); ctx.lineTo(w/2 + (mouse.x * 20), h);
+        ctx.moveTo(0, h/2 + (mouse.y * 20)); ctx.lineTo(w, h/2 + (mouse.y * 20));
+        ctx.stroke();
+
+        requestAnimationFrame(drawWeather);
     }
-    draw();
+    drawWeather();
 })();
 
 /* ─── NAVIGATION OVERLAY INTERACTION ─── */
