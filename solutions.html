@@ -11,7 +11,7 @@
     <style>
 /* ════════════════════════════════════════════════════════════════
    AEROSPACE ARCHITECTURAL PORTFOLIO — SOLUTIONS & SYSTEMS
-   Pure White Foundation. Stretched Reactive Navbar. Weather Canvas.
+   Pure White Foundation. Stretched Google-Glow Navbar. Weather Canvas.
    ════════════════════════════════════════════════════════════════ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -99,25 +99,42 @@ body {
 }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* ─── STRETCHED REACTIVE NAVIGATION INTERFACE ─── */
+/* ─── STRETCHED GOOGLE-GLOW NAVIGATION INTERFACE ─── */
 nav.stretched-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.85);
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 0 2rem;
+    /* Transparent background foundation for text scroll-behind */
+    background: rgba(255, 255, 255, 0.45);
+    border-bottom: 1px solid rgba(11, 15, 25, 0.05);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    padding: 0 3rem;
     transition: var(--transition-smooth);
 }
-nav.stretched-nav.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+nav.stretched-nav::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #1d4ed8, #dd5a12, #067a52, #6d28d9, #1d4ed8);
+    background-size: 200% auto;
+    animation: googleRainbowGlow 4s linear infinite;
+    opacity: 0.85;
 }
+nav.stretched-nav.scrolled {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+@keyframes googleRainbowGlow {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
 .nav-inner {
     max-width: 1440px;
-    height: 72px;
+    height: 76px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -131,30 +148,16 @@ nav.stretched-nav.scrolled {
 .logo-text {
     font-family: var(--ff-display);
     font-weight: 900;
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #0b0f19;
     display: inline-block;
-    animation: neonZoom 6s ease-in-out infinite;
+    animation: brandZoom 5s ease-in-out infinite;
 }
-
-/* Multi-Color Neon Glow + Zoom Loop Animation */
-@keyframes neonZoom {
-    0%, 100% {
-        transform: scale(1);
-        text-shadow: 0 0 8px rgba(14, 165, 233, 0.6), 0 0 16px rgba(14, 165, 233, 0.3);
-    }
-    25% {
-        text-shadow: 0 0 8px rgba(221, 90, 18, 0.7), 0 0 16px rgba(221, 90, 18, 0.4);
-    }
-    50% {
-        transform: scale(1.04);
-        text-shadow: 0 0 8px rgba(109, 40, 217, 0.7), 0 0 16px rgba(109, 40, 217, 0.4);
-    }
-    75% {
-        text-shadow: 0 0 8px rgba(6, 122, 82, 0.7), 0 0 16px rgba(6, 122, 82, 0.4);
-    }
+@keyframes brandZoom {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
 }
 
 .nav-links { display: flex; align-items: center; gap: 0.5rem; list-style: none; }
@@ -173,7 +176,7 @@ nav.stretched-nav.scrolled {
 .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.3rem; cursor: pointer; }
 
 /* ─── HERO SYSTEM ─── */
-.hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 10rem 2rem 4rem; z-index: 1; }
+.hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 12rem 2rem 4rem; z-index: 1; }
 .hero-inner { max-width: 880px; text-align: center; position: relative; z-index: 5; }
 .eyebrow {
     font-family: var(--ff-mono); font-size: 0.72rem; font-weight: 600; color: var(--accent-orange);
@@ -309,7 +312,8 @@ footer .foot-links a:hover { color: #ffffff; }
         <p class="eyebrow">Solutions &amp; Architectural Systems</p>
         <h1>Where the research turns into running software.</h1>
         <p class="lede">
-            Alongside peer-reviewed manuscripts and validation twins, I code and deploy autonomous full-stack software assets—ranging from local sub-frictional transcription matrix utilities to sovereign, air-gapped agent control infrastructure loops.
+            Alongside peer-reviewed manuscripts and validation twins, I code and deploy
+            autonomous full-stack software assets—ranging from local sub-frictional transcription matrix utilities to sovereign, air-gapped agent control infrastructure loops.
         </p>
         <div class="status-strip">
             <span class="status-pill"><span class="dot live"></span>Live / Operational</span>
