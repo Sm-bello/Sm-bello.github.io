@@ -11,7 +11,7 @@
     <style>
 /* ════════════════════════════════════════════════════════════════
    AEROSPACE ARCHITECTURAL PORTFOLIO — MOHAMMED BELLO SANI
-   Pure White Base Foundation. Atmospheric & Aviation Canvas Layers.
+   Pure White Base Foundation. Floating Neon Capsule Navbar. Weather Canvas.
    ════════════════════════════════════════════════════════════════ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -135,6 +135,7 @@ nav.stretched-nav {
     pointer-events: auto;
     width: 100%;
     height: 64px;
+    /* Glassmorphic transparent base layer allowing items to slide behind */
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
@@ -161,7 +162,7 @@ nav.stretched-nav::before {
     animation: neonGlowFlow 4s linear infinite;
 }
 
-/* Outer Glow Reflection Overlay */
+/* Ambient Outer Atmospheric Reflection Shadow */
 nav.stretched-nav::after {
     content: '';
     position: absolute;
@@ -401,8 +402,59 @@ nav.stretched-nav.scrolled {
 .exp-card h3 { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.01em; }
 .exp-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
 
-/* ─── MEDIA QUERY ENVELOPES ─── */
-@media (max-width: 960px) {
+/* ─── RECRUITMENT DEEP FOOTER ─── */
+.footer-main { background: #07090e; color: #cbd5e1; padding: 7rem 2rem 4rem; position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-name { font-family: var(--ff-display); font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+.footer-tagline { font-size: 1rem; color: #94a3b8; max-width: 640px; line-height: 1.6; }
+.footer-contact { text-align: right; }
+.footer-contact a { display: block; color: #94a3b8; text-decoration: none; font-size: 0.95rem; margin-bottom: 0.4rem; transition: var(--transition); font-family: var(--ff-mono); }
+.footer-contact a:hover { color: #fff; }
+.footer-contact .location { font-size: 0.85rem; color: #64748b; margin-top: 0.8rem; }
+
+.footer-grid { display: grid; grid-template-columns: 1.3fr 0.9fr 0.9fr 0.9fr; gap: 3rem; margin-bottom: 4rem; }
+.footer-col h4 { font-family: var(--ff-display); font-size: 0.78rem; font-weight: 600; color: #64748b; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.footer-bio p { font-size: 0.9rem; color: #94a3b8; line-height: 1.7; margin-bottom: 1.2rem; }
+.footer-bio .highlight-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 1.2rem; margin-top: 1.2rem; }
+.footer-bio .highlight-box p { font-size: 0.85rem; color: #cbd5e1; margin: 0; line-height: 1.6; }
+.peer-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(29,78,216,0.1); border: 1px solid rgba(29,78,216,0.2); border-radius: 6px; padding: 0.6rem 1rem; margin-top: 1.2rem; }
+.peer-badge i { color: #60a5fa; font-size: 0.85rem; }
+.peer-badge span { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; color: #93c5fd; letter-spacing: 0.05em; }
+
+.footer-list { list-style: none; }
+.footer-list li { margin-bottom: 0.8rem; font-size: 0.88rem; color: #94a3b8; display: flex; align-items: baseline; gap: 0.6rem; line-height: 1.5; }
+.footer-list li::before { content: '▪'; color: var(--accent-orange); font-size: 0.7rem; }
+.footer-list strong { color: #f1f5f9; }
+.footer-list a { color: #94a3b8; text-decoration: none; transition: var(--transition); }
+.footer-list a:hover { color: #fff; }
+
+.research-status { list-style: none; }
+.research-status li { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; font-size: 0.88rem; color: #94a3b8; }
+.research-status .status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.research-status .dot-blue { background: #3b82f6; box-shadow: 0 0 8px rgba(59,130,246,0.5); }
+.research-status .dot-orange { background: #ea580c; box-shadow: 0 0 8px rgba(234,88,12,0.5); }
+.research-status .dot-green { background: #16a34a; box-shadow: 0 0 8px rgba(22,163,74,0.5); }
+.research-status .dot-purple { background: #9333ea; box-shadow: 0 0 8px rgba(147,51,234,0.5); }
+.research-status .dot-teal { background: #0d9488; box-shadow: 0 0 8px rgba(13,148,136,0.5); }
+.research-status .status-note { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); font-family: var(--ff-mono); font-size: 0.68rem; color: #64748b; letter-spacing: 0.05em; }
+
+.footer-socials { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+.footer-socials a { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #94a3b8; text-decoration: none; font-size: 1rem; transition: var(--transition); }
+.footer-socials a:hover { border-color: #3b82f6; color: #3b82f6; background: rgba(59,130,246,0.05); transform: translateY(-2px); }
+
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 2rem; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-family: var(--ff-mono); font-size: 0.72rem; color: #475569; letter-spacing: 0.02em; }
+.footer-system { font-family: var(--ff-mono); font-size: 0.72rem; color: #16a34a; display: flex; align-items: center; gap: 0.5rem; font-weight: 500; }
+.footer-system::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 8px #16a34a; animation: tickerPulse 2s infinite ease-in-out; }
+@keyframes tickerPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+/* ─── MEDIA QUERIES ─── */
+@media(max-width: 1200px) {
+    .stats-grid, .pubs-grid, .exp-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}
+@media(max-width: 960px) {
     .nav-wrapper { width: 95%; top: 1rem; }
     .nav-links {
         display: none; flex-direction: column; align-items: flex-start; gap: 1rem;
@@ -412,8 +464,10 @@ nav.stretched-nav.scrolled {
     }
     .nav-links.open { display: flex; }
     .nav-toggle { display: block; }
+    .manifest-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem; }
+    .manifest-status { justify-self: start; margin-top: 0.5rem; }
 }
-@media (max-width: 480px) {
+@media(max-width: 480px) {
     .hero h1 { font-size: 2.2rem; }
     .status-strip { flex-direction: column; align-items: center; }
     .status-pill { width: 100%; justify-content: center; }
@@ -779,6 +833,7 @@ nav.stretched-nav.scrolled {
 
     function drawWeather() {
         timeEpoch += 0.0005; 
+        
         let cycleFactor = (Math.sin(timeEpoch) + 1) / 2; 
         
         let r1 = Math.floor(250 - (cycleFactor * 15));
@@ -837,7 +892,7 @@ window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 30);
 });
 
-/* ─── SCROLL INTERSECTION OBSERVER (REVEAL ANIMATIONS) ─── */
+/* ─── INTERSECTION REVEAL CONTROLLER ─── */
 const revealElements = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -882,6 +937,5 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 counterObserver.observe(statsSection);
 </script>
-
 </body>
 </html>
