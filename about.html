@@ -206,6 +206,7 @@ nav.stretched-nav.scrolled {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #0b0f19;
+    display: inline-block;
 }
 
 .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
@@ -899,7 +900,8 @@ const revealObserver = new IntersectionObserver((entries) => {
             entry.target.classList.add('active');
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
 revealElements.forEach(el => revealObserver.observe(el));
 
 /* ─── TELEMETRY NUMERICAL METRIC COUNTERS ─── */
