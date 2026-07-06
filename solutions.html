@@ -11,7 +11,7 @@
     <style>
 /* ════════════════════════════════════════════════════════════════
    AEROSPACE ARCHITECTURAL PORTFOLIO — SOLUTIONS & SYSTEMS
-   Pure White Foundation. Dynamic Island Navigation. Weather Canvas.
+   Pure White Foundation. Stretched Reactive Navbar. Weather Canvas.
    ════════════════════════════════════════════════════════════════ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,7 +46,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ─── DYNAMIC WEATHER REALSITIC BACKGROUND CANVAS ─── */
+/* ─── DYNAMIC WEATHER REALISTIC BACKGROUND CANVAS ─── */
 #ambient-canvas {
     position: fixed;
     top: 0; left: 0;
@@ -99,61 +99,78 @@ body {
 }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* ─── RECTANGULAR DYNAMIC ISLAND NAVIGATION ─── */
-.nav-wrapper {
+/* ─── STRETCHED REACTIVE NAVIGATION INTERFACE ─── */
+nav.stretched-nav {
     position: fixed;
-    top: 1.5rem; left: 50%;
-    transform: translateX(-50%);
+    top: 0; left: 0; right: 0;
     z-index: 1000;
-    width: auto;
-    max-width: 95%;
-    pointer-events: none;
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0 2rem;
+    transition: var(--transition-smooth);
 }
-nav.dynamic-island {
-    pointer-events: auto;
-    background: rgba(11, 15, 25, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    padding: 0.6rem 1.5rem;
-    border-radius: 24px;
+nav.stretched-nav.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+.nav-inner {
+    max-width: 1440px;
+    height: 72px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2.5rem;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-    transition: var(--transition);
 }
-nav.dynamic-island.scrolled {
-    background: rgba(11, 15, 25, 0.95);
-    padding: 0.5rem 1.2rem;
-    border-radius: 18px;
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
-}
-.logo {
-    font-family: var(--ff-display);
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: #ffffff;
+.logo-container {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    letter-spacing: -0.01em;
-    white-space: nowrap;
 }
-.logo span { color: var(--accent-orange); }
-.nav-links { display: flex; align-items: center; gap: 0.4rem; list-style: none; }
+.logo-text {
+    font-family: var(--ff-display);
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #0b0f19;
+    display: inline-block;
+    animation: neonZoom 6s ease-in-out infinite;
+}
+
+/* Multi-Color Neon Glow + Zoom Loop Animation */
+@keyframes neonZoom {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 8px rgba(14, 165, 233, 0.6), 0 0 16px rgba(14, 165, 233, 0.3);
+    }
+    25% {
+        text-shadow: 0 0 8px rgba(221, 90, 18, 0.7), 0 0 16px rgba(221, 90, 18, 0.4);
+    }
+    50% {
+        transform: scale(1.04);
+        text-shadow: 0 0 8px rgba(109, 40, 217, 0.7), 0 0 16px rgba(109, 40, 217, 0.4);
+    }
+    75% {
+        text-shadow: 0 0 8px rgba(6, 122, 82, 0.7), 0 0 16px rgba(6, 122, 82, 0.4);
+    }
+}
+
+.nav-links { display: flex; align-items: center; gap: 0.5rem; list-style: none; }
 .nav-links a {
     font-family: var(--ff-display);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    color: #94a3b8;
+    color: var(--text-secondary);
     text-decoration: none;
-    padding: 0.4rem 1rem;
-    border-radius: 100px;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
     transition: var(--transition-smooth);
 }
-.nav-links a:hover { color: #ffffff; background: rgba(255, 255, 255, 0.06); }
-.nav-links a.active { color: #ffffff; background: var(--accent-orange); }
-.nav-toggle { display: none; background: none; border: none; color: #ffffff; font-size: 1.1rem; cursor: pointer; }
+.nav-links a:hover { color: var(--text); background: rgba(0, 0, 0, 0.04); }
+.nav-links a.active { color: #ffffff; background: #0b0f19; }
+.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.3rem; cursor: pointer; }
 
 /* ─── HERO SYSTEM ─── */
 .hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 10rem 2rem 4rem; z-index: 1; }
@@ -243,11 +260,14 @@ footer .foot-links a:hover { color: #ffffff; }
 
 /* ─── MEDIA QUERY ENVELOPES ─── */
 @media (max-width: 960px) {
-    .nav-links { display: none; }
+    .nav-links {
+        display: none; flex-direction: column; align-items: flex-start; gap: 1rem;
+        position: absolute; top: 72px; left: 0; right: 0; background: rgba(255, 255, 255, 0.98);
+        padding: 1.5rem 2rem; border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    .nav-links.open { display: flex; }
     .nav-toggle { display: block; }
-    nav.dynamic-island.open { border-radius: 16px; flex-direction: column; gap: 1.5rem; align-items: flex-start; width: 280px; padding: 1.5rem; }
-    nav.dynamic-island.open .nav-links { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; width: 100%; }
-    nav.dynamic-island.open .nav-links a { width: 100%; padding: 0.5rem 1rem; border-radius: 8px; }
     .manifest-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem; }
     .manifest-status { justify-self: start; margin-top: 0.5rem; }
 }
@@ -262,21 +282,21 @@ footer .foot-links a:hover { color: #ffffff; }
 
 <canvas id="ambient-canvas"></canvas>
 
-<div class="nav-wrapper">
-    <nav class="dynamic-island" id="navbar">
-        <div style="display:flex; width:100%; align-items:center; justify-content:space-between; gap:2rem;">
-            <a href="/" class="logo">M<span>.</span>BELLO SANI</a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle Dynamic Island Menu">☰</button>
-        </div>
+<nav class="stretched-nav" id="navbar">
+    <div class="nav-inner">
+        <a href="/" class="logo-container">
+            <span class="logo-text">MOHAMMED BELLO SANI</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">☰</button>
         <ul class="nav-links" id="navLinks">
             <li><a href="/">Telemetry</a></li>
             <li><a href="/about.html">Profile</a></li>
-            <li><a href="/projects.html">Research Pipeline</a></li>
-            <li><a href="/solutions.html" class="active">Solutions</a></li>
+            <li><a href="/projects.html">Projects</a></li>
             <li><a href="/contact.html">Interface</a></li>
+            <li><a href="/solutions.html" class="active">Solutions</a></li>
         </ul>
-    </nav>
-</div>
+    </div>
+</nav>
 
 <header class="hero">
     <div class="sky-fleet-container">
@@ -547,9 +567,11 @@ footer .foot-links a:hover { color: #ffffff; }
 
 /* ─── NAVIGATION OVERLAY INTERACTION ─── */
 const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
 const navbar = document.getElementById('navbar');
+
 navToggle.addEventListener('click', () => {
-    navbar.classList.toggle('open');
+    navLinks.classList.toggle('open');
 });
 
 window.addEventListener('scroll', () => {
