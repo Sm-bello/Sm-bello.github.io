@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +25,7 @@
             --gold:     #f59e0b;
             --mono:     'JetBrains Mono', monospace;
             --sans:     'Inter', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body {
@@ -36,22 +36,82 @@
             overflow-x: hidden;
         }
 
-        /* ── NAV ── */
+        /* ─── METEOROLOGICAL SKYBOX CANVAS ─── */
+        #ambient-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ─── DYNAMIC SQUADRON FLIGHT PATH ANIMATION LAYER ─── */
+        .sky-fleet-container {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .fleet-aircraft {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform-origin: center;
+        }
+        .aircraft-paper { color: var(--orange); animation: paperFlight 12s infinite linear; }
+        .aircraft-f22 { color: rgba(15, 44, 89, 0.25); font-size: 1.8rem; animation: interceptFlight 16s infinite linear; animation-delay: 3s; }
+        .aircraft-b747 { color: rgba(133, 146, 166, 0.18); font-size: 2.5rem; animation: cruiseFlight 24s infinite linear; animation-delay: 6s; }
+
+        @keyframes paperFlight {
+            0% { transform: translate(-50px, 40vh) rotate(15deg); opacity: 0; }
+            5% { opacity: 0.8; }
+            35% { transform: translate(30vw, 20vh) rotate(-10deg); }
+            65% { transform: translate(65vw, 35vh) rotate(20deg); }
+            95% { opacity: 0.8; }
+            100% { transform: translate(105vw, 15vh) rotate(-5deg); opacity: 0; }
+        }
+        @keyframes interceptFlight {
+            0% { transform: translate(105vw, 65vh) rotate(-165deg) scale(0.7); opacity: 0; }
+            10% { opacity: 0.6; }
+            50% { transform: translate(50vw, 35vh) rotate(-155deg) scale(1); }
+            90% { opacity: 0.6; }
+            100% { transform: translate(-10vw, 5vh) rotate(-145deg) scale(1.3); opacity: 0; }
+        }
+        @keyframes cruiseFlight {
+            0% { transform: translate(-10vw, 10vh) rotate(5deg); opacity: 0; }
+            8% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translate(110vw, 45vh) rotate(10deg); opacity: 0; }
+        }
+
+        /* ─── SCROLL INTERSECTION REVEAL BASIS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── NAV ─── */
         nav {
             position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; background: rgba(248,250,252,.96);
-            backdrop-filter: blur(10px); border-bottom: 1px solid var(--light);
-            transition: all .3s;
+            z-index: 1000; background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); transition: var(--transition);
         }
-        nav.scrolled { padding: .7rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+        nav.scrolled { padding: .7rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,.04); background: rgba(255, 255, 255, 0.95); }
         .logo {
             font-size: 1.05rem; font-weight: 800; color: var(--text);
             text-decoration: none; display: flex; align-items: center; gap: .5rem;
             text-transform: uppercase; letter-spacing: .5px;
         }
-        .logo i { color: var(--blue); animation: planeFly 3s ease-in-out infinite; }
-        @keyframes planeFly { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px) rotate(-5deg)} }
+        .logo i { color: var(--blue); }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
             text-decoration: none; color: var(--muted); font-weight: 600;
@@ -68,7 +128,7 @@
         .menu-toggle { display:none; flex-direction:column; cursor:pointer; gap:5px; }
         .menu-toggle span { width:24px; height:2.5px; background:var(--text); border-radius:2px; transition:.3s; }
 
-        /* ── HERO ── */
+        /* ─── HERO ─── */
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f2240 100%);
@@ -79,356 +139,168 @@
             overflow: hidden;
         }
         .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background: radial-gradient(ellipse 55% 65% at 75% 42%, rgba(14,165,233,.14) 0%, transparent 65%);
             pointer-events: none;
         }
 
-        /* ── TWO-COLUMN HERO LAYOUT ── */
         .hero-layout {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            position: relative;
-            z-index: 2;
+            max-width: 1280px; margin: 0 auto; width: 100%;
+            display: flex; align-items: center; gap: 4rem; position: relative; z-index: 2;
         }
+        .hero-inner { flex: 1; min-width: 0; position: relative; z-index: 2; }
 
-        /* Text column */
-        .hero-inner {
-            flex: 1;
-            min-width: 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* ── PHOTO COLUMN ── */
+        /* ─── PHOTO COLUMN ─── */
         .hero-photo-col {
-            flex: 0 0 420px;
-            width: 420px;
-            position: relative;
-            align-self: stretch;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+            flex: 0 0 420px; width: 420px; position: relative;
+            align-self: stretch; display: flex; align-items: center; justify-content: flex-end;
         }
-
-        /* Atmospheric glow behind photo — fades in after reveal */
         .hero-photo-col::before {
-            content: '';
-            position: absolute;
-            inset: -50px;
-            background: radial-gradient(
-                ellipse 80% 80% at 65% 50%,
-                rgba(14,165,233,.22) 0%,
-                rgba(14,165,233,.06) 45%,
-                transparent 70%
-            );
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0;
+            content: ''; position: absolute; inset: -50px;
+            background: radial-gradient(ellipse 80% 80% at 65% 50%, rgba(14,165,233,.22) 0%, rgba(14,165,233,.06) 45%, transparent 70%);
+            pointer-events: none; z-index: 0; opacity: 0;
             animation: auraReveal 1.4s ease-out 2.4s forwards;
         }
-        @keyframes auraReveal {
-            to { opacity: 1; }
-        }
+        @keyframes auraReveal { to { opacity: 1; } }
 
-        /* Image wrapper — permanent left-edge spatial fade */
         .hero-photo-wrap {
-            position: relative;
-            width: 100%;
-            height: 540px;
-            z-index: 1;
-            /* The magic: fades left edge into the hero's dark bg */
-            -webkit-mask-image: linear-gradient(to right,
-                transparent 0%,
-                rgba(0,0,0,.18) 12%,
-                rgba(0,0,0,.60) 26%,
-                rgba(0,0,0,.90) 40%,
-                black 56%
-            );
-            mask-image: linear-gradient(to right,
-                transparent 0%,
-                rgba(0,0,0,.18) 12%,
-                rgba(0,0,0,.60) 26%,
-                rgba(0,0,0,.90) 40%,
-                black 56%
-            );
+            position: relative; width: 100%; height: 540px; z-index: 1;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.18) 12%, rgba(0,0,0,.60) 26%, rgba(0,0,0,.90) 40%, black 56%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.18) 12%, rgba(0,0,0,.60) 26%, rgba(0,0,0,.90) 40%, black 56%);
         }
-
-        /* The actual photo — starts dark & blurred, reveals with brightness boom */
         .hero-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 15%;
-            display: block;
-            border-radius: 14px;
-            filter: brightness(0.05) saturate(0) blur(8px);
+            width: 100%; height: 100%; object-fit: cover; object-position: center 15%;
+            display: block; border-radius: 14px; filter: brightness(0.05) saturate(0) blur(8px);
             animation: photoReveal 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
             will-change: filter;
         }
         @keyframes photoReveal {
             0%   { filter: brightness(0.05) saturate(0.0) blur(8px); }
             38%  { filter: brightness(0.35) saturate(0.2) blur(4px); }
-            75%  { filter: brightness(1.20) saturate(1.1) blur(0px); } /* ← BOOM */
+            75%  { filter: brightness(1.20) saturate(1.1) blur(0px); }
             100% { filter: brightness(1.02) saturate(1.0) blur(0px); }
         }
-
-        /* Dark veil — the "shadow" that lifts, creating the reveal moment */
         .hero-photo-veil {
-            position: absolute;
-            inset: 0;
-            background: #0f172a;
-            border-radius: 14px;
-            z-index: 3;
-            animation: veilLift 1.35s cubic-bezier(0.77, 0, 0.18, 1) 0.55s forwards;
-            will-change: opacity;
+            position: absolute; inset: 0; background: #0f172a; border-radius: 14px; z-index: 3;
+            animation: veilLift 1.35s cubic-bezier(0.77, 0, 0.18, 1) 0.55s forwards; will-change: opacity;
         }
-        @keyframes veilLift {
-            0%   { opacity: 1; }
-            100% { opacity: 0; pointer-events: none; }
-        }
+        @keyframes veilLift { 0% { opacity: 1; } 100% { opacity: 0; pointer-events: none; } }
 
-        /* ── HERO TEXT ELEMENTS (unchanged) ── */
+        /* ─── HERO TEXT ELEMENTS ─── */
         .hero-eyebrow {
             font-family: var(--mono); font-size: .78rem; color: var(--blue);
             letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;
             display: flex; align-items: center; gap: .75rem;
         }
-        .hero-eyebrow::before {
-            content:''; display:inline-block; width:28px; height:1.5px; background:var(--blue);
-        }
+        .hero-eyebrow::before { content:''; display:inline-block; width:28px; height:1.5px; background:var(--blue); }
         .hero h1 {
-            font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-            font-weight: 900; color: #fff; line-height: 1.08;
-            letter-spacing: -1.5px; margin-bottom: 1.5rem;
+            font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 800; color: #fff; line-height: 1.08;
+            letter-spacing: -1.5px; margin-bottom: 1.5rem; font-family: var(--ff-display);
         }
-        .hero h1 em {
-            font-style: normal; color: var(--blue);
-            text-shadow: 0 0 40px rgba(14,165,233,.4);
-        }
-        .hero-sub {
-            font-size: 1.05rem; color: #94a3b8; max-width: 560px;
-            line-height: 1.8; margin-bottom: 2.5rem; font-weight: 400;
-        }
+        .hero h1 em { font-style: normal; color: var(--blue); text-shadow: 0 0 40px rgba(14,165,233,.4); }
+        .hero-sub { font-size: 1.05rem; color: #94a3b8; max-width: 620px; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 400; }
         .hero-sub strong { color: #cbd5e1; }
-        .hero-tags {
-            display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.5rem;
-        }
-        .hero-tag {
-            font-family: var(--mono); font-size: .72rem; font-weight: 700;
-            padding: 5px 14px; border-radius: 4px; border: 1px solid;
-            text-transform: uppercase; letter-spacing: .5px;
-        }
-        .tag-blue  { color:var(--blue);   border-color:rgba(14,165,233,.5);  background:rgba(14,165,233,.08); }
-        .tag-orange{ color:var(--orange); border-color:rgba(249,115,22,.5); background:rgba(249,115,22,.08); }
-        .tag-green { color:var(--green);  border-color:rgba(16,185,129,.5);  background:rgba(16,185,129,.08); }
-        .tag-purple{ color:var(--purple); border-color:rgba(139,92,246,.5); background:rgba(139,92,246,.08); }
-        .tag-gold  { color:var(--gold);   border-color:rgba(245,158,11,.5);  background:rgba(245,158,11,.08); }
-        .hero-cta {
-            display: flex; gap: 1rem; flex-wrap: wrap;
-        }
+        .hero-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.5rem; }
+        .hero-tag { font-family: var(--mono); font-size: .72rem; font-weight: 700; padding: 5px 14px; border-radius: 4px; border: 1px solid; text-transform: uppercase; letter-spacing: .5px; }
+        .tag-blue   { color:var(--blue);   border-color:rgba(14,165,233,.5);  background:rgba(14,165,233,.08); }
+        .tag-orange { color:var(--orange); border-color:rgba(249,115,22,.5); background:rgba(249,115,22,.08); }
+        .tag-green  { color:var(--green);  border-color:rgba(16,185,129,.5);  background:rgba(16,185,129,.08); }
+        .tag-purple { color:var(--purple); border-color:rgba(139,92,246,.5); background:rgba(139,92,246,.08); }
+        .tag-gold   { color:var(--gold);   border-color:rgba(245,158,11,.5);  background:rgba(245,158,11,.08); }
+        .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
         .btn-primary {
-            display:inline-flex; align-items:center; gap:.6rem;
-            padding:12px 24px; border-radius:8px; font-weight:700;
-            font-size:.9rem; text-decoration:none; transition:.3s;
-            background:var(--blue); color:#fff; border:none;
+            display:inline-flex; align-items:center; gap:.6rem; padding:12px 24px; border-radius:8px; font-weight:700;
+            font-size:.9rem; text-decoration:none; transition:var(--transition); background:var(--text); color:#fff; border:1px solid transparent;
         }
-        .btn-primary:hover { background:#0284c7; transform:translateY(-2px); box-shadow:0 8px 24px rgba(14,165,233,.35); }
+        .btn-primary:hover { background:var(--orange); transform:translateY(-2px); box-shadow:0 8px 24px rgba(249,115,22,.2); }
         .btn-ghost {
-            display:inline-flex; align-items:center; gap:.6rem;
-            padding:12px 24px; border-radius:8px; font-weight:700;
-            font-size:.9rem; text-decoration:none; transition:.3s;
-            background:transparent; color:#94a3b8; border:1px solid rgba(148,163,184,.3);
+            display:inline-flex; align-items:center; gap:.6rem; padding:12px 24px; border-radius:8px; font-weight:700;
+            font-size:.9rem; text-decoration:none; transition:var(--transition); background:transparent; color:#94a3b8; border:1px solid rgba(148,163,184,.3);
         }
         .btn-ghost:hover { border-color:var(--blue); color:var(--blue); transform:translateY(-2px); }
 
-        /* ── STATS BAND ── */
-        .stats-band {
-            background: var(--dark); border-top: 1px solid rgba(14,165,233,.15);
-            border-bottom: 1px solid rgba(14,165,233,.15); padding: 3rem 2rem;
-        }
-        .stats-inner {
-            max-width: 1000px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
-            gap: 2.5rem; text-align: center;
-        }
-        .stat-num {
-            font-family: var(--mono); font-size: 2.4rem; font-weight: 700;
-            color: var(--blue); line-height: 1; margin-bottom: .3rem;
-            text-shadow: 0 0 20px rgba(14,165,233,.4);
-        }
-        .stat-num.orange { color:var(--orange); text-shadow:0 0 20px rgba(249,115,22,.3); }
-        .stat-num.green  { color:var(--green);  text-shadow:0 0 20px rgba(16,185,129,.3); }
-        .stat-num.gold   { color:var(--gold);   text-shadow:0 0 20px rgba(245,158,11,.3); }
-        .stat-label {
-            font-size:.78rem; color:#64748b; text-transform:uppercase;
-            letter-spacing:1.5px; font-weight:600;
-        }
+        /* ─── STATS BAND ─── */
+        .stats-band { background: #07090e; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 3rem 2rem; position: relative; z-index: 5; }
+        .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 2.5rem; text-align: center; }
+        .stat-item { position: relative; }
+        .stat-num { font-family: var(--mono); font-size: 2.5rem; font-weight: 700; color: #fff; line-height: 1; margin-bottom: .4rem; }
+        .stat-label { font-size:.72rem; color:#64748b; text-transform:uppercase; letter-spacing:1.5px; font-weight:600; }
 
-        /* ── MAIN CONTENT ── */
-        .content { max-width: 820px; margin: 0 auto; padding: 5rem 2rem 6rem; }
-
-        .section-label {
-            font-family: var(--mono); font-size: .72rem; font-weight: 700;
-            color: var(--blue); letter-spacing: 2px; text-transform: uppercase;
-            margin-bottom: .75rem; display: flex; align-items: center; gap: .6rem;
-        }
+        /* ─── MAIN CONTENT ─── */
+        .content { max-width: 880px; margin: 0 auto; padding: 6rem 2rem 6rem; position: relative; z-index: 5; }
+        .section-label { font-family: var(--mono); font-size: .72rem; font-weight: 700; color: var(--blue); letter-spacing: 2px; text-transform: uppercase; margin-bottom: .75rem; display: flex; align-items: center; gap: .6rem; }
         .section-label::before { content:''; display:inline-block; width:20px; height:1.5px; background:var(--blue); }
 
-        .story-block { margin-bottom: 4.5rem; }
-        .story-block h2 {
-            font-size: 1.85rem; font-weight: 800; color: var(--text);
-            letter-spacing: -0.5px; margin-bottom: 1.2rem; line-height: 1.2;
-        }
-        .story-block p {
-            font-size: 1.05rem; color: #334155; line-height: 1.85;
-            margin-bottom: 1rem;
-        }
+        .story-block { margin-bottom: 5rem; }
+        .story-block h2 { font-size: 2rem; font-weight: 700; color: var(--text); letter-spacing: -0.5px; margin-bottom: 1.5rem; line-height: 1.2; font-family: var(--ff-display); }
+        .story-block p { font-size: 1.05rem; color: #334155; line-height: 1.85; margin-bottom: 1.2rem; }
         .story-block p:last-child { margin-bottom: 0; }
         .story-block strong { color: var(--text); font-weight: 700; }
-        .story-block a { color: var(--blue); text-decoration: none; font-weight:600; }
-        .story-block a:hover { text-decoration: underline; }
+        .story-block a { color: var(--blue); text-decoration: none; font-weight:600; transition: var(--transition); }
+        .story-block a:hover { color: var(--orange); }
 
-        .pull-quote {
-            border-left: 3px solid var(--blue);
-            padding: 1rem 1.5rem;
-            margin: 2rem 0;
-            background: rgba(14,165,233,.04);
-            border-radius: 0 8px 8px 0;
-        }
-        .pull-quote p {
-            font-size: 1.1rem !important;
-            color: #1e3a5f !important;
-            font-style: italic;
-            margin: 0 !important;
-        }
+        .pull-quote { border-left: 3px solid var(--orange); padding: 1.2rem 1.8rem; margin: 2.5rem 0; background: var(--bg-warm); border-radius: 0 8px 8px 0; border: 1px solid var(--border); border-left-width: 3px; }
+        .pull-quote p { font-size: 1.1rem !important; color: var(--accent) !important; font-style: italic; margin: 0 !important; font-weight: 500; }
 
-        /* ── BUILD CARDS ── */
-        .build-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 1.25rem; margin: 1.5rem 0 0;
-        }
-        .build-card {
-            background: var(--dark); border-radius: 12px; padding: 1.5rem;
-            border: 1px solid rgba(255,255,255,.06); transition: transform .3s, box-shadow .3s;
-        }
-        .build-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.25); }
-        .build-card-icon { font-size: 1.4rem; margin-bottom: .8rem; }
-        .build-card h3 { font-size: 1rem; font-weight: 700; color: #f1f5f9; margin-bottom: .4rem; }
-        .build-card p { font-size: .85rem; color: #64748b; line-height: 1.6; margin: 0; }
-        .build-card .card-tag {
-            font-family: var(--mono); font-size: .65rem; font-weight: 700;
-            padding: 3px 8px; border-radius: 3px; border: 1px solid;
-            text-transform: uppercase; display: inline-block; margin-bottom: .75rem;
-        }
+        /* ─── BUILD CARDS ─── */
+        .build-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0 0; }
+        .build-card { background: #fff; border-radius: 12px; padding: 1.8rem; border: 1px solid var(--border); transition: var(--transition); }
+        .build-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.03); }
+        .build-card-icon { font-size: 1.5rem; color: var(--text); margin-bottom: .8rem; }
+        .build-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+        .build-card p { font-size: .9rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+        .build-card .card-tag { font-family: var(--mono); font-size: .62rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border); text-transform: uppercase; display: inline-block; margin-bottom: .75rem; background: var(--bg-warm); color: var(--text-secondary); }
 
-        /* ── TIMELINE ── */
-        .timeline { position:relative; padding-left: 1.5rem; margin: 1.5rem 0 0; }
-        .timeline::before {
-            content:''; position:absolute; left:0; top:6px; bottom:6px;
-            width:2px; background:linear-gradient(to bottom, var(--blue), var(--purple), var(--green));
-            border-radius:2px;
-        }
-        .tl-item { position:relative; padding: 0 0 2rem 1.75rem; }
+        /* ─── TIMELINE ─── */
+        .timeline { position:relative; padding-left: 1.5rem; margin: 2rem 0 0; }
+        .timeline::before { content:''; position:absolute; left:0; top:6px; bottom:6px; width:1px; background: var(--border); }
+        .tl-item { position:relative; padding: 0 0 2.5rem 1.75rem; }
         .tl-item:last-child { padding-bottom: 0; }
-        .tl-dot {
-            position:absolute; left:-6px; top:4px;
-            width:14px; height:14px; border-radius:50%; border:2px solid var(--bg);
-        }
-        .tl-date {
-            font-family:var(--mono); font-size:.72rem; font-weight:700; color:var(--blue);
-            letter-spacing:1px; text-transform:uppercase; margin-bottom:.3rem;
-        }
-        .tl-title { font-size:1rem; font-weight:700; color:var(--text); margin-bottom:.25rem; }
-        .tl-desc  { font-size:.9rem; color:var(--muted); line-height:1.6; }
+        .tl-dot { position:absolute; left:-29px; top:6px; width:10px; height:10px; border-radius:50%; background: var(--border); border: 2px solid #fff; transition: var(--transition); }
+        .tl-item:hover .tl-dot { background: var(--orange); scale: 1.2; }
+        .tl-date { font-family:var(--mono); font-size:.72rem; font-weight:700; color:var(--orange); letter-spacing:1px; text-transform:uppercase; margin-bottom:.4rem; }
+        .tl-title { font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:.4rem; font-family: var(--ff-display); }
+        .tl-desc  { font-size:.92rem; color:var(--text-secondary); line-height:1.6; }
 
-        /* ── PAPER LIST ── */
-        .paper-list { list-style:none; margin:1.2rem 0; }
-        .paper-list li {
-            display:flex; gap:1rem; align-items:flex-start;
-            padding:.85rem 1rem; margin-bottom:.6rem;
-            background:#fff; border:1px solid var(--light);
-            border-radius:8px; transition: border-color .2s, box-shadow .2s;
-        }
-        .paper-list li:hover { border-color:var(--blue); box-shadow:0 4px 16px rgba(14,165,233,.1); }
-        .paper-badge {
-            font-family:var(--mono); font-size:.65rem; font-weight:700;
-            padding:3px 8px; border-radius:4px; border:1px solid;
-            text-transform:uppercase; white-space:nowrap; flex-shrink:0; align-self:center;
-        }
-        .badge-cja    { color:#0ea5e9; border-color:#0ea5e9; background:rgba(14,165,233,.08); }
-        .badge-ieee   { color:#8b5cf6; border-color:#8b5cf6; background:rgba(139,92,246,.08); }
-        .badge-ress   { color:#10b981; border-color:#10b981; background:rgba(16,185,129,.08); }
-        .badge-aiaa   { color:#f97316; border-color:#f97316; background:rgba(249,115,22,.08); }
-        .badge-scitech{ color:#06b6d4; border-color:#06b6d4; background:rgba(6,182,212,.08); }
-        .paper-text { font-size:.88rem; color:#334155; line-height:1.55; }
+        /* ─── PAPER LIST ─── */
+        .paper-list { list-style:none; margin: 2rem 0; display: flex; flex-direction: column; gap: 1rem; }
+        .paper-list li { display:flex; gap:1.2rem; align-items:center; padding:1.2rem 1.5rem; background:#fff; border:1px solid var(--border); border-radius:12px; transition: var(--transition); }
+        .paper-list li:hover { border-color:var(--text); box-shadow:0 12px 32px rgba(0,0,0,.03); transform: translateY(-2px); }
+        .paper-badge { font-family:var(--mono); font-size:.62rem; font-weight:700; padding:4px 10px; border-radius:4px; border:1px solid var(--border); text-transform:uppercase; white-space:nowrap; flex-shrink:0; background: var(--bg-warm); color: var(--text-secondary); }
+        .paper-text { font-size:.95rem; color:var(--text-secondary); line-height:1.6; }
         .paper-text strong { color:var(--text); font-weight:700; }
 
-        /* ── SKILLS CHIPS ── */
-        .skill-section { margin-bottom:1.8rem; }
-        .skill-category {
-            font-family:var(--mono); font-size:.72rem; font-weight:700;
-            color:var(--blue); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:.6rem;
-        }
+        /* ─── SKILLS CHIPS ─── */
+        .skill-section { margin-bottom:2.2rem; }
+        .skill-section:last-child { margin-bottom: 0; }
+        .skill-category { font-family:var(--mono); font-size:.72rem; font-weight:700; color:var(--text-tertiary); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:.8rem; }
         .chip-cloud { display:flex; flex-wrap:wrap; gap:.5rem; }
-        .chip {
-            font-family:var(--mono); font-size:.72rem; padding:4px 12px;
-            border-radius:4px; background:#fff; border:1px solid var(--light);
-            color:#475569; font-weight:500; transition: .2s;
-        }
-        .chip:hover { border-color:var(--blue); color:var(--blue); }
+        .chip { font-family:var(--mono); font-size:.75rem; padding: 6px 14px; border-radius:6px; background:#fff; border:1px solid var(--border); color:var(--text-secondary); font-weight:500; transition: var(--transition); }
+        .chip:hover { border-color:var(--text); color:var(--text); transform: translateY(-1px); }
 
-        /* ── CLOSING ── */
-        .closing {
-            background: linear-gradient(135deg, #0f172a 0%, #1a2e4a 100%);
-            border-radius: 16px; padding: 3rem 2.5rem;
-            border: 1px solid rgba(14,165,233,.2);
-            text-align: center; margin-top: 2rem;
-        }
-        .closing p { font-size: 1.1rem; color: #94a3b8; line-height: 1.8; max-width: 580px; margin: 0 auto 1.5rem; }
-        .closing p strong { color: #e2e8f0; }
-        .closing-links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
-        .closing-link {
-            display:inline-flex; align-items:center; gap:.5rem;
-            padding:9px 20px; border-radius:6px; font-size:.85rem; font-weight:700;
-            text-decoration:none; transition:.3s; border:1px solid rgba(255,255,255,.15); color:#94a3b8;
-        }
-        .closing-link:hover { border-color:var(--blue); color:var(--blue); transform:translateY(-2px); }
+        /* ─── CLOSING SECTION ─── */
+        .closing { background: #07090e; border-radius: 16px; padding: 4rem 3rem; border: 1px solid rgba(255,255,255,0.06); text-align: center; margin-top: 4rem; }
+        .closing p { font-size: 1.1rem; color: #94a3b8; line-height: 1.8; max-width: 640px; margin: 0 auto 2rem; }
+        .closing p strong { color: #f1f5f9; }
+        .closing-links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+        .closing-link { display:inline-flex; align-items:center; gap:.6rem; padding:10px 22px; border-radius:6px; font-size:.85rem; font-weight:700; text-decoration:none; transition:var(--transition); border:1px solid rgba(255,255,255,.08); color:#94a3b8; font-family: var(--ff-mono); }
+        .closing-link:hover { border-color:#3b82f6; color:#3b82f6; transform:translateY(-2px); background: rgba(59,130,246,0.05); }
 
-        /* ── FOOTER ── */
-        footer { background:#0b1120; padding:2.5rem; color:#94a3b8; text-align:center; }
-        footer a { color:#64748b; margin:0 12px; text-decoration:none; transition:.3s; }
-        footer a:hover { color:var(--orange); }
+        /* ─── FOOTER ─── */
+        footer { background:#07090e; padding:3rem 2rem; color:#64748b; text-align:center; border-top: 1px solid rgba(255,255,255,0.05); position: relative; z-index: 5; }
+        footer p { font-family: var(--ff-mono); font-size: 0.75rem; letter-spacing: 0.02em; margin-bottom: 1rem; }
+        footer a { color:#64748b; margin:0 12px; text-decoration:none; transition:var(--transition); font-size: 0.85rem; }
+        footer a:hover { color:#fff; }
 
-        /* ── RESPONSIVE ── */
-
-        /* Tablet: stack hero columns, show circular avatar */
-        @media(max-width:960px) {
-            .hero-layout { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
-            .hero-photo-col {
-                width: 100%;
-                flex: 0 0 auto;
-                order: -1;            /* photo slides above text on mobile */
-                justify-content: flex-start;
-                align-self: auto;
-            }
+        /* ─── RESPONSIVE PIPELINES ─── */
+        @media(max-width:1024px) {
+            .hero-layout { flex-direction: column; align-items: flex-start; gap: 3rem; }
+            .hero-photo-col { width: 100%; flex: 0 0 auto; order: -1; justify-content: flex-start; align-self: auto; }
             .hero-photo-col::before { display: none; }
             .hero-photo-wrap {
-                width: 160px;
-                height: 160px;
-                border-radius: 50%;
-                overflow: hidden;
-                /* Remove the side-fade on mobile — just a clean circle */
-                -webkit-mask-image: none;
-                mask-image: none;
-                border: 3px solid rgba(14,165,233,.4);
-                box-shadow: 0 0 0 6px rgba(14,165,233,.08), 0 8px 32px rgba(0,0,0,.5);
+                width: 180px; height: 160px; border-radius: 50%; overflow: hidden;
+                -webkit-mask-image: none; mask-image: none;
+                border: 2px solid var(--border); box-shadow: 0 12px 40px rgba(0,0,0,.06);
             }
             .hero-photo { object-position: center 12%; border-radius: 50%; }
             .hero-photo-veil { border-radius: 50%; }
@@ -436,364 +308,391 @@
 
         @media(max-width:768px) {
             .nav-links { display: none; }
-            .nav-links.active {
-                display: flex; flex-direction: column;
-                position: absolute; top: 100%; left: 0; width: 100%;
-                background: var(--bg); padding: 1.5rem 2rem;
-                border-bottom: 1px solid var(--light);
-            }
             .menu-toggle { display: flex; }
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
             .build-grid { grid-template-columns: 1fr; }
+            .content { padding: 4rem 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<canvas id="ambient-canvas"></canvas>
+
 <nav id="navbar">
-    <a href="/" class="logo"><i class="fas fa-microchip"></i> Mohammed Bello Sani</a>
+    <a href="/" class="logo"><i class="fas fa-compass"></i> M. BELLO SANI</a>
     <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
         <span></span><span></span><span></span>
     </div>
     <ul class="nav-links" id="navLinks">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about.html" class="active">About</a></li>
-        <li><a href="/projects.html">Projects</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/">Telemetry</a></li>
+        <li><a href="/about.html" class="active">Profile</a></li>
+        <li><a href="/projects.html">Research Pipeline</a></li>
+        <li><a href="/contact.html">Interface</a></li>
     </ul>
 </nav>
 
-<!-- ══════════════════════════════════════════════
-     HERO — two-column split with photo reveal
-══════════════════════════════════════════════ -->
 <section class="hero">
-    <div class="hero-layout">
+    <div class="sky-fleet-container">
+        <div class="fleet-aircraft aircraft-paper"><i class="fas fa-paper-plane"></i></div>
+        <div class="fleet-aircraft aircraft-f22"><i class="fas fa-jet-fighter"></i></div>
+        <div class="fleet-aircraft aircraft-b747"><i class="fas fa-plane"></i></div>
+    </div>
 
-        <!-- LEFT: Text column -->
+    <div class="hero-layout">
         <div class="hero-inner">
-            <div class="hero-eyebrow">Aerospace Engineer &amp; Digital Twin Technologies + Aerospace AI Researcher</div>
+            <div class="hero-eyebrow">Aerospace Systems Engineering Specialist</div>
             <h1>Building the future<br>of <em>aviation intelligence</em><br>from Nigeria.</h1>
             <p class="hero-sub">
-                I'm <strong>Mohammed Bello Sani</strong> — a final-year Aerospace Engineering student at AFIT Kaduna,
-                researcher, and founder of <strong>Penelope Inc.</strong> I build physics-informed AI systems,
-                blockchain-secured avionics, and full-stack tools — all the way from journal submissions
-                to deployed software.
+                I'm <strong>Mohammed Bello Sani</strong> — an Aerospace Engineering Graduate from AFIT Kaduna, researcher, and founder of <strong>Penelope Inc.</strong> I engineer physics-informed AI frameworks, blockchain-secured avionics matrices, and robust full-stack software assets tracing down from strict regulatory verification limits to physical execution loops.
             </p>
             <div class="hero-tags">
                 <span class="hero-tag tag-blue">Digital Twins</span>
                 <span class="hero-tag tag-purple">Aviation Cybersecurity</span>
                 <span class="hero-tag tag-green">PHM &amp; MRO AI</span>
-                <span class="hero-tag tag-orange">Rust · Next.js · PyTorch</span>
-                <span class="hero-tag tag-gold">Beihang M.Sc. 2026</span>
+                <span class="hero-tag tag-orange">MATLAB · PyTorch · FastAPI</span>
+                <span class="hero-tag tag-gold">Beihang M.Sc. Candidate</span>
             </div>
             <div class="hero-cta">
-                <a href="/projects.html" class="btn-primary"><i class="fas fa-rocket"></i> See My Projects</a>
-                <a href="https://github.com/Sm-bello" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="btn-ghost"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="/projects.html" class="btn-primary"><i class="fas fa-terminal"></i> Evaluate Research Engine</a>
+                <a href="https://github.com/Sm-bello" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub Matrix</a>
+                <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="btn-ghost"><i class="fab fa-linkedin-in"></i> LinkedIn Log</a>
             </div>
         </div>
 
-        <!-- RIGHT: Photo column -->
-        <!--
-            📸 IMAGE SETUP:
-            Save your photo as  /assets/bello.webp  in your project root.
-            (i.e. same folder level as index.html / about.html / public/)
-            Then it will load at the path below automatically on Vercel.
-        -->
         <div class="hero-photo-col">
             <div class="hero-photo-wrap">
-                <img
-                    src="/assets/bello.webp"
-                    alt="Mohammed Bello Sani — Aerospace Engineer & Researcher"
-                    class="hero-photo"
-                >
-                <!-- Dark veil that lifts for the "boom" reveal -->
+                <img src="/assets/bello.webp" alt="Mohammed Bello Sani — Aerospace Engineer & Researcher" class="hero-photo">
                 <div class="hero-photo-veil"></div>
             </div>
         </div>
-
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     STATS BAND
-══════════════════════════════════════════════ -->
 <div class="stats-band">
     <div class="stats-inner">
         <div class="stat-item">
             <div class="stat-num">4</div>
-            <div class="stat-label">Papers Under Review</div>
+            <div class="stat-label">Manuscripts Under Review</div>
         </div>
         <div class="stat-item">
-            <div class="stat-num orange">4.13</div>
-            <div class="stat-label">CGPA / 5.00</div>
+            <div class="stat-num">4.13</div>
+            <div class="stat-label">Graduation CGPA / 5.00</div>
         </div>
         <div class="stat-item">
-            <div class="stat-num green">72k+</div>
-            <div class="stat-label">Open Dataset Samples</div>
+            <div class="stat-num">54.5k+</div>
+            <div class="stat-label">Open Repository Footprint</div>
         </div>
         <div class="stat-item">
-            <div class="stat-num gold">10+</div>
-            <div class="stat-label">Production Systems Built</div>
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Autonomous Systems Shipped</div>
         </div>
         <div class="stat-item">
-            <div class="stat-num" style="color:#8b5cf6;text-shadow:0 0 20px rgba(139,92,246,.4);">Sept '26</div>
-            <div class="stat-label">Beihang M.Sc. Starts</div>
+            <div class="stat-num">Sept '26</div>
+            <div class="stat-label">Beihang M.Sc. Term Launch</div>
         </div>
     </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     MAIN CONTENT
-══════════════════════════════════════════════ -->
 <div class="content">
 
-    <!-- 1. WHO I AM -->
-    <div class="story-block">
+    <div class="story-block reveal">
         <div class="section-label">Who I Am</div>
-        <h2>An engineer who codes, researches, and ships — all at once.</h2>
+        <h2>An engineer mapping algorithmic parameters onto physical safety criteria.</h2>
         <p>
-            I'm in the final year of my Aerospace Engineering degree at the <strong>Air Force Institute of Technology (AFIT), Kaduna</strong>,
-            Nigeria — graduating with a CGPA of 4.13/5.00. But my undergraduate years look less like a typical student's
-            and more like a research lab's output log.
+            I am a graduate of the Aerospace Engineering program at the <strong>Air Force Institute of Technology (AFIT), Kaduna</strong>, completing my B.Eng degree loop with an honors standing of 4.13/5.00. Rather than following standard curriculum lanes, my academic path has operated as an independent development environment tracking complex multi-domain intelligence frameworks.
         </p>
         <p>
-            While completing coursework in Flight Dynamics, Aerospace Structures, and Propulsion,
-            I simultaneously authored four original research papers — all now under peer review at
-            top international journals. I built and deployed production software. I designed a
-            conceptual aircraft. I engineered a blockchain security system for aviation.
-            I published open datasets used by researchers worldwide. And I did most of it independently,
-            from a laptop in Abuja.
+            While investigating core aerospace baselines under my supervisor, <strong>Dr. Godwin E. Abbe</strong>, I authored and advanced four separate research manuscripts to international peer-reviewed journals. My development targets focus heavily on removing critical operational failure modes—designing autonomous aircraft architectures, cryptographically sealing avionics data buses, and establishing wide-spectrum telemetry data lakes accessible to the international aerospace community.
         </p>
         <div class="pull-quote">
-            <p>"I am not waiting to graduate before doing real engineering. The work is already here."</p>
+            <p>"Engineering robust runtime architectures means removing the abstraction line between academic software prototypes and absolute airworthiness reality."</p>
         </div>
         <p>
-            In September 2026, I begin an M.Sc. in Smart Aviation at <strong>Beihang University</strong>
-            (BUAA), Hangzhou, China — ranked #1 in China and top-5 globally for aerospace —
-            under Professor Hu Yang at the Smart Aviation Center. My research will focus on
-            digital twin-based intelligent maintenance for aircraft systems.
+            In September 2026, I transition into the postgraduate research track at <strong>Beihang University (BUAA)</strong> within the Hangzhou Innovation Institute's global <strong>Smart Aviation Center</strong> under Prof. Hu Yang. My postgraduate objectives focus strictly on formulating deep learning digital twin models to map real-time degradation metrics on complex aircraft control surfaces.
         </p>
     </div>
 
-    <!-- 2. WHAT DRIVES ME -->
-    <div class="story-block">
-        <div class="section-label">What Drives Me</div>
-        <h2>African aviation needs infrastructure it can call its own.</h2>
+    <div class="story-block reveal">
+        <div class="section-label">Operational Imperatives</div>
+        <h2>Establishing sovereign aerospace AI systems inside African airspace lines.</h2>
         <p>
-            My SIWES internships — at the <strong>Nigerian Civil Aviation Authority (NCAA)</strong>
-            working on airworthiness compliance, and at <strong>Executive Airlift Group</strong>
-            maintaining King Air 350 aircraft at Nnamdi Azikiwe International Airport — gave me
-            something textbooks cannot: a direct view of where African aviation breaks down.
+            My technical operations experience across dual field layers—including data audit tracks at the <strong>Nigerian Civil Aviation Authority (NCAA) Department of Airworthiness Standards</strong> and hands-on maintenance sprints at the <strong>Executive Airlift Group (EAG 307)</strong> hangar performing King Air 350 system inspections—exposed systemic vulnerabilities within regional operations.
         </p>
         <p>
-            The maintenance tools, the health monitoring systems, the security infrastructure — almost
-            all of it is foreign-built, foreign-licensed, and foreign-maintained. African operators
-            pay enormous sums for systems designed for different contexts and different fleets.
-            I want to change that.
+            The critical Prognostics and Health Management (PHM) tools, avionics verification architectures, and fleet telemetry loops driving current regional flight systems depend entirely on foreign black-box licenses. This dependency introduces extensive software constraints and severe economic overhead for indigenous operators managing distinct fleets.
         </p>
         <p>
-            Every system I build — every paper I write — is aimed at that gap. The long-term vision
-            behind <strong>Penelope Inc.</strong>, the company I'm founding, is to become the
-            leading indigenous aerospace AI engineering practice in Africa: building digital maintenance
-            infrastructure that airlines, MROs, and regulators on this continent can actually own.
+            This operational gap defines the core deployment plan behind **Penelope Inc.**, the advanced engineering practice I founded. By designing validation engines tailored to **NASA TRL 4–5 Design Scale criteria**, we are building secure, physics-grounded AI tracking nodes that regional operators, maintenance installations, and airworthiness safety authorities can naturally integrate, own, and verify.
         </p>
     </div>
 
-    <!-- 3. RESEARCH -->
-    <div class="story-block">
-        <div class="section-label">Research &amp; Publications</div>
-        <h2>Four papers. Four journals. All as an undergraduate.</h2>
+    <div class="story-block reveal">
+        <div class="section-label">Research Pipeline Tracking</div>
+        <h2>Validated multi-protocol models exploring core aerodynamic anomalies.</h2>
         <ul class="paper-list">
             <li>
-                <span class="paper-badge badge-cja">CJA</span>
-                <span class="paper-text"><strong>AeroTwin: B787 Landing Gear Prognostics</strong> — Three-layer edge AI with ODE physics engine, CNN-BiLSTM classifier, and offline Ollama LLM. Cranfield University collaboration. Under review at Chinese Journal of Aeronautics.</span>
+                <span class="paper-badge">CJA</span>
+                <span class="paper-text"><strong>AeroTwin: B787 Landing Gear Prognostics via Edge AI Architecture</strong> — Explores three-layer physics edge nodes using deep CNN-BiLSTM sequences linked directly to an offline LLM layer. Under review at the Chinese Journal of Aeronautics.</span>
             </li>
             <li>
-                <span class="paper-badge badge-ieee">IEEE TAES</span>
-                <span class="paper-text"><strong>PHI-CHAIN: Blockchain-Secured Avionics</strong> — Ed25519 + Hyperledger Fabric securing ADS-B, ACARS, CPDLC. Split-Payload Architecture resolves the TCAS Paradox. 100% attack detection rate.</span>
+                <span class="paper-badge">AIAA SciTech</span>
+                <span class="paper-text"><strong>PHI-CHAIN: Multi-Protocol Avionics Ledger Infrastructure</strong> — Abstract submitted to the AIAA SciTech 2027 Student Paper Competition on Cybersecurity. Solves the TCAS Paradox via Ghost ID path masking, 4-layer PIDT checks, and Shamir threshold ceremonies.</span>
             </li>
             <li>
-                <span class="paper-badge badge-ress">RESS</span>
-                <span class="paper-text"><strong>B787 Ignition Digital Twin</strong> — Physics-derived 27,000-sample dataset, LightGBM (R²=0.87), FastAPI microservice. Under review at Elsevier Reliability Engineering &amp; System Safety.</span>
+                <span class="paper-badge">Elsevier RESS</span>
+                <span class="paper-text"><strong>Gas Turbine Ignition Digital Twin Optimization Matrix</strong> — Features a custom 27,000 failure-state benchmark loop using advanced LightGBM models yielding an R²=0.87 degradation metric. Under review at Reliability Engineering & System Safety.</span>
             </li>
             <li>
-                <span class="paper-badge badge-aiaa">AIAA JAIS</span>
-                <span class="paper-text"><strong>Dornier 228 Certification-Compliant DT</strong> — Simscape Multibody + dual-input LSTM (98.74% accuracy), CS-23.473 compliant, 47ms latency. Under review at AIAA Journal of Aerospace Information Systems.</span>
+                <span class="paper-badge">AIAA JAIS</span>
+                <span class="paper-text"><strong>Certification-Compliant Dornier 228 Multibody Landing Twin</strong> — Maps dual-input LSTM pipelines directly against strict CS-23 airworthiness standards at an ultra-low 47ms inference speed. Under review at the AIAA Journal of Aerospace Information Systems.</span>
             </li>
             <li>
-                <span class="paper-badge badge-scitech">SciTech 2027</span>
-                <span class="paper-text"><strong>RDE CFD Augmentation via CVAE</strong> — 12 OpenFOAM simulations → 72 synthetic spatiotemporal fields (CNN-BiLSTM CVAE, 4.3M params). Novel finding: 4× CJ velocity overestimate at off-stoichiometric conditions.</span>
+                <span class="paper-badge">SciTech 2027</span>
+                <span class="paper-text"><strong>Physics-Consistent CVAE for Spatiotemporal CFD Data Augmentation</strong> — Scales 12 OpenFOAM reactive flow fields to 72 augmented matrices via a 4.3M parameter engine, documenting a 4x velocity error margin across global RDE literature lines.</span>
             </li>
         </ul>
-        <p style="margin-top:1rem;font-size:.9rem;color:var(--muted);">
-            I also serve as an <strong>invited peer reviewer</strong> for AIAA JAIS — on behalf of
-            Prof. Peng Wei, George Washington University — an honour normally extended to
-            faculty and senior researchers.
+        <p style="margin-top:1.5rem; font-size:.9rem; color:var(--muted); line-height: 1.6;">
+            Complementing my research track, I serve as an **invited Ad Hoc Peer Reviewer for the AIAA Journal of Aerospace Information Systems** under Associate Editor Prof. Peng Wei (George Washington University), verifying model validity parameters across complex international research submissions.
         </p>
     </div>
 
-    <!-- 4. WHAT I BUILD -->
-    <div class="story-block">
-        <div class="section-label">What I Build</div>
-        <h2>Research that runs. Software that ships.</h2>
-        <p>
-            I don't just write about systems. I build them — end to end, from physics simulation
-            to deployed product.
-        </p>
+    <div class="story-block reveal">
+        <div class="section-label">Production Repositories</div>
+        <h2>Deterministic systems verified across strict operational matrices.</h2>
         <div class="build-grid">
             <div class="build-card">
-                <span class="card-tag" style="font-family:var(--mono);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:3px;border:1px solid rgba(139,92,246,.5);background:rgba(139,92,246,.08);color:#a78bfa;display:inline-block;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px;">Cybersecurity</span>
-                <div class="build-card-icon">🔐</div>
-                <h3>PHI-CHAIN v3.0</h3>
-                <p>Live blockchain ground station for ADS-B/ACARS/CPDLC integrity — three-node Hyperledger Fabric network, GF(2⁸) Shamir key splitting, live anomaly detection.</p>
+                <div class="build-card-icon"><i class="fas fa-shield-halved"></i></div>
+                <span class="card-tag">Cybersecurity Ledger</span>
+                <h3>PHI-CHAIN Ground Station v3.0</h3>
+                <p>Multi-protocol ground interception engine cryptographically sealing telemetry packets via decentralized Hyperledger Fabric configurations using Shamir secret sharing algorithms.</p>
             </div>
             <div class="build-card">
-                <span class="card-tag" style="font-family:var(--mono);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:3px;border:1px solid rgba(14,165,233,.5);background:rgba(14,165,233,.08);color:#38bdf8;display:inline-block;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px;">Digital Twin</span>
-                <div class="build-card-icon">🛬</div>
-                <h3>PHI-Twin Suite</h3>
-                <p>Gas turbine ignition + landing gear digital twins — MATLAB Simscape physics, LSTM/LightGBM inference, FastAPI endpoints, PyVista 3D visualisation.</p>
+                <div class="build-card-icon"><i class="fas fa-chart-line"></i></div>
+                <span class="card-tag">NASA TRL 4–5 Scale</span>
+                <h3>PHI-Twin Diagnostics Engine</h3>
+                <p>High-fidelity system modeling framework synthesizing MATLAB Simscape physical multibody states with PyTorch predictive nodes to automate structural remaining useful life (RUL) estimation paths.</p>
             </div>
             <div class="build-card">
-                <span class="card-tag" style="font-family:var(--mono);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:3px;border:1px solid rgba(245,158,11,.5);background:rgba(245,158,11,.08);color:#fbbf24;display:inline-block;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px;">Desktop App</span>
-                <div class="build-card-icon">⛪</div>
-                <h3>Lifestone</h3>
-                <p>Tauri v2 + Rust sermon intelligence desktop app — offline Whisper STT, Aho-Corasick + ONNX verse detection, NDI/PowerPoint/Verse Screen output plugins.</p>
+                <div class="build-card-icon"><i class="fas fa-wave-square"></i></div>
+                <span class="card-tag">Desktop Intelligence</span>
+                <h3>Lifestone Audio Analytics Suite</h3>
+                <p>Rust-driven Tauri v2 structural core running low-latency offline Whisper transcription matrices alongside fast token vector pattern-matching search paths.</p>
             </div>
             <div class="build-card">
-                <span class="card-tag" style="font-family:var(--mono);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:3px;border:1px solid rgba(16,185,129,.5);background:rgba(16,185,129,.08);color:#34d399;display:inline-block;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px;">Full-Stack</span>
-                <div class="build-card-icon">📱</div>
-                <h3>COLIG Church App</h3>
-                <p>Next.js + PocketBase + LiveKit — deployed at colig-app.vercel.app. Real-time chat, 31-day Bible reading, broadcast meetings, sermon recording. Android APK shipped.</p>
+                <div class="build-card-icon"><i class="fas fa-network-wired"></i></div>
+                <span class="card-tag">Full-Stack Application</span>
+                <h3>COLIG Production Node</h3>
+                <p>Next.js application infrastructure running high-throughput database synchronization and web-scale audio distribution paths verified via active Android package deployment logs.</p>
             </div>
         </div>
     </div>
 
-    <!-- 5. TIMELINE -->
-    <div class="story-block">
-        <div class="section-label">The Journey</div>
-        <h2>From AFIT Kaduna to Beihang University.</h2>
+    <div class="story-block reveal">
+        <div class="section-label">Operational Trajectory</div>
+        <h2>System state lifecycle logging across laboratory and field nodes.</h2>
         <div class="timeline">
             <div class="tl-item">
-                <div class="tl-dot" style="background:var(--blue);"></div>
-                <div class="tl-date">2021 — Present</div>
+                <div class="tl-dot"></div>
+                <div class="tl-date">2021 — 2026</div>
                 <div class="tl-title">B.Eng Aerospace Engineering · AFIT Kaduna</div>
-                <div class="tl-desc">CGPA 4.13/5.00 · Second Class Upper · Final Year Project: Digital Twin for Landing Gear Systems</div>
+                <div class="tl-desc">Graduated with Second Class Upper Honors (CGPA 4.13/5.00). Core engineering thesis focused on building comprehensive digital twins for oleo-pneumatic landing gear multibody systems.</div>
             </div>
             <div class="tl-item">
-                <div class="tl-dot" style="background:var(--orange);"></div>
+                <div class="tl-dot"></div>
                 <div class="tl-date">Aug 2024 – Nov 2024</div>
-                <div class="tl-title">Maintenance Intern · Executive Airlift Group, Abuja</div>
-                <div class="tl-desc">King Air 350 line maintenance, landing gear checks, avionics bay servicing at Nnamdi Azikiwe International Airport.</div>
+                <div class="tl-title">MRO Maintenance Intern · Executive Airlift Group, Abuja</div>
+                <div class="tl-desc">Executed hands-on line maintenance protocols, flight deck diagnostic logging, landing gear assembly servicing, and avionics bay access verification routines on tactical King Air 350 airframes.</div>
             </div>
             <div class="tl-item">
-                <div class="tl-dot" style="background:var(--green);"></div>
+                <div class="tl-dot"></div>
                 <div class="tl-date">Mar 2025 – Aug 2025</div>
-                <div class="tl-title">Engineering Intern · Nigerian Civil Aviation Authority (NCAA)</div>
-                <div class="tl-desc">Airworthiness Standards dept. — technical log audits, CoA renewals, MEL protocols, Nigeria Civil Aviation Regulations.</div>
+                <div class="tl-title">Airworthiness Engineering Intern · Nigerian Civil Aviation Authority (NCAA)</div>
+                <div class="tl-desc">Stationed with the Department of Airworthiness Standards. Conducted corporate log audits, verified structural tracking logs, managed Certificate of Airworthiness loops, and calibrated fleet minimum equipment lists (MEL) against global regulatory criteria.</div>
             </div>
             <div class="tl-item">
-                <div class="tl-dot" style="background:var(--purple);"></div>
-                <div class="tl-date">2024 – Present</div>
-                <div class="tl-title">Founder · Penelope Inc.</div>
-                <div class="tl-desc">PHI Suite (PHI-Twin, PHI-CHAIN, PHI-Arc) · Lifestone · COLIG App · Penelope AI Agent · 4 papers · 5 open datasets.</div>
+                <div class="tl-dot"></div>
+                <div class="tl-date">2024 — Present</div>
+                <div class="tl-title">Founder & Chief Architect · Penelope Inc.</div>
+                <div class="tl-desc">Managing active engineering architecture models for native core components (PHI-Twin, PHI-CHAIN, PHI-Arc). Published multiple open-source propulsion matrices and telemetry datasets.</div>
             </div>
             <div class="tl-item">
-                <div class="tl-dot" style="background:var(--gold);"></div>
-                <div class="tl-date">September 2026</div>
-                <div class="tl-title">M.Sc. Smart Aviation · Beihang University, Hangzhou, China</div>
-                <div class="tl-desc">Smart Aviation Center · Supervisor: Prof. Hu Yang · Focus: Digital Twin-Based Intelligent Maintenance · Application No. WS20262LS0621</div>
+                <div class="tl-dot"></div>
+                <div class="tl-date">Term Commencing Sept 2026</div>
+                <div class="tl-title">M.Sc. Smart Aviation · Beihang University, China</div>
+                <div class="tl-desc">Research post at the Smart Aviation Center under Prof. Hu Yang. Specialization focus tracks the construction of physics-guided machine learning frameworks to predict critical system degradation.</div>
             </div>
         </div>
     </div>
 
-    <!-- 6. SKILLS -->
-    <div class="story-block">
-        <div class="section-label">Technical Depth</div>
-        <h2>The stack behind the work.</h2>
+    <div class="story-block reveal">
+        <div class="section-label">Core Specializations</div>
+        <h2>Engineering Architecture Stack</h2>
         <div class="skill-section">
-            <div class="skill-category">Aerospace &amp; Aviation</div>
+            <div class="skill-category">Aerospace Propulsion &amp; Structures</div>
             <div class="chip-cloud">
-                <span class="chip">Digital Twin Dev</span><span class="chip">PHM / MRO Optimization</span>
-                <span class="chip">Aviation Cybersecurity</span><span class="chip">Airworthiness (CS-23/25)</span>
-                <span class="chip">OpenFOAM CFD</span><span class="chip">MATLAB Simscape</span>
-                <span class="chip">ADS-B / ACARS / CPDLC</span><span class="chip">Conceptual Aircraft Design</span>
+                <span class="chip">Digital Twin Integration</span><span class="chip">PHM System Synthesis</span>
+                <span class="chip">NASA TRL 4–5 Scale Modeling</span><span class="chip">RTCA DO-326A Standards</span>
+                <span class="chip">OpenFOAM Numerical CFD</span><span class="chip">MATLAB Simscape Multibody</span>
+                <span class="chip">ICAO Doc 10037 Protocols</span><span class="chip">Conceptual Design Solvers</span>
             </div>
         </div>
         <div class="skill-section">
-            <div class="skill-category">AI &amp; Machine Learning</div>
+            <div class="skill-category">Applied Artificial Intelligence</div>
             <div class="chip-cloud">
-                <span class="chip">CNN-BiLSTM-Attention</span><span class="chip">CVAE (Generative)</span>
-                <span class="chip">LightGBM</span><span class="chip">Physics-Informed ML</span>
-                <span class="chip">SHAP XAI</span><span class="chip">ONNX Deployment</span>
-                <span class="chip">Synthetic Data Generation</span><span class="chip">PyTorch</span>
+                <span class="chip">CNN-BiLSTM-Attention</span><span class="chip">Generative Spatiotemporal CVAE</span>
+                <span class="chip">LightGBM Optimization</span><span class="chip">Physics-Informed Deep Learning</span>
+                <span class="chip">SHAP Explainable ML</span><span class="chip">ONNX Runtime Compilation</span>
+                <span class="chip">Synthetic Failure Modeling</span><span class="chip">PyTorch Core</span>
             </div>
         </div>
         <div class="skill-section">
-            <div class="skill-category">Blockchain &amp; Security</div>
+            <div class="skill-category">Avionics Security &amp; Ledger Design</div>
             <div class="chip-cloud">
-                <span class="chip">Hyperledger Fabric 2.5</span><span class="chip">Ed25519 Signatures</span>
-                <span class="chip">Shamir Secret Sharing GF(2⁸)</span><span class="chip">Merkle Batching</span>
-                <span class="chip">Smart Contracts (Go/Node)</span>
+                <span class="chip">Hyperledger Fabric 2.5</span><span class="chip">Ed25519 Cryptographic Signatures</span>
+                <span class="chip">Shamir Secret Sharing GF(2⁸)</span><span class="chip">Merkle Batching Configurations</span>
+                <span class="chip">Go Chaincode Design</span>
             </div>
         </div>
         <div class="skill-section">
-            <div class="skill-category">Software &amp; Systems</div>
+            <div class="skill-category">Systems Architecture &amp; Infrastructures</div>
             <div class="chip-cloud">
-                <span class="chip">Rust / Tauri v2</span><span class="chip">Next.js / React</span>
-                <span class="chip">Flutter / Dart</span><span class="chip">FastAPI</span>
-                <span class="chip">PostgreSQL / InfluxDB</span><span class="chip">Docker / WSL2</span>
-                <span class="chip">GitHub Actions CI/CD</span><span class="chip">LiveKit WebRTC</span>
-            </div>
-        </div>
-        <div class="skill-section">
-            <div class="skill-category">Research &amp; Publishing</div>
-            <div class="chip-cloud">
-                <span class="chip">LaTeX (AIAA / IEEE / Elsevier)</span><span class="chip">HuggingFace Datasets</span>
-                <span class="chip">Kaggle Publishing</span><span class="chip">AIAA Peer Review</span>
-                <span class="chip">Cranfield Collaboration</span>
+                <span class="chip">Rust Core / Tauri v2</span><span class="chip">Next.js Framework Architecture</span>
+                <span class="chip">FastAPI Microservices</span><span class="chip">Flutter Engineering</span>
+                <span class="chip">InfluxDB Time-Series</span><span class="chip">Docker Environments / WSL2</span>
+                <span class="chip">CI/CD Engine Automations</span><span class="chip">LiveKit WebRTC Nodes</span>
             </div>
         </div>
     </div>
 
-    <!-- 7. CLOSING -->
-    <div class="closing">
-        <div class="section-label" style="justify-content:center;margin-bottom:1.2rem;">
-            <span>Let's connect</span>
+    <div class="closing reveal">
+        <div class="section-label" style="justify-content:center; margin-bottom:1.5rem;">
+            <span>System Communication Link</span>
         </div>
         <p>
-            I'm always open to <strong>research collaborations</strong>, <strong>aerospace AI projects</strong>,
-            and conversations about the future of aviation in Africa. If what you've read resonates
-            with something you're building — reach out.
+            I am consistently available to evaluate <strong>aerospace AI frameworks</strong>, advanced <strong>research collaboration models</strong>, and production pipeline requirements mapping across complex flight safety ecosystems. Reach out to coordinate an interface loop.
         </p>
-        <p style="font-size:.92rem;color:#475569;">
-            <strong style="color:#94a3b8;">bellosani2drescue@gmail.com</strong>
+        <p style="font-family: var(--ff-mono); font-size: 0.95rem; color: #3b82f6;">
+            bellosanidrescue@gmail.com
         </p>
         <div class="closing-links">
             <a href="https://github.com/Sm-bello" target="_blank" class="closing-link"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="closing-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://www.kaggle.com/mohammedbellosani" target="_blank" class="closing-link"><i class="fas fa-database"></i> Kaggle</a>
-            <a href="https://huggingface.co/SM-Bello" target="_blank" class="closing-link">🤗 HuggingFace</a>
-            <a href="/projects.html" class="closing-link"><i class="fas fa-rocket"></i> Projects</a>
+            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="closing-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            <a href="https://www.kaggle.com/mohammedbellosani" target="_blank" class="closing-link"><i class="fas fa-database"></i> Kaggle Log</a>
+            <a href="https://huggingface.co/SM-Bello" target="_blank" class="closing-link"><i class="fas fa-link"></i> 🤗 HuggingFace</a>
+            <a href="/projects.html" class="closing-link"><i class="fas fa-terminal"></i> Pipeline</a>
         </div>
     </div>
 
-</div><!-- /content -->
+</div>
 
 <footer>
-    <p>&copy; 2026 Mohammed Bello Sani | Aerospace Intelligence Research</p>
-    <div style="margin-top:.75rem;">
-        <a href="https://github.com/Sm-bello"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    <p>&copy; 2026 Mohammed Bello Sani | Aerospace Systems Intelligence Research</p>
+    <div>
+        <a href="https://github.com/Sm-bello" target="_blank">GitHub Matrix</a>
+        <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank">LinkedIn Log</a>
+        <a href="mailto:bellosanidrescue@gmail.com">Email Terminal</a>
     </div>
 </footer>
 
 <script>
-    window.addEventListener('scroll', function(){
-        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+/* ─── METEOROLOGICAL SKYBOX DIURNAL CYCLE BACKDROP SOLVER ─── */
+(function(){
+    const canvas = document.getElementById('ambient-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    
+    function setSize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    setSize();
+    window.addEventListener('resize', setSize);
+
+    const clouds = [];
+    const maxClouds = 18;
+    let timeEpoch = 0;
+    const mouse = { x: 0, y: 0 };
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = (e.clientX / w) - 0.5;
+        mouse.y = (e.clientY / h) - 0.5;
     });
+
+    for(let i=0; i<maxClouds; i++) {
+        clouds.push({
+            x: Math.random() * w,
+            y: Math.random() * (h * 0.7),
+            w: Math.random() * 240 + 160,
+            h: Math.random() * 60 + 40,
+            speed: Math.random() * 0.15 + 0.05,
+            opacity: Math.random() * 0.06 + 0.02
+        });
+    }
+
+    function drawWeather() {
+        timeEpoch += 0.0005; 
+        
+        let cycleFactor = (Math.sin(timeEpoch) + 1) / 2; 
+        
+        let r1 = Math.floor(250 - (cycleFactor * 15));
+        let g1 = Math.floor(251 - (cycleFactor * 25));
+        let b1 = Math.floor(253 - (cycleFactor * 15));
+        
+        let r2 = Math.floor(242 + (cycleFactor * 8));
+        let g2 = Math.floor(244 + (cycleFactor * 5));
+        let b2 = Math.floor(248 - (cycleFactor * 10));
+
+        let bgGradient = ctx.createLinearGradient(0, 0, 0, h);
+        bgGradient.addColorStop(0, `rgb(${r1}, ${g1}, ${b1})`);
+        bgGradient.addColorStop(0.6, `rgb(${r2}, ${g2}, ${b2})`);
+        bgGradient.addColorStop(1, '#ffffff');
+        
+        ctx.fillStyle = bgGradient;
+        ctx.fillRect(0, 0, w, h);
+
+        clouds.forEach(c => {
+            c.x += c.speed + (mouse.x * 0.2); 
+            if (c.x > w + c.w) c.x = -c.w;
+            
+            ctx.beginPath();
+            let cloudGrad = ctx.createRadialGradient(c.x + c.w/2, c.y + c.h/2, 0, c.x + c.w/2, c.y + c.h/2, c.w/2);
+            cloudGrad.addColorStop(0, `rgba(15, 44, 89, ${c.opacity})`);
+            cloudGrad.addColorStop(0.6, `rgba(240, 244, 248, ${c.opacity * 0.2})`);
+            cloudGrad.addColorStop(1, 'rgba(255,255,255,0)');
+            
+            ctx.fillStyle = cloudGrad;
+            ctx.ellipse(c.x + c.w/2, c.y + c.h/2, c.w/2, c.h/2, 0, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        ctx.strokeStyle = 'rgba(15, 44, 89, 0.02)';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(w/2 + (mouse.x * 20), 0); ctx.lineTo(w/2 + (mouse.x * 20), h);
+        ctx.moveTo(0, h/2 + (mouse.y * 20)); ctx.lineTo(w, h/2 + (mouse.y * 20));
+        ctx.stroke();
+
+        requestAnimationFrame(drawWeather);
+    }
+    drawWeather();
+})();
+
+/* ─── NAVIGATION SCROLL COMPILATION ─── */
+window.addEventListener('scroll', function(){
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ─── INTERSECTION REVEAL CONTROLLER ─── */
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+revealElements.forEach(el => revealObserver.observe(el));
 </script>
 </body>
 </html>
