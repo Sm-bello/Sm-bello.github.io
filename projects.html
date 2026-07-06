@@ -384,14 +384,42 @@
 <!-- ══════════════  FUTURE INITIATIVES SECTION  ══════════════ -->
 <div class="section-header"><i class="fas fa-flask"></i><h2>Active & Future Initiatives</h2></div>
 
-<!-- Neural CFD full-width -->
-<div style="background:white;border-radius:16px;padding:3rem;border:2px solid #e2e8f0;margin-bottom:3rem;">
-    <span style="font-family:var(--font-mono);font-size:.7rem;color:var(--neon-orange);font-weight:700;padding:4px 10px;background:rgba(249,115,22,.1);border-radius:4px;border:1px solid var(--neon-orange);text-transform:uppercase;letter-spacing:1px;display:inline-block;margin-bottom:1.5rem;">LIVE PROOF OF CONCEPT</span>
-    <i class="fas fa-wind" style="font-size:3rem;color:var(--neon-blue);margin-bottom:2rem;display:block;"></i>
-    <h3 style="font-size:1.6rem;margin-bottom:1rem;color:var(--text-dark);">AI for Fluids (Neural CFD)</h3>
-    <p style="color:var(--text-light);margin-bottom:1.5rem;line-height:1.8;">Revolutionizing computational fluid dynamics by replacing traditional Navier-Stokes solvers with <strong>Physics-Informed Neural Operators (PINNs)</strong>. The interactive engine below uses Aerosandbox/XFoil for real-time demonstration; final deployment will transition to <strong>ANSYS Fluent</strong> for industrial-grade predictions.</p>
-    <div style="width:100%;height:850px;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.15);border:1px solid #e0e0e0;">
-        <iframe src="https://sm-bello-airfoil-digital-twin.hf.space" width="100%" height="100%" frameborder="0" style="border:none;" loading="eager" allow="camera;microphone;geolocation"></iframe>
+<!-- AI for Fluids — Airfoil Digital Twin (live neural network inference) -->
+<div style="background:#ffffff; border-radius:16px; padding:3rem; border:1px solid rgba(11, 15, 25, 0.08); margin-bottom:3rem; position:relative;">
+    <span style="font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--accent-orange, #dd5a12); font-weight:700; padding:4px 10px; background:rgba(221,90,18,0.05); border-radius:4px; border:1px solid var(--accent-orange, #dd5a12); text-transform:uppercase; letter-spacing:1px; display:inline-block; margin-bottom:1.5rem;">
+        LIVE AI INFERENCE — NEURAL NETWORK SURROGATE
+    </span>
+
+    <i class="fas fa-wind" style="font-size:2.5rem; color:var(--accent, #0ea5e9); margin-bottom:2rem; display:block;"></i>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.6rem; margin-bottom:1rem; color:var(--text, #0b0f19);">
+        AI for Fluids — Airfoil Digital Twin
+    </h3>
+    <p style="color:var(--text-secondary, #5b6472); margin-bottom:2rem; line-height:1.8; max-width:760px;">
+        A neural network surrogate — trained on airfoil sweep data and served live from this page —
+        predicts lift and drag coefficients in real time from geometry, angle of attack, and Reynolds number.
+        Adjust the controls inside, then export the exact sweep you generate as a CSV.
+    </p>
+
+    <div style="display:flex; justify-content:flex-end; margin-bottom:1rem;">
+        <button
+            id="cfd-fullscreen-btn"
+            onclick="const f=document.getElementById('cfd-iframe'); (f.requestFullscreen || f.webkitRequestFullscreen || f.msRequestFullscreen).call(f);"
+            style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; cursor:pointer; color:var(--accent-orange, #dd5a12); background:rgba(221,90,18,0.06); border:1px solid rgba(221,90,18,0.2); padding:0.5rem 1rem; border-radius:6px; display:inline-flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-expand-arrows-alt"></i> Expand to Fullscreen
+        </button>
+    </div>
+
+    <div style="width:100%; height:900px; border-radius:12px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,.06); border:1px solid rgba(11, 15, 25, 0.08); background:#0e1117;">
+        <iframe id="cfd-iframe"
+                src="https://sm-bello-airfoil-digital-twin.hf.space/?embed=true&embed_options=show_toolbar"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                style="border:none;"
+                loading="lazy"
+                allow="fullscreen">
+        </iframe>
     </div>
 </div>
 
