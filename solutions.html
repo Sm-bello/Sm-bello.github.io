@@ -1,598 +1,614 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solutions & Systems | Mohammed Bello Sani</title>
-<meta name="description" content="Deployed and in-progress software systems built by Mohammed Bello Sani — sermon intelligence, church platforms, autonomous agents, and what's coming next.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions & Systems | Mohammed Bello Sani</title>
+    <meta name="description" content="Deployed and in-progress software systems built by Mohammed Bello Sani — sermon intelligence, church platforms, autonomous agents, and federated twins.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+/* ════════════════════════════════════════════════════════════════
+   AEROSPACE ARCHITECTURAL PORTFOLIO — SOLUTIONS & SYSTEMS
+   Pure White Foundation. Dynamic Island Navigation. Weather Canvas.
+   ════════════════════════════════════════════════════════════════ */
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-<style>
-  :root{
-    --bg:#0b1120;
-    --panel:#121b2e;
-    --panel-2:#0f1729;
-    --line:#22304c;
-    --line-soft:#1a2540;
-    --ink:#e9eefb;
-    --muted:#8b98af;
-    --muted-2:#5f6d86;
-    --accent:#35e1d1;
-    --accent-ink:#07211d;
-    --live:#34d399;
-    --dev:#fbbf24;
-    --proto:#60a5fa;
-    --concept:#94a3b8;
-    --draft:#f472b6;
-    --radius:14px;
-    --font-display:'Space Grotesk', sans-serif;
-    --font-body:'Inter', sans-serif;
-    --font-mono:'IBM Plex Mono', monospace;
-  }
+:root {
+    --bg: #ffffff;
+    --bg-warm: #faf9f6;
+    --text: #0b0f19;
+    --text-secondary: #475467;
+    --text-tertiary: #8592a6;
+    --accent: #0f2c59;
+    --accent-light: #1d4ed8;
+    --accent-orange: #dd5a12;
+    --accent-green: #067a52;
+    --accent-purple: #6d28d9;
+    --border: rgba(11, 15, 25, 0.08);
+    --border-light: rgba(11, 15, 25, 0.04);
+    --ff-body: 'Inter', sans-serif;
+    --ff-display: 'Space Grotesk', sans-serif;
+    --ff-mono: 'JetBrains Mono', monospace;
+    --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--font-body);
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{ color:inherit; }
-  .wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--ff-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
 
-  /* ---------- NAV ---------- */
-  nav.site-nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(11,17,32,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line-soft);
-  }
-  nav.site-nav .wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    height:68px;
-  }
-  .logo{
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:1.05rem;
-    letter-spacing:0.02em;
-    text-decoration:none;
-  }
-  .logo span{ color:var(--accent); }
-  .nav-links{ display:flex; gap:32px; list-style:none; margin:0; padding:0; }
-  .nav-links a{
-    text-decoration:none;
-    font-size:0.92rem;
-    color:var(--muted);
-    position:relative;
-    padding:6px 0;
-    transition:color .2s ease;
-  }
-  .nav-links a:hover, .nav-links a:focus-visible{ color:var(--ink); }
-  .nav-links a.active{ color:var(--ink); }
-  .nav-links a.active::after{
-    content:"";
-    position:absolute; left:0; right:0; bottom:-2px;
-    height:2px; background:var(--accent); border-radius:2px;
-  }
-  .nav-toggle{ display:none; background:none; border:1px solid var(--line); border-radius:8px; color:var(--ink); padding:8px 10px; cursor:pointer; }
+/* ─── DYNAMIC WEATHER REALSITIC BACKGROUND CANVAS ─── */
+#ambient-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
 
-  @media (max-width:820px){
-    .nav-links{
-      position:absolute; top:68px; left:0; right:0;
-      flex-direction:column; gap:0;
-      background:var(--panel-2);
-      border-bottom:1px solid var(--line-soft);
-      max-height:0; overflow:hidden;
-      transition:max-height .25s ease;
-    }
-    .nav-links.open{ max-height:320px; }
-    .nav-links li{ border-top:1px solid var(--line-soft); }
-    .nav-links a{ display:block; padding:16px 28px; }
-    .nav-links a.active::after{ display:none; }
-    .nav-toggle{ display:inline-flex; }
-  }
+/* ─── SQUADRON FLIGHT PATH ANIMATION LAYER ─── */
+.sky-fleet-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+.fleet-aircraft { position: absolute; font-size: 1.5rem; opacity: 0; transform-origin: center; }
+.aircraft-paper { color: var(--accent-orange); animation: paperFlight 12s infinite linear; }
+.aircraft-f22 { color: rgba(15, 44, 89, 0.15); font-size: 1.8rem; animation: interceptFlight 16s infinite linear; animation-delay: 3s; }
+.aircraft-b747 { color: rgba(133, 146, 166, 0.12); font-size: 2.5rem; animation: cruiseFlight 24s infinite linear; animation-delay: 6s; }
 
-  /* ---------- HERO ---------- */
-  .hero{ padding:88px 0 56px; }
-  .eyebrow{
-    font-family:var(--font-mono);
-    font-size:0.78rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--accent);
-    display:flex; align-items:center; gap:10px;
-    margin-bottom:22px;
-  }
-  .eyebrow::before{
-    content:""; width:26px; height:1px; background:var(--accent);
-  }
-  h1{
-    font-family:var(--font-display);
-    font-size:clamp(2.1rem, 4.4vw, 3.4rem);
-    line-height:1.08;
-    margin:0 0 20px;
-    max-width:16ch;
-  }
-  .hero p.lede{
-    max-width:640px;
-    color:var(--muted);
-    font-size:1.05rem;
-    margin:0 0 34px;
-  }
+@keyframes paperFlight {
+    0% { transform: translate(-50px, 40vh) rotate(15deg); opacity: 0; }
+    5% { opacity: 0.8; }
+    35% { transform: translate(30vw, 20vh) rotate(-10deg); }
+    65% { transform: translate(65vw, 35vh) rotate(20deg); }
+    95% { opacity: 0.8; }
+    100% { transform: translate(105vw, 15vh) rotate(-5deg); opacity: 0; }
+}
+@keyframes interceptFlight {
+    0% { transform: translate(105vw, 65vh) rotate(-165deg) scale(0.7); opacity: 0; }
+    10% { opacity: 0.6; }
+    50% { transform: translate(50vw, 35vh) rotate(-155deg) scale(1); }
+    90% { opacity: 0.6; }
+    100% { transform: translate(-10vw, 5vh) rotate(-145deg) scale(1.3); opacity: 0; }
+}
+@keyframes cruiseFlight {
+    0% { transform: translate(-10vw, 10vh) rotate(5deg); opacity: 0; }
+    8% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { transform: translate(110vw, 45vh) rotate(10deg); opacity: 0; }
+}
 
-  .status-strip{
-    display:flex; flex-wrap:wrap; gap:10px;
-  }
-  .status-pill{
-    display:flex; align-items:center; gap:8px;
-    border:1px solid var(--line);
-    background:var(--panel);
-    border-radius:999px;
-    padding:8px 14px;
-    font-family:var(--font-mono);
-    font-size:0.76rem;
-    color:var(--muted);
-    letter-spacing:0.03em;
-  }
-  .dot{ width:8px; height:8px; border-radius:50%; flex:none; }
-  .dot.live{ background:var(--live); box-shadow:0 0 0 3px rgba(52,211,153,0.15); }
-  .dot.dev{ background:var(--dev); box-shadow:0 0 0 3px rgba(251,191,36,0.15); }
-  .dot.proto{ background:var(--proto); box-shadow:0 0 0 3px rgba(96,165,250,0.15); }
-  .dot.concept{ background:var(--concept); box-shadow:0 0 0 3px rgba(148,163,184,0.15); }
-  .dot.draft{ background:var(--draft); box-shadow:0 0 0 3px rgba(244,114,182,0.15); }
+/* ─── SCROLL INTERSECTION REVEAL BASIS ─── */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-  @media (prefers-reduced-motion:no-preference){
-    .dot.live{ animation:pulse 2.4s ease-in-out infinite; }
-  }
-  @keyframes pulse{
-    0%,100%{ box-shadow:0 0 0 3px rgba(52,211,153,0.15); }
-    50%{ box-shadow:0 0 0 6px rgba(52,211,153,0.05); }
-  }
+/* ─── RECTANGULAR DYNAMIC ISLAND NAVIGATION ─── */
+.nav-wrapper {
+    position: fixed;
+    top: 1.5rem; left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: auto;
+    max-width: 95%;
+    pointer-events: none;
+}
+nav.dynamic-island {
+    pointer-events: auto;
+    background: rgba(11, 15, 25, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 0.6rem 1.5rem;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+nav.dynamic-island.scrolled {
+    background: rgba(11, 15, 25, 0.95);
+    padding: 0.5rem 1.2rem;
+    border-radius: 18px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+.logo {
+    font-family: var(--ff-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+.logo span { color: var(--accent-orange); }
+.nav-links { display: flex; align-items: center; gap: 0.4rem; list-style: none; }
+.nav-links a {
+    font-family: var(--ff-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    transition: var(--transition-smooth);
+}
+.nav-links a:hover { color: #ffffff; background: rgba(255, 255, 255, 0.06); }
+.nav-links a.active { color: #ffffff; background: var(--accent-orange); }
+.nav-toggle { display: none; background: none; border: none; color: #ffffff; font-size: 1.1rem; cursor: pointer; }
 
-  /* ---------- SECTION LABEL ---------- */
-  .section-label{
-    display:flex; align-items:center; gap:12px;
-    font-family:var(--font-mono);
-    font-size:0.78rem;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--muted-2);
-    margin-bottom:8px;
-  }
-  .section-label .num{ color:var(--accent); }
-  .section-head{ margin:64px 0 30px; }
-  .section-head h2{
-    font-family:var(--font-display);
-    font-size:clamp(1.5rem, 2.6vw, 2rem);
-    margin:0;
-  }
-  .section-head p{
-    color:var(--muted); max-width:560px; margin:12px 0 0; font-size:0.98rem;
-  }
+/* ─── HERO SYSTEM ─── */
+.hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 10rem 2rem 4rem; z-index: 1; }
+.hero-inner { max-width: 880px; text-align: center; position: relative; z-index: 5; }
+.eyebrow {
+    font-family: var(--ff-mono); font-size: 0.72rem; font-weight: 600; color: var(--accent-orange);
+    letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem;
+    display: inline-flex; align-items: center; gap: 0.8rem;
+}
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent-orange); }
+h1 { font-family: var(--ff-display); font-size: clamp(2.4rem, 5.5vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+.hero p.lede { max-width: 680px; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin: 0 auto 2.5rem; }
 
-  /* ---------- CAROUSEL ---------- */
-  .carousel-shell{ position:relative; margin-top:8px; }
-  .carousel-track{
-    display:flex;
-    gap:20px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    padding:6px 6px 22px;
-    scrollbar-width:none;
-  }
-  .carousel-track::-webkit-scrollbar{ display:none; }
+.status-strip { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; }
+.status-pill {
+    display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--ff-mono); font-size: 0.68rem;
+    font-weight: 600; padding: 0.45rem 1rem; border-radius: 100px; border: 1px solid var(--border); background: var(--bg-warm); color: var(--text-secondary);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; }
+.dot.live { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); animation: corePulse 2s infinite ease-in-out; }
+.dot.dev { background: var(--accent-orange); box-shadow: 0 0 8px var(--accent-orange); }
+.dot.proto { background: var(--accent-light); box-shadow: 0 0 8px var(--accent-light); }
+.dot.concept { background: var(--text-tertiary); box-shadow: 0 0 8px var(--text-tertiary); }
+@keyframes corePulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 
-  .sys-card{
-    scroll-snap-align:start;
-    flex:0 0 auto;
-    width:min(400px, 82vw);
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:26px;
-    display:flex; flex-direction:column;
-    transition:transform .2s ease, border-color .2s ease;
-  }
-  .sys-card:hover{ transform:translateY(-4px); border-color:var(--line-soft); }
+/* ─── LAYOUT SECTIONS ─── */
+.section-label { font-family: var(--ff-mono); font-size: 0.72rem; font-weight: 600; color: var(--text-tertiary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem; }
+.section-label .num { color: var(--accent-orange); font-weight: 700; }
+.section-head { max-width: 1280px; margin: 5rem auto 2.5rem; padding: 0 2rem; }
+.section-head h2 { font-family: var(--ff-display); font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; }
+.section-head p { color: var(--text-secondary); max-width: 600px; margin-top: 0.5rem; font-size: 0.95rem; }
 
-  .sys-card.is-draft{ border-style:dashed; }
+/* ─── CAROUSEL SYSTEM VERTEX ─── */
+.carousel-container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; position: relative; }
+.carousel-track {
+    display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 0.5rem 0.5rem 2rem; scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
 
-  .sys-top{
-    display:flex; justify-content:space-between; align-items:center;
-    font-family:var(--font-mono); font-size:0.74rem; color:var(--muted-2);
-    letter-spacing:0.08em; margin-bottom:18px;
-  }
-  .sys-status{ display:flex; align-items:center; gap:7px; text-transform:uppercase; }
+.sys-card {
+    scroll-snap-align: start; flex: 0 0 auto; width: min(420px, 85vw);
+    background: #ffffff; border: 1px solid var(--border); border-radius: 14px;
+    padding: 2.2rem; display: flex; flex-direction: column; transition: var(--transition-smooth);
+}
+.sys-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.03); }
+.sys-top { display: flex; justify-content: space-between; align-items: center; font-family: var(--ff-mono); font-size: 0.68rem; color: var(--text-tertiary); margin-bottom: 1.2rem; }
+.sys-status { display: flex; align-items: center; gap: 0.4rem; text-transform: uppercase; font-weight: 600; }
 
-  .sys-card h3{
-    font-family:var(--font-display);
-    font-size:1.3rem; margin:0 0 8px;
-  }
-  .sys-tagline{
-    color:var(--accent); font-size:0.88rem; font-weight:500; margin:0 0 14px;
-  }
-  .sys-desc{
-    color:var(--muted); font-size:0.92rem; margin:0 0 20px; flex:1;
-  }
-  .chip-row{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom:20px; }
-  .chip{
-    font-family:var(--font-mono);
-    font-size:0.70rem;
-    color:var(--muted);
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:4px 8px;
-  }
-  .sys-links{ display:flex; gap:16px; border-top:1px solid var(--line-soft); padding-top:16px; }
-  .sys-links a{
-    font-size:0.84rem; text-decoration:none; color:var(--ink);
-    display:flex; align-items:center; gap:6px;
-  }
-  .sys-links a:hover{ color:var(--accent); }
-  .sys-note{ font-size:0.84rem; color:var(--muted-2); font-style:italic; }
+.sys-card h3 { font-family: var(--ff-display); font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+.sys-tagline { color: var(--accent-light); font-size: 0.88rem; font-weight: 600; margin-bottom: 1rem; }
+.sys-desc { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem; flex: 1; }
 
-  .carousel-controls{
-    display:flex; align-items:center; justify-content:space-between;
-    margin-top:8px;
-  }
-  .carousel-dots{ display:flex; gap:8px; }
-  .carousel-dots button{
-    width:7px; height:7px; border-radius:50%;
-    border:none; background:var(--line); cursor:pointer; padding:0;
-    transition:background .2s ease, width .2s ease;
-  }
-  .carousel-dots button.active{ background:var(--accent); width:20px; border-radius:4px; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+.chip { font-family: var(--ff-mono); font-size: 0.65rem; font-weight: 500; color: var(--text-secondary); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.55rem; background: var(--bg-warm); }
+.sys-links { display: flex; gap: 1.2rem; border-top: 1px solid var(--border); padding-top: 1.2rem; }
+.sys-links a { font-size: 0.85rem; text-decoration: none; color: var(--text); font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth); }
+.sys-links a:hover { color: var(--accent-orange); }
 
-  .arrow-group{ display:flex; gap:10px; }
-  .arrow-btn{
-    width:40px; height:40px; border-radius:50%;
-    border:1px solid var(--line); background:var(--panel);
-    color:var(--ink); cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    transition:border-color .2s ease, background .2s ease;
-  }
-  .arrow-btn:hover{ border-color:var(--accent); background:var(--panel-2); }
-  .arrow-btn:disabled{ opacity:0.35; cursor:default; }
-  .arrow-btn svg{ width:16px; height:16px; }
+.carousel-controls { max-width: 1280px; margin: 1rem auto 0; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; }
+.carousel-dots { display: flex; align-items: center; gap: 0.5rem; }
+.carousel-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--border); cursor: pointer; transition: var(--transition-smooth); }
+.carousel-dots button.active { background: var(--text); width: 24px; border-radius: 4px; }
 
-  /* ---------- GLOSSARY / FLIGHT PLAN ---------- */
-  .manifest{
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    overflow:hidden;
-  }
-  .manifest-row{
-    display:grid;
-    grid-template-columns:190px 1fr 150px;
-    gap:20px;
-    padding:20px 24px;
-    border-bottom:1px solid var(--line-soft);
-    align-items:center;
-  }
-  .manifest-row:last-child{ border-bottom:none; }
-  .manifest-row:hover{ background:var(--panel); }
-  .manifest-term{
-    font-family:var(--font-display);
-    font-weight:600;
-    font-size:1.02rem;
-  }
-  .manifest-def{ color:var(--muted); font-size:0.92rem; }
-  .manifest-status{
-    display:flex; align-items:center; gap:8px;
-    font-family:var(--font-mono); font-size:0.72rem;
-    text-transform:uppercase; letter-spacing:0.06em;
-    color:var(--muted); justify-self:end;
-  }
+.arrow-group { display: flex; gap: 0.5rem; }
+.arrow-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); background: #ffffff; color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
+.arrow-btn:hover { border-color: var(--text); background: var(--bg-warm); }
+.arrow-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-  @media (max-width:700px){
-    .manifest-row{ grid-template-columns:1fr; gap:8px; }
-    .manifest-status{ justify-self:start; }
-  }
+/* ─── PIPELINE MANIFEST GRID ─── */
+.manifest-section { max-width: 1280px; margin: 0 auto 6rem; padding: 0 2rem; }
+.manifest { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: #ffffff; }
+.manifest-row { display: grid; grid-template-columns: 200px 1fr 160px; gap: 1.5rem; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); align-items: center; transition: var(--transition-smooth); }
+.manifest-row:last-child { border-bottom: none; }
+.manifest-row:hover { background: var(--bg-warm); }
+.manifest-term { font-family: var(--ff-display); font-weight: 700; font-size: 1.05rem; color: var(--text); }
+.manifest-def { color: var(--text-secondary); font-size: 0.92rem; }
+.manifest-status { display: flex; align-items: center; gap: 0.5rem; font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; color: var(--text-tertiary); justify-self: end; }
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    margin-top:90px;
-    border-top:1px solid var(--line-soft);
-    padding:34px 0 50px;
-  }
-  footer .wrap{
-    display:flex; justify-content:space-between; align-items:center;
-    flex-wrap:wrap; gap:14px;
-  }
-  footer p{ color:var(--muted-2); font-size:0.84rem; margin:0; }
-  footer .foot-links{ display:flex; gap:22px; }
-  footer .foot-links a{ text-decoration:none; color:var(--muted); font-size:0.84rem; }
-  footer .foot-links a:hover{ color:var(--accent); }
+/* ─── FOOTER INTERFACE ─── */
+footer { background: #07090e; padding: 4rem 2rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.05); }
+footer .wrap { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+footer p { font-family: var(--ff-mono); font-size: 0.75rem; letter-spacing: 0.02em; margin: 0; }
+footer .foot-links { display: flex; gap: 1.5rem; }
+footer .foot-links a { text-decoration: none; color: #64748b; font-size: 0.85rem; transition: var(--transition-smooth); }
+footer .foot-links a:hover { color: #ffffff; }
 
-  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
-</style>
+/* ─── MEDIA QUERY ENVELOPES ─── */
+@media (max-width: 960px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    nav.dynamic-island.open { border-radius: 16px; flex-direction: column; gap: 1.5rem; align-items: flex-start; width: 280px; padding: 1.5rem; }
+    nav.dynamic-island.open .nav-links { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; width: 100%; }
+    nav.dynamic-island.open .nav-links a { width: 100%; padding: 0.5rem 1rem; border-radius: 8px; }
+    .manifest-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem; }
+    .manifest-status { justify-self: start; margin-top: 0.5rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 2.2rem; }
+    .status-strip { flex-direction: column; align-items: center; }
+    .status-pill { width: 100%; justify-content: center; }
+}
+    </style>
 </head>
 <body>
 
-<!-- ============ NAV ============
-     Update hrefs to match your actual file paths, and add this
-     "Solutions" link into the nav of index.html / about.html /
-     projects.html / contact.html so it's reachable site-wide. -->
-<nav class="site-nav">
-  <div class="wrap">
-    <a href="index.html" class="logo">M<span>.</span>BELLO SANI</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Research</a></li>
-      <li><a href="solutions.html" class="active">Solutions</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+<canvas id="ambient-canvas"></canvas>
 
-<!-- ============ HERO ============ -->
+<div class="nav-wrapper">
+    <nav class="dynamic-island" id="navbar">
+        <div style="display:flex; width:100%; align-items:center; justify-content:space-between; gap:2rem;">
+            <a href="/" class="logo">M<span>.</span>BELLO SANI</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle Dynamic Island Menu">☰</button>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/">Telemetry</a></li>
+            <li><a href="/about.html">Profile</a></li>
+            <li><a href="/projects.html">Research Pipeline</a></li>
+            <li><a href="/solutions.html" class="active">Solutions</a></li>
+            <li><a href="/contact.html">Interface</a></li>
+        </ul>
+    </nav>
+</div>
+
 <header class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Solutions &amp; Systems</p>
-    <h1>Where the research turns into running software.</h1>
-    <p class="lede">
-      Alongside the papers and the digital twins, I design and ship independent
-      software systems end to end — from a sermon-transcription engine to a
-      sovereign AI agent. This is the systems manifest: what's live, what's
-      being built, and what's coming next.
-    </p>
-    <div class="status-strip">
-      <span class="status-pill"><span class="dot live"></span>Live / Operational</span>
-      <span class="status-pill"><span class="dot dev"></span>In Development</span>
-      <span class="status-pill"><span class="dot proto"></span>Prototype</span>
-      <span class="status-pill"><span class="dot concept"></span>Concept / Planned</span>
+    <div class="sky-fleet-container">
+        <div class="fleet-aircraft aircraft-paper"><i class="fas fa-paper-plane"></i></div>
+        <div class="fleet-aircraft aircraft-f22"><i class="fas fa-jet-fighter"></i></div>
+        <div class="fleet-aircraft aircraft-b747"><i class="fas fa-plane"></i></div>
     </div>
-  </div>
+
+    <div class="hero-inner reveal">
+        <p class="eyebrow">Solutions &amp; Architectural Systems</p>
+        <h1>Where the research turns into running software.</h1>
+        <p class="lede">
+            Alongside peer-reviewed manuscripts and validation twins, I code and deploy autonomous full-stack software assets—ranging from local sub-frictional transcription matrix utilities to sovereign, air-gapped agent control infrastructure loops.
+        </p>
+        <div class="status-strip">
+            <span class="status-pill"><span class="dot live"></span>Live / Operational</span>
+            <span class="status-pill"><span class="dot dev"></span>In Development</span>
+            <span class="status-pill"><span class="dot proto"></span>Prototype / Validated</span>
+            <span class="status-pill"><span class="dot concept"></span>Concept Study</span>
+        </div>
+    </div>
 </header>
 
-<!-- ============ CAROUSEL ============ -->
-<section class="wrap">
-  <div class="section-head">
-    <p class="section-label"><span class="num">01</span> Deployed &amp; In Progress</p>
-    <h2>Systems I've built</h2>
-    <p>Four systems, four different problems — ministry technology, church infrastructure, and an autonomous agent that runs my own workflows.</p>
-  </div>
-
-  <div class="carousel-shell">
-    <div class="carousel-track" id="carouselTrack" role="group" aria-roledescription="carousel" aria-label="Systems I've built">
-
-      <!-- CARD 1 — LIFESTONE -->
-      <article class="sys-card">
-        <div class="sys-top">
-          <span>SYS · 01</span>
-          <span class="sys-status"><span class="dot dev"></span>In Development</span>
-        </div>
-        <h3>Lifestone</h3>
-        <p class="sys-tagline">Sermon Intelligence Desktop</p>
-        <p class="sys-desc">
-          A Tauri + Rust desktop app that transcribes sermons live and fully offline,
-          using whisper-rs for speech-to-text and Aho-Corasick + ONNX embeddings to
-          detect scripture references in real time against a local database of
-          311,074 verses across 10 translations. Detected verses fire simultaneously
-          to NDI broadcast, a PowerPoint sidecar, and a dedicated second-monitor
-          verse screen.
-        </p>
-        <div class="chip-row">
-          <span class="chip">Tauri v2</span>
-          <span class="chip">Rust</span>
-          <span class="chip">React</span>
-          <span class="chip">whisper-rs</span>
-          <span class="chip">ONNX</span>
-          <span class="chip">SQLite</span>
-          <span class="chip">NDI</span>
-        </div>
-        <div class="sys-links">
-          <a href="https://github.com/colig-base/lifestone" target="_blank" rel="noopener">↗ Repository</a>
-        </div>
-      </article>
-
-      <!-- CARD 2 — COLIG -->
-      <article class="sys-card">
-        <div class="sys-top">
-          <span>SYS · 02</span>
-          <span class="sys-status"><span class="dot proto"></span>Beta</span>
-        </div>
-        <h3>COLIG Church App</h3>
-        <p class="sys-tagline">Church community platform</p>
-        <p class="sys-desc">
-          A full-stack progressive web app for church life — auth, group and private
-          chat, LiveKit video meetings and broadcast rooms, a Bible reader with a
-          31-day plan and streak tracking, a hymnal, a member registry, and chunked
-          sermon recording. Packaged for Android via Capacitor alongside the web build.
-        </p>
-        <div class="chip-row">
-          <span class="chip">Next.js 16</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">PocketBase</span>
-          <span class="chip">LiveKit</span>
-          <span class="chip">Tailwind</span>
-          <span class="chip">Capacitor</span>
-        </div>
-        <div class="sys-links">
-          <a href="https://github.com/colig-base/colig-app" target="_blank" rel="noopener">↗ Repository</a>
-        </div>
-      </article>
-
-      <!-- CARD 3 — SCHOOL APP (placeholder — tell me the details and I'll fill this in) -->
-      <article class="sys-card is-draft">
-        <div class="sys-top">
-          <span>SYS · 03</span>
-          <span class="sys-status"><span class="dot draft"></span>Draft</span>
-        </div>
-        <h3>School App</h3>
-        <p class="sys-tagline">[ One-line role — e.g. "Campus life & academics platform" ]</p>
-        <p class="sys-desc">
-          [ Placeholder — describe what this app does, who it's for (students/staff/AFIT-wide?),
-          and its 2–3 headline features, the same way the cards above do. ]
-        </p>
-        <div class="chip-row">
-          <span class="chip">[ stack ]</span>
-          <span class="chip">[ stack ]</span>
-        </div>
-        <div class="sys-links">
-          <span class="sys-note">Details pending — repo link once ready</span>
-        </div>
-      </article>
-
-      <!-- CARD 4 — PENELOPE AI -->
-      <article class="sys-card">
-        <div class="sys-top">
-          <span>SYS · 04</span>
-          <span class="sys-status"><span class="dot live"></span>Operational</span>
-        </div>
-        <h3>Penelope AI Agent</h3>
-        <p class="sys-tagline">Sovereign, offline-first AI agent</p>
-        <p class="sys-desc">
-          A Python agent that doesn't depend on any single provider — cascading
-          across Kimi, DeepSeek, Groq, Cerebras, GLM-4-Plus, SambaNova, and more,
-          with automatic fallback to a fully local Ollama stack when every cloud
-          path fails. A ReAct reasoning loop drives tool use, task classification,
-          and domain-specific validation, and a hardware fingerprint locks the
-          agent to its host machine.
-        </p>
-        <div class="chip-row">
-          <span class="chip">Python</span>
-          <span class="chip">ReAct</span>
-          <span class="chip">Ollama</span>
-          <span class="chip">Multi-LLM Cascade</span>
-        </div>
-        <div class="sys-links">
-          <a href="https://github.com/Penelope-Inco" target="_blank" rel="noopener">↗ Organization</a>
-        </div>
-      </article>
-
-      <!-- To add another system: copy an <article class="sys-card">…</article> block
-           above and update carouselDotsCount logic isn't needed — dots are generated
-           automatically by the script below based on how many cards exist. -->
-
+<section class="reveal">
+    <div class="section-head">
+        <p class="section-label"><span class="num">01</span> Functional Deployments</p>
+        <h2>Production Repositories</h2>
+        <p>Four independent system setups built to satisfy rigorous technical requirements across engineering, cybersecurity, and data utility domains.</p>
     </div>
 
-    <div class="carousel-controls">
-      <div class="carousel-dots" id="carouselDots"></div>
-      <div class="arrow-group">
-        <button class="arrow-btn" id="prevBtn" aria-label="Previous system">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button class="arrow-btn" id="nextBtn" aria-label="Next system">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
+    <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack" role="group" aria-label="Production Repositories">
+
+            <article class="sys-card">
+                <div class="sys-top">
+                    <span>SYS · 01</span>
+                    <span class="sys-status"><span class="dot dev"></span>Active Dev</span>
+                </div>
+                <h3>Lifestone</h3>
+                <p class="sys-tagline">Sermon Intelligence Desktop</p>
+                <p class="sys-desc">
+                    Cross-platform Tauri desktop infrastructure performing fully air-gapped, low-latency sermon audio transcription via whisper-rs pipelines. Implements fast Aho-Corasick pattern-matching and ONNX semantic mapping algorithms to index scripture references against local databases in real time. Deploys simultaneous output tracks to NDI video mixers, PowerPoint processes, and modular external screen view matrix arrays.
+                </p>
+                <div class="chip-row">
+                    <span class="chip">Tauri v2</span>
+                    <span class="chip">Rust 1.96</span>
+                    <span class="chip">React</span>
+                    <span class="chip">whisper-rs</span>
+                    <span class="chip">Aho-Corasick</span>
+                    <span class="chip">ONNX Inference</span>
+                    <span class="chip">NDI Protocol</span>
+                </div>
+                <div class="sys-links">
+                    <a href="https://github.com/colig-base/lifestone" target="_blank">📂 Source Matrix</a>
+                </div>
+            </article>
+
+            <article class="sys-card">
+                <div class="sys-top">
+                    <span>SYS · 02</span>
+                    <span class="sys-status"><span class="dot live"></span>Live Deployment</span>
+                </div>
+                <h3>COLIG Church App</h3>
+                <p class="sys-tagline">Community Platform Infrastructure</p>
+                <p class="sys-desc">
+                    Full-stack web application structure compiled as a packaged Android mobile platform. Integrates high-throughput PocketBase transactions, secure multi-channel chat routing engines featuring message replies and reaction tracking, progress-persisted chronological reading plans, and low-latency audio/video conference rooms driven by native LiveKit Cloud pipelines.
+                </p>
+                <div class="chip-row">
+                    <span class="chip">Next.js 15</span>
+                    <span class="chip">TypeScript</span>
+                    <span class="chip">PocketBase</span>
+                    <span class="chip">LiveKit Cloud</span>
+                    <span class="chip">Tailwind CSS</span>
+                    <span class="chip">Fly.io / Vercel</span>
+                </div>
+                <div class="sys-links">
+                    <a href="https://github.com/colig-base/colig-app" target="_blank">📂 Source Matrix</a>
+                    <a href="https://colig-app.vercel.app" target="_blank"><i class="fas fa-globe"></i> Live Node</a>
+                </div>
+            </article>
+
+            <article class="sys-card">
+                <div class="sys-top">
+                    <span>SYS · 03</span>
+                    <span class="sys-status"><span class="dot proto"></span>Validated</span>
+                </div>
+                <h3>FleetTwin v1.0</h3>
+                <p class="sys-tagline">Federated Digital-Twin Intelligence</p>
+                <p class="sys-desc">
+                    Advanced aircraft system optimization platform designed to facilitate cross-airframe prognostic model sharing. Coordinates distributed deep sequence fault classifiers to update structural degradation weights across airline fleets without necessitating raw telemetry upload or cloud storage access loops.
+                </p>
+                <div class="chip-row">
+                    <span class="chip">PyTorch</span>
+                    <span class="chip">Federated Learning</span>
+                    <span class="chip">MATLAB Engine</span>
+                    <span class="chip">FastAPI Cluster</span>
+                </div>
+                <div class="sys-links">
+                    <a href="https://github.com/Penelope-Inco" target="_blank">📂 Organization</a>
+                </div>
+            </article>
+
+            <article class="sys-card">
+                <div class="sys-top">
+                    <span>SYS · 04</span>
+                    <span class="sys-status"><span class="dot live"></span>Operational</span>
+                </div>
+                <h3>Penelope AI Agent</h3>
+                <p class="sys-tagline">Sovereign Offline-First AI Matrix</p>
+                <p class="sys-desc">
+                    Sovereign CLI agent architecture engineered to negate vendor lock-in bottlenecks. Operates deterministically via multi-provider failover cloud cascade structures alongside completely local fallback model groups. Drives autonomous task allocation utilizing custom ReAct logic loops backed by local unit constraint validations and strict hardware-soul lock cryptographic bindings.
+                </p>
+                <div class="chip-row">
+                    <span class="chip">Python Core</span>
+                    <span class="chip">ReAct Loop</span>
+                    <span class="chip">Ollama Stack</span>
+                    <span class="chip">Hardware Soul-Lock</span>
+                </div>
+                <div class="sys-links">
+                    <a href="https://github.com/Penelope-Inco" target="_blank">📂 Organization</a>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="carousel-controls">
+            <div class="carousel-dots" id="carouselDots"></div>
+            <div class="arrow-group">
+                <button class="arrow-btn" id="prevBtn" aria-label="Previous System">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="arrow-btn" id="nextBtn" aria-label="Next System">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- ============ GLOSSARY / FLIGHT PLAN ============ -->
-<section class="wrap">
-  <div class="section-head">
-    <p class="section-label"><span class="num">02</span> Flight Plan</p>
-    <h2>What's next</h2>
-    <p>A running glossary of systems in research, design, or early build — the pipeline behind the pipeline.</p>
-  </div>
+<section class="manifest-section reveal">
+    <div class="section-head">
+        <p class="section-label"><span class="num">02</span> Pipeline Manifest</p>
+        <h2>Future Trajectory Layout</h2>
+        <p>A continuous operational manifest mapping components transitioning from advanced laboratory prototyping into complete systems infrastructure deployments.</p>
+    </div>
 
-  <div class="manifest">
-    <div class="manifest-row">
-      <div class="manifest-term">PHI-CHAIN</div>
-      <div class="manifest-def">Blockchain-secured identity and anomaly-detection layer for aircraft datalinks (ADS-B, ADS-C, ACARS, CPDLC), moving from research prototype toward a productized MRO-facing tool.</div>
-      <div class="manifest-status"><span class="dot concept"></span>Research → Product</div>
+    <div class="manifest">
+        <div class="manifest-row">
+            <div class="manifest-term">PHI-CHAIN</div>
+            <div class="manifest-def">Cryptographic transponder payload bifurcation network designed to resolve the TCAS Paradox across multi-protocol environments. Moving into fully audited productization layouts.</div>
+            <div class="manifest-status"><span class="dot dev"></span>Audit Track</div>
+        </div>
+        <div class="manifest-row">
+            <div class="manifest-term">PHI-Twin</div>
+            <div class="manifest-def">High-fidelity aerospace prognostics suite fusing Simscape Multibody solvers with sequence deep architectures to execute real-time structural health estimation.</div>
+            <div class="manifest-status"><span class="dot proto"></span>Model Validated</div>
+        </div>
+        <div class="manifest-row">
+            <div class="manifest-term">FleetTwin</div>
+            <div class="manifest-def">Distributed analytical engine training multi-frame fault diagnostic classifiers without requiring central telemetry exposure or memory pooling overhead.</div>
+            <div class="manifest-status"><span class="dot concept"></span>Framework Target</div>
+        </div>
+        <div class="manifest-row">
+            <div class="manifest-term">Lifestones (Mobile)</div>
+            <div class="manifest-def">Discipleship platform framework transitioning from legacy client storage configurations toward fully sovereign time-series data warehouses.</div>
+            <div class="manifest-status"><span class="dot dev"></span>Data Migration</div>
+        </div>
+        <div class="manifest-row">
+            <div class="manifest-term">STRATOS-14E</div>
+            <div class="manifest-def">Conceptual ultra-long-range VIP transport airframe modeling project integrating a high-utility 1,027 structural sensor diagnostic intelligence pipeline.</div>
+            <div class="manifest-status"><span class="dot concept">Design Study</span></div>
+        </div>
     </div>
-    <div class="manifest-row">
-      <div class="manifest-term">PHI-Twin</div>
-      <div class="manifest-def">Physics-informed digital twin for landing-gear prognostics and health management, validated on real fault-classification data and exploring licensing to MRO operators.</div>
-      <div class="manifest-status"><span class="dot proto"></span>Validated</div>
-    </div>
-    <div class="manifest-row">
-      <div class="manifest-term">FleetTwin</div>
-      <div class="manifest-def">A federated-learning system that lets airline fleets share fault-classifier intelligence across airframes without ever sharing raw flight data.</div>
-      <div class="manifest-status"><span class="dot concept"></span>Testbed</div>
-    </div>
-    <div class="manifest-row">
-      <div class="manifest-term">Lifestones (Mobile)</div>
-      <div class="manifest-def">A Flutter discipleship companion app — offline Bible, hymns, and a pastor counselling inbox — migrating from Firebase to a self-hosted VPS stack.</div>
-      <div class="manifest-status"><span class="dot dev"></span>Migrating</div>
-    </div>
-    <div class="manifest-row">
-      <div class="manifest-term">STRATOS-14E</div>
-      <div class="manifest-def">A concept ultra-long-range VIP aircraft with an integrated 1,000+ sensor health-monitoring system, developed as a full conceptual design study.</div>
-      <div class="manifest-status"><span class="dot concept"></span>Design Study</div>
-    </div>
-  </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <p>© 2026 Mohammed Bello Sani. Built independently, one system at a time.</p>
-    <div class="foot-links">
-      <a href="https://github.com/Sm-bello" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="contact.html">Contact</a>
+    <div class="wrap">
+        <p>© 2026 Mohammed Bello Sani. Built independently, one system at a time.</p>
+        <div class="foot-links">
+            <a href="https://github.com/Sm-bello" target="_blank">GitHub Matrix</a>
+            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank">LinkedIn Log</a>
+            <a href="/contact.html">Contact Hub</a>
+        </div>
     </div>
-  </div>
 </footer>
 
 <script>
-  // Mobile nav toggle
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', open);
-  });
+/* ─── METEOROLOGICAL SKYBOX DIURNAL CYCLE BACKDROP SOLVER ─── */
+(function(){
+    const canvas = document.getElementById('ambient-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    
+    function setSize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    setSize();
+    window.addEventListener('resize', setSize);
 
-  // Carousel
-  const track = document.getElementById('carouselTrack');
-  const cards = Array.from(track.children).filter(el => el.classList.contains('sys-card'));
-  const dotsWrap = document.getElementById('carouselDots');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let activeIndex = 0;
+    const clouds = [];
+    const maxClouds = 18;
+    let timeEpoch = 0;
+    const mouse = { x: 0, y: 0 };
 
-  cards.forEach((_, i) => {
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = (e.clientX / w) - 0.5;
+        mouse.y = (e.clientY / h) - 0.5;
+    });
+
+    for(let i=0; i<maxClouds; i++) {
+        clouds.push({
+            x: Math.random() * w,
+            y: Math.random() * (h * 0.7),
+            w: Math.random() * 240 + 160,
+            h: Math.random() * 60 + 40,
+            speed: Math.random() * 0.15 + 0.05,
+            opacity: Math.random() * 0.06 + 0.02
+        });
+    }
+
+    function drawWeather() {
+        timeEpoch += 0.0005; 
+        let cycleFactor = (Math.sin(timeEpoch) + 1) / 2; 
+        
+        let r1 = Math.floor(250 - (cycleFactor * 15));
+        let g1 = Math.floor(251 - (cycleFactor * 25));
+        let b1 = Math.floor(253 - (cycleFactor * 15));
+        
+        let r2 = Math.floor(242 + (cycleFactor * 8));
+        let g2 = Math.floor(244 + (cycleFactor * 5));
+        let b2 = Math.floor(248 - (cycleFactor * 10));
+
+        let bgGradient = ctx.createLinearGradient(0, 0, 0, h);
+        bgGradient.addColorStop(0, `rgb(${r1}, ${g1}, ${b1})`);
+        bgGradient.addColorStop(0.6, `rgb(${r2}, ${g2}, ${b2})`);
+        bgGradient.addColorStop(1, '#ffffff');
+        
+        ctx.fillStyle = bgGradient;
+        ctx.fillRect(0, 0, w, h);
+
+        clouds.forEach(c => {
+            c.x += c.speed + (mouse.x * 0.2); 
+            if (c.x > w + c.w) c.x = -c.w;
+            
+            ctx.beginPath();
+            let cloudGrad = ctx.createRadialGradient(c.x + c.w/2, c.y + c.h/2, 0, c.x + c.w/2, c.y + c.h/2, c.w/2);
+            cloudGrad.addColorStop(0, `rgba(15, 44, 89, ${c.opacity})`);
+            cloudGrad.addColorStop(0.6, `rgba(240, 244, 248, ${c.opacity * 0.2})`);
+            cloudGrad.addColorStop(1, 'rgba(255,255,255,0)');
+            
+            ctx.fillStyle = cloudGrad;
+            ctx.ellipse(c.x + c.w/2, c.y + c.h/2, c.w/2, c.h/2, 0, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        ctx.strokeStyle = 'rgba(15, 44, 89, 0.02)';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(w/2 + (mouse.x * 20), 0); ctx.lineTo(w/2 + (mouse.x * 20), h);
+        ctx.moveTo(0, h/2 + (mouse.y * 20)); ctx.lineTo(w, h/2 + (mouse.y * 20));
+        ctx.stroke();
+
+        requestAnimationFrame(drawWeather);
+    }
+    drawWeather();
+})();
+
+/* ─── NAVIGATION OVERLAY INTERACTION ─── */
+const navToggle = document.getElementById('navToggle');
+const navbar = document.getElementById('navbar');
+navToggle.addEventListener('click', () => {
+    navbar.classList.toggle('open');
+});
+
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+/* ─── SCROLL INTERSECTION OBSERVER (REVEAL ANIMATIONS) ─── */
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+/* ─── HORIZONTAL CAROUSEL DRIVER ─── */
+const track = document.getElementById('carouselTrack');
+const cards = Array.from(track.children).filter(el => el.classList.contains('sys-card'));
+const dotsWrap = document.getElementById('carouselDots');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+let activeIndex = 0;
+
+cards.forEach((_, i) => {
     const b = document.createElement('button');
-    b.setAttribute('aria-label', 'Go to system ' + (i + 1));
+    b.setAttribute('aria-label', 'Go to tracking block ' + (i + 1));
     if (i === 0) b.classList.add('active');
     b.addEventListener('click', () => scrollToCard(i));
     dotsWrap.appendChild(b);
-  });
-  const dots = Array.from(dotsWrap.children);
+});
+const dots = Array.from(dotsWrap.children);
 
-  function scrollToCard(i){
+function scrollToCard(i){
     cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-  }
+}
 
-  function updateActive(i){
+function updateActive(i) {
     activeIndex = i;
     dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
     prevBtn.disabled = i === 0;
     nextBtn.disabled = i === cards.length - 1;
-  }
+}
 
-  prevBtn.addEventListener('click', () => scrollToCard(Math.max(0, activeIndex - 1)));
-  nextBtn.addEventListener('click', () => scrollToCard(Math.min(cards.length - 1, activeIndex + 1)));
+prevBtn.addEventListener('click', () => scrollToCard(Math.max(0, activeIndex - 1)));
+nextBtn.addEventListener('click', () => scrollToCard(Math.min(cards.length - 1, activeIndex + 1)));
 
-  const observer = new IntersectionObserver((entries) => {
+const carouselObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-        updateActive(cards.indexOf(entry.target));
-      }
+        if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+            updateActive(cards.indexOf(entry.target));
+        }
     });
-  }, { root: track, threshold: [0.6] });
-  cards.forEach(c => observer.observe(c));
+}, { root: track, threshold: [0.6] });
+cards.forEach(c => carouselObserver.observe(c));
 
-  updateActive(0);
-
-  track.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') scrollToCard(Math.min(cards.length - 1, activeIndex + 1));
-    if (e.key === 'ArrowLeft') scrollToCard(Math.max(0, activeIndex - 1));
-  });
+updateActive(0);
 </script>
 
 </body>
