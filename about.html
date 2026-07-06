@@ -3,498 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammed Bello Sani | Aerospace Intelligence & Digital Twin Systems Engineer</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-    <meta name="description" content="Mohammed Bello Sani — Aerospace Engineering Graduate from AFIT Kaduna. Ad Hoc Reviewer for AIAA JAIS. Incoming M.Sc. at Beihang University Smart Aviation Center. Developing physics-informed AI digital twins and secure avionics blockchain architectures.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>About | Mohammed Bello Sani</title>
+    <meta name="description" content="Mohammed Bello Sani — Aerospace Engineer, Digital Twin Researcher, Founder of Penelope Inc. Building the future of aviation AI from Nigeria.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-/* ════════════════════════════════════════════════════════════════
-   AEROSPACE ARCHITECTURAL PORTFOLIO — MOHAMMED BELLO SANI
-   Pure White Base Foundation. Floating Neon Capsule Navbar. Weather Canvas.
-   ════════════════════════════════════════════════════════════════ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg:       #f8fafc;
+            --dark:     #0f172a;
+            --mid:      #1e293b;
+            --text:     #0f172a;
+            --muted:    #64748b;
+            --light:    #e2e8f0;
+            --blue:     #0ea5e9;
+            --orange:   #f97316;
+            --green:    #10b981;
+            --purple:   #8b5cf6;
+            --gold:     #f59e0b;
+            --mono:     'JetBrains Mono', monospace;
+            --sans:     'Inter', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-:root {
-    --bg: #ffffff;
-    --bg-warm: #faf9f6;
-    --text: #0b0f19;
-    --text-secondary: #475467;
-    --text-tertiary: #8592a6;
-    --accent: #0f2c59;
-    --accent-light: #1d4ed8;
-    --accent-orange: #dd5a12;
-    --accent-green: #067a52;
-    --accent-purple: #6d28d9;
-    --accent-teal: #0f766e;
-    --border: rgba(11, 15, 25, 0.08);
-    --border-light: rgba(11, 15, 25, 0.04);
-    --ff-body: 'Inter', sans-serif;
-    --ff-display: 'Space Grotesk', sans-serif;
-    --ff-mono: 'JetBrains Mono', monospace;
-    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-html { scroll-behavior: smooth; }
-body {
-    font-family: var(--ff-body);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
+        /* ─── METEOROLOGICAL SKYBOX CANVAS ─── */
+        #ambient-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-/* ─── DYNAMIC WEATHER REALISTIC BACKGROUND CANVAS ─── */
-#ambient-canvas {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    pointer-events: none;
-}
+        /* ─── DYNAMIC SQUADRON FLIGHT PATH ANIMATION LAYER ─── */
+        .sky-fleet-container {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .fleet-aircraft {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform-origin: center;
+        }
+        .aircraft-paper { color: var(--orange); animation: paperFlight 12s infinite linear; }
+        .aircraft-f22 { color: rgba(15, 44, 89, 0.25); font-size: 1.8rem; animation: interceptFlight 16s infinite linear; animation-delay: 3s; }
+        .aircraft-b747 { color: rgba(133, 146, 166, 0.18); font-size: 2.5rem; animation: cruiseFlight 24s infinite linear; animation-delay: 6s; }
 
-/* ─── DYNAMIC SQUADRON FLIGHT PATH ANIMATION LAYER ─── */
-.sky-fleet-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1;
-}
-.fleet-aircraft {
-    position: absolute;
-    font-size: 1.5rem;
-    opacity: 0;
-    transform-origin: center;
-}
-.aircraft-paper {
-    color: var(--accent-orange);
-    animation: paperFlight 12s infinite linear;
-}
-.aircraft-f22 {
-    color: rgba(15, 44, 89, 0.25);
-    font-size: 1.8rem;
-    animation: interceptFlight 16s infinite linear;
-    animation-delay: 3s;
-}
-.aircraft-b747 {
-    color: rgba(133, 146, 166, 0.18);
-    font-size: 2.5rem;
-    animation: cruiseFlight 24s infinite linear;
-    animation-delay: 6s;
-}
+        @keyframes paperFlight {
+            0% { transform: translate(-50px, 40vh) rotate(15deg); opacity: 0; }
+            5% { opacity: 0.8; }
+            35% { transform: translate(30vw, 20vh) rotate(-10deg); }
+            65% { transform: translate(65vw, 35vh) rotate(20deg); }
+            95% { opacity: 0.8; }
+            100% { transform: translate(105vw, 15vh) rotate(-5deg); opacity: 0; }
+        }
+        @keyframes interceptFlight {
+            0% { transform: translate(105vw, 65vh) rotate(-165deg) scale(0.7); opacity: 0; }
+            10% { opacity: 0.6; }
+            50% { transform: translate(50vw, 35vh) rotate(-155deg) scale(1); }
+            90% { opacity: 0.6; }
+            100% { transform: translate(-10vw, 5vh) rotate(-145deg) scale(1.3); opacity: 0; }
+        }
+        @keyframes cruiseFlight {
+            0% { transform: translate(-10vw, 10vh) rotate(5deg); opacity: 0; }
+            8% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translate(110vw, 45vh) rotate(10deg); opacity: 0; }
+        }
 
-@keyframes paperFlight {
-    0% { transform: translate(-50px, 40vh) rotate(15deg); opacity: 0; }
-    5% { opacity: 0.8; }
-    35% { transform: translate(30vw, 20vh) rotate(-10deg); }
-    65% { transform: translate(65vw, 35vh) rotate(20deg); }
-    95% { opacity: 0.8; }
-    100% { transform: translate(105vw, 15vh) rotate(-5deg); opacity: 0; }
-}
-@keyframes interceptFlight {
-    0% { transform: translate(105vw, 65vh) rotate(-165deg) scale(0.7); opacity: 0; }
-    10% { opacity: 0.6; }
-    50% { transform: translate(50vw, 35vh) rotate(-155deg) scale(1); }
-    90% { opacity: 0.6; }
-    100% { transform: translate(-10vw, 5vh) rotate(-145deg) scale(1.3); opacity: 0; }
-}
-@keyframes cruiseFlight {
-    0% { transform: translate(-10vw, 10vh) rotate(5deg); opacity: 0; }
-    8% { opacity: 0.5; }
-    90% { opacity: 0.5; }
-    100% { transform: translate(110vw, 45vh) rotate(10deg); opacity: 0; }
-}
+        /* ─── SCROLL INTERSECTION REVEAL BASIS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-/* ─── SCROLL INTERSECTION REVEAL BASIS ─── */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
+        /* ─── NAV ─── */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); transition: var(--transition);
+        }
+        nav.scrolled { padding: .7rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,.04); background: rgba(255, 255, 255, 0.95); }
+        .logo {
+            font-size: 1.05rem; font-weight: 800; color: var(--text);
+            text-decoration: none; display: flex; align-items: center; gap: .5rem;
+            text-transform: uppercase; letter-spacing: .5px;
+        }
+        .logo i { color: var(--blue); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none; color: var(--muted); font-weight: 600;
+            font-size: .88rem; text-transform: uppercase; letter-spacing: 1px;
+            transition: color .3s; position: relative;
+        }
+        .nav-links a::after {
+            content:''; position:absolute; bottom:-4px; left:0; width:0;
+            height:2px; background:var(--blue); transition:width .3s;
+        }
+        .nav-links a:hover { color: var(--blue); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { color: var(--blue); }
+        .menu-toggle { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+        .menu-toggle span { width:24px; height:2.5px; background:var(--text); border-radius:2px; transition:.3s; }
 
-/* ─── FLOATING CAPSULE NAVIGATION WITH CHROMATIC NEON BORDER ─── */
-.nav-wrapper {
-    position: fixed;
-    top: 1.5rem; left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    width: 90%;
-    max-width: 1400px;
-    pointer-events: none;
-}
-nav.stretched-nav {
-    pointer-events: auto;
-    width: 100%;
-    height: 64px;
-    /* Glassmorphic transparent base layer allowing items to slide behind */
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border-radius: 32px;
-    padding: 0 2rem;
-    position: relative;
-    transition: var(--transition-smooth);
-    display: flex;
-    align-items: center;
-}
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f2240 100%);
+            display: flex;
+            align-items: center;
+            padding: 7rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 55% 65% at 75% 42%, rgba(14,165,233,.14) 0%, transparent 65%);
+            pointer-events: none;
+        }
 
-/* Simulated Neon Rainbow Capsule Border Ring */
-nav.stretched-nav::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 32px;
-    padding: 2px;
-    background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
-    background-size: 200% auto;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: neonGlowFlow 4s linear infinite;
-}
+        .hero-layout {
+            max-width: 1280px; margin: 0 auto; width: 100%;
+            display: flex; align-items: center; gap: 4rem; position: relative; z-index: 2;
+        }
+        .hero-inner { flex: 1; min-width: 0; position: relative; z-index: 2; }
 
-/* Ambient Outer Atmospheric Reflection Shadow */
-nav.stretched-nav::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 34px;
-    background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
-    background-size: 200% auto;
-    filter: blur(12px);
-    z-index: -1;
-    opacity: 0.4;
-    animation: neonGlowFlow 4s linear infinite;
-}
+        /* ─── PHOTO COLUMN ─── */
+        .hero-photo-col {
+            flex: 0 0 420px; width: 420px; position: relative;
+            align-self: stretch; display: flex; align-items: center; justify-content: flex-end;
+        }
+        .hero-photo-col::before {
+            content: ''; position: absolute; inset: -50px;
+            background: radial-gradient(ellipse 80% 80% at 65% 50%, rgba(14,165,233,.22) 0%, rgba(14,165,233,.06) 45%, transparent 70%);
+            pointer-events: none; z-index: 0; opacity: 0;
+            animation: auraReveal 1.4s ease-out 2.4s forwards;
+        }
+        @keyframes auraReveal { to { opacity: 1; } }
 
-@keyframes neonGlowFlow {
-    0% { background-position: 0% center; }
-    100% { background-position: 200% center; }
-}
+        .hero-photo-wrap {
+            position: relative; width: 100%; height: 540px; z-index: 1;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.18) 12%, rgba(0,0,0,.60) 26%, rgba(0,0,0,.90) 40%, black 56%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.18) 12%, rgba(0,0,0,.60) 26%, rgba(0,0,0,.90) 40%, black 56%);
+        }
+        .hero-photo {
+            width: 100%; height: 100%; object-fit: cover; object-position: center 15%;
+            display: block; border-radius: 14px; filter: brightness(0.05) saturate(0) blur(8px);
+            animation: photoReveal 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+            will-change: filter;
+        }
+        @keyframes photoReveal {
+            0%   { filter: brightness(0.05) saturate(0.0) blur(8px); }
+            38%  { filter: brightness(0.35) saturate(0.2) blur(4px); }
+            75%  { filter: brightness(1.20) saturate(1.1) blur(0px); }
+            100% { filter: brightness(1.02) saturate(1.0) blur(0px); }
+        }
+        .hero-photo-veil {
+            position: absolute; inset: 0; background: #0f172a; border-radius: 14px; z-index: 3;
+            animation: veilLift 1.35s cubic-bezier(0.77, 0, 0.18, 1) 0.55s forwards; will-change: opacity;
+        }
+        @keyframes veilLift { 0% { opacity: 1; } 100% { opacity: 0; pointer-events: none; } }
 
-nav.stretched-nav.scrolled {
-    background: rgba(255, 255, 255, 0.35);
-    height: 58px;
-}
+        /* ─── HERO TEXT ELEMENTS ─── */
+        .hero-eyebrow {
+            font-family: var(--mono); font-size: .78rem; color: var(--blue);
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: .75rem;
+        }
+        .hero-eyebrow::before { content:''; display:inline-block; width:28px; height:1.5px; background:var(--blue); }
+        .hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 800; color: #fff; line-height: 1.08;
+            letter-spacing: -1.5px; margin-bottom: 1.5rem; font-family: var(--ff-display);
+        }
+        .hero h1 em { font-style: normal; color: var(--blue); text-shadow: 0 0 40px rgba(14,165,233,.4); }
+        .hero-sub { font-size: 1.05rem; color: #94a3b8; max-width: 620px; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 400; }
+        .hero-sub strong { color: #cbd5e1; }
+        .hero-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.5rem; }
+        .hero-tag { font-family: var(--mono); font-size: .72rem; font-weight: 700; padding: 5px 14px; border-radius: 4px; border: 1px solid; text-transform: uppercase; letter-spacing: .5px; }
+        .tag-blue   { color:var(--blue);   border-color:rgba(14,165,233,.5);  background:rgba(14,165,233,.08); }
+        .tag-orange { color:var(--orange); border-color:rgba(249,115,22,.5); background:rgba(249,115,22,.08); }
+        .tag-green  { color:var(--green);  border-color:rgba(16,185,129,.5);  background:rgba(16,185,129,.08); }
+        .tag-purple { color:var(--purple); border-color:rgba(139,92,246,.5); background:rgba(139,92,246,.08); }
+        .tag-gold   { color:var(--gold);   border-color:rgba(245,158,11,.5);  background:rgba(245,158,11,.08); }
+        .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary {
+            display:inline-flex; align-items:center; gap:.6rem; padding:12px 24px; border-radius:8px; font-weight:700;
+            font-size:.9rem; text-decoration:none; transition:var(--transition); background:var(--text); color:#fff; border:1px solid transparent;
+        }
+        .btn-primary:hover { background:var(--orange); transform:translateY(-2px); box-shadow:0 8px 24px rgba(249,115,22,.2); }
+        .btn-ghost {
+            display:inline-flex; align-items:center; gap:.6rem; padding:12px 24px; border-radius:8px; font-weight:700;
+            font-size:.9rem; text-decoration:none; transition:var(--transition); background:transparent; color:#94a3b8; border:1px solid rgba(148,163,184,.3);
+        }
+        .btn-ghost:hover { border-color:var(--blue); color:var(--blue); transform:translateY(-2px); }
 
-.nav-inner {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
-}
-.logo-container {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-.logo-text {
-    font-family: var(--ff-display);
-    font-weight: 900;
-    font-size: 1.05rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #0b0f19;
-    display: inline-block;
-}
+        /* ─── STATS BAND ─── */
+        .stats-band { background: #07090e; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 3rem 2rem; position: relative; z-index: 5; }
+        .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 2.5rem; text-align: center; }
+        .stat-item { position: relative; }
+        .stat-num { font-family: var(--mono); font-size: 2.5rem; font-weight: 700; color: #fff; line-height: 1; margin-bottom: .4rem; }
+        .stat-label { font-size:.72rem; color:#64748b; text-transform:uppercase; letter-spacing:1.5px; font-weight:600; }
 
-.nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
-.nav-links a {
-    font-family: var(--ff-display);
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #1e293b;
-    text-decoration: none;
-    padding: 0.4rem 1.1rem;
-    border-radius: 100px;
-    transition: var(--transition-smooth);
-}
-.nav-links a:hover { color: #000000; background: rgba(255, 255, 255, 0.4); }
-.nav-links a.active { color: #ffffff; background: #0b0f19; }
-.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.2rem; cursor: pointer; }
+        /* ─── MAIN CONTENT ─── */
+        .content { max-width: 880px; margin: 0 auto; padding: 6rem 2rem 6rem; position: relative; z-index: 5; }
+        .section-label { font-family: var(--mono); font-size: .72rem; font-weight: 700; color: var(--blue); letter-spacing: 2px; text-transform: uppercase; margin-bottom: .75rem; display: flex; align-items: center; gap: .6rem; }
+        .section-label::before { content:''; display:inline-block; width:20px; height:1.5px; background:var(--blue); }
 
-/* ─── HERO SECTION ─── */
-.hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14rem 2rem 6rem;
-    z-index: 1;
-}
-.hero-inner { max-width: 1040px; text-align: center; position: relative; z-index: 5; }
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--ff-mono);
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--accent);
-    background: var(--bg-warm);
-    border: 1px solid var(--border);
-    padding: 0.5rem 1.2rem;
-    border-radius: 100px;
-    margin-bottom: 2rem;
-    letter-spacing: 0.02em;
-}
-.hero-badge .dot {
-    width: 8px; height: 8px;
-    background: var(--accent-green);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-green);
-    animation: corePulse 1.8s infinite ease-in-out;
-}
-@keyframes corePulse { 0%, 100% { opacity: 0.3; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.1); } }
+        .story-block { margin-bottom: 5rem; }
+        .story-block h2 { font-size: 2rem; font-weight: 700; color: var(--text); letter-spacing: -0.5px; margin-bottom: 1.5rem; line-height: 1.2; font-family: var(--ff-display); }
+        .story-block p { font-size: 1.05rem; color: #334155; line-height: 1.85; margin-bottom: 1.2rem; }
+        .story-block p:last-child { margin-bottom: 0; }
+        .story-block strong { color: var(--text); font-weight: 700; }
+        .story-block a { color: var(--blue); text-decoration: none; font-weight:600; transition: var(--transition); }
+        .story-block a:hover { color: var(--orange); }
 
-.hero h1 {
-    font-family: var(--ff-display);
-    font-size: clamp(2.6rem, 6vw, 4.8rem);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
-    color: var(--text);
-    margin-bottom: 1.5rem;
-}
-.hero h1 .accent {
-    color: transparent;
-    -webkit-text-stroke: 1.5px var(--text);
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
-    -webkit-background-clip: text;
-    background-clip: text;
-}
-.hero-sub {
-    font-size: 1.15rem;
-    color: var(--text-secondary);
-    max-width: 780px;
-    margin: 0 auto 3rem;
-    line-height: 1.7;
-    font-weight: 400;
-}
+        .pull-quote { border-left: 3px solid var(--orange); padding: 1.2rem 1.8rem; margin: 2.5rem 0; background: var(--bg-warm); border-radius: 0 8px 8px 0; border: 1px solid var(--border); border-left-width: 3px; }
+        .pull-quote p { font-size: 1.1rem !important; color: var(--accent) !important; font-style: italic; margin: 0 !important; font-weight: 500; }
 
-.hero-pills { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3rem; }
-.pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--ff-mono);
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 0.45rem 1.1rem;
-    border-radius: 100px;
-    border: 1px solid;
-    transition: var(--transition);
-}
-.pill:hover { transform: scale(1.03); }
-.pill-blue { border-color: rgba(15,44,89,0.15); color: var(--accent); background: rgba(15,44,89,0.02); }
-.pill-orange { border-color: rgba(221,90,18,0.15); color: var(--accent-orange); background: rgba(221,90,18,0.02); }
-.pill-green { border-color: rgba(6,122,82,0.15); color: var(--accent-green); background: rgba(6,122,82,0.02); }
-.pill-purple { border-color: rgba(109,40,217,0.15); color: var(--accent-purple); background: rgba(109,40,217,0.02); }
+        /* ─── BUILD CARDS ─── */
+        .build-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0 0; }
+        .build-card { background: #fff; border-radius: 12px; padding: 1.8rem; border: 1px solid var(--border); transition: var(--transition); }
+        .build-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.03); }
+        .build-card-icon { font-size: 1.5rem; color: var(--text); margin-bottom: .8rem; }
+        .build-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+        .build-card p { font-size: .9rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+        .build-card .card-tag { font-family: var(--mono); font-size: .62rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border); text-transform: uppercase; display: inline-block; margin-bottom: .75rem; background: var(--bg-warm); color: var(--text-secondary); }
 
-.hero-cta { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
-.btn {
-    font-family: var(--ff-display);
-    font-size: 0.88rem;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 0.95rem 2.2rem;
-    border-radius: 8px;
-    transition: var(--transition);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-.btn-primary { background: var(--text); color: #fff; box-shadow: 0 4px 20px rgba(11,15,25,0.15); }
-.btn-primary:hover { background: var(--accent-orange); color: #fff; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(221,90,18,0.25); }
-.btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--text); }
-.btn-secondary:hover { background: var(--bg-warm); transform: translateY(-2px); }
+        /* ─── TIMELINE ─── */
+        .timeline { position:relative; padding-left: 1.5rem; margin: 2rem 0 0; }
+        .timeline::before { content:''; position:absolute; left:0; top:6px; bottom:6px; width:1px; background: var(--border); }
+        .tl-item { position:relative; padding: 0 0 2.5rem 1.75rem; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-dot { position:absolute; left:-29px; top:6px; width:10px; height:10px; border-radius:50%; background: var(--border); border: 2px solid #fff; transition: var(--transition); }
+        .tl-item:hover .tl-dot { background: var(--orange); scale: 1.2; }
+        .tl-date { font-family:var(--mono); font-size:.72rem; font-weight:700; color:var(--orange); letter-spacing:1px; text-transform:uppercase; margin-bottom:.4rem; }
+        .tl-title { font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:.4rem; font-family: var(--ff-display); }
+        .tl-desc  { font-size:.92rem; color:var(--text-secondary); line-height:1.6; }
 
-/* ─── GLOBAL CONTENT DIVIDERS ─── */
-.section-divider { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; gap: 1.5rem; position: relative; z-index: 1; }
-.section-divider .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
-.section-divider .label { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; color: var(--text-tertiary); letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
+        /* ─── PAPER LIST ─── */
+        .paper-list { list-style:none; margin: 2rem 0; display: flex; flex-direction: column; gap: 1rem; }
+        .paper-list li { display:flex; gap:1.2rem; align-items:center; padding:1.2rem 1.5rem; background:#fff; border:1px solid var(--border); border-radius:12px; transition: var(--transition); }
+        .paper-list li:hover { border-color:var(--text); box-shadow:0 12px 32px rgba(0,0,0,.03); transform: translateY(-2px); }
+        .paper-badge { font-family:var(--mono); font-size:.62rem; font-weight:700; padding:4px 10px; border-radius:4px; border:1px solid var(--border); text-transform:uppercase; white-space:nowrap; flex-shrink:0; background: var(--bg-warm); color: var(--text-secondary); }
+        .paper-text { font-size:.95rem; color:var(--text-secondary); line-height:1.6; }
+        .paper-text strong { color:var(--text); font-weight:700; }
 
-/* ─── QUANTITATIVE BASELINES ─── */
-.stats-section { padding: 5rem 2rem; position: relative; z-index: 1; }
-.stats-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns:repeat(4,1fr); gap: 1.5rem; }
-.stat-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2.2rem 1.8rem;
-    transition: var(--transition);
-    position: relative;
-}
-.stat-card::after {
-    content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 0px;  
-    background: var(--text); transition: var(--transition);
-}
-.stat-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.03); }
-.stat-card:hover::after { height: 3px; }
-.stat-card .card-link { position: absolute; top: 1.5rem; right: 1.5rem; color: var(--text-tertiary); font-size: 0.85rem; transition: var(--transition); }
-.stat-card:hover .card-link { color: var(--accent-orange); }
+        /* ─── SKILLS CHIPS ─── */
+        .skill-section { margin-bottom:2.2rem; }
+        .skill-section:last-child { margin-bottom: 0; }
+        .skill-category { font-family:var(--mono); font-size:.72rem; font-weight:700; color:var(--text-tertiary); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:.8rem; }
+        .chip-cloud { display:flex; flex-wrap:wrap; gap:.5rem; }
+        .chip { font-family:var(--mono); font-size:.75rem; padding: 6px 14px; border-radius:6px; background:#fff; border:1px solid var(--border); color:var(--text-secondary); font-weight:500; transition: var(--transition); }
+        .chip:hover { border-color:var(--text); color:var(--text); transform: translateY(-1px); }
 
-.stat-number { font-family: var(--ff-display); font-size: 3rem; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
-.stat-number .unit { font-size: 1.1rem; color: var(--accent-orange); font-weight: 600; margin-left: 0.1rem; }
-.stat-label { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; color: var(--text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.8rem; }
-.stat-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+        /* ─── CLOSING SECTION ─── */
+        .closing { background: #07090e; border-radius: 16px; padding: 4rem 3rem; border: 1px solid rgba(255,255,255,0.06); text-align: center; margin-top: 4rem; }
+        .closing p { font-size: 1.1rem; color: #94a3b8; line-height: 1.8; max-width: 640px; margin: 0 auto 2rem; }
+        .closing p strong { color: #f1f5f9; }
+        .closing-links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+        .closing-link { display:inline-flex; align-items:center; gap:.6rem; padding:10px 22px; border-radius:6px; font-size:.85rem; font-weight:700; text-decoration:none; transition:var(--transition); border:1px solid rgba(255,255,255,.08); color:#94a3b8; font-family: var(--ff-mono); }
+        .closing-link:hover { border-color:#3b82f6; color:#3b82f6; transform:translateY(-2px); background: rgba(59,130,246,0.05); }
 
-/* ─── SYSTEM STATUS TICKER ─── */
-.ticker-section { background: var(--bg-warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.4rem 0; overflow: hidden; position: relative; z-index: 1; }
-.ticker-track { display: flex; gap: 4rem; animation: tickerScroll 45s linear infinite; width: max-content; }
-.ticker-item { font-family: var(--ff-mono); font-size: 0.72rem; font-weight: 600; color: var(--text-secondary); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 1rem; }
-.ticker-item .sep { color: var(--border); font-weight: 400; }
-.ticker-item .highlight { color: var(--accent); }
-.ticker-item .highlight-orange { color: var(--accent-orange); }
-.ticker-item .highlight-green { color: var(--accent-green); }
-@keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        /* ─── FOOTER ─── */
+        footer { background:#07090e; padding:3rem 2rem; color:#64748b; text-align:center; border-top: 1px solid rgba(255,255,255,0.05); position: relative; z-index: 5; }
+        footer p { font-family: var(--ff-mono); font-size: 0.75rem; letter-spacing: 0.02em; margin-bottom: 1rem; }
+        footer a { color:#64748b; margin:0 12px; text-decoration:none; transition:var(--transition); font-size: 0.85rem; }
+        footer a:hover { color:#fff; }
 
-/* ─── PUBLICATIONS GRID ─── */
-.pubs-section { padding: 7rem 2rem; position: relative; z-index: 1; }
-.section-header { max-width: 1280px; margin: 0 auto 4rem; }
-.section-eyebrow { font-family: var(--ff-mono); font-size: 0.72rem; font-weight: 600; color: var(--accent-orange); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 1rem; }
-.section-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent-orange); }
-.section-title { font-family: var(--ff-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; color: var(--text); letter-spacing: -0.03em; }
-.section-title span { font-weight: 400; color: var(--text-tertiary); }
+        /* ─── RESPONSIVE PIPELINES ─── */
+        @media(max-width:1024px) {
+            .hero-layout { flex-direction: column; align-items: flex-start; gap: 3rem; }
+            .hero-photo-col { width: 100%; flex: 0 0 auto; order: -1; justify-content: flex-start; align-self: auto; }
+            .hero-photo-col::before { display: none; }
+            .hero-photo-wrap {
+                width: 180px; height: 160px; border-radius: 50%; overflow: hidden;
+                -webkit-mask-image: none; mask-image: none;
+                border: 2px solid var(--border); box-shadow: 0 12px 40px rgba(0,0,0,.06);
+            }
+            .hero-photo { object-position: center 12%; border-radius: 50%; }
+            .hero-photo-veil { border-radius: 50%; }
+        }
 
-.pubs-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.pub-card {
-    background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 2.2rem;
-    transition: var(--transition); display: flex; flex-direction: column; gap: 1.2rem; position: relative;
-    text-decoration: none; color: inherit;
-}
-.pub-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.04); }
-
-.pub-header-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%; }
-.pub-venue { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); flex: 1; }
-.pub-status {
-    font-family: var(--ff-mono); font-size: 0.62rem;
-    font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 4px;
-    white-space: nowrap;
-}
-.pub-status.review { color: var(--accent-orange); background: rgba(221,90,18,0.06); border: 1px solid rgba(221,90,18,0.15); }
-.pub-status.abstract { color: var(--accent-light); background: rgba(29,78,216,0.06); border: 1px solid rgba(29,78,216,0.15); }
-
-.pub-title { font-family: var(--ff-display); font-size: 1.15rem; font-weight: 600; color: var(--text); line-height: 1.4; flex: 1; }
-.pub-meta { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
-.pub-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
-.tag { font-family: var(--ff-mono); font-size: 0.62rem; font-weight: 500; padding: 0.25rem 0.65rem; border-radius: 4px; border: 1px solid var(--border); color: var(--text-secondary); background: var(--bg-warm); }
-
-/* ─── CAPABILITIES GRID ─── */
-.exp-section { padding: 7rem 2rem; background: var(--bg-warm); position: relative; z-index: 1; }
-.exp-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.exp-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem 2rem; transition: var(--transition); }
-.exp-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.04); }
-.exp-num { font-family: var(--ff-mono); font-size: 0.65rem; font-weight: 600; color: var(--text-tertiary); letter-spacing: 0.1em; margin-bottom: 1.5rem; }
-.exp-icon { font-size: 1.6rem; color: var(--text); margin-bottom: 1.2rem; display: block; }
-.exp-card h3 { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.01em; }
-.exp-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
-
-/* ─── RECRUITMENT DEEP FOOTER ─── */
-.footer-main { background: #07090e; color: #cbd5e1; padding: 7rem 2rem 4rem; position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.05); }
-.footer-inner { max-width: 1280px; margin: 0 auto; }
-.footer-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.footer-name { font-family: var(--ff-display); font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
-.footer-tagline { font-size: 1rem; color: #94a3b8; max-width: 640px; line-height: 1.6; }
-.footer-contact { text-align: right; }
-.footer-contact a { display: block; color: #94a3b8; text-decoration: none; font-size: 0.95rem; margin-bottom: 0.4rem; transition: var(--transition); font-family: var(--ff-mono); }
-.footer-contact a:hover { color: #fff; }
-.footer-contact .location { font-size: 0.85rem; color: #64748b; margin-top: 0.8rem; }
-
-.footer-grid { display: grid; grid-template-columns: 1.3fr 0.9fr 0.9fr 0.9fr; gap: 3rem; margin-bottom: 4rem; }
-.footer-col h4 { font-family: var(--ff-display); font-size: 0.78rem; font-weight: 600; color: #64748b; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; }
-.footer-bio p { font-size: 0.9rem; color: #94a3b8; line-height: 1.7; margin-bottom: 1.2rem; }
-.footer-bio .highlight-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 1.2rem; margin-top: 1.2rem; }
-.footer-bio .highlight-box p { font-size: 0.85rem; color: #cbd5e1; margin: 0; line-height: 1.6; }
-.peer-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(29,78,216,0.1); border: 1px solid rgba(29,78,216,0.2); border-radius: 6px; padding: 0.6rem 1rem; margin-top: 1.2rem; }
-.peer-badge i { color: #60a5fa; font-size: 0.85rem; }
-.peer-badge span { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; color: #93c5fd; letter-spacing: 0.05em; }
-
-.footer-list { list-style: none; }
-.footer-list li { margin-bottom: 0.8rem; font-size: 0.88rem; color: #94a3b8; display: flex; align-items: baseline; gap: 0.6rem; line-height: 1.5; }
-.footer-list li::before { content: '▪'; color: var(--accent-orange); font-size: 0.7rem; }
-.footer-list strong { color: #f1f5f9; }
-.footer-list a { color: #94a3b8; text-decoration: none; transition: var(--transition); }
-.footer-list a:hover { color: #fff; }
-
-.research-status { list-style: none; }
-.research-status li { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; font-size: 0.88rem; color: #94a3b8; }
-.research-status .status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.research-status .dot-blue { background: #3b82f6; box-shadow: 0 0 8px rgba(59,130,246,0.5); }
-.research-status .dot-orange { background: #ea580c; box-shadow: 0 0 8px rgba(234,88,12,0.5); }
-.research-status .dot-green { background: #16a34a; box-shadow: 0 0 8px rgba(22,163,74,0.5); }
-.research-status .dot-purple { background: #9333ea; box-shadow: 0 0 8px rgba(147,51,234,0.5); }
-.research-status .dot-teal { background: #0d9488; box-shadow: 0 0 8px rgba(13,148,136,0.5); }
-.research-status .status-note { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); font-family: var(--ff-mono); font-size: 0.68rem; color: #64748b; letter-spacing: 0.05em; }
-
-.footer-socials { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
-.footer-socials a { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #94a3b8; text-decoration: none; font-size: 1rem; transition: var(--transition); }
-.footer-socials a:hover { border-color: #3b82f6; color: #3b82f6; background: rgba(59,130,246,0.05); transform: translateY(-2px); }
-
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 2rem; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.footer-bottom p { font-family: var(--ff-mono); font-size: 0.72rem; color: #475569; letter-spacing: 0.02em; }
-.footer-system { font-family: var(--ff-mono); font-size: 0.72rem; color: #16a34a; display: flex; align-items: center; gap: 0.5rem; font-weight: 500; }
-.footer-system::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 8px #16a34a; animation: tickerPulse 2s infinite ease-in-out; }
-@keyframes tickerPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
-
-/* ─── MEDIA QUERIES ─── */
-@media(max-width: 1200px) {
-    .stats-grid, .pubs-grid, .exp-grid { grid-template-columns: repeat(2, 1fr); }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-}
-@media(max-width: 960px) {
-    .nav-wrapper { width: 95%; top: 1rem; }
-    .nav-links {
-        display: none; flex-direction: column; align-items: flex-start; gap: 1rem;
-        position: absolute; top: 68px; left: 0; right: 0; background: rgba(255, 255, 255, 0.96);
-        padding: 1.5rem 2rem; border-radius: 16px; border: 1px solid var(--border);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(20px);
-    }
-    .nav-links.open { display: flex; }
-    .nav-toggle { display: block; }
-    .manifest-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem; }
-    .manifest-status { justify-self: start; margin-top: 0.5rem; }
-}
-@media(max-width: 480px) {
-    .hero h1 { font-size: 2.2rem; }
-    .status-strip { flex-direction: column; align-items: center; }
-    .status-pill { width: 100%; justify-content: center; }
-}
+        @media(max-width:768px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: flex; }
+            .hero h1 { font-size: 2.2rem; }
+            .build-grid { grid-template-columns: 1fr; }
+            .content { padding: 4rem 1.5rem; }
+        }
     </style>
 </head>
 <body>
 
 <canvas id="ambient-canvas"></canvas>
 
-<div class="nav-wrapper">
-    <nav class="stretched-nav" id="navbar">
-        <div class="nav-inner">
-            <a href="/" class="logo-container">
-                <span class="logo-text">MOHAMMED BELLO SANI</span>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/" class="active">Telemetry</a></li>
-                <li><a href="/about.html">Profile</a></li>
-                <li><a href="/projects.html">Projects</a></li>
-                <li><a href="/contact.html">Interface</a></li>
-                <li><a href="/solutions.html">Solutions</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+<nav id="navbar">
+    <a href="/" class="logo"><i class="fas fa-compass"></i> M. BELLO SANI</a>
+    <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+        <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="/">Telemetry</a></li>
+        <li><a href="/about.html" class="active">Profile</a></li>
+        <li><a href="/projects.html">Research Pipeline</a></li>
+        <li><a href="/contact.html">Interface</a></li>
+    </ul>
+</nav>
 
 <section class="hero">
     <div class="sky-fleet-container">
@@ -503,296 +339,259 @@ nav.stretched-nav.scrolled {
         <div class="fleet-aircraft aircraft-b747"><i class="fas fa-plane"></i></div>
     </div>
 
-    <div class="hero-inner reveal">
-        <div class="hero-badge">
-            <div class="dot"></div>
-            <span>AIR FORCE INSTITUTE OF TECHNOLOGY (AFIT) • B.ENG AEROSPACE ENGINEERING GRADUATE</span>
+    <div class="hero-layout">
+        <div class="hero-inner">
+            <div class="hero-eyebrow">Aerospace Systems Engineering Specialist</div>
+            <h1>Building the future<br>of <em>aviation intelligence</em><br>from Nigeria.</h1>
+            <p class="hero-sub">
+                I'm <strong>Mohammed Bello Sani</strong> — an Aerospace Engineering Graduate from AFIT Kaduna, researcher, and founder of <strong>Penelope Inc.</strong> I engineer physics-informed AI frameworks, blockchain-secured avionics matrices, and robust full-stack software assets tracing down from strict regulatory verification limits to physical execution loops.
+            </p>
+            <div class="hero-tags">
+                <span class="hero-tag tag-blue">Digital Twins</span>
+                <span class="hero-tag tag-purple">Aviation Cybersecurity</span>
+                <span class="hero-tag tag-green">PHM &amp; MRO AI</span>
+                <span class="hero-tag tag-orange">MATLAB · PyTorch · FastAPI</span>
+                <span class="hero-tag tag-gold">Beihang M.Sc. Candidate</span>
+            </div>
+            <div class="hero-cta">
+                <a href="/projects.html" class="btn-primary"><i class="fas fa-terminal"></i> Evaluate Research Engine</a>
+                <a href="https://github.com/Sm-bello" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub Matrix</a>
+                <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="btn-ghost"><i class="fab fa-linkedin-in"></i> LinkedIn Log</a>
+            </div>
         </div>
 
-        <div class="hero-pills">
-            <div class="pill pill-blue"><i class="fas fa-microchip"></i> 4 Journals Under Peer Review</div>
-            <div class="pill pill-green"><i class="fas fa-graduation-cap"></i> Beihang M.Sc Candidate Sept '26</div>
-            <div class="pill pill-orange"><i class="fas fa-pen-nib"></i> AIAA JAIS Ad Hoc Reviewer</div>
-            <div class="pill pill-purple"><i class="fas fa-database"></i> 4 Public Benchmark Datasets</div>
-        </div>
-
-        <h1>
-            Aerospace Systems Engineer<br>
-            & <span class="accent">Digital Twin Researcher</span>
-        </h1>
-
-        <p class="hero-sub">
-            Engineering robust, physics-informed intelligent systems for aircraft structural health monitoring (SHM), real-time diagnostics, and critical avionics cybersecurity infrastructure. Bridging regulatory airworthiness requirements with real-world hangar execution.
-        </p>
-
-        <div class="hero-cta">
-            <a href="/projects.html" class="btn btn-primary">
-                <i class="fas fa-terminal"></i> Evaluate Research Engine
-            </a>
-            <a href="/about.html" class="btn btn-secondary">
-                <i class="fas fa-user-tie"></i> Review Technical Dossier
-            </a>
+        <div class="hero-photo-col">
+            <div class="hero-photo-wrap">
+                <img src="/assets/bello.webp" alt="Mohammed Bello Sani — Aerospace Engineer & Researcher" class="hero-photo">
+                <div class="hero-photo-veil"></div>
+            </div>
         </div>
     </div>
 </section>
 
-<div class="section-divider">
-    <div class="line"></div>
-    <div class="label">System Quantitative Baselines</div>
-    <div class="line"></div>
-</div>
-
-<section class="stats-section reveal">
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-label">Academic Standing</div>
-            <div class="stat-number"><span class="counter" data-target="4.13">0.00</span><span class="unit">/5.00</span></div>
-            <div class="stat-desc">B.Eng Aerospace Engineering Graduate (Second Class Upper Honours).</div>
+<div class="stats-band">
+    <div class="stats-inner">
+        <div class="stat-item">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Manuscripts Under Review</div>
         </div>
-        <div class="stat-card">
-            <div class="stat-label">Dornier 228 Twin Accuracy</div>
-            <div class="stat-number"><span class="counter" data-target="98.74">0.00</span><span class="unit">%</span></div>
-            <div class="stat-desc">Dual-Input LSTM across 11 ATA-32 landing gear fault states running at 47ms latency.</div>
+        <div class="stat-item">
+            <div class="stat-num">4.13</div>
+            <div class="stat-label">Graduation CGPA / 5.00</div>
         </div>
-        <div class="stat-card">
-            <a href="https://www.kaggle.com/mohammedbellosani" target="_blank" class="card-link"><i class="fas fa-arrow-up-right-from-square"></i></a>
+        <div class="stat-item">
+            <div class="stat-num">54.5k+</div>
             <div class="stat-label">Open Repository Footprint</div>
-            <div class="stat-number"><span class="counter" data-target="54.5">0.00</span><span class="unit">k Cycles</span></div>
-            <div class="stat-desc">Global open data contributions spanning 27k Ignition, 18k B788, and 9.5k DO228 cycles.</div>
         </div>
-        <div class="stat-card">
-            <div class="stat-label">RDE CFD Synthesis</div>
-            <div class="stat-number"><span class="counter" data-target="72">0</span><span class="unit"> Fields</span></div>
-            <div class="stat-desc">1.48 GB spatiotemporal tensor matrices engineered via 4.3M parameter CVAE architectures.</div>
+        <div class="stat-item">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Autonomous Systems Shipped</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">Sept '26</div>
+            <div class="stat-label">Beihang M.Sc. Term Launch</div>
         </div>
     </div>
-</section>
-
-<section class="ticker-section">
-    <div class="ticker-track">
-        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> AeroTwin B787 Landing Gear Prognostics</div>
-        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH COMPETITION</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Security</div>
-        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics</div>
-        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">▪</span> Dornier 228 Certification-Compliant Multibody Twin</div>
-        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH FORUM 2027</span> <span class="sep">▪</span> Hydrogen-Air Rotary Detonation Engine Modeling</div>
-        <div class="ticker-item"><span class="highlight-green">BEIHANG UNIVERSITY</span> <span class="sep">▪</span> Smart Aviation Center M.Sc Trajectory</div>
-        <div class="ticker-item"><span class="highlight">AIAA AD HOC SERVICE</span> <span class="sep">▪</span> Verification of YOLOv8 Drogue Detection Algorithms</div>
-        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> AeroTwin B787 Landing Gear Prognostics</div>
-        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH COMPETITION</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Security</div>
-        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics</div>
-    </div>
-</section>
-
-<div class="section-divider" style="margin-top:4rem">
-    <div class="line"></div>
-    <div class="label">Primary Peer-Reviewed Track</div>
-    <div class="line"></div>
 </div>
 
-<section class="pubs-section reveal">
-    <div class="section-header">
-        <div class="section-header-inner">
-            <div class="section-eyebrow">Academic Engineering Contributions</div>
-            <h2 class="section-title">Manuscripts & Papers <span>Under Review</span></h2>
+<div class="content">
+
+    <div class="story-block reveal">
+        <div class="section-label">Who I Am</div>
+        <h2>An engineer mapping algorithmic parameters onto physical safety criteria.</h2>
+        <p>
+            I am a graduate of the Aerospace Engineering program at the <strong>Air Force Institute of Technology (AFIT), Kaduna</strong>, completing my B.Eng degree loop with an honors standing of 4.13/5.00. Rather than following standard curriculum lanes, my academic path has operated as an independent development environment tracking complex multi-domain intelligence frameworks.
+        </p>
+        <p>
+            While investigating core aerospace baselines under my supervisor, <strong>Dr. Godwin E. Abbe</strong>, I authored and advanced four separate research manuscripts to international peer-reviewed journals. My development targets focus heavily on removing critical operational failure modes—designing autonomous aircraft architectures, cryptographically sealing avionics data buses, and establishing wide-spectrum telemetry data lakes accessible to the international aerospace community.
+        </p>
+        <div class="pull-quote">
+            <p>"Engineering robust runtime architectures means removing the abstraction line between academic software prototypes and absolute airworthiness reality."</p>
+        </div>
+        <p>
+            In September 2026, I transition into the postgraduate research track at <strong>Beihang University (BUAA)</strong> within the Hangzhou Innovation Institute's global <strong>Smart Aviation Center</strong> under Prof. Hu Yang. My postgraduate objectives focus strictly on formulating deep learning digital twin models to map real-time degradation metrics on complex aircraft control surfaces.
+        </p>
+    </div>
+
+    <div class="story-block reveal">
+        <div class="section-label">Operational Imperatives</div>
+        <h2>Establishing sovereign aerospace AI systems inside African airspace lines.</h2>
+        <p>
+            My technical operations experience across dual field layers—including data audit tracks at the <strong>Nigerian Civil Aviation Authority (NCAA) Department of Airworthiness Standards</strong> and hands-on maintenance sprints at the <strong>Executive Airlift Group (EAG 307)</strong> hangar performing King Air 350 system inspections—exposed systemic vulnerabilities within regional operations.
+        </p>
+        <p>
+            The critical Prognostics and Health Management (PHM) tools, avionics verification architectures, and fleet telemetry loops driving current regional flight systems depend entirely on foreign black-box licenses. This dependency introduces extensive software constraints and severe economic overhead for indigenous operators managing distinct fleets.
+        </p>
+        <p>
+            This operational gap defines the core deployment plan behind **Penelope Inc.**, the advanced engineering practice I founded. By designing validation engines tailored to **NASA TRL 4–5 Design Scale criteria**, we are building secure, physics-grounded AI tracking nodes that regional operators, maintenance installations, and airworthiness safety authorities can naturally integrate, own, and verify.
+        </p>
+    </div>
+
+    <div class="story-block reveal">
+        <div class="section-label">Research Pipeline Tracking</div>
+        <h2>Validated multi-protocol models exploring core aerodynamic anomalies.</h2>
+        <ul class="paper-list">
+            <li>
+                <span class="paper-badge">CJA</span>
+                <span class="paper-text"><strong>AeroTwin: B787 Landing Gear Prognostics via Edge AI Architecture</strong> — Explores three-layer physics edge nodes using deep CNN-BiLSTM sequences linked directly to an offline LLM layer. Under review at the Chinese Journal of Aeronautics.</span>
+            </li>
+            <li>
+                <span class="paper-badge">AIAA SciTech</span>
+                <span class="paper-text"><strong>PHI-CHAIN: Multi-Protocol Avionics Ledger Infrastructure</strong> — Abstract submitted to the AIAA SciTech 2027 Student Paper Competition on Cybersecurity. Solves the TCAS Paradox via Ghost ID path masking, 4-layer PIDT checks, and Shamir threshold ceremonies.</span>
+            </li>
+            <li>
+                <span class="paper-badge">Elsevier RESS</span>
+                <span class="paper-text"><strong>Gas Turbine Ignition Digital Twin Optimization Matrix</strong> — Features a custom 27,000 failure-state benchmark loop using advanced LightGBM models yielding an R²=0.87 degradation metric. Under review at Reliability Engineering & System Safety.</span>
+            </li>
+            <li>
+                <span class="paper-badge">AIAA JAIS</span>
+                <span class="paper-text"><strong>Certification-Compliant Dornier 228 Multibody Landing Twin</strong> — Maps dual-input LSTM pipelines directly against strict CS-23 airworthiness standards at an ultra-low 47ms inference speed. Under review at the AIAA Journal of Aerospace Information Systems.</span>
+            </li>
+            <li>
+                <span class="paper-badge">SciTech 2027</span>
+                <span class="paper-text"><strong>Physics-Consistent CVAE for Spatiotemporal CFD Data Augmentation</strong> — Scales 12 OpenFOAM reactive flow fields to 72 augmented matrices via a 4.3M parameter engine, documenting a 4x velocity error margin across global RDE literature lines.</span>
+            </li>
+        </ul>
+        <p style="margin-top:1.5rem; font-size:.9rem; color:var(--muted); line-height: 1.6;">
+            Complementing my research track, I serve as an **invited Ad Hoc Peer Reviewer for the AIAA Journal of Aerospace Information Systems** under Associate Editor Prof. Peng Wei (George Washington University), verifying model validity parameters across complex international research submissions.
+        </p>
+    </div>
+
+    <div class="story-block reveal">
+        <div class="section-label">Production Repositories</div>
+        <h2>Deterministic systems verified across strict operational matrices.</h2>
+        <div class="build-grid">
+            <div class="build-card">
+                <div class="build-card-icon"><i class="fas fa-shield-halved"></i></div>
+                <span class="card-tag">Cybersecurity Ledger</span>
+                <h3>PHI-CHAIN Ground Station v3.0</h3>
+                <p>Multi-protocol ground interception engine cryptographically sealing telemetry packets via decentralized Hyperledger Fabric configurations using Shamir secret sharing algorithms.</p>
+            </div>
+            <div class="build-card">
+                <div class="build-card-icon"><i class="fas fa-chart-line"></i></div>
+                <span class="card-tag">NASA TRL 4–5 Scale</span>
+                <h3>PHI-Twin Diagnostics Engine</h3>
+                <p>High-fidelity system modeling framework synthesizing MATLAB Simscape physical multibody states with PyTorch predictive nodes to automate structural remaining useful life (RUL) estimation paths.</p>
+            </div>
+            <div class="build-card">
+                <div class="build-card-icon"><i class="fas fa-wave-square"></i></div>
+                <span class="card-tag">Desktop Intelligence</span>
+                <h3>Lifestone Audio Analytics Suite</h3>
+                <p>Rust-driven Tauri v2 structural core running low-latency offline Whisper transcription matrices alongside fast token vector pattern-matching search paths.</p>
+            </div>
+            <div class="build-card">
+                <div class="build-card-icon"><i class="fas fa-network-wired"></i></div>
+                <span class="card-tag">Full-Stack Application</span>
+                <h3>COLIG Production Node</h3>
+                <p>Next.js application infrastructure running high-throughput database synchronization and web-scale audio distribution paths verified via active Android package deployment logs.</p>
+            </div>
         </div>
     </div>
 
-    <div class="pubs-grid">
-        <div class="pub-card">
-            <div class="pub-header-row">
-                <div class="pub-venue">Chinese Journal of Aeronautics</div>
-                <div class="pub-status review">Under Review</div>
+    <div class="story-block reveal">
+        <div class="section-label">Operational Trajectory</div>
+        <h2>System state lifecycle logging across laboratory and field nodes.</h2>
+        <div class="timeline">
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-date">2021 — 2026</div>
+                <div class="tl-title">B.Eng Aerospace Engineering · AFIT Kaduna</div>
+                <div class="tl-desc">Graduated with Second Class Upper Honors (CGPA 4.13/5.00). Core engineering thesis focused on building comprehensive digital twins for oleo-pneumatic landing gear multibody systems.</div>
             </div>
-            <div class="pub-title">AeroTwin: B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture with SHAP Explainability</div>
-            <div class="pub-meta">Lead Researcher. Cranfield University Collaboration. Air-gapped pipeline linking physics ODE solvers with a local LLM processing layer.</div>
-            <div class="pub-tags">
-                <span class="tag">CNN-BiLSTM</span>
-                <span class="tag">Ollama 3.2</span>
-                <span class="tag">ATA Chapter 32</span>
-                <span class="tag">EASA AMC 20-42</span>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-date">Aug 2024 – Nov 2024</div>
+                <div class="tl-title">MRO Maintenance Intern · Executive Airlift Group, Abuja</div>
+                <div class="tl-desc">Executed hands-on line maintenance protocols, flight deck diagnostic logging, landing gear assembly servicing, and avionics bay access verification routines on tactical King Air 350 airframes.</div>
             </div>
-        </div>
-
-        <a href="https://www.kaggle.com/writeups/mohammedbellosani/phi-chain-blockchain-avionics-security" target="_blank" class="pub-card">
-            <div class="pub-header-row">
-                <div class="pub-venue">AIAA SciTech 2027 Student Competition</div>
-                <div class="pub-status abstract">Abstract Submitted</div>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-date">Mar 2025 – Aug 2025</div>
+                <div class="tl-title">Airworthiness Engineering Intern · Nigerian Civil Aviation Authority (NCAA)</div>
+                <div class="tl-desc">Stationed with the Department of Airworthiness Standards. Conducted corporate log audits, verified structural tracking logs, managed Certificate of Airworthiness loops, and calibrated fleet minimum equipment lists (MEL) against global regulatory criteria.</div>
             </div>
-            <div class="pub-title">PHI-CHAIN: Blockchain-Secured Multi-Protocol Avionics Data Integrity Framework with Physics-Informed Attack Detection</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. Introduces Split-Payload Transponder Architecture to resolve the TCAS Paradox, executing 4-layer PIDT validation filters alongside joint Shamir key decryption ceremonies. Explicitly built to satisfy NASA TRL 4–5 systems implementation benchmarks.</div>
-            <div class="pub-tags">
-                <span class="tag">Hyperledger Fabric 2.5</span>
-                <span class="tag">Split-Payload</span>
-                <span class="tag">RTCA DO-326A</span>
-                <span class="tag">Kaggle Writeup</span>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-date">2024 — Present</div>
+                <div class="tl-title">Founder & Chief Architect · Penelope Inc.</div>
+                <div class="tl-desc">Managing active engineering architecture models for native core components (PHI-Twin, PHI-CHAIN, PHI-Arc). Published multiple open-source propulsion matrices and telemetry datasets.</div>
             </div>
-        </a>
-
-        <div class="pub-card">
-            <div class="pub-header-row">
-                <div class="pub-venue">Reliability Engineering & System Safety</div>
-                <div class="pub-status review">Under Review</div>
-            </div>
-            <div class="pub-title">Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring Using Physics-Derived Degradation Models</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. Built an R²=0.87 degradation regressor mapped directly via a real-time FastAPI interface to FlightGear telemetry.</div>
-            <div class="pub-tags">
-                <span class="tag">LightGBM</span>
-                <span class="tag">FastAPI Microservice</span>
-                <span class="tag">GEnx Systems</span>
-                <span class="tag">Kaggle Open Data</span>
-            </div>
-        </div>
-
-        <div class="pub-card">
-            <div class="pub-header-row">
-                <div class="pub-venue">AIAA Journal of Aerospace Information Systems</div>
-                <div class="pub-status review">Under Review</div>
-            </div>
-            <div class="pub-title">Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems with Multi-Domain PHM Architecture</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. High-fidelity multibody physical reproduction checking structural landing compliance envelopes.</div>
-            <div class="pub-tags">
-                <span class="tag">Simscape Multibody</span>
-                <span class="tag">CS-23.473</span>
-                <span class="tag">PyVista 3D Rendering</span>
-                <span class="tag">PostgreSQL Warehouse</span>
-            </div>
-        </div>
-
-        <div class="pub-card">
-            <div class="pub-header-row">
-                <div class="pub-venue">AIAA SciTech Forum 2027 (Orlando, FL)</div>
-                <div class="pub-status abstract">Abstract Submitted</div>
-            </div>
-            <div class="pub-title">Physics-Consistent Conditional VAE for Spatiotemporal Augmentation of Rotating Detonation Engine CFD Data</div>
-            <div class="pub-meta">Lead Researcher. Documented a significant 4x Chapman-Jouguet overestimation error found in traditional velocity equations within RDE literature.</div>
-            <div class="pub-tags">
-                <span class="tag">OpenFOAM v2406</span>
-                <span class="tag">Reactive Flow Solver</span>
-                <span class="tag">CVAE Generator</span>
-                <span class="tag">HuggingFace Dataset</span>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-date">Term Commencing Sept 2026</div>
+                <div class="tl-title">M.Sc. Smart Aviation · Beihang University, China</div>
+                <div class="tl-desc">Research post at the Smart Aviation Center under Prof. Hu Yang. Specialization focus tracks the construction of physics-guided machine learning frameworks to predict critical system degradation.</div>
             </div>
         </div>
     </div>
-</section>
 
-<div class="section-divider">
-    <div class="line"></div>
-    <div class="label">Technical Competencies</div>
-    <div class="line"></div>
+    <div class="story-block reveal">
+        <div class="section-label">Core Specializations</div>
+        <h2>Engineering Architecture Stack</h2>
+        <div class="skill-section">
+            <div class="skill-category">Aerospace Propulsion &amp; Structures</div>
+            <div class="chip-cloud">
+                <span class="chip">Digital Twin Integration</span><span class="chip">PHM System Synthesis</span>
+                <span class="chip">NASA TRL 4–5 Scale Modeling</span><span class="chip">RTCA DO-326A Standards</span>
+                <span class="chip">OpenFOAM Numerical CFD</span><span class="chip">MATLAB Simscape Multibody</span>
+                <span class="chip">ICAO Doc 10037 Protocols</span><span class="chip">Conceptual Design Solvers</span>
+            </div>
+        </div>
+        <div class="skill-section">
+            <div class="skill-category">Applied Artificial Intelligence</div>
+            <div class="chip-cloud">
+                <span class="chip">CNN-BiLSTM-Attention</span><span class="chip">Generative Spatiotemporal CVAE</span>
+                <span class="chip">LightGBM Optimization</span><span class="chip">Physics-Informed Deep Learning</span>
+                <span class="chip">SHAP Explainable ML</span><span class="chip">ONNX Runtime Compilation</span>
+                <span class="chip">Synthetic Failure Modeling</span><span class="chip">PyTorch Core</span>
+            </div>
+        </div>
+        <div class="skill-section">
+            <div class="skill-category">Avionics Security &amp; Ledger Design</div>
+            <div class="chip-cloud">
+                <span class="chip">Hyperledger Fabric 2.5</span><span class="chip">Ed25519 Cryptographic Signatures</span>
+                <span class="chip">Shamir Secret Sharing GF(2⁸)</span><span class="chip">Merkle Batching Configurations</span>
+                <span class="chip">Go Chaincode Design</span>
+            </div>
+        </div>
+        <div class="skill-section">
+            <div class="skill-category">Systems Architecture &amp; Infrastructures</div>
+            <div class="chip-cloud">
+                <span class="chip">Rust Core / Tauri v2</span><span class="chip">Next.js Framework Architecture</span>
+                <span class="chip">FastAPI Microservices</span><span class="chip">Flutter Engineering</span>
+                <span class="chip">InfluxDB Time-Series</span><span class="chip">Docker Environments / WSL2</span>
+                <span class="chip">CI/CD Engine Automations</span><span class="chip">LiveKit WebRTC Nodes</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="closing reveal">
+        <div class="section-label" style="justify-content:center; margin-bottom:1.5rem;">
+            <span>System Communication Link</span>
+        </div>
+        <p>
+            I am consistently available to evaluate <strong>aerospace AI frameworks</strong>, advanced <strong>research collaboration models</strong>, and production pipeline requirements mapping across complex flight safety ecosystems. Reach out to coordinate an interface loop.
+        </p>
+        <p style="font-family: var(--ff-mono); font-size: 0.95rem; color: #3b82f6;">
+            bellosanidrescue@gmail.com
+        </p>
+        <div class="closing-links">
+            <a href="https://github.com/Sm-bello" target="_blank" class="closing-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="closing-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            <a href="https://www.kaggle.com/mohammedbellosani" target="_blank" class="closing-link"><i class="fas fa-database"></i> Kaggle Log</a>
+            <a href="https://huggingface.co/SM-Bello" target="_blank" class="closing-link"><i class="fas fa-link"></i> 🤗 HuggingFace</a>
+            <a href="/projects.html" class="closing-link"><i class="fas fa-terminal"></i> Pipeline</a>
+        </div>
+    </div>
+
 </div>
 
-<section class="exp-section reveal">
-    <div class="exp-grid">
-        <div class="exp-card">
-            <div class="exp-num">01 / 04</div>
-            <i class="fas fa-server exp-icon"></i>
-            <h3>Digital Twin Engineering</h3>
-            <p>Fusing <strong>MATLAB Simscape Multibody</strong> and high-fidelity numerical solvers with neural sequence architectures. Engineered to satisfy NASA TRL 4–5 system model validation parameters across distributed processing clusters.</p>
-        </div>
-
-        <div class="exp-card">
-            <div class="exp-num">02 / 04</div>
-            <i class="fas fa-shield-halved exp-icon"></i>
-            <h3>Avionics Cybersecurity</h3>
-            <p>Implementing strict permissioned ledger architectures like <strong>Hyperledger Fabric</strong> to cryptographically sign multi-protocol avionics payloads (ADS-B, ACARS, CPDLC). Grounded explicitly in global regulatory criteria like **RTCA DO-326A**.</p>
-        </div>
-
-        <div class="exp-card">
-            <div class="exp-num">03 / 04</div>
-            <i class="fas fa-gauge-high exp-icon"></i>
-            <h3>Regulatory Audit & Hangar Ops</h3>
-            <p>Executed structural log checks, Minimum Equipment List (MEL) profiles, and Certificate of Airworthiness audits during field residency at the <strong>NCAA Department of Airworthiness Standards</strong>. Complemented by active line maintenance tasks on King Air 350 airframes.</p>
-        </div>
-
-        <div class="exp-card">
-            <div class="exp-num">04 / 04</div>
-            <i class="fas fa-microchip exp-icon"></i>
-            <h3>Sovereign On-Device AI</h3>
-            <p>Architecting production pipelines designed to execute inside completely air-gapped operational flight systems. Experienced in hardware fingerprinting, multi-provider API fallback trees, and semantic translation of neural metrics into human-readable ATA maintenance directives.</p>
-        </div>
-    </div>
-</section>
-
-<footer class="footer-main">
-    <div class="footer-inner">
-        <div class="footer-header">
-            <div>
-                <div class="footer-name">Mohammed Bello Sani</div>
-                <div class="footer-tagline">Aerospace Systems Engineering Researcher • Digital Twin Specialist • Founder, Penelope Inc.</div>
-            </div>
-            <div class="footer-contact">
-                <a href="mailto:bellosanidrescue@gmail.com">bellosanidrescue@gmail.com</a>
-                <a href="https://smbello.vercel.app" target="_blank">smbello.vercel.app</a>
-                <a href="https://github.com/Sm-bello" target="_blank">github.com/Sm-bello</a>
-                <div class="location"><i class="fas fa-location-dot" style="margin-right:0.4rem"></i>Abuja, Nigeria • +234 906 788 3192</div>
-            </div>
-        </div>
-
-        <div class="footer-grid">
-            <div class="footer-col footer-bio">
-                <h4>Executive Profile</h4>
-                <p>
-                    Aerospace Engineering Alumnus from the <strong>Air Force Institute of Technology (AFIT), Kaduna</strong>, carrying a final graduation CGPA of <strong>4.13/5.00</strong>. Provisional Master of Science candidate at <strong>Beihang University (BUAA)</strong> within the Hangzhou Innovation Institute's <strong>Smart Aviation Center</strong> under Prof. Hu Yang, specialized in digital-twin aircraft maintenance optimization.
-                </p>
-                <p>
-                    Invited as an external <strong>Ad Hoc Peer Reviewer for the AIAA Journal of Aerospace Information Systems</strong> by Associate Editor Prof. Peng Wei (George Washington University). Conducted rigorous technical assessments of structural methodology, autonomous drone vision training parameters, and air data test interfaces.
-                </p>
-                <div class="peer-badge">
-                    <i class="fas fa-shield"></i>
-                    <span>VALIDATED AIAA EXPERT PEER REVIEW CREDENTIAL</span>
-                </div>
-                <div class="footer-socials">
-                    <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://kaggle.com/mohammedbellosani" target="_blank"><i class="fas fa-chart-pie"></i></a>
-                    <a href="mailto:bellosanidrescue@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h4>Education Timeline</h4>
-                <ul class="footer-list">
-                    <li><strong>Beihang University (BUAA):</strong> M.Sc. Smart Aviation — Term Commencing Sept 2026.</li>
-                    <li><strong>AFIT Kaduna:</strong> B.Eng Aerospace Engineering — Completed June 2026.</li>
-                    <li><strong>Academic Metrics:</strong> 4.13 / 5.00 CGPA (Second Class Upper Honours).</li>
-                    <li><strong>Core Syllabus:</strong> Advanced Aerodynamics, Fluid Dynamics, Control Systems, Airworthiness Structures.</li>
-                    <li><strong>Professional Memberships:</strong> Student Member AIAA, NSE, Nigeria Institution of Safety Engineers.</li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Hangar & Open Benchmarks</h4>
-                <ul class="footer-list">
-                    <li><strong>NCAA Airworthiness:</strong> Technical log audits and Nig. CARs adherence tracking metrics.</li>
-                    <li><strong>EAG 307 MRO Hangar:</strong> Line maintenance operations on active King Air 350 aircraft.</li>
-                    <li><strong>HuggingFace Open Source:</strong> SM-Bello/rde-72-dataset (Propulsion Field Matrices).</li>
-                    <li><strong>Kaggle Datasets:</strong> 27k-sample B787 Ignition logs, AeroTwin Landing Gear Multibody cycles.</li>
-                    <li><strong>Design Scale Validation:</strong> Mapped to robust validation architectures under the NASA TRL 4–5 framework.</li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Pipeline Integrity</h4>
-                <ul class="research-status">
-                    <li><span class="status-dot dot-blue"></span> Under Review — CJA (AeroTwin Framework)</li>
-                    <li><span class="status-dot dot-orange"></span> Abstract Submitted — AIAA SciTech (PHI-CHAIN Security)</li>
-                    <li><span class="status-dot dot-green"></span> Under Review — Elsevier RESS (GEnx Diagnostics)</li>
-                    <li><span class="status-dot dot-purple"></span> Under Review — AIAA JAIS (Dornier Airworthiness)</li>
-                    <li><span class="status-dot dot-teal"></span> Submitted — AIAA SciTech 2027 (RDE CFD)</li>
-                    <div class="status-note">
-                        <strong>Penelope Inc. Infrastructure</strong><br>
-                        Developing three native product pipelines (PHI-Twin, PHI-CHAIN, PHI-Arc) to establish autonomous aerospace AI infrastructure.
-                    </div>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 Mohammed Bello Sani. Deployed via secure local validation engines. All research rights reserved.</p>
-            <div class="footer-system">
-                <span>SYSTEM STATE: ALL RUNTIME ENVELOPES NOMINAL</span>
-            </div>
-        </div>
+<footer>
+    <p>&copy; 2026 Mohammed Bello Sani | Aerospace Systems Intelligence Research</p>
+    <div>
+        <a href="https://github.com/Sm-bello" target="_blank">GitHub Matrix</a>
+        <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank">LinkedIn Log</a>
+        <a href="mailto:bellosanidrescue@gmail.com">Email Terminal</a>
     </div>
 </footer>
 
@@ -879,17 +678,9 @@ nav.stretched-nav.scrolled {
     drawWeather();
 })();
 
-/* ─── NAVIGATION OVERLAY INTERACTION ─── */
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-const navbar = document.getElementById('navbar');
-
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-});
-
-window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 30);
+/* ─── NAVIGATION SCROLL COMPILATION ─── */
+window.addEventListener('scroll', function(){
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
 
 /* ─── INTERSECTION REVEAL CONTROLLER ─── */
@@ -900,42 +691,8 @@ const revealObserver = new IntersectionObserver((entries) => {
             entry.target.classList.add('active');
         }
     });
-}, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-
+}, { threshold: 0.1 });
 revealElements.forEach(el => revealObserver.observe(el));
-
-/* ─── TELEMETRY NUMERICAL METRIC COUNTERS ─── */
-const statsSection = document.querySelector('.stats-section');
-let counterActivated = false;
-
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting && !counterActivated) {
-            counterActivated = true;
-            document.querySelectorAll('.counter').forEach(counter => {
-                const target = parseFloat(counter.dataset.target);
-                const duration = 2400; 
-                const start = performance.now();
-                const isFloat = !Number.isInteger(target) || counter.dataset.target.includes('.');
-
-                function step(now){
-                    const elapsed = now - start;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const easeOut = 1 - Math.pow(1 - progress, 3);
-                    const current = target * easeOut;
-                    
-                    counter.textContent = isFloat ? current.toFixed(2) : Math.floor(current);
-                    
-                    if(progress < 1) requestAnimationFrame(step);
-                    else counter.textContent = target;
-                }
-                requestAnimationFrame(step);
-            });
-        }
-    });
-}, { threshold: 0.2 });
-
-counterObserver.observe(statsSection);
 </script>
 </body>
 </html>
