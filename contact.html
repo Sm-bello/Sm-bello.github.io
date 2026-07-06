@@ -33,6 +33,7 @@
             --shadow-md:   0 4px 8px rgba(0,0,0,.04), 0 12px 40px rgba(0,0,0,.08);
             --r:           16px;
             --transition:  all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body {
@@ -94,41 +95,114 @@
             100% { transform: translate(110vw, 45vh) rotate(10deg); opacity: 0; }
         }
 
-        /* ─── NAVIGATION ARCHITECTURE ─── */
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border); transition: var(--transition);
+        /* ─── FLOATING CAPSULE NAVIGATION WITH CHROMATIC NEON BORDER ─── */
+        .nav-wrapper {
+            position: fixed;
+            top: 1.5rem; left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 90%;
+            max-width: 1400px;
+            pointer-events: none;
         }
-        nav.scrolled { padding: .7rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,.04); background: rgba(255, 255, 255, 0.95); }
-        .logo {
-            font-size: 1.05rem; font-weight: 800; color: var(--text);
-            text-decoration: none; display: flex; align-items: center; gap: .5rem;
-            text-transform: uppercase; letter-spacing: .5px;
+        nav.stretched-nav {
+            pointer-events: auto;
+            width: 100%;
+            height: 64px;
+            /* Hyper-transparent backing layer for clear scroll-behind clarity */
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 32px;
+            padding: 0 2rem;
+            position: relative;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
         }
-        .logo i { color: var(--blue); }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+        /* Simulated Neon Rainbow Capsule Border Ring */
+        nav.stretched-nav::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 32px;
+            padding: 2px;
+            background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
+            background-size: 200% auto;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: neonGlowFlow 4s linear infinite;
+        }
+
+        /* Outer Glow Reflection Overlay */
+        nav.stretched-nav::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 34px;
+            background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
+            background-size: 200% auto;
+            filter: blur(12px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: neonGlowFlow 4s linear infinite;
+        }
+
+        @keyframes neonGlowFlow {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        nav.stretched-nav.scrolled {
+            background: rgba(255, 255, 255, 0.35);
+            height: 58px;
+        }
+
+        .nav-inner {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo-text {
+            font-family: var(--ff-display);
+            font-weight: 900;
+            font-size: 1.05rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #0b0f19;
+            display: inline-block;
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
         .nav-links a {
-            text-decoration: none; color: var(--muted); font-weight: 600;
-            font-size: .88rem; text-transform: uppercase; letter-spacing: 1px;
-            transition: color .3s; position: relative;
+            font-family: var(--ff-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            text-decoration: none;
+            padding: 0.4rem 1.1rem;
+            border-radius: 100px;
+            transition: var(--transition-smooth);
         }
-        .nav-links a::after {
-            content:''; position:absolute; bottom:-4px; left:0; width:0;
-            height:2px; background:var(--blue); transition:width .3s;
-        }
-        .nav-links a:hover { color: var(--blue); }
-        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-        .nav-links a.active { color: var(--blue); }
-        .menu-toggle { display:none; flex-direction:column; cursor:pointer; gap:5px; }
-        .menu-toggle span { width:24px; height:2.5px; background:var(--text); border-radius:2px; transition:.3s; }
+        .nav-links a:hover { color: #000000; background: rgba(255, 255, 255, 0.4); }
+        .nav-links a.active { color: #ffffff; background: #0b0f19; }
+        .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.2rem; cursor: pointer; }
 
         /* ─── HERO Core ─── */
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 65%, #0f2240 100%);
-            padding: 9rem 2rem 6rem; position: relative; overflow: hidden; text-align: center;
+            padding: 12rem 2rem 6rem; position: relative; overflow: hidden; text-align: center;
+            z-index: 1;
         }
         .hero::before {
             content: ''; position: absolute; inset: 0;
@@ -194,7 +268,7 @@
             background: #fff; border-radius: var(--r); padding: 2.5rem;
             box-shadow: var(--shadow-md); border: 1px solid var(--light);
             border-top: 4px solid var(--orange); height: fit-content;
-            position: sticky; top: 88px;
+            position: sticky; top: 100px;
         }
 
         .profile-row {
@@ -372,9 +446,15 @@
             .info-card { position: static; width: 100%; }
         }
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .menu-toggle { display: flex; }
-            .hero { padding: 8rem 1.5rem 5rem; }
+            .nav-wrapper { width: 95%; top: 1rem; }
+            .nav-links {
+                display: none; flex-direction: column; align-items: flex-start; gap: 1rem;
+                position: absolute; top: 68px; left: 0; right: 0; background: rgba(255, 255, 255, 0.96);
+                padding: 1.5rem 2rem; border-radius: 16px; border: 1px solid var(--border);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(20px);
+            }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
             .form-card, .info-card { padding: 2rem 1.5rem; }
             .contact-section { margin-top: -1.5rem; padding: 0 1.5rem; }
@@ -398,18 +478,23 @@
     </a>
 </div>
 
-<nav id="navbar">
-    <a href="/" class="logo"><i class="fas fa-compass"></i> Mohammed Bello Sani</a>
-    <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
-        <span></span><span></span><span></span>
-    </div>
-    <ul class="nav-links" id="navLinks">
-        <li><a href="/">Telemetry</a></li>
-        <li><a href="/about.html">Profile</a></li>
-        <li><a href="/projects.html">Research Pipeline</a></li>
-        <li><a href="/contact.html" class="active">Interface</a></li>
-    </ul>
-</nav>
+<div class="nav-wrapper">
+    <nav class="stretched-nav" id="navbar">
+        <div class="nav-inner">
+            <a href="/" class="logo-container">
+                <span class="logo-text">MOHAMMED BELLO SANI</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Telemetry</a></li>
+                <li><a href="/about.html">Profile</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="/contact.html" class="active">Interface</a></li>
+                <li><a href="/solutions.html">Solutions</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
 
 <section class="hero">
     <div class="sky-fleet-container">
@@ -500,7 +585,7 @@
             <a href="https://github.com/Sm-bello" target="_blank" class="soc-btn gh" title="GitHub Engine"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="soc-btn li" title="LinkedIn Matrix"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://www.kaggle.com/mohammedbellosani" target="_blank" class="soc-btn kg" title="Kaggle Registry"><i class="fab fa-kaggle"></i></a>
-            <a href="https://huggingface.co/SM-Bello" target="_blank" class="soc-btn hf" title="HuggingFace Space"><i class="i">🤗</i></a>
+            <a href="https://huggingface.co/SM-Bello" target="_blank" class="soc-btn hf" title="HuggingFace Space">🤗</a>
             <a href="https://x.com/ojonogua" target="_blank" class="soc-btn tw" title="Twitter Interface"><i class="fab fa-x-twitter"></i></a>
             <a href="https://Instagram.com/_sm.bello" target="_blank" class="soc-btn ig" title="Instagram Profile"><i class="fab fa-instagram"></i></a>
             <a href="https://facebook.com/Sani Mohammed Bello" target="_blank" class="soc-btn fb" title="Facebook Log"><i class="fab fa-facebook-f"></i></a>
@@ -546,7 +631,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="f-message">Transmission Payload Payload</label>
+                    <label for="f-message">Transmission Payload</label>
                     <textarea id="f-message" class="field" placeholder="Outline specific technical variables — precise engineering descriptions yield optimized latency responses." maxlength="800" oninput="updateCount()" required></textarea>
                     <div class="field-footer">
                         <span></span>
@@ -594,7 +679,7 @@
     <div class="footer-links">
         <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i> GitHub Matrix</a>
         <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn Log</a>
-        <a href="mailto:bellosanidrescue@gmail.com"><i class="fas fa-envelope"></i> Email Terminal</a>
+        <a href="mailto:bellosanidrescue@gmail.com">Email Terminal</a>
     </div>
 </footer>
 
@@ -635,6 +720,7 @@
 
     function drawWeather() {
         timeEpoch += 0.0005; 
+        
         let cycleFactor = (Math.sin(timeEpoch) + 1) / 2; 
         
         let r1 = Math.floor(250 - (cycleFactor * 15));
@@ -681,8 +767,16 @@
 })();
 
     /* ─── NAVIGATION EFFECT ─── */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navbar = document.getElementById('navbar');
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+
     window.addEventListener('scroll', () => {
-        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     /* ─── PAYLOAD LENGTH CONFIGURATION ─── */
