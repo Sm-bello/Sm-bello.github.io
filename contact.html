@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Mohammed Bello Sani</title>
     <meta name="description" content="Contact Mohammed Bello Sani for collaboration on Digital Twins, Aerospace AI, and MRO Systems.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,11 +26,13 @@
             --green-dim:   #ecfdf5;
             --purple:      #8b5cf6;
             --purple-dim:  #ede9fe;
+            --border:      rgba(11, 15, 25, 0.08);
             --mono:        'JetBrains Mono', monospace;
             --sans:        'Inter', sans-serif;
             --shadow-sm:   0 1px 3px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.05);
             --shadow-md:   0 4px 8px rgba(0,0,0,.04), 0 12px 40px rgba(0,0,0,.08);
             --r:           16px;
+            --transition:  all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body {
@@ -40,24 +41,74 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* ─── NAV ─── */
+        /* ─── METEOROLOGICAL SKYBOX CANVAS ─── */
+        #ambient-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ─── DYNAMIC SQUADRON FLIGHT PATH ANIMATION LAYER ─── */
+        .sky-fleet-container {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .fleet-aircraft {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform-origin: center;
+        }
+        .aircraft-paper { color: var(--orange); animation: paperFlight 12s infinite linear; }
+        .aircraft-f22 { color: rgba(15, 44, 89, 0.15); font-size: 1.8rem; animation: interceptFlight 16s infinite linear; animation-delay: 3s; }
+        .aircraft-b747 { color: rgba(133, 146, 166, 0.12); font-size: 2.5rem; animation: cruiseFlight 24s infinite linear; animation-delay: 6s; }
+
+        @keyframes paperFlight {
+            0% { transform: translate(-50px, 40vh) rotate(15deg); opacity: 0; }
+            5% { opacity: 0.8; }
+            35% { transform: translate(30vw, 20vh) rotate(-10deg); }
+            65% { transform: translate(65vw, 35vh) rotate(20deg); }
+            95% { opacity: 0.8; }
+            100% { transform: translate(105vw, 15vh) rotate(-5deg); opacity: 0; }
+        }
+        @keyframes interceptFlight {
+            0% { transform: translate(105vw, 65vh) rotate(-165deg) scale(0.7); opacity: 0; }
+            10% { opacity: 0.6; }
+            50% { transform: translate(50vw, 35vh) rotate(-155deg) scale(1); }
+            90% { opacity: 0.6; }
+            100% { transform: translate(-10vw, 5vh) rotate(-145deg) scale(1.3); opacity: 0; }
+        }
+        @keyframes cruiseFlight {
+            0% { transform: translate(-10vw, 10vh) rotate(5deg); opacity: 0; }
+            8% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translate(110vw, 45vh) rotate(10deg); opacity: 0; }
+        }
+
+        /* ─── NAVIGATION ARCHITECTURE ─── */
         nav {
             position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; background: rgba(248,250,252,.96);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--light); transition: all .3s;
+            z-index: 1000; background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); transition: var(--transition);
         }
-        nav.scrolled { padding: .7rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+        nav.scrolled { padding: .7rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,.04); background: rgba(255, 255, 255, 0.95); }
         .logo {
             font-size: 1.05rem; font-weight: 800; color: var(--text);
             text-decoration: none; display: flex; align-items: center; gap: .5rem;
             text-transform: uppercase; letter-spacing: .5px;
         }
-        .logo i { color: var(--blue); animation: planeFly 3s ease-in-out infinite; }
-        @keyframes planeFly { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px) rotate(-5deg)} }
+        .logo i { color: var(--blue); }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
             text-decoration: none; color: var(--muted); font-weight: 600;
@@ -74,21 +125,16 @@
         .menu-toggle { display:none; flex-direction:column; cursor:pointer; gap:5px; }
         .menu-toggle span { width:24px; height:2.5px; background:var(--text); border-radius:2px; transition:.3s; }
 
-        /* ─── HERO ─── */
+        /* ─── HERO Core ─── */
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 65%, #0f2240 100%);
-            padding: 9rem 2rem 6rem;
-            position: relative; overflow: hidden; text-align: center;
+            padding: 9rem 2rem 6rem; position: relative; overflow: hidden; text-align: center;
         }
-        /* Dot-grid overlay */
         .hero::before {
             content: ''; position: absolute; inset: 0;
-            background-image:
-                radial-gradient(circle, rgba(14,165,233,.18) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
+            background-image: radial-gradient(circle, rgba(14,165,233,.12) 1px, transparent 1px);
+            background-size: 40px 40px; pointer-events: none;
         }
-        /* Glow */
         .hero::after {
             content: ''; position: absolute; inset: 0;
             background: radial-gradient(ellipse 80% 70% at 50% 65%, rgba(14,165,233,.1) 0%, transparent 65%);
@@ -96,7 +142,6 @@
         }
         .hero-inner { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
 
-        /* Status badge */
         .hero-badge {
             display: inline-flex; align-items: center; gap: .5rem;
             font-family: var(--mono); font-size: .72rem; font-weight: 700;
@@ -115,68 +160,57 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 900;
+            font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 800;
             color: #fff; letter-spacing: -1.5px; line-height: 1.08; margin-bottom: 1.25rem;
         }
         .hero h1 .accent {
             background: linear-gradient(135deg, var(--blue) 0%, #38bdf8 100%);
             -webkit-background-clip: text; background-clip: text; color: transparent;
         }
-        .hero-sub {
-            font-size: 1.05rem; color: #94a3b8; line-height: 1.8; margin-bottom: 2.5rem;
-        }
+        .hero-sub { font-size: 1.05rem; color: #94a3b8; line-height: 1.8; margin-bottom: 2.5rem; }
         .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
         .btn-primary {
             display:inline-flex; align-items:center; gap:.5rem; padding:11px 22px;
             border-radius:8px; font-size:.875rem; font-weight:700; text-decoration:none;
-            background: var(--blue); color: #fff; transition: all .3s;
+            background: var(--blue); color: #fff; transition: var(--transition);
         }
         .btn-primary:hover { background: #0284c7; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14,165,233,.4); }
         .btn-ghost {
             display:inline-flex; align-items:center; gap:.5rem; padding:11px 22px;
             border-radius:8px; font-size:.875rem; font-weight:700; text-decoration:none;
-            color: #94a3b8; border: 1px solid rgba(148,163,184,.3); transition: all .3s;
+            color: #94a3b8; border: 1px solid rgba(148,163,184,.3); transition: var(--transition);
         }
         .btn-ghost:hover { border-color: rgba(14,165,233,.5); color: var(--blue); transform: translateY(-2px); }
 
-        /* ─── CONTACT GRID ─── */
+        /* ─── CONTACT GRID ARCHITECTURE ─── */
         .contact-section {
-            max-width: 1160px;
-            margin: -3rem auto 5rem;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 360px 1fr;
-            gap: 2rem;
-            position: relative;
-            z-index: 10;
+            max-width: 1280px; margin: -3rem auto 5rem; padding: 0 2rem;
+            display: grid; grid-template-columns: 420px 1fr; gap: 2.5rem;
+            position: relative; z-index: 10;
         }
 
-        /* ─── INFO CARD ─── */
+        /* ─── INFO CARD DOSSIER ─── */
         .info-card {
-            background: #fff; border-radius: var(--r);
-            padding: 2.25rem; box-shadow: var(--shadow-md);
-            border: 1px solid var(--light); border-top: 4px solid var(--orange);
-            height: fit-content;
+            background: #fff; border-radius: var(--r); padding: 2.5rem;
+            box-shadow: var(--shadow-md); border: 1px solid var(--light);
+            border-top: 4px solid var(--orange); height: fit-content;
             position: sticky; top: 88px;
         }
 
-        /* Profile row */
         .profile-row {
-            display: flex; align-items: center; gap: 1rem;
-            padding-bottom: 1.5rem; margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--light);
+            display: flex; align-items: center; gap: 1.2rem;
+            padding-bottom: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--light);
         }
         .avatar {
-            width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0;
+            width: 56px; height: 56px; border-radius: 12px; flex-shrink: 0;
             background: linear-gradient(135deg, var(--dark), var(--mid));
             display: flex; align-items: center; justify-content: center;
-            font-family: var(--mono); font-size: .75rem; font-weight: 700;
+            font-family: var(--mono); font-size: .85rem; font-weight: 700;
             color: var(--blue); letter-spacing: 1px;
         }
-        .profile-name { font-size: .97rem; font-weight: 800; color: var(--text); line-height: 1.3; }
-        .profile-role { font-size: .75rem; color: var(--muted); margin-top: 2px; }
+        .profile-name { font-size: 1.05rem; font-weight: 800; color: var(--text); line-height: 1.3; }
+        .profile-role { font-size: .78rem; color: var(--muted); margin-top: 2px; }
 
-        /* Availability chip */
         .avail-chip {
             display: inline-flex; align-items: center; gap: .4rem;
             font-family: var(--mono); font-size: .68rem; font-weight: 700;
@@ -190,231 +224,161 @@
             animation: greenBlink 1.8s ease-in-out infinite;
         }
 
-        /* Info items */
-        .info-item {
-            display: flex; align-items: flex-start; gap: .85rem;
-            padding: .85rem 0; border-bottom: 1px solid #f1f5f9;
-        }
+        /* Info Items Stack */
+        .info-item { display: flex; align-items: flex-start; gap: 1rem; padding: .95rem 0; border-bottom: 1px solid #f1f5f9; }
         .info-item:last-of-type { border-bottom: none; margin-bottom: 0; }
         .info-icon {
-            width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
-            display: flex; align-items: center; justify-content: center; font-size: .85rem;
+            width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center; font-size: .9rem;
         }
         .icon-blue   { background: var(--blue-dim);   color: var(--blue);   }
         .icon-orange { background: var(--orange-dim);  color: var(--orange); }
         .icon-green  { background: var(--green-dim);   color: var(--green);  }
         .icon-purple { background: var(--purple-dim);  color: var(--purple); }
-        .info-label {
-            font-size: .68rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 1px; color: var(--muted); margin-bottom: 2px;
-        }
-        .info-val {
-            font-size: .88rem; font-weight: 600; color: var(--text);
-            text-decoration: none; display: block; line-height: 1.4; transition: color .2s;
-        }
+        .info-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 3px; }
+        .info-val { font-size: .9rem; font-weight: 600; color: var(--text); text-decoration: none; display: block; line-height: 1.4; transition: color .2s; }
         a.info-val:hover { color: var(--blue); }
-        .info-sub { font-size: .73rem; color: var(--muted); margin-top: 2px; }
+        .info-sub { font-size: .75rem; color: var(--muted); margin-top: 2px; }
 
-        /* Social row */
+        /* Custom Social Icon Arrays */
         .social-row {
-            display: flex; gap: .5rem; margin-top: 1.5rem;
+            display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem;
             padding-top: 1.5rem; border-top: 1px solid var(--light);
         }
         .soc-btn {
-            flex: 1; height: 42px; border-radius: 10px;
+            width: 44px; height: 44px; border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
-            font-size: .92rem; text-decoration: none; transition: all .3s;
-            border: 1.5px solid var(--light); color: var(--muted); background: #fff;
+            font-size: 1rem; text-decoration: none; transition: var(--transition);
+            border: 1px solid var(--light); color: var(--muted); background: #fff;
         }
         .soc-btn:hover  { transform: translateY(-3px); color: #fff; }
-        .soc-btn.gh:hover { background:#0f172a; border-color:#0f172a; box-shadow:0 6px 20px rgba(15,23,42,.2); }
-        .soc-btn.li:hover { background:#0a66c2; border-color:#0a66c2; box-shadow:0 6px 20px rgba(10,102,194,.25); }
-        .soc-btn.kg:hover { background:#20beff; border-color:#20beff; box-shadow:0 6px 20px rgba(32,190,255,.25); }
-        .soc-btn.hf:hover { background:#ff9d00; border-color:#ff9d00; box-shadow:0 6px 20px rgba(255,157,0,.25); }
-        .soc-btn.em:hover { background:var(--orange); border-color:var(--orange); box-shadow:0 6px 20px rgba(249,115,22,.25); }
-        .soc-btn .emoji { font-size: .88rem; line-height: 1; }
+        .soc-btn.gh:hover { background:#0f172a; border-color:#0f172a; }
+        .soc-btn.li:hover { background:#0a66c2; border-color:#0a66c2; }
+        .soc-btn.kg:hover { background:#20beff; border-color:#20beff; }
+        .soc-btn.hf:hover { background:#ff9d00; border-color:#ff9d00; }
+        .soc-btn.tw:hover { background:#1da1f2; border-color:#1da1f2; }
+        .soc-btn.ig:hover { background:#e1306c; border-color:#e1306c; }
+        .soc-btn.fb:hover { background:#1877f2; border-color:#1877f2; }
 
-        /* ─── FORM CARD ─── */
+        /* ─── FORM CARD TRANSMISSION ─── */
         .form-card {
-            background: #fff; border-radius: var(--r);
-            padding: 2.75rem; box-shadow: var(--shadow-md);
-            border: 1px solid var(--light); border-top: 4px solid var(--blue);
+            background: #fff; border-radius: var(--r); padding: 3rem;
+            box-shadow: var(--shadow-md); border: 1px solid var(--light); border-top: 4px solid var(--blue);
         }
-
         .form-head { margin-bottom: 2rem; }
-        .form-head h2 { font-size: 1.6rem; font-weight: 800; color: var(--text); margin-bottom: .3rem; }
-        .form-head > p { font-size: .9rem; color: var(--muted); }
+        .form-head h2 { font-size: 1.75rem; font-weight: 800; color: var(--text); margin-bottom: .4rem; font-family: var(--ff-display); }
+        .form-head > p { font-size: .95rem; color: var(--muted); }
         .response-tag {
             display: inline-flex; align-items: center; gap: .4rem;
             font-family: var(--mono); font-size: .68rem; font-weight: 700;
-            color: var(--blue); letter-spacing: .5px;
-            padding: 4px 10px; border-radius: 4px; margin-top: .75rem;
+            color: var(--blue); letter-spacing: .5px; padding: 4px 10px; border-radius: 4px; margin-top: .75rem;
             background: var(--blue-dim); border: 1px solid rgba(14,165,233,.18);
         }
 
-        /* Form layout */
-        .form-row {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem;
-        }
-        .form-group { margin-bottom: 1.2rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
         .form-group:last-of-type { margin-bottom: 0; }
-        label {
-            display: block; font-size: .75rem; font-weight: 800;
-            text-transform: uppercase; letter-spacing: .8px;
-            color: var(--text); margin-bottom: .45rem;
-        }
+        label { display: block; font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .8px; color: var(--text); margin-bottom: .5rem; }
         .field {
-            width: 100%; padding: .85rem 1rem;
-            border: 1.5px solid var(--light); border-radius: 10px;
+            width: 100%; padding: .95rem 1.2rem; border: 1.5px solid var(--light); border-radius: 10px;
             background: #f8fafc; font-family: var(--sans); font-size: .95rem;
-            color: var(--text); transition: border-color .25s, background .25s, box-shadow .25s;
-            -webkit-appearance: none; appearance: none;
+            color: var(--text); transition: var(--transition); appearance: none;
         }
-        .field:focus {
-            outline: none; border-color: var(--blue);
-            background: #fff; box-shadow: 0 0 0 4px rgba(14,165,233,.1);
-        }
-        .field::placeholder { color: #94a3b8; }
+        .field:focus { outline: none; border-color: var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(14,165,233,.1); }
         select.field {
             cursor: pointer;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2364748b' d='M8 11L2 5h12z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat; background-position: right 1rem center; background-size: 11px;
+            background-repeat: no-repeat; background-position: right 1.2rem center; background-size: 11px;
             padding-right: 2.5rem;
         }
-        textarea.field { resize: vertical; min-height: 148px; }
+        textarea.field { resize: vertical; min-height: 160px; }
 
-        .field-footer {
-            display: flex; justify-content: flex-end; margin-top: 4px;
-        }
-        .char-count {
-            font-family: var(--mono); font-size: .66rem; color: #94a3b8; font-weight: 500;
-        }
+        .field-footer { display: flex; justify-content: flex-end; margin-top: 6px; }
+        .char-count { font-family: var(--mono); font-size: .66rem; color: #94a3b8; font-weight: 500; }
         .char-count.warn { color: var(--orange); }
 
-        /* Submit button */
         .submit-btn {
-            width: 100%; padding: 1rem; border: none; border-radius: 10px;
+            width: 100%; padding: 1.1rem; border: none; border-radius: 10px;
             background: var(--dark); color: #fff; font-family: var(--sans);
             font-size: .95rem; font-weight: 800; text-transform: uppercase;
-            letter-spacing: 1px; cursor: pointer; transition: all .3s;
-            display: flex; align-items: center; justify-content: center; gap: .6rem;
-            margin-top: 1.5rem;
+            letter-spacing: 1px; cursor: pointer; transition: var(--transition);
+            display: flex; align-items: center; justify-content: center; gap: .6rem; margin-top: 1.5rem;
         }
         .submit-btn:hover { background: var(--blue); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(14,165,233,.35); }
-        .submit-btn:active { transform: translateY(0); }
-        .form-note {
-            text-align: center; font-size: .74rem; color: var(--muted);
-            font-family: var(--mono); margin-top: .75rem;
-        }
+        .form-note { text-align: center; font-size: .74rem; color: var(--muted); font-family: var(--mono); margin-top: .85rem; }
 
-        /* Success state */
         .form-body.hidden { display: none; }
-        .success-state {
-            display: none;
-            flex-direction: column; align-items: center;
-            text-align: center; padding: 2rem 1rem 1rem;
-        }
+        .success-state { display: none; flex-direction: column; align-items: center; text-align: center; padding: 3rem 1rem 1rem; }
         .success-state.show { display: flex; }
-        .success-icon {
-            width: 68px; height: 68px; border-radius: 50%;
-            background: var(--green-dim); color: var(--green);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; margin-bottom: 1.25rem;
-        }
-        .success-state h3 { font-size: 1.35rem; font-weight: 800; color: var(--text); margin-bottom: .4rem; }
-        .success-state p { font-size: .9rem; color: var(--muted); max-width: 380px; line-height: 1.6; margin-bottom: 1.5rem; }
-        .reset-link {
-            font-family: var(--mono); font-size: .72rem; font-weight: 700;
-            color: var(--blue); background: none; border: none; cursor: pointer;
-            text-decoration: underline; text-transform: uppercase; letter-spacing: 1px;
-        }
+        .success-icon { width: 68px; height: 68px; border-radius: 50%; background: var(--green-dim); color: var(--green); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .success-state h3 { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: .5rem; }
+        .success-state p { font-size: .95rem; color: var(--muted); max-width: 420px; line-height: 1.6; margin-bottom: 2rem; }
+        .reset-link { font-family: var(--mono); font-size: .72rem; font-weight: 700; color: var(--blue); background: none; border: none; cursor: pointer; text-decoration: underline; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* ─── COLLAB SECTION ─── */
-        .collab-section {
-            background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding: 5.5rem 2rem;
-            border-top: 1px solid rgba(14,165,233,.1);
-            border-bottom: 1px solid rgba(14,165,233,.1);
-        }
-        .collab-inner { max-width: 1160px; margin: 0 auto; }
-
-        .section-eyebrow {
-            font-family: var(--mono); font-size: .72rem; font-weight: 700;
-            color: var(--blue); letter-spacing: 2px; text-transform: uppercase;
-            display: flex; align-items: center; justify-content: center; gap: .75rem;
-            margin-bottom: .75rem;
-        }
-        .section-eyebrow::before, .section-eyebrow::after {
-            content: ''; height: 1.5px; background: var(--blue); width: 50px;
-        }
-        .section-h2 {
-            font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 900;
-            color: var(--text); text-align: center; letter-spacing: -.5px;
-            margin-bottom: 3rem;
-        }
-        .collab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .collab-card {
-            background: #fff; border-radius: var(--r); padding: 2rem;
-            border: 1px solid rgba(14,165,233,.12); box-shadow: var(--shadow-sm);
-            transition: transform .3s, box-shadow .3s;
-            position: relative; overflow: hidden;
-        }
-        .collab-card::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-        }
+        /* ─── COLLABORATION LOGS ─── */
+        .collab-section { background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%); padding: 6rem 2rem; border-top: 1px solid rgba(14,165,233,.1); border-bottom: 1px solid rgba(14,165,233,.1); }
+        .collab-inner { max-width: 1280px; margin: 0 auto; }
+        .section-eyebrow { font-family: var(--mono); font-size: .72rem; font-weight: 700; color: var(--blue); letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: .75rem; margin-bottom: .75rem; }
+        .section-eyebrow::before, .section-eyebrow::after { content: ''; height: 1.5px; background: var(--blue); width: 50px; }
+        .section-h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: var(--text); text-align: center; letter-spacing: -.5px; margin-bottom: 4rem; font-family: var(--ff-display); }
+        
+        .collab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .collab-card { background: #fff; border-radius: var(--r); padding: 2.5rem; border: 1px solid rgba(14,165,233,.12); box-shadow: var(--shadow-sm); transition: var(--transition); position: relative; overflow: hidden; }
+        .collab-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
         .c-blue::before   { background: var(--blue);   }
         .c-orange::before { background: var(--orange); }
         .c-green::before  { background: var(--green);  }
-        .collab-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-        .collab-icon {
-            width: 50px; height: 50px; border-radius: 13px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.25rem; margin-bottom: 1.2rem;
-        }
-        .c-blue  .collab-icon { background: var(--blue-dim);   color: var(--blue);   }
+        .collab-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--text); }
+        .collab-icon { width: 52px; height: 52px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; margin-bottom: 1.5rem; }
+        .c-blue   .collab-icon { background: var(--blue-dim);   color: var(--blue);   }
         .c-orange .collab-icon { background: var(--orange-dim); color: var(--orange); }
         .c-green  .collab-icon { background: var(--green-dim);  color: var(--green);  }
-        .collab-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: .6rem; }
-        .collab-card p  { font-size: .875rem; color: var(--muted); line-height: 1.7; }
+        .collab-card h3 { font-size: 1.15rem; font-weight: 800; color: var(--text); margin-bottom: .75rem; }
+        .collab-card p  { font-size: .92rem; color: var(--muted); line-height: 1.7; }
+
+        /* ─── INTERACTIVE FLOATING WHATSAPP CORE ─── */
+        .floating-radar-node {
+            position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .radar-pulse-ring {
+            position: absolute; width: 76px; height: 76px; border-radius: 50%;
+            background: rgba(16, 185, 129, 0.25); animation: radarPing 2s infinite ease-out;
+        }
+        @keyframes radarPing { 0% { scale: 0.6; opacity: 1; } 100% { scale: 1.4; opacity: 0; } }
+        .whatsapp-hardware-btn {
+            width: 58px; height: 56px; border-radius: 50%; background: #25d366;
+            display: flex; align-items: center; justify-content: center; color: #fff;
+            font-size: 1.6rem; text-decoration: none; box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35);
+            transition: var(--transition); border: 1px solid rgba(255,255,255,0.15);
+            position: relative; z-index: 2;
+        }
+        .whatsapp-hardware-btn:hover { scale: 1.06; background: #20ba5a; box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5); }
 
         /* ─── FOOTER ─── */
-        footer {
-            background: #0b1120; padding: 2.5rem; color: #94a3b8; text-align: center;
-        }
-        footer p { font-size: .88rem; }
-        .footer-links { margin-top: .75rem; }
-        .footer-links a { color: #64748b; margin: 0 12px; text-decoration: none; transition: .3s; }
-        .footer-links a:hover { color: var(--orange); }
+        footer { background: #07090e; padding: 3rem 2rem; color: #94a3b8; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        footer p { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.02em; }
+        .footer-links { margin-top: 1rem; }
+        .footer-links a { color: #64748b; margin: 0 14px; text-decoration: none; transition: var(--transition); font-size: 0.85rem; }
+        .footer-links a:hover { color: #fff; }
 
-        /* ─── SCROLL REVEAL ─── */
+        /* ─── SCROLL REVEAL CLASSIFIERS ─── */
         .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
         .reveal.in-view { opacity: 1; transform: translateY(0); }
         .reveal.d1 { transition-delay: .1s; }
-        .reveal.d2 { transition-delay: .2s; }
 
-        /* ─── RESPONSIVE ─── */
-        @media (max-width: 960px) {
+        @media (max-width: 1024px) {
             .contact-section { grid-template-columns: 1fr; }
-            .info-card { position: static; }
+            .info-card { position: static; width: 100%; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .nav-links.active {
-                display: flex; flex-direction: column;
-                position: absolute; top: 100%; left: 0; width: 100%;
-                background: var(--bg); padding: 1.5rem 2rem;
-                border-bottom: 1px solid var(--light);
-            }
             .menu-toggle { display: flex; }
-            .hero { padding: 7rem 1.5rem 4rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .form-card { padding: 1.75rem; }
-            .info-card { padding: 1.75rem; }
-            .contact-section { margin-top: -1.5rem; }
+            .hero { padding: 8rem 1.5rem 5rem; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .form-card, .info-card { padding: 2rem 1.5rem; }
+            .contact-section { margin-top: -1.5rem; padding: 0 1.5rem; }
+            .floating-radar-node { bottom: 1.5rem; right: 1.5rem; }
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 2.2rem; }
@@ -425,22 +389,35 @@
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
+<canvas id="ambient-canvas"></canvas>
+
+<div class="floating-radar-node">
+    <div class="radar-pulse-ring"></div>
+    <a href="https://wa.me/2349067883192" target="_blank" class="whatsapp-hardware-btn" title="Initialize WhatsApp Secure Line">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
 <nav id="navbar">
-    <a href="/" class="logo"><i class="fas fa-microchip"></i> Mohammed Bello Sani</a>
+    <a href="/" class="logo"><i class="fas fa-compass"></i> Mohammed Bello Sani</a>
     <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
         <span></span><span></span><span></span>
     </div>
     <ul class="nav-links" id="navLinks">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/projects.html">Projects</a></li>
-        <li><a href="/contact.html" class="active">Contact</a></li>
+        <li><a href="/">Telemetry</a></li>
+        <li><a href="/about.html">Profile</a></li>
+        <li><a href="/projects.html">Research Pipeline</a></li>
+        <li><a href="/contact.html" class="active">Interface</a></li>
     </ul>
 </nav>
 
-<!-- ─── HERO ─── -->
 <section class="hero">
+    <div class="sky-fleet-container">
+        <div class="fleet-aircraft aircraft-paper"><i class="fas fa-paper-plane"></i></div>
+        <div class="fleet-aircraft aircraft-f22"><i class="fas fa-jet-fighter"></i></div>
+        <div class="fleet-aircraft aircraft-b747"><i class="fas fa-plane"></i></div>
+    </div>
+
     <div class="hero-inner">
         <div class="hero-badge">
             <div class="pulse-dot"></div>
@@ -449,32 +426,30 @@
         <h1>Let's Build<br><span class="accent">Something Real.</span></h1>
         <p class="hero-sub">
             Research partnerships, aerospace AI projects, technical consulting —<br>
-            open channels across all fronts. Abuja-based, operating globally.
+            open channels across all fronts. Operating globally.
         </p>
         <div class="hero-actions">
-            <a href="mailto:bellosani2drescue@gmail.com" class="btn-primary">
-                <i class="fas fa-envelope"></i> Email Me Directly
+            <a href="mailto:bellosanidrescue@gmail.com" class="btn-primary">
+                <i class="fas fa-envelope"></i> Email Matrix Directly
             </a>
             <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="btn-ghost">
-                <i class="fab fa-linkedin"></i> LinkedIn
+                <i class="fab fa-linkedin-in"></i> LinkedIn Log
             </a>
             <a href="https://github.com/Sm-bello" target="_blank" class="btn-ghost">
-                <i class="fab fa-github"></i> GitHub
+                <i class="fab fa-github"></i> GitHub Engine
             </a>
         </div>
     </div>
 </section>
 
-<!-- ─── CONTACT GRID ─── -->
 <div class="contact-section">
 
-    <!-- Info Card -->
     <div class="info-card reveal">
         <div class="profile-row">
             <div class="avatar">MBS</div>
             <div>
                 <div class="profile-name">Mohammed Bello Sani</div>
-                <div class="profile-role">Aerospace Engineer · Founder, Penelope Inc.</div>
+                <div class="profile-role">Aerospace Systems Engineer · Founder, Penelope Inc.</div>
             </div>
         </div>
 
@@ -483,8 +458,8 @@
         <div class="info-item">
             <div class="info-icon icon-blue"><i class="fas fa-envelope"></i></div>
             <div>
-                <div class="info-label">Primary Email</div>
-                <a href="mailto:bellosani2drescue@gmail.com" class="info-val">bellosani2drescue@gmail.com</a>
+                <div class="info-label">Primary Terminal Email</div>
+                <a href="mailto:bellosanidrescue@gmail.com" class="info-val">bellosanidrescue@gmail.com</a>
             </div>
         </div>
 
@@ -492,94 +467,87 @@
             <div class="info-icon icon-orange"><i class="fas fa-map-marker-alt"></i></div>
             <div>
                 <div class="info-label">Base of Operations</div>
-                <p class="info-val">FCT Abuja, Nigeria</p>
+                <p class="info-val">Abuja, Nigeria</p>
                 <p class="info-sub">Relocating → Hangzhou, China · Sept 2026</p>
             </div>
         </div>
 
         <div class="info-item">
-            <div class="info-icon icon-purple"><i class="fas fa-graduation-cap"></i></div>
+            <div class="info-icon icon-purple"><i class="fas fa-fingerprint"></i></div>
             <div>
-                <div class="info-label">Next Station</div>
-                <p class="info-val">M.Sc. Smart Aviation</p>
-                <p class="info-sub">Beihang University · Under Prof. Hu Yang</p>
+                <div class="info-label">ORCID Registry ID</div>
+                <a href="https://orcid.org/0009-0009-9214-9403" target="_blank" class="info-val">0009-0009-9214-9403</a>
             </div>
         </div>
 
         <div class="info-item">
-            <div class="info-icon icon-green"><i class="fas fa-code-branch"></i></div>
+            <div class="info-icon icon-green"><i class="fas fa-circle-nodes"></i></div>
             <div>
-                <div class="info-label">Active Repository</div>
-                <a href="https://github.com/Penelope-Inco" target="_blank" class="info-val">github.com/Penelope-Inco</a>
-                <p class="info-sub">PHI Suite · Lifestone · COLIG App</p>
+                <div class="info-label">Web of Science ResearcherID</div>
+                <a href="https://www.webofscience.com/wos/author/record/PYW-0574-2026" target="_blank" class="info-val">PYW-0574-2026</a>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon icon-blue"><i class="fab fa-weixin"></i></div>
+            <div>
+                <div class="info-label">WeChat Secure Core ID</div>
+                <p class="info-val">A90678831</p>
             </div>
         </div>
 
         <div class="social-row">
-            <a href="https://github.com/Sm-bello" target="_blank" class="soc-btn gh" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="soc-btn li" title="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.kaggle.com/mohammedbellosani" target="_blank" class="soc-btn kg" title="Kaggle">
-                <i class="fab fa-kaggle"></i>
-            </a>
-            <a href="https://huggingface.co/SM-Bello" target="_blank" class="soc-btn hf" title="HuggingFace">
-                <span class="emoji">🤗</span>
-            </a>
-            <a href="mailto:bellosani2drescue@gmail.com" class="soc-btn em" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
+            <a href="https://github.com/Sm-bello" target="_blank" class="soc-btn gh" title="GitHub Engine"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" class="soc-btn li" title="LinkedIn Matrix"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.kaggle.com/mohammedbellosani" target="_blank" class="soc-btn kg" title="Kaggle Registry"><i class="fab fa-kaggle"></i></a>
+            <a href="https://huggingface.co/SM-Bello" target="_blank" class="soc-btn hf" title="HuggingFace Space"><i class="i">🤗</i></a>
+            <a href="https://x.com/ojonogua" target="_blank" class="soc-btn tw" title="Twitter Interface"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://Instagram.com/_sm.bello" target="_blank" class="soc-btn ig" title="Instagram Profile"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/Sani Mohammed Bello" target="_blank" class="soc-btn fb" title="Facebook Log"><i class="fab fa-facebook-f"></i></a>
         </div>
     </div>
 
-    <!-- Form Card -->
     <div class="form-card reveal d1">
         <div class="form-head">
             <h2>Send a Transmission</h2>
-            <p>Have a project idea, research inquiry, or technical question? Initialize contact below.</p>
-            <div class="response-tag"><i class="fas fa-clock"></i> Responds within 24 hours</div>
+            <p>Have a project deployment profile, research inquiry, or technical system requirement? Initialize contact below.</p>
+            <div class="response-tag"><i class="fas fa-clock"></i> Response latency &lt; 24 hours</div>
         </div>
 
-        <!-- Success State -->
         <div class="success-state" id="successState">
             <div class="success-icon"><i class="fas fa-check"></i></div>
             <h3>Transmission Initialized</h3>
-            <p>Your default email client should be open — hit send to complete the transmission. Looking forward to connecting.</p>
-            <button class="reset-link" onclick="resetForm()">← Send Another Message</button>
+            <p>Your localized email agent should be initialized — execute send to finalize transmission parameters.</p>
+            <button class="reset-link" onclick="resetForm()">← Re-Open Transmission Channel</button>
         </div>
 
-        <!-- Form Body -->
         <div class="form-body" id="formBody">
             <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
-
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="f-name">Name</label>
+                        <label for="f-name">Identity Handle</label>
                         <input type="text" id="f-name" class="field" placeholder="Dr. Jane Smith" required>
                     </div>
                     <div class="form-group">
-                        <label for="f-email">Email</label>
+                        <label for="f-email">Return Routing Email</label>
                         <input type="email" id="f-email" class="field" placeholder="jane@university.edu" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="f-subject">Mission Type</label>
+                    <label for="f-subject">Mission Profile Type</label>
                     <select id="f-subject" class="field">
                         <option>Research Collaboration</option>
                         <option>Technical Consultancy</option>
                         <option>Project Inquiry</option>
-                        <option>Internship / Hiring</option>
-                        <option>Speaking / Writing</option>
-                        <option>Other</option>
+                        <option>NASA TRL 4–5 Systems Deployment</option>
+                        <option>Other Operational Envelopes</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="f-message">Message</label>
-                    <textarea id="f-message" class="field" placeholder="Describe the mission — the more detail, the better." maxlength="800" oninput="updateCount()" required></textarea>
+                    <label for="f-message">Transmission Payload Payload</label>
+                    <textarea id="f-message" class="field" placeholder="Outline specific technical variables — precise engineering descriptions yield optimized latency responses." maxlength="800" oninput="updateCount()" required></textarea>
                     <div class="field-footer">
                         <span></span>
                         <span class="char-count" id="charCount">0 / 800</span>
@@ -587,17 +555,16 @@
                 </div>
 
                 <button type="submit" class="submit-btn">
-                    <span>Transmit Message</span>
+                    <span>Transmit Core Message</span>
                     <i class="fas fa-paper-plane"></i>
                 </button>
-                <p class="form-note">Opens your email client · No data is sent to any server</p>
+                <p class="form-note">Launches default client interface · System data remains air-gapped from external storage servers</p>
             </form>
         </div>
     </div>
 
-</div><!-- /contact-section -->
+</div>
 
-<!-- ─── COLLAB SECTION ─── -->
 <section class="collab-section">
     <div class="collab-inner">
         <div class="section-eyebrow">Areas of Interface</div>
@@ -606,39 +573,119 @@
             <div class="collab-card c-blue reveal">
                 <div class="collab-icon"><i class="fas fa-flask"></i></div>
                 <h3>Cross-Domain Research</h3>
-                <p>Co-authoring on Digital Twin architectures, predictive PHM models, and aerospace AI systems. Academic rigor + deployable engineering — journal-ready output from real implementations.</p>
+                <p>Co-authoring on high-utility Digital Twin topologies, validation filters, and predictive PHM frameworks. Satisfying academic constraints via completely deployable production engineering output.</p>
             </div>
             <div class="collab-card c-orange reveal d1">
                 <div class="collab-icon"><i class="fas fa-wrench"></i></div>
-                <h3>MRO & Technical Integration</h3>
-                <p>AI-driven maintenance optimization: sensor pipelines, health monitoring dashboards, fault classification, and airworthiness-aware predictive systems built for real-world African fleets.</p>
+                <h3>MRO & Hangar Integration</h3>
+                <p>Formulating sensor pipeline integrations, diagnostics monitoring suites, and structural degradation tools tracking clean airworthiness compliance protocols.</p>
             </div>
-            <div class="collab-card c-green reveal d2">
+            <div class="collab-card c-green reveal">
                 <div class="collab-icon"><i class="fas fa-network-wired"></i></div>
-                <h3>Full-Stack Engineering</h3>
-                <p>End-to-end builds from embedded sensor logic to cloud-deployed APIs and user-facing interfaces. Rust, Next.js, FastAPI, Flutter — machine language and server language, equally fluent.</p>
+                <h3>Full-Stack System Builds</h3>
+                <p>Developing robust end-to-end architectures from physical hardware capture points to local edge database layers. Fluent inside low-level logic execution paths and microservice routers alike.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
 <footer>
-    <p>&copy; 2026 Mohammed Bello Sani | Aerospace Intelligence Research</p>
+    <p>&copy; 2026 Mohammed Bello Sani | Aerospace Systems Intelligence Research</p>
     <div class="footer-links">
-        <a href="https://github.com/Sm-bello"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i> GitHub Matrix</a>
+        <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn Log</a>
+        <a href="mailto:bellosanidrescue@gmail.com"><i class="fas fa-envelope"></i> Email Terminal</a>
     </div>
 </footer>
 
 <script>
-    // Navbar scroll
+/* ─── METEOROLOGICAL SKYBOX DIURNAL CYCLE BACKDROP SOLVER ─── */
+(function(){
+    const canvas = document.getElementById('ambient-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    
+    function setSize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    setSize();
+    window.addEventListener('resize', setSize);
+
+    const clouds = [];
+    const maxClouds = 18;
+    let timeEpoch = 0;
+    const mouse = { x: 0, y: 0 };
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = (e.clientX / w) - 0.5;
+        mouse.y = (e.clientY / h) - 0.5;
+    });
+
+    for(let i=0; i<maxClouds; i++) {
+        clouds.push({
+            x: Math.random() * w,
+            y: Math.random() * (h * 0.7),
+            w: Math.random() * 240 + 160,
+            h: Math.random() * 60 + 40,
+            speed: Math.random() * 0.15 + 0.05,
+            opacity: Math.random() * 0.06 + 0.02
+        });
+    }
+
+    function drawWeather() {
+        timeEpoch += 0.0005; 
+        let cycleFactor = (Math.sin(timeEpoch) + 1) / 2; 
+        
+        let r1 = Math.floor(250 - (cycleFactor * 15));
+        let g1 = Math.floor(251 - (cycleFactor * 25));
+        let b1 = Math.floor(253 - (cycleFactor * 15));
+        
+        let r2 = Math.floor(242 + (cycleFactor * 8));
+        let g2 = Math.floor(244 + (cycleFactor * 5));
+        let b2 = Math.floor(248 - (cycleFactor * 10));
+
+        let bgGradient = ctx.createLinearGradient(0, 0, 0, h);
+        bgGradient.addColorStop(0, `rgb(${r1}, ${g1}, ${b1})`);
+        bgGradient.addColorStop(0.6, `rgb(${r2}, ${g2}, ${b2})`);
+        bgGradient.addColorStop(1, '#ffffff');
+        
+        ctx.fillStyle = bgGradient;
+        ctx.fillRect(0, 0, w, h);
+
+        clouds.forEach(c => {
+            c.x += c.speed + (mouse.x * 0.2); 
+            if (c.x > w + c.w) c.x = -c.w;
+            
+            ctx.beginPath();
+            let cloudGrad = ctx.createRadialGradient(c.x + c.w/2, c.y + c.h/2, 0, c.x + c.w/2, c.y + c.h/2, c.w/2);
+            cloudGrad.addColorStop(0, `rgba(15, 44, 89, ${c.opacity})`);
+            cloudGrad.addColorStop(0.6, `rgba(240, 244, 248, ${c.opacity * 0.2})`);
+            cloudGrad.addColorStop(1, 'rgba(255,255,255,0)');
+            
+            ctx.fillStyle = cloudGrad;
+            ctx.ellipse(c.x + c.w/2, c.y + c.h/2, c.w/2, c.h/2, 0, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        ctx.strokeStyle = 'rgba(15, 44, 89, 0.02)';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(w/2 + (mouse.x * 20), 0); ctx.lineTo(w/2 + (mouse.x * 20), h);
+        ctx.moveTo(0, h/2 + (mouse.y * 20)); ctx.lineTo(w, h/2 + (mouse.y * 20));
+        ctx.stroke();
+
+        requestAnimationFrame(drawWeather);
+    }
+    drawWeather();
+})();
+
+    /* ─── NAVIGATION EFFECT ─── */
     window.addEventListener('scroll', () => {
         document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Character counter
+    /* ─── PAYLOAD LENGTH CONFIGURATION ─── */
     function updateCount() {
         const el = document.getElementById('f-message');
         const count = document.getElementById('charCount');
@@ -647,7 +694,7 @@
         count.classList.toggle('warn', n > 680);
     }
 
-    // Form submit → mailto
+    /* ─── DISSOLVING ROUTING LOGIC (MAILTO) ─── */
     function handleSubmit(e) {
         e.preventDefault();
         const name    = document.getElementById('f-name').value.trim();
@@ -657,7 +704,7 @@
         if (!name || !email || !message) return;
 
         const mailto =
-            `mailto:bellosani2drescue@gmail.com` +
+            `mailto:bellosanidrescue@gmail.com` +
             `?subject=${encodeURIComponent('[' + subject + '] from ' + name)}` +
             `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
 
@@ -667,7 +714,6 @@
         document.getElementById('successState').classList.add('show');
     }
 
-    // Reset
     function resetForm() {
         document.getElementById('contactForm').reset();
         document.getElementById('charCount').textContent = '0 / 800';
@@ -676,7 +722,7 @@
         document.getElementById('successState').classList.remove('show');
     }
 
-    // Scroll-triggered reveals
+    /* ─── SCROLL INTERSECTION REVEALS ─── */
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(en => {
             if (en.isIntersecting) {
