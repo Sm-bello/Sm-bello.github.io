@@ -34,7 +34,6 @@
         .nav-links a:hover{color:#000000;background:rgba(255,255,255,0.4)}
         .nav-links a.active{color:#ffffff;background:#0b0f19}
         .nav-toggle{display:none;background:none;border:none;color:var(--text-dark);font-size:1.2rem;cursor:pointer}
-        /* Mobile */
         @media(max-width:960px){
           .nav-wrapper{width:95%;top:1rem}
           .nav-links{display:none;flex-direction:column;align-items:flex-start;gap:1rem;position:absolute;top:68px;left:0;right:0;background:rgba(255,255,255,0.96);padding:1.5rem 2rem;border-radius:16px;border:1px solid rgba(11,15,25,0.08);box-shadow:0 10px 30px rgba(0,0,0,0.1);backdrop-filter:blur(20px)}
@@ -51,6 +50,7 @@
         .page-hero p{font-size:1.2rem;color:#94a3b8;max-width:700px;margin:0 auto;animation:fadeInUp .8s ease-out .2s both;position:relative;z-index:2;font-family:var(--font-mono)}
         @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
         .container{max-width:1200px;margin:-4rem auto 4rem;padding:0 2rem;position:relative;z-index:2}
+
         /* ── Flagship card ── */
         .flagship-card{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border-radius:20px;overflow:hidden;margin-bottom:5rem;box-shadow:0 20px 60px rgba(0,0,0,.3);border:1px solid rgba(14,165,233,.3);position:relative;animation:slideUp .8s ease-out}
         @keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
@@ -80,19 +80,15 @@
         .flagship-visual{background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;border-left:1px solid rgba(14,165,233,.2);overflow:hidden}
         .grid-bg{position:absolute;width:200%;height:200%;background-image:linear-gradient(rgba(14,165,233,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.1) 1px,transparent 1px);background-size:40px 40px;transform:perspective(500px) rotateX(60deg);animation:gridMove 15s linear infinite}
         @keyframes gridMove{0%{transform:perspective(500px) rotateX(60deg) translateY(0)}100%{transform:perspective(500px) rotateX(60deg) translateY(40px)}}
-        /* ── canvas wrappers ── */
         .cv-wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;padding:16px 0}
         .cv-label{color:#94a3b8;font-size:.63rem;margin-bottom:8px;text-align:center;font-family:var(--font-mono);position:relative;z-index:2}
         .cv-telem{margin-top:12px;font-family:var(--font-mono);font-size:.67rem;text-align:left;width:88%;background:rgba(0,0,0,.65);padding:12px;border-radius:8px;border:1px solid rgba(14,165,233,.3);line-height:2.0;position:relative;z-index:2}
         .t-ok{color:#10b981}.t-warn{color:#f59e0b}.t-alert{color:#ef4444}.t-info{color:#94a3b8}.t-blue{color:#38bdf8}.t-purple{color:#a78bfa}.t-teal{color:#06b6d4}
-        /* ── PHI-CHAIN ── */
         .phichain-visual{background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;border-left:1px solid rgba(139,92,246,.25);overflow:hidden}
         .phichain-grid-bg{position:absolute;width:200%;height:200%;background-image:linear-gradient(rgba(139,92,246,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.08) 1px,transparent 1px);background-size:40px 40px;transform:perspective(500px) rotateX(60deg);animation:gridMove 20s linear infinite}
-        /* ── Section headers ── */
         .section-header{margin:5rem 0 3rem;display:flex;align-items:center;gap:1rem;border-bottom:2px solid #e2e8f0;padding-bottom:1rem}
         .section-header i{color:var(--neon-orange);font-size:2rem}
         .section-header h2{font-size:2rem;color:var(--text-dark);text-transform:uppercase;letter-spacing:1px;font-weight:800}
-        /* ── Future grid cards (upgraded) ── */
         .future-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;margin-bottom:4rem}
         .future-card{background:#0f172a;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:all .4s ease;position:relative}
         .future-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
@@ -103,19 +99,19 @@
         .future-card p{color:#94a3b8;font-size:.88rem;line-height:1.8;margin-bottom:1rem}
         .future-tech{display:flex;gap:6px;flex-wrap:wrap;margin-top:.8rem}
         .future-pill{font-family:var(--font-mono);font-size:.62rem;padding:3px 8px;border-radius:3px;border:1px solid rgba(255,255,255,.1);color:#64748b;background:rgba(255,255,255,.03)}
-        /* ── Interactive / Archives ── */
         .interactive-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:4rem}
         .interactive-card{background:white;padding:2.5rem;border-radius:12px;border:2px solid transparent;box-shadow:0 5px 20px rgba(0,0,0,.08);transition:all .4s ease;cursor:pointer}
         .interactive-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
-        .interactive-card.blue{border-color:var(--neon-blue)}.interactive-card.orange{border-color:var(--neon-orange)}.interactive-card.purple{border-color:var(--neon-purple)}
+        .interactive-card.blue{border-color:var(--neon-blue)}.interactive-card.orange{border-color:var(--neon-orange)}.interactive-card.purple{border-color:var(--neon-purple)}.interactive-card.teal{border-color:var(--neon-teal)}
         .interactive-card i{font-size:2.5rem;margin-bottom:1.5rem;display:block}
-        .interactive-card.blue i{color:var(--neon-blue)}.interactive-card.orange i{color:var(--neon-orange)}.interactive-card.purple i{color:var(--neon-purple)}
+        .interactive-card.blue i{color:var(--neon-blue)}.interactive-card.orange i{color:var(--neon-orange)}.interactive-card.purple i{color:var(--neon-purple)}.interactive-card.teal i{color:var(--neon-teal)}
         .interactive-card h3{font-size:1.4rem;margin-bottom:1rem;color:var(--text-dark)}
         .interactive-card p{color:var(--text-light);margin-bottom:1.5rem}
         .demo-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:6px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .3s ease;border:none;cursor:pointer;font-family:'Inter',sans-serif}
         .interactive-card.blue .demo-btn{background:rgba(14,165,233,.1);color:var(--neon-blue)}
         .interactive-card.orange .demo-btn{background:rgba(249,115,22,.1);color:var(--neon-orange)}
         .interactive-card.purple .demo-btn{background:rgba(139,92,246,.1);color:var(--neon-purple)}
+        .interactive-card.teal .demo-btn{background:rgba(6,182,212,.1);color:var(--neon-teal)}
         .demo-btn:hover{background:var(--text-dark);color:white;transform:translateX(5px)}
         .archives-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:4rem}
         .archive-card{background:white;border:1px solid #e2e8f0;border-left:4px solid var(--navy-stroke);border-radius:8px;padding:2rem;transition:all .3s ease}
@@ -298,7 +294,7 @@
     </div>
 </div>
 
-<!-- ══════════════  CARD 4: DORNIER 228 (IMPROVED VISUAL)  ══════════════ -->
+<!-- ══════════════  CARD 4: DORNIER 228  ══════════════ -->
 <div class="flagship-card">
     <div class="flagship-grid">
         <div class="flagship-content">
@@ -332,6 +328,52 @@
                     <span class="t-info">[DAT] </span>Sink: 2.81 m/s | G: 1.22g<br>
                     <span class="t-ok">[AI]  </span>Class 00: Normal | Conf: 96.2%<br>
                     <span class="t-ok">[ATA] </span>Source: AI · Ref: N/A
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════  CARD 5: STRATOS-14E — NEW FLAGSHIP  ══════════════ -->
+<div class="flagship-card" style="border-color:rgba(245,158,11,.5);box-shadow:0 20px 80px rgba(245,158,11,.12);">
+    <div class="flagship-grid">
+        <div class="flagship-content">
+            <div class="status-pill" style="background:rgba(245,158,11,.15);color:#fbbf24;border-color:#f59e0b;">
+                <div class="status-dot" style="background:#f59e0b;box-shadow:0 0 10px #f59e0b;"></div>
+                ACADEMIC DESIGN · AFIT DESIGN REGISTRY · SUPERVISED BY DR. G. E. ABBE
+            </div>
+            <h2>STRATOS-14E<br><span class="highlight" style="color:#fbbf24;text-shadow:0 0 20px rgba(245,158,11,.6);">Ultra-Long-Range VIP Transport Concept Airframe</span></h2>
+            <p>A <strong>first-principles 14-seat ultra-long-range VIP transport</strong> designed from the ground up — integrating aerodynamics, structures, propulsion, and systems architecture into a cohesive, certifiable airframe concept. The design embeds a <strong>native PHI-SENSE Health & Usage Monitoring System</strong> grouping 1,027 concurrent structural strain sensors, with a CNN-BiLSTM-Attention deep classifier delivering 47ms state inference at 98.5% mechanical fault classification accuracy. A <strong>permissioned PHI-CHAIN ledger</strong> secures tamper-proof lifecycle log tracking, while the Direct Operating Cost is mathematically locked at $4,870/hr.</p>
+            <div class="stats-strip">
+                <div class="mini-stat"><h4 style="color:#fbbf24;">12,500 km</h4><span>Range</span></div>
+                <div class="mini-stat"><h4 style="color:#fbbf24;">Mach 0.85</h4><span>Cruise</span></div>
+                <div class="mini-stat"><h4 style="color:#fbbf24;">36,200 kg</h4><span>MTOW</span></div>
+                <div class="mini-stat"><h4 style="color:#fbbf24;">FL510</h4><span>Service Ceiling</span></div>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-pill" style="color:#fbbf24;border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.1);">PHI-SENSE HUMS</span>
+                <span class="tech-pill" style="color:#fbbf24;border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.1);">CNN-BiLSTM-ATTENTION</span>
+                <span class="tech-pill" style="color:#fbbf24;border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.1);">PHI-CHAIN LEDGER</span>
+                <span class="tech-pill" style="color:#fbbf24;border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.1);">1,027 SENSORS</span>
+                <span class="tech-pill" style="color:#fbbf24;border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.1);">98.5% ACCURACY</span>
+                <span class="tech-pill" style="color:#fbbf24;border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.1);">47ms LATENCY</span>
+                <span class="tech-pill" style="color:#fbbf24;border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.1);">DOC $4,870/hr</span>
+            </div>
+            <div class="flagship-actions">
+                <a href="#" class="flagship-btn github" onclick="alert('STRATOS-14E\nFull design package available on request.\nIncludes: proposal, Excel performance analysis, HTML brochures, magazine copy, concept evaluation document.');return false;"><i class="fas fa-file-alt"></i> Design Package</a>
+                <a href="#" class="flagship-btn paper" onclick="alert('Supervised by Dr. Godwin E. Abbe\nAFIT Department of Aerospace Engineering\nAcademic Year 2025/2026');return false;"><i class="fas fa-user-graduate"></i> Academic Reference</a>
+            </div>
+        </div>
+        <div class="flagship-visual" style="border-left-color:rgba(245,158,11,.25);">
+            <div class="grid-bg" style="background-image:linear-gradient(rgba(245,158,11,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(245,158,11,.08) 1px,transparent 1px);"></div>
+            <div class="cv-wrap">
+                <span class="cv-label">STRATOS-14E · FIRST-PRINCIPLES DESIGN · AFIT REGISTRY</span>
+                <canvas id="stratosCanvas" width="300" height="270"></canvas>
+                <div class="cv-telem" style="color:#fbbf24;border-color:rgba(245,158,11,.3);" id="stratosTelem">
+                    <span class="t-info">[FLT] </span>FL510 · Mach 0.85 · Range 12,500km<br>
+                    <span class="t-ok">[SYS] </span>PHI-SENSE: 1,027 sensors nominal<br>
+                    <span class="t-info">[AI]  </span>CNN-BiLSTM-Attention · 98.5% acc<br>
+                    <span class="t-ok">[DOC] </span>$4,870/hr · Structurally sound
                 </div>
             </div>
         </div>
@@ -448,7 +490,7 @@
     </div>
 </div>
 
-<!-- Future grid: Bearing DT, Airframe DT, Ontology, Telemetry Stack -->
+<!-- Future grid: 6 cards (4 existing + 2 new) -->
 <div class="future-grid">
 
     <!-- Rotating/Bearing DT -->
@@ -524,7 +566,99 @@
         </div>
     </div>
 
+    <!-- NEW: RDE CFD VAE — Physics-Consistent Conditional VAE for Spatiotemporal CFD Augmentation -->
+    <div class="future-card" style="border-color:rgba(236,72,153,.3);">
+        <div class="future-card-visual">
+            <canvas id="rdeCanvas" width="400" height="220" style="width:100%;height:100%;display:block;"></canvas>
+        </div>
+        <div class="future-card-body">
+            <span class="future-tag" style="color:#ec4899;border-color:#ec4899;background:rgba(236,72,153,.08);">AIAA SCI TECH 2027 · STUDENT COMPETITION</span>
+            <h3>Physics-Consistent Conditional VAE for Spatiotemporal CFD Augmentation</h3>
+            <p>A <strong>4.3M-parameter generative Conditional Variational Autoencoder</strong> that augments scarce Rotary Detonation Engine CFD data. Built from 12 OpenFOAM v2406 reactive-flow simulations spanning stoichiometric conditions, the CVAE generates 72 physically consistent spatiotemporal fields — published as a community benchmark with DOI 10.57967/hf/8884. A <strong>1.2M-parameter deep surrogate</strong> maps complete 2-D fluid field sequences in milliseconds. The work documents a critical finding: standard literature velocity correlations overestimate true Chapman-Jouguet bounds by up to 4× at off-stoichiometric limits.</p>
+            <div class="future-tech">
+                <span class="future-pill">OPENFOAM v2406</span><span class="future-pill">CVAE (4.3M)</span>
+                <span class="future-pill">CNN-BiLSTM</span><span class="future-pill">PYTORCH</span>
+                <span class="future-pill">HUGGINGFACE</span><span class="future-pill">REACTINGFOAM</span>
+                <span class="future-pill">NEURAL SURROGATE</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Gas Turbine Blade PHM Digital Twin -->
+    <div class="future-card" style="border-color:rgba(251,146,60,.3);">
+        <div class="future-card-visual">
+            <canvas id="turbineCanvas" width="400" height="220" style="width:100%;height:100%;display:block;"></canvas>
+        </div>
+        <div class="future-card-body">
+            <span class="future-tag" style="color:#fb923c;border-color:#f97316;background:rgba(249,115,22,.08);">ACTIVE RESEARCH · PROPULSION PHM</span>
+            <h3>Gas Turbine High-Pressure Blade PHM Digital Twin</h3>
+            <p>A <strong>laboratory-scale predictive maintenance system</strong> for High-Pressure and Low-Pressure turbine blade degradation. Uses the AGTF30 advanced gas turbine engine model in MATLAB with a 13-sensor continuous telemetry bus to generate physics-based degradation data. A <strong>deep CNN-BiLSTM-Attention architecture</strong> classifies micro-fractures and high-temperature erosion with high accuracy. The system connects to a <strong>FlightGear UDP telemetry bridge</strong> mapping runtime parameters to localised airworthiness dashboards for hardware-in-the-loop validation.</p>
+            <div class="future-tech">
+                <span class="future-pill">AGTF30 ENGINE</span><span class="future-pill">CNN-BiLSTM</span>
+                <span class="future-pill">ATTENTION</span><span class="future-pill">MATLAB SIMSCAPE</span>
+                <span class="future-pill">FLIGHTGEAR UDP</span><span class="future-pill">13-SENSOR BUS</span>
+                <span class="future-pill">PHM PIPELINE</span>
+            </div>
+        </div>
+    </div>
+
 </div><!-- /future-grid -->
+
+<!-- ══════════════  SOFTWARE & AI SYSTEMS — NEW SECTION  ══════════════ -->
+<div class="section-header"><i class="fas fa-code"></i><h2>Software & AI Systems</h2></div>
+<div class="interactive-grid">
+
+    <!-- Lifestone Engine v2.0 -->
+    <div class="interactive-card teal">
+        <i class="fas fa-microphone-alt"></i>
+        <h3>Lifestone Engine v2.0</h3>
+        <p><strong>Sermon Intelligence Core Platform</strong> — A high-speed, offline-first speech-to-text processing node operating inside air-gapped system networks via native low-latency whisper-rs configurations. Links a compound Aho-Corasick vector indexing parser matching 311,074 text elements with downstream ONNX structural deep classifiers to output real-time contextual definitions. Broadcast payloads multiplex simultaneously over NDI stream protocols to OBS/vMix alongside active PowerPoint COM integration scripts.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.2rem;">
+            <span class="future-pill" style="color:#06b6d4;border-color:rgba(6,182,212,.4);">RUST CORE</span>
+            <span class="future-pill" style="color:#06b6d4;border-color:rgba(6,182,212,.4);">TAURI v2</span>
+            <span class="future-pill" style="color:#06b6d4;border-color:rgba(6,182,212,.4);">REACT</span>
+            <span class="future-pill" style="color:#06b6d4;border-color:rgba(6,182,212,.4);">WHISPER-RS</span>
+            <span class="future-pill" style="color:#06b6d4;border-color:rgba(6,182,212,.4);">NDI BROADCAST</span>
+            <span class="future-pill" style="color:#06b6d4;border-color:rgba(6,182,212,.4);">ONNX</span>
+            <span class="future-pill" style="color:#06b6d4;border-color:rgba(6,182,212,.4);">311K VERSES</span>
+        </div>
+        <button class="demo-btn" onclick="alert('Lifestone Engine v2.0\nFoundation complete — active development phase.\nBuilt with Rust + Tauri v2 + React.\nOffline whisper-rs STT · 10 translations · 344k cross-references.');return false;"><i class="fas fa-arrow-right"></i> Learn More</button>
+    </div>
+
+    <!-- COLIG Full-Stack Production Node -->
+    <div class="interactive-card blue">
+        <i class="fas fa-globe"></i>
+        <h3>COLIG Full-Stack Production Node</h3>
+        <p><strong>Web-Scale Distributed Platform</strong> — A deployed community asset built using secure component isolation layers. Integrates fast multi-tenant database systems with asynchronous record matching loops, message thread replication parameters, progress-persisted chronological data models tracking application interactions, and high-quality low-latency audio transmission channels driven by LiveKit infrastructure trees. Live deployment at <strong>colig-app.vercel.app</strong> with Android APK packaging.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.2rem;">
+            <span class="future-pill" style="color:#0ea5e9;border-color:rgba(14,165,233,.4);">NEXT.JS 15</span>
+            <span class="future-pill" style="color:#0ea5e9;border-color:rgba(14,165,233,.4);">TYPESCRIPT</span>
+            <span class="future-pill" style="color:#0ea5e9;border-color:rgba(14,165,233,.4);">POCKETBASE</span>
+            <span class="future-pill" style="color:#0ea5e9;border-color:rgba(14,165,233,.4);">LIVEKIT CLOUD</span>
+            <span class="future-pill" style="color:#0ea5e9;border-color:rgba(14,165,233,.4);">VERCEL</span>
+            <span class="future-pill" style="color:#0ea5e9;border-color:rgba(14,165,233,.4);">FLY.IO</span>
+            <span class="future-pill" style="color:#0ea5e9;border-color:rgba(14,165,233,.4);">ANDROID APK</span>
+        </div>
+        <button class="demo-btn" onclick="window.open('https://colig-app.vercel.app','_blank');"><i class="fas fa-external-link-alt"></i> Visit Live</button>
+    </div>
+
+    <!-- Penelope AI Agent v1.2 -->
+    <div class="interactive-card purple">
+        <i class="fas fa-robot"></i>
+        <h3>Penelope AI Agent v1.2</h3>
+        <p><strong>Sovereign Offline Execution Matrix</strong> — A standalone terminal environment engineered to prevent cloud API single-point failure limitations. Drives multi-provider runtime fallback trees utilising local model groups (phi4, deepseek-r1). Runs complete agentic task management via deterministic ReAct execution loops protected by strict hardware physical signature tracking and advanced multi-layer physics unit validation filters. Hardware-fingerprinted with GF(2⁸) cryptographic bindings.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.2rem;">
+            <span class="future-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.4);">PYTHON CORE</span>
+            <span class="future-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.4);">OLLAMA LOCAL</span>
+            <span class="future-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.4);">PHI4 · DEEPSEEK</span>
+            <span class="future-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.4);">GF(2⁸) SECURITY</span>
+            <span class="future-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.4);">REACT LOOP</span>
+            <span class="future-pill" style="color:#a78bfa;border-color:rgba(139,92,246,.4);">6+ PROVIDERS</span>
+        </div>
+        <button class="demo-btn" onclick="alert('Penelope AI Agent v1.2\nOperational — fully sovereign, self-hosted AI agent.\nMulti-provider cascade with hardware soul-lock.\nReAct agentic loop with physics unit validation.');return false;"><i class="fas fa-arrow-right"></i> Technical Overview</button>
+    </div>
+
+</div>
 
 <!-- ══════════════  INTERACTIVE TOOLS  ══════════════ -->
 <div class="section-header"><i class="fas fa-rocket"></i><h2>Interactive Tools & Concepts</h2></div>
@@ -1983,6 +2117,260 @@ function hexToRgb(hex){
         requestAnimationFrame(draw);
     }
     draw();
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   11. STRATOS-14E CANVAS (300 × 270)
+   ═══════════════════════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('stratosCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,alt=350,flaps=0;
+
+    function draw(){
+        ctx.fillStyle='#050d1a';ctx.fillRect(0,0,W,H);ft++;
+
+        // Stars
+        if(ft%4===0){ctx.fillStyle='rgba(255,255,255,0.3)';ctx.fillRect(Math.random()*W,Math.random()*H,1,1);}
+
+        // Horizon glow
+        var hg=ctx.createLinearGradient(0,H*.6,0,H);
+        hg.addColorStop(0,'rgba(245,158,11,0)');hg.addColorStop(.6,'rgba(245,158,11,.08)');hg.addColorStop(1,'rgba(245,158,11,.02)');
+        ctx.fillStyle=hg;ctx.fillRect(0,H*.6,W,H*.4);
+
+        // Aircraft profile — top-down VIP jet silhouette
+        var cx2=W/2,cy2=H/2-8;
+        ctx.save();
+
+        // Fuselage
+        ctx.fillStyle='rgba(200,210,220,.3)';ctx.strokeStyle='rgba(245,158,11,.6)';ctx.lineWidth=1.5;
+        ctx.shadowColor='rgba(245,158,11,.15)';ctx.shadowBlur=12;
+        ctx.beginPath();ctx.moveTo(cx2-8,cy2-60);ctx.quadraticCurveTo(cx2-14,cy2-30,cx2-10,cy2-10);
+        ctx.quadraticCurveTo(cx2-10,cy2+5,cx2-7,cy2+30);
+        ctx.lineTo(cx2-5,cy2+36);ctx.lineTo(cx2+5,cy2+36);
+        ctx.lineTo(cx2+7,cy2+30);ctx.quadraticCurveTo(cx2+10,cy2+5,cx2+10,cy2-10);
+        ctx.quadraticCurveTo(cx2+14,cy2-30,cx2+8,cy2-60);ctx.closePath();
+        ctx.fill();ctx.stroke();
+
+        // Cockpit windows
+        ctx.fillStyle='rgba(56,189,248,.3)';ctx.shadowBlur=0;
+        ctx.fillRect(cx2-5,cy2-52,10,6);
+        ctx.fillRect(cx2-3,cy2-44,6,4);
+
+        // Wings
+        ctx.strokeStyle='rgba(245,158,11,.5)';ctx.lineWidth=1.2;
+        ctx.fillStyle='rgba(200,210,220,.2)';
+        ctx.beginPath();ctx.moveTo(cx2-8,cy2-12);ctx.lineTo(cx2-50,cy2-6);ctx.lineTo(cx2-50,cy2+2);ctx.lineTo(cx2-6,cy2-4);ctx.closePath();ctx.fill();ctx.stroke();
+        ctx.beginPath();ctx.moveTo(cx2+8,cy2-12);ctx.lineTo(cx2+50,cy2-6);ctx.lineTo(cx2+50,cy2+2);ctx.lineTo(cx2+6,cy2-4);ctx.closePath();ctx.fill();ctx.stroke();
+
+        // Tail
+        ctx.strokeStyle='rgba(245,158,11,.4)';ctx.lineWidth=1;
+        ctx.beginPath();ctx.moveTo(cx2-2,cy2+32);ctx.lineTo(cx2,cy2+48);ctx.lineTo(cx2+2,cy2+32);ctx.stroke();
+
+        // Engine nacelles
+        ctx.fillStyle='rgba(180,190,200,.25)';ctx.strokeStyle='rgba(245,158,11,.3)';ctx.lineWidth=1;
+        ctx.beginPath();ctx.ellipse(cx2-34,cy2-4,5,12,-.05,0,Math.PI*2);ctx.fill();ctx.stroke();
+        ctx.beginPath();ctx.ellipse(cx2+34,cy2-4,5,12,.05,0,Math.PI*2);ctx.fill();ctx.stroke();
+
+        // Contrails
+        ctx.strokeStyle='rgba(255,255,255,.08)';ctx.lineWidth=2;
+        ctx.beginPath();ctx.moveTo(cx2,cy2+42);ctx.lineTo(cx2,cy2+78);ctx.stroke();
+        ctx.strokeStyle='rgba(255,255,255,.04)';ctx.lineWidth=4;
+        ctx.beginPath();ctx.moveTo(cx2-12,cy2+44);ctx.lineTo(cx2-24,cy2+74);ctx.stroke();
+        ctx.beginPath();ctx.moveTo(cx2+12,cy2+44);ctx.lineTo(cx2+24,cy2+74);ctx.stroke();
+
+        ctx.restore();
+
+        // Altitude tape
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.5)';ctx.strokeStyle='rgba(245,158,11,.3)';ctx.lineWidth=1;
+        ctx.fillRect(4,4,24,14);ctx.strokeRect(4,4,24,14);
+        ctx.fillStyle='#fbbf24';ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('FL510',16,14);ctx.restore();
+
+        // Speed
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.5)';ctx.strokeStyle='rgba(245,158,11,.3)';ctx.lineWidth=1;
+        ctx.fillRect(4,20,24,14);ctx.strokeRect(4,20,24,14);
+        ctx.fillStyle='#94a3b8';ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('M.85',16,30);ctx.restore();
+
+        // DOC
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.5)';ctx.strokeStyle='rgba(245,158,11,.3)';ctx.lineWidth=1;
+        ctx.fillRect(4,36,28,14);ctx.strokeRect(4,36,28,14);
+        ctx.fillStyle='#fbbf24';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('$4.9k/h',18,46);ctx.restore();
+
+        // Sensor count
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.5)';ctx.strokeStyle='rgba(245,158,11,.3)';ctx.lineWidth=1;
+        ctx.fillRect(W-36,4,32,14);ctx.strokeRect(W-36,4,32,14);
+        ctx.fillStyle='#10b981';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('1,027 SENS',W-20,14);ctx.restore();
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+
+    var tb=document.getElementById('stratosTelem');
+    var statii=[
+        {fl:'FL510',m:'0.85',rng:'12,500km',doc:'$4,870/hr',sns:'1,027 OK',cls:'t-ok'},
+        {fl:'FL490',m:'0.84',rng:'12,300km',doc:'$4,780/hr',sns:'1,027 OK',cls:'t-ok'},
+        {fl:'FL510',m:'0.86',rng:'12,700km',doc:'$4,990/hr',sns:'1,026 OK',cls:'t-info'}
+    ];
+    var si=0;
+    function tick(){
+        si=(si+1)%statii.length;var s=statii[si];
+        if(tb)tb.innerHTML='<span class="t-info">[FLT] </span>'+s.fl+' · M'+s.m+' · Range '+s.rng+'<br><span class="'+s.cls+'">[SYS] </span>PHI-SENSE: '+s.sns+'<br><span class="t-info">[AI]  </span>CNN-BiLSTM · 98.5% acc<br><span class="'+s.cls+'">[DOC] </span>'+s.doc+' · Structurally sound';
+    }
+    tick();setInterval(tick,2800);
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   12. RDE CVAE CANVAS (400 × 220)
+   ═══════════════════════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('rdeCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0;
+    var cells=[];for(var i=0;i<26;i++){for(var j=0;j<16;j++){cells.push({x:i/26,y:j/16,v:Math.random()*.6+.2,ph:Math.random()*6});}}
+
+    function draw(){
+        ctx.fillStyle='#030a14';ctx.fillRect(0,0,W,H);ft++;
+
+        // Grid
+        ctx.strokeStyle='rgba(236,72,153,0.05)';ctx.lineWidth=1;
+        for(var gx=0;gx<W;gx+=22){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+        for(var gy=0;gy<H;gy+=22){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+        // Heatmap field
+        var cx2=W/2,cy2=H/2,rad=Math.min(W,H)*.35;
+        cells.forEach(function(c){
+            var px=c.x*W,py=c.y*H;
+            var dist=Math.sqrt(Math.pow(px-cx2,2)+Math.pow(py-cy2,2))/rad;
+            var val=Math.exp(-dist*2.5)*(0.4+0.6*Math.sin(ft*.02+c.ph+c.x*2.5));
+            var r=Math.floor(40+val*180);var g=Math.floor(20+val*80);var b=Math.floor(80+val*120);
+            ctx.fillStyle='rgba('+r+','+g+','+b+',0.55)';ctx.fillRect(px-1,py-1,3,3);
+        });
+
+        // Shock diamonds
+        ctx.save();ctx.strokeStyle='rgba(236,72,153,.25)';ctx.lineWidth=1.5;
+        for(var di=0;di<7;di++){
+            var dx=cx2-30+di*10+Math.sin(ft*.03+di)*3;
+            ctx.beginPath();ctx.moveTo(dx-4,cy2-35);ctx.lineTo(dx,cy2-25);ctx.lineTo(dx+4,cy2-35);ctx.stroke();
+        }
+        ctx.restore();
+
+        // Model params overlay
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.6)';ctx.strokeStyle='rgba(236,72,153,.3)';ctx.lineWidth=1;
+        ctx.fillRect(4,4,44,12);ctx.strokeRect(4,4,44,12);
+        ctx.fillStyle='#ec4899';ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('CVAE 4.3M',6,13);
+        ctx.fillRect(W-50,4,46,12);ctx.strokeRect(W-50,4,46,12);
+        ctx.fillStyle='#f472b6';ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('72 SPATIAL FIELDS',W-48,13);
+        ctx.restore();
+
+        // Surrogate note
+        ctx.save();ctx.fillStyle='rgba(236,72,153,.12)';ctx.strokeStyle='rgba(236,72,153,.2)';ctx.lineWidth=1;
+        ctx.fillRect(4,H-18,64,14);ctx.strokeRect(4,H-18,64,14);
+        ctx.fillStyle='#f472b6';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('↳ 1.2M SURROGATE',6,H-8);
+        ctx.restore();
+
+        // Finding badge
+        ctx.save();ctx.fillStyle='rgba(239,68,68,.12)';ctx.strokeStyle='rgba(239,68,68,.25)';ctx.lineWidth=1;
+        ctx.fillRect(W-78,H-18,74,14);ctx.strokeRect(W-78,H-18,74,14);
+        ctx.fillStyle='#f87171';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('⚠ 4× CJ OVERESTIMATE',W-76,H-8);
+        ctx.restore();
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   13. TURBINE BLADE CANVAS (400 × 220)
+   ═══════════════════════════════════════════════════════════ */
+(function(){
+    var cv=document.getElementById('turbineCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+    var ft=0,rot=0;
+    var bladeHealth=[];
+    for(var i=0;i<12;i++)bladeHealth.push(0.6+Math.random()*.4);
+
+    function draw(){
+        ctx.fillStyle='#030d1a';ctx.fillRect(0,0,W,H);ft++;
+        rot+=.025;
+
+        // Grid
+        ctx.strokeStyle='rgba(249,115,22,0.06)';ctx.lineWidth=1;
+        for(var gx=0;gx<W;gx+=22){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+        for(var gy=0;gy<H;gy+=22){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+        var cx2=W*.38,cy2=H*.5;
+
+        // Disk
+        ctx.save();ctx.fillStyle='#0f1e2e';ctx.strokeStyle='rgba(249,115,22,.4)';ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.arc(cx2,cy2,58,0,Math.PI*2);ctx.fill();ctx.stroke();
+        // Hub
+        ctx.fillStyle='#1a2a3a';ctx.strokeStyle='rgba(249,115,22,.2)';ctx.lineWidth=1;
+        ctx.beginPath();ctx.arc(cx2,cy2,22,0,Math.PI*2);ctx.fill();ctx.stroke();
+
+        // Blades
+        for(var bi=0;bi<12;bi++){
+            var a=rot+bi*Math.PI/6;
+            var h=bladeHealth[bi]||0.7;
+            var col=h>0.8?'#10b981':h>0.6?'#f59e0b':'#ef4444';
+            var len=20+h*22;
+            ctx.save();ctx.translate(cx2,cy2);ctx.rotate(a);
+            ctx.fillStyle=col+'99';ctx.strokeStyle=col+(h>0.6?'cc':'99');ctx.lineWidth=1.5;
+            if(h<0.5){ctx.shadowColor='#ef4444';ctx.shadowBlur=10;}
+            ctx.beginPath();ctx.moveTo(-4,58);ctx.lineTo(-6,58+len);ctx.quadraticCurveTo(0,58+len+8,6,58+len);
+            ctx.lineTo(4,58);ctx.closePath();ctx.fill();ctx.stroke();
+            ctx.shadowBlur=0;
+            ctx.restore();
+        }
+
+        // Sensor bus label
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.5)';ctx.strokeStyle='rgba(249,115,22,.25)';ctx.lineWidth=1;
+        ctx.fillRect(4,4,52,12);ctx.strokeRect(4,4,52,12);
+        ctx.fillStyle='#fb923c';ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('13-SENSOR BUS',6,13);
+        ctx.restore();
+
+        // AGTF30 label
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.5)';ctx.strokeStyle='rgba(249,115,22,.25)';ctx.lineWidth=1;
+        ctx.fillRect(W-54,4,50,12);ctx.strokeRect(W-54,4,50,12);
+        ctx.fillStyle='#fb923c';ctx.font='6px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('AGTF30 ENGINE',W-52,13);
+        ctx.restore();
+
+        // UDP bridge
+        ctx.save();ctx.fillStyle='rgba(16,185,129,.08)';ctx.strokeStyle='rgba(16,185,129,.2)';ctx.lineWidth=1;
+        ctx.fillRect(W-74,H-18,70,14);ctx.strokeRect(W-74,H-18,70,14);
+        ctx.fillStyle='#34d399';ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('↳ FLIGHTGEAR UDP',W-72,H-8);
+        ctx.restore();
+
+        // Health indicator
+        var avgH=bladeHealth.reduce(function(a,b){return a+b;},0)/bladeHealth.length;
+        ctx.save();ctx.fillStyle='rgba(0,0,0,.5)';ctx.strokeStyle='rgba(249,115,22,.25)';ctx.lineWidth=1;
+        ctx.fillRect(4,H-18,36,14);ctx.strokeRect(4,H-18,36,14);
+        var hc=avgH>0.75?'#10b981':avgH>0.55?'#f59e0b':'#ef4444';
+        ctx.fillStyle=hc;ctx.font='5px JetBrains Mono,monospace';ctx.textAlign='left';
+        ctx.fillText('HEALTH '+(avgH*100).toFixed(0)+'%',6,H-8);
+        ctx.restore();
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+
+    // Degrade blades over time
+    setInterval(function(){
+        for(var i=0;i<bladeHealth.length;i++){
+            if(Math.random()<.03)bladeHealth[i]=Math.max(0.15,bladeHealth[i]-0.08);
+            if(Math.random()<.02)bladeHealth[i]=Math.min(0.95,bladeHealth[i]+0.05);
+        }
+    },2000);
 })();
 
 /* ═══════════════════════════════════════════════════════════
