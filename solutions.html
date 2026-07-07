@@ -642,7 +642,7 @@
         }
 
         /* ════════════════════════════════════════════════════════════════
-           STRATOS-14E — INTERACTIVE ANIMATION ENTRY POINT
+           STRATOS-14E & PHI-ARC PHM — INTERACTIVE ANIMATION ENTRY POINTS
            ════════════════════════════════════════════════════════════════ */
         .stratos-row {
             position: relative;
@@ -654,7 +654,7 @@
             z-index: 1;
         }
 
-        /* Animated gradient border sweep on hover */
+        /* Animated gradient border sweep on hover (shared base) */
         .stratos-row::before {
             content: '';
             position: absolute;
@@ -806,7 +806,58 @@
             }
         }
 
-        /* Responsive tweaks for the STRATOS interactive row */
+        /* ─── PHM ROW – WARM ORANGE CELEBRATORY TWIST ─── */
+        .phm-row::before {
+            background: linear-gradient(90deg, #dd5a12, #f59e0b, #dd5a12, #f59e0b, #dd5a12) !important;
+            background-size: 300% auto !important;
+        }
+        .phm-row::after {
+            background: linear-gradient(90deg, #dd5a12, #f59e0b, #dd5a12, #f59e0b, #dd5a12) !important;
+            background-size: 300% auto !important;
+        }
+        .phm-row .manifest-term .label-highlight {
+            background: linear-gradient(120deg, #dd5a12 0%, #f59e0b 50%, #dd5a12 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: background-position 0.6s ease;
+        }
+        .phm-row:hover .manifest-term .label-highlight {
+            background-position: 100% center;
+        }
+        .phm-row:hover .dot.live {
+            background: #f59e0b;
+            box-shadow: 0 0 30px rgba(221, 90, 18, 0.8);
+            animation: phmPulse 1s ease-in-out infinite;
+        }
+        @keyframes phmPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.6);
+                opacity: 1;
+            }
+        }
+        .phm-row .stratos-learn-more {
+            color: #f59e0b;
+        }
+        .phm-row:hover .stratos-learn-more .arrow-icon {
+            animation: rocketLaunch 0.6s ease infinite alternate;
+        }
+        @keyframes rocketLaunch {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-6px) rotate(15deg);
+            }
+        }
+
+        /* Responsive tweaks for the interactive rows */
         @media (max-width: 768px) {
             .stratos-learn-more {
                 font-size: 0.6rem;
@@ -1110,205 +1161,241 @@
             Clicking opens smbello.vercel.app/stratos-14e/
             ════════════════════════════════════════════════════════════════ -->
             <div class="manifest-row stratos-row"
-            onclick="window.location.href='/stratos-14e/'"
-            role="link"
-            tabindex="0"
-            aria-label="Learn more about STRATOS-14E — opens dedicated project page"
-            title="Click to explore STRATOS-14E in depth →">
-            <div class="click-ripple"></div>
-            <div class="manifest-term">
-                <span class="label-highlight">STRATOS-14E</span>
-                <span class="stratos-learn-more">
-                    Learn more
-                    <span class="arrow-icon">→</span>
-                </span>
+                 onclick="window.location.href='/stratos-14e/'"
+                 role="link"
+                 tabindex="0"
+                 aria-label="Learn more about STRATOS-14E — opens dedicated project page"
+                 title="Click to explore STRATOS-14E in depth →">
+                <div class="click-ripple"></div>
+                <div class="manifest-term">
+                    <span class="label-highlight">STRATOS-14E</span>
+                    <span class="stratos-learn-more">
+                        Learn more
+                        <span class="arrow-icon">→</span>
+                    </span>
+                </div>
+                <div class="manifest-def">
+                    Conceptual ultra-long-range VIP transport airframe modeling project integrating a high-utility 1,027 structural sensor diagnostic intelligence pipeline.
+                </div>
+                <div class="manifest-status">
+                    <span class="dot concept"></span>Design Study
+                </div>
             </div>
-            <div class="manifest-def">
-                Conceptual ultra-long-range VIP transport airframe modeling project integrating a high-utility 1,027 structural sensor diagnostic intelligence pipeline.
+
+            <!-- ════════════════════════════════════════════════════════════════
+            PHI‑Arc PHM — INTERACTIVE ANIMATION ROW (CELEBRATORY)
+            Clicking opens the Hugging Face Space in a new tab
+            ════════════════════════════════════════════════════════════════ -->
+            <div class="manifest-row stratos-row phm-row"
+                 onclick="window.open('https://huggingface.co/spaces/SM-Bello/PHI-Arc-Engine-PHM', '_blank')"
+                 role="link"
+                 tabindex="0"
+                 aria-label="Launch PHI‑Arc Engine PHM digital twin"
+                 title="Open the live PHM diagnostic tool">
+                <div class="click-ripple"></div>
+                <div class="manifest-term">
+                    <span class="label-highlight">PHI‑Arc PHM</span>
+                    <span class="stratos-learn-more">
+                        Launch PHM
+                        <span class="arrow-icon">🚀</span>
+                    </span>
+                </div>
+                <div class="manifest-def">
+                    Interactive TPE331‑25 digital twin – real‑time fault diagnosis, trend analysis, RUL estimation, and certified maintenance reports.
+                </div>
+                <div class="manifest-status">
+                    <span class="dot live"></span> Live
+                </div>
             </div>
-            <div class="manifest-status">
-                <span class="dot concept"></span>Design Study
+            <!-- ════════════════════════════════════════════════════════════════ -->
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <p>© 2026 Mohammed Bello Sani. Built independently, one system at a time.</p>
+            <div class="foot-links">
+                <a href="https://github.com/Sm-bello" target="_blank">GitHub Matrix</a>
+                <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank">LinkedIn Log</a>
+                <a href="/contact.html">Contact Hub</a>
             </div>
         </div>
-        <!-- ════════════════════════════════════════════════════════════════ -->
+    </footer>
 
-    </div>
-</section>
+    <script>
+        /* ─── METEOROLOGICAL SKYBOX DIURNAL CYCLE BACKDROP SOLVER ─── */
+        (function() {
+            const canvas = document.getElementById('ambient-canvas');
+            const ctx = canvas.getContext('2d');
+            let w, h;
 
-<footer>
-    <div class="wrap">
-        <p>© 2026 Mohammed Bello Sani. Built independently, one system at a time.</p>
-        <div class="foot-links">
-            <a href="https://github.com/Sm-bello" target="_blank">GitHub Matrix</a>
-            <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank">LinkedIn Log</a>
-            <a href="/contact.html">Contact Hub</a>
-        </div>
-    </div>
-</footer>
+            function setSize() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+            setSize();
+            window.addEventListener('resize', setSize);
 
-<script>
-    /* ─── METEOROLOGICAL SKYBOX DIURNAL CYCLE BACKDROP SOLVER ─── */
-    (function() {
-        const canvas = document.getElementById('ambient-canvas');
-        const ctx = canvas.getContext('2d');
-        let w, h;
+            const clouds = [];
+            const maxClouds = 18;
+            let timeEpoch = 0;
+            const mouse = { x: 0, y: 0 };
 
-        function setSize() {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-        }
-        setSize();
-        window.addEventListener('resize', setSize);
-
-        const clouds = [];
-        const maxClouds = 18;
-        let timeEpoch = 0;
-        const mouse = { x: 0, y: 0 };
-
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = (e.clientX / w) - 0.5;
-            mouse.y = (e.clientY / h) - 0.5;
-        });
-
-        for (let i = 0; i < maxClouds; i++) {
-            clouds.push({
-                x: Math.random() * w,
-                y: Math.random() * (h * 0.7),
-                w: Math.random() * 240 + 160,
-                h: Math.random() * 60 + 40,
-                speed: Math.random() * 0.15 + 0.05,
-                opacity: Math.random() * 0.06 + 0.02
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = (e.clientX / w) - 0.5;
+                mouse.y = (e.clientY / h) - 0.5;
             });
-        }
 
-        function drawWeather() {
-            timeEpoch += 0.0005;
-            let cycleFactor = (Math.sin(timeEpoch) + 1) / 2;
+            for (let i = 0; i < maxClouds; i++) {
+                clouds.push({
+                    x: Math.random() * w,
+                    y: Math.random() * (h * 0.7),
+                    w: Math.random() * 240 + 160,
+                    h: Math.random() * 60 + 40,
+                    speed: Math.random() * 0.15 + 0.05,
+                    opacity: Math.random() * 0.06 + 0.02
+                });
+            }
 
-            let r1 = Math.floor(250 - (cycleFactor * 15));
-            let g1 = Math.floor(251 - (cycleFactor * 25));
-            let b1 = Math.floor(253 - (cycleFactor * 15));
+            function drawWeather() {
+                timeEpoch += 0.0005;
+                let cycleFactor = (Math.sin(timeEpoch) + 1) / 2;
 
-            let r2 = Math.floor(242 + (cycleFactor * 8));
-            let g2 = Math.floor(244 + (cycleFactor * 5));
-            let b2 = Math.floor(248 - (cycleFactor * 10));
+                let r1 = Math.floor(250 - (cycleFactor * 15));
+                let g1 = Math.floor(251 - (cycleFactor * 25));
+                let b1 = Math.floor(253 - (cycleFactor * 15));
 
-            let bgGradient = ctx.createLinearGradient(0, 0, 0, h);
-            bgGradient.addColorStop(0, `rgb(${r1}, ${g1}, ${b1})`);
-            bgGradient.addColorStop(0.6, `rgb(${r2}, ${g2}, ${b2})`);
-            bgGradient.addColorStop(1, '#ffffff');
+                let r2 = Math.floor(242 + (cycleFactor * 8));
+                let g2 = Math.floor(244 + (cycleFactor * 5));
+                let b2 = Math.floor(248 - (cycleFactor * 10));
 
-            ctx.fillStyle = bgGradient;
-            ctx.fillRect(0, 0, w, h);
+                let bgGradient = ctx.createLinearGradient(0, 0, 0, h);
+                bgGradient.addColorStop(0, `rgb(${r1}, ${g1}, ${b1})`);
+                bgGradient.addColorStop(0.6, `rgb(${r2}, ${g2}, ${b2})`);
+                bgGradient.addColorStop(1, '#ffffff');
 
-            clouds.forEach(c => {
-                c.x += c.speed + (mouse.x * 0.2);
-                if (c.x > w + c.w) c.x = -c.w;
+                ctx.fillStyle = bgGradient;
+                ctx.fillRect(0, 0, w, h);
 
+                clouds.forEach(c => {
+                    c.x += c.speed + (mouse.x * 0.2);
+                    if (c.x > w + c.w) c.x = -c.w;
+
+                    ctx.beginPath();
+                    let cloudGrad = ctx.createRadialGradient(c.x + c.w / 2, c.y + c.h / 2, 0, c.x + c.w / 2, c.y + c
+                        .h / 2, c.w / 2);
+                    cloudGrad.addColorStop(0, `rgba(15, 44, 89, ${c.opacity})`);
+                    cloudGrad.addColorStop(0.6, `rgba(240, 244, 248, ${c.opacity * 0.2})`);
+                    cloudGrad.addColorStop(1, 'rgba(255,255,255,0)');
+
+                    ctx.fillStyle = cloudGrad;
+                    ctx.ellipse(c.x + c.w / 2, c.y + c.h / 2, c.w / 2, c.h / 2, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+
+                ctx.strokeStyle = 'rgba(15, 44, 89, 0.02)';
+                ctx.lineWidth = 0.5;
                 ctx.beginPath();
-                let cloudGrad = ctx.createRadialGradient(c.x + c.w / 2, c.y + c.h / 2, 0, c.x + c.w / 2, c.y + c
-                    .h / 2, c.w / 2);
-                cloudGrad.addColorStop(0, `rgba(15, 44, 89, ${c.opacity})`);
-                cloudGrad.addColorStop(0.6, `rgba(240, 244, 248, ${c.opacity * 0.2})`);
-                cloudGrad.addColorStop(1, 'rgba(255,255,255,0)');
+                ctx.moveTo(w / 2 + (mouse.x * 20), 0);
+                ctx.lineTo(w / 2 + (mouse.x * 20), h);
+                ctx.moveTo(0, h / 2 + (mouse.y * 20));
+                ctx.lineTo(w, h / 2 + (mouse.y * 20));
+                ctx.stroke();
 
-                ctx.fillStyle = cloudGrad;
-                ctx.ellipse(c.x + c.w / 2, c.y + c.h / 2, c.w / 2, c.h / 2, 0, 0, Math.PI * 2);
-                ctx.fill();
+                requestAnimationFrame(drawWeather);
+            }
+            drawWeather();
+        })();
+
+        /* ─── NAVIGATION OVERLAY INTERACTION ─── */
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navbar = document.getElementById('navbar');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 30);
+        });
+
+        /* ─── SCROLL INTERSECTION OBSERVER (REVEAL ANIMATIONS) ─── */
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
             });
+        }, { threshold: 0.1 });
 
-            ctx.strokeStyle = 'rgba(15, 44, 89, 0.02)';
-            ctx.lineWidth = 0.5;
-            ctx.beginPath();
-            ctx.moveTo(w / 2 + (mouse.x * 20), 0);
-            ctx.lineTo(w / 2 + (mouse.x * 20), h);
-            ctx.moveTo(0, h / 2 + (mouse.y * 20));
-            ctx.lineTo(w, h / 2 + (mouse.y * 20));
-            ctx.stroke();
+        revealElements.forEach(el => revealObserver.observe(el));
 
-            requestAnimationFrame(drawWeather);
+        /* ─── HORIZONTAL CAROUSEL DRIVER ─── */
+        const track = document.getElementById('carouselTrack');
+        const cards = Array.from(track.children).filter(el => el.classList.contains('sys-card'));
+        const dotsWrap = document.getElementById('carouselDots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let activeIndex = 0;
+
+        cards.forEach((_, i) => {
+            const b = document.createElement('button');
+            b.setAttribute('aria-label', 'Go to tracking block ' + (i + 1));
+            if (i === 0) b.classList.add('active');
+            b.addEventListener('click', () => scrollToCard(i));
+            dotsWrap.appendChild(b);
+        });
+        const dots = Array.from(dotsWrap.children);
+
+        function scrollToCard(i) {
+            cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
         }
-        drawWeather();
-    })();
 
-    /* ─── NAVIGATION OVERLAY INTERACTION ─── */
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    const navbar = document.getElementById('navbar');
+        function updateActive(i) {
+            activeIndex = i;
+            dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+            prevBtn.disabled = i === 0;
+            nextBtn.disabled = i === cards.length - 1;
+        }
 
-    navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-    });
+        prevBtn.addEventListener('click', () => scrollToCard(Math.max(0, activeIndex - 1)));
+        nextBtn.addEventListener('click', () => scrollToCard(Math.min(cards.length - 1, activeIndex + 1)));
 
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 30);
-    });
+        const carouselObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+                    updateActive(cards.indexOf(entry.target));
+                }
+            });
+        }, { root: track, threshold: [0.6] });
+        cards.forEach(c => carouselObserver.observe(c));
 
-    /* ─── SCROLL INTERSECTION OBSERVER (REVEAL ANIMATIONS) ─── */
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
+        updateActive(0);
+
+        /* ─── KEYBOARD ACCESSIBILITY FOR INTERACTIVE ROWS ─── */
+        document.querySelectorAll('.stratos-row').forEach(row => {
+            row.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    // Simulate click
+                    row.click();
+                }
+            });
         });
-    }, { threshold: 0.1 });
 
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    /* ─── HORIZONTAL CAROUSEL DRIVER ─── */
-    const track = document.getElementById('carouselTrack');
-    const cards = Array.from(track.children).filter(el => el.classList.contains('sys-card'));
-    const dotsWrap = document.getElementById('carouselDots');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let activeIndex = 0;
-
-    cards.forEach((_, i) => {
-        const b = document.createElement('button');
-        b.setAttribute('aria-label', 'Go to tracking block ' + (i + 1));
-        if (i === 0) b.classList.add('active');
-        b.addEventListener('click', () => scrollToCard(i));
-        dotsWrap.appendChild(b);
-    });
-    const dots = Array.from(dotsWrap.children);
-
-    function scrollToCard(i) {
-        cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-    }
-
-    function updateActive(i) {
-        activeIndex = i;
-        dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
-        prevBtn.disabled = i === 0;
-        nextBtn.disabled = i === cards.length - 1;
-    }
-
-    prevBtn.addEventListener('click', () => scrollToCard(Math.max(0, activeIndex - 1)));
-    nextBtn.addEventListener('click', () => scrollToCard(Math.min(cards.length - 1, activeIndex + 1)));
-
-    const carouselObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-                updateActive(cards.indexOf(entry.target));
-            }
-        });
-    }, { root: track, threshold: [0.6] });
-    cards.forEach(c => carouselObserver.observe(c));
-
-    updateActive(0);
-
-    /* ─── KEYBOARD ACCESSIBILITY FOR STRATOS-14E ROW ─── */
-    const stratosRow = document.querySelector('.stratos-row');
-    if (stratosRow) {
-        stratosRow.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                window.location.href = '/stratos-14e/';
-            }
-        });
-    }
-</script>
+        /* ─── CELEBRATORY FLASH FOR PHM ROW ON CLICK ─── */
+        const phmRow = document.querySelector('.phm-row');
+        if (phmRow) {
+            phmRow.addEventListener('click', function(e) {
+                this.style.transition = 'background 0.15s';
+                this.style.background = 'rgba(221, 90, 18, 0.12)';
+                setTimeout(() => { this.style.background = ''; }, 350);
+            });
+        }
+    </script>
 
 </body>
 </html>
