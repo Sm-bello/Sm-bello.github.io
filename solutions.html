@@ -1,507 +1,1137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solutions & Systems | Mohammed Bello Sani</title>
-    <meta name="description" content="Deployed and in-progress software systems built by Mohammed Bello Sani — sermon intelligence, church platforms, autonomous agents, and federated twins.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solutions &amp; Systems | Mohammed Bello Sani</title>
+    <meta name="description" content="Deployed and in-progress software systems built by Mohammed Bello Sani — sermon intelligence, church platforms, autonomous agents, and federated twins." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-/* ════════════════════════════════════════════════════════════════
-   AEROSPACE ARCHITECTURAL PORTFOLIO — SOLUTIONS & SYSTEMS
-   Pure White Foundation. Floating Neon Capsule Navbar. Weather Canvas.
-   ════════════════════════════════════════════════════════════════ */
+        /* ════════════════════════════════════════════════════════════════
+           AEROSPACE ARCHITECTURAL PORTFOLIO — SOLUTIONS & SYSTEMS
+           Pure White Foundation. Floating Neon Capsule Navbar. Weather Canvas.
+           ════════════════════════════════════════════════════════════════ */
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-:root {
-    --bg: #ffffff;
-    --bg-warm: #faf9f6;
-    --text: #0b0f19;
-    --text-secondary: #475467;
-    --text-tertiary: #8592a6;
-    --accent: #0f2c59;
-    --accent-light: #1d4ed8;
-    --accent-orange: #dd5a12;
-    --accent-green: #067a52;
-    --accent-purple: #6d28d9;
-    --border: rgba(11, 15, 25, 0.08);
-    --border-light: rgba(11, 15, 25, 0.04);
-    --ff-body: 'Inter', sans-serif;
-    --ff-display: 'Space Grotesk', sans-serif;
-    --ff-mono: 'JetBrains Mono', monospace;
-    --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
+        :root {
+            --bg: #ffffff;
+            --bg-warm: #faf9f6;
+            --text: #0b0f19;
+            --text-secondary: #475467;
+            --text-tertiary: #8592a6;
+            --accent: #0f2c59;
+            --accent-light: #1d4ed8;
+            --accent-orange: #dd5a12;
+            --accent-green: #067a52;
+            --accent-purple: #6d28d9;
+            --border: rgba(11, 15, 25, 0.08);
+            --border-light: rgba(11, 15, 25, 0.04);
+            --ff-body: 'Inter', sans-serif;
+            --ff-display: 'Space Grotesk', sans-serif;
+            --ff-mono: 'JetBrains Mono', monospace;
+            --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-html { scroll-behavior: smooth; }
-body {
-    font-family: var(--ff-body);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--ff-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-/* ─── DYNAMIC WEATHER REALISTIC BACKGROUND CANVAS ─── */
-#ambient-canvas {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    pointer-events: none;
-}
+        /* ─── DYNAMIC WEATHER REALISTIC BACKGROUND CANVAS ─── */
+        #ambient-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-/* ─── SQUADRON FLIGHT PATH ANIMATION LAYER ─── */
-.sky-fleet-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1;
-}
-.fleet-aircraft { position: absolute; font-size: 1.5rem; opacity: 0; transform-origin: center; }
-.aircraft-paper { color: var(--accent-orange); animation: paperFlight 12s infinite linear; }
-.aircraft-f22 { color: rgba(15, 44, 89, 0.15); font-size: 1.8rem; animation: interceptFlight 16s infinite linear; animation-delay: 3s; }
-.aircraft-b747 { color: rgba(133, 146, 166, 0.12); font-size: 2.5rem; animation: cruiseFlight 24s infinite linear; animation-delay: 6s; }
+        /* ─── SQUADRON FLIGHT PATH ANIMATION LAYER ─── */
+        .sky-fleet-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .fleet-aircraft {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform-origin: center;
+        }
+        .aircraft-paper {
+            color: var(--accent-orange);
+            animation: paperFlight 12s infinite linear;
+        }
+        .aircraft-f22 {
+            color: rgba(15, 44, 89, 0.15);
+            font-size: 1.8rem;
+            animation: interceptFlight 16s infinite linear;
+            animation-delay: 3s;
+        }
+        .aircraft-b747 {
+            color: rgba(133, 146, 166, 0.12);
+            font-size: 2.5rem;
+            animation: cruiseFlight 24s infinite linear;
+            animation-delay: 6s;
+        }
 
-@keyframes paperFlight {
-    0% { transform: translate(-50px, 40vh) rotate(15deg); opacity: 0; }
-    5% { opacity: 0.8; }
-    35% { transform: translate(30vw, 20vh) rotate(-10deg); }
-    65% { transform: translate(65vw, 35vh) rotate(20deg); }
-    95% { opacity: 0.8; }
-    100% { transform: translate(105vw, 15vh) rotate(-5deg); opacity: 0; }
-}
-@keyframes interceptFlight {
-    0% { transform: translate(105vw, 65vh) rotate(-165deg) scale(0.7); opacity: 0; }
-    10% { opacity: 0.6; }
-    50% { transform: translate(50vw, 35vh) rotate(-155deg) scale(1); }
-    90% { opacity: 0.6; }
-    100% { transform: translate(-10vw, 5vh) rotate(-145deg) scale(1.3); opacity: 0; }
-}
-@keyframes cruiseFlight {
-    0% { transform: translate(-10vw, 10vh) rotate(5deg); opacity: 0; }
-    8% { opacity: 0.5; }
-    90% { opacity: 0.5; }
-    100% { transform: translate(110vw, 45vh) rotate(10deg); opacity: 0; }
-}
+        @keyframes paperFlight {
+            0% {
+                transform: translate(-50px, 40vh) rotate(15deg);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.8;
+            }
+            35% {
+                transform: translate(30vw, 20vh) rotate(-10deg);
+            }
+            65% {
+                transform: translate(65vw, 35vh) rotate(20deg);
+            }
+            95% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(105vw, 15vh) rotate(-5deg);
+                opacity: 0;
+            }
+        }
+        @keyframes interceptFlight {
+            0% {
+                transform: translate(105vw, 65vh) rotate(-165deg) scale(0.7);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            50% {
+                transform: translate(50vw, 35vh) rotate(-155deg) scale(1);
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(-10vw, 5vh) rotate(-145deg) scale(1.3);
+                opacity: 0;
+            }
+        }
+        @keyframes cruiseFlight {
+            0% {
+                transform: translate(-10vw, 10vh) rotate(5deg);
+                opacity: 0;
+            }
+            8% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(110vw, 45vh) rotate(10deg);
+                opacity: 0;
+            }
+        }
 
-/* ─── SCROLL INTERSECTION REVEAL BASIS ─── */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.active { opacity: 1; transform: translateY(0); }
+        /* ─── SCROLL INTERSECTION REVEAL BASIS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-/* ─── FLOATING CAPSULE NAVIGATION WITH CHROMATIC NEON BORDER ─── */
-.nav-wrapper {
-    position: fixed;
-    top: 1.5rem; left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    width: 90%;
-    max-width: 1400px;
-    pointer-events: none;
-}
-nav.stretched-nav {
-    pointer-events: auto;
-    width: 100%;
-    height: 64px;
-    /* Hyper-transparent backing layer for clear scroll-behind clarity */
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 32px;
-    padding: 0 2rem;
-    position: relative;
-    transition: var(--transition-smooth);
-    display: flex;
-    align-items: center;
-}
+        /* ─── FLOATING CAPSULE NAVIGATION WITH CHROMATIC NEON BORDER ─── */
+        .nav-wrapper {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 90%;
+            max-width: 1400px;
+            pointer-events: none;
+        }
+        nav.stretched-nav {
+            pointer-events: auto;
+            width: 100%;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 32px;
+            padding: 0 2rem;
+            position: relative;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+        }
 
-/* Simulated Neon Rainbow Capsule Border Ring */
-nav.stretched-nav::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 32px;
-    padding: 2px; /* Border Thickness */
-    background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
-    background-size: 200% auto;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: neonGlowFlow 4s linear infinite;
-}
+        /* Simulated Neon Rainbow Capsule Border Ring */
+        nav.stretched-nav::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 32px;
+            padding: 2px;
+            background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
+            background-size: 200% auto;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: neonGlowFlow 4s linear infinite;
+        }
 
-/* Outer Atmosphere Radar Reflection shadow */
-nav.stretched-nav::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 34px;
-    background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
-    background-size: 200% auto;
-    filter: blur(12px);
-    z-index: -1;
-    opacity: 0.4;
-    animation: neonGlowFlow 4s linear infinite;
-}
+        /* Outer Atmosphere Radar Reflection shadow */
+        nav.stretched-nav::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 34px;
+            background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
+            background-size: 200% auto;
+            filter: blur(12px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: neonGlowFlow 4s linear infinite;
+        }
 
-@keyframes neonGlowFlow {
-    0% { background-position: 0% center; }
-    100% { background-position: 200% center; }
-}
+        @keyframes neonGlowFlow {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
 
-nav.stretched-nav.scrolled {
-    background: rgba(255, 255, 255, 0.35);
-    height: 58px;
-}
+        nav.stretched-nav.scrolled {
+            background: rgba(255, 255, 255, 0.35);
+            height: 58px;
+        }
 
-.nav-inner {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
-}
-.logo-container {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-.logo-text {
-    font-family: var(--ff-display);
-    font-weight: 900;
-    font-size: 1.05rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #0b0f19;
-}
+        .nav-inner {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo-text {
+            font-family: var(--ff-display);
+            font-weight: 900;
+            font-size: 1.05rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #0b0f19;
+        }
 
-.nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
-.nav-links a {
-    font-family: var(--ff-display);
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #1e293b;
-    text-decoration: none;
-    padding: 0.4rem 1.1rem;
-    border-radius: 100px;
-    transition: var(--transition-smooth);
-}
-.nav-links a:hover { color: #000000; background: rgba(255, 255, 255, 0.4); }
-.nav-links a.active { color: #ffffff; background: #0b0f19; }
-.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.2rem; cursor: pointer; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: var(--ff-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            text-decoration: none;
+            padding: 0.4rem 1.1rem;
+            border-radius: 100px;
+            transition: var(--transition-smooth);
+        }
+        .nav-links a:hover {
+            color: #000000;
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .nav-links a.active {
+            color: #ffffff;
+            background: #0b0f19;
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
 
-/* ─── HERO SYSTEM ─── */
-.hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 14rem 2rem 4rem; z-index: 1; }
-.hero-inner { max-width: 880px; text-align: center; position: relative; z-index: 5; }
-.eyebrow {
-    font-family: var(--ff-mono); font-size: 0.72rem; font-weight: 600; color: var(--accent-orange);
-    letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem;
-    display: inline-flex; align-items: center; gap: 0.8rem;
-}
-.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent-orange); }
-h1 { font-family: var(--ff-display); font-size: clamp(2.4rem, 5.5vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
-.hero p.lede { max-width: 680px; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin: 0 auto 2.5rem; }
+        /* ─── HERO SYSTEM ─── */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14rem 2rem 4rem;
+            z-index: 1;
+        }
+        .hero-inner {
+            max-width: 880px;
+            text-align: center;
+            position: relative;
+            z-index: 5;
+        }
+        .eyebrow {
+            font-family: var(--ff-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .eyebrow::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--accent-orange);
+        }
+        h1 {
+            font-family: var(--ff-display);
+            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+        .hero p.lede {
+            max-width: 680px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 0 auto 2.5rem;
+        }
 
-.status-strip { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; }
-.status-pill {
-    display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--ff-mono); font-size: 0.68rem;
-    font-weight: 600; padding: 0.45rem 1rem; border-radius: 100px; border: 1px solid var(--border); background: var(--bg-warm); color: var(--text-secondary);
-}
-.dot { width: 7px; height: 7px; border-radius: 50%; }
-.dot.live { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); animation: corePulse 2s infinite ease-in-out; }
-.dot.dev { background: var(--accent-orange); box-shadow: 0 0 8px var(--accent-orange); }
-.dot.proto { background: var(--accent-light); box-shadow: 0 0 8px var(--accent-light); }
-.dot.concept { background: var(--text-tertiary); box-shadow: 0 0 8px var(--text-tertiary); }
-@keyframes corePulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+        .status-strip {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--ff-mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 0.45rem 1rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--bg-warm);
+            color: var(--text-secondary);
+        }
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+        .dot.live {
+            background: var(--accent-green);
+            box-shadow: 0 0 8px var(--accent-green);
+            animation: corePulse 2s infinite ease-in-out;
+        }
+        .dot.dev {
+            background: var(--accent-orange);
+            box-shadow: 0 0 8px var(--accent-orange);
+        }
+        .dot.proto {
+            background: var(--accent-light);
+            box-shadow: 0 0 8px var(--accent-light);
+        }
+        .dot.concept {
+            background: var(--text-tertiary);
+            box-shadow: 0 0 8px var(--text-tertiary);
+        }
+        @keyframes corePulse {
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
 
-/* ─── LAYOUT SECTIONS ─── */
-.section-label { font-family: var(--ff-mono); font-size: 0.72rem; font-weight: 600; color: var(--text-tertiary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem; }
-.section-label .num { color: var(--accent-orange); font-weight: 700; }
-.section-head { max-width: 1280px; margin: 5rem auto 2.5rem; padding: 0 2rem; }
-.section-head h2 { font-family: var(--ff-display); font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; }
-.section-head p { color: var(--text-secondary); max-width: 600px; margin-top: 0.5rem; font-size: 0.95rem; }
+        /* ─── LAYOUT SECTIONS ─── */
+        .section-label {
+            font-family: var(--ff-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .section-label .num {
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+        .section-head {
+            max-width: 1280px;
+            margin: 5rem auto 2.5rem;
+            padding: 0 2rem;
+        }
+        .section-head h2 {
+            font-family: var(--ff-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .section-head p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
 
-/* ─── CAROUSEL SYSTEM VERTEX ─── */
-.carousel-container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; position: relative; }
-.carousel-track {
-    display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory;
-    padding: 0.5rem 0.5rem 2rem; scrollbar-width: none;
-}
-.carousel-track::-webkit-scrollbar { display: none; }
+        /* ─── CAROUSEL SYSTEM VERTEX ─── */
+        .carousel-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0.5rem 0.5rem 2rem;
+            scrollbar-width: none;
+        }
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
 
-.sys-card {
-    scroll-snap-align: start; flex: 0 0 auto; width: min(420px, 85vw);
-    background: #ffffff; border: 1px solid var(--border); border-radius: 14px;
-    padding: 2.2rem; display: flex; flex-direction: column; transition: var(--transition-smooth);
-}
-.sys-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.03); }
-.sys-top { display: flex; justify-content: space-between; align-items: center; font-family: var(--ff-mono); font-size: 0.68rem; color: var(--text-tertiary); margin-bottom: 1.2rem; }
-.sys-status { display: flex; align-items: center; gap: 0.4rem; text-transform: uppercase; font-weight: 600; }
+        .sys-card {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: min(420px, 85vw);
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+        }
+        .sys-card:hover {
+            border-color: var(--text);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.03);
+        }
+        .sys-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--ff-mono);
+            font-size: 0.68rem;
+            color: var(--text-tertiary);
+            margin-bottom: 1.2rem;
+        }
+        .sys-status {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
 
-.sys-card h3 { font-family: var(--ff-display); font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
-.sys-tagline { color: var(--accent-light); font-size: 0.88rem; font-weight: 600; margin-bottom: 1rem; }
-.sys-desc { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem; flex: 1; }
+        .sys-card h3 {
+            font-family: var(--ff-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.4rem;
+        }
+        .sys-tagline {
+            color: var(--accent-light);
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .sys-desc {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
 
-.chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
-.chip { font-family: var(--ff-mono); font-size: 0.65rem; font-weight: 500; color: var(--text-secondary); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.55rem; background: var(--bg-warm); }
-.sys-links { display: flex; gap: 1.2rem; border-top: 1px solid var(--border); padding-top: 1.2rem; }
-.sys-links a { font-size: 0.85rem; text-decoration: none; color: var(--text); font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth); }
-.sys-links a:hover { color: var(--accent-orange); }
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.5rem;
+        }
+        .chip {
+            font-family: var(--ff-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.25rem 0.55rem;
+            background: var(--bg-warm);
+        }
+        .sys-links {
+            display: flex;
+            gap: 1.2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.2rem;
+        }
+        .sys-links a {
+            font-size: 0.85rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: var(--transition-smooth);
+        }
+        .sys-links a:hover {
+            color: var(--accent-orange);
+        }
 
-.carousel-controls { max-width: 1280px; margin: 1rem auto 0; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; }
-.carousel-dots { display: flex; align-items: center; gap: 0.5rem; }
-.carousel-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--border); cursor: pointer; transition: var(--transition-smooth); }
-.carousel-dots button.active { background: var(--text); width: 24px; border-radius: 4px; }
+        .carousel-controls {
+            max-width: 1280px;
+            margin: 1rem auto 0;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .carousel-dots {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .carousel-dots button {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            background: var(--border);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .carousel-dots button.active {
+            background: var(--text);
+            width: 24px;
+            border-radius: 4px;
+        }
 
-.arrow-group { display: flex; gap: 0.5rem; }
-.arrow-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); background: #ffffff; color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
-.arrow-btn:hover { border-color: var(--text); background: var(--bg-warm); }
-.arrow-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .arrow-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .arrow-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: #ffffff;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+        .arrow-btn:hover {
+            border-color: var(--text);
+            background: var(--bg-warm);
+        }
+        .arrow-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
 
-/* ─── PIPELINE MANIFEST GRID ─── */
-.manifest-section { max-width: 1280px; margin: 0 auto 6rem; padding: 0 2rem; }
-.manifest { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: #ffffff; }
-.manifest-row { display: grid; grid-template-columns: 200px 1fr 160px; gap: 1.5rem; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); align-items: center; transition: var(--transition-smooth); }
-.manifest-row:last-child { border-bottom: none; }
-.manifest-row:hover { background: var(--bg-warm); }
-.manifest-term { font-family: var(--ff-display); font-weight: 700; font-size: 1.05rem; color: var(--text); }
-.manifest-def { color: var(--text-secondary); font-size: 0.92rem; }
-.manifest-status { display: flex; align-items: center; gap: 0.5rem; font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; color: var(--text-tertiary); justify-self: end; }
+        /* ─── PIPELINE MANIFEST GRID ─── */
+        .manifest-section {
+            max-width: 1280px;
+            margin: 0 auto 6rem;
+            padding: 0 2rem;
+        }
+        .manifest {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        .manifest-row {
+            display: grid;
+            grid-template-columns: 200px 1fr 160px;
+            gap: 1.5rem;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+            transition: var(--transition-smooth);
+        }
+        .manifest-row:last-child {
+            border-bottom: none;
+        }
+        .manifest-row:hover {
+            background: var(--bg-warm);
+        }
+        .manifest-term {
+            font-family: var(--ff-display);
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+        .manifest-def {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+        }
+        .manifest-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--ff-mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            justify-self: end;
+        }
 
-/* ─── FOOTER INTERFACE ─── */
-footer { background: #07090e; padding: 4rem 2rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.05); }
-footer .wrap { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-footer p { font-family: var(--ff-mono); font-size: 0.75rem; letter-spacing: 0.02em; margin: 0; }
-footer .foot-links { display: flex; gap: 1.5rem; }
-footer .foot-links a { text-decoration: none; color: #64748b; font-size: 0.85rem; transition: var(--transition-smooth); }
-footer .foot-links a:hover { color: #ffffff; }
+        /* ════════════════════════════════════════════════════════════════
+           STRATOS-14E — INTERACTIVE ANIMATION ENTRY POINT
+           ════════════════════════════════════════════════════════════════ */
+        .stratos-row {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 3px solid transparent;
+            background: #ffffff;
+            z-index: 1;
+        }
 
-/* ─── MEDIA QUERY ENVELOPES ─── */
-@media (max-width: 960px) {
-    .nav-wrapper { width: 95%; top: 1rem; }
-    .nav-links {
-        display: none; flex-direction: column; align-items: flex-start; gap: 1rem;
-        position: absolute; top: 68px; left: 0; right: 0; background: rgba(255, 255, 255, 0.96);
-        padding: 1.5rem 2rem; border-radius: 16px; border: 1px solid var(--border);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(20px);
-    }
-    .nav-links.open { display: flex; }
-    .nav-toggle { display: block; }
-    .manifest-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem; }
-    .manifest-status { justify-self: start; margin-top: 0.5rem; }
-}
-@media (max-width: 480px) {
-    .hero h1 { font-size: 2.2rem; }
-    .status-strip { flex-direction: column; align-items: center; }
-    .status-pill { width: 100%; justify-content: center; }
-}
+        /* Animated gradient border sweep on hover */
+        .stratos-row::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 14px 14px 0 0;
+            padding: 0;
+            background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
+            background-size: 300% auto;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: -1;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: neonGlowFlow 3s linear infinite;
+            pointer-events: none;
+        }
+
+        .stratos-row::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 16px;
+            background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
+            background-size: 300% auto;
+            filter: blur(18px);
+            opacity: 0;
+            z-index: -2;
+            transition: opacity 0.6s ease;
+            animation: neonGlowFlow 3s linear infinite;
+            pointer-events: none;
+        }
+
+        .stratos-row:hover::before {
+            opacity: 1;
+            padding: 2px;
+        }
+        .stratos-row:hover::after {
+            opacity: 0.35;
+        }
+
+        /* Hover lift + shadow + border accent */
+        .stratos-row:hover {
+            transform: translateY(-3px) scale(1.005);
+            box-shadow: 0 12px 40px rgba(15, 44, 89, 0.08);
+            background: #fcfcfd;
+            border-left-color: var(--accent-orange);
+            border-radius: 14px;
+        }
+
+        /* "Learn more →" indicator — slides in from the right */
+        .stratos-learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--ff-mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateX(16px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-left: 0.75rem;
+            white-space: nowrap;
+            position: relative;
+        }
+        .stratos-row:hover .stratos-learn-more {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .stratos-learn-more .arrow-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+        .stratos-row:hover .stratos-learn-more .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        /* Pulsing "explore" badge on the status dot */
+        .stratos-row .dot.concept {
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        .stratos-row:hover .dot.concept {
+            background: var(--accent-orange);
+            box-shadow: 0 0 20px rgba(221, 90, 18, 0.6);
+            animation: stratosPulse 1.2s ease-in-out infinite;
+        }
+
+        @keyframes stratosPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.45);
+                opacity: 1;
+            }
+        }
+
+        /* Subtle shimmer sweep on hover */
+        .stratos-row .manifest-term {
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .stratos-row .manifest-term .label-highlight {
+            background: linear-gradient(120deg, #0f2c59 0%, #1d4ed8 50%, #0f2c59 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: background-position 0.6s ease;
+        }
+        .stratos-row:hover .manifest-term .label-highlight {
+            background-position: 100% center;
+        }
+
+        /* Extra "click me" micro-interaction: subtle ring pulse around the row on hover */
+        .stratos-row .click-ripple {
+            position: absolute;
+            inset: -4px;
+            border-radius: 18px;
+            border: 1px solid rgba(221, 90, 18, 0);
+            pointer-events: none;
+            transition: all 0.6s ease;
+        }
+        .stratos-row:hover .click-ripple {
+            border-color: rgba(221, 90, 18, 0.2);
+            animation: rippleRing 1.8s ease-out infinite;
+        }
+
+        @keyframes rippleRing {
+            0% {
+                transform: scale(0.98);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.04);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive tweaks for the STRATOS interactive row */
+        @media (max-width: 768px) {
+            .stratos-learn-more {
+                font-size: 0.6rem;
+                margin-left: 0.4rem;
+            }
+            .stratos-row .manifest-term {
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .stratos-learn-more .arrow-icon {
+                font-size: 0.65rem;
+            }
+            .stratos-learn-more {
+                font-size: 0.55rem;
+                margin-left: 0.3rem;
+            }
+        }
+
+        /* ─── FOOTER INTERFACE ─── */
+        footer {
+            background: #07090e;
+            padding: 4rem 2rem;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        footer .wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        footer p {
+            font-family: var(--ff-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+            margin: 0;
+        }
+        footer .foot-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        footer .foot-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-size: 0.85rem;
+            transition: var(--transition-smooth);
+        }
+        footer .foot-links a:hover {
+            color: #ffffff;
+        }
+
+        /* ─── MEDIA QUERY ENVELOPES ─── */
+        @media (max-width: 960px) {
+            .nav-wrapper {
+                width: 95%;
+                top: 1rem;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.96);
+                padding: 1.5rem 2rem;
+                border-radius: 16px;
+                border: 1px solid var(--border);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(20px);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+            }
+            .manifest-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                padding: 1.5rem;
+            }
+            .manifest-status {
+                justify-self: start;
+                margin-top: 0.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .status-strip {
+                flex-direction: column;
+                align-items: center;
+            }
+            .status-pill {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
 
-<canvas id="ambient-canvas"></canvas>
+    <canvas id="ambient-canvas"></canvas>
 
-<div class="nav-wrapper">
-    <nav class="stretched-nav" id="navbar">
-        <div class="nav-inner">
-            <a href="/" class="logo-container">
-                <span class="logo-text">MOHAMMED BELLO SANI</span>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">Telemetry</a></li>
-                <li><a href="/about.html">Profile</a></li>
-                <li><a href="/projects.html">Projects</a></li>
-                <li><a href="/contact.html">Interface</a></li>
-                <li><a href="/solutions.html" class="active">Solutions</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
-
-<header class="hero">
-    <div class="sky-fleet-container">
-        <div class="fleet-aircraft aircraft-paper"><i class="fas fa-paper-plane"></i></div>
-        <div class="fleet-aircraft aircraft-f22"><i class="fas fa-jet-fighter"></i></div>
-        <div class="fleet-aircraft aircraft-b747"><i class="fas fa-plane"></i></div>
+    <div class="nav-wrapper">
+        <nav class="stretched-nav" id="navbar">
+            <div class="nav-inner">
+                <a href="/" class="logo-container">
+                    <span class="logo-text">MOHAMMED BELLO SANI</span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="/">Telemetry</a></li>
+                    <li><a href="/about.html">Profile</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li><a href="/contact.html">Interface</a></li>
+                    <li><a href="/solutions.html" class="active">Solutions</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
 
-    <div class="hero-inner reveal">
-        <p class="eyebrow">Solutions &amp; Architectural Systems</p>
-        <h1>Where the research turns into running software.</h1>
-        <p class="lede">
-            Alongside peer-reviewed manuscripts and validation twins, I code and deploy
-            autonomous full-stack software assets—ranging from local sub-frictional transcription matrix utilities to sovereign, air-gapped agent control infrastructure loops.
-        </p>
-        <div class="status-strip">
-            <span class="status-pill"><span class="dot live"></span>Live / Operational</span>
-            <span class="status-pill"><span class="dot dev"></span>In Development</span>
-            <span class="status-pill"><span class="dot proto"></span>Prototype / Validated</span>
-            <span class="status-pill"><span class="dot concept"></span>Concept Study</span>
-        </div>
-    </div>
-</header>
-
-<section class="reveal">
-    <div class="section-head">
-        <p class="section-label"><span class="num">01</span> Functional Deployments</p>
-        <h2>Production Repositories</h2>
-        <p>Four independent system setups built to satisfy rigorous technical requirements across engineering, cybersecurity, and data utility domains.</p>
-    </div>
-
-    <div class="carousel-container">
-        <div class="carousel-track" id="carouselTrack" role="group" aria-label="Production Repositories">
-
-            <article class="sys-card">
-                <div class="sys-top">
-                    <span>SYS · 01</span>
-                    <span class="sys-status"><span class="dot dev"></span>Active Dev</span>
-                </div>
-                <h3>Lifestone</h3>
-                <p class="sys-tagline">Sermon Intelligence Desktop</p>
-                <p class="sys-desc">
-                    Cross-platform Tauri desktop infrastructure performing fully air-gapped, low-latency sermon audio transcription via whisper-rs pipelines. Implements fast Aho-Corasick pattern-matching and ONNX semantic mapping algorithms to index scripture references against local databases in real time. Deploys simultaneous output tracks to NDI video mixers, PowerPoint processes, and modular external screen view matrix arrays.
-                </p>
-                <div class="chip-row">
-                    <span class="chip">Tauri v2</span>
-                    <span class="chip">Rust 1.96</span>
-                    <span class="chip">React</span>
-                    <span class="chip">whisper-rs</span>
-                    <span class="chip">Aho-Corasick</span>
-                    <span class="chip">ONNX Inference</span>
-                    <span class="chip">NDI Protocol</span>
-                </div>
-                <div class="sys-links">
-                    <a href="https://github.com/colig-base/lifestone" target="_blank">📂 Source Matrix</a>
-                </div>
-            </article>
-
-            <article class="sys-card">
-                <div class="sys-top">
-                    <span>SYS · 02</span>
-                    <span class="sys-status"><span class="dot live"></span>Live Deployment</span>
-                </div>
-                <h3>COLIG Church App</h3>
-                <p class="sys-tagline">Community Platform Infrastructure</p>
-                <p class="sys-desc">
-                    Full-stack web application structure compiled as a packaged Android mobile platform. Integrates high-throughput PocketBase transactions, secure multi-channel chat routing engines featuring message replies and reaction tracking, progress-persisted chronological reading plans, and low-latency audio/video conference rooms driven by native LiveKit Cloud pipelines.
-                </p>
-                <div class="chip-row">
-                    <span class="chip">Next.js 15</span>
-                    <span class="chip">TypeScript</span>
-                    <span class="chip">PocketBase</span>
-                    <span class="chip">LiveKit Cloud</span>
-                    <span class="chip">Tailwind CSS</span>
-                    <span class="chip">Fly.io / Vercel</span>
-                </div>
-                <div class="sys-links">
-                    <a href="https://github.com/colig-base/colig-app" target="_blank">📂 Source Matrix</a>
-                    <a href="https://colig-app.vercel.app" target="_blank"><i class="fas fa-globe"></i> Live Node</a>
-                </div>
-            </article>
-
-            <article class="sys-card">
-                <div class="sys-top">
-                    <span>SYS · 03</span>
-                    <span class="sys-status"><span class="dot proto"></span>Validated</span>
-                </div>
-                <h3>FleetTwin v1.0</h3>
-                <p class="sys-tagline">Federated Digital-Twin Intelligence</p>
-                <p class="sys-desc">
-                    Advanced aircraft system optimization platform designed to facilitate cross-airframe prognostic model sharing. Coordinates distributed deep sequence fault classifiers to update structural degradation weights across airline fleets without necessitating raw telemetry upload or cloud storage access loops.
-                </p>
-                <div class="chip-row">
-                    <span class="chip">PyTorch</span>
-                    <span class="chip">Federated Learning</span>
-                    <span class="chip">MATLAB Engine</span>
-                    <span class="chip">FastAPI Cluster</span>
-                </div>
-                <div class="sys-links">
-                    <a href="https://github.com/Penelope-Inco" target="_blank">📂 Organization</a>
-                </div>
-            </article>
-
-            <article class="sys-card">
-                <div class="sys-top">
-                    <span>SYS · 04</span>
-                    <span class="sys-status"><span class="dot live"></span>Operational</span>
-                </div>
-                <h3>Penelope AI Agent</h3>
-                <p class="sys-tagline">Sovereign Offline-First AI Matrix</p>
-                <p class="sys-desc">
-                    Sovereign CLI agent architecture engineered to negate vendor lock-in bottlenecks. Operates deterministically via multi-provider failover cloud cascade structures alongside completely local fallback model groups. Drives autonomous task allocation utilizing custom ReAct logic loops backed by local unit constraint validations and strict hardware-soul lock cryptographic bindings.
-                </p>
-                <div class="chip-row">
-                    <span class="chip">Python Core</span>
-                    <span class="chip">ReAct Loop</span>
-                    <span class="chip">Ollama Stack</span>
-                    <span class="chip">Hardware Soul-Lock</span>
-                </div>
-                <div class="sys-links">
-                    <a href="https://github.com/Penelope-Inco" target="_blank">📂 Organization</a>
-                </div>
-            </article>
-
+    <header class="hero">
+        <div class="sky-fleet-container">
+            <div class="fleet-aircraft aircraft-paper"><i class="fas fa-paper-plane"></i></div>
+            <div class="fleet-aircraft aircraft-f22"><i class="fas fa-jet-fighter"></i></div>
+            <div class="fleet-aircraft aircraft-b747"><i class="fas fa-plane"></i></div>
         </div>
 
-        <div class="carousel-controls">
-            <div class="carousel-dots" id="carouselDots"></div>
-            <div class="arrow-group">
-                <button class="arrow-btn" id="prevBtn" aria-label="Previous System">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-                </button>
-                <button class="arrow-btn" id="nextBtn" aria-label="Next System">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
+        <div class="hero-inner reveal">
+            <p class="eyebrow">Solutions &amp; Architectural Systems</p>
+            <h1>Where the research turns into running software.</h1>
+            <p class="lede">
+                Alongside peer-reviewed manuscripts and validation twins, I code and deploy
+                autonomous full-stack software assets—ranging from local sub-frictional transcription matrix utilities to sovereign, air-gapped agent control infrastructure loops.
+            </p>
+            <div class="status-strip">
+                <span class="status-pill"><span class="dot live"></span>Live / Operational</span>
+                <span class="status-pill"><span class="dot dev"></span>In Development</span>
+                <span class="status-pill"><span class="dot proto"></span>Prototype / Validated</span>
+                <span class="status-pill"><span class="dot concept"></span>Concept Study</span>
             </div>
         </div>
-    </div>
-</section>
+    </header>
 
-<section class="manifest-section reveal">
-    <div class="section-head">
-        <p class="section-label"><span class="num">02</span> Pipeline Manifest</p>
-        <h2>Future Trajectory Layout</h2>
-        <p>A continuous operational manifest mapping components transitioning from advanced laboratory prototyping into complete systems infrastructure deployments.</p>
-    </div>
+    <section class="reveal">
+        <div class="section-head">
+            <p class="section-label"><span class="num">01</span> Functional Deployments</p>
+            <h2>Production Repositories</h2>
+            <p>Four independent system setups built to satisfy rigorous technical requirements across engineering, cybersecurity, and data utility domains.</p>
+        </div>
 
-    <div class="manifest">
-        <div class="manifest-row">
-            <div class="manifest-term">PHI-CHAIN</div>
-            <div class="manifest-def">Cryptographic transponder payload bifurcation network designed to resolve the TCAS Paradox across multi-protocol environments. Moving into fully audited productization layouts.</div>
-            <div class="manifest-status"><span class="dot dev"></span>Audit Track</div>
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack" role="group" aria-label="Production Repositories">
+
+                <article class="sys-card">
+                    <div class="sys-top">
+                        <span>SYS · 01</span>
+                        <span class="sys-status"><span class="dot dev"></span>Active Dev</span>
+                    </div>
+                    <h3>Lifestone</h3>
+                    <p class="sys-tagline">Sermon Intelligence Desktop</p>
+                    <p class="sys-desc">
+                        Cross-platform Tauri desktop infrastructure performing fully air-gapped, low-latency sermon audio transcription via whisper-rs pipelines. Implements fast Aho-Corasick pattern-matching and ONNX semantic mapping algorithms to index scripture references against local databases in real time. Deploys simultaneous output tracks to NDI video mixers, PowerPoint processes, and modular external screen view matrix arrays.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">Tauri v2</span>
+                        <span class="chip">Rust 1.96</span>
+                        <span class="chip">React</span>
+                        <span class="chip">whisper-rs</span>
+                        <span class="chip">Aho-Corasick</span>
+                        <span class="chip">ONNX Inference</span>
+                        <span class="chip">NDI Protocol</span>
+                    </div>
+                    <div class="sys-links">
+                        <a href="https://github.com/colig-base/lifestone" target="_blank">📂 Source Matrix</a>
+                    </div>
+                </article>
+
+                <article class="sys-card">
+                    <div class="sys-top">
+                        <span>SYS · 02</span>
+                        <span class="sys-status"><span class="dot live"></span>Live Deployment</span>
+                    </div>
+                    <h3>COLIG Church App</h3>
+                    <p class="sys-tagline">Community Platform Infrastructure</p>
+                    <p class="sys-desc">
+                        Full-stack web application structure compiled as a packaged Android mobile platform. Integrates high-throughput PocketBase transactions, secure multi-channel chat routing engines featuring message replies and reaction tracking, progress-persisted chronological reading plans, and low-latency audio/video conference rooms driven by native LiveKit Cloud pipelines.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">Next.js 15</span>
+                        <span class="chip">TypeScript</span>
+                        <span class="chip">PocketBase</span>
+                        <span class="chip">LiveKit Cloud</span>
+                        <span class="chip">Tailwind CSS</span>
+                        <span class="chip">Fly.io / Vercel</span>
+                    </div>
+                    <div class="sys-links">
+                        <a href="https://github.com/colig-base/colig-app" target="_blank">📂 Source Matrix</a>
+                        <a href="https://colig-app.vercel.app" target="_blank"><i class="fas fa-globe"></i> Live Node</a>
+                    </div>
+                </article>
+
+                <article class="sys-card">
+                    <div class="sys-top">
+                        <span>SYS · 03</span>
+                        <span class="sys-status"><span class="dot proto"></span>Validated</span>
+                    </div>
+                    <h3>FleetTwin v1.0</h3>
+                    <p class="sys-tagline">Federated Digital-Twin Intelligence</p>
+                    <p class="sys-desc">
+                        Advanced aircraft system optimization platform designed to facilitate cross-airframe prognostic model sharing. Coordinates distributed deep sequence fault classifiers to update structural degradation weights across airline fleets without necessitating raw telemetry upload or cloud storage access loops.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">PyTorch</span>
+                        <span class="chip">Federated Learning</span>
+                        <span class="chip">MATLAB Engine</span>
+                        <span class="chip">FastAPI Cluster</span>
+                    </div>
+                    <div class="sys-links">
+                        <a href="https://github.com/Penelope-Inco" target="_blank">📂 Organization</a>
+                    </div>
+                </article>
+
+                <article class="sys-card">
+                    <div class="sys-top">
+                        <span>SYS · 04</span>
+                        <span class="sys-status"><span class="dot live"></span>Operational</span>
+                    </div>
+                    <h3>Penelope AI Agent</h3>
+                    <p class="sys-tagline">Sovereign Offline-First AI Matrix</p>
+                    <p class="sys-desc">
+                        Sovereign CLI agent architecture engineered to negate vendor lock-in bottlenecks. Operates deterministically via multi-provider failover cloud cascade structures alongside completely local fallback model groups. Drives autonomous task allocation utilizing custom ReAct logic loops backed by local unit constraint validations and strict hardware-soul lock cryptographic bindings.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">Python Core</span>
+                        <span class="chip">ReAct Loop</span>
+                        <span class="chip">Ollama Stack</span>
+                        <span class="chip">Hardware Soul-Lock</span>
+                    </div>
+                    <div class="sys-links">
+                        <a href="https://github.com/Penelope-Inco" target="_blank">📂 Organization</a>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="carousel-controls">
+                <div class="carousel-dots" id="carouselDots"></div>
+                <div class="arrow-group">
+                    <button class="arrow-btn" id="prevBtn" aria-label="Previous System">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <button class="arrow-btn" id="nextBtn" aria-label="Next System">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="manifest-row">
-            <div class="manifest-term">PHI-Twin</div>
-            <div class="manifest-def">High-fidelity aerospace prognostics suite fusing Simscape Multibody solvers with sequence deep architectures to execute real-time structural health estimation.</div>
-            <div class="manifest-status"><span class="dot proto"></span>Model Validated</div>
+    </section>
+
+    <section class="manifest-section reveal">
+        <div class="section-head">
+            <p class="section-label"><span class="num">02</span> Pipeline Manifest</p>
+            <h2>Future Trajectory Layout</h2>
+            <p>A continuous operational manifest mapping components transitioning from advanced laboratory prototyping into complete systems infrastructure deployments.</p>
         </div>
-        <div class="manifest-row">
-            <div class="manifest-term">FleetTwin</div>
-            <div class="manifest-def">Distributed analytical engine training multi-frame fault diagnostic classifiers without requiring central telemetry exposure or memory pooling overhead.</div>
-            <div class="manifest-status"><span class="dot concept"></span>Framework Target</div>
+
+        <div class="manifest">
+            <div class="manifest-row">
+                <div class="manifest-term">PHI-CHAIN</div>
+                <div class="manifest-def">Cryptographic transponder payload bifurcation network designed to resolve the TCAS Paradox across multi-protocol environments. Moving into fully audited productization layouts.</div>
+                <div class="manifest-status"><span class="dot dev"></span>Audit Track</div>
+            </div>
+            <div class="manifest-row">
+                <div class="manifest-term">PHI-Twin</div>
+                <div class="manifest-def">High-fidelity aerospace prognostics suite fusing Simscape Multibody solvers with sequence deep architectures to execute real-time structural health estimation.</div>
+                <div class="manifest-status"><span class="dot proto"></span>Model Validated</div>
+            </div>
+            <div class="manifest-row">
+                <div class="manifest-term">FleetTwin</div>
+                <div class="manifest-def">Distributed analytical engine training multi-frame fault diagnostic classifiers without requiring central telemetry exposure or memory pooling overhead.</div>
+                <div class="manifest-status"><span class="dot concept"></span>Framework Target</div>
+            </div>
+            <div class="manifest-row">
+                <div class="manifest-term">Lifestones (Mobile)</div>
+                <div class="manifest-def">Discipleship platform framework transitioning from legacy client storage configurations toward fully sovereign time-series data warehouses.</div>
+                <div class="manifest-status"><span class="dot dev"></span>Data Migration</div>
+            </div>
+
+            <!-- ════════════════════════════════════════════════════════════════
+            STRATOS-14E — INTERACTIVE ANIMATION ROW
+            Clicking opens smbello.vercel.app/stratos-14e/
+            ════════════════════════════════════════════════════════════════ -->
+            <div class="manifest-row stratos-row"
+            onclick="window.location.href='/stratos-14e/'"
+            role="link"
+            tabindex="0"
+            aria-label="Learn more about STRATOS-14E — opens dedicated project page"
+            title="Click to explore STRATOS-14E in depth →">
+            <div class="click-ripple"></div>
+            <div class="manifest-term">
+                <span class="label-highlight">STRATOS-14E</span>
+                <span class="stratos-learn-more">
+                    Learn more
+                    <span class="arrow-icon">→</span>
+                </span>
+            </div>
+            <div class="manifest-def">
+                Conceptual ultra-long-range VIP transport airframe modeling project integrating a high-utility 1,027 structural sensor diagnostic intelligence pipeline.
+            </div>
+            <div class="manifest-status">
+                <span class="dot concept"></span>Design Study
+            </div>
         </div>
-        <div class="manifest-row">
-            <div class="manifest-term">Lifestones (Mobile)</div>
-            <div class="manifest-def">Discipleship platform framework transitioning from legacy client storage configurations toward fully sovereign time-series data warehouses.</div>
-            <div class="manifest-status"><span class="dot dev"></span>Data Migration</div>
-        </div>
-        <div class="manifest-row">
-            <div class="manifest-term">STRATOS-14E</div>
-            <div class="manifest-def">Conceptual ultra-long-range VIP transport airframe modeling project integrating a high-utility 1,027 structural sensor diagnostic intelligence pipeline.</div>
-            <div class="manifest-status"><span class="dot concept">Design Study</span></div>
-        </div>
+        <!-- ════════════════════════════════════════════════════════════════ -->
+
     </div>
 </section>
 
@@ -517,153 +1147,167 @@ footer .foot-links a:hover { color: #ffffff; }
 </footer>
 
 <script>
-/* ─── METEOROLOGICAL SKYBOX DIURNAL CYCLE BACKDROP SOLVER ─── */
-(function(){
-    const canvas = document.getElementById('ambient-canvas');
-    const ctx = canvas.getContext('2d');
-    let w, h;
-    
-    function setSize() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-    }
-    setSize();
-    window.addEventListener('resize', setSize);
+    /* ─── METEOROLOGICAL SKYBOX DIURNAL CYCLE BACKDROP SOLVER ─── */
+    (function() {
+        const canvas = document.getElementById('ambient-canvas');
+        const ctx = canvas.getContext('2d');
+        let w, h;
 
-    const clouds = [];
-    const maxClouds = 18;
-    let timeEpoch = 0;
-    const mouse = { x: 0, y: 0 };
+        function setSize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+        setSize();
+        window.addEventListener('resize', setSize);
 
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = (e.clientX / w) - 0.5;
-        mouse.y = (e.clientY / h) - 0.5;
-    });
+        const clouds = [];
+        const maxClouds = 18;
+        let timeEpoch = 0;
+        const mouse = { x: 0, y: 0 };
 
-    for(let i=0; i<maxClouds; i++) {
-        clouds.push({
-            x: Math.random() * w,
-            y: Math.random() * (h * 0.7),
-            w: Math.random() * 240 + 160,
-            h: Math.random() * 60 + 40,
-            speed: Math.random() * 0.15 + 0.05,
-            opacity: Math.random() * 0.06 + 0.02
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = (e.clientX / w) - 0.5;
+            mouse.y = (e.clientY / h) - 0.5;
         });
-    }
 
-    function drawWeather() {
-        timeEpoch += 0.0005; 
-        let cycleFactor = (Math.sin(timeEpoch) + 1) / 2; 
-        
-        let r1 = Math.floor(250 - (cycleFactor * 15));
-        let g1 = Math.floor(251 - (cycleFactor * 25));
-        let b1 = Math.floor(253 - (cycleFactor * 15));
-        
-        let r2 = Math.floor(242 + (cycleFactor * 8));
-        let g2 = Math.floor(244 + (cycleFactor * 5));
-        let b2 = Math.floor(248 - (cycleFactor * 10));
+        for (let i = 0; i < maxClouds; i++) {
+            clouds.push({
+                x: Math.random() * w,
+                y: Math.random() * (h * 0.7),
+                w: Math.random() * 240 + 160,
+                h: Math.random() * 60 + 40,
+                speed: Math.random() * 0.15 + 0.05,
+                opacity: Math.random() * 0.06 + 0.02
+            });
+        }
 
-        let bgGradient = ctx.createLinearGradient(0, 0, 0, h);
-        bgGradient.addColorStop(0, `rgb(${r1}, ${g1}, ${b1})`);
-        bgGradient.addColorStop(0.6, `rgb(${r2}, ${g2}, ${b2})`);
-        bgGradient.addColorStop(1, '#ffffff');
-        
-        ctx.fillStyle = bgGradient;
-        ctx.fillRect(0, 0, w, h);
+        function drawWeather() {
+            timeEpoch += 0.0005;
+            let cycleFactor = (Math.sin(timeEpoch) + 1) / 2;
 
-        clouds.forEach(c => {
-            c.x += c.speed + (mouse.x * 0.2); 
-            if (c.x > w + c.w) c.x = -c.w;
-            
+            let r1 = Math.floor(250 - (cycleFactor * 15));
+            let g1 = Math.floor(251 - (cycleFactor * 25));
+            let b1 = Math.floor(253 - (cycleFactor * 15));
+
+            let r2 = Math.floor(242 + (cycleFactor * 8));
+            let g2 = Math.floor(244 + (cycleFactor * 5));
+            let b2 = Math.floor(248 - (cycleFactor * 10));
+
+            let bgGradient = ctx.createLinearGradient(0, 0, 0, h);
+            bgGradient.addColorStop(0, `rgb(${r1}, ${g1}, ${b1})`);
+            bgGradient.addColorStop(0.6, `rgb(${r2}, ${g2}, ${b2})`);
+            bgGradient.addColorStop(1, '#ffffff');
+
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, w, h);
+
+            clouds.forEach(c => {
+                c.x += c.speed + (mouse.x * 0.2);
+                if (c.x > w + c.w) c.x = -c.w;
+
+                ctx.beginPath();
+                let cloudGrad = ctx.createRadialGradient(c.x + c.w / 2, c.y + c.h / 2, 0, c.x + c.w / 2, c.y + c
+                    .h / 2, c.w / 2);
+                cloudGrad.addColorStop(0, `rgba(15, 44, 89, ${c.opacity})`);
+                cloudGrad.addColorStop(0.6, `rgba(240, 244, 248, ${c.opacity * 0.2})`);
+                cloudGrad.addColorStop(1, 'rgba(255,255,255,0)');
+
+                ctx.fillStyle = cloudGrad;
+                ctx.ellipse(c.x + c.w / 2, c.y + c.h / 2, c.w / 2, c.h / 2, 0, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            ctx.strokeStyle = 'rgba(15, 44, 89, 0.02)';
+            ctx.lineWidth = 0.5;
             ctx.beginPath();
-            let cloudGrad = ctx.createRadialGradient(c.x + c.w/2, c.y + c.h/2, 0, c.x + c.w/2, c.y + c.h/2, c.w/2);
-            cloudGrad.addColorStop(0, `rgba(15, 44, 89, ${c.opacity})`);
-            cloudGrad.addColorStop(0.6, `rgba(240, 244, 248, ${c.opacity * 0.2})`);
-            cloudGrad.addColorStop(1, 'rgba(255,255,255,0)');
-            
-            ctx.fillStyle = cloudGrad;
-            ctx.ellipse(c.x + c.w/2, c.y + c.h/2, c.w/2, c.h/2, 0, 0, Math.PI * 2);
-            ctx.fill();
+            ctx.moveTo(w / 2 + (mouse.x * 20), 0);
+            ctx.lineTo(w / 2 + (mouse.x * 20), h);
+            ctx.moveTo(0, h / 2 + (mouse.y * 20));
+            ctx.lineTo(w, h / 2 + (mouse.y * 20));
+            ctx.stroke();
+
+            requestAnimationFrame(drawWeather);
+        }
+        drawWeather();
+    })();
+
+    /* ─── NAVIGATION OVERLAY INTERACTION ─── */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navbar = document.getElementById('navbar');
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    /* ─── SCROLL INTERSECTION OBSERVER (REVEAL ANIMATIONS) ─── */
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
         });
+    }, { threshold: 0.1 });
 
-        ctx.strokeStyle = 'rgba(15, 44, 89, 0.02)';
-        ctx.lineWidth = 0.5;
-        ctx.beginPath();
-        ctx.moveTo(w/2 + (mouse.x * 20), 0); ctx.lineTo(w/2 + (mouse.x * 20), h);
-        ctx.moveTo(0, h/2 + (mouse.y * 20)); ctx.lineTo(w, h/2 + (mouse.y * 20));
-        ctx.stroke();
+    revealElements.forEach(el => revealObserver.observe(el));
 
-        requestAnimationFrame(drawWeather);
+    /* ─── HORIZONTAL CAROUSEL DRIVER ─── */
+    const track = document.getElementById('carouselTrack');
+    const cards = Array.from(track.children).filter(el => el.classList.contains('sys-card'));
+    const dotsWrap = document.getElementById('carouselDots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let activeIndex = 0;
+
+    cards.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.setAttribute('aria-label', 'Go to tracking block ' + (i + 1));
+        if (i === 0) b.classList.add('active');
+        b.addEventListener('click', () => scrollToCard(i));
+        dotsWrap.appendChild(b);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function scrollToCard(i) {
+        cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
-    drawWeather();
-})();
 
-/* ─── NAVIGATION OVERLAY INTERACTION ─── */
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-const navbar = document.getElementById('navbar');
+    function updateActive(i) {
+        activeIndex = i;
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+        prevBtn.disabled = i === 0;
+        nextBtn.disabled = i === cards.length - 1;
+    }
 
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-});
+    prevBtn.addEventListener('click', () => scrollToCard(Math.max(0, activeIndex - 1)));
+    nextBtn.addEventListener('click', () => scrollToCard(Math.min(cards.length - 1, activeIndex + 1)));
 
-window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 30);
-});
+    const carouselObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+                updateActive(cards.indexOf(entry.target));
+            }
+        });
+    }, { root: track, threshold: [0.6] });
+    cards.forEach(c => carouselObserver.observe(c));
 
-/* ─── SCROLL INTERSECTION OBSERVER (REVEAL ANIMATIONS) ─── */
-const revealElements = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, { threshold: 0.1 });
+    updateActive(0);
 
-revealElements.forEach(el => revealObserver.observe(el));
-
-/* ─── HORIZONTAL CAROUSEL DRIVER ─── */
-const track = document.getElementById('carouselTrack');
-const cards = Array.from(track.children).filter(el => el.classList.contains('sys-card'));
-const dotsWrap = document.getElementById('carouselDots');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-let activeIndex = 0;
-
-cards.forEach((_, i) => {
-    const b = document.createElement('button');
-    b.setAttribute('aria-label', 'Go to tracking block ' + (i + 1));
-    if (i === 0) b.classList.add('active');
-    b.addEventListener('click', () => scrollToCard(i));
-    dotsWrap.appendChild(b);
-});
-const dots = Array.from(dotsWrap.children);
-
-function scrollToCard(i){
-    cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-}
-
-function updateActive(i) {
-    activeIndex = i;
-    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
-    prevBtn.disabled = i === 0;
-    nextBtn.disabled = i === cards.length - 1;
-}
-
-prevBtn.addEventListener('click', () => scrollToCard(Math.max(0, activeIndex - 1)));
-nextBtn.addEventListener('click', () => scrollToCard(Math.min(cards.length - 1, activeIndex + 1)));
-
-const carouselObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-            updateActive(cards.indexOf(entry.target));
-        }
-    });
-}, { root: track, threshold: [0.6] });
-cards.forEach(c => carouselObserver.observe(c));
-
-updateActive(0);
+    /* ─── KEYBOARD ACCESSIBILITY FOR STRATOS-14E ROW ─── */
+    const stratosRow = document.querySelector('.stratos-row');
+    if (stratosRow) {
+        stratosRow.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.location.href = '/stratos-14e/';
+            }
+        });
+    }
 </script>
 
 </body>
