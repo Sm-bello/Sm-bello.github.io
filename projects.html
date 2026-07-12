@@ -798,13 +798,143 @@
     </div>
 </div>
 
-<!-- ══════════════  ARCHIVES  ══════════════ -->
-<div class="section-header"><i class="fas fa-folder-open"></i><h2>Technical Archives</h2></div>
-<div class="archives-grid">
-    <div class="archive-card"><div class="card-icon"><i class="fas fa-network-wired"></i></div><h3>UDP + FlightGear Integration</h3><p>Real-time telemetry bridge connecting FlightGear to cloud databases — UDP parsing, data validation, streaming to InfluxDB.</p><a href="https://github.com/Sm-bello" target="_blank" class="repo-link">View Repository <i class="fas fa-arrow-right"></i></a></div>
-    <div class="archive-card"><div class="card-icon"><i class="fas fa-database"></i></div><h3>Telemetry Data Pipeline</h3><p>Complete ETL pipeline from simulation to visualization. Python UDP listeners, Telegraf, PostgreSQL/InfluxDB dual-database architecture.</p><a href="https://github.com/Sm-bello" target="_blank" class="repo-link">Explore Code <i class="fas fa-arrow-right"></i></a></div>
-    <div class="archive-card"><div class="card-icon"><i class="fas fa-bezier-curve"></i></div><h3>Structural Beam Analysis</h3><p>FEA of aircraft wing spars using Ansys Workbench. Optimized material thickness for weight reduction while maintaining FAA safety factors.</p><span class="repo-link" style="color:#64748b;cursor:default;"><i class="fas fa-check-circle"></i> Project Completed</span></div>
+<!-- ... existing code ... -->
+<!-- ══════════════  SOFTWARE & AI SYSTEMS  ══════════════ -->
+<div class="section-header"><i class="fas fa-code"></i><h2>Software & AI Systems</h2></div>
+<div class="interactive-grid">
+    <!-- Lifestone Engine v2.0 -->
+<!-- ... existing code ... -->
+        <p>Sovereign Offline Execution Matrix. Drives multi-provider runtime fallback trees via deterministic ReAct execution loops with physical signature tracking.</p>
+        <button class="demo-btn" onclick="showModal('Penelope AI Agent v1.2', 'Operational — fully sovereign, self-hosted AI agent.\nMulti-provider cascade with hardware soul-lock.\nReAct agentic loop with physics unit validation.');"><i class="fas fa-arrow-right"></i> Technical Overview</button>
+    </div>
 </div>
+
+<!-- ══════════════  ARCHIVES & PROFILES  ══════════════ -->
+<div class="section-header"><i class="fas fa-folder-open"></i><h2>Technical Archives & Profiles</h2></div>
+<div class="profiles-grid">
+    
+    <!-- Profile Card 1: Kaggle -->
+    <div class="profile-card" onclick="navigateWithGlow(event, 'https://www.kaggle.com/mohammedbellosani')">
+        <div class="sys-top">
+            <span>REP · 01</span>
+            <div class="status"><span class="dot" style="background:var(--neon-blue); box-shadow: 0 0 8px var(--neon-blue);"></span> DATASETS</div>
+        </div>
+        <h3>Kaggle Profile</h3>
+        <div class="subtitle">Aerospace Datasets & Physics-AI</div>
+        <p>Repository of synthetic landing gear datasets, digital twin degradation profiles, and machine learning notebooks used in published research.</p>
+        <div class="tags">
+            <span class="tag">Datasets</span><span class="tag">Notebooks</span><span class="tag">Physics-AI</span>
+        </div>
+        <div class="bottom-link">
+            <i class="fas fa-folder"></i> View Repository
+        </div>
+    </div>
+
+    <!-- Profile Card 2: Hugging Face -->
+    <div class="profile-card" onclick="navigateWithGlow(event, 'https://huggingface.co/spaces/SM-Bello/')">
+        <div class="sys-top">
+            <span>REP · 02</span>
+            <div class="status"><span class="dot" style="background:var(--neon-pink); box-shadow: 0 0 8px var(--neon-pink);"></span> SPACES & MODELS</div>
+        </div>
+        <h3>Hugging Face</h3>
+        <div class="subtitle">Live Inference & Surrogates</div>
+        <p>Deployed generative models, CVAE spatiotemporal fields, and live interactive spaces for aerospace fluid and structural AI architectures.</p>
+        <div class="tags">
+            <span class="tag">Spaces</span><span class="tag">Models</span><span class="tag">Gradio</span>
+        </div>
+        <div class="bottom-link">
+            <i class="fas fa-folder"></i> View Hub
+        </div>
+    </div>
+
+    <!-- Profile Card 3: LinkedIn -->
+    <div class="profile-card" onclick="navigateWithGlow(event, 'https://www.linkedin.com/in/mohammed-bello-sani-369a89284')">
+        <div class="sys-top">
+            <span>NET · 03</span>
+            <div class="status"><span class="dot" style="background:var(--neon-teal); box-shadow: 0 0 8px var(--neon-teal);"></span> PROFESSIONAL LOG</div>
+        </div>
+        <h3>LinkedIn</h3>
+        <div class="subtitle">Career & Publications</div>
+        <p>Professional network, architectural design publications, aerospace portfolio updates, and progress on peer-reviewed journal submissions.</p>
+        <div class="tags">
+            <span class="tag">Network</span><span class="tag">Articles</span><span class="tag">Updates</span>
+        </div>
+        <div class="bottom-link">
+            <i class="fas fa-folder"></i> Connect
+        </div>
+    </div>
+
+</div>
+
+</div><!-- /container -->
+
+<footer>
+    <p>&copy; 2026 Mohammed Bello Sani | Aerospace Intelligence Research</p>
+<!-- ... existing code ... -->
+```eof
+
+### 2. Update the CSS
+Add the styling for the new grid, the layout mimicking your image reference, and the interactive glow animation. Insert this just before the closing `</style>` tag.
+
+```html:project.html
+<!-- ... existing code ... -->
+        .repo-link:hover{color:var(--neon-blue);gap:12px}
+        
+        /* ── PROFILES / ARCHIVES GRID (Reference Layout) ── */
+        .profiles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+        .profile-card { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.2rem; display: flex; flex-direction: column; cursor: pointer; transition: var(--transition-smooth); position: relative; overflow: hidden; backdrop-filter: blur(10px); }
+        .profile-card .sys-top { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.65rem; color: #94a3b8; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .profile-card .status { display: flex; align-items: center; gap: 6px; font-weight: 700; color: #cbd5e1; }
+        .profile-card h3 { font-family: var(--font-display); font-size: 1.6rem; color: #fff; margin-bottom: 0.4rem; }
+        .profile-card .subtitle { color: var(--neon-blue); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .profile-card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; flex-grow: 1; }
+        .profile-card .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 2rem; }
+        .profile-card .tag { font-family: var(--font-mono); font-size: 0.65rem; border: 1px solid rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #94a3b8; background: rgba(255,255,255,0.03); }
+        .profile-card .bottom-link { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.2rem; color: #fff; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 10px; transition: color 0.3s ease; }
+        .profile-card .bottom-link i { color: var(--neon-orange); font-size: 1.1rem; }
+        
+        /* Interactive Glow Animation */
+        .profile-card:hover { transform: translateY(-6px); border-color: rgba(14, 165, 233, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
+        .profile-card:hover .bottom-link { color: var(--neon-blue); }
+        .profile-card.glow-active { transform: scale(0.96); border-color: var(--neon-blue); box-shadow: 0 0 30px rgba(14, 165, 233, 0.5) inset, 0 0 40px rgba(14, 165, 233, 0.6); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        footer{background:var(--footer-bg);padding:3rem 2rem;color:white;text-align:center;margin-top:6rem;position:relative;z-index:2; border-top: 1px solid rgba(255,255,255,0.05);}
+<!-- ... existing code ... -->
+```eof
+
+### 3. Update the JavaScript
+Add the animation logic that waits for the "implosion glow" effect to finish before firing the URL jump. Insert this just before the closing `</script>` tag at the very bottom.
+
+```html:project.html
+<!-- ... existing code ... -->
+        ctx.fillText('CVAE 4.3M',6,13);
+        ctx.restore();
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* ── PROFILE NAVIGATOR GLOW ANIMATION ── */
+function navigateWithGlow(event, url) {
+    event.preventDefault();
+    const card = event.currentTarget;
+    
+    // Add the glowing implosion class
+    card.classList.add('glow-active');
+    
+    // Wait for the animation (350ms) before opening the new tab
+    setTimeout(() => {
+        window.open(url, '_blank');
+        card.classList.remove('glow-active');
+    }, 350); 
+}
+
+</script>
+</body>
+</html>
+<!-- ... existing code ... -->
+```eof
 
 </div><!-- /container -->
 
