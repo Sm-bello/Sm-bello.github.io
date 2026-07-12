@@ -5,144 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digital Twin Reconnaissance Hub | Mohammed Bello Sani</title>
     <meta name="description" content="Simulating UAV vision and flight in a unified pipeline — ArduPilot SITL, FlightGear, and YOLOv8 aerial detection." />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         :root {
-            --bg: #ffffff;
-            --bg-warm: #faf9f6;
-            --text: #0b0f19;
-            --text-secondary: #475467;
-            --text-tertiary: #8592a6;
-            --accent: #0f2c59;
-            --accent-light: #1d4ed8;
-            --accent-orange: #dd5a12;
-            --accent-green: #067a52;
+            --bg: #ffffff; --bg-warm: #faf9f6;
+            --text: #0b0f19; --text-secondary: #475467; --text-tertiary: #8592a6;
+            --accent: #0f2c59; --accent-light: #1d4ed8; --accent-orange: #dd5a12;
+            --accent-green: #067a52; --accent-red: #b42318;
             --border: rgba(11, 15, 25, 0.08);
-            --ff-body: 'Inter', sans-serif;
-            --ff-display: 'Space Grotesk', sans-serif;
-            --ff-mono: 'JetBrains Mono', monospace;
+            --ff-body: 'Inter', sans-serif; --ff-display: 'Space Grotesk', sans-serif; --ff-mono: 'JetBrains Mono', monospace;
             --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--ff-body);
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+        body { font-family: var(--ff-body); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-        /* ─── NAV (same system as main site) ─── */
-        .nav-wrapper {
-            position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%);
-            z-index: 1000; width: 90%; max-width: 1400px; pointer-events: none;
-        }
-        nav.stretched-nav {
-            pointer-events: auto; width: 100%; height: 64px;
-            background: rgba(255,255,255,0.85); backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px); border-radius: 32px; padding: 0 2rem;
-            border: 1px solid var(--border);
-            display: flex; align-items: center;
-        }
+        .nav-wrapper { position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 1000; width: 90%; max-width: 1400px; pointer-events: none; }
+        nav.stretched-nav { pointer-events: auto; width: 100%; height: 64px; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 32px; padding: 0 2rem; border: 1px solid var(--border); display: flex; align-items: center; }
         .nav-inner { width:100%; display:flex; align-items:center; justify-content:space-between; }
-        .logo-text {
-            font-family: var(--ff-display); font-weight:900; font-size:1.05rem;
-            letter-spacing:0.05em; text-transform:uppercase; color:#0b0f19; text-decoration:none;
-        }
+        .logo-text { font-family: var(--ff-display); font-weight:900; font-size:1.05rem; letter-spacing:0.05em; text-transform:uppercase; color:#0b0f19; text-decoration:none; }
         .nav-links { display:flex; align-items:center; gap:0.25rem; list-style:none; }
-        .nav-links a {
-            font-family: var(--ff-display); font-size:0.8rem; font-weight:700;
-            color:#1e293b; text-decoration:none; padding:0.4rem 1.1rem; border-radius:100px;
-            transition: var(--transition-smooth);
-        }
+        .nav-links a { font-family: var(--ff-display); font-size:0.8rem; font-weight:700; color:#1e293b; text-decoration:none; padding:0.4rem 1.1rem; border-radius:100px; transition: var(--transition-smooth); }
         .nav-links a:hover { color:#000; background: rgba(11,15,25,0.05); }
         @media (max-width:960px){ .nav-links{ display:none; } }
 
-        /* ─── HERO ─── */
         .hero { padding: 12rem 2rem 3rem; max-width: 900px; margin: 0 auto; }
-        .breadcrumb {
-            font-family: var(--ff-mono); font-size: 0.75rem; color: var(--text-tertiary);
-            text-decoration: none; display:inline-flex; align-items:center; gap:0.4rem; margin-bottom:2rem;
-        }
+        .breadcrumb { font-family: var(--ff-mono); font-size: 0.75rem; color: var(--text-tertiary); text-decoration: none; display:inline-flex; align-items:center; gap:0.4rem; margin-bottom:2rem; }
         .breadcrumb:hover { color: var(--accent-orange); }
-        .eyebrow {
-            font-family: var(--ff-mono); font-size:0.72rem; font-weight:600; color: var(--accent-orange);
-            letter-spacing:0.25em; text-transform:uppercase; margin-bottom:1.2rem;
-            display:inline-flex; align-items:center; gap:0.8rem;
-        }
+        .eyebrow { font-family: var(--ff-mono); font-size:0.72rem; font-weight:600; color: var(--accent-orange); letter-spacing:0.25em; text-transform:uppercase; margin-bottom:1.2rem; display:inline-flex; align-items:center; gap:0.8rem; }
         .eyebrow::before { content:''; width:24px; height:1px; background: var(--accent-orange); }
-        h1 {
-            font-family: var(--ff-display); font-size: clamp(2rem, 4.8vw, 3.2rem);
-            font-weight:800; line-height:1.12; letter-spacing:-0.02em; margin-bottom:1.2rem;
-        }
+        h1 { font-family: var(--ff-display); font-size: clamp(2rem, 4.8vw, 3.2rem); font-weight:800; line-height:1.12; letter-spacing:-0.02em; margin-bottom:1.2rem; }
         .lede { color: var(--text-secondary); font-size:1.08rem; line-height:1.75; max-width: 680px; margin-bottom:1.8rem; }
-        .status-pill {
-            display:inline-flex; align-items:center; gap:0.5rem; font-family: var(--ff-mono);
-            font-size:0.72rem; font-weight:600; padding:0.5rem 1.1rem; border-radius:100px;
-            border:1px solid var(--border); background: var(--bg-warm); color: var(--text-secondary);
-        }
+        .status-pill { display:inline-flex; align-items:center; gap:0.5rem; font-family: var(--ff-mono); font-size:0.72rem; font-weight:600; padding:0.5rem 1.1rem; border-radius:100px; border:1px solid var(--border); background: var(--bg-warm); color: var(--text-secondary); }
         .dot { width:7px; height:7px; border-radius:50%; }
         .dot.proto { background: var(--accent-light); box-shadow:0 0 8px var(--accent-light); }
+        .dot.done { background: var(--accent-green); box-shadow:0 0 8px var(--accent-green); }
+        .dot.progress { background: var(--accent-orange); box-shadow:0 0 8px var(--accent-orange); }
+        .dot.bug { background: var(--accent-red); box-shadow:0 0 8px var(--accent-red); }
 
-        /* ─── ARCHITECTURE IMAGE ─── */
         .arch-section { max-width: 1100px; margin: 3rem auto; padding: 0 2rem; }
-        .arch-frame {
-            border:1px solid var(--border); border-radius:16px; overflow:hidden; background: var(--bg-warm);
-        }
+        .arch-frame { border:1px solid var(--border); border-radius:16px; overflow:hidden; background: var(--bg-warm); }
         .arch-frame img { width:100%; display:block; }
-        .arch-caption {
-            font-family: var(--ff-mono); font-size:0.75rem; color: var(--text-tertiary);
-            padding: 1rem 1.5rem; border-top:1px solid var(--border);
-        }
+        .arch-caption { font-family: var(--ff-mono); font-size:0.75rem; color: var(--text-tertiary); padding: 1rem 1.5rem; border-top:1px solid var(--border); }
 
-        /* ─── CONTENT SECTIONS ─── */
         .content { max-width: 780px; margin: 0 auto; padding: 3rem 2rem; }
-        .content h2 {
-            font-family: var(--ff-display); font-size:1.5rem; font-weight:700; margin-bottom:1rem;
-            letter-spacing:-0.01em;
-        }
-        .content p { color: var(--text-secondary); font-size:1rem; margin-bottom:1.2rem; }
+        .content-wide { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+        .content h2, .content-wide h2 { font-family: var(--ff-display); font-size:1.5rem; font-weight:700; margin-bottom:1rem; letter-spacing:-0.01em; }
+        .content p, .content-wide > p { color: var(--text-secondary); font-size:1rem; margin-bottom:1.2rem; max-width: 680px; }
 
-        /* ─── STATUS BREAKDOWN ─── */
         .verify-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:1rem; margin: 1.5rem 0; }
-        .verify-card {
-            border:1px solid var(--border); border-radius:12px; padding:1.4rem; background:#fff;
-        }
+        .verify-card { border:1px solid var(--border); border-radius:12px; padding:1.4rem; background:#fff; }
         .verify-card .row { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.6rem; }
         .verify-card .name { font-family: var(--ff-display); font-weight:700; font-size:0.95rem; }
         .verify-card .desc { font-size:0.85rem; color: var(--text-secondary); }
-        .dot.done { background: var(--accent-green); box-shadow:0 0 8px var(--accent-green); }
-        .dot.progress { background: var(--accent-orange); box-shadow:0 0 8px var(--accent-orange); }
 
-        /* ─── TECH CHIPS ─── */
         .chip-row { display:flex; flex-wrap:wrap; gap:0.5rem; margin: 1rem 0 0.5rem; }
-        .chip {
-            font-family: var(--ff-mono); font-size:0.72rem; font-weight:500; color: var(--text-secondary);
-            border:1px solid var(--border); border-radius:6px; padding:0.35rem 0.7rem; background: var(--bg-warm);
-        }
+        .chip { font-family: var(--ff-mono); font-size:0.72rem; font-weight:500; color: var(--text-secondary); border:1px solid var(--border); border-radius:6px; padding:0.35rem 0.7rem; background: var(--bg-warm); }
 
-        /* ─── ENGINEERING NOTES ─── */
+        /* ─── BUILD LOG GALLERY ─── */
+        .log-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem; margin-top:1.5rem; }
+        .log-card { border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#fff; transition: var(--transition-smooth); }
+        .log-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(11,15,25,0.08); }
+        .log-card img { width:100%; display:block; aspect-ratio: 16/10; object-fit:cover; }
+        .log-card-body { padding:1.2rem 1.3rem; }
+        .log-tag { display:inline-flex; align-items:center; gap:0.4rem; font-family: var(--ff-mono); font-size:0.68rem; font-weight:600; padding:0.25rem 0.6rem; border-radius:100px; margin-bottom:0.7rem; text-transform:uppercase; letter-spacing:0.04em; }
+        .log-tag.milestone { background: rgba(6,122,82,0.08); color: var(--accent-green); }
+        .log-tag.bug { background: rgba(180,35,24,0.08); color: var(--accent-red); }
+        .log-card h3 { font-family: var(--ff-display); font-size:1.02rem; font-weight:700; margin-bottom:0.5rem; }
+        .log-card p { font-size:0.87rem; color: var(--text-secondary); margin-bottom:0; max-width:none; }
+
         .notes-list { list-style:none; }
-        .notes-list li {
-            display:flex; gap:0.9rem; padding: 0.9rem 0; border-bottom:1px solid var(--border);
-            font-size:0.94rem; color: var(--text-secondary);
-        }
+        .notes-list li { display:flex; gap:0.9rem; padding: 0.9rem 0; border-bottom:1px solid var(--border); font-size:0.94rem; color: var(--text-secondary); }
         .notes-list li:last-child { border-bottom:none; }
         .notes-list .icon { color: var(--accent-orange); flex-shrink:0; }
         .notes-list b { color: var(--text); }
 
-        /* ─── FOOTER ─── */
-        footer {
-            background:#07090e; padding:4rem 2rem; color:#94a3b8; margin-top:2rem;
-            border-top:1px solid rgba(255,255,255,0.05);
-        }
-        footer .wrap {
-            max-width:1280px; margin:0 auto; display:flex; justify-content:space-between;
-            align-items:center; flex-wrap:wrap; gap:1.5rem;
-        }
+        footer { background:#07090e; padding:4rem 2rem; color:#94a3b8; margin-top:2rem; border-top:1px solid rgba(255,255,255,0.05); }
+        footer .wrap { max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem; }
         footer p { font-family: var(--ff-mono); font-size:0.75rem; margin:0; }
         footer .foot-links { display:flex; gap:1.5rem; }
         footer .foot-links a { text-decoration:none; color:#64748b; font-size:0.85rem; }
@@ -232,8 +172,62 @@
             <span class="chip">Python / OpenCV</span>
             <span class="chip">WSL2</span>
         </div>
+    </div>
 
-        <h2 style="margin-top:2.5rem;">Engineering notes</h2>
+    <div class="content-wide">
+        <h2>Build log</h2>
+        <p>A working record of the pipeline coming together — including the moments it broke, because that's the part that actually proves it was built, not assembled from a tutorial.</p>
+
+        <div class="log-grid">
+            <div class="log-card">
+                <img src="/assets/phi-drone-model-verification.jpg" alt="YOLOv8 VisDrone detections on a real aerial street photograph">
+                <div class="log-card-body">
+                    <span class="log-tag milestone">Verified</span>
+                    <h3>Detector proven before integration</h3>
+                    <p>YOLOv8n fine-tuned on VisDrone correctly classing pedestrians, cars, and motorbikes on a real drone-view photograph — confirmed sound before any simulation wiring began.</p>
+                </div>
+            </div>
+
+            <div class="log-card">
+                <img src="/assets/phi-drone-flight-sync.jpg" alt="FlightGear rendering the ArduCopter model in sync with MAVProxy console during takeoff">
+                <div class="log-card-body">
+                    <span class="log-tag milestone">Verified</span>
+                    <h3>Flight-to-visual sync achieved</h3>
+                    <p>ArduPilot's own bundled quadcopter model rendered live in FlightGear, position and altitude driven entirely by SITL's real flight dynamics over a UDP FDM stream.</p>
+                </div>
+            </div>
+
+            <div class="log-card">
+                <img src="/assets/phi-drone-capture-bug.jpg" alt="False positive car detections firing on desktop icons instead of the flight simulation">
+                <div class="log-card-body">
+                    <span class="log-tag bug">Bug, caught</span>
+                    <h3>The detector was watching the desktop</h3>
+                    <p>An uncalibrated screen-capture region briefly had YOLO reading desktop wallpaper instead of FlightGear's 3D scene — diagnosed and fully root-caused before it touched any logged data.</p>
+                </div>
+            </div>
+
+            <div class="log-card">
+                <img src="/assets/phi-drone-capture-fixed.jpg" alt="FlightGear window and live preview window showing identical, correctly captured content">
+                <div class="log-card-body">
+                    <span class="log-tag milestone">Fixed</span>
+                    <h3>Capture region calibrated and proven</h3>
+                    <p>Fixed with programmatic window-geometry verification and a mandatory live preview — the captured feed and FlightGear's actual render now provably match, frame for frame.</p>
+                </div>
+            </div>
+
+            <div class="log-card">
+                <img src="/assets/phi-drone-sync-regression.jpg" alt="FlightGear altitude frozen at zero while MAVProxy console shows real altitude climbing">
+                <div class="log-card-body">
+                    <span class="log-tag bug">Bug, caught</span>
+                    <h3>Sync regression, diagnosed by cross-check</h3>
+                    <p>A stale background FlightGear instance silently held the telemetry port, freezing the render while SITL genuinely flew — caught by cross-checking FlightGear's own HUD altitude against MAVProxy's console.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Engineering notes</h2>
         <ul class="notes-list">
             <li><span class="icon">▸</span><span>Diagnosed and closed a capture-calibration defect where the detector briefly read the host desktop instead of the simulated scene — fixed with geometry-verified, fail-loud window capture.</span></li>
             <li><span class="icon">▸</span><span>Telemetry runs on a dedicated background thread so a blocking MAVLink read can never stall frame capture.</span></li>
