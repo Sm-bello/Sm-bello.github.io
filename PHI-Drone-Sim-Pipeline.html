@@ -4,246 +4,113 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digital Twin Reconnaissance Hub | Mohammed Bello Sani</title>
-    <meta name="description" content="Simulating UAV vision and flight in a unified pipeline — ArduPilot SITL, FlightGear, and YOLOv8 aerial detection." />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         :root {
             --bg: #ffffff; --bg-warm: #faf9f6;
             --text: #0b0f19; --text-secondary: #475467; --text-tertiary: #8592a6;
-            --accent: #0f2c59; --accent-light: #1d4ed8; --accent-orange: #dd5a12;
-            --accent-green: #067a52; --accent-red: #b42318;
+            --accent: #0f2c59; --accent-orange: #dd5a12; --accent-green: #067a52; --accent-red: #b42318;
             --border: rgba(11, 15, 25, 0.08);
-            --ff-body: 'Inter', sans-serif; --ff-display: 'Space Grotesk', sans-serif; --ff-mono: 'JetBrains Mono', monospace;
             --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--ff-body); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding-top: 120px; }
 
-        .nav-wrapper { position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 1000; width: 90%; max-width: 1400px; pointer-events: none; }
-        nav.stretched-nav { pointer-events: auto; width: 100%; height: 64px; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 32px; padding: 0 2rem; border: 1px solid var(--border); display: flex; align-items: center; }
-        .nav-inner { width:100%; display:flex; align-items:center; justify-content:space-between; }
-        .logo-text { font-family: var(--ff-display); font-weight:900; font-size:1.05rem; letter-spacing:0.05em; text-transform:uppercase; color:#0b0f19; text-decoration:none; }
-        .nav-links { display:flex; align-items:center; gap:0.25rem; list-style:none; }
-        .nav-links a { font-family: var(--ff-display); font-size:0.8rem; font-weight:700; color:#1e293b; text-decoration:none; padding:0.4rem 1.1rem; border-radius:100px; transition: var(--transition-smooth); }
-        .nav-links a:hover { color:#000; background: rgba(11,15,25,0.05); }
-        @media (max-width:960px){ .nav-links{ display:none; } }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        
+        /* Bento Grid System */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
 
-        .hero { padding: 12rem 2rem 3rem; max-width: 900px; margin: 0 auto; }
-        .breadcrumb { font-family: var(--ff-mono); font-size: 0.75rem; color: var(--text-tertiary); text-decoration: none; display:inline-flex; align-items:center; gap:0.4rem; margin-bottom:2rem; }
-        .breadcrumb:hover { color: var(--accent-orange); }
-        .eyebrow { font-family: var(--ff-mono); font-size:0.72rem; font-weight:600; color: var(--accent-orange); letter-spacing:0.25em; text-transform:uppercase; margin-bottom:1.2rem; display:inline-flex; align-items:center; gap:0.8rem; }
-        .eyebrow::before { content:''; width:24px; height:1px; background: var(--accent-orange); }
-        h1 { font-family: var(--ff-display); font-size: clamp(2rem, 4.8vw, 3.2rem); font-weight:800; line-height:1.12; letter-spacing:-0.02em; margin-bottom:1.2rem; }
-        .lede { color: var(--text-secondary); font-size:1.08rem; line-height:1.75; max-width: 680px; margin-bottom:1.8rem; }
-        .status-pill { display:inline-flex; align-items:center; gap:0.5rem; font-family: var(--ff-mono); font-size:0.72rem; font-weight:600; padding:0.5rem 1.1rem; border-radius:100px; border:1px solid var(--border); background: var(--bg-warm); color: var(--text-secondary); }
-        .dot { width:7px; height:7px; border-radius:50%; }
-        .dot.proto { background: var(--accent-light); box-shadow:0 0 8px var(--accent-light); }
-        .dot.done { background: var(--accent-green); box-shadow:0 0 8px var(--accent-green); }
-        .dot.progress { background: var(--accent-orange); box-shadow:0 0 8px var(--accent-orange); }
-        .dot.bug { background: var(--accent-red); box-shadow:0 0 8px var(--accent-red); }
+        .card { 
+            background: #fff; border: 1px solid var(--border); border-radius: 16px; 
+            padding: 1.5rem; transition: var(--transition-smooth);
+        }
+        .card:hover { border-color: var(--accent-orange); transform: translateY(-2px); }
+        .span-2 { grid-column: span 2; }
+        .span-4 { grid-column: span 4; }
 
-        .arch-section { max-width: 1100px; margin: 3rem auto; padding: 0 2rem; }
-        .arch-frame { border:1px solid var(--border); border-radius:16px; overflow:hidden; background: var(--bg-warm); }
-        .arch-frame img { width:100%; display:block; }
-        .arch-caption { font-family: var(--ff-mono); font-size:0.75rem; color: var(--text-tertiary); padding: 1rem 1.5rem; border-top:1px solid var(--border); }
+        .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent-orange); text-transform: uppercase; margin-bottom: 1rem; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; line-height: 1; margin-bottom: 1rem; }
+        .hero-meta { display: flex; gap: 1rem; margin-bottom: 3rem; }
 
-        .content { max-width: 780px; margin: 0 auto; padding: 3rem 2rem; }
-        .content-wide { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
-        .content h2, .content-wide h2 { font-family: var(--ff-display); font-size:1.5rem; font-weight:700; margin-bottom:1rem; letter-spacing:-0.01em; }
-        .content p, .content-wide > p { color: var(--text-secondary); font-size:1rem; margin-bottom:1.2rem; max-width: 680px; }
+        .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; padding: 0.3rem 0.6rem; border: 1px solid var(--border); border-radius: 4px; background: var(--bg-warm); }
+        
+        /* Build Log Grid */
+        .log-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .log-item img { width: 100%; border-radius: 8px; margin-bottom: 1rem; }
+        .log-item h4 { font-family: 'Space Grotesk', sans-serif; margin-bottom: 0.5rem; }
+        .log-item p { font-size: 0.9rem; color: var(--text-secondary); }
 
-        .verify-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:1rem; margin: 1.5rem 0; }
-        .verify-card { border:1px solid var(--border); border-radius:12px; padding:1.4rem; background:#fff; }
-        .verify-card .row { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.6rem; }
-        .verify-card .name { font-family: var(--ff-display); font-weight:700; font-size:0.95rem; }
-        .verify-card .desc { font-size:0.85rem; color: var(--text-secondary); }
-
-        .chip-row { display:flex; flex-wrap:wrap; gap:0.5rem; margin: 1rem 0 0.5rem; }
-        .chip { font-family: var(--ff-mono); font-size:0.72rem; font-weight:500; color: var(--text-secondary); border:1px solid var(--border); border-radius:6px; padding:0.35rem 0.7rem; background: var(--bg-warm); }
-
-        /* ─── BUILD LOG GALLERY ─── */
-        .log-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem; margin-top:1.5rem; }
-        .log-card { border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#fff; transition: var(--transition-smooth); }
-        .log-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(11,15,25,0.08); }
-        .log-card img { width:100%; display:block; aspect-ratio: 16/10; object-fit:cover; }
-        .log-card-body { padding:1.2rem 1.3rem; }
-        .log-tag { display:inline-flex; align-items:center; gap:0.4rem; font-family: var(--ff-mono); font-size:0.68rem; font-weight:600; padding:0.25rem 0.6rem; border-radius:100px; margin-bottom:0.7rem; text-transform:uppercase; letter-spacing:0.04em; }
-        .log-tag.milestone { background: rgba(6,122,82,0.08); color: var(--accent-green); }
-        .log-tag.bug { background: rgba(180,35,24,0.08); color: var(--accent-red); }
-        .log-card h3 { font-family: var(--ff-display); font-size:1.02rem; font-weight:700; margin-bottom:0.5rem; }
-        .log-card p { font-size:0.87rem; color: var(--text-secondary); margin-bottom:0; max-width:none; }
-
-        .notes-list { list-style:none; }
-        .notes-list li { display:flex; gap:0.9rem; padding: 0.9rem 0; border-bottom:1px solid var(--border); font-size:0.94rem; color: var(--text-secondary); }
-        .notes-list li:last-child { border-bottom:none; }
-        .notes-list .icon { color: var(--accent-orange); flex-shrink:0; }
-        .notes-list b { color: var(--text); }
-
-        footer { background:#07090e; padding:4rem 2rem; color:#94a3b8; margin-top:2rem; border-top:1px solid rgba(255,255,255,0.05); }
-        footer .wrap { max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem; }
-        footer p { font-family: var(--ff-mono); font-size:0.75rem; margin:0; }
-        footer .foot-links { display:flex; gap:1.5rem; }
-        footer .foot-links a { text-decoration:none; color:#64748b; font-size:0.85rem; }
-        footer .foot-links a:hover { color:#fff; }
+        @media (max-width: 768px) {
+            .bento-grid, .log-grid { grid-template-columns: 1fr; }
+            .span-2, .span-4 { grid-column: span 1; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="nav-wrapper">
-        <nav class="stretched-nav">
-            <div class="nav-inner">
-                <a href="/" class="logo-text">MOHAMMED BELLO SANI</a>
-                <ul class="nav-links">
-                    <li><a href="/">Telemetry</a></li>
-                    <li><a href="/about.html">Profile</a></li>
-                    <li><a href="/projects.html">Projects</a></li>
-                    <li><a href="/contact.html">Interface</a></li>
-                    <li><a href="/solutions.html">Solutions</a></li>
-                </ul>
+    <div class="container">
+        <!-- Hero Section -->
+        <header>
+            <p class="eyebrow">Digital Twin Reconnaissance Hub</p>
+            <h1>Simulating UAV vision and flight in a unified pipeline.</h1>
+            <div class="hero-meta">
+                <span class="tag">ArduPilot SITL</span>
+                <span class="tag">FlightGear</span>
+                <span class="tag">YOLOv8</span>
+                <span class="tag">MAVLink</span>
             </div>
-        </nav>
+        </header>
+
+        <!-- Bento Grid -->
+        <section class="bento-grid">
+            <div class="card span-4">
+                <h2>Architecture Overview</h2>
+                <p style="margin-top: 1rem; color: var(--text-secondary);">SITL supplies real flight physics; FlightGear renders the visuals. A screen-captured frame feed and an independent MAVLink telemetry thread converge at the point of detection, creating a high-fidelity reconnaissance twin.</p>
+            </div>
+
+            <div class="card span-2">
+                <h3>Flight Control</h3>
+                <p>ArduPilot SITL built and flown — arm, takeoff, guided and circle modes confirmed on real flight-control firmware.</p>
+            </div>
+
+            <div class="card span-2">
+                <h3>Aerial Detection</h3>
+                <p>YOLOv8n, VisDrone-tuned, confirmed against real aerial imagery — pedestrians, vehicles, and more.</p>
+            </div>
+        </section>
+
+        <!-- Build Log Section -->
+        <section style="margin-top: 4rem;">
+            <h2>Build Log</h2>
+            <div class="log-grid">
+                <div class="card log-item">
+                    <img src="/assets/phi-drone-model-verification.jpg" alt="Verification">
+                    <h4>Detector Proven</h4>
+                    <p>YOLOv8n fine-tuned on VisDrone correctly classing pedestrians and cars before any simulation wiring began.</p>
+                </div>
+                <div class="card log-item">
+                    <img src="/assets/phi-drone-flight-sync.jpg" alt="Flight Sync">
+                    <h4>Flight-to-Visual Sync</h4>
+                    <p>ArduPilot model rendered live in FlightGear, driven by SITL flight dynamics over UDP.</p>
+                </div>
+                <div class="card log-item">
+                    <img src="/assets/phi-drone-capture-bug.jpg" alt="Bug Fix">
+                    <h4>Capture Calibration</h4>
+                    <p>Fixed geometry-verified window capture to prevent the detector from reading the host desktop.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <header class="hero">
-        <a href="/solutions.html" class="breadcrumb">← Back to Solutions</a>
-        <p class="eyebrow">UAV Systems · Simulation Pipeline</p>
-        <h1>Digital Twin Reconnaissance Hub</h1>
-        <p class="lede">
-            Simulating UAV vision and flight in a unified pipeline — a home-built architecture
-            fusing real flight-control firmware, an independent visual renderer, and an aerial
-            object detector under one telemetry-synchronized log, built without a physical airframe.
-        </p>
-        <span class="status-pill"><span class="dot proto"></span>Prototype / Validated — flight &amp; vision layers independently confirmed</span>
-    </header>
-
-    <section class="arch-section">
-        <div class="arch-frame">
-            <img src="/assets/phi-drone-sim-architecture.png" alt="Pipeline architecture: ArduPilot SITL to FlightGear over UDP, screen-captured into a YOLOv8 detector, fused with a MAVLink telemetry thread into a unified CSV log">
-            <div class="arch-caption">Fig. — SITL supplies real flight physics; FlightGear renders only. A screen-captured frame feed and an independent MAVLink telemetry thread converge at the point of detection.</div>
-        </div>
-    </section>
-
-    <div class="content">
-        <h2>Why simulate the whole mission, not just the airframe</h2>
-        <p>
-            Most flight-control validation and most computer-vision development happen in separate
-            toolchains, tested in isolation from each other. This project asks a narrower question:
-            what does a UAV's detector actually see along a real, physically-modeled flight path —
-            before any hardware is procured, any battery is charged, or any airspace is requested.
-        </p>
-        <p>
-            The result runs the same ArduPilot flight-control firmware used on physical autopilots
-            against a simulated vehicle model, with a VisDrone-tuned YOLOv8 detector reading the
-            visual scene the vehicle is flying through, and every detection stamped with the
-            vehicle's live GPS position via MAVLink.
-        </p>
-
-        <h2>Where it actually stands</h2>
-        <p>Verified independently. Fusion into one continuous live feed is the current engineering phase — stated plainly, not smoothed over.</p>
-        <div class="verify-grid">
-            <div class="verify-card">
-                <div class="row"><span class="dot done"></span><span class="name">Flight Control</span></div>
-                <div class="desc">ArduPilot SITL built and flown — arm, takeoff, guided and circle modes confirmed on real flight-control firmware.</div>
-            </div>
-            <div class="verify-card">
-                <div class="row"><span class="dot done"></span><span class="name">Aerial Detection</span></div>
-                <div class="desc">YOLOv8n, VisDrone-tuned, confirmed against real aerial imagery — pedestrians, vehicles, and more.</div>
-            </div>
-            <div class="verify-card">
-                <div class="row"><span class="dot done"></span><span class="name">Telemetry Fusion</span></div>
-                <div class="desc">Background MAVLink thread streams live GPS position into the detection log without blocking capture.</div>
-            </div>
-            <div class="verify-card">
-                <div class="row"><span class="dot progress"></span><span class="name">Live Visual Sync</span></div>
-                <div class="desc">FlightGear's rendered onboard view and the detector's capture region — actively being hardened for continuous flight.</div>
-            </div>
-        </div>
-
-        <h2>Built on</h2>
-        <div class="chip-row">
-            <span class="chip">ArduPilot SITL</span>
-            <span class="chip">FlightGear 2024.1</span>
-            <span class="chip">YOLOv8n</span>
-            <span class="chip">VisDrone Dataset</span>
-            <span class="chip">pymavlink</span>
-            <span class="chip">MAVLink</span>
-            <span class="chip">Python / OpenCV</span>
-            <span class="chip">WSL2</span>
-        </div>
-    </div>
-
-    <div class="content-wide">
-        <h2>Build log</h2>
-        <p>A working record of the pipeline coming together — including the moments it broke, because that's the part that actually proves it was built, not assembled from a tutorial.</p>
-
-        <div class="log-grid">
-            <div class="log-card">
-                <img src="/assets/phi-drone-model-verification.jpg" alt="YOLOv8 VisDrone detections on a real aerial street photograph">
-                <div class="log-card-body">
-                    <span class="log-tag milestone">Verified</span>
-                    <h3>Detector proven before integration</h3>
-                    <p>YOLOv8n fine-tuned on VisDrone correctly classing pedestrians, cars, and motorbikes on a real drone-view photograph — confirmed sound before any simulation wiring began.</p>
-                </div>
-            </div>
-
-            <div class="log-card">
-                <img src="/assets/phi-drone-flight-sync.jpg" alt="FlightGear rendering the ArduCopter model in sync with MAVProxy console during takeoff">
-                <div class="log-card-body">
-                    <span class="log-tag milestone">Verified</span>
-                    <h3>Flight-to-visual sync achieved</h3>
-                    <p>ArduPilot's own bundled quadcopter model rendered live in FlightGear, position and altitude driven entirely by SITL's real flight dynamics over a UDP FDM stream.</p>
-                </div>
-            </div>
-
-            <div class="log-card">
-                <img src="/assets/phi-drone-capture-bug.jpg" alt="False positive car detections firing on desktop icons instead of the flight simulation">
-                <div class="log-card-body">
-                    <span class="log-tag bug">Bug, caught</span>
-                    <h3>The detector was watching the desktop</h3>
-                    <p>An uncalibrated screen-capture region briefly had YOLO reading desktop wallpaper instead of FlightGear's 3D scene — diagnosed and fully root-caused before it touched any logged data.</p>
-                </div>
-            </div>
-
-            <div class="log-card">
-                <img src="/assets/phi-drone-capture-fixed.jpg" alt="FlightGear window and live preview window showing identical, correctly captured content">
-                <div class="log-card-body">
-                    <span class="log-tag milestone">Fixed</span>
-                    <h3>Capture region calibrated and proven</h3>
-                    <p>Fixed with programmatic window-geometry verification and a mandatory live preview — the captured feed and FlightGear's actual render now provably match, frame for frame.</p>
-                </div>
-            </div>
-
-            <div class="log-card">
-                <img src="/assets/phi-drone-sync-regression.jpg" alt="FlightGear altitude frozen at zero while MAVProxy console shows real altitude climbing">
-                <div class="log-card-body">
-                    <span class="log-tag bug">Bug, caught</span>
-                    <h3>Sync regression, diagnosed by cross-check</h3>
-                    <p>A stale background FlightGear instance silently held the telemetry port, freezing the render while SITL genuinely flew — caught by cross-checking FlightGear's own HUD altitude against MAVProxy's console.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="content">
-        <h2>Engineering notes</h2>
-        <ul class="notes-list">
-            <li><span class="icon">▸</span><span>Diagnosed and closed a capture-calibration defect where the detector briefly read the host desktop instead of the simulated scene — fixed with geometry-verified, fail-loud window capture.</span></li>
-            <li><span class="icon">▸</span><span>Telemetry runs on a dedicated background thread so a blocking MAVLink read can never stall frame capture.</span></li>
-            <li><span class="icon">▸</span><span>Hardened the cross-platform launch sequence (WSL2 flight control ↔ Windows visualization) against port conflicts and stale process state.</span></li>
-        </ul>
-    </div>
-
-    <footer>
-        <div class="wrap">
-            <p>© 2026 Mohammed Bello Sani. Built independently, one system at a time.</p>
-            <div class="foot-links">
-                <a href="https://github.com/Sm-bello" target="_blank">GitHub Matrix</a>
-                <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank">LinkedIn Log</a>
-                <a href="/contact.html">Contact Hub</a>
-            </div>
-        </div>
+    <footer style="margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-tertiary); font-size: 0.8rem;">
+        <p>© 2026 Mohammed Bello Sani. Built independently.</p>
     </footer>
 
 </body>
