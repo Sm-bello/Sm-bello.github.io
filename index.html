@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,7 +135,6 @@ nav.stretched-nav {
     pointer-events: auto;
     width: 100%;
     height: 64px;
-    /* Glassmorphic transparent base layer allowing items to slide behind */
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
@@ -148,7 +146,6 @@ nav.stretched-nav {
     align-items: center;
 }
 
-/* Simulated Neon Rainbow Capsule Border Ring */
 nav.stretched-nav::before {
     content: '';
     position: absolute;
@@ -163,7 +160,6 @@ nav.stretched-nav::before {
     animation: neonGlowFlow 4s linear infinite;
 }
 
-/* Ambient Outer Atmospheric Reflection Shadow */
 nav.stretched-nav::after {
     content: '';
     position: absolute;
@@ -183,8 +179,9 @@ nav.stretched-nav::after {
 }
 
 nav.stretched-nav.scrolled {
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.95);
     height: 58px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .nav-inner {
@@ -221,9 +218,17 @@ nav.stretched-nav.scrolled {
     border-radius: 100px;
     transition: var(--transition-smooth);
 }
-.nav-links a:hover { color: #000000; background: rgba(255, 255, 255, 0.4); }
+.nav-links a:hover { color: #000000; background: rgba(0, 0, 0, 0.05); }
 .nav-links a.active { color: #ffffff; background: #0b0f19; }
-.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.2rem; cursor: pointer; }
+
+.nav-toggle { 
+    display: none; 
+    background: none; 
+    border: none; 
+    color: var(--text); 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+}
 
 /* ─── HERO SECTION ─── */
 .hero {
@@ -378,7 +383,7 @@ nav.stretched-nav.scrolled {
 }
 .pub-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.04); }
 
-.pub-header-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%; }
+.pub-header-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; width: 100%; flex-wrap: wrap; }
 .pub-venue { font-family: var(--ff-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); flex: 1; }
 .pub-status {
     font-family: var(--ff-mono); font-size: 0.62rem;
@@ -393,20 +398,51 @@ nav.stretched-nav.scrolled {
 .pub-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
 .tag { font-family: var(--ff-mono); font-size: 0.62rem; font-weight: 500; padding: 0.25rem 0.65rem; border-radius: 4px; border: 1px solid var(--border); color: var(--text-secondary); background: var(--bg-warm); }
 
-/* ─── CAPABILITIES GRID ─── */
-.exp-section { padding: 7rem 2rem; background: var(--bg-warm); position: relative; z-index: 1; }
-.exp-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.exp-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem 2rem; transition: var(--transition); }
-.exp-card:hover { border-color: var(--text); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.04); }
-.exp-num { font-family: var(--ff-mono); font-size: 0.65rem; font-weight: 600; color: var(--text-tertiary); letter-spacing: 0.1em; margin-bottom: 1.5rem; }
-.exp-icon { font-size: 1.6rem; color: var(--text); margin-bottom: 1.2rem; display: block; }
-.exp-card h3 { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.01em; }
-.exp-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+/* ─── COMPETENCIES CAROUSEL (REPLACED STATIC GRID) ─── */
+.exp-section { padding: 7rem 0; background: var(--bg-warm); position: relative; z-index: 1; }
+.slider-header-wrap { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
+.slider-controls { display: flex; gap: 0.8rem; }
+.slider-btn { 
+    width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); 
+    background: var(--bg); color: var(--text); cursor: pointer; transition: var(--transition);
+    display: flex; align-items: center; justify-content: center;
+}
+.slider-btn:hover { background: var(--text); color: #fff; transform: translateY(-2px); }
+
+.competency-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1rem 2rem 3rem 2rem;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+}
+.competency-track::-webkit-scrollbar { display: none; }
+
+.comp-card {
+    flex: 0 0 360px;
+    scroll-snap-align: start;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+.comp-card:hover { border-color: var(--text); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
+.comp-category { font-family: var(--ff-mono); font-size: 0.65rem; font-weight: 700; color: var(--accent-orange); letter-spacing: 0.1em; margin-bottom: 1.2rem; text-transform: uppercase; }
+.comp-icon { font-size: 1.8rem; color: var(--text); margin-bottom: 1.2rem; }
+.comp-card h3 { font-family: var(--ff-display); font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 0.8rem; letter-spacing: -0.01em; line-height: 1.2; }
+.comp-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; flex-grow: 1; margin-bottom: 1.5rem; }
+.comp-tools-label { font-size: 0.75rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
 
 /* ─── RECRUITMENT DEEP FOOTER ─── */
 .footer-main { background: #07090e; color: #cbd5e1; padding: 7rem 2rem 4rem; position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-inner { max-width: 1280px; margin: 0 auto; }
-.footer-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 2rem; }
 .footer-name { font-family: var(--ff-display); font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
 .footer-tagline { font-size: 1rem; color: #94a3b8; max-width: 640px; line-height: 1.6; }
 .footer-contact { text-align: right; }
@@ -450,28 +486,38 @@ nav.stretched-nav.scrolled {
 .footer-system::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 8px #16a34a; animation: tickerPulse 2s infinite ease-in-out; }
 @keyframes tickerPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 
-/* ─── MEDIA QUERIES ─── */
+/* ─── MEDIA QUERIES FOR FULL RESPONSIVENESS ─── */
 @media(max-width: 1200px) {
-    .stats-grid, .pubs-grid, .exp-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid, .pubs-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
 }
 @media(max-width: 960px) {
     .nav-wrapper { width: 95%; top: 1rem; }
     .nav-links {
         display: none; flex-direction: column; align-items: flex-start; gap: 1rem;
-        position: absolute; top: 68px; left: 0; right: 0; background: rgba(255, 255, 255, 0.96);
+        position: absolute; top: 75px; left: 0; right: 0; background: rgba(255, 255, 255, 0.98);
         padding: 1.5rem 2rem; border-radius: 16px; border: 1px solid var(--border);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(20px);
     }
     .nav-links.open { display: flex; }
     .nav-toggle { display: block; }
-    .manifest-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem; }
-    .manifest-status { justify-self: start; margin-top: 0.5rem; }
+    .footer-contact { text-align: left; margin-top: 1rem; }
+}
+@media(max-width: 768px) {
+    .pubs-grid { grid-template-columns: 1fr; }
+    .hero { padding-top: 10rem; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-sub { font-size: 1rem; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .comp-card { flex: 0 0 85vw; }
+    .slider-header-wrap { flex-direction: column; align-items: flex-start; gap: 1rem; }
 }
 @media(max-width: 480px) {
+    .stats-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 2.2rem; }
-    .status-strip { flex-direction: column; align-items: center; }
-    .status-pill { width: 100%; justify-content: center; }
+    .hero-cta { flex-direction: column; width: 100%; }
+    .hero-cta a { width: 100%; justify-content: center; }
+    .footer-grid { grid-template-columns: 1fr; }
 }
     </style>
 </head>
@@ -485,7 +531,7 @@ nav.stretched-nav.scrolled {
             <a href="/" class="logo-container">
                 <span class="logo-text">MOHAMMED BELLO SANI</span>
             </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">☰</button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu"><i class="fas fa-bars"></i></button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="/" class="active">Telemetry</a></li>
                 <li><a href="/about.html">Profile</a></li>
@@ -607,10 +653,7 @@ nav.stretched-nav.scrolled {
             <div class="pub-title">AeroTwin: B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture with SHAP Explainability</div>
             <div class="pub-meta">Lead Researcher. Cranfield University Collaboration. Air-gapped pipeline linking physics ODE solvers with a local LLM processing layer.</div>
             <div class="pub-tags">
-                <span class="tag">CNN-BiLSTM</span>
-                <span class="tag">Ollama 3.2</span>
-                <span class="tag">ATA Chapter 32</span>
-                <span class="tag">EASA AMC 20-42</span>
+                <span class="tag">CNN-BiLSTM</span><span class="tag">Ollama 3.2</span><span class="tag">ATA 32</span><span class="tag">EASA AMC 20-42</span>
             </div>
         </div>
 
@@ -619,13 +662,10 @@ nav.stretched-nav.scrolled {
                 <div class="pub-venue">AIAA SciTech 2027 Student Competition</div>
                 <div class="pub-status abstract">Abstract Submitted</div>
             </div>
-            <div class="pub-title">PHI-CHAIN: Blockchain-Secured Multi-Protocol Avionics Data Integrity Framework with Physics-Informed Attack Detection</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. Introduces Split-Payload Transponder Architecture to resolve the TCAS Paradox, executing 4-layer PIDT validation filters alongside joint Shamir key decryption ceremonies. Explicitly built to satisfy NASA TRL 4–5 systems implementation benchmarks.</div>
+            <div class="pub-title">PHI-CHAIN: Blockchain-Secured Multi-Protocol Avionics Data Integrity Framework</div>
+            <div class="pub-meta">Lead Researcher & Sole Author. Introduces Split-Payload Transponder Architecture to resolve the TCAS Paradox, executing 4-layer PIDT validation filters.</div>
             <div class="pub-tags">
-                <span class="tag">Hyperledger Fabric 2.5</span>
-                <span class="tag">Split-Payload</span>
-                <span class="tag">RTCA DO-326A</span>
-                <span class="tag">Kaggle Writeup</span>
+                <span class="tag">Hyperledger Fabric 2.5</span><span class="tag">Split-Payload</span><span class="tag">RTCA DO-326A</span>
             </div>
         </a>
 
@@ -634,13 +674,10 @@ nav.stretched-nav.scrolled {
                 <div class="pub-venue">Reliability Engineering & System Safety</div>
                 <div class="pub-status review">Under Review</div>
             </div>
-            <div class="pub-title">Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring Using Physics-Derived Degradation Models</div>
+            <div class="pub-title">Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring</div>
             <div class="pub-meta">Lead Researcher & Sole Author. Built an R²=0.87 degradation regressor mapped directly via a real-time FastAPI interface to FlightGear telemetry.</div>
             <div class="pub-tags">
-                <span class="tag">LightGBM</span>
-                <span class="tag">FastAPI Microservice</span>
-                <span class="tag">GEnx Systems</span>
-                <span class="tag">Kaggle Open Data</span>
+                <span class="tag">LightGBM</span><span class="tag">FastAPI</span><span class="tag">GEnx Systems</span><span class="tag">Kaggle Data</span>
             </div>
         </div>
 
@@ -649,68 +686,354 @@ nav.stretched-nav.scrolled {
                 <div class="pub-venue">AIAA Journal of Aerospace Information Systems</div>
                 <div class="pub-status review">Under Review</div>
             </div>
-            <div class="pub-title">Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems with Multi-Domain PHM Architecture</div>
+            <div class="pub-title">Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems</div>
             <div class="pub-meta">Lead Researcher & Sole Author. High-fidelity multibody physical reproduction checking structural landing compliance envelopes.</div>
             <div class="pub-tags">
-                <span class="tag">Simscape Multibody</span>
-                <span class="tag">CS-23.473</span>
-                <span class="tag">PyVista 3D Rendering</span>
-                <span class="tag">PostgreSQL Warehouse</span>
+                <span class="tag">Simscape Multibody</span><span class="tag">CS-23.473</span><span class="tag">PostgreSQL</span>
             </div>
         </div>
 
         <div class="pub-card">
             <div class="pub-header-row">
-                <div class="pub-venue">AIAA SciTech Forum 2027 (Orlando, FL)</div>
+                <div class="pub-venue">AIAA SciTech Forum 2027</div>
                 <div class="pub-status abstract">Abstract Submitted</div>
             </div>
-            <div class="pub-title">Physics-Consistent Conditional VAE for Spatiotemporal Augmentation of Rotating Detonation Engine CFD Data</div>
+            <div class="pub-title">Physics-Consistent Conditional VAE for Spatiotemporal Augmentation of RDE CFD Data</div>
             <div class="pub-meta">Lead Researcher. Documented a significant 4x Chapman-Jouguet overestimation error found in traditional velocity equations within RDE literature.</div>
             <div class="pub-tags">
-                <span class="tag">OpenFOAM v2406</span>
-                <span class="tag">Reactive Flow Solver</span>
-                <span class="tag">CVAE Generator</span>
-                <span class="tag">HuggingFace Dataset</span>
+                <span class="tag">OpenFOAM v2406</span><span class="tag">CVAE</span><span class="tag">HuggingFace</span>
             </div>
         </div>
+
+        <!-- NEW MANUSCRIPTS -->
+        <div class="pub-card">
+            <div class="pub-header-row">
+                <div class="pub-venue">Elsevier MSSP</div>
+                <div class="pub-status review">Under Review</div>
+            </div>
+            <div class="pub-title">Gas Turbine LPT & HPT Digital Twin Health Monitoring System</div>
+            <div class="pub-meta">Lab-scale predictive maintenance system for the AGTF30 engine. A 13-sensor bus feeds a CNN-BiLSTM-Attention architecture classifying micro-fractures.</div>
+            <div class="pub-tags">
+                <span class="tag">AGTF30</span><span class="tag">CNN-BiLSTM-Attention</span><span class="tag">FlightGear</span>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <div class="pub-header-row">
+                <div class="pub-venue">Elsevier Aerospace Science and Technology (Q1)</div>
+                <div class="pub-status review">Submitted</div>
+            </div>
+            <div class="pub-title">PHI-DRONE: The Digital Twin Reconnaissance Hub</div>
+            <div class="pub-meta">Simulating UAV Vision and Flight in a Unified Pipeline. Co-designed with Ibrahim Tumsa Usman (AFIT). Integrates ArduPilot SITL, FlightGear, and YOLOv8.</div>
+            <div class="pub-tags">
+                <span class="tag">ArduPilot SITL</span><span class="tag">YOLOv8</span><span class="tag">MAVLink</span><span class="tag">FlightGear</span>
+            </div>
+        </div>
+
     </div>
 </section>
 
-<div class="section-divider">
+<div class="section-divider" style="margin-top: 2rem;">
     <div class="line"></div>
-    <div class="label">Technical Competencies</div>
+    <div class="label">Comprehensive Stack</div>
     <div class="line"></div>
 </div>
 
+<!-- ─── REPLACED STATIC GRID WITH COMPETENCIES CAROUSEL ─── -->
 <section class="exp-section reveal">
-    <div class="exp-grid">
-        <div class="exp-card">
-            <div class="exp-num">01 / 04</div>
-            <i class="fas fa-server exp-icon"></i>
-            <h3>Digital Twin Engineering</h3>
-            <p>Fusing <strong>MATLAB Simscape Multibody</strong> and high-fidelity numerical solvers with neural sequence architectures. Engineered to satisfy NASA TRL 4–5 system model validation parameters across distributed processing clusters.</p>
+    <div class="slider-header-wrap">
+        <div>
+            <div class="section-eyebrow" style="margin-bottom: 0.5rem;">Exploded Breakdown</div>
+            <h2 class="section-title" style="font-size: 2rem;">Technical <span>Competencies</span></h2>
+        </div>
+        <div class="slider-controls">
+            <button id="comp-prev" class="slider-btn" aria-label="Scroll Left"><i class="fas fa-chevron-left"></i></button>
+            <button id="comp-next" class="slider-btn" aria-label="Scroll Right"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <div class="competency-track" id="comp-track">
+        
+        <!-- AEROSPACE & AVIATION ENGINEERING -->
+        <div class="comp-card">
+            <div class="comp-category">Aerospace & Aviation</div>
+            <i class="fas fa-server comp-icon"></i>
+            <h3>Digital Twin Development</h3>
+            <p>End-to-end construction of physics-grounded virtual replicas of aviation systems (gas turbines, landing gear) enabling real-time monitoring and fault prediction via ODE-based dynamics simulation.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">Simscape</span><span class="tag">FastAPI</span><span class="tag">FlightGear</span><span class="tag">PyVista</span>
+            </div>
         </div>
 
-        <div class="exp-card">
-            <div class="exp-num">02 / 04</div>
-            <i class="fas fa-shield-halved exp-icon"></i>
-            <h3>Avionics Cybersecurity</h3>
-            <p>Implementing strict permissioned ledger architectures like <strong>Hyperledger Fabric</strong> to cryptographically sign multi-protocol avionics payloads (ADS-B, ACARS, CPDLC). Grounded explicitly in global regulatory criteria like **RTCA DO-326A**.</p>
+        <div class="comp-card">
+            <div class="comp-category">Aerospace & Aviation</div>
+            <i class="fas fa-heart-pulse comp-icon"></i>
+            <h3>Prognostics & Health Mgmt</h3>
+            <p>Data-driven and physics-informed approaches to predicting equipment degradation, RUL estimation, and classifying multi-class aviation failure modes before failure occurs.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">CNN-BiLSTM</span><span class="tag">LightGBM</span><span class="tag">CS-23</span><span class="tag">1,027-sensor HUMS</span>
+            </div>
         </div>
 
-        <div class="exp-card">
-            <div class="exp-num">03 / 04</div>
-            <i class="fas fa-gauge-high exp-icon"></i>
-            <h3>Regulatory Audit & Hangar Ops</h3>
-            <p>Executed structural log checks, Minimum Equipment List (MEL) profiles, and Certificate of Airworthiness audits during field residency at the <strong>NCAA Department of Airworthiness Standards</strong>. Complemented by active line maintenance tasks on King Air 350 airframes.</p>
+        <div class="comp-card">
+            <div class="comp-category">Aerospace & Aviation</div>
+            <i class="fas fa-tools comp-icon"></i>
+            <h3>Aircraft MRO Optimization</h3>
+            <p>Applying AI and digital twins to reduce downtime, predict wear, and streamline maintenance workflows. Cost-of-downtime modeling and DOC analysis mapped directly to maintenance action pipelines.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">PostgreSQL</span><span class="tag">Beihang M.Sc Focus</span><span class="tag">DOC Analysis</span>
+            </div>
         </div>
 
-        <div class="exp-card">
-            <div class="exp-num">04 / 04</div>
-            <i class="fas fa-microchip exp-icon"></i>
-            <h3>Sovereign On-Device AI</h3>
-            <p>Architecting production pipelines designed to execute inside completely air-gapped operational flight systems. Experienced in hardware fingerprinting, multi-provider API fallback trees, and semantic translation of neural metrics into human-readable ATA maintenance directives.</p>
+        <div class="comp-card">
+            <div class="comp-category">Aerospace & Aviation</div>
+            <i class="fas fa-wind comp-icon"></i>
+            <h3>Rotary Detonation Engines</h3>
+            <p>Computational investigation of RDE flow physics, stoichiometric and off-stoichiometric CJ velocity analysis, and spatiotemporal CFD field augmentation using deep generative models.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">OpenFOAM v2406</span><span class="tag">CVAE</span><span class="tag">HuggingFace Dataset</span>
+            </div>
         </div>
+
+        <div class="comp-card">
+            <div class="comp-category">Aerospace & Aviation</div>
+            <i class="fas fa-water comp-icon"></i>
+            <h3>Computational Fluid Dynamics</h3>
+            <p>Numerical simulation of compressible reacting flows for advanced propulsion. OpenFOAM case setup, meshing, solver configuration, and validation against analytical correlations.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">OpenFOAM</span><span class="tag">ParaView</span><span class="tag">WSL2</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category">Aerospace & Aviation</div>
+            <i class="fas fa-clipboard-check comp-icon"></i>
+            <h3>Airworthiness Compliance</h3>
+            <p>Designing aircraft systems against EASA CS-23 requirements. CS-23.473 landing load case compliance analysis, fault tolerance mapping, and structural load validation.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">Simscape Multibody</span><span class="tag">CS-23.473</span><span class="tag">FAR</span>
+            </div>
+        </div>
+
+        <!-- AI / MACHINE LEARNING -->
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-green);">AI & Machine Learning</div>
+            <i class="fas fa-brain comp-icon"></i>
+            <h3>Physics-Informed ML</h3>
+            <p>Embedding physical laws and ODE constraints into ML models to ensure predictions are plausible. Designing Physics-Informed Digital Twin Validators (PIDT) for fault physics modeling.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">PyTorch</span><span class="tag">MATLAB ODE</span><span class="tag">PIDT Validator</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-green);">AI & Machine Learning</div>
+            <i class="fas fa-wave-square comp-icon"></i>
+            <h3>Deep Learning (Time-Series)</h3>
+            <p>Hybrid deep architectures for sequential, multi-channel time-series data. Dual-input LSTMs, CNN-BiLSTM with Attention mechanisms optimized for 47ms real-time inference latency.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">CNN-BiLSTM</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-green);">AI & Machine Learning</div>
+            <i class="fas fa-project-diagram comp-icon"></i>
+            <h3>Generative AI (CVAE)</h3>
+            <p>Designing Conditional Variational Autoencoders for structured, physics-constrained synthetic data generation. KL divergence regularization and spatiotemporal field reconstruction.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">PyTorch</span><span class="tag">CVAE (4.3M params)</span><span class="tag">Latent Space</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-green);">AI & Machine Learning</div>
+            <i class="fas fa-database comp-icon"></i>
+            <h3>Synthetic Data Generation</h3>
+            <p>Creating large-scale, valid synthetic datasets for ML training in data-scarce domains via MATLAB physics simulators and generative models. Published 27k-sample & 72-field open datasets.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">HuggingFace</span><span class="tag">Kaggle</span><span class="tag">OpenFOAM</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-green);">AI & Machine Learning</div>
+            <i class="fas fa-chart-line comp-icon"></i>
+            <h3>Gradient Boosting</h3>
+            <p>Applying gradient boosting ensemble methods for tabular aerospace fault classification. Feature importance analysis, serialization, and FastAPI deployment for interpretability.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">LightGBM</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-green);">AI & Machine Learning</div>
+            <i class="fas fa-box-open comp-icon"></i>
+            <h3>ONNX Model Deployment</h3>
+            <p>Exporting, optimizing, and deploying ML models in ONNX format for cross-platform, low-latency offline inference environments (e.g., Aho-Corasick + ONNX semantic detection).</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">ONNX Runtime</span><span class="tag">HuggingFace</span><span class="tag">Rust (ort)</span>
+            </div>
+        </div>
+
+        <!-- BLOCKCHAIN & SECURITY -->
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-purple);">Blockchain & Security</div>
+            <i class="fas fa-shield-halved comp-icon"></i>
+            <h3>Aviation Cybersecurity</h3>
+            <p>Securing aviation datalinks (ADS-B, ACARS, CPDLC) via cryptographic protocols and blockchain architectures against spoofing and replay attacks. Resolving the TCAS Paradox.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">Split-Payload</span><span class="tag">PIDT</span><span class="tag">AIAA SciTech</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-purple);">Blockchain & Security</div>
+            <i class="fas fa-link comp-icon"></i>
+            <h3>Hyperledger Fabric</h3>
+            <p>Deploying enterprise-grade permissioned blockchain networks for distributed trust. Certificate Authority management, chaincode development, and multi-org topology design.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">Fabric 2.5</span><span class="tag">Docker Compose</span><span class="tag">Node.js</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-purple);">Blockchain & Security</div>
+            <i class="fas fa-key comp-icon"></i>
+            <h3>Cryptographic Protocol Design</h3>
+            <p>Ed25519 digital signature implementation and Shamir Secret Sharing (GF(2⁸), 2-of-3 threshold) for secure key distribution in safety-critical aviation nodes.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">Ed25519</span><span class="tag">GF(2⁸)</span><span class="tag">Python Crypto</span>
+            </div>
+        </div>
+
+        <!-- SOFTWARE DEVELOPMENT -->
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-blue);">Software Development</div>
+            <i class="fas fa-desktop comp-icon"></i>
+            <h3>Rust / Tauri (Desktop)</h3>
+            <p>Building high-performance, memory-safe cross-platform apps using Rust and Tauri v2. Offline whisper-rs STT integration, SQLite orchestration, and local system bindings.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">Rust 1.96</span><span class="tag">Tauri v2</span><span class="tag">whisper-rs</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-blue);">Software Development</div>
+            <i class="fas fa-mobile-screen comp-icon"></i>
+            <h3>Flutter / Dart (Mobile)</h3>
+            <p>Cross-platform mobile apps targeting Android with real-time WebRTC features, offline asset management, state management, and Firebase/PocketBase cloud integration.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">Flutter 3.4</span><span class="tag">Dart</span><span class="tag">Firebase</span><span class="tag">LiveKit</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-blue);">Software Development</div>
+            <i class="fas fa-code comp-icon"></i>
+            <h3>Next.js / Full-Stack</h3>
+            <p>Production-grade web apps via Next.js App Router and PocketBase. Real-time multi-channel chat, RBAC, chunked audio pipelines, and seamless cloud deployments.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Vercel</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-blue);">Software Development</div>
+            <i class="fas fa-plug comp-icon"></i>
+            <h3>FastAPI (Microservices)</h3>
+            <p>Lightweight Python REST API microservices for wrapping ML inference engines, managing Pydantic schemas, and exposing digital twin models as queryable async endpoints.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">FastAPI</span><span class="tag">Uvicorn</span><span class="tag">Pydantic</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-blue);">Software Development</div>
+            <i class="fas fa-video comp-icon"></i>
+            <h3>WebRTC / LiveKit</h3>
+            <p>Integrating real-time audio/video communication via LiveKit Cloud. Broadcast/interactive meeting architectures, token generation, and native SDK integration.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">LiveKit Cloud</span><span class="tag">WebRTC</span><span class="tag">MediaRecorder</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-blue);">Software Development</div>
+            <i class="fas fa-rocket comp-icon"></i>
+            <h3>CI/CD & GitHub Actions</h3>
+            <p>Automating build, test, and deployment pipelines. Workflow YAML authoring, Android APK automated builds, keystore signing, and Vercel/Fly.io continuous deployments.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">GitHub Actions</span><span class="tag">Docker</span><span class="tag">Gradle</span>
+            </div>
+        </div>
+
+        <!-- RESEARCH & PUBLISHING -->
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-teal);">Research & Publishing</div>
+            <i class="fas fa-book-open comp-icon"></i>
+            <h3>Technical Paper Writing</h3>
+            <p>Authoring peer-reviewed manuscripts for top aerospace journals (AIAA, IEEE, Elsevier). Full lifecycle from literature review to response-to-reviewer rebuttal strategies.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">AIAA</span><span class="tag">Elsevier RESS</span><span class="tag">IEEE Access</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-teal);">Research & Publishing</div>
+            <i class="fas fa-layer-group comp-icon"></i>
+            <h3>Research Dataset Curation</h3>
+            <p>Preparing, documenting, and publishing open-access datasets with persistent DOIs. Structuring metadata, ensuring versioning, and linking open science to published papers.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">HuggingFace</span><span class="tag">Kaggle</span><span class="tag">DOI Mapping</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-teal);">Research & Publishing</div>
+            <i class="fas fa-glasses comp-icon"></i>
+            <h3>AIAA Peer Review</h3>
+            <p>Critical evaluation of submitted manuscripts for technical accuracy, methodological rigor, and originality on behalf of journal editors (AIAA JAIS).</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">AIAA JAIS</span><span class="tag">Critical Evaluation</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-teal);">Research & Publishing</div>
+            <i class="fas fa-file-code comp-icon"></i>
+            <h3>LaTeX Typesetting</h3>
+            <p>Professional scientific typesetting using domain-specific class files (AIAA, IEEE, elsarticle). Mathematical arrays, TikZ graphics, and BibTeX bibliography management.</p>
+            <div class="comp-tools-label">Tools & Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">LaTeX</span><span class="tag">Overleaf</span><span class="tag">BibTeX</span><span class="tag">TikZ</span>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -880,7 +1203,7 @@ nav.stretched-nav.scrolled {
     drawWeather();
 })();
 
-/* ─── NAVIGATION OVERLAY INTERACTION ─── */
+/* ─── MOBILE NAV MENU ─── */
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 const navbar = document.getElementById('navbar');
@@ -892,6 +1215,20 @@ navToggle.addEventListener('click', () => {
 window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 30);
 });
+
+/* ─── COMPETENCY SLIDER CONTROLS ─── */
+const compTrack = document.getElementById('comp-track');
+const btnPrev = document.getElementById('comp-prev');
+const btnNext = document.getElementById('comp-next');
+
+if (compTrack && btnPrev && btnNext) {
+    btnPrev.addEventListener('click', () => {
+        compTrack.scrollBy({ left: -380, behavior: 'smooth' });
+    });
+    btnNext.addEventListener('click', () => {
+        compTrack.scrollBy({ left: 380, behavior: 'smooth' });
+    });
+}
 
 /* ─── INTERSECTION REVEAL CONTROLLER ─── */
 const revealElements = document.querySelectorAll('.reveal');
@@ -936,7 +1273,9 @@ const counterObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.2 });
 
-counterObserver.observe(statsSection);
+if(statsSection) {
+    counterObserver.observe(statsSection);
+}
 </script>
 </body>
 </html>
