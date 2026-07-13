@@ -238,7 +238,6 @@
         .profile-card .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 2rem; }
         .profile-card .tag { font-family: var(--font-mono); font-size: 0.65rem; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 4px; color: #475569; background: #f8fafc; }
         .profile-card .bottom-link { border-top: 1px solid #e2e8f0; padding-top: 1.2rem; color: #0f172a; font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; transition: color 0.3s ease; }
-        .profile-card .bottom-link i { color: var(--neon-orange); font-size: 1.1rem; }
         
         /* Interactive Glow Animation */
         .profile-card:hover { transform: translateY(-6px); border-color: var(--neon-blue); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
@@ -869,7 +868,7 @@
             <span class="tag">Datasets</span><span class="tag">Notebooks</span><span class="tag">Physics-AI</span>
         </div>
         <div class="bottom-link">
-            <i class="fas fa-folder" style="color:#f59e0b;"></i> View Repository
+            <i class="fas fa-folder" style="color:var(--neon-green);"></i> View Repository
         </div>
     </div>
 
@@ -877,7 +876,7 @@
     <div class="profile-card" onclick="navigateWithGlow(event, 'https://huggingface.co/spaces/SM-Bello/')">
         <div class="sys-top">
             <span>REP · 02</span>
-            <div class="status"><span class="dot" style="background:var(--neon-green); box-shadow: 0 0 8px var(--neon-green);"></span> SPACES & MODELS</div>
+            <div class="status"><span class="dot" style="background:var(--neon-pink); box-shadow: 0 0 8px var(--neon-pink);"></span> SPACES & MODELS</div>
         </div>
         <h3>Hugging Face</h3>
         <div class="subtitle">Live Inference & Surrogates</div>
@@ -886,7 +885,7 @@
             <span class="tag">Spaces</span><span class="tag">Models</span><span class="tag">Gradio</span>
         </div>
         <div class="bottom-link">
-            <i class="fas fa-folder" style="color:#f59e0b;"></i> View Hub
+            <i class="fas fa-folder" style="color:var(--neon-pink);"></i> View Hub
         </div>
     </div>
 
@@ -903,7 +902,24 @@
             <span class="tag">Network</span><span class="tag">Articles</span><span class="tag">Updates</span>
         </div>
         <div class="bottom-link">
-            <i class="fas fa-folder" style="color:#f59e0b;"></i> Connect
+            <i class="fab fa-linkedin" style="color:var(--neon-blue);"></i> Connect
+        </div>
+    </div>
+
+    <!-- Profile Card 4: GitHub -->
+    <div class="profile-card" onclick="navigateWithGlow(event, 'https://github.com/Sm-bello')">
+        <div class="sys-top">
+            <span>REP · 04</span>
+            <div class="status"><span class="dot" style="background:var(--neon-orange); box-shadow: 0 0 8px var(--neon-orange);"></span> OPEN SOURCE</div>
+        </div>
+        <h3>GitHub Matrix</h3>
+        <div class="subtitle">Source Code & Repositories</div>
+        <p>Complete codebase repository of aerospace research, digital twin simulation pipelines, and autonomous agent architectures.</p>
+        <div class="tags">
+            <span class="tag">Source Code</span><span class="tag">Repositories</span><span class="tag">Architecture</span>
+        </div>
+        <div class="bottom-link">
+            <i class="fab fa-github" style="color:var(--neon-orange);"></i> View GitHub
         </div>
     </div>
 
