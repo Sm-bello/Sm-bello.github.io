@@ -227,12 +227,12 @@
         .interactive-card.teal .demo-btn:hover { background: var(--neon-teal); color: white; border-color: var(--neon-teal); }
         .demo-btn:hover { transform: translateX(5px); }
         
-        /* ── PROFILES / ARCHIVES GRID (Reference Layout) ── */
+        /* ── PROFILES / ARCHIVES GRID (Reference Layout Match) ── */
         .profiles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
         .profile-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.2rem; display: flex; flex-direction: column; cursor: pointer; transition: var(--transition-smooth); position: relative; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .profile-card .sys-top { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.65rem; color: #94a3b8; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
-        .profile-card .status { display: flex; align-items: center; gap: 6px; font-weight: 700; color: #64748b; }
-        .profile-card h3 { font-family: var(--font-display); font-size: 1.6rem; color: #0f172a; margin-bottom: 0.4rem; }
+        .profile-card .status { display: flex; align-items: center; gap: 6px; font-weight: 700; color: #64748b; background: #f8fafc; padding: 4px 10px; border-radius: 50px; border: 1px solid #e2e8f0;}
+        .profile-card h3 { font-family: var(--font-display); font-size: 1.6rem; color: #0f172a; margin-bottom: 0.4rem; font-weight: 800; }
         .profile-card .subtitle { color: var(--neon-blue); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; }
         .profile-card p { color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; flex-grow: 1; }
         .profile-card .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 2rem; }
@@ -351,7 +351,7 @@
         </div>
         <div class="gallery-sub" data-caption="ODE Synthesis Geometry">
             <div class="scanning-overlay"></div>
-            <!-- Provision for actual image -->
+            <!-- Provision for actual image from user simulations -->
             <img src="https://placehold.co/400x300/0f172a/0ea5e9?text=ODE+Model" alt="ODE Model" class="actual-image">
         </div>
         <div class="gallery-sub" data-caption="CNN-BiLSTM Architecture">
@@ -723,18 +723,18 @@
 <!-- ══════════════  FUTURE INITIATIVES SECTION  ══════════════ -->
 <div class="section-header"><i class="fas fa-flask"></i><h2>Active & Future Initiatives</h2></div>
 
-<!-- AI for Fluids — Airfoil Digital Twin (live neural network inference) -->
+<!-- AI for Fluids — Airfoil Digital Twin (live neural network inference) RESTORED -->
 <div style="background:#ffffff; border-radius:16px; padding:3rem; border:1px solid rgba(11, 15, 25, 0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.02); margin-bottom:3rem; position:relative;">
     <span style="font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--accent-orange, #dd5a12); font-weight:700; padding:4px 10px; background:rgba(221,90,18,0.05); border-radius:4px; border:1px solid var(--accent-orange, #dd5a12); text-transform:uppercase; letter-spacing:1px; display:inline-block; margin-bottom:1.5rem;">
         LIVE AI INFERENCE — NEURAL NETWORK SURROGATE
     </span>
 
-    <i class="fas fa-wind" style="font-size:2.5rem; color:var(--accent-blue, #0ea5e9); margin-bottom:2rem; display:block;"></i>
+    <i class="fas fa-wind" style="font-size:2.5rem; color:var(--neon-blue); margin-bottom:2rem; display:block;"></i>
 
-    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.6rem; margin-bottom:1rem; color:var(--text-dark, #0b0f19);">
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.6rem; margin-bottom:1rem; color:var(--text-dark);">
         AI for Fluids — Airfoil Digital Twin
     </h3>
-    <p style="color:var(--text-light, #5b6472); margin-bottom:2rem; line-height:1.8; max-width:760px;">
+    <p style="color:var(--text-light); margin-bottom:2rem; line-height:1.8; max-width:760px;">
         A neural network surrogate — trained on airfoil sweep data and served live from this page —
         predicts lift and drag coefficients in real time from geometry, angle of attack, and Reynolds number.
         Adjust the controls inside, then export the exact sweep you generate as a CSV.
@@ -860,7 +860,7 @@
     <div class="profile-card" onclick="navigateWithGlow(event, 'https://www.kaggle.com/mohammedbellosani')">
         <div class="sys-top">
             <span>REP · 01</span>
-            <div class="status"><span class="dot" style="background:var(--neon-blue); box-shadow: 0 0 8px var(--neon-blue);"></span> DATASETS</div>
+            <div class="status"><span class="dot" style="background:var(--neon-green); box-shadow: 0 0 8px var(--neon-green);"></span> DATASETS</div>
         </div>
         <h3>Kaggle Profile</h3>
         <div class="subtitle">Aerospace Datasets & Physics-AI</div>
@@ -869,7 +869,7 @@
             <span class="tag">Datasets</span><span class="tag">Notebooks</span><span class="tag">Physics-AI</span>
         </div>
         <div class="bottom-link">
-            <i class="fas fa-folder"></i> View Repository
+            <i class="fas fa-folder" style="color:#f59e0b;"></i> View Repository
         </div>
     </div>
 
@@ -877,7 +877,7 @@
     <div class="profile-card" onclick="navigateWithGlow(event, 'https://huggingface.co/spaces/SM-Bello/')">
         <div class="sys-top">
             <span>REP · 02</span>
-            <div class="status"><span class="dot" style="background:var(--neon-pink); box-shadow: 0 0 8px var(--neon-pink);"></span> SPACES & MODELS</div>
+            <div class="status"><span class="dot" style="background:var(--neon-green); box-shadow: 0 0 8px var(--neon-green);"></span> SPACES & MODELS</div>
         </div>
         <h3>Hugging Face</h3>
         <div class="subtitle">Live Inference & Surrogates</div>
@@ -886,7 +886,7 @@
             <span class="tag">Spaces</span><span class="tag">Models</span><span class="tag">Gradio</span>
         </div>
         <div class="bottom-link">
-            <i class="fas fa-folder"></i> View Hub
+            <i class="fas fa-folder" style="color:#f59e0b;"></i> View Hub
         </div>
     </div>
 
@@ -894,7 +894,7 @@
     <div class="profile-card" onclick="navigateWithGlow(event, 'https://www.linkedin.com/in/mohammed-bello-sani-369a89284')">
         <div class="sys-top">
             <span>NET · 03</span>
-            <div class="status"><span class="dot" style="background:var(--neon-teal); box-shadow: 0 0 8px var(--neon-teal);"></span> PROFESSIONAL LOG</div>
+            <div class="status"><span class="dot" style="background:var(--neon-blue); box-shadow: 0 0 8px var(--neon-blue);"></span> PROFESSIONAL LOG</div>
         </div>
         <h3>LinkedIn</h3>
         <div class="subtitle">Career & Publications</div>
@@ -903,7 +903,7 @@
             <span class="tag">Network</span><span class="tag">Articles</span><span class="tag">Updates</span>
         </div>
         <div class="bottom-link">
-            <i class="fas fa-folder"></i> Connect
+            <i class="fas fa-folder" style="color:#f59e0b;"></i> Connect
         </div>
     </div>
 
