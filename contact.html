@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Mohammed Bello Sani</title>
-    <meta name="description" content="Contact Mohammed Bello Sani for collaboration on Digital Twins, Aerospace AI, and MRO Systems.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <title>About | Mohammed Bello Sani</title>
+    <meta name="description" content="Mohammed Bello Sani — Aerospace Engineer, Digital Twin Researcher, Founder of Penelope Inc. Building the future of aviation AI from Nigeria.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -29,7 +29,6 @@
             --green-dim: rgba(16, 185, 129, 0.1);
             --neon-purple: #8b5cf6;
             --purple-dim: rgba(139, 92, 246, 0.1);
-            --navy-stroke: #1e293b;
             --border-soft: rgba(11, 15, 25, 0.08);
             
             --font-mono: 'JetBrains Mono', monospace;
@@ -132,10 +131,7 @@
         .float-btn:hover { width: 180px; border-color: var(--neon-blue); transform: translateY(-2px); }
         .float-btn:hover span { opacity: 1; }
         
-        .whatsapp-btn {
-            background: #25d366; color: white; border: 1px solid #20ba5a;
-            position: relative; overflow: visible;
-        }
+        .whatsapp-btn { background: #25d366; color: white; border: 1px solid #20ba5a; position: relative; overflow: visible; }
         .whatsapp-btn i { color: white; }
         .whatsapp-btn span { color: white; }
         .whatsapp-btn:hover { border-color: #1da851; background: #20ba5a; }
@@ -150,8 +146,8 @@
 
         @media (max-width: 768px) { .floating-menu { bottom: 1.5rem; right: 1rem; } }
 
-        /* ─── HERO SECTION ─── */
-        .hero { position: relative; padding: 12rem 2rem 6rem; z-index: 1; text-align: center; }
+        /* ─── LIGHT MODE HERO SECTION ─── */
+        .hero { position: relative; padding: 12rem 2rem 4rem; z-index: 1; text-align: center; background: transparent; }
         .hero-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
         
         .hero-badge {
@@ -163,7 +159,6 @@
             margin-bottom: 1.75rem;
         }
         .hero-badge .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--neon-green); animation: greenBlink 1.8s ease-in-out infinite; }
-        @keyframes greenBlink { 0%,100%{ opacity:1; box-shadow: 0 0 0 0 rgba(16,185,129,.5); } 50% { opacity:.6; box-shadow: 0 0 0 4px rgba(16,185,129,.15); } }
 
         .hero h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 800; color: var(--text-dark); letter-spacing: -1.5px; line-height: 1.08; margin-bottom: 1.25rem; }
         .hero h1 .accent { background: linear-gradient(135deg, var(--neon-blue) 0%, #38bdf8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -175,8 +170,18 @@
         .btn-ghost { display:inline-flex; align-items:center; gap:.5rem; padding:11px 22px; border-radius:8px; font-size:.875rem; font-weight:700; text-decoration:none; color: var(--text-dark); border: 1px solid var(--border-soft); background: var(--card-bg); transition: var(--transition-smooth); }
         .btn-ghost:hover { border-color: var(--text-dark); transform: translateY(-2px); }
 
+        /* ─── NEW TEASER SECTION ─── */
+        .teaser-section { max-width: 1280px; margin: 0 auto 4rem; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; position: relative; z-index: 10; }
+        .teaser-card { background: var(--card-bg); border-radius: 16px; padding: 2.5rem; border: 1px solid var(--border-soft); box-shadow: var(--shadow-sm); transition: var(--transition-smooth); }
+        .teaser-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--neon-blue); }
+        .teaser-card .t-icon { font-size: 2rem; color: var(--neon-orange); margin-bottom: 1.5rem; display: block; }
+        .teaser-card h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text-dark); margin-bottom: 0.8rem; font-weight: 800; }
+        .teaser-card p { font-size: 1rem; color: var(--text-light); margin-bottom: 2rem; line-height: 1.7; }
+        .teaser-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--neon-blue); text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: var(--transition-smooth); }
+        .teaser-link:hover { color: var(--neon-orange); transform: translateX(5px); }
+
         /* ─── CONTACT GRID ARCHITECTURE ─── */
-        .contact-section { max-width: 1280px; margin: 2rem auto 5rem; padding: 0 2rem; display: grid; grid-template-columns: 420px 1fr; gap: 2.5rem; position: relative; z-index: 10; }
+        .contact-section { max-width: 1280px; margin: 0 auto 5rem; padding: 0 2rem; display: grid; grid-template-columns: 420px 1fr; gap: 2.5rem; position: relative; z-index: 10; }
 
         /* ─── INFO CARD DOSSIER ─── */
         .info-card { background: var(--card-bg); border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border-soft); border-top: 4px solid var(--neon-orange); height: fit-content; position: sticky; top: 100px; }
@@ -244,15 +249,6 @@
         .success-state p { font-size: .95rem; color: var(--text-light); max-width: 420px; line-height: 1.6; margin-bottom: 2rem; }
         .reset-link { font-family: var(--font-mono); font-size: .72rem; font-weight: 700; color: var(--neon-blue); background: none; border: none; cursor: pointer; text-decoration: underline; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* ─── VIDEO TEASER ─── */
-        .video-teaser { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 16px; padding: 3rem; margin-top: 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 1px solid rgba(14,165,233,0.3); position: relative; overflow: hidden;}
-        .video-teaser::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at right, rgba(14,165,233,.15) 0%, transparent 60%); pointer-events: none; }
-        .teaser-content { flex: 1; min-width: 300px; position: relative; z-index: 2; }
-        .teaser-content h3 { font-family: var(--font-display); font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem; }
-        .teaser-content p { color: #cbd5e1; font-size: 1rem; line-height: 1.6; }
-        .video-teaser .btn-primary { background: var(--neon-blue); color: #fff; border: none; position: relative; z-index: 2; white-space: nowrap; }
-        .video-teaser .btn-primary:hover { background: #fff; color: #0f172a; }
-
         /* ─── COLLABORATION LOGS ─── */
         .collab-section { padding: 6rem 2rem; border-top: 1px solid var(--border-soft); margin-top: 2rem; }
         .collab-inner { max-width: 1280px; margin: 0 auto; }
@@ -261,7 +257,7 @@
         .section-h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: var(--text-dark); text-align: center; letter-spacing: -.5px; margin-bottom: 4rem; }
         
         .collab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .collab-card { background: var(--card-bg); border-radius: var(--r); padding: 2.5rem; border: 1px solid var(--border-soft); box-shadow: var(--shadow-sm); transition: var(--transition-smooth); position: relative; overflow: hidden; }
+        .collab-card { background: var(--card-bg); border-radius: 16px; padding: 2.5rem; border: 1px solid var(--border-soft); box-shadow: var(--shadow-sm); transition: var(--transition-smooth); position: relative; overflow: hidden; }
         .collab-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
         .c-blue::before   { background: var(--neon-blue);   }
         .c-orange::before { background: var(--neon-orange); }
@@ -291,10 +287,18 @@
             .info-card { position: static; width: 100%; }
         }
         @media (max-width: 768px) {
+            .nav-wrapper { width: 95%; top: 1rem; }
+            .nav-links {
+                display: none; flex-direction: column; align-items: flex-start; gap: 1rem;
+                position: absolute; top: 68px; left: 0; right: 0; background: rgba(255, 255, 255, 0.96);
+                padding: 1.5rem 2rem; border-radius: 16px; border: 1px solid var(--border-soft);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(20px);
+            }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
             .form-card, .info-card { padding: 2rem 1.5rem; }
-            .contact-section { margin-top: -1.5rem; padding: 0 1.5rem; }
-            .video-teaser { padding: 2rem; text-align: center; justify-content: center; }
+            .teaser-section { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 2.2rem; }
@@ -334,14 +338,15 @@
             <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="/">Telemetry</a></li>
-                <li><a href="/about.html">Profile</a></li>
+                <li><a href="/about.html" class="active">Profile</a></li>
                 <li><a href="/projects.html">Research Pipeline</a></li>
-                <li><a href="/contact.html" class="active">Interface</a></li>
+                <li><a href="/contact.html">Interface</a></li>
             </ul>
         </div>
     </nav>
 </div>
 
+<!-- LIGHT MODE HERO SECTION -->
 <section class="hero">
     <div class="sky-fleet-container">
         <div class="fleet-aircraft aircraft-paper"><i class="fas fa-paper-plane"></i></div>
@@ -372,6 +377,22 @@
         </div>
     </div>
 </section>
+
+<!-- NEW TEASER SECTION -->
+<div class="teaser-section reveal">
+    <div class="teaser-card">
+        <i class="fas fa-layer-group t-icon"></i>
+        <h3>Architectural Solutions</h3>
+        <p>I build systems and architectures that digital platforms work with. Discover fully realized, production-ready aerospace and software solutions.</p>
+        <a href="/solutions.html" class="teaser-link">Explore Solutions <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="teaser-card">
+        <i class="fas fa-play-circle t-icon" style="color: var(--neon-blue);"></i>
+        <h3>Architecture in Motion</h3>
+        <p>We build solutions to complex problems, and we have them in live demonstration. Watch the telemetry pipelines and AI agents execute in real-time.</p>
+        <a href="/Video-Demos.html" class="teaser-link">Watch Video Demos <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
 
 <div class="contact-section">
 
@@ -494,15 +515,6 @@
                 </form>
             </div>
         </div>
-        
-        <!-- TEASER SECTION (New) -->
-        <div class="video-teaser reveal d1">
-            <div class="teaser-content">
-                <h3>See the Architecture in Motion</h3>
-                <p>Words only go so far. Watch the real-time telemetry pipelines, edge AI prognostics, and blockchain verification engines executing live in the demonstration hub.</p>
-            </div>
-            <a href="/Video-Demos.html" class="btn-primary">Watch Video Demos <i class="fas fa-play-circle"></i></a>
-        </div>
     </div>
 </div>
 
@@ -598,7 +610,7 @@
                 let py = star.y * k + cy;
 
                 if(px >= 0 && px <= w && py >= 0 && py <= h) {
-                    let size = (1 - star.z / 2000) * 2.5; // Slightly larger for "crystal ball" feel
+                    let size = (1 - star.z / 2000) * 2.5; 
                     let alpha = 1 - (star.z / 2000);
                     
                     ctx.globalAlpha = alpha;
@@ -692,3 +704,4 @@
 
 </body>
 </html>
+```eof
