@@ -768,7 +768,7 @@
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(en => {
             if (en.isIntersecting) {
-                en.target.classList.add('in-view');
+                en.target.classList.add('active');
                 observer.unobserve(en.target);
             }
         });
