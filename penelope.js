@@ -384,6 +384,7 @@
 
         // ─── GEMINI API INTEGRATION ───
         const fetchGeminiResponse = async (userText) => {
+            // Add user message to history
             chatHistory.push({ role: "user", parts: [{ text: userText }] });
 
             const payload = {
@@ -392,7 +393,8 @@
             };
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                // Changed model from gemini-1.5-flash to gemini-1.5-flash-latest
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
