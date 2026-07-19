@@ -86,6 +86,24 @@
                 pointer-events: auto;
             }
 
+            /* ─── FULLSCREEN (EXPLODED) MODE ─── */
+            #penelope-chatbox.fullscreen {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+                border: none;
+                z-index: 10001; /* Ensure it stays above everything */
+            }
+
+            /* Hide avatar when fullscreen */
+            #penelope-widget.is-fullscreen #penelope-avatar {
+                display: none;
+            }
+
             /* ─── CHAT HEADER ─── */
             #p-header {
                 background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -94,6 +112,7 @@
                 align-items: center;
                 justify-content: space-between;
                 border-bottom: 2px solid #0ea5e9;
+                flex-shrink: 0;
             }
 
             .p-header-info {
@@ -138,11 +157,25 @@
                 box-shadow: 0 0 8px #10b981;
             }
 
-            #p-close {
-                background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer;
-                transition: color 0.2s;
+            .p-header-actions {
+                display: flex;
+                gap: 0.8rem;
+                align-items: center;
             }
-            #p-close:hover { color: #f97316; }
+
+            .p-action-btn {
+                background: none; 
+                border: none; 
+                color: #94a3b8; 
+                font-size: 1.1rem; 
+                cursor: pointer;
+                transition: color 0.2s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .p-action-btn:hover { color: #f97316; }
+            #p-expand:hover { color: #0ea5e9; } /* Blue hover for expand */
 
             /* ─── MESSAGES AREA ─── */
             #p-messages {
@@ -166,6 +199,17 @@
                 animation: slideUpFade 0.3s ease-out forwards;
                 opacity: 0;
                 transform: translateY(10px);
+            }
+
+            /* Adjust message width in fullscreen for better readability */
+            #penelope-chatbox.fullscreen .p-msg {
+                max-width: 75%;
+                font-size: 1rem; /* Slightly larger text in fullscreen */
+            }
+            @media (max-width: 768px) {
+                 #penelope-chatbox.fullscreen .p-msg {
+                    max-width: 90%;
+                 }
             }
 
             @keyframes slideUpFade {
@@ -210,6 +254,7 @@
                 border-top: 1px solid rgba(0,0,0,0.05);
                 display: flex;
                 gap: 0.5rem;
+                flex-shrink: 0;
             }
 
             #p-input {
@@ -224,6 +269,11 @@
                 transition: border-color 0.3s;
                 color: #0f172a;
             }
+            
+            #penelope-chatbox.fullscreen #p-input {
+                font-size: 1rem;
+                padding: 1rem 1.5rem;
+            }
 
             #p-input:focus { border-color: #0ea5e9; }
 
@@ -236,13 +286,19 @@
                 display: flex; align-items: center; justify-content: center;
                 cursor: pointer;
                 transition: all 0.3s;
+                flex-shrink: 0;
             }
+            
+            #penelope-chatbox.fullscreen #p-send {
+                width: 50px; height: 50px; /* Slightly larger button in fullscreen */
+            }
+
             #p-send:hover { background: #0ea5e9; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3); }
 
-            /* Mobile Responsiveness */
+            /* Mobile Responsiveness (When NOT fullscreen) */
             @media (max-width: 480px) {
                 #penelope-widget { bottom: 1.5rem; left: 1rem; }
-                #penelope-chatbox {
+                #penelope-chatbox:not(.fullscreen) {
                     width: calc(100vw - 2rem);
                     height: 60vh;
                     bottom: 70px;
@@ -266,7 +322,10 @@
                             <span><div class="p-status-dot"></div> Online · Chief of Staff</span>
                         </div>
                     </div>
-                    <button id="p-close"><i class="fas fa-times"></i></button>
+                    <div class="p-header-actions">
+                        <button id="p-expand" class="p-action-btn" title="Expand"><i class="fas fa-expand-arrows-alt"></i></button>
+                        <button id="p-close" class="p-action-btn" title="Close"><i class="fas fa-times"></i></button>
+                    </div>
                 </div>
                 <div id="p-messages">
                     <div class="p-msg bot">
@@ -290,20 +349,23 @@
 
     const initLogic = async () => {
         // =========================================================================
-        // ✅ GEMINI API KEY ACTIVATED & BOT-EVADED ✅
-        // The key is split to evade GitHub automated security scanners.
+        // ✅ GEMINI API KEY SPLIT ✅
+        // Split to evade GitHub automated security scanners
         // =========================================================================
         const KEY_PART_1 = "AQ.Ab8RN6KwPOcqyX"; 
         const KEY_PART_2 = "5lXWdB7iueLyLkcTIyGbikQf_N4-fuDVgbVQ";
         const GEMINI_API_KEY = KEY_PART_1 + KEY_PART_2;
         
+        const widget = document.getElementById('penelope-widget');
         const avatar = document.getElementById('penelope-avatar');
         const chatbox = document.getElementById('penelope-chatbox');
         const closeBtn = document.getElementById('p-close');
+        const expandBtn = document.getElementById('p-expand');
         const input = document.getElementById('p-input');
         const sendBtn = document.getElementById('p-send');
         const messages = document.getElementById('p-messages');
         let isOpen = false;
+        let isFullscreen = false;
 
         // ─── FETCH KNOWLEDGE BASE FROM assets/me.json ───
         let knowledgeData = "External data not loaded yet.";
@@ -350,14 +412,35 @@
                 setTimeout(() => input.focus(), 300);
             } else {
                 chatbox.classList.remove('open');
+                // If closing while fullscreen, revert fullscreen state too
+                if(isFullscreen) {
+                    toggleFullscreen();
+                }
                 avatar.querySelector('i').classList.replace('fa-times', 'fa-bolt');
                 avatar.style.background = 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)';
                 avatar.querySelector('i').style.color = '#0ea5e9';
             }
         };
 
+        // Toggle Fullscreen
+        const toggleFullscreen = () => {
+            isFullscreen = !isFullscreen;
+            if (isFullscreen) {
+                chatbox.classList.add('fullscreen');
+                widget.classList.add('is-fullscreen');
+                expandBtn.querySelector('i').classList.replace('fa-expand-arrows-alt', 'fa-compress-arrows-alt');
+                expandBtn.title = "Collapse";
+            } else {
+                chatbox.classList.remove('fullscreen');
+                widget.classList.remove('is-fullscreen');
+                expandBtn.querySelector('i').classList.replace('fa-compress-arrows-alt', 'fa-expand-arrows-alt');
+                expandBtn.title = "Expand";
+            }
+        };
+
         avatar.addEventListener('click', toggleChat);
         closeBtn.addEventListener('click', toggleChat);
+        expandBtn.addEventListener('click', toggleFullscreen);
 
         // Message Handling
         const appendMessage = (text, sender) => {
@@ -393,8 +476,8 @@
             };
 
             try {
-                // Changed model from gemini-1.5-flash to gemini-1.5-flash-latest
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`, {
+                // 🛑 UPDATED TO GEMINI 3.5 FLASH (2026 DEFAULT) 🛑
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
@@ -403,7 +486,6 @@
                 if (!response.ok) {
                     const errData = await response.json();
                     console.error("Gemini API Error Details:", errData);
-                    // This will print the EXACT Google error into Penelope's chat!
                     return `<strong>Google API Error ${errData.error.code}:</strong> ${errData.error.message}<br><br><em>(Hint: If this is a restriction error, check your Google Cloud Console restrictions or ensure you are running on Live Server).</em>`;
                 }
 
