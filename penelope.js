@@ -35,8 +35,37 @@ const FALLBACK_MODEL = "gemini-2.5-flash";
             #penelope-avatar:hover { transform: scale(1.08); box-shadow: 0 15px 35px rgba(14, 165, 233, 0.5); }
             #penelope-avatar i { font-size: 1.6rem; color: #0ea5e9; }
 
+            #p-avatar-logo { width: 34px; height: 34px; object-fit: contain; border-radius: 4px; display: block; position: relative; z-index: 2; animation: pLogoBreathe 3s ease-in-out infinite; filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.3)); }
+            @keyframes pLogoBreathe { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.3)); } 50% { transform: scale(1.08); filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.55)); } }
+
+            #p-avatar-close { display: none; position: relative; z-index: 2; }
+
             .penelope-pulse { position: absolute; inset: 0; border-radius: 50%; background: rgba(14, 165, 233, 0.4); z-index: -1; animation: pPing 2.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
             @keyframes pPing { 75%, 100% { transform: scale(1.8); opacity: 0; } }
+
+            #p-scroll-bubble {
+                position: absolute;
+                bottom: 72px;
+                left: 72px;
+                background: #ffffff;
+                color: #0f172a;
+                padding: 10px 16px;
+                border-radius: 16px 16px 16px 4px;
+                font-size: 0.85rem;
+                font-family: 'Inter', sans-serif;
+                font-weight: 500;
+                line-height: 1.4;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                border: 1px solid rgba(14, 165, 233, 0.15);
+                max-width: 220px;
+                opacity: 0;
+                transform: translateY(10px) scale(0.9);
+                pointer-events: none;
+                transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 9999;
+                cursor: pointer;
+            }
+            #p-scroll-bubble.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
 
             #penelope-chatbox { position: absolute; bottom: 80px; left: 0; width: 380px; height: 550px; max-height: 80vh; background: rgba(250, 249, 246, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(14, 165, 233, 0.2); border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; overflow: hidden; opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: bottom left; }
             #penelope-chatbox.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
@@ -90,6 +119,7 @@ const FALLBACK_MODEL = "gemini-2.5-flash";
                 #penelope-widget { bottom: 1.5rem; left: 1rem; }
                 #penelope-chatbox { width: calc(100vw - 2rem); height: 60vh; bottom: 70px; left: 0; }
                 #penelope-chatbox.expanded { width: 100vw; height: 100vh; max-height: 100vh; bottom: -1.5rem; left: -1rem; border-radius: 0; }
+                #p-scroll-bubble { bottom: 72px; left: 0; max-width: 180px; font-size: 0.8rem; }
             }
         `;
         document.head.appendChild(style);
@@ -121,9 +151,11 @@ const FALLBACK_MODEL = "gemini-2.5-flash";
                     <button id="p-send"><i class="fas fa-paper-plane"></i></button>
                 </div>
             </div>
+            <div id="p-scroll-bubble">What do you want to know? I'll help you! 👋</div>
             <div id="penelope-avatar" title="Chat with Penelope">
                 <div class="penelope-pulse"></div>
-                <i class="fas fa-bolt"></i>
+                <img id="p-avatar-logo" src="/assets/penelope-logo.png" alt="Penelope">
+                <i id="p-avatar-close" class="fas fa-times"></i>
             </div>
         `;
         document.body.appendChild(widget);
@@ -152,6 +184,9 @@ const FALLBACK_MODEL = "gemini-2.5-flash";
         }
 
         const avatar = document.getElementById('penelope-avatar');
+        const avatarLogo = document.getElementById('p-avatar-logo');
+        const avatarClose = document.getElementById('p-avatar-close');
+        const scrollBubble = document.getElementById('p-scroll-bubble');
         const chatbox = document.getElementById('penelope-chatbox');
         const closeBtn = document.getElementById('p-close');
         const expandBtn = document.getElementById('p-expand');
@@ -206,12 +241,14 @@ ${JSON.stringify(knowledgeBase)}
         const toggleChat = () => {
             isOpen = !isOpen;
             chatbox.classList.toggle('open', isOpen);
-            const icon = avatar.querySelector('i');
-            icon.classList.toggle('fa-bolt', !isOpen);
-            icon.classList.toggle('fa-times', isOpen);
+            avatarLogo.style.display = isOpen ? 'none' : 'block';
+            avatarClose.style.display = isOpen ? 'block' : 'none';
+            avatarClose.style.color = isOpen ? '#fff' : '#0ea5e9';
             avatar.style.background = isOpen ? '#0ea5e9' : 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)';
-            icon.style.color = isOpen ? '#fff' : '#0ea5e9';
-            if (isOpen) setTimeout(() => input.focus(), 300);
+            if (isOpen) {
+                scrollBubble.classList.remove('show');
+                setTimeout(() => input.focus(), 300);
+            }
         };
 
         const toggleExpand = () => {
@@ -225,6 +262,36 @@ ${JSON.stringify(knowledgeBase)}
         avatar.addEventListener('click', toggleChat);
         closeBtn.addEventListener('click', toggleChat);
         expandBtn.addEventListener('click', toggleExpand);
+
+        // ── Scroll-triggered greeting bubble ─────────────────────────────────
+        let scrollEvents = 0;
+        let bubbleShown = false;
+        let scrollCooldown = false;
+
+        const showScrollBubble = () => {
+            if (bubbleShown || isOpen) return;
+            bubbleShown = true;
+            scrollBubble.classList.add('show');
+            setTimeout(() => {
+                scrollBubble.classList.remove('show');
+            }, 5500);
+        };
+
+        window.addEventListener('scroll', () => {
+            if (scrollCooldown || bubbleShown || isOpen) return;
+            scrollCooldown = true;
+            scrollEvents++;
+            setTimeout(() => { scrollCooldown = false; }, 700);
+            if (scrollEvents >= 2) {
+                showScrollBubble();
+            }
+        }, { passive: true });
+
+        scrollBubble.addEventListener('click', () => {
+            scrollBubble.classList.remove('show');
+            if (!isOpen) toggleChat();
+        });
+        // ────────────────────────────────────────────────────────────────────
 
         const appendMessage = (text, cls, parseMarkdown = false) => {
             const msg = document.createElement('div');
