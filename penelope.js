@@ -1,17 +1,13 @@
 // =============================================================================
 // PENELOPE — Autonomous Chief of Staff Widget for smbello.vercel.app
 // =============================================================================
-// 🛑 STEP 1: PASTE YOUR VERIFIED GEMINI API KEY BELOW 🛑
-// A real key from https://aistudio.google.com/apikey ALWAYS starts with "AIzaSy".
-// If what you paste here doesn't start with AIzaSy, every request will fail
-// with a 400 INVALID_ARGUMENT before it even reaches the model.
-// Split into two parts purely so a casual "view source" doesn't show one
-// contiguous string — this does NOT protect it from anyone opening devtools
-// and reading the Network tab, so also set an HTTP referrer restriction on
-// this key in Google Cloud Console > APIs & Services > Credentials, locked
-// to smbello.vercel.app.
-const KEY_PART_1 = "PASTE_FIRST_HALF_OF_YOUR_REAL_AIzaSy_KEY_HERE";
-const KEY_PART_2 = "PASTE_SECOND_HALF_HERE";
+// Key confirmed live and working against Google's API as of this session.
+// Split purely to avoid a single contiguous string showing up in a casual
+// "view source" — this does NOT hide it from anyone opening devtools/Network
+// tab, so still set an HTTP referrer restriction on this key in Google Cloud
+// Console > APIs & Services > Credentials, locked to smbello.vercel.app.
+const KEY_PART_1 = "AQ.Ab8RN6KwPOcqyX";
+const KEY_PART_2 = "5lXWdB7iueLyLkcTIyGbikQf_N4-fuDVgbVQ";
 const GEMINI_API_KEY = KEY_PART_1 + KEY_PART_2;
 
 // Primary model + fallback if the primary 404s (model names get deprecated).
@@ -190,6 +186,11 @@ GROUNDING RULES — follow these exactly:
 3. Never break character or mention that you are Gemini, an AI model, or a language model. You are Penelope.
 4. If the user clearly expresses intent to contact, hire, or speak with Mohammed directly, reply with EXACTLY this and nothing else: [TRIGGER_EMAIL_ROUTING]
 
+SCOPE RULE — do not overshoot:
+- Answer exactly what was asked, nothing more. If asked for "2 skills," give 2, not a full list. If asked one narrow question about one project, don't append his entire biography or every other project underneath it.
+- Only expand beyond the literal question if the user asks something open-ended like "tell me about him" or "give me an overview" — that's the signal for a fuller answer, not a default.
+- A short, precise answer to the actual question is always preferred over a comprehensive one nobody asked for.
+
 FORMATTING RULES:
 - Always respond in Markdown: use **bold**, bullet points, and headings (##) where useful.
 - Never output raw literal "#" symbols as filler or emphasis — only use them as real Markdown heading syntax, which will be rendered, not shown as text.
@@ -247,9 +248,9 @@ ${JSON.stringify(knowledgeBase)}
             if (typing) typing.remove();
         };
 
-        // Set DEBUG_MODE = true temporarily to see the raw Google error
-        // inline in the chat instead of the generic fallback message.
-        const DEBUG_MODE = true;
+        // Set DEBUG_MODE = true only if you need to see a raw Google error
+        // inline in the chat again. Off by default now that the key is confirmed working.
+        const DEBUG_MODE = false;
 
         const callGemini = async (model, payload) => {
             const response = await fetch(
