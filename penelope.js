@@ -289,6 +289,11 @@
     };
 
     const initLogic = () => {
+        // =========================================================================
+        // ✅ GEMINI API KEY ACTIVATED ✅
+        // =========================================================================
+        const GEMINI_API_KEY = "AQ.Ab8RN6IGnZMrheUnqT1GEbWQON2DIVcA5erFoA1k7q6y4marmg"; 
+        
         const avatar = document.getElementById('penelope-avatar');
         const chatbox = document.getElementById('penelope-chatbox');
         const closeBtn = document.getElementById('p-close');
@@ -296,6 +301,47 @@
         const sendBtn = document.getElementById('p-send');
         const messages = document.getElementById('p-messages');
         let isOpen = false;
+
+        // ─── PENELOPE'S KNOWLEDGE BASE (SYSTEM PROMPT) ───
+        const SYSTEM_PROMPT = `
+        You are Penelope, the autonomous AI Chief of Staff for Mohammed Bello Sani (nickname: SM-Bello).
+        Your personality is professional, highly intelligent, slightly futuristic, but warm and extremely helpful.
+        Your goal is to answer questions about Mohammed's background, research, and skills, and to encourage recruiters, researchers, and clients to contact him.
+        Keep your answers relatively concise, readable, and conversational. Do not output massive walls of text.
+
+        KNOWLEDGE BASE ABOUT MOHAMMED BELLO SANI:
+        - Current Status: Final-year Aerospace Engineering student at Air Force Institute of Technology (AFIT), Kaduna, Nigeria. Graduating in 2026 with a 4.13/5.00 CGPA (Second Class Upper).
+        - Future Status: Starting an M.Sc. in Smart Aviation at Beihang University (BUAA), Hangzhou, China in September 2026 under Prof. Hu Yang.
+        - Role: Aerospace Systems Engineer, Digital Twin Researcher, and Founder of Penelope Inc.
+        - Email: bellosanidrescue@gmail.com
+        - Focus: Physics-informed AI systems, Digital Twins, Aviation Cybersecurity, and Full-Stack Engineering.
+
+        KEY RESEARCH & PAPERS (Currently under review):
+        1. AeroTwin: B787 Landing Gear Prognostics via Edge AI (Under review: Chinese Journal of Aeronautics). Uses CNN-BiLSTM and Ollama LLM.
+        2. PHI-CHAIN: Blockchain-Secured Avionics (Submitted to AIAA SciTech 2027). Secures ADS-B/ACARS using Hyperledger Fabric.
+        3. Gas Turbine Ignition Digital Twin (Under review: Elsevier RESS). LightGBM optimization yielding R2=0.87.
+        4. Dornier 228 Multibody Landing Twin (Under review: AIAA JAIS). CS-23.473 compliant.
+        5. RDE CFD Augmentation via CVAE (Submitted to SciTech 2027). Built with OpenFOAM, found a 4x velocity error in existing literature.
+
+        KEY PROJECTS:
+        - Lifestone: Desktop audio analytics app built with Rust, Tauri v2, and Whisper STT.
+        - COLIG: Full-stack application built with Next.js, PocketBase, and LiveKit WebRTC.
+        - PHI-DRONE: Digital Twin Reconnaissance Hub fusing ArduPilot, FlightGear, and YOLOv8.
+
+        CORE SKILLS:
+        - Aerospace: Digital Twins, PHM (Prognostics), OpenFOAM CFD, MATLAB Simscape, Airworthiness (CS-23/25).
+        - AI/ML: CNN-BiLSTM, CVAE, LightGBM, PyTorch, ONNX Deployment.
+        - Security: Hyperledger Fabric, Cryptography (Ed25519).
+        - Software: Rust, Next.js, FastAPI, Docker, Tailwind.
+
+        INSTRUCTIONS:
+        If someone asks for his resume, outline his education and top skills.
+        If someone asks how to contact him, give them his email (bellosanidrescue@gmail.com).
+        Never break character. You are Penelope.
+        `;
+
+        // ─── CHAT HISTORY ───
+        let chatHistory = [];
 
         // Toggle Chat Window
         const toggleChat = () => {
@@ -321,7 +367,7 @@
         const appendMessage = (text, sender) => {
             const msg = document.createElement('div');
             msg.className = `p-msg ${sender}`;
-            msg.innerHTML = text;
+            msg.innerHTML = text; // allow basic HTML formatting from Penelope
             messages.appendChild(msg);
             messages.scrollTop = messages.scrollHeight;
         };
@@ -340,34 +386,63 @@
             if (typing) typing.remove();
         };
 
-        // Dummy Bot Logic (Phase 1)
-        const handleSend = () => {
+        // ─── GEMINI API INTEGRATION ───
+        const fetchGeminiResponse = async (userText) => {
+            // Add user message to history
+            chatHistory.push({ role: "user", parts: [{ text: userText }] });
+
+            const payload = {
+                system_instruction: { parts: { text: SYSTEM_PROMPT } },
+                contents: chatHistory
+            };
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+
+                const data = await response.json();
+                const botReply = data.candidates[0].content.parts[0].text;
+                
+                // Add bot reply to history so she remembers context
+                chatHistory.push({ role: "model", parts: [{ text: botReply }] });
+                
+                // Format basic markdown (bold to HTML)
+                const formattedReply = bot.Reply ? botReply.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') : botReply;
+                return botReply.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+
+            } catch (error) {
+                console.error("Penelope API Error:", error);
+                return "My comms link is currently experiencing interference. Please try again or email Mohammed directly at <strong>bellosanidrescue@gmail.com</strong>.";
+            }
+        };
+
+        // Handle Sending
+        const handleSend = async () => {
             const text = input.value.trim();
             if (!text) return;
 
             appendMessage(text, 'user');
             input.value = '';
 
-            // Simulate AI Thinking
+            if (GEMINI_API_KEY === "PASTE_YOUR_API_KEY_HERE") {
+                appendMessage("System Error: API Key not detected. Please configure Penelope's neural link.", 'bot');
+                return;
+            }
+
             showTyping();
             
-            setTimeout(() => {
-                removeTyping();
-                
-                // Simple keyword triggers for Phase 1 testing
-                const lowerText = text.toLowerCase();
-                let reply = "I am currently operating in Phase 1 mode. My LLM brain has not been fully connected yet. But I am ready for deployment!";
-                
-                if (lowerText.includes("resume") || lowerText.includes("cgpa") || lowerText.includes("education")) {
-                    reply = "Mohammed is graduating from AFIT Kaduna with a B.Eng in Aerospace Engineering (4.13/5.00 CGPA). In Sept 2026, he begins his M.Sc. in Smart Aviation at Beihang University.";
-                } else if (lowerText.includes("project") || lowerText.includes("research")) {
-                    reply = "He has 4 papers currently under review, including works on the Dornier 228 Landing Gear, B787 Ignition Digital Twins, and Blockchain Aviation Security. Check the Logbook for details!";
-                } else if (lowerText.includes("contact") || lowerText.includes("talk") || lowerText.includes("email") || lowerText.includes("hire")) {
-                    reply = "You can reach him directly at <strong>bellosanidrescue@gmail.com</strong>. In Phase 3, I will be able to route your message to him directly from this chat!";
-                }
-
-                appendMessage(reply, 'bot');
-            }, 1200); // Artificial delay
+            // Fetch response from LLM
+            const reply = await fetchGeminiResponse(text);
+            
+            removeTyping();
+            appendMessage(reply, 'bot');
         };
 
         sendBtn.addEventListener('click', handleSend);
