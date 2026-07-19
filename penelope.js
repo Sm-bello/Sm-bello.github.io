@@ -31,32 +31,104 @@ const FALLBACK_MODEL = "gemini-2.5-flash";
         style.innerHTML = `
             #penelope-widget { position: fixed; bottom: 2rem; left: 1.5rem; z-index: 10000; font-family: 'Inter', sans-serif; }
 
-            #penelope-avatar { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border: 2px solid #0ea5e9; box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease; position: relative; }
-            #penelope-avatar:hover { transform: scale(1.08); box-shadow: 0 15px 35px rgba(14, 165, 233, 0.5); }
-            #penelope-avatar i { font-size: 1.6rem; color: #0ea5e9; }
+            /* ── Moon-glass avatar ─────────────────────────────────────────── */
+            #penelope-avatar {
+                width: 60px; height: 60px; border-radius: 50%;
+                background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 60%, rgba(255,255,255,0.02) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1.5px solid rgba(255,255,255,0.25);
+                box-shadow:
+                    0 0 0 1px rgba(255,255,255,0.08),
+                    0 8px 32px rgba(0,0,0,0.12),
+                    0 0 40px rgba(255,255,255,0.06),
+                    inset 0 0 16px rgba(255,255,255,0.06);
+                display: flex; align-items: center; justify-content: center;
+                cursor: pointer;
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+                position: relative; overflow: hidden;
+            }
+            #penelope-avatar:hover {
+                transform: scale(1.08);
+                box-shadow:
+                    0 0 0 1px rgba(255,255,255,0.15),
+                    0 12px 40px rgba(0,0,0,0.18),
+                    0 0 50px rgba(255,255,255,0.1),
+                    inset 0 0 24px rgba(255,255,255,0.1);
+            }
 
-            #p-avatar-logo { width: 34px; height: 34px; object-fit: contain; border-radius: 4px; display: block; position: relative; z-index: 2; animation: pLogoBreathe 3s ease-in-out infinite; filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.3)); }
-            @keyframes pLogoBreathe { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.3)); } 50% { transform: scale(1.08); filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.55)); } }
+            /* Circular logo — CSS crops the image into the orb */
+            #p-avatar-logo {
+                width: 44px; height: 44px; border-radius: 50%;
+                object-fit: cover;
+                object-position: center 25%;
+                display: block; position: relative; z-index: 2;
+                border: 1.5px solid rgba(255,255,255,0.25);
+                background: #fff;
+            }
 
-            #p-avatar-close { display: none; position: relative; z-index: 2; }
+            #p-avatar-close {
+                display: none; position: relative; z-index: 2;
+                font-size: 1.5rem; color: #fff;
+            }
 
-            .penelope-pulse { position: absolute; inset: 0; border-radius: 50%; background: rgba(14, 165, 233, 0.4); z-index: -1; animation: pPing 2.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
+            /* Silver-white pulse instead of blue */
+            .penelope-pulse {
+                position: absolute; inset: 0; border-radius: 50%;
+                background: rgba(255,255,255,0.12);
+                box-shadow: 0 0 20px rgba(255,255,255,0.08);
+                z-index: -1;
+                animation: pPing 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+            }
             @keyframes pPing { 75%, 100% { transform: scale(1.8); opacity: 0; } }
 
+            /* Custom horizontal tooltip (left-to-right) */
+            #p-avatar-tooltip {
+                position: absolute;
+                left: 72px; top: 50%;
+                transform: translateY(-50%) translateX(-8px);
+                background: rgba(15, 23, 42, 0.88);
+                backdrop-filter: blur(10px);
+                color: #fff;
+                padding: 8px 14px;
+                border-radius: 10px;
+                font-size: 0.8rem;
+                font-weight: 500;
+                white-space: nowrap;
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+                border: 1px solid rgba(255,255,255,0.1);
+                z-index: 10;
+            }
+            #p-avatar-tooltip::before {
+                content: '';
+                position: absolute;
+                right: 100%; top: 50%;
+                transform: translateY(-50%);
+                border: 6px solid transparent;
+                border-right-color: rgba(15, 23, 42, 0.88);
+            }
+            #penelope-avatar:hover #p-avatar-tooltip {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
+
+            /* Scroll bubble — glassy to match */
             #p-scroll-bubble {
                 position: absolute;
-                bottom: 72px;
-                left: 72px;
-                background: #ffffff;
-                color: #0f172a;
+                bottom: 72px; left: 72px;
+                background: rgba(15, 23, 42, 0.85);
+                backdrop-filter: blur(12px);
+                color: #fff;
                 padding: 10px 16px;
                 border-radius: 16px 16px 16px 4px;
                 font-size: 0.85rem;
-                font-family: 'Inter', sans-serif;
                 font-weight: 500;
                 line-height: 1.4;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                border: 1px solid rgba(14, 165, 233, 0.15);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+                border: 1px solid rgba(255,255,255,0.12);
                 max-width: 220px;
                 opacity: 0;
                 transform: translateY(10px) scale(0.9);
@@ -120,6 +192,7 @@ const FALLBACK_MODEL = "gemini-2.5-flash";
                 #penelope-chatbox { width: calc(100vw - 2rem); height: 60vh; bottom: 70px; left: 0; }
                 #penelope-chatbox.expanded { width: 100vw; height: 100vh; max-height: 100vh; bottom: -1.5rem; left: -1rem; border-radius: 0; }
                 #p-scroll-bubble { bottom: 72px; left: 0; max-width: 180px; font-size: 0.8rem; }
+                #p-avatar-tooltip { display: none; }
             }
         `;
         document.head.appendChild(style);
@@ -152,10 +225,11 @@ const FALLBACK_MODEL = "gemini-2.5-flash";
                 </div>
             </div>
             <div id="p-scroll-bubble">What do you want to know? I'll help you! 👋</div>
-            <div id="penelope-avatar" title="Chat with Penelope">
+            <div id="penelope-avatar">
                 <div class="penelope-pulse"></div>
                 <img id="p-avatar-logo" src="/assets/penelope-logo.png" alt="Penelope">
                 <i id="p-avatar-close" class="fas fa-times"></i>
+                <div id="p-avatar-tooltip">Chat with Penelope</div>
             </div>
         `;
         document.body.appendChild(widget);
@@ -243,8 +317,7 @@ ${JSON.stringify(knowledgeBase)}
             chatbox.classList.toggle('open', isOpen);
             avatarLogo.style.display = isOpen ? 'none' : 'block';
             avatarClose.style.display = isOpen ? 'block' : 'none';
-            avatarClose.style.color = isOpen ? '#fff' : '#0ea5e9';
-            avatar.style.background = isOpen ? '#0ea5e9' : 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)';
+            avatarClose.style.color = '#fff';
             if (isOpen) {
                 scrollBubble.classList.remove('show');
                 setTimeout(() => input.focus(), 300);
