@@ -386,7 +386,6 @@
         const fetchGeminiResponse = async (userText) => {
             chatHistory.push({ role: "user", parts: [{ text: userText }] });
 
-            // Corrected API Payload Structure for v1beta endpoint
             const payload = {
                 systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
                 contents: chatHistory
@@ -400,9 +399,10 @@
                 });
 
                 if (!response.ok) {
-                    const errData = await response.text();
+                    const errData = await response.json();
                     console.error("Gemini API Error Details:", errData);
-                    throw new Error("Network response was not ok. See console for details.");
+                    // This will print the EXACT Google error into Penelope's chat!
+                    return `<strong>Google API Error ${errData.error.code}:</strong> ${errData.error.message}<br><br><em>(Hint: If this is a restriction error, check your Google Cloud Console restrictions or ensure you are running on Live Server).</em>`;
                 }
 
                 const data = await response.json();
@@ -415,7 +415,7 @@
 
             } catch (error) {
                 console.error("Penelope API Error:", error);
-                return "My comms link is currently experiencing interference. Please check the browser console for details, or email Mohammed directly at <strong>bellosanidrescue@gmail.com</strong>.";
+                return `<strong>Network Error:</strong> ${error.message}<br><br>Are you running this via Live Server (http://...)? If the URL bar says file:///, the API will be blocked.`;
             }
         };
 
