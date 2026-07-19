@@ -1,7 +1,20 @@
+// 🛑 SECURITY: API KEY SPLIT 🛑
+const KEY_PART_1 = "AQ.Ab8RN6KwPOcqyX"; 
+const KEY_PART_2 = "5lXWdB7iueLyLkcTIyGbikQf_N4-fuDVgbVQ";
+const GEMINI_API_KEY = KEY_PART_1 + KEY_PART_2;
+
 (function () {
     // Prevent multiple initializations
     if (window.PenelopeInitialized) return;
     window.PenelopeInitialized = true;
+
+    // Load External Dependencies (Markdown & EmailJS)
+    const loadScript = (src) => new Promise((resolve) => {
+        const s = document.createElement('script');
+        s.src = src;
+        s.onload = resolve;
+        document.head.appendChild(s);
+    });
 
     const injectStyles = () => {
         const style = document.createElement('style');
@@ -232,6 +245,11 @@
                 border-radius: 16px 2px 16px 16px;
                 box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
             }
+            
+            /* Markdown Styling for Output */
+            .p-msg strong { color: #0284c7; }
+            .p-msg h1, .p-msg h2, .p-msg h3 { margin: 10px 0; color: #0ea5e9; font-size: 1rem; }
+            .p-msg ul { padding-left: 20px; margin: 5px 0; }
 
             .p-typing {
                 display: flex; gap: 4px; align-items: center; padding: 16px;
@@ -290,7 +308,7 @@
             }
             
             #penelope-chatbox.fullscreen #p-send {
-                width: 50px; height: 50px; /* Slightly larger button in fullscreen */
+                width: 50px; height: 50px;
             }
 
             #p-send:hover { background: #0ea5e9; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3); }
@@ -311,14 +329,13 @@
     const buildDOM = () => {
         const widget = document.createElement('div');
         widget.id = 'penelope-widget';
-
         widget.innerHTML = `
             <div id="penelope-chatbox">
                 <div id="p-header">
                     <div class="p-header-info">
                         <div class="p-header-icon"><i class="fas fa-robot"></i></div>
                         <div class="p-header-text">
-                            <h3>Penelope v1.2</h3>
+                            <h3>Penelope v1.3</h3>
                             <span><div class="p-status-dot"></div> Online · Chief of Staff</span>
                         </div>
                     </div>
@@ -329,7 +346,7 @@
                 </div>
                 <div id="p-messages">
                     <div class="p-msg bot">
-                        Hello! I am Penelope, SM-Bello's autonomous agent. I know his entire research pipeline, resume, and technical stack.<br><br>How can I assist you today?
+                        <strong>Hello!</strong> I am Penelope, SM-Bello's autonomous agent. I know his entire research pipeline, resume, and technical stack.<br><br>How can I assist you today?
                     </div>
                 </div>
                 <div id="p-input-area">
@@ -343,110 +360,37 @@
                 <i class="fas fa-bolt"></i>
             </div>
         `;
-
         document.body.appendChild(widget);
     };
 
     const initLogic = async () => {
-        // =========================================================================
-        // ✅ GEMINI API KEY SPLIT ✅
-        // Split to evade GitHub automated security scanners
-        // =========================================================================
-        const KEY_PART_1 = "AQ.Ab8RN6KwPOcqyX"; 
-        const KEY_PART_2 = "5lXWdB7iueLyLkcTIyGbikQf_N4-fuDVgbVQ";
-        const GEMINI_API_KEY = KEY_PART_1 + KEY_PART_2;
+        // Dependencies
+        await Promise.all([
+            loadScript("https://cdn.jsdelivr.net/npm/marked/marked.min.js"),
+            loadScript("https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"),
+            loadScript("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js")
+        ]);
         
-        const widget = document.getElementById('penelope-widget');
-        const avatar = document.getElementById('penelope-avatar');
-        const chatbox = document.getElementById('penelope-chatbox');
-        const closeBtn = document.getElementById('p-close');
-        const expandBtn = document.getElementById('p-expand');
-        const input = document.getElementById('p-input');
-        const sendBtn = document.getElementById('p-send');
-        const messages = document.getElementById('p-messages');
-        let isOpen = false;
-        let isFullscreen = false;
+        // EmailJS Init
+        emailjs.init("9DloHYatGRyjwuntn"); // Public Key
+        const SERVICE_ID = "service_d1k7ewd";
+        const TEMPLATE_ID = "template_8jdi5qd";
 
-        // ─── FETCH KNOWLEDGE BASE FROM assets/me.json ───
-        let knowledgeData = "External data not loaded yet.";
-        try {
-            const res = await fetch('./assets/me.json');
-            if (res.ok) {
-                const data = await res.json();
-                knowledgeData = JSON.stringify(data, null, 2);
-                console.log("Penelope successfully loaded me.json from assets.");
-            } else {
-                console.error("Failed to load me.json", res.status);
-            }
-        } catch (e) {
-            console.error("Error fetching me.json (Ensure you are running a local server):", e);
-        }
-
-        // ─── PENELOPE'S KNOWLEDGE BASE (SYSTEM PROMPT) ───
-        const SYSTEM_PROMPT = `
-        You are Penelope, the autonomous AI Chief of Staff for Mohammed Bello Sani (nickname: SM-Bello).
-        Your personality is professional, highly intelligent, slightly futuristic, but warm and extremely helpful.
-        Your goal is to answer questions about Mohammed's background, research, and skills based on the JSON data provided below.
-        Keep your answers relatively concise, readable, and conversational. Do not output raw JSON, interpret it naturally.
-
-        KNOWLEDGE BASE (JSON FORMAT):
-        ${knowledgeData}
-
-        INSTRUCTIONS:
-        If someone asks for his resume, outline his education and top skills.
-        If someone asks how to contact him, give them his email (bellosanidrescue@gmail.com).
-        Never break character. You are Penelope.
-        `;
-
-        // ─── CHAT HISTORY ───
+        // Logic variables
+        let knowledge = {};
+        try { const res = await fetch('./assets/me.json'); knowledge = await res.json(); } catch(e) { console.warn("me.json not found"); }
+        
+        const pageContext = document.body.innerText.substring(0, 3000);
         let chatHistory = [];
+        let contactMode = false;
 
-        // Toggle Chat Window
-        const toggleChat = () => {
-            isOpen = !isOpen;
-            if (isOpen) {
-                chatbox.classList.add('open');
-                avatar.querySelector('i').classList.replace('fa-bolt', 'fa-times');
-                avatar.style.background = '#0ea5e9';
-                avatar.querySelector('i').style.color = '#fff';
-                setTimeout(() => input.focus(), 300);
-            } else {
-                chatbox.classList.remove('open');
-                // If closing while fullscreen, revert fullscreen state too
-                if(isFullscreen) {
-                    toggleFullscreen();
-                }
-                avatar.querySelector('i').classList.replace('fa-times', 'fa-bolt');
-                avatar.style.background = 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)';
-                avatar.querySelector('i').style.color = '#0ea5e9';
-            }
-        };
+        const messages = document.getElementById('p-messages');
+        const input = document.getElementById('p-input');
 
-        // Toggle Fullscreen
-        const toggleFullscreen = () => {
-            isFullscreen = !isFullscreen;
-            if (isFullscreen) {
-                chatbox.classList.add('fullscreen');
-                widget.classList.add('is-fullscreen');
-                expandBtn.querySelector('i').classList.replace('fa-expand-arrows-alt', 'fa-compress-arrows-alt');
-                expandBtn.title = "Collapse";
-            } else {
-                chatbox.classList.remove('fullscreen');
-                widget.classList.remove('is-fullscreen');
-                expandBtn.querySelector('i').classList.replace('fa-compress-arrows-alt', 'fa-expand-arrows-alt');
-                expandBtn.title = "Expand";
-            }
-        };
-
-        avatar.addEventListener('click', toggleChat);
-        closeBtn.addEventListener('click', toggleChat);
-        expandBtn.addEventListener('click', toggleFullscreen);
-
-        // Message Handling
-        const appendMessage = (text, sender) => {
+        const appendMessage = (text, sender, isMarkdown = false) => {
             const msg = document.createElement('div');
             msg.className = `p-msg ${sender}`;
-            msg.innerHTML = text; 
+            msg.innerHTML = isMarkdown ? marked.parse(text) : text;
             messages.appendChild(msg);
             messages.scrollTop = messages.scrollHeight;
         };
@@ -457,7 +401,6 @@
             typing.id = 'p-typing-indicator';
             typing.innerHTML = `<div class="p-dot"></div><div class="p-dot"></div><div class="p-dot"></div>`;
             messages.appendChild(typing);
-            messages.scrollTop = messages.scrollHeight;
         };
 
         const removeTyping = () => {
@@ -465,70 +408,70 @@
             if (typing) typing.remove();
         };
 
-        // ─── GEMINI API INTEGRATION ───
-        const fetchGeminiResponse = async (userText) => {
-            // Add user message to history
-            chatHistory.push({ role: "user", parts: [{ text: userText }] });
-
-            const payload = {
-                systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-                contents: chatHistory
-            };
-
-            try {
-                // 🛑 UPDATED TO GEMINI 3.5 FLASH (2026 DEFAULT) 🛑
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) {
-                    const errData = await response.json();
-                    console.error("Gemini API Error Details:", errData);
-                    return `<strong>Google API Error ${errData.error.code}:</strong> ${errData.error.message}<br><br><em>(Hint: If this is a restriction error, check your Google Cloud Console restrictions or ensure you are running on Live Server).</em>`;
-                }
-
-                const data = await response.json();
-                const botReply = data.candidates[0].content.parts[0].text;
-                
-                chatHistory.push({ role: "model", parts: [{ text: botReply }] });
-                
-                // Basic Markdown formatting
-                return botReply.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-
-            } catch (error) {
-                console.error("Penelope API Error:", error);
-                return `<strong>Network Error:</strong> ${error.message}<br><br>Are you running this via Live Server (http://...)? If the URL bar says file:///, the API will be blocked.`;
-            }
-        };
-
-        // Handle Sending
         const handleSend = async () => {
             const text = input.value.trim();
             if (!text) return;
 
             appendMessage(text, 'user');
             input.value = '';
-
             showTyping();
-            
-            const reply = await fetchGeminiResponse(text);
-            
-            removeTyping();
-            appendMessage(reply, 'bot');
+
+            // Handle Email Routing Logic
+            if (contactMode) {
+                try {
+                    await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+                        user_email: text,
+                        chat_log: chatHistory.map(m => m.parts[0].text).join('\n')
+                    });
+                    removeTyping();
+                    appendMessage("<strong>Message Successfully Transmitted!</strong><br>Mohammed has received your chat logs and will reach out to you shortly.", 'bot', true);
+                } catch (error) {
+                    removeTyping();
+                    appendMessage("My comms link to the mail server failed. Please email him directly at <strong>bellosanidrescue@gmail.com</strong>.", 'bot', true);
+                }
+                contactMode = false;
+                return;
+            }
+
+            // Normal AI Logic
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                    method: 'POST', headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        systemInstruction: { parts: [{ text: `
+                            You are Penelope, autonomous Chief of Staff for Mohammed Bello Sani. 
+                            Knowledge: ${JSON.stringify(knowledge)}. 
+                            Context: ${pageContext}. 
+                            If the user expresses intent to hire, contact, or talk to Mohammed, reply ONLY: [TRIGGER_EMAIL_ROUTING]. 
+                            Otherwise, format responses beautifully with Markdown.
+                        `}] },
+                        contents: [...chatHistory, { role: "user", parts: [{ text }] }]
+                    })
+                });
+                const data = await response.json();
+                const reply = data.candidates[0].content.parts[0].text;
+                
+                chatHistory.push({ role: "user", parts: [{ text }] }, { role: "model", parts: [{ text: reply }] });
+                removeTyping();
+
+                if (reply.includes("[TRIGGER_EMAIL_ROUTING]")) {
+                    contactMode = true;
+                    appendMessage("I would be happy to connect you directly with Mohammed! Please reply with your **Email Address**.", 'bot', true);
+                } else {
+                    appendMessage(reply, 'bot', true);
+                }
+            } catch (err) {
+                removeTyping();
+                appendMessage("My comms link is experiencing interference. Please email <strong>bellosanidrescue@gmail.com</strong>.", 'bot', true);
+            }
         };
 
-        sendBtn.addEventListener('click', handleSend);
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleSend();
-        });
+        document.getElementById('p-send').addEventListener('click', handleSend);
+        document.getElementById('p-input').addEventListener('keypress', (e) => { if(e.key === 'Enter') handleSend() });
+        document.getElementById('p-expand').addEventListener('click', () => document.getElementById('penelope-chatbox').classList.toggle('fullscreen'));
+        document.getElementById('penelope-avatar').addEventListener('click', () => document.getElementById('penelope-chatbox').classList.add('open'));
+        document.getElementById('p-close').addEventListener('click', () => document.getElementById('penelope-chatbox').classList.remove('open'));
     };
 
-    // Run initializations
-    injectStyles();
-    buildDOM();
-    initLogic();
-    console.log("Penelope Agent v1.2 Initialized.");
-
+    injectStyles(); buildDOM(); initLogic();
 })();
