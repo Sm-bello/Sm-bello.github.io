@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -228,6 +229,78 @@ nav.stretched-nav.scrolled {
     color: var(--text); 
     font-size: 1.5rem; 
     cursor: pointer; 
+}
+
+/* ─── PENELOPE POWERHOUSE FLOATING BADGE ─── */
+.penelope-badge-wrapper {
+    position: fixed;
+    bottom: 1.8rem;
+    right: 1.8rem;
+    z-index: 999;
+}
+.penelope-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    font-family: var(--ff-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #0b0f19;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0.75rem 1.3rem;
+    border-radius: 100px;
+    box-shadow: 0 8px 30px rgba(11, 15, 25, 0.12);
+    transition: var(--transition-smooth);
+    animation: penelopeFloat 3.2s ease-in-out infinite;
+}
+.penelope-badge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 100px;
+    padding: 1.5px;
+    background: linear-gradient(90deg, #0ea5e9, #dd5a12, #067a52, #6d28d9, #0ea5e9);
+    background-size: 200% auto;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: neonGlowFlow 4s linear infinite;
+}
+.penelope-badge .bookmark-emoji { font-size: 1rem; line-height: 1; }
+.penelope-badge .badge-copy { display: flex; flex-direction: column; line-height: 1.15; }
+.penelope-badge .badge-eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 0.56rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+}
+.penelope-badge .badge-main { font-size: 0.82rem; font-weight: 800; color: #0b0f19; }
+.penelope-badge .badge-main span { color: var(--accent-orange); }
+.penelope-badge i.fa-arrow-right { font-size: 0.7rem; color: var(--text-tertiary); transition: var(--transition); }
+
+.penelope-badge:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 14px 40px rgba(221, 90, 18, 0.22);
+    background: #ffffff;
+}
+.penelope-badge:hover i.fa-arrow-right { color: var(--accent-orange); transform: translateX(3px); }
+
+@keyframes penelopeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@media (max-width: 640px) {
+    .penelope-badge-wrapper { bottom: 1rem; right: 1rem; left: 1rem; display: flex; justify-content: flex-end; }
+    .penelope-badge { padding: 0.65rem 1.1rem; font-size: 0.72rem; }
+    .penelope-badge .badge-main { font-size: 0.74rem; }
 }
 
 /* ─── HERO SECTION ─── */
@@ -541,6 +614,17 @@ nav.stretched-nav.scrolled {
             </ul>
         </div>
     </nav>
+</div>
+
+<div class="penelope-badge-wrapper">
+    <a href="/Penelope.html" class="penelope-badge" aria-label="Visit Penelope Inc., the powerhouse behind this research">
+        <span class="bookmark-emoji">🔖</span>
+        <span class="badge-copy">
+            <span class="badge-eyebrow">The Powerhouse Behind It All</span>
+            <span class="badge-main">Penelope <span>Inc.</span></span>
+        </span>
+        <i class="fas fa-arrow-right"></i>
+    </a>
 </div>
 
 <section class="hero">
