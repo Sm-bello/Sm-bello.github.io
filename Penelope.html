@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penelope Inc. | PHI Lab</title>
-    <!-- Google Fonts for Editorial Aesthetics -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -463,7 +461,6 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header>
         <div class="logo">Penelope Inc.</div>
         <ul class="nav-links">
@@ -474,11 +471,9 @@
         </ul>
     </header>
 
-    <!-- 1. Hero Section (Hero Video replacing static image) -->
     <section class="hero">
-        <!-- Autoplay Scroll-Optimized Video Background -->
-        <video class="hero-video-bg scroll-video" autoplay muted loop playsinline poster="poster-hero.jpg">
-            <source src="hero-video.mp4" type="video/mp4">
+        <video class="hero-video-bg scroll-video" autoplay muted loop playsinline poster="assets/poster-hero.jpg">
+            <source src="assets/hero-video.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
         <div class="hero-overlay"></div>
@@ -488,7 +483,6 @@
         </div>
     </section>
 
-    <!-- 2. Dark Vision Strip (McKinsey Style Intro) -->
     <section class="vision-strip" id="phi-lab">
         <div class="vision-container">
             <h2>What happens when component-specific physics fusion meets real-time edge execution?</h2>
@@ -497,23 +491,21 @@
                     <p>At PHI Lab, we bridge high-fidelity aerospace structural modeling with deployment-ready AI frameworks. From landing gear prognostics to gas turbine fault injection, our platform empowers aerospace engineers with trustworthy, certification-compliant digital twins.</p>
                 </div>
                 <div class="video-card-frame">
-                    <video class="scroll-video" muted loop playsinline poster="poster-vision.jpg">
-                        <source src="phi-intro.mp4" type="video/mp4">
+                    <video class="scroll-video" muted loop playsinline poster="assets/poster-vision.jpg">
+                        <source src="assets/phi-intro.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. Our Programs / PHI Suite Grid -->
     <section class="programs-section">
         <div class="section-label">THE PHI LAB ECOSYSTEM</div>
 
-        <!-- PHI-Twin Card -->
         <div class="program-card" id="twin">
             <div class="video-card-frame">
-                <video class="scroll-video" muted loop playsinline poster="poster-twin.jpg">
-                    <source src="phi-twin.mp4" type="video/mp4">
+                <video class="scroll-video" muted loop playsinline poster="assets/poster-twin.jpg">
+                    <source src="assets/phi-twin.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="program-info">
@@ -524,11 +516,10 @@
             </div>
         </div>
 
-        <!-- PHI-Chain Card -->
         <div class="program-card reverse" id="chain">
             <div class="video-card-frame">
-                <video class="scroll-video" muted loop playsinline poster="poster-chain.jpg">
-                    <source src="phi-chain.mp4" type="video/mp4">
+                <video class="scroll-video" muted loop playsinline poster="assets/poster-chain.jpg">
+                    <source src="assets/phi-chain.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="program-info">
@@ -539,11 +530,10 @@
             </div>
         </div>
 
-        <!-- PHI-Arc Card -->
         <div class="program-card">
             <div class="video-card-frame">
-                <video class="scroll-video" muted loop playsinline poster="poster-arc.jpg">
-                    <source src="phi-arc.mp4" type="video/mp4">
+                <video class="scroll-video" muted loop playsinline poster="assets/poster-arc.jpg">
+                    <source src="assets/phi-arc.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="program-info">
@@ -554,11 +544,10 @@
             </div>
         </div>
 
-        <!-- PHI-Drone Card -->
         <div class="program-card reverse">
             <div class="video-card-frame">
-                <video class="scroll-video" muted loop playsinline poster="poster-drone.jpg">
-                    <source src="phi-drone.mp4" type="video/mp4">
+                <video class="scroll-video" muted loop playsinline poster="assets/poster-drone.jpg">
+                    <source src="assets/phi-drone.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="program-info">
@@ -570,7 +559,6 @@
         </div>
     </section>
 
-    <!-- 4. Key Metrics Counter -->
     <section class="metrics-section">
         <div class="metrics-grid">
             <div class="metric-item">
@@ -588,7 +576,6 @@
         </div>
     </section>
 
-    <!-- 5. Featured Quote -->
     <section class="quote-section">
         <div class="section-label">VALIDATION & RESEARCH</div>
         <blockquote>
@@ -598,13 +585,11 @@
         <div class="quote-role">Penelope Inc. Research Division</div>
     </section>
 
-    <!-- 6. Get in Touch Banner -->
     <div class="cta-banner" id="contact">
         <h2>Let us help you build your next mission-critical twin</h2>
         <a href="mailto:contact@penelope.inc" class="btn-primary">Get in touch</a>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
@@ -636,7 +621,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript: IntersectionObserver for Auto Play/Pause on Scroll -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Select all videos configured with the scroll-video class
@@ -672,7 +656,6 @@
             });
         });
     </script>
-    <!-- Penelope AI Agent -->
     <script src="penelope.js"></script>
 </body>
 </html>
