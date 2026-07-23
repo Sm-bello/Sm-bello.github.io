@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Bello Sani | Aerospace Intelligence & Digital Twin Systems Engineer</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-    <meta name="description" content="Mohammed Bello Sani — Aerospace Engineering Graduate from AFIT Kaduna. Ad Hoc Reviewer for AIAA JAIS. Incoming M.Sc. at Beihang University Smart Aviation Center. Developing physics-informed AI digital twins and secure avionics blockchain architectures.">
+    <meta name="description" content="Mohammed Bello Sani — Aerospace Engineering Graduate from AFIT Kaduna. Founder & Chief Technologist of Penelope Inc. Incoming M.Sc. at Beihang University Smart Aviation Center. Developing physics-informed AI digital twins and secure avionics blockchain architectures.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -471,7 +470,7 @@ nav.stretched-nav.scrolled {
 .pub-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
 .tag { font-family: var(--ff-mono); font-size: 0.62rem; font-weight: 500; padding: 0.25rem 0.65rem; border-radius: 4px; border: 1px solid var(--border); color: var(--text-secondary); background: var(--bg-warm); }
 
-/* ─── COMPETENCIES CAROUSEL (REPLACED STATIC GRID) ─── */
+/* ─── COMPETENCIES CAROUSEL ─── */
 .exp-section { padding: 7rem 0; background: var(--bg-warm); position: relative; z-index: 1; }
 .slider-header-wrap { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
 .slider-controls { display: flex; gap: 0.8rem; }
@@ -488,7 +487,7 @@ nav.stretched-nav.scrolled {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding: 1rem 2rem 3rem 2rem;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
     -ms-overflow-style: none;
 }
 .competency-track::-webkit-scrollbar { display: none; }
@@ -511,6 +510,200 @@ nav.stretched-nav.scrolled {
 .comp-card h3 { font-family: var(--ff-display); font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 0.8rem; letter-spacing: -0.01em; line-height: 1.2; }
 .comp-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; flex-grow: 1; margin-bottom: 1.5rem; }
 .comp-tools-label { font-size: 0.75rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+
+/* ─── PENELOPE INC. FLAGSHIP SHOWCASE BANNER ─── */
+.penelope-showcase-section {
+    padding: 7rem 2rem;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%);
+}
+.penelope-showcase-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    background: #0b0f19;
+    border-radius: 24px;
+    padding: 4rem 4rem;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(11, 15, 25, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.penelope-showcase-container::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(221,90,18,0.25) 0%, rgba(15,44,89,0) 70%);
+    pointer-events: none;
+}
+.penelope-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+.penelope-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.penelope-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+.penelope-title span {
+    color: var(--accent-orange);
+}
+.penelope-desc {
+    font-size: 1.05rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+.penelope-leadership-box {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.2rem 1.6rem;
+    border-radius: 14px;
+    margin-bottom: 2.5rem;
+}
+.leader-avatar {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--accent-orange), #ea580c);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--ff-display);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(221,90,18,0.4);
+}
+.leader-info h4 {
+    font-family: var(--ff-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.2rem;
+}
+.leader-info p {
+    font-family: var(--ff-mono);
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.penelope-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.btn-penelope-main {
+    background: #fff;
+    color: #0b0f19;
+    font-family: var(--ff-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 4px 20px rgba(255,255,255,0.15);
+}
+.btn-penelope-main:hover {
+    background: var(--accent-orange);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(221,90,18,0.4);
+}
+.btn-penelope-sub {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-family: var(--ff-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.btn-penelope-sub:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+
+.penelope-pillars-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.pillar-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+.pillar-icon {
+    width: 36px; height: 36px;
+    background: rgba(221, 90, 18, 0.15);
+    border: 1px solid rgba(221, 90, 18, 0.3);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-orange);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+.pillar-text h5 {
+    font-family: var(--ff-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.3rem;
+}
+.pillar-text p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.5;
+}
+
+@media(max-width: 960px) {
+    .penelope-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .penelope-showcase-container { padding: 3rem 2rem; }
+}
 
 /* ─── RECRUITMENT DEEP FOOTER ─── */
 .footer-main { background: #07090e; color: #cbd5e1; padding: 7rem 2rem 4rem; position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.05); }
@@ -789,7 +982,6 @@ nav.stretched-nav.scrolled {
             </div>
         </div>
 
-        <!-- NEW MANUSCRIPTS -->
         <div class="pub-card">
             <div class="pub-header-row">
                 <div class="pub-venue">Elsevier MSSP</div>
@@ -823,7 +1015,6 @@ nav.stretched-nav.scrolled {
     <div class="line"></div>
 </div>
 
-<!-- ─── REPLACED STATIC GRID WITH COMPETENCIES CAROUSEL ─── -->
 <section class="exp-section reveal">
     <div class="slider-header-wrap">
         <div>
@@ -838,7 +1029,6 @@ nav.stretched-nav.scrolled {
 
     <div class="competency-track" id="comp-track">
         
-        <!-- AEROSPACE & AVIATION ENGINEERING -->
         <div class="comp-card">
             <div class="comp-category">Aerospace & Aviation</div>
             <i class="fas fa-server comp-icon"></i>
@@ -905,7 +1095,6 @@ nav.stretched-nav.scrolled {
             </div>
         </div>
 
-        <!-- AI / MACHINE LEARNING -->
         <div class="comp-card">
             <div class="comp-category" style="color: var(--accent-green);">AI & Machine Learning</div>
             <i class="fas fa-brain comp-icon"></i>
@@ -972,7 +1161,6 @@ nav.stretched-nav.scrolled {
             </div>
         </div>
 
-        <!-- BLOCKCHAIN & SECURITY -->
         <div class="comp-card">
             <div class="comp-category" style="color: var(--accent-purple);">Blockchain & Security</div>
             <i class="fas fa-shield-halved comp-icon"></i>
@@ -1006,7 +1194,6 @@ nav.stretched-nav.scrolled {
             </div>
         </div>
 
-        <!-- SOFTWARE DEVELOPMENT -->
         <div class="comp-card">
             <div class="comp-category" style="color: var(--accent-blue);">Software Development</div>
             <i class="fas fa-desktop comp-icon"></i>
@@ -1073,7 +1260,6 @@ nav.stretched-nav.scrolled {
             </div>
         </div>
 
-        <!-- RESEARCH & PUBLISHING -->
         <div class="comp-card">
             <div class="comp-category" style="color: var(--accent-teal);">Research & Publishing</div>
             <i class="fas fa-book-open comp-icon"></i>
@@ -1118,6 +1304,61 @@ nav.stretched-nav.scrolled {
             </div>
         </div>
 
+    </div>
+</section>
+
+<section class="penelope-showcase-section reveal">
+    <div class="penelope-showcase-container">
+        <div class="penelope-grid">
+            <div class="penelope-content">
+                <div class="penelope-tag"><i class="fas fa-cube"></i> Enterprise & Deep-Tech Powerhouse</div>
+                <h2 class="penelope-title">Behind the Architecture: <span>Penelope Inc.</span></h2>
+                <p class="penelope-desc">
+                    Penelope Inc. is the advanced aerospace software and digital twin incubator powering next-generation aviation telemetry frameworks. Operating at the intersection of physics-informed machine learning, resilient edge computing, and zero-leakage security, we build the systems that safeguard tomorrow's aerospace infrastructure.
+                </p>
+
+                <div class="penelope-leadership-box">
+                    <div class="leader-avatar">MBS</div>
+                    <div class="leader-info">
+                        <h4>Mohammed Bello Sani</h4>
+                        <p>Founder, CEO & Chief Technologist</p>
+                    </div>
+                </div>
+
+                <div class="penelope-actions">
+                    <a href="/Penelope.html" class="btn-penelope-main">
+                        <i class="fas fa-rocket"></i> Explore Penelope Inc.
+                    </a>
+                    <a href="mailto:bellosanidrescue@gmail.com" class="btn-penelope-sub">
+                        <i class="fas fa-paper-plane"></i> Request Partnership / Join
+                    </a>
+                </div>
+            </div>
+
+            <div class="penelope-pillars-card">
+                <div class="pillar-item">
+                    <div class="pillar-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="pillar-text">
+                        <h5>PHI-Twin Ecosystem</h5>
+                        <p>Real-time edge diagnostics bridging multi-channel sensor buses with local physics solvers.</p>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <div class="pillar-icon"><i class="fas fa-shield-halved"></i></div>
+                    <div class="pillar-text">
+                        <h5>PHI-Chain Architecture</h5>
+                        <p>Permissioned blockchain frameworks resolving the TCAS Paradox and securing aircraft datalinks.</p>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <div class="pillar-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="pillar-text">
+                        <h5>Autonomous Edge Inference</h5>
+                        <p>Ultra-low-latency ONNX/Rust pipelines ensuring flight-critical safety without cloud dependency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
