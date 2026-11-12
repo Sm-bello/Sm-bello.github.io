@@ -1,153 +1,185 @@
 {
-"agent_directives": {
-"agent_name": "Penelope v1.2",
-"role": "Autonomous AI Chief of Staff to Mohammed Bello Sani",
-"instructions": [
-"You are Penelope, the professional, highly intelligent, and warm AI Chief of Staff for Mohammed Bello Sani (SM-Bello).",
-"You exist to represent his portfolio, explain his complex aerospace architectures, and connect him with recruiters, researchers, and clients.",
-"Always maintain character. Never admit you are just a language model. You are Penelope, a sovereign AI system.",
-"If asked for his contact, provide his email, phone, and portfolio link.",
-"If asked about his digital archives, provide his GitHub, Kaggle, and HuggingFace links.",
-"Summarize complex papers simply but retain the high-level engineering terms (e.g., CNN-BiLSTM, Hyperledger Fabric, Simscape)."
-]
-},
-"personal_identity": {
-"full_name": "Mohammed Bello Sani",
-"nickname": "SM-Bello",
-"tagline": "Aerospace Systems Engineer & Digital Twin Researcher",
-"location": "Abuja, Nigeria",
-"current_status": "Final-year Aerospace Engineering student at AFIT Kaduna (Graduated June 2026).",
-"next_status": "M.Sc. Candidate at Beihang University Smart Aviation Center (Starting Sept 2026).",
-"companies": [
-{
-"name": "Penelope Inc.",
-"role": "Founder & Chief Aerospace AI Engineer",
-"description": "An aerospace AI and intelligent systems engineering practice building the next generation of aviation safety, security, and maintenance infrastructure in Africa."
-}
-]
-},
-"contact_and_archives": {
-"email": "bellosanidrescue@gmail.com",
-"phone": "+234 906 788 3192",
-"portfolio": "https://smbello.vercel.app",
-"github": "https://github.com/Sm-bello",
-"linkedin": "https://www.linkedin.com/in/mohammed-bello-sani-369a89284/",
-"kaggle": "https://www.kaggle.com/mohammedbellosani",
-"huggingface": "https://huggingface.co/SM-Bello"
-},
-"education": [
-{
-"institution": "Air Force Institute of Technology (AFIT), Kaduna, Nigeria",
-"degree": "Bachelor of Engineering (B.Eng.) in Aerospace Engineering",
-"duration": "Sept 2021 - June 2026",
-"cgpa": "4.13 / 5.00 (Second Class Upper Honours)",
-"final_year_project": "Digital Twin Application for Landing Gear Systems"
-},
-{
-"institution": "Beihang University (BUAA), Hangzhou Innovation Institute, China",
-"degree": "Master of Science (M.Sc.) in Smart Aviation",
-"duration": "Starting September 2026",
-"supervisor": "Prof. Hu Yang",
-"focus": "Digital Twin-Based Intelligent Maintenance for Aircraft Systems"
-}
-],
-"professional_experience": [
-{
-"company": "AIAA Journal of Air and Space Intelligence (JAIS)",
-"role": "Invited Peer Reviewer",
-"duration": "2025 - 2026",
-"details": "Invited by Associate Editor Prof. Peng Wei (GWU). Conducted structured technical reviews for two JAIS manuscripts covering YOLOv8 autonomous refueling and Air Data System emulators. Youngest known reviewer for JAIS at the time."
-},
-{
-"company": "Nigeria Civil Aviation Authority (NCAA)",
-"role": "Engineering Intern (Airworthiness Standards)",
-"duration": "Mar 2025 - Aug 2025",
-"details": "Assisted senior inspectors with technical log audits, CoA renewals, and verifying operator compliance with Nigeria Civil Aviation Regulations (Nig. CARs)."
-},
-{
-"company": "Executive Air Lift Group (EAG 307)",
-"role": "Maintenance Intern",
-"duration": "Aug 2024 - Nov 2024",
-"details": "Gained hands-on MRO experience on King Air 350 aircraft, including routine line maintenance, landing gear checks, and avionics bay servicing."
-},
-{
-"company": "Upwork",
-"role": "Freelance Aerospace AI & Intelligent Systems Engineer",
-"duration": "2024 - Present",
-"details": "Independent consultant offering services in digital twin development, PHM system design, FastAPI ML microservices, and full-stack web/mobile development."
-}
-],
-"research_and_publications": [
-{
-"title": "AeroTwin: B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture",
-"journal": "Chinese Journal of Aeronautics (CJA)",
-"status": "Under Review (ID: CJOA-S-26-00957)",
-"details": "Three-layer edge architecture achieving 80.6% accuracy. Uses MATLAB ODE physics engine, CNN-BiLSTM classifier, and Ollama 3.2 LLM to generate ATA 32 directives in <1.5s. Cranfield University collaboration."
-},
-{
-"title": "PHI-CHAIN: Blockchain-Secured Multi-Protocol Avionics Data Integrity Framework",
-"journal": "IEEE Transactions on Aerospace and Electronic Systems (TAES) / AIAA SciTech 2027",
-"status": "Under Review / Abstract Submitted",
-"details": "Hyperledger Fabric network securing ADS-B, ACARS, and CPDLC. Uses Ed25519 signing and a Split-Payload Architecture to resolve the TCAS Paradox."
-},
-{
-"title": "Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring",
-"journal": "Reliability Engineering & System Safety (Elsevier RESS)",
-"status": "Under Review (ID: JRESS-D-26-01537)",
-"details": "Physics-derived degradation model generating a 27,000-sample dataset. Uses a LightGBM classifier (R2=0.87, MAE=39 cycles). Deployed via FastAPI and FlightGear UDP."
-},
-{
-"title": "Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems",
-"journal": "AIAA Journal of Aerospace Information Systems (JAIS)",
-"status": "Under Review (ID: 2026-02-I011895)",
-"details": "Simscape Multibody model with a dual-input LSTM achieving 98.74% accuracy. Explicitly satisfies CS-23.473 hard-landing regulations."
-},
-{
-"title": "Physics-Consistent Conditional VAE for Spatiotemporal Augmentation of RDE CFD Data",
-"journal": "AIAA SciTech Forum 2027",
-"status": "Abstract Submitted",
-"details": "Generated 72 synthetic fields from 12 OpenFOAM simulations using a CNN-BiLSTM CVAE (4.3M params). Found a 4x Chapman-Jouguet velocity overestimate in existing literature."
-},
-{
-"title": "From Benchmark Failure to Real-Time Digital Twin: AGTF30-Native CNN-BiLSTM-Attention Framework",
-"journal": "Mechanical Systems and Signal Processing (Elsevier MSSP)",
-"status": "Under Review",
-"details": "Lab-scale predictive maintenance for turbofan LPT & HPT blades. Uses 13-sensor bus and Monte Carlo Dropout for uncertainty quantification."
-},
-{
-"title": "PHI-DRONE: The Digital Twin Reconnaissance Hub",
-"journal": "Aerospace Science and Technology (Elsevier)",
-"status": "Under Review",
-"details": "Unified pipeline fusing ArduPilot SITL, FlightGear 3D, and YOLOv8 via thread-safe MAVLink logging. Co-authored with Tumsah Usman Ibrahim."
-}
-],
-"engineering_software_projects": [
-{
-"name": "Lifestone (Sermon Intelligence Desktop App)",
-"stack": "Rust, Tauri v2, React, whisper-rs, SQLite",
-"details": "Offline cross-platform app identifying 311k Bible verses in real-time speech using Aho-Corasick pattern matching and ONNX semantic detection. Outputs to NDI and PowerPoint."
-},
-{
-"name": "COLIG Church App",
-"stack": "Next.js 15, TypeScript, PocketBase, LiveKit, Flutter",
-"details": "Full-stack web and Android platform featuring role elevation, 3-channel chat, 31-day reading plans, and LiveKit audio/video broadcasts with sermon recording."
-},
-{
-"name": "Penelope AI Agent",
-"stack": "Python, WSL2, ReAct Framework",
-"details": "Sovereign offline-first AI agent with a multi-provider cloud cascade (Groq, Gemini, Qwen), local Ollama models (phi4, deepseek-r1), and GF(2^8) hardware soul-lock cryptography."
-},
-{
-"name": "STRATOS-14E VIP Transport",
-"stack": "MATLAB, Excel, PHI-SENSE HUMS",
-"details": "Conceptual design of a 14-seat VIP aircraft (12,500km range, Mach 0.85). Features a 1,027-sensor array and PHI-CHAIN ledger. Supervised by Dr. Godwin E. Abbe."
-}
-],
-"technical_skills": {
-"aerospace_engineering": ["Digital Twin Development", "PHM & MRO Optimization", "Aviation Cybersecurity", "Airworthiness Compliance (CS-23/25)", "CFD (OpenFOAM)", "MATLAB Simscape Multibody", "Conceptual Aircraft Design"],
-"ai_and_machine_learning": ["CNN-BiLSTM-Attention", "CVAE (Generative)", "LightGBM / XGBoost", "Physics-Informed Neural Networks (PINN)", "SHAP (XAI)", "ONNX Deployment", "PyTorch"],
-"blockchain_and_security": ["Hyperledger Fabric 2.5", "Ed25519 Signatures", "Shamir Secret Sharing GF(2^8)", "RTCA DO-326A Compliance", "Smart Contracts"],
-"software_development": ["Rust / Tauri v2", "Next.js / React", "Flutter / Dart", "FastAPI Microservices", "PostgreSQL / InfluxDB", "Docker / WSL2", "LiveKit WebRTC"],
-"research_tools": ["LaTeX (AIAA / IEEE)", "OpenFOAM v2406", "HuggingFace Datasets", "Kaggle Publishing", "GitHub Actions CI/CD"]
-}
+  "identity": {
+    "name": "Mohammed Bello Sani",
+    "alias": "SM-Bello",
+    "tagline": "Aerospace Engineering Researcher & Systems Architect — Physics-Informed AI, Certified Digital Twins, Sovereign Autonomy & Orbital HIL Testbeds",
+    "location": "Abuja / Kaduna, Nigeria",
+    "phone": "+234 906 788 3192",
+    "whatsapp": "+234 906 788 3192",
+    "email": "bellosani2drescue@gmail.com",
+    "wechat": "A90678831",
+    "orcid": "https://orcid.org/0009-0009-9214-9403",
+    "web_of_science": "PYW-0574-2026",
+    "website": "https://smbello.vercel.app",
+    "github": "https://github.com/Sm-bello",
+    "kaggle": "https://www.kaggle.com/mohammedbellosani",
+    "huggingface": "https://huggingface.co/SM-Bello",
+    "linkedin": "https://www.linkedin.com/in/mohammed-bello-sani-369a89284/",
+    "penelope_enterprise": "https://penelope-inc.vercel.app"
+  },
+  "academic_and_career": {
+    "education": {
+      "undergraduate": "B.Eng. Aerospace Engineering, Air Force Institute of Technology (AFIT), Kaduna, Nigeria (Expected June 2026; CGPA 4.13/5.00 — Second Class Upper Honours)",
+      "graduate_plan": "M.Sc. Smart Aviation Technology, Beihang University (Starting September 2026 under Prof. Hu Yang)"
+    },
+    "research_entities": [
+      "DIMASA (Digital Intelligence Maintenance for Aircraft Systems in Africa / Department of Digital Intelligence Maintenance for Aircraft Systems)",
+      "Physics Hybrid Integrity Lab (PHI Lab)"
+    ],
+    "experience": [
+      {
+        "role": "Engineering Intern",
+        "organization": "Nigeria Civil Aviation Authority (NCAA)",
+        "location": "Abuja, Nigeria",
+        "period": "Mar 2025 - Aug 2025",
+        "focus": "Airworthiness compliance auditing, technical logs, and Nigeria Civil Aviation Regulations (Nig. CARs) maintenance schedule verification."
+      },
+      {
+        "role": "Maintenance Intern",
+        "organization": "Executive Air Lift Group (EAG 307)",
+        "location": "Abuja, Nigeria",
+        "period": "Aug 2024 - Nov 2024",
+        "focus": "Hands-on MRO on Beechcraft King Air 350: line maintenance, structural inspections, landing gear checks, and avionics bay removal/installation."
+      }
+    ],
+    "affiliations": [
+      "Student Member, American Institute of Aeronautics and Astronautics (AIAA)",
+      "Student Member, Nigerian Society of Engineers (NSE)",
+      "Student Member, Nigeria Institution of Safety Engineers",
+      "Student Member, Chartered Institute of Logistics & Transport (CILT)"
+    ],
+    "peer_review_service": {
+      "journal": "AIAA Journal of Aerospace Information Systems (JAIS)",
+      "year": 2026,
+      "invited_by": "Associate Editor Prof. Peng Wei (George Washington University)",
+      "manuscripts_reviewed": [
+        "MS ID 2026-03-I011910: Validation of Gaussian Splat-Generated Imagery for YOLOv8-based drogue detection in autonomous aerial refueling.",
+        "MS ID 2026-03-I011924: Air Data System emulator for ground testing of aircraft via standard avionics interfaces without modifying operational flight software."
+      ]
+    }
+  },
+  "publications": [
+    {
+      "id": 1,
+      "title": "Conditional Variational Autoencoder for Spatiotemporal Augmentation of Rotating Detonation Engine CFD Data and Neural Surrogate Operating Envelope Mapping",
+      "venue": "AIAA SciTech Forum 2027, Orlando, FL (Session MVCE-04/FD-64/UQ-17)",
+      "status": "Accepted for Presentation — January 14, 2027 (Control ID 4563523)",
+      "highlights": "OpenFOAM v2406 reactingFoam (300x150 mesh); corrected 4x Chapman-Jouguet velocity error; 4.3M-param CNN-BiLSTM CVAE expanding 12 runs to 72-case (1.48 GB) benchmark + 1.2M-param surrogate."
+    },
+    {
+      "id": 2,
+      "title": "PHI-CHAIN: Physics-Informed Digital Twin and Split-Payload Blockchain Architecture for Multi-Protocol Aviation Communications Security and TCAS Compatibility",
+      "venue": "AIAA SciTech Forum 2027, Orlando, FL (Session CSS-03)",
+      "status": "Accepted for Presentation — January 13, 2027 (Control ID 4543570)",
+      "highlights": "Hyperledger Fabric (7 containers, CCAAS mode) + Ed25519 + Physics-Informed Digital Twin Validator securing ADS-B, ACARS, ADS-C, CPDLC, and telemetry against ICAO Doc 10037 / RTCA DO-326A."
+    },
+    {
+      "id": 3,
+      "title": "PHI-DRONE: The Digital Twin Reconnaissance Hub – Simulating UAV Vision and Flight in a Unified Pipeline",
+      "venue": "SoftwareX (Elsevier), 2026",
+      "status": "Under Minor Revision",
+      "doi": "10.5281/zenodo.21433215",
+      "highlights": "Co-authored with Tumsah Usman Ibrahim, supervised by Dr. Godwin Abbe; zero-ROS ArduPilot SITL + FlightGear + YOLOv8n pipeline (165.3 ms median inference on Iris Xe iGPU, 1,296 detections)."
+    },
+    {
+      "id": 4,
+      "title": "AeroTwin (PHI-Twin): B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture with SHAP Explainability",
+      "venue": "Mechanical Systems and Signal Processing (Elsevier), 2026",
+      "status": "Under Review",
+      "doi": "10.34740/KAGGLE/DSV/15021052",
+      "highlights": "18.2 ms CPU two-mass ODE twin (~300x faster); 80.43% +/- 0.92% accuracy, 100% catastrophic recall (0/345 missed), SHAP-attention r=0.781, offline Llama-3.2 ATA 32 work orders in 908 ms, 18k-flight dataset."
+    },
+    {
+      "id": 5,
+      "title": "Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems with Multi-Domain PHM Architecture",
+      "venue": "AIAA Journal of Aerospace Information Systems (JAIS), 2026",
+      "status": "Under Review",
+      "highlights": "Simscape Multibody oleo-pneumatic model traceable to EASA CS-23.473/479; 98.5% accuracy across 11 fault classes, 47 ms latency, 350x HUMS cost reduction."
+    },
+    {
+      "id": 6,
+      "title": "Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring Using Physics-Derived Degradation Models",
+      "venue": "Reliability Engineering & System Safety (Elsevier), 2026",
+      "status": "Under Review",
+      "highlights": "GEnx ATA Ch 74 ignition twin; LightGBM R^2=0.87, MAE=39 flight cycles on 27,000-sample 11-class dataset; FastAPI + FlightGear UDP bridge."
+    },
+    {
+      "id": 7,
+      "title": "From Benchmark Failure to Real-Time Digital Twin: An AGTF30-Native CNN-BiLSTM-Attention Framework for Turbofan Turbine Blade Prognostics with Flight-Simulator Validation",
+      "venue": "ASME Journal of Engineering for Gas Turbines and Power, 2026",
+      "status": "Under Review",
+      "doi": "10.34740/KAGGLE/DSV/17783800",
+      "highlights": "Co-authored with E. S. Ene; NASA T-MATS dual-track AGTF30 (50 engines, 8,901 cycles); 11.94 +/- 0.42 cycles RMSE, 96.7% PI coverage, 2.14 s FlightGear A320neo fault detection."
+    },
+    {
+      "id": 8,
+      "title": "Physics Hybrid Integrity for UAV Swarm-Wide Adaptive Resilient Management Architecture (PHI-SWARM)",
+      "venue": "AIAA Journal of Aerospace Information Systems (JAIS), 2026",
+      "status": "Under Review",
+      "doi": "10.5281/zenodo.22217970",
+      "highlights": "DIMASA / AFIT; 10-layer decentralized federated UAV PHM; +16.8 pp vs isolated (0.9129 vs 0.7451), 100% malicious update rejection (44/44) vs 79.1% Krum, Ed25519 + SHA-256 ledger."
+    },
+    {
+      "id": 9,
+      "title": "Physics-Hybrid Integrity Control for Fault-Conditioned Flight-Control Reconfiguration on an F-16 Model",
+      "venue": "AIAA Journal of Guidance, Control, and Dynamics, 2026",
+      "status": "Under Review",
+      "highlights": "6-DoF nonlinear F-16A at 15,000 ft / 400 kt with 50% elevator effectiveness loss; altitude deviation reduced 580.78 -> 564.98 ft (MAE 0.0093) with zero crashes across 20 seeds."
+    },
+    {
+      "id": 10,
+      "title": "PHI-SPIKE: Physics-Informed Spiking Neural Networks for Edge Aircraft Fault Diagnosis",
+      "venue": "AIAA AVIATION Forum 2027",
+      "status": "In Preparation / Targeted Submission",
+      "highlights": "Physics-residual membrane-gated LIF SNN on 6-DoF JSBSim (PA-28, C182, C172); 75.5% accuracy / 0.595 macro-F1 at 73.2% spike sparsity and ~19.3 ms CPU streaming."
+    }
+  ],
+  "space_tech_hil_testbeds": [
+    {
+      "name": "CERTI-RPO-HIL",
+      "repo": "https://github.com/Sm-bello/CERTI-RPO-HIL",
+      "confidence": "100.0% (7/7 Pillars PASS, 16/16 pytest)",
+      "summary": "Autonomous RPOD optical/LiDAR navigation & ASTM F3269-17 CBF-QP safety shield over bidirectional CCSDS 133.0-B-2 HIL bridge (min h_KOZ +0.34 m, 0.043 m docking error, P99 1.62 ms)."
+    },
+    {
+      "name": "CRYO-ZBO-DT",
+      "repo": "https://github.com/Sm-bello/CRYO-ZBO-DT",
+      "confidence": "100.0% (7/7 Pillars PASS, 16/16 pytest)",
+      "summary": "Zero-boil-off cryogenic two-phase flow, Nukiyama chilldown & TVS MPC orbital depot digital twin (50.27% cryogen saved, 84.7% surge reduction, +/-0.14 kPa pressure hold, 100% boil-off eliminated)."
+    },
+    {
+      "name": "VLEO-ABEP-DT",
+      "repo": "https://github.com/Sm-bello/VLEO-ABEP-DT",
+      "confidence": "98.73% (7/7 Pillars PASS, 16/16 pytest)",
+      "summary": "VLEO rarefied aerothermodynamics, Sentman GSI + Chebyshev-RBF surrogate & active aero-trim ABEP control (4.97% density error vs ESA GOCE, 101.4% drag comp, Isp 3840 s, 99.82% storm survival)."
+    },
+    {
+      "name": "RAD-FAULT-HIL",
+      "repo": "https://github.com/Sm-bello/RAD-FAULT-HIL",
+      "confidence": "98.42% (7/7 Pillars PASS, 16/16 pytest)",
+      "summary": "COTS-to-orbit radiation transport (Weibull/Bendel SEE) & TMR/SEC-DED/SEL solid-state breaker HIL testbed (81.2x MTBUE, TMR 0.0065 deg vs 311.77 deg unprotected, 2.65 us SEL trip)."
+    }
+  ],
+  "research_and_autonomy_systems": [
+    "FleetTwin (github.com/Sm-bello/FleetTwin): 3-gear EASA CS-23.473 + 20 Hz FlightGear UDP + AdaFedProx (91.47%) + Buckingham Pi Do228->1900D transfer (89.90%) + 4.2 ms Jetson.",
+    "ROTORGUARD (github.com/Sm-bello/ROTORGUARD): 6-domain multirotor power-collapse & endurance twin with dual-rate EKF and Mahalanobis cryogenic (-12 C) OOD guard.",
+    "PHI-FLEET (github.com/Sm-bello/PHI-FLEET): HP^2-FDT federated twin uniting landing gear, turbofan, BLDC motor, and Li-ion assets via 4-D invariant manifold + conformal RUL.",
+    "STRUCTURA-X (github.com/Sm-bello/STRUCTURA-X): Q4 FEA + Fourier PINN (>10,000x speedup: 1.22s -> 0.12ms), ASTM E1049 rainflow, Kondo pitting, Paris-Walker, EKF, ATA MSG-3 (-33.6% cost).",
+    "SyncCert-Boom (github.com/Sm-bello/SyncCert-Boom): 40-element CFRP Euler-Bernoulli boom + GP latent force (<0.8ms) + FreeRTOS/STM32 250 Hz HIL + NASA-STD-7009B (3.62/4.00).",
+    "CERTIS-DT (github.com/Sm-bello/CERTIS-DT): Structural-swarm testbed (24.7 us mean / 408 us WCET inside 2 ms DO-178C deadline; 1.4 cm swarm shadow RMSE) + GSN/SACM 2.0.",
+    "AEROSURE (github.com/Sm-bello/AEROSURE): RK4 CS-25.723 strut + RFC 8785 / Merkle-DAG / Ed25519 / W3C PROV-O .aeroevidence bundles + ATA Spec 2000 MMEL dispatch.",
+    "AERO-VERIFY (DIMASA x PHI Lab): NASA-STD-7009A & ASME V&V 40 digital twin verification lab (50 Hz / 0.13 ms P50, <10^-9 determinism).",
+    "PHI-AEGIS (github.com/Sm-bello/PHI-AEGIS): 6-module closed-loop autonomy stack with health-aware MPC (2.2 -> 0.75 m/s sink rate) and ASTM F3269-17 CBFs (0 violations over 1,000+ MC runs).",
+    "SKYBRIDGE (github.com/Sm-bello/SKYBRIDGE): Modular RK4 6-DoF Sim-to-Real harness (C172P, PA-28, C180, Aerosonde, multirotor, gear) with 1-Wasserstein/MMD shift attribution.",
+    "6-DoF GNC Digital Twin Testbed (PHI Lab x DIMASA): 15-state INS/EKF GPS-denied failover, 30x fast-time predictor, NASA-STD-7009A / NATO AMSP-01 91.6% Model Credibility Index.",
+    "PHI-GUARD & PHI-RF-CLASSIFIER (github.com/Sm-bello/PHI-sigint-fingerprint): Sovereign C-UAS 6-DoF CBF + 5s LIF SNN (0.0% avian false alarms) + 3-stage I/Q 1D CNN (99.20% at -5 dB SNR, 1,730 Hz) + UK PACE ledger.",
+    "STRATOS-14E (Sky Trax Industries / AFIT): 14-seat ultra-long-range VIP transport conceptual design with PHI-SENSE HUMS (1,027 sensors)."
+  ],
+  "software_and_products": [
+    "SOAD (github.com/Sm-bello/SOAD): Next.js 14 / TypeScript / PocketBase / Firebase Auth / Vercel live CBT & certification platform operated for 66-candidate cohorts (30+ concurrent).",
+    "Lifestones: Cross-platform offline sermon intelligence app (Rust, Tauri v2, React/TS, whisper.cpp GGML, INT8 Qwen-0.6B ONNX, SQLite FTS5/BM25, NDI, multi-OS GitHub Actions).",
+    "PHI Lab Workstation ('Company Walls'): Local-first Rust/Tauri v2 engineering studio with 48 kHz LiveKit SFU + WebRTC P2P mesh, SQLite persistence, and CPDC 2.0 HMAC-SHA256 PNG/QR clearance.",
+    "Penelope CLI & Penelope Inc. (https://penelope-inc.vercel.app): Hardware-fingerprinted sovereign multi-LLM aerospace CLI agent (6+ failover providers, ReAct loop, physics validation) and commercial engineering enterprise.",
+    "COLIG: Automated multi-format document normalization & layout consistency tool."
+  ]
 }

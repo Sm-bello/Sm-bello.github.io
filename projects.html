@@ -364,6 +364,41 @@
             .bento-stats { flex-wrap: wrap; }
             .bento-content { padding: 2.5rem; }
         }
+        .jump-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:0.65rem; margin:1.8rem auto 0; max-width:960px; }
+        .jump-pill { font-family:var(--font-mono); font-size:0.7rem; font-weight:700; text-decoration:none; padding:0.5rem 1rem; border-radius:999px; background:#fff; color:var(--text-dark); border:1px solid var(--border-soft); box-shadow:0 2px 8px rgba(0,0,0,0.03); transition:var(--transition-smooth); display:inline-flex; align-items:center; gap:6px; }
+        .jump-pill:hover { border-color:var(--neon-blue); color:var(--neon-blue); transform:translateY(-2px); box-shadow:0 8px 20px rgba(14,165,233,0.12); }
+        .bento-svg-gallery { display:flex; flex-direction:column; gap:14px; padding:1.5rem; background:rgba(15,23,42,0.025); border-left:1px solid var(--border-soft); justify-content:center; }
+        .svg-frame { background:#040812; border-radius:14px; overflow:hidden; border:1px solid rgba(56,189,248,0.28); position:relative; cursor:zoom-in; transition:var(--transition-smooth); box-shadow:0 10px 25px rgba(0,0,0,0.12); }
+        .svg-frame:hover { border-color:var(--card-accent); transform:translateY(-2px); }
+        .svg-frame img.actual-image { width:100%; height:auto; display:block; opacity:0.96; transition:var(--transition-smooth); }
+        .svg-frame:hover img.actual-image { opacity:1; transform:scale(1.015); }
+        .svg-caption { font-family:var(--font-mono); font-size:0.62rem; color:#94a3b8; background:#070d1a; padding:6px 12px; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center; }
+        .attr-banner { background:linear-gradient(135deg,#0f172a 0%,#131f38 100%); color:#e2e8f0; border-radius:20px; padding:2rem 2.4rem; margin-bottom:3rem; border:1px solid rgba(56,189,248,0.25); box-shadow:0 15px 35px rgba(15,23,42,0.12); display:grid; grid-template-columns:1.2fr 1fr; gap:2rem; align-items:center; }
+        .attr-banner h3 { font-family:var(--font-display); font-size:1.45rem; color:#fff; margin-bottom:0.6rem; }
+        .attr-banner p { font-size:0.9rem; color:#cbd5e1; line-height:1.65; }
+        .attr-orgs { display:grid; gap:0.85rem; }
+        .attr-org-box { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:0.95rem 1.15rem; }
+        .attr-org-box strong { color:#38bdf8; font-family:var(--font-mono); font-size:0.78rem; display:block; margin-bottom:0.25rem; letter-spacing:0.04em; }
+        .attr-org-box span { font-size:0.8rem; color:#94a3b8; line-height:1.5; display:block; }
+        .sys-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:1.8rem; margin-bottom:4rem; }
+        .sys-card { background:#fff; border-radius:18px; border:1px solid var(--border-soft); padding:1.8rem; position:relative; overflow:hidden; transition:var(--transition-smooth); display:flex; flex-direction:column; box-shadow:0 4px 12px rgba(0,0,0,0.03); }
+        .sys-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--sys-accent, var(--neon-blue)); }
+        .sys-card:hover { transform:translateY(-5px); box-shadow:0 20px 40px rgba(0,0,0,0.07); border-color:var(--sys-accent, var(--neon-blue)); }
+        .sys-head { display:flex; justify-content:space-between; align-items:center; gap:0.75rem; margin-bottom:0.9rem; flex-wrap:wrap; }
+        .sys-badge { font-family:var(--font-mono); font-size:0.62rem; font-weight:700; padding:3px 9px; border-radius:999px; color:var(--sys-accent, var(--neon-blue)); background:rgba(14,165,233,0.07); border:1px solid rgba(14,165,233,0.22); text-transform:uppercase; letter-spacing:0.04em; }
+        .sys-org { font-family:var(--font-mono); font-size:0.62rem; color:var(--text-light); }
+        .sys-card h3 { font-family:var(--font-display); font-size:1.35rem; font-weight:800; color:var(--text-dark); margin-bottom:0.25rem; }
+        .sys-sub { font-family:var(--font-mono); font-size:0.7rem; color:var(--sys-accent, var(--neon-blue)); font-weight:600; margin-bottom:0.85rem; }
+        .sys-card p { font-size:0.88rem; color:var(--text-light); line-height:1.65; margin-bottom:1.1rem; }
+        .sys-kpis { display:grid; grid-template-columns:repeat(2,1fr); gap:0.6rem; margin-bottom:1.1rem; }
+        .sys-kpi { background:var(--bg-milky); border:1px solid var(--border-soft); border-radius:8px; padding:0.55rem 0.75rem; }
+        .sys-kpi strong { display:block; font-family:var(--font-mono); font-size:0.92rem; color:var(--text-dark); }
+        .sys-kpi span { font-size:0.65rem; color:var(--text-light); text-transform:uppercase; letter-spacing:0.04em; }
+        .sys-footer { margin-top:auto; padding-top:0.8rem; display:flex; flex-direction:column; gap:0.9rem; }
+        @media(max-width: 1100px) {
+            .bento-svg-gallery { border-left:none; border-top:1px solid var(--border-soft); }
+            .attr-banner { grid-template-columns:1fr; }
+        }
         @media(max-width: 768px) {
             .page-hero { padding: 8rem 1rem 4rem; clip-path: none; }
             .page-hero h1 { font-size: 2.5rem; }
@@ -418,6 +453,7 @@
                 <li><a href="/">Telemetry</a></li>
                 <li><a href="/about.html">Profile</a></li>
                 <li><a href="/projects.html" class="active">Research Pipeline</a></li>
+                <li><a href="/solutions.html">Solutions</a></li>
                 <li><a href="/contact.html">Interface</a></li>
             </ul>
         </div>
@@ -426,38 +462,46 @@
 
 <div class="page-hero">
     <h1>PROJECTS LOGBOOK</h1>
-    <p>> Initializing Aerospace Research Data... [DONE]</p>
+    <p>&gt; DIMASA × PHI Lab · 24+ Digital Twins, Autonomy Stacks &amp; TRL-4 Space HIL Rigs [LIVE]</p>
+    <div class="jump-nav">
+        <a href="#flagships" class="jump-pill"><i class="fas fa-jet-fighter"></i> Flagship Research Twins</a>
+        <a href="#space-hil" class="jump-pill"><i class="fas fa-satellite"></i> TRL-4 Space HIL Testbeds</a>
+        <a href="#phm-vv" class="jump-pill"><i class="fas fa-network-wired"></i> Federated PHM, FEM &amp; V&amp;V</a>
+        <a href="#autonomy-defense" class="jump-pill"><i class="fas fa-shield-alt"></i> Autonomy &amp; Defense Grid</a>
+        <a href="#software-systems" class="jump-pill"><i class="fas fa-code"></i> Software Products</a>
+        <a href="#interactive-sims" class="jump-pill"><i class="fas fa-flask"></i> Live HF Sims</a>
+    </div>
 </div>
 
-<div class="container">
+<div class="container" id="flagships">
 
 <!-- ══════════════  PROJECT 1: PHI-Twin B787  ══════════════ -->
 <div class="bento-project" style="--card-accent: #0ea5e9;">
     <div class="bento-content">
         <div class="status-pill">
             <div class="status-dot"></div>
-            UNDER REVIEW · CJOA-S-26-00957
+            UNDER REVIEW · ELSEVIER MSSP (2026)
         </div>
-        <h2>PHI-Twin: Physics-AI<br><span class="highlight">B787 Landing Gear Prognostics</span></h2>
-        <p class="description">A three-layer, edge-deployable predictive maintenance framework for the Boeing 787-8 main landing gear. Layer 1 deploys an ODE synthesis engine generating 18,000 physics-valid fault profiles at 300× the speed of Simscape. Layer 2 uses a zero-leakage CNN-BiLSTM with Temporal Self-Attention. Layer 3 integrates an offline Ollama 3.2 LLM translating neural outputs into ATA 32-compliant directives.</p>
+        <h2>PHI-Twin (AeroTwin)<br><span class="highlight">B787 Landing Gear Prognostics</span></h2>
+        <p class="description">Three-layer edge-deployable digital twin for Boeing 787-8 main landing gear prognostics. Layer 1 formulates a real-time two-mass ODE twin (Arrhenius viscosity, Stribeck friction, Hertzian contact) solving a touchdown in 18.2 ms on CPU (~300× faster than multibody solvers). Layer 2 runs zero-leakage CNN-BiLSTM-Attention with SHAP alignment (r=0.781), and Layer 3 uses offline Llama-3.2 to emit ATA Ch 32 work orders in 908 ms.</p>
         
         <div class="bento-stats">
-            <div class="bento-stat-item"><h4>80.6%</h4><span>Accuracy</span></div>
-            <div class="bento-stat-item"><h4>±244h</h4><span>RUL MAE</span></div>
-            <div class="bento-stat-item"><h4>18k</h4><span>ODE Samples</span></div>
-            <div class="bento-stat-item"><h4>&lt;1.5s</h4><span>Edge Latency</span></div>
+            <div class="bento-stat-item"><h4>80.43%</h4><span>Accuracy</span></div>
+            <div class="bento-stat-item"><h4>100%</h4><span>Cat. Recall</span></div>
+            <div class="bento-stat-item"><h4>18k</h4><span>Flights</span></div>
+            <div class="bento-stat-item"><h4>908ms</h4><span>CPU Edge</span></div>
         </div>
 
         <div class="tech-stack">
-            <span class="tech-pill">ODE ENGINE</span><span class="tech-pill">CNN-BiLSTM</span>
-            <span class="tech-pill">OLLAMA 3.2</span><span class="tech-pill">SHAP XAI</span>
-            <span class="tech-pill">PYTORCH</span><span class="tech-pill">CS-25.473</span>
+            <span class="tech-pill">18.2MS ODE</span><span class="tech-pill">CNN-BiLSTM</span>
+            <span class="tech-pill">LLAMA-3.2</span><span class="tech-pill">SHAP r=0.781</span>
+            <span class="tech-pill">PYTORCH</span><span class="tech-pill">EASA AMC 20-42</span>
         </div>
 
         <div class="flagship-actions">
-            <a href="https://github.com/Sm-bello/AeroTwin-B787-Prognostics" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://www.kaggle.com/datasets/mohammedbellosani/aerotwin-boeing-787-landing-gear-physics-dataset" target="_blank" class="flagship-btn"><i class="fas fa-database"></i> Kaggle</a>
-            <a href="#" class="flagship-btn" onclick="showModal('Chinese Journal of Aeronautics', 'Manuscript No. CJOA-S-26-00957\n\nCurrently under peer review. Direct access restricted until publication.');return false;"><i class="fas fa-file-alt"></i> CJA Paper</a>
+            <a href="https://github.com/Sm-bello/PHI-Twin-LandingGear-B787-version" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.kaggle.com/datasets/mohammedbellosani/aerotwin-boeing-787-landing-gear-physics-dataset" target="_blank" class="flagship-btn"><i class="fas fa-database"></i> Kaggle DOI</a>
+            <a href="#" class="flagship-btn" onclick="showModal('Elsevier MSSP Submission', 'AeroTwin (PHI-Twin): B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture with SHAP Explainability.\nKaggle DOI: 10.34740/KAGGLE/DSV/15021052\nStatus: Under Peer Review at Mechanical Systems and Signal Processing (Elsevier).');return false;"><i class="fas fa-file-alt"></i> Elsevier MSSP</a>
             <a href="/Video-Demos.html#aerotwin-b787" class="flagship-btn" style="background:rgba(14,165,233,0.1);color:#0ea5e9;border-color:rgba(14,165,233,0.3);box-shadow: 0 0 15px rgba(0,0,0,0.05);"><i class="fas fa-play-circle fa-beat"></i> Watch Demo</a>
         </div>
     </div>
@@ -489,27 +533,27 @@
     <div class="bento-content">
         <div class="status-pill">
             <div class="status-dot"></div>
-            PAPER SUBMITTED · IEEE TAES-2026-0772
+            ACCEPTED · AIAA SCITECH 2027 (ID 4543570)
         </div>
         <h2>PHI‑CHAIN: Blockchain +<br><span class="highlight">Physics‑Informed Security</span></h2>
-        <p class="description">A multi‑protocol security framework integrating a permissioned blockchain (Hyperledger Fabric) with a four‑layer Physics‑Informed Digital Twin (PIDT) to detect cyber‑attacks and physically impossible data injections. Covers ADS‑B, CPDLC, and ACARS telemetry at 10Hz. Every packet is signed with Ed25519, Merkle‑batched, and anchored on-chain.</p>
+        <p class="description">Accepted for presentation Jan 13, 2027 (Session CSS-03, Aerospace Cyber Resilience). Secures five aviation communication protocols — ADS-B, ACARS, ADS-C, CPDLC &amp; operational telemetry — via a 7-container Hyperledger Fabric permissioned blockchain (CCAAS mode), sub-ms Ed25519 signing, and a Physics-Informed Digital Twin Validator (PIDT) validated against ICAO Doc 10037 &amp; RTCA DO-326A.</p>
         
         <div class="bento-stats">
-            <div class="bento-stat-item"><h4>10 Hz</h4><span>Data Rate</span></div>
-            <div class="bento-stat-item"><h4>36k</h4><span>Packets/hr</span></div>
-            <div class="bento-stat-item"><h4>1.8 s</h4><span>Latency</span></div>
-            <div class="bento-stat-item"><h4>100%</h4><span>Detect Rate</span></div>
+            <div class="bento-stat-item"><h4>5</h4><span>Protocols</span></div>
+            <div class="bento-stat-item"><h4>7</h4><span>Nodes/CCAAS</span></div>
+            <div class="bento-stat-item"><h4>&lt;1ms</h4><span>Ed25519</span></div>
+            <div class="bento-stat-item"><h4>100%</h4><span>PIDT Detect</span></div>
         </div>
 
         <div class="tech-stack">
-            <span class="tech-pill">HYPERLEDGER</span><span class="tech-pill">ED25519</span>
-            <span class="tech-pill">ADS‑B / CPDLC</span><span class="tech-pill">FLIGHTGEAR</span>
-            <span class="tech-pill">WSL2</span>
+            <span class="tech-pill">HYPERLEDGER CCAAS</span><span class="tech-pill">ED25519</span>
+            <span class="tech-pill">ADS‑B/C · CPDLC</span><span class="tech-pill">ICAO 10037</span>
+            <span class="tech-pill">RTCA DO-326A</span>
         </div>
 
         <div class="flagship-actions">
             <a href="https://github.com/Sm-bello/Securing-Aircraft-Comms-with-PHI-CHAIN" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" class="flagship-btn" onclick="showModal('IEEE TAES', 'Paper IEEE TAES-2026-0772 is currently under peer review.');return false;"><i class="fas fa-file-alt"></i> IEEE TAES</a>
+            <a href="#" class="flagship-btn" onclick="showModal('AIAA SciTech Forum 2027 · Accepted', 'Control ID: 4543570 · Session CSS-03 (Aerospace Cyber Resilience)\nPresentation Date: January 13, 2027 · Orlando, FL\nCovers ADS-B, ACARS, ADS-C, CPDLC & operational telemetry on 7-container Hyperledger Fabric.');return false;"><i class="fas fa-award"></i> SciTech '27 (Accepted)</a>
             <a href="/Video-Demos.html#phi-chain" class="flagship-btn" style="background:rgba(139,92,246,0.1);color:#8b5cf6;border-color:rgba(139,92,246,0.3);box-shadow: 0 0 15px rgba(0,0,0,0.05);"><i class="fas fa-play-circle fa-beat"></i> Watch Demo</a>
         </div>
     </div>
@@ -541,7 +585,7 @@
     <div class="bento-content">
         <div class="status-pill">
             <div class="status-dot"></div>
-            PAPER SUBMITTED · RESS 2026
+            UNDER REVIEW · ELSEVIER RESS (2026)
         </div>
         <h2>B787 Ignition Digital Twin<br><span class="highlight">Deep Feature Spoofing</span></h2>
         <p class="description">A closed‑loop PHM Digital Twin for the Boeing 787‑8 ignition system. Overcomes run‑to‑failure data scarcity with a physics‑informed MATLAB ODE solver generating 27,000 samples across 11 fault modes. A LightGBM regressor maps micro‑electrical degradation to RUL, deployed via a decoupled FastAPI microservice with a God-Mode GUI.</p>
@@ -594,16 +638,16 @@
     <div class="bento-content">
         <div class="status-pill">
             <div class="status-dot"></div>
-            PAPER SUBMITTED · AIAA JAIS 2026
+            UNDER REVIEW · AIAA JAIS (2026)
         </div>
-        <h2>AeroTwin: Physics-AI<br><span class="highlight">Dornier 228 Landing Gear</span></h2>
-        <p class="description">A certification-compliant Cyber-Physical System fusing MATLAB Simscape Multibody physics with a dual-input LSTM network via PostgreSQL. The confidence-weighted fusion explicitly satisfies CS-23.473 hard-landing regulations, triggering mandatory ATA 32-00 inspections at high sink rates. Trained on 9,500 Dornier 228 landing cycles.</p>
+        <h2>Certification-Aware DT<br><span class="highlight">Dornier 228 Landing Gear</span></h2>
+        <p class="description">A multi-domain MATLAB/Simscape Multibody digital twin (oleo-pneumatic strut dynamics, tyre-ground contact, actuator kinematics) directly traceable to EASA CS-23.473 / CS-23.479 airworthiness standards. Coupled to a 1D-CNN-BiLSTM classifier over ATA Ch 32 telemetry at 47 ms latency and 350× cost reduction versus commercial HUMS.</p>
         
         <div class="bento-stats">
-            <div class="bento-stat-item"><h4>94.2%</h4><span>Accuracy</span></div>
+            <div class="bento-stat-item"><h4>98.5%</h4><span>Accuracy</span></div>
             <div class="bento-stat-item"><h4>350×</h4><span>Cost Drop</span></div>
             <div class="bento-stat-item"><h4>47ms</h4><span>Latency</span></div>
-            <div class="bento-stat-item"><h4>9,500</h4><span>Cycles</span></div>
+            <div class="bento-stat-item"><h4>11</h4><span>Fault Classes</span></div>
         </div>
 
         <div class="tech-stack">
@@ -699,27 +743,27 @@
     <div class="bento-content">
         <div class="status-pill">
             <div class="status-dot"></div>
-            AFIT AEROSPACE · CO-DESIGNED WITH I. T. USMAN
+            MINOR REVISION · ELSEVIER SOFTWAREX (2026)
         </div>
         <h2>PHI-DRONE<br><span class="highlight">Digital Twin Reconnaissance Hub</span></h2>
-        <p class="description">A zero-cost open-source UAV simulation pipeline integrating ArduPilot SITL, FlightGear, and YOLOv8 for real-time object detection and telemetry fusion. Engineered a cross-platform (Windows/WSL2) architecture with screen-capture calibration and thread-safe MAVLink GPS logging. Validates the companion-computer pattern entirely in software.</p>
+        <p class="description">Co-authored with Tumsah Usman Ibrahim and supervised by Dr. Godwin Abbe. Zero-ROS UAV pipeline bridging ArduPilot SITL (WSL2 Ubuntu), FlightGear 3D (Windows 11) and a VisDrone-fine-tuned YOLOv8n engine over non-blocking UDP — achieving 165.3 ms median inference on integrated Intel Iris Xe graphics (1,296 tagged detections over 21.9 min).</p>
         
         <div class="bento-stats">
-            <div class="bento-stat-item"><h4>15fps</h4><span>Inference</span></div>
-            <div class="bento-stat-item"><h4>Zero</h4><span>HW Cost</span></div>
-            <div class="bento-stat-item"><h4>WSL2</h4><span>Bridge</span></div>
-            <div class="bento-stat-item"><h4>Q1</h4><span>Journal</span></div>
+            <div class="bento-stat-item"><h4>165.3ms</h4><span>Iris Xe Inf</span></div>
+            <div class="bento-stat-item"><h4>1,296</h4><span>Detections</span></div>
+            <div class="bento-stat-item"><h4>100%</h4><span>Telemetry</span></div>
+            <div class="bento-stat-item"><h4>DOI</h4><span>Zenodo</span></div>
         </div>
 
         <div class="tech-stack">
-            <span class="tech-pill">PYTHON</span><span class="tech-pill">YOLOv8</span>
+            <span class="tech-pill">PYTHON</span><span class="tech-pill">YOLOv8n</span>
             <span class="tech-pill">OPENCV</span><span class="tech-pill">ARDUPILOT SITL</span>
-            <span class="tech-pill">FLIGHTGEAR</span><span class="tech-pill">MAVLINK</span>
+            <span class="tech-pill">FLIGHTGEAR</span><span class="tech-pill">PYMAVLINK</span>
         </div>
 
         <div class="flagship-actions">
             <a href="https://github.com/Sm-bello/phi-drone" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#" class="flagship-btn" onclick="showModal('Publication', 'Manuscript: PHI-DRONE: The Digital Twin Reconnaissance Hub.\nSubmitted to Aerospace Science and Technology (Elsevier, Q1).');return false;"><i class="fas fa-file-alt"></i> Elsevier Q1</a>
+            <a href="https://doi.org/10.5281/zenodo.21433215" target="_blank" class="flagship-btn"><i class="fas fa-file-alt"></i> SoftwareX / Zenodo</a>
             <a href="/PHI-Drone-Sim-Pipeline.html" target="_blank" class="flagship-btn" style="background:var(--neon-teal);color:white;border-color:var(--neon-teal);"><i class="fas fa-rocket"></i> Launch Pipeline</a>
             <a href="/Video-Demos.html#phi-drone" class="flagship-btn" style="background:rgba(6,182,212,0.1);color:#06b6d4;border-color:rgba(6,182,212,0.3);box-shadow: 0 0 15px rgba(0,0,0,0.05);"><i class="fas fa-play-circle fa-beat"></i> Watch Demo</a>
         </div>
@@ -752,16 +796,16 @@
     <div class="bento-content">
         <div class="status-pill">
             <div class="status-dot"></div>
-            AIAA SCI TECH 2027 · STUDENT COMPETITION
+            ACCEPTED · AIAA SCITECH 2027 (ID 4563523)
         </div>
         <h2>CFD Spatiotemporal CVAE<br><span class="highlight">Rotary Detonation Augmentation</span></h2>
-        <p class="description">A 4.3M-parameter generative Conditional Variational Autoencoder that augments scarce Rotary Detonation Engine CFD data. Built from 12 OpenFOAM v2406 reactive-flow simulations, the CVAE generates 72 physically consistent spatiotemporal fields. Documents a critical finding: standard literature velocity correlations overestimate true Chapman-Jouguet bounds by up to 4× at off-stoichiometric limits.</p>
+        <p class="description">Accepted for presentation Jan 14, 2027 (Session MVCE-04/FD-64/UQ-17). Operates a personal OpenFOAM v2406 reactingFoam (300×150 mesh) RDE lab spanning equivalence ratios φ∈[0.60, 1.37], correcting a 4× Chapman-Jouguet velocity error. A 4.3M-param CNN-BiLSTM CVAE expands 12 CFD runs into a 72-case (1.48 GB) benchmark + 1.2M-param surrogate.</p>
         
         <div class="bento-stats">
-            <div class="bento-stat-item"><h4>4.3M</h4><span>Params</span></div>
-            <div class="bento-stat-item"><h4>72</h4><span>Fields</span></div>
+            <div class="bento-stat-item"><h4>4.3M</h4><span>CVAE Params</span></div>
+            <div class="bento-stat-item"><h4>72</h4><span>Fields (1.48GB)</span></div>
             <div class="bento-stat-item"><h4>1.2M</h4><span>Surrogate</span></div>
-            <div class="bento-stat-item"><h4>4×</h4><span>CJ Error</span></div>
+            <div class="bento-stat-item"><h4>4×</h4><span>CJ Error Fix</span></div>
         </div>
 
         <div class="tech-stack">
@@ -771,7 +815,7 @@
         </div>
 
         <div class="flagship-actions">
-            <a href="#" class="flagship-btn" onclick="showModal('Dataset', 'Published as a community benchmark.\nDOI: 10.57967/hf/8884');return false;"><i class="fas fa-database"></i> HF Dataset</a>
+            <a href="#" class="flagship-btn" onclick="showModal('AIAA SciTech Forum 2027 · Accepted', 'Control ID: 4563523 · Session MVCE-04/FD-64/UQ-17\nPresentation Date: January 14, 2027 · Orlando, FL\n72-case spatiotemporal benchmark (1.48 GB) releasing under MIT on HuggingFace & Kaggle upon acceptance.');return false;"><i class="fas fa-award"></i> SciTech '27 (ID 4563523)</a>
             <a href="/Video-Demos.html#rde-cfd" class="flagship-btn" style="background:rgba(236,72,153,0.1);color:#ec4899;border-color:rgba(236,72,153,0.3);box-shadow: 0 0 15px rgba(0,0,0,0.05);"><i class="fas fa-play-circle fa-beat"></i> Watch Demo</a>
         </div>
     </div>
@@ -803,26 +847,26 @@
     <div class="bento-content">
         <div class="status-pill">
             <div class="status-dot"></div>
-            ACTIVE RESEARCH · PROPULSION PHM
+            UNDER REVIEW · ASME JGTP (2026) · CO-AUTHORED WITH E. S. ENE
         </div>
-        <h2>Gas Turbine Blade PHM<br><span class="highlight">AGTF30 Predictive Maintenance</span></h2>
-        <p class="description">A laboratory-scale predictive maintenance system for High-Pressure and Low-Pressure turbine blade degradation. Uses the AGTF30 advanced gas turbine engine model in MATLAB with a 13-sensor continuous telemetry bus. A deep CNN-BiLSTM-Attention architecture classifies micro-fractures and erosion, connecting to a FlightGear UDP bridge for hardware-in-the-loop validation.</p>
+        <h2>Gas Turbine Blade PHM<br><span class="highlight">AGTF30 Native Digital Twin</span></h2>
+        <p class="description">Demonstrates why direct-drive C-MAPSS models collapse on geared turbofans (112.4 RMSE) and introduces a dual-track NASA T-MATS AGTF30 simulator (50 engines, 8,901 cycles) with coupled HPT/HPC degradation and novel LPT-exit sensors. A Monte Carlo Dropout (N=50) CNN-BiLSTM-Self-Attention twin achieves 11.94±0.42 cycles RMSE and 2.14 s fault detection on 10 Hz FlightGear A320neo UDP.</p>
         
         <div class="bento-stats">
-            <div class="bento-stat-item"><h4>13</h4><span>Sensors</span></div>
-            <div class="bento-stat-item"><h4>99%</h4><span>Classification</span></div>
-            <div class="bento-stat-item"><h4>HP/LP</h4><span>Stages</span></div>
-            <div class="bento-stat-item"><h4>HIL</h4><span>Validation</span></div>
+            <div class="bento-stat-item"><h4>11.94</h4><span>RMSE (Cyc)</span></div>
+            <div class="bento-stat-item"><h4>96.7%</h4><span>PI Cover</span></div>
+            <div class="bento-stat-item"><h4>8,901</h4><span>Flight Cyc</span></div>
+            <div class="bento-stat-item"><h4>2.14s</h4><span>FG Detect</span></div>
         </div>
 
         <div class="tech-stack">
-            <span class="tech-pill">AGTF30 ENGINE</span><span class="tech-pill">CNN-BiLSTM</span>
-            <span class="tech-pill">ATTENTION</span><span class="tech-pill">MATLAB SIMSCAPE</span>
-            <span class="tech-pill">FLIGHTGEAR UDP</span>
+            <span class="tech-pill">NASA T-MATS</span><span class="tech-pill">CNN-BiLSTM</span>
+            <span class="tech-pill">MC DROPOUT</span><span class="tech-pill">AGTF30</span>
+            <span class="tech-pill">FLIGHTGEAR 10HZ</span>
         </div>
 
         <div class="flagship-actions">
-            <a href="#" class="flagship-btn" onclick="showModal('Propulsion Lab', 'Architecture currently undergoing validation testing.');return false;"><i class="fas fa-microchip"></i> Lab Status</a>
+            <a href="#" class="flagship-btn" onclick="showModal('ASME J. Eng. Gas Turbines & Power', 'From Benchmark Failure to Real-Time Digital Twin: An AGTF30-Native CNN-BiLSTM-Attention Framework.\nCo-authored with E. S. Ene.\nKaggle DOI: 10.34740/KAGGLE/DSV/17783800\nOpen dataset on Kaggle & HuggingFace.');return false;"><i class="fas fa-file-alt"></i> ASME JGTP / DOI</a>
             <a href="/Video-Demos.html#gas-turbine" class="flagship-btn" style="background:rgba(249,115,22,0.1);color:#f97316;border-color:rgba(249,115,22,0.3);box-shadow: 0 0 15px rgba(0,0,0,0.05);"><i class="fas fa-play-circle fa-beat"></i> Watch Demo</a>
         </div>
     </div>
@@ -850,38 +894,457 @@
 </div>
 
 
+<!-- ══════════════  SPACE TECH TRL-4 HIL QUALIFICATION TESTBEDS  ══════════════ -->
+<div class="section-header" id="space-hil"><i class="fas fa-satellite"></i><h2>Sovereign TRL-4 Orbital &amp; Space Tech HIL Testbeds</h2></div>
+
+<div class="attr-banner">
+    <div>
+        <h3>Institutional Attribution · DIMASA × Physics Hybrid Integrity Lab</h3>
+        <p>Four open-source Technology Readiness Level 4 (TRL 4) hardware-in-the-loop qualification testbeds bridging the TRL 3 → TRL 4 Valley of Death over bidirectional CCSDS 133.0-B-2 (`0x1ACFFC1D`) UDP/RS-422 bridges, aligned with NASA-STD-7009A, ASME V&amp;V 40, ASTM F3269-17, and DO-178C DAL B timing budgets (16/16 automated pytest pass per campaign).</p>
+    </div>
+    <div class="attr-orgs">
+        <div class="attr-org-box">
+            <strong>DIMASA · DIGITAL INTELLIGENCE MAINTENANCE FOR AIRCRAFT SYSTEMS IN AFRICA</strong>
+            <span>Spearheading advanced aerospace digital twin methodologies, intelligent maintenance architectures, and autonomous flight vehicle technologies across Africa.</span>
+        </div>
+        <div class="attr-org-box">
+            <strong>PHYSICS HYBRID INTEGRITY LAB (PHI LAB)</strong>
+            <span>Providing laboratory computing infrastructure, numerical modeling testbeds, and academic oversight for multi-fidelity TRL 4 verification campaigns.</span>
+        </div>
+    </div>
+</div>
+
+<!-- SPACE 1: CERTI-RPO-HIL -->
+<div class="bento-project" style="--card-accent: #0ea5e9;">
+    <div class="bento-content">
+        <div class="status-pill"><div class="status-dot"></div>TRL 4 HIL CERTIFIED · 100.0% COMPOSITE (7/7 PILLARS PASS)</div>
+        <h2>CERTI-RPO-HIL<br><span class="highlight">Autonomous RPOD &amp; CBF-QP Shield</span></h2>
+        <p class="description">Autonomous Rendezvous, Proximity Operations &amp; Docking (RPOD) optical/LiDAR navigation and ASTM F3269-17 Control Barrier Function Quadratic Program (CBF-QP) runtime assurance HIL testbed. Evaluates Clohessy-Wiltshire relative orbital dynamics, passive 2-orbit abort reachability (14.73 m separation), Mahalanobis solar glare gating (100% rejection), and bidirectional CCSDS 133.0-B-2 CRC-16 HIL loopback.</p>
+        <div class="bento-stats">
+            <div class="bento-stat-item"><h4>100.0%</h4><span>7/7 Pillars</span></div>
+            <div class="bento-stat-item"><h4>+0.34m</h4><span>Min h_KOZ</span></div>
+            <div class="bento-stat-item"><h4>0.043m</h4><span>Dock Err</span></div>
+            <div class="bento-stat-item"><h4>1.62ms</h4><span>P99 QP</span></div>
+        </div>
+        <div class="tech-stack">
+            <span class="tech-pill">ASTM F3269-17</span><span class="tech-pill">CBF-QP SHIELD</span>
+            <span class="tech-pill">NASA SPEED+</span><span class="tech-pill">CCSDS 133.0-B-2</span>
+            <span class="tech-pill">ECSS-E-ST-10-02C</span><span class="tech-pill">16/16 PYTEST</span>
+        </div>
+        <div class="flagship-actions">
+            <a href="https://github.com/Sm-bello/CERTI-RPO-HIL" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub Repo</a>
+            <a href="#" class="flagship-btn" onclick="showModal('CERTI-RPO-HIL · Campaign Digest', 'Composite Confidence: 100.0% (7/7 Pillars PASS, 16/16 pytest)\nSHA-256 Digest: 3ea81373eaef92b3a0bc172cfdb68448ec85b4f65089222eb61eec3d3869fc48\nStandards: ASTM F3269-17, NASA-STD-7009A, CCSDS 133.0-B-2, DO-178C DAL B (<20 ms).');return false;"><i class="fas fa-fingerprint"></i> SHA-256 Audit</a>
+        </div>
+    </div>
+    <div class="bento-svg-gallery">
+        <div class="svg-frame" title="Click to expand Architecture Diagram">
+            <img src="./assets/certi-rpo-arch.svg" alt="CERTI-RPO-HIL System Architecture" class="actual-image">
+            <div class="svg-caption"><span>ARCHITECTURE &amp; CCSDS HIL FLOW</span><span>CLICK TO ZOOM</span></div>
+        </div>
+        <div class="svg-frame" title="Click to expand TRL 4 Scorecard">
+            <img src="./assets/certi-rpo-score.svg" alt="CERTI-RPO-HIL TRL-4 Scorecard" class="actual-image">
+            <div class="svg-caption"><span>7-PILLAR TRL-4 VERIFICATION AUDIT</span><span>100.0% PASS</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- SPACE 2: CRYO-ZBO-DT -->
+<div class="bento-project" style="--card-accent: #10b981;">
+    <div class="bento-content">
+        <div class="status-pill"><div class="status-dot"></div>TRL 4 HIL CERTIFIED · 100.0% COMPOSITE (7/7 PILLARS PASS)</div>
+        <h2>CRYO-ZBO-DT<br><span class="highlight">Zero-Boil-Off Cryogenic Depot Twin</span></h2>
+        <p class="description">Zero-Boil-Off cryogenic two-phase flow, Nukiyama chilldown &amp; Thermodynamic Vent System Model Predictive Control (TVS-MPC) orbital fuel depot digital twin. Achieves 100.00% hydrodynamic mass balance (182.4 m/s sonic speed), pulsed chilldown saving 50.27% cryogen while cutting pressure surge by 84.7%, ±0.14 kPa ullage control, and 99.00% capillary LAD bubble-point margin.</p>
+        <div class="bento-stats">
+            <div class="bento-stat-item"><h4>50.27%</h4><span>Cryo Saved</span></div>
+            <div class="bento-stat-item"><h4>84.7%</h4><span>Surge Drop</span></div>
+            <div class="bento-stat-item"><h4>±0.14kPa</h4><span>Ullage Hold</span></div>
+            <div class="bento-stat-item"><h4>1.82ms</h4><span>P99 Frame</span></div>
+        </div>
+        <div class="tech-stack">
+            <span class="tech-pill">NUKIYAMA BOILING</span><span class="tech-pill">TVS-MPC</span>
+            <span class="tech-pill">LAD BUBBLE-POINT</span><span class="tech-pill">ASME V&amp;V 40</span>
+            <span class="tech-pill">CCSDS 133.0-B-2</span><span class="tech-pill">16/16 PYTEST</span>
+        </div>
+        <div class="flagship-actions">
+            <a href="https://github.com/Sm-bello/CRYO-ZBO-DT" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub Repo</a>
+            <a href="#" class="flagship-btn" onclick="showModal('CRYO-ZBO-DT · Campaign Digest', 'Composite Confidence: 100.0% (7/7 Pillars PASS, 16/16 pytest)\nSHA-256 Digest: 4cb52945ea4514ba127a94ba2ebc00c7e2c98d79bfa7ea7ba447101886cb54c4\nResult: 100% boil-off eliminated, 50.27% cryogen saved over pulsed chilldown.');return false;"><i class="fas fa-fingerprint"></i> SHA-256 Audit</a>
+        </div>
+    </div>
+    <div class="bento-svg-gallery">
+        <div class="svg-frame" title="Click to expand Architecture Diagram">
+            <img src="./assets/cryo-zbo-arch.svg" alt="CRYO-ZBO-DT System Architecture" class="actual-image">
+            <div class="svg-caption"><span>TWO-PHASE CHILLDOWN &amp; TVS-MPC ARCHITECTURE</span><span>CLICK TO ZOOM</span></div>
+        </div>
+        <div class="svg-frame" title="Click to expand TRL 4 Scorecard">
+            <img src="./assets/cryo-zbo-score.svg" alt="CRYO-ZBO-DT TRL-4 Scorecard" class="actual-image">
+            <div class="svg-caption"><span>7-PILLAR TRL-4 VERIFICATION AUDIT</span><span>100.0% PASS</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- SPACE 3: VLEO-ABEP-DT -->
+<div class="bento-project" style="--card-accent: #8b5cf6;">
+    <div class="bento-content">
+        <div class="status-pill"><div class="status-dot"></div>TRL 4 HIL CERTIFIED · 98.73% COMPOSITE (7/7 PILLARS PASS)</div>
+        <h2>VLEO-ABEP-DT<br><span class="highlight">Rarefied Aerothermodynamics &amp; ABEP</span></h2>
+        <p class="description">Very Low Earth Orbit (VLEO) rarefied gas-surface interaction (Sentman GSI + Chebyshev-RBF surrogate at 28.4× speed) and Air-Breathing Electric Propulsion (ABEP) digital twin with active aero-trim wheel desaturation. Cross-validated against ESA GOCE accelerometer thermosphere densities (4.97% mean error), delivering 101.4% drag compensation at Isp = 3,840 s and 99.82% altitude retention during Kp=8 geomagnetic storms.</p>
+        <div class="bento-stats">
+            <div class="bento-stat-item"><h4>4.97%</h4><span>GOCE Error</span></div>
+            <div class="bento-stat-item"><h4>101.4%</h4><span>Drag Comp</span></div>
+            <div class="bento-stat-item"><h4>3,840s</h4><span>Net Isp</span></div>
+            <div class="bento-stat-item"><h4>3.24ms</h4><span>P99 Frame</span></div>
+        </div>
+        <div class="tech-stack">
+            <span class="tech-pill">SENTMAN GSI</span><span class="tech-pill">CHEBYSHEV-RBF</span>
+            <span class="tech-pill">ESA GOCE</span><span class="tech-pill">ACTIVE AERO-TRIM</span>
+            <span class="tech-pill">KP=8 STORM</span><span class="tech-pill">CCSDS 133.0-B-2</span>
+        </div>
+        <div class="flagship-actions">
+            <a href="https://github.com/Sm-bello/VLEO-ABEP-DT" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub Repo</a>
+            <a href="#" class="flagship-btn" onclick="showModal('VLEO-ABEP-DT · Campaign Digest', 'Composite Confidence: 98.73% (7/7 Pillars PASS, 16/16 pytest)\nSHA-256 Digest: 40dc967397b9ee9058b8efc0f4f954fe354d1d91aa9c2cfec979c6faea7fa5b3\nBenchmarks: 4.97% density error vs ESA GOCE, 100% wheel desaturation, 99.82% Kp=8 survival.');return false;"><i class="fas fa-fingerprint"></i> SHA-256 Audit</a>
+        </div>
+    </div>
+    <div class="bento-svg-gallery">
+        <div class="svg-frame" title="Click to expand Architecture Diagram">
+            <img src="./assets/vleo-abep-arch.svg" alt="VLEO-ABEP-DT System Architecture" class="actual-image">
+            <div class="svg-caption"><span>SENTMAN GSI &amp; ACTIVE AERO-TRIM ABEP LOOP</span><span>CLICK TO ZOOM</span></div>
+        </div>
+        <div class="svg-frame" title="Click to expand TRL 4 Scorecard">
+            <img src="./assets/vleo-abep-score.svg" alt="VLEO-ABEP-DT TRL-4 Scorecard" class="actual-image">
+            <div class="svg-caption"><span>7-PILLAR TRL-4 VERIFICATION AUDIT</span><span>98.73% PASS</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- SPACE 4: RAD-FAULT-HIL -->
+<div class="bento-project" style="--card-accent: #f97316;">
+    <div class="bento-content">
+        <div class="status-pill"><div class="status-dot"></div>TRL 4 HIL CERTIFIED · 98.42% COMPOSITE (7/7 PILLARS PASS)</div>
+        <h2>RAD-FAULT-HIL<br><span class="highlight">COTS Radiation &amp; Avionics Fault HIL</span></h2>
+        <p class="description">COTS-to-Orbit radiation transport (Weibull/Bendel Single Event Effects, 58.0× South Atlantic Anomaly surge, 3.1× Al+Ta TID attenuation) coupled to a hardware-emulated avionics fault-injection rig. Executes Hamming (72,64) SEC-DED memory scrubbing (285 SEUs fixed, 81.2× MTBUE), Triple Modular Redundant (TMR) GNC attitude voting (0.0065° error vs 311.77° unprotected), and 2.65 µs solid-state SEL latching breakers.</p>
+        <div class="bento-stats">
+            <div class="bento-stat-item"><h4>81.2×</h4><span>MTBUE Gain</span></div>
+            <div class="bento-stat-item"><h4>0.0065°</h4><span>TMR Error</span></div>
+            <div class="bento-stat-item"><h4>2.65µs</h4><span>SEL Trip</span></div>
+            <div class="bento-stat-item"><h4>14.4×</h4><span>Therm Marg</span></div>
+        </div>
+        <div class="tech-stack">
+            <span class="tech-pill">WEIBULL / BENDEL</span><span class="tech-pill">SEC-DED (72,64)</span>
+            <span class="tech-pill">TMR GNC VOTER</span><span class="tech-pill">MIL-STD-883K</span>
+            <span class="tech-pill">CCSDS 133.0-B-2</span><span class="tech-pill">16/16 PYTEST</span>
+        </div>
+        <div class="flagship-actions">
+            <a href="https://github.com/Sm-bello/RAD-FAULT-HIL" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub Repo</a>
+            <a href="#" class="flagship-btn" onclick="showModal('RAD-FAULT-HIL · Campaign Digest', 'Composite Confidence: 98.42% (7/7 Pillars PASS, 16/16 pytest)\nSHA-256 Digest: f4916661abe915894d786a30a999070a36cb5a4121fc9d79b086548883d6e426\nBenchmarks: 285 SEUs scrubbed, 9 MBUs flagged, TMR holds 0.0065° vs 311.77° unprotected.');return false;"><i class="fas fa-fingerprint"></i> SHA-256 Audit</a>
+        </div>
+    </div>
+    <div class="bento-svg-gallery">
+        <div class="svg-frame" title="Click to expand Architecture Diagram">
+            <img src="./assets/rad-fault-arch.svg" alt="RAD-FAULT-HIL System Architecture" class="actual-image">
+            <div class="svg-caption"><span>WEIBULL / BENDEL SEE &amp; TMR/SEC-DED/SEL HIL</span><span>CLICK TO ZOOM</span></div>
+        </div>
+        <div class="svg-frame" title="Click to expand TRL 4 Scorecard">
+            <img src="./assets/rad-fault-score.svg" alt="RAD-FAULT-HIL TRL-4 Scorecard" class="actual-image">
+            <div class="svg-caption"><span>7-PILLAR TRL-4 VERIFICATION AUDIT</span><span>98.42% PASS</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════  FEDERATED PHM, STRUCTURES & ASSURANCE V&V  ══════════════ -->
+<div class="section-header" id="phm-vv"><i class="fas fa-network-wired"></i><h2>Federated PHM, Structural Integrity &amp; V&amp;V Assurance</h2></div>
+<p style="color:var(--text-light); max-width:850px; margin-bottom:2.5rem; font-size:1.02rem;">End-to-end research architectures across DIMASA × Physics Hybrid Integrity Lab uniting federated multi-airframe prognostics, >10,000× Fourier PINN fracture mechanics, 250 Hz STM32/FreeRTOS GP latent-force HIL, cryptographic airworthiness bundles, and NASA-STD-7009A / ASME V&amp;V 40 qualification.</p>
+
+<div class="sys-grid">
+    <div class="sys-card" style="--sys-accent:#0ea5e9;">
+        <div class="sys-head"><span class="sys-badge">Federated PHM · HF Benchmark</span><span class="sys-org">AFIT Kaduna · 2026</span></div>
+        <h3>FleetTwin</h3>
+        <div class="sys-sub">Coupled 3-Gear EASA CS-23.473 + 20 Hz FlightGear UDP + Jetson</div>
+        <p>DualInputTurbopropNet (~285k params, 4.2 ms Jetson) trained with AdaFedProx &amp; Federated Logit Calibration (91.47% vs 86.72% FedAvg, p&lt;0.001). Fleet Intelligence Packets cut uplink 90.5% with 18.1× DLG defense; Buckingham Π transfers Do228 → Beechcraft 1900D (59.01% → 89.90%).</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>91.47%</strong><span>AdaFedProx Acc</span></div>
+            <div class="sys-kpi"><strong>4.2ms / 90.5%</strong><span>Jetson / BW Cut</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">PYTORCH</span><span class="tech-pill">FLOWER</span><span class="tech-pill">BUCKINGHAM Π</span><span class="tech-pill">10K HF DATA</span></div>
+            <div class="flagship-actions"><a href="https://github.com/Sm-bello/FleetTwin" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#8b5cf6;">
+        <div class="sys-head"><span class="sys-badge" style="color:#8b5cf6;border-color:rgba(139,92,246,.25);background:rgba(139,92,246,.07);">Under Review · AIAA JAIS</span><span class="sys-org">DIMASA · AFIT Kaduna</span></div>
+        <h3>PHI-SWARM / ZeroTwin</h3>
+        <div class="sys-sub">10-Layer Decentralized Federated UAV Swarm Integrity</div>
+        <p>Edge 173k CNN-BiLSTM (~3.5 ms CPU) across 4 physics engines (rotor, ESC, spall, battery): +16.8 pp over isolated models (0.9129 vs 0.7451, Cohen's d=1.68). Dual-gate Byzantine filter blocks 100% malicious updates (44/44 vs 79.1% Krum) with Ed25519 + SHA-256 ledger.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>0.9129 (+16.8pp)</strong><span>20-UAV Acc</span></div>
+            <div class="sys-kpi"><strong>100% (44/44)</strong><span>Attack Block</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">FEDERATED UAV</span><span class="tech-pill">SIMPLEX GOV</span><span class="tech-pill">ED25519</span><span class="tech-pill">14/14 CHECKS</span></div>
+            <div class="flagship-actions"><a href="https://doi.org/10.5281/zenodo.22217970" target="_blank" class="flagship-btn"><i class="fas fa-book"></i> Zenodo DOI 22217970</a></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#06b6d4;">
+        <div class="sys-head"><span class="sys-badge" style="color:#06b6d4;border-color:rgba(6,182,212,.25);background:rgba(6,182,212,.07);">Targeted · AIAA AVIATION '27</span><span class="sys-org">AFIT Kaduna · 2026</span></div>
+        <h3>PHI-SPIKE</h3>
+        <div class="sys-sub">Physics-Residual Membrane-Gated LIF Spiking Neural Nets</div>
+        <p>Injects aircraft-dynamics residuals directly into the Leaky Integrate-and-Fire (LIF) membrane equation via a learnable gate on automated 6-DoF JSBSim airframes (PA-28, C182, C172). Beats dense LSTM (70.0%) and CNN-BiLSTM (69.2%) at 73.2% spike sparsity.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>75.5% / 0.595</strong><span>Acc / Macro-F1</span></div>
+            <div class="sys-kpi"><strong>73.2% / 19.3ms</strong><span>Sparsity / CPU</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">LIF SNN</span><span class="tech-pill">JSBSIM 6-DOF</span><span class="tech-pill">SURROGATE GRAD</span><span class="tech-pill">10-CLASS FDI</span></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#10b981;">
+        <div class="sys-head"><span class="sys-badge" style="color:#10b981;border-color:rgba(16,185,129,.25);background:rgba(16,185,129,.07);">20/20 Tests · 5-UAV Fleet</span><span class="sys-org">PHI Lab · 2026</span></div>
+        <h3>ROTORGUARD</h3>
+        <div class="sys-sub">6-Domain Closed-Loop Multirotor Propulsion &amp; Energy Twin</div>
+        <p>Solves coupled BEMT aerodynamics, BLDC, ESC, 2-RC Thévenin battery &amp; lumped thermal equilibria before in-flight brownout. Dual-rate EKF separates +34% prop chipping drag from winding/SEI growth; 95% MC endurance prevents 4.6-min BMS overestimates with χ² -12°C OOD guard.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>6-Domain</strong><span>Bus Equilibrium</span></div>
+            <div class="sys-kpi"><strong>20 / 20 PASS</strong><span>5-UAV Suite</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">DUAL-RATE EKF</span><span class="tech-pill">RLS</span><span class="tech-pill">2-RC THÉVENIN</span><span class="tech-pill">χ² OOD GUARD</span></div>
+            <div class="flagship-actions"><a href="https://github.com/Sm-bello/ROTORGUARD" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#f59e0b;">
+        <div class="sys-head"><span class="sys-badge" style="color:#f59e0b;border-color:rgba(245,158,11,.25);background:rgba(245,158,11,.07);">HP²-FDT · Heterogeneous</span><span class="sys-org">PHI Lab · 2026</span></div>
+        <h3>PHI-FLEET</h3>
+        <div class="sys-sub">Cross-Asset Federated Physics-Hybrid Fleet Twins</div>
+        <p>Links physically dissimilar assets (oleo gear, Brayton turbofan EGT, BLDC motor, Li-ion battery) via a 4-D invariant degradation manifold and FedPhys aggregation penalizing thermodynamic non-monotonicity (dD/dt ≥ 0). Evidential NIG posteriors + 90% conformal RUL drive ATA/MEL dispatch.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>4-D Manifold</strong><span>Dissimilar Assets</span></div>
+            <div class="sys-kpi"><strong>90% Bound</strong><span>Conformal RUL</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">EVIDENTIAL NIG</span><span class="tech-pill">FEDPHYS</span><span class="tech-pill">CONFORMAL RUL</span><span class="tech-pill">PYDANTIC</span></div>
+            <div class="flagship-actions"><a href="https://github.com/Sm-bello/PHI-FLEET" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#ef4444;">
+        <div class="sys-head"><span class="sys-badge" style="color:#ef4444;border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.07);">&gt;10,000× PINN Speedup</span><span class="sys-org">PHI Lab · 2026</span></div>
+        <h3>STRUCTURA-X</h3>
+        <div class="sys-sub">Airframe Q4 FEA, Fourier PINN &amp; Corrosion-Fatigue Twin</div>
+        <p>2-D plane-stress Q4 FEA solver (Kt ≈ 3.0, Neuber/Ramberg-Osgood) accelerated by a Fourier-encoded PINN surrogate (1.22 s → 0.12 ms) with 14× MC Dropout OOD fallback to FEA. Fuses ASTM E1049 rainflow, Kondo pitting, Paris-Walker crack growth &amp; EKF/FBG to cut MSG-3 cost by 33.6%.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>0.12ms (&gt;10⁴×)</strong><span>PINN Inference</span></div>
+            <div class="sys-kpi"><strong>-33.6% Cost</strong><span>ATA MSG-3</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">2D Q4 FEA</span><span class="tech-pill">FOURIER PINN</span><span class="tech-pill">PARIS-WALKER</span><span class="tech-pill">FBG + EKF</span></div>
+            <div class="flagship-actions"><a href="https://github.com/Sm-bello/STRUCTURA-X" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#ec4899;">
+        <div class="sys-head"><span class="sys-badge" style="color:#ec4899;border-color:rgba(236,72,153,.25);background:rgba(236,72,153,.07);">NASA-STD-7009B 3.62/4.0</span><span class="sys-org">PHI Lab · 2026</span></div>
+        <h3>SyncCert-Boom</h3>
+        <div class="sys-sub">CFRP Boom FEM, GP Latent-Force &amp; STM32 250 Hz HIL</div>
+        <p>40-element Euler-Bernoulli CFRP FEA (Newmark-β, BLDC torque ripple, Dryden gusts) with GP latent-force reconstruction from 4 sparse strain gauges in &lt;0.8 ms. FreeRTOS/STM32 250 Hz CRC32 HIL runs at 8.25/11.38 ms P50/P99 (&lt;15 ms deadline) under FAA Part 23 / MIL-HDBK-516C.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>&lt;0.8ms / 8.25ms</strong><span>GP / 250Hz HIL</span></div>
+            <div class="sys-kpi"><strong>3.62 / 4.00</strong><span>7009B Score</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">GP LATENT FORCE</span><span class="tech-pill">FREERTOS/STM32</span><span class="tech-pill">MIL-HDBK-516C</span><span class="tech-pill">GSN / JSON-LD</span></div>
+            <div class="flagship-actions"><a href="https://github.com/Sm-bello/SyncCert-Boom" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#3b82f6;">
+        <div class="sys-head"><span class="sys-badge" style="color:#3b82f6;border-color:rgba(59,130,246,.25);background:rgba(59,130,246,.07);">DO-178C DAL B Timing</span><span class="sys-org">PHI Lab · Nov 2026</span></div>
+        <h3>CERTIS-DT</h3>
+        <div class="sys-sub">Structural-Swarm Synchronisation &amp; GSN/SACM 2.0 Testbed</div>
+        <p>Couples sparse-strain full-field reconstruction (24.7 µs mean / 408 µs WCET inside a 2 ms DO-178C deadline) with a latency-compensated swarm shadow (1.4 cm RMSE under Markov packet loss). Augmented EKF Mahalanobis innovation gating automates refusal-to-certify GSN/SACM 2.0 cases.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>24.7µs / 408µs</strong><span>Mean / WCET</span></div>
+            <div class="sys-kpi"><strong>1.4cm RMSE</strong><span>Swarm Shadow</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">ARP4754B</span><span class="tech-pill">DO-178C DAL B</span><span class="tech-pill">MIL-STD-1530D</span><span class="tech-pill">GSN/SACM 2.0</span></div>
+            <div class="flagship-actions"><a href="https://github.com/Sm-bello/CERTIS-DT" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#14b8a6;">
+        <div class="sys-head"><span class="sys-badge" style="color:#14b8a6;border-color:rgba(20,184,166,.25);background:rgba(20,184,166,.07);">Part-66 / FAA AC 120-78B</span><span class="sys-org">PHI Lab · 2026</span></div>
+        <h3>AEROSURE</h3>
+        <div class="sys-sub">Tamper-Evident .aeroevidence &amp; MMEL Dispatch Platform</div>
+        <p>RK4 two-phase CS-25.723 oleo strut feeding a 6-stage pipeline linking touchdown telemetry to licensed Part-66/A&amp;P sign-off via RFC 8785, Merkle-DAG, Ed25519 &amp; W3C PROV-O bundles. Emits physics-attribution saliency, EASA AI Level 2 Trust Index, and ATA Spec 2000 MMEL states.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>.aeroevidence</strong><span>Merkle + PROV-O</span></div>
+            <div class="sys-kpi"><strong>MMEL / Spec 2000</strong><span>Prescriptive MRO</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">RFC 8785 / ED25519</span><span class="tech-pill">W3C PROV-O</span><span class="tech-pill">EASA AI L2</span><span class="tech-pill">CS-25.723</span></div>
+            <div class="flagship-actions"><a href="https://github.com/Sm-bello/AEROSURE" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#6366f1;">
+        <div class="sys-head"><span class="sys-badge" style="color:#6366f1;border-color:rgba(99,102,241,.25);background:rgba(99,102,241,.07);">NASA-STD-7009A &amp; ASME V&amp;V 40</span><span class="sys-org">DIMASA × PHI Lab · 2026</span></div>
+        <h3>AERO-VERIFY</h3>
+        <div class="sys-sub">Open-Source Digital Twin V&amp;V &amp; Credibility Laboratory</div>
+        <p>Multi-dimensional verification engine auditing mass/enthalpy conservation, FP64/FP32 Lipschitz stability, conformal ECE/Winkler calibration, and deep-OOD generalization across 40→15 dB SNR &amp; 50 Hz (0.13 ms P50) stress runs with &lt;10⁻⁹ multi-seed determinism and HTML5/CI dossiers.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>0.13ms P50</strong><span>50 Hz Stress Budget</span></div>
+            <div class="sys-kpi"><strong>&lt;10⁻⁹ Diff</strong><span>SHA-256 Deterministic</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">NASA-STD-7009A</span><span class="tech-pill">ASME V&amp;V 40</span><span class="tech-pill">CONFORMAL ECE</span><span class="tech-pill">PYTEST CI</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════  SOVEREIGN AUTONOMY, FLIGHT CONTROL & DEFENSE GRID  ══════════════ -->
+<div class="section-header" id="autonomy-defense"><i class="fas fa-shield-alt"></i><h2>Sovereign Autonomy, 6-DoF Flight Control &amp; Defense Grid</h2></div>
+<p style="color:var(--text-light); max-width:850px; margin-bottom:2.5rem; font-size:1.02rem;">Closed-loop fault-tolerant control, zero-shot cross-airframe domain-shift testing, GPS-denied 6-DoF GNC, and counter-UAS I/Q baseband EW systems built with Control Barrier Functions and forensic cryptographic audit chains.</p>
+
+<div class="sys-grid">
+    <div class="sys-card" style="--sys-accent:#0ea5e9;">
+        <div class="sys-head"><span class="sys-badge">0 Violations · 1k+ MC Runs</span><span class="sys-org">PHI Lab · Nov 2026</span></div>
+        <h3>PHI-AEGIS</h3>
+        <div class="sys-sub">6-Module Closed-Loop Aerospace Autonomy Stack</div>
+        <p>Unites Forge, Ledger, Pulse, Cortex, Reflex &amp; Guardian on JSON/MQTT buses linking B787 gear degradation to outer-loop flight control. Health-aware MPC cuts sink rate 2.2 → 0.75 m/s (&gt;65% shock offloaded); Ed25519/Merkle separates leakage from 100%-detected stealth GNSS spoofing.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>0 Violations</strong><span>1,000+ MC CBF</span></div>
+            <div class="sys-kpi"><strong>2.2 → 0.75 m/s</strong><span>&gt;65% Shock Cut</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">MPC + CBF</span><span class="tech-pill">ASTM F3269-17</span><span class="tech-pill">CONFORMAL 95%</span><span class="tech-pill">DOCKER/MQTT</span></div>
+            <div class="flagship-actions"><a href="https://github.com/Sm-bello/PHI-AEGIS" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#10b981;">
+        <div class="sys-head"><span class="sys-badge" style="color:#10b981;border-color:rgba(16,185,129,.25);background:rgba(16,185,129,.07);">&lt;10ms Simplex Arbiter</span><span class="sys-org">PHI Lab · 2026</span></div>
+        <h3>SKYBRIDGE</h3>
+        <div class="sys-sub">Modular RK4 6-DoF Sim-to-Real Verification Harness</div>
+        <p>Unifies fixed-wing (C172P, PA-28, C180, Aerosonde), multirotor BEMT &amp; oleo gear models behind an immutable telemetry bus. Computes 1-Wasserstein/MMD policy-transfer gaps (Clβ, Cmα, Cmδe) under MIL-F-8785C Dryden turbulence with CBF envelope filters and W3C PROV-O hashes.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>6 Airframes</strong><span>RK4 + BEMT Bus</span></div>
+            <div class="sys-kpi"><strong>&lt;10ms / 15-Test</strong><span>CBF Arbiter / CI</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">WASSERSTEIN/MMD</span><span class="tech-pill">DRYDEN 8785C</span><span class="tech-pill">PARQUET</span><span class="tech-pill">PROV-O</span></div>
+            <div class="flagship-actions"><a href="https://github.com/Sm-bello/SKYBRIDGE" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#f97316;">
+        <div class="sys-head"><span class="sys-badge" style="color:#f97316;border-color:rgba(249,115,22,.25);background:rgba(249,115,22,.07);">Under Review · AIAA JGCD</span><span class="sys-org">AFIT Kaduna · 2026</span></div>
+        <h3>F-16A Integrity Reconfiguration</h3>
+        <div class="sys-sub">Fault-Conditioned Flight-Control Reconfiguration (6-DoF)</div>
+        <p>Couples physics-based longitudinal control, online effectiveness estimation, sequence-model integrity health scoring, and saturated compensation. At 15,000 ft / 400 kt under 50% elevator loss across 20 seeds: cuts peak altitude deviation from 580.78 to 564.98 ft (MAE 0.0093, zero crashes).</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>580.8 → 565.0ft</strong><span>50% Elevator Loss</span></div>
+            <div class="sys-kpi"><strong>0.0093 / 0</strong><span>MAE / Crashes</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">F-16A 6-DOF</span><span class="tech-pill">AUTHORITY COMP</span><span class="tech-pill">VERIFICATION-FIRST</span></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#8b5cf6;">
+        <div class="sys-head"><span class="sys-badge" style="color:#8b5cf6;border-color:rgba(139,92,246,.25);background:rgba(139,92,246,.07);">91.6% NASA-STD-7009A Index</span><span class="sys-org">PHI Lab × DIMASA · 2026</span></div>
+        <h3>6-DoF GNC Digital Twin Testbed</h3>
+        <div class="sys-sub">Transonic RK4, 15-State INS/EKF &amp; WebGL 3D Cockpit</div>
+        <p>Non-linear 6-DoF simulator (transonic drag rise M 0.6–1.2, 3D PropNav, dynamic-pressure 3-loop autopilot) with automatic GPS-denied dead-reckoning failover, 30× fast-time predictor, 50 Hz WebGL Three.js cockpit &amp; FlightGear FGNetFDM UDP cross-validated vs NASA POST2 &amp; SimuPy.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>91.6% Index</strong><span>NATO AMSP-01 / POST2</span></div>
+            <div class="sys-kpi"><strong>30× / 50 Hz</strong><span>Fast-Time / WebGL</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">15-STATE INS/EKF</span><span class="tech-pill">JSBSIM / FG</span><span class="tech-pill">THREE.JS</span><span class="tech-pill">FASTAPI</span></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#ec4899;">
+        <div class="sys-head"><span class="sys-badge" style="color:#ec4899;border-color:rgba(236,72,153,.25);background:rgba(236,72,153,.07);">STANAG 4586 · UK PACE</span><span class="sys-org">PHI Lab · Nov 2026</span></div>
+        <h3>PHI-GUARD</h3>
+        <div class="sys-sub">Sovereign Counter-UAS Defence &amp; Forensic C4I Grid</div>
+        <p>6-DoF CBF + artificial potential field pursuit around 3-D structures, 5 s LIF SNN over 2–7 Hz wing-beat jerk invariants + 1024-pt SDR FFT achieving 0.0% avian false alarms, inline HMAC-SHA256 gateway, UK PACE 1984 s.69 ledger, and Cube Orange (921.6k baud) / USRP HAL.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>0.0% Avian FA</strong><span>LIF SNN + FFT</span></div>
+            <div class="sys-kpi"><strong>STANAG 4586</strong><span>Cube Orange / USRP</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">C++ / PYTHON</span><span class="tech-pill">MAVLINK SITL</span><span class="tech-pill">POSTGIS</span><span class="tech-pill">USRP/BLADERF</span></div>
+        </div>
+    </div>
+
+    <div class="sys-card" style="--sys-accent:#06b6d4;">
+        <div class="sys-head"><span class="sys-badge" style="color:#06b6d4;border-color:rgba(6,182,212,.25);background:rgba(6,182,212,.07);">UK HMGCC Challenge</span><span class="sys-org">PHI Lab × DIMASA · 2026</span></div>
+        <h3>PHI-RF-CLASSIFIER</h3>
+        <div class="sys-sub">AI SIGINT Raw I/Q Baseband Counter-UAS Emitter Engine</div>
+        <p>3-stage 1-D CNN operating directly on 2×1024 raw I/Q baseband (1 MS/s) across OFDM Zadoff-Chu, GFSK hopping, swept-LFM jammer, QPSK &amp; AWGN — beating classical DSP over -10 to +20 dB SNR with 0.578 ms CPU inference (1,730 Hz) and zero-dep oscilloscope/radar cockpit.</p>
+        <div class="sys-kpis">
+            <div class="sys-kpi"><strong>99.20% @ -5dB</strong><span>100% PD / 0% FA</span></div>
+            <div class="sys-kpi"><strong>0.578ms (1.73kHz)</strong><span>CPU Inference</span></div>
+        </div>
+        <div class="sys-footer">
+            <div class="tech-stack"><span class="tech-pill">2×1024 I/Q DSP</span><span class="tech-pill">1D-CNN PYTORCH</span><span class="tech-pill">HMAC-SHA256</span><span class="tech-pill">UDP TO C4I</span></div>
+            <div class="flagship-actions"><a href="https://github.com/Sm-bello/PHI-sigint-fingerprint" target="_blank" class="flagship-btn"><i class="fab fa-github"></i> GitHub</a></div>
+        </div>
+    </div>
+</div>
+
 <!-- ══════════════  SOFTWARE & AI SYSTEMS (INTEGRATED FROM SOLUTIONS) ══════════════ -->
-<div class="section-header"><i class="fas fa-code"></i><h2>Autonomous Software & AI Infrastructures</h2></div>
-<p style="color:var(--text-light); max-width:800px; margin-bottom:3rem; font-size:1.05rem;">While my core research resides in aerospace structures and digital twins, I actively deploy sovereign software architectures, real-time telemetry pipelines, and robust offline AI matrices.</p>
+<div class="section-header" id="software-systems"><i class="fas fa-code"></i><h2>Autonomous Software Products &amp; Systems Engineering</h2></div>
+<p style="color:var(--text-light); max-width:850px; margin-bottom:3rem; font-size:1.05rem;">Production software engineered alongside academic research — spanning live exam certification platforms, Rust/Tauri v2 offline workstations, low-latency LiveKit/WebRTC media meshes, edge ONNX speech intelligence, and multi-LLM failover agents.</p>
 
 <div class="interactive-grid">
-    <!-- Lifestone Engine v2.0 -->
+    <!-- SOAD -->
+    <div class="interactive-card blue">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>SOAD Live CBT Platform</h3>
+        <p>Full-stack Next.js 14 + TypeScript + PocketBase (Docker) + Firebase Auth exam &amp; certification platform operated live for a 66-candidate cohort (30+ concurrent takers) with session intervention &amp; offline static JSON snapshot scorecards.</p>
+        <button class="demo-btn" onclick="window.open('https://github.com/Sm-bello/SOAD','_blank');"><i class="fab fa-github"></i> GitHub Repo</button>
+    </div>
+
+    <!-- PHI Lab Workstation -->
+    <div class="interactive-card orange">
+        <i class="fas fa-desktop"></i>
+        <h3>PHI Lab Workstation ("Company Walls")</h3>
+        <p>Local-first Rust + Tauri v2 + React/TS desktop studio (Win/macOS/Linux CI) with 48 kHz LiveKit SFU + WebRTC P2P video mesh, SQLite persistence, and CPDC 2.0 HMAC-SHA256 PNG/QR clearance credentials.</p>
+        <button class="demo-btn" onclick="showModal('PHI Lab Workstation (Company Walls)', 'Stack: Rust, Tauri v2, React/TS, LiveKit SFU (48 kHz) + WebRTC P2P, SQLite.\nMulti-OS GitHub Actions: Windows NSIS/MSI, macOS DMG, Linux AppImage.\nSecurity: CPDC 2.0 HMAC-SHA256 metadata + QR personnel clearance.');"><i class="fas fa-arrow-right"></i> Architecture Specs</button>
+    </div>
+
+    <!-- Lifestones -->
     <div class="interactive-card teal">
         <i class="fas fa-microphone-alt"></i>
-        <h3>Lifestone Engine v2.0</h3>
-        <p>Offline-first speech-to-text processing node via native whisper-rs. Links an Aho-Corasick parser matching 311k text elements with downstream ONNX classifiers.</p>
-        <button class="demo-btn" onclick="showModal('Lifestone Engine v2.0', 'Foundation complete — active development phase.\nBuilt with Rust + Tauri v2 + React.\nOffline whisper-rs STT · 10 translations · 344k cross-references.');"><i class="fas fa-arrow-right"></i> Learn More</button>
+        <h3>Lifestones Offline Intelligence</h3>
+        <p>Cross-platform Rust + Tauri v2 live-production app running cascaded whisper.cpp (GGML) + hybrid Aho-Corasick / INT8 Qwen-0.6B ONNX / SQLite FTS5 matching over 31,102 verses, 344k cross-refs &amp; 2,900+ hymns in &lt;10 ms, plus HDMI &amp; NDI projection.</p>
+        <button class="demo-btn" onclick="showModal('Lifestones · Edge Speech & Projection', 'Engine: whisper.cpp GGML + INT8 Qwen-0.6B ONNX + SQLite FTS5/BM25.\nScale: 31,102 verses, 344k cross-references, 2,900+ hymns matched in <10 ms.\nOutputs: HDMI hot-plug projection, NDI output, AVX/FMA Standard + Lite Celeron builds.');"><i class="fas fa-arrow-right"></i> Learn More</button>
     </div>
 
     <!-- COLIG Full-Stack -->
     <div class="interactive-card blue">
         <i class="fas fa-globe"></i>
         <h3>COLIG Full-Stack Node</h3>
-        <p>Web-Scale Distributed Platform. Integrates high-throughput PocketBase transactions, chronological data models, and LiveKit Cloud infrastructure trees.</p>
+        <p>Web-Scale Distributed Platform integrating high-throughput PocketBase transactions, chronological data models, Android APK builds, and LiveKit Cloud broadcast rooms.</p>
         <button class="demo-btn" onclick="window.open('https://colig-app.vercel.app','_blank');"><i class="fas fa-external-link-alt"></i> Visit Live</button>
     </div>
 
     <!-- Penelope AI Agent v1.2 -->
     <div class="interactive-card purple">
         <i class="fas fa-robot"></i>
-        <h3>Penelope AI Agent v1.2</h3>
-        <p>Sovereign Offline Execution Matrix. Drives multi-provider runtime fallback trees via deterministic ReAct execution loops with physical signature tracking.</p>
-        <button class="demo-btn" onclick="showModal('Penelope AI Agent v1.2', 'Operational — fully sovereign, self-hosted AI agent.\nMulti-provider cascade with hardware soul-lock.\nReAct agentic loop with physics unit validation.');"><i class="fas fa-arrow-right"></i> Technical Overview</button>
+        <h3>Penelope CLI &amp; Web Agent</h3>
+        <p>Hardware-fingerprinted offline-resilient Python CLI agent cascading across 6+ cloud LLM providers with deterministic ReAct plan-execute loops, hierarchical compression, and aerospace physics/unit verification.</p>
+        <button class="demo-btn" onclick="window.open('https://penelope-inc.vercel.app','_blank');"><i class="fas fa-rocket"></i> Visit Penelope Inc.</button>
     </div>
 </div>
 
 <!-- ══════════════  ACTIVE & FUTURE INITIATIVES SECTION  ══════════════ -->
-<div class="section-header"><i class="fas fa-flask"></i><h2>Active & Future Initiatives</h2></div>
+<div class="section-header" id="interactive-sims"><i class="fas fa-flask"></i><h2>Live HuggingFace Sims &amp; Active Research Roadmap</h2></div>
 
 <!-- AI for Fluids — Airfoil Digital Twin (live neural network inference) -->
 <div style="background:#ffffff; border-radius:16px; padding:3rem; border:1px solid rgba(11, 15, 25, 0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.02); margin-bottom:3rem; position:relative;">
@@ -1090,13 +1553,30 @@
                 <div class="status"><span class="dot" style="background:var(--neon-orange); box-shadow: 0 0 8px var(--neon-orange);"></span> OPEN SOURCE</div>
             </div>
             <h3>GitHub Matrix</h3>
-            <div class="subtitle">Source Code & Repositories</div>
-            <p>Complete codebase repository of aerospace research, digital twin simulation pipelines, and autonomous agent architectures.</p>
+            <div class="subtitle">24+ Research &amp; Production Repos</div>
+            <p>Full source repositories across FleetTwin, PHI-AEGIS, STRUCTURA-X, SOAD, SKYBRIDGE, CERTI-RPO-HIL, CRYO-ZBO-DT, VLEO-ABEP-DT &amp; RAD-FAULT-HIL.</p>
             <div class="tags">
-                <span class="tag">Source Code</span><span class="tag">Repositories</span><span class="tag">Architecture</span>
+                <span class="tag">DIMASA</span><span class="tag">PHI Lab</span><span class="tag">TRL-4 HIL</span>
             </div>
             <div class="bottom-link">
                 <i class="fab fa-github" style="color:var(--neon-orange);"></i> View GitHub
+            </div>
+        </div>
+
+        <!-- Profile Card 5: ORCID & WoS -->
+        <div class="profile-card" onclick="navigateWithGlow(event, 'https://orcid.org/0009-0009-9214-9403')">
+            <div class="sys-top">
+                <span>ID · 05</span>
+                <div class="status"><span class="dot" style="background:var(--neon-teal); box-shadow: 0 0 8px var(--neon-teal);"></span> PEER REVIEW &amp; ORCID</div>
+            </div>
+            <h3>ORCID &amp; Web of Science</h3>
+            <div class="subtitle">0009-0009-9214-9403 · PYW-0574-2026</div>
+            <p>Verified author record &amp; AIAA JAIS Ad Hoc Peer Reviewer credential covering 10 aerospace manuscripts and Zenodo/Kaggle DOIs.</p>
+            <div class="tags">
+                <span class="tag">ORCID</span><span class="tag">WoS PYW-0574</span><span class="tag">AIAA Reviewer</span>
+            </div>
+            <div class="bottom-link">
+                <i class="fab fa-orcid" style="color:var(--neon-teal);"></i> Verify Record
             </div>
         </div>
 
@@ -1106,10 +1586,11 @@
 </div><!-- /container -->
 
 <footer>
-    <p>&copy; 2026 Mohammed Bello Sani | Aerospace Intelligence Research</p>
+    <p>&copy; 2026 Mohammed Bello Sani | DIMASA × PHI Lab · Aerospace Intelligence Research</p>
     <div class="footer-links">
         <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://orcid.org/0009-0009-9214-9403" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
         <a href="mailto:bellosani2drescue@gmail.com"><i class="fas fa-envelope"></i> Email</a>
     </div>
 </footer>

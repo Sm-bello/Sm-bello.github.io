@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-rpo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e1a"/>
+      <stop offset="100%" stop-color="#030710"/>
+    </linearGradient>
+    <linearGradient id="cyan-box" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d2238"/>
+      <stop offset="100%" stop-color="#061320"/>
+    </linearGradient>
+    <linearGradient id="amber-box" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#301b08"/>
+      <stop offset="100%" stop-color="#180c03"/>
+    </linearGradient>
+    <linearGradient id="green-box" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#072a1e"/>
+      <stop offset="100%" stop-color="#03160e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="560" rx="16" fill="url(#bg-rpo)" stroke="#1e3a5f" stroke-width="1.5"/>
+
+  <text x="40" y="46" fill="#38bdf8" font-family="Segoe UI, sans-serif" font-size="20" font-weight="bold" letter-spacing="1.5">CERTI-RPO-HIL • SYSTEM ARCHITECTURE &amp; AIR-GAPPED HIL FLOW</text>
+  <text x="40" y="72" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="13">ASTM F3269-17 CBF-QP Safety Shield • Stanford SPEED+ Optical Navigation • CCSDS 133.0-B-2 HIL Loop</text>
+
+  <rect x="850" y="24" width="310" height="54" rx="8" fill="#0b1e33" stroke="#38bdf8" stroke-width="1" opacity="0.9"/>
+  <text x="865" y="45" fill="#38bdf8" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold">SPONSORED BY DIMASA &amp; PHIL</text>
+  <text x="865" y="65" fill="#cbd5e1" font-family="Segoe UI, sans-serif" font-size="10.5">Physics Hybrid Integrity Lab • TRL 4 Certified</text>
+
+  <!-- 1. Astrodynamics -->
+  <rect x="40" y="110" width="255" height="390" rx="12" fill="url(#cyan-box)" stroke="#0284c7" stroke-width="1.5"/>
+  <rect x="55" y="125" width="225" height="30" rx="6" fill="#0284c7" fill-opacity="0.2"/>
+  <text x="167" y="145" fill="#38bdf8" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">1. TRUTH ASTRODYNAMICS</text>
+  <text x="60" y="185" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Nonlinear Relative 6-DOF:</text>
+  <text x="60" y="205" fill="#94a3b8" font-family="Consolas, monospace" font-size="11">• J2 Geopotential Orbit</text>
+  <text x="60" y="225" fill="#94a3b8" font-family="Consolas, monospace" font-size="11">• HCW Differential Frame</text>
+  <text x="60" y="245" fill="#94a3b8" font-family="Consolas, monospace" font-size="11">• MRP / Quaternion 6-DOF</text>
+  <line x1="60" y1="260" x2="275" y2="260" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="60" y="285" fill="#f59e0b" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Fault Injection Window:</text>
+  <text x="60" y="305" fill="#94a3b8" font-family="Consolas, monospace" font-size="11">• Stuck-open RCS (3.5 N)</text>
+  <text x="60" y="325" fill="#94a3b8" font-family="Consolas, monospace" font-size="11">• Solar Glare Transient (&gt;4.5σ)</text>
+  <text x="60" y="345" fill="#94a3b8" font-family="Consolas, monospace" font-size="11">• Eclipse Entry/Exit Shocks</text>
+  <line x1="60" y1="360" x2="275" y2="360" stroke="#1e3a5f" stroke-width="1"/>
+  <rect x="55" y="380" width="225" height="100" rx="8" fill="#061829" stroke="#0284c7" stroke-dasharray="3 3"/>
+  <text x="167" y="405" fill="#38bdf8" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">SPEED+ Optical Synthesizer</text>
+  <text x="65" y="430" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="10.5">Bearing Angles + Flash LiDAR</text>
+  <text x="65" y="450" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="10.5">Kapton MLI Specular Glare</text>
+  <text x="65" y="468" fill="#4ade80" font-family="Segoe UI, sans-serif" font-size="10.5">Mahalanobis Outlier Gating</text>
+
+  <!-- Arrow -->
+  <line x1="295" y1="280" x2="330" y2="280" stroke="#38bdf8" stroke-width="2.5"/>
+
+  <!-- 2. CCSDS Bridge -->
+  <rect x="330" y="110" width="235" height="390" rx="12" fill="url(#amber-box)" stroke="#d97706" stroke-width="1.5"/>
+  <rect x="345" y="125" width="205" height="30" rx="6" fill="#d97706" fill-opacity="0.25"/>
+  <text x="447" y="145" fill="#fbbf24" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">2. CCSDS 133.0-B-2 BRIDGE</text>
+  <text x="345" y="185" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Framing &amp; Protocols:</text>
+  <text x="345" y="205" fill="#cbd5e1" font-family="Consolas, monospace" font-size="11">• Sync: 0x1ACFFC1D</text>
+  <text x="345" y="225" fill="#cbd5e1" font-family="Consolas, monospace" font-size="11">• APID: 0x0210 TM / 0x0310 TC</text>
+  <text x="345" y="245" fill="#cbd5e1" font-family="Consolas, monospace" font-size="11">• CRC-16-CCITT Verification</text>
+  <text x="345" y="265" fill="#cbd5e1" font-family="Consolas, monospace" font-size="11">• IEEE-754 Big-Endian</text>
+  <line x1="345" y1="280" x2="550" y2="280" stroke="#451a03" stroke-width="1"/>
+  <text x="345" y="305" fill="#fbbf24" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Hardware Links:</text>
+  <text x="345" y="325" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="11">• UDP Sockets (Ports 5005/6)</text>
+  <text x="345" y="345" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="11">• Hardware UART / RS-422</text>
+  <text x="345" y="365" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="11">• Deterministic SEU Bit-Flips</text>
+  <line x1="345" y1="380" x2="550" y2="380" stroke="#451a03" stroke-width="1"/>
+  <rect x="345" y="395" width="205" height="85" rx="8" fill="#220e03" stroke="#d97706" stroke-dasharray="3 3"/>
+  <text x="447" y="420" fill="#f59e0b" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Air-Gapped Robustness</text>
+  <text x="355" y="445" fill="#4ade80" font-family="Segoe UI, sans-serif" font-size="10.5">✓ 100% Corrupted Frame Rejection</text>
+  <text x="355" y="465" fill="#4ade80" font-family="Segoe UI, sans-serif" font-size="10.5">✓ Zero-Order Hold Fail-Safe</text>
+
+  <!-- Arrow -->
+  <line x1="565" y1="280" x2="600" y2="280" stroke="#f59e0b" stroke-width="2.5"/>
+
+  <!-- 3. Nominal Controller -->
+  <rect x="600" y="110" width="260" height="390" rx="12" fill="url(#cyan-box)" stroke="#0ea5e9" stroke-width="1.5"/>
+  <rect x="615" y="125" width="230" height="30" rx="6" fill="#0ea5e9" fill-opacity="0.2"/>
+  <text x="730" y="145" fill="#38bdf8" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">3. NOMINAL GNC &amp; MEKF</text>
+  <text x="615" y="185" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Multiplicative EKF (MEKF):</text>
+  <text x="615" y="205" fill="#94a3b8" font-family="Consolas, monospace" font-size="11">• Relative State &amp; Attitude</text>
+  <text x="615" y="225" fill="#94a3b8" font-family="Consolas, monospace" font-size="11">• Gyro Bias Estimation</text>
+  <text x="615" y="245" fill="#94a3b8" font-family="Consolas, monospace" font-size="11">• Covariance Riccati Update</text>
+  <line x1="615" y1="260" x2="845" y2="260" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="615" y="285" fill="#38bdf8" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Waypoint Guidance (u_nom):</text>
+  <text x="615" y="305" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="11">• V-Bar Glideslope &amp; Hold</text>
+  <text x="615" y="325" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="11">• PD Tracking + LQR Feedback</text>
+  <text x="615" y="345" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="11">• Final Approach Deceleration</text>
+  <line x1="615" y1="360" x2="845" y2="360" stroke="#1e3a5f" stroke-width="1"/>
+  <rect x="615" y="380" width="230" height="100" rx="8" fill="#061a2e" stroke="#0ea5e9" stroke-dasharray="3 3"/>
+  <text x="730" y="405" fill="#38bdf8" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Unshielded Baseline Vulnerability</text>
+  <text x="625" y="430" fill="#f87171" font-family="Segoe UI, sans-serif" font-size="10.5">⚠ Thruster Fault → Incurs KOZ Breach</text>
+  <text x="625" y="450" fill="#f87171" font-family="Segoe UI, sans-serif" font-size="10.5">⚠ Solar Glare → MEKF Covariance Spike</text>
+  <text x="625" y="468" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="10.5">Dispatches u_nom to Safety Shield</text>
+
+  <!-- Arrow -->
+  <line x1="860" y1="280" x2="895" y2="280" stroke="#22c55e" stroke-width="2.5"/>
+
+  <!-- 4. CBF-QP Shield -->
+  <rect x="895" y="110" width="265" height="390" rx="12" fill="url(#green-box)" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="910" y="125" width="235" height="30" rx="6" fill="#10b981" fill-opacity="0.25"/>
+  <text x="1027" y="145" fill="#4ade80" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">4. ASTM F3269-17 CBF-QP SHIELD</text>
+  <text x="910" y="185" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Barrier Invariants:</text>
+  <text x="910" y="205" fill="#86efac" font-family="Consolas, monospace" font-size="10.5">• h_KOZ(x) = (x/a)²+(y/b)² - 1 ≥ 0</text>
+  <text x="910" y="225" fill="#86efac" font-family="Consolas, monospace" font-size="10.5">• h_LOS(x) = x_rel·tan(θ) - ‖y,z‖ ≥ 0</text>
+  <text x="910" y="245" fill="#86efac" font-family="Consolas, monospace" font-size="10.5">• L_f h(x) + L_g h(x) u ≥ -γ h(x)</text>
+  <line x1="910" y1="260" x2="1145" y2="260" stroke="#064e3b" stroke-width="1"/>
+  <text x="910" y="285" fill="#4ade80" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">50 Hz OSQP Safety Filter:</text>
+  <text x="910" y="305" fill="#cbd5e1" font-family="Segoe UI, sans-serif" font-size="11">min ½ ‖u - u_nom‖² + w·δ²</text>
+  <text x="910" y="325" fill="#cbd5e1" font-family="Segoe UI, sans-serif" font-size="11">s.t. Lie-Derivative Barrier Constraints</text>
+  <text x="910" y="345" fill="#cbd5e1" font-family="Segoe UI, sans-serif" font-size="11">      Actuator Saturation: ‖u‖ ≤ u_max</text>
+  <line x1="910" y1="360" x2="1145" y2="360" stroke="#064e3b" stroke-width="1"/>
+  <rect x="910" y="380" width="235" height="100" rx="8" fill="#032115" stroke="#10b981" stroke-dasharray="3 3"/>
+  <text x="1027" y="405" fill="#4ade80" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">TRL 4 Deterministic Guarantee</text>
+  <text x="920" y="430" fill="#86efac" font-family="Segoe UI, sans-serif" font-size="10.5">✓ 0 KOZ Breaches (h_min = +0.34 m)</text>
+  <text x="920" y="450" fill="#86efac" font-family="Segoe UI, sans-serif" font-size="10.5">✓ Safe Abort Reachability Guaranteed</text>
+  <text x="920" y="468" fill="#86efac" font-family="Segoe UI, sans-serif" font-size="10.5">✓ 50 Hz Solve Time: P99 = 1.62 ms</text>
+
+  <!-- Closed-loop return -->
+  <path d="M 1027 500 L 1027 525 L 167 525 L 167 500" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="600" y="542" fill="#86efac" font-family="Segoe UI, sans-serif" font-size="11" text-anchor="middle">Certified Safe Actuation u* Dispatched to Physical Spacecraft Thrusters (50 Hz Closed Loop)</text>
+</svg>

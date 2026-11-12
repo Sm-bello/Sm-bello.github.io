@@ -245,7 +245,7 @@ const FALLBACK_MODEL = "gemini-2.5-flash";
         const EMAILJS_PUBLIC_KEY = "9DloHYatGRyjwuntn";
 
         const CONTACT_WHATSAPP = "+2349067883192";
-        const CONTACT_EMAIL = "bellosanidrescue@gmail.com";
+        const CONTACT_EMAIL = "bellosani2drescue@gmail.com";
 
         try {
             await Promise.all([

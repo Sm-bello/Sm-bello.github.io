@@ -464,6 +464,9 @@ nav.stretched-nav.scrolled {
 }
 .pub-status.review { color: var(--accent-orange); background: rgba(221,90,18,0.06); border: 1px solid rgba(221,90,18,0.15); }
 .pub-status.abstract { color: var(--accent-light); background: rgba(29,78,216,0.06); border: 1px solid rgba(29,78,216,0.15); }
+.pub-status.accepted { color: var(--accent-green); background: rgba(6,122,82,0.08); border: 1px solid rgba(6,122,82,0.22); }
+.pub-status.revision { color: var(--accent-purple); background: rgba(109,40,217,0.07); border: 1px solid rgba(109,40,217,0.2); }
+.pub-status.prep { color: var(--text-secondary); background: rgba(71,85,105,0.07); border: 1px solid rgba(71,85,105,0.18); }
 
 .pub-title { font-family: var(--ff-display); font-size: 1.15rem; font-weight: 600; color: var(--text); line-height: 1.4; flex: 1; }
 .pub-meta { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
@@ -827,14 +830,14 @@ nav.stretched-nav.scrolled {
     <div class="hero-inner reveal">
         <div class="hero-badge">
             <div class="dot"></div>
-            <span>AIR FORCE INSTITUTE OF TECHNOLOGY (AFIT) • B.ENG AEROSPACE ENGINEERING GRADUATE</span>
+            <span>AIR FORCE INSTITUTE OF TECHNOLOGY (AFIT) • B.ENG AEROSPACE ENGINEERING • DIMASA × PHI LAB</span>
         </div>
 
         <div class="hero-pills">
-            <div class="pill pill-blue"><i class="fas fa-microchip"></i> 7 Journals Under Peer Review</div>
-            <div class="pill pill-green"><i class="fas fa-graduation-cap"></i> Beihang M.Sc Candidate Sept '26</div>
+            <div class="pill pill-green"><i class="fas fa-award"></i> 2 Accepted · AIAA SciTech 2027</div>
+            <div class="pill pill-blue"><i class="fas fa-microchip"></i> 10 Research Manuscripts</div>
             <div class="pill pill-orange"><i class="fas fa-pen-nib"></i> AIAA JAIS Ad Hoc Reviewer</div>
-            <div class="pill pill-purple"><i class="fas fa-database"></i> 4 Public Benchmark Datasets</div>
+            <div class="pill pill-purple"><i class="fas fa-satellite"></i> 4 TRL-4 Space HIL Testbeds</div>
         </div>
 
         <h1>
@@ -843,7 +846,7 @@ nav.stretched-nav.scrolled {
         </h1>
 
         <p class="hero-sub">
-            Engineering robust, physics-informed intelligent systems for aircraft structural health monitoring (SHM), real-time diagnostics, and critical avionics cybersecurity infrastructure. Bridging regulatory airworthiness requirements with real-world hangar execution.
+            Engineering physics-informed digital twins, certified structural and propulsion prognostics, fault-tolerant flight control, blockchain avionics security, and TRL-4 orbital HIL testbeds — bridging regulatory airworthiness with edge &amp; embedded execution.
         </p>
 
         <div class="hero-cta">
@@ -874,39 +877,39 @@ nav.stretched-nav.scrolled {
         <div class="stat-card">
             <div class="stat-label">Academic Standing</div>
             <div class="stat-number"><span class="counter" data-target="4.13">0.00</span><span class="unit">/5.00</span></div>
-            <div class="stat-desc">B.Eng Aerospace Engineering Graduate (Second Class Upper Honours).</div>
+            <div class="stat-desc">B.Eng Aerospace Engineering, AFIT Kaduna (Second Class Upper Honours · Expected June 2026).</div>
         </div>
         <div class="stat-card">
             <div class="stat-label">Dornier 228 Twin Accuracy</div>
-            <div class="stat-number"><span class="counter" data-target="98.74">0.00</span><span class="unit">%</span></div>
-            <div class="stat-desc">Dual-Input LSTM across 11 ATA-32 landing gear fault states running at 47ms latency.</div>
+            <div class="stat-number"><span class="counter" data-target="98.5">0.0</span><span class="unit">%</span></div>
+            <div class="stat-desc">1D-CNN-BiLSTM across 11 ATA-32 fault classes at 47ms latency &amp; 350× HUMS cost reduction.</div>
         </div>
         <div class="stat-card">
             <a href="https://www.kaggle.com/mohammedbellosani" target="_blank" class="card-link"><i class="fas fa-arrow-up-right-from-square"></i></a>
-            <div class="stat-label">Open Repository Footprint</div>
-            <div class="stat-number"><span class="counter" data-target="54.5">0.00</span><span class="unit">k Cycles</span></div>
-            <div class="stat-desc">Global open data contributions spanning 27k Ignition, 18k B788, and 9.5k DO228 cycles.</div>
+            <div class="stat-label">Open Benchmark Footprint</div>
+            <div class="stat-number"><span class="counter" data-target="63.9">0.0</span><span class="unit">k Cycles</span></div>
+            <div class="stat-desc">Public telemetry benchmarks spanning 27k Ignition, 18k B787-8, 10k FleetTwin &amp; 8.9k AGTF30 cycles.</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">RDE CFD Synthesis</div>
+            <div class="stat-label">RDE CFD &amp; Space HIL</div>
             <div class="stat-number"><span class="counter" data-target="72">0</span><span class="unit"> Fields</span></div>
-            <div class="stat-desc">1.48 GB spatiotemporal tensor matrices engineered via 4.3M parameter CVAE architectures.</div>
+            <div class="stat-desc">1.48 GB AIAA SciTech '27 accepted CVAE matrices plus 4 NASA-STD-7009A TRL-4 orbital HIL rigs.</div>
         </div>
     </div>
 </section>
 
 <section class="ticker-section">
     <div class="ticker-track">
-        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> PHI-Twin B787 Landing Gear Prognostics</div>
-        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH COMPETITION</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Security</div>
-        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics</div>
-        <div class="ticker-item"><span class="highlight">AIAA JAIS</span> <span class="sep">▪</span> Dornier 228 Certification-Compliant Multibody Twin</div>
-        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH FORUM 2027</span> <span class="sep">▪</span> Hydrogen-Air Rotary Detonation Engine Modeling</div>
-        <div class="ticker-item"><span class="highlight-green">BEIHANG UNIVERSITY</span> <span class="sep">▪</span> Smart Aviation Center M.Sc Trajectory</div>
-        <div class="ticker-item"><span class="highlight">AIAA AD HOC SERVICE</span> <span class="sep">▪</span> Verification of YOLOv8 Drogue Detection Algorithms</div>
-        <div class="ticker-item"><span class="highlight">CHINESE JOURNAL OF AERONAUTICS</span> <span class="sep">▪</span> PHI-Twin B787 Landing Gear Prognostics</div>
-        <div class="ticker-item"><span class="highlight-orange">AIAA SCITECH COMPETITION</span> <span class="sep">▪</span> PHI-CHAIN Permissioned Avionics Security</div>
-        <div class="ticker-item"><span class="highlight-green">ELSEVIER RESS</span> <span class="sep">▪</span> GEnx Ignition Remaining Useful Life Prognostics</div>
+        <div class="ticker-item"><span class="highlight-green">ACCEPTED · AIAA SCITECH 2027</span> <span class="sep">▪</span> RDE Spatiotemporal CVAE (Control ID 4563523)</div>
+        <div class="ticker-item"><span class="highlight-green">ACCEPTED · AIAA SCITECH 2027</span> <span class="sep">▪</span> PHI-CHAIN Split-Payload Avionics Security (Control ID 4543570)</div>
+        <div class="ticker-item"><span class="highlight-orange">MINOR REVISION · SOFTWAREX</span> <span class="sep">▪</span> PHI-DRONE Zero-ROS Reconnaissance Hub (Zenodo DOI)</div>
+        <div class="ticker-item"><span class="highlight">ELSEVIER MSSP &amp; RESS</span> <span class="sep">▪</span> PHI-Twin B787-8 Gear &amp; GEnx Ignition Digital Twins</div>
+        <div class="ticker-item"><span class="highlight-orange">ASME J. ENG. GAS TURBINES POWER</span> <span class="sep">▪</span> AGTF30 Blade Prognostics + 10 Hz FlightGear</div>
+        <div class="ticker-item"><span class="highlight-green">TRL-4 SPACE HIL RIGS</span> <span class="sep">▪</span> CERTI-RPO-HIL · CRYO-ZBO-DT · VLEO-ABEP-DT · RAD-FAULT-HIL</div>
+        <div class="ticker-item"><span class="highlight">DIMASA × PHI LAB</span> <span class="sep">▪</span> PHI-SWARM · PHI-AEGIS · STRUCTURA-X · FleetTwin · AERO-VERIFY</div>
+        <div class="ticker-item"><span class="highlight-orange">AIAA JGCD &amp; JAIS</span> <span class="sep">▪</span> F-16A Reconfiguration · Dornier 228 CS-23.473 · Ad Hoc Reviewer</div>
+        <div class="ticker-item"><span class="highlight-green">ACCEPTED · AIAA SCITECH 2027</span> <span class="sep">▪</span> RDE Spatiotemporal CVAE (Control ID 4563523)</div>
+        <div class="ticker-item"><span class="highlight-green">ACCEPTED · AIAA SCITECH 2027</span> <span class="sep">▪</span> PHI-CHAIN Split-Payload Avionics Security (Control ID 4543570)</div>
     </div>
 </section>
 
@@ -920,92 +923,129 @@ nav.stretched-nav.scrolled {
     <div class="section-header">
         <div class="section-header-inner">
             <div class="section-eyebrow">Academic Engineering Contributions</div>
-            <h2 class="section-title">Manuscripts & Papers <span>Under Review</span></h2>
+            <h2 class="section-title">Manuscripts &amp; Papers <span>Portfolio</span></h2>
+            <p class="section-desc" style="color:var(--text-secondary);max-width:780px;margin:0.8rem auto 0;font-size:0.95rem;line-height:1.6;">All ten papers initiated during undergraduate study: 2 formally accepted for presentation at AIAA SciTech Forum 2027, 1 under Minor Revision at Elsevier SoftwareX, 6 under journal peer review across AIAA, Elsevier &amp; ASME, and 1 targeted for AIAA AVIATION 2027.</p>
         </div>
     </div>
 
     <div class="pubs-grid">
-        <div class="pub-card">
+        <a href="https://github.com/Sm-bello/PHI-Twin-LandingGear-B787-version" target="_blank" class="pub-card">
             <div class="pub-header-row">
-                <div class="pub-venue">Chinese Journal of Aeronautics</div>
+                <div class="pub-venue">Mechanical Systems and Signal Processing (Elsevier)</div>
                 <div class="pub-status review">Under Review</div>
             </div>
-            <div class="pub-title">PHI-Twin: B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture with SHAP Explainability</div>
-            <div class="pub-meta">Lead Researcher. Cranfield University Collaboration. Air-gapped pipeline linking physics ODE solvers with a local LLM processing layer.</div>
+            <div class="pub-title">AeroTwin (PHI-Twin): B787 Landing Gear Prognostics via Three-Layer Edge AI Architecture with SHAP Explainability</div>
+            <div class="pub-meta">18.2 ms CPU two-mass ODE twin (~300× faster); 80.43% ± 0.92% zero-leakage accuracy, 100% catastrophic recall (0/345 missed), SHAP-attention r=0.781, offline Llama-3.2 ATA 32 work orders in 908 ms, 18k-flight Kaggle DOI dataset.</div>
             <div class="pub-tags">
-                <span class="tag">CNN-BiLSTM</span><span class="tag">Ollama 3.2</span><span class="tag">ATA 32</span><span class="tag">EASA AMC 20-42</span>
+                <span class="tag">ODE Twin</span><span class="tag">CNN-BiLSTM</span><span class="tag">SHAP r=0.781</span><span class="tag">Llama-3.2 Edge</span>
             </div>
-        </div>
+        </a>
 
         <a href="https://www.kaggle.com/writeups/mohammedbellosani/phi-chain-blockchain-avionics-security" target="_blank" class="pub-card">
             <div class="pub-header-row">
-                <div class="pub-venue">AIAA SciTech 2027 Student Competition</div>
-                <div class="pub-status abstract">Abstract Submitted</div>
+                <div class="pub-venue">AIAA SciTech Forum 2027 · Session CSS-03 (ID 4543570)</div>
+                <div class="pub-status accepted">Accepted · Jan 13, 2027</div>
             </div>
-            <div class="pub-title">PHI-CHAIN: Blockchain-Secured Multi-Protocol Avionics Data Integrity Framework</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. Introduces Split-Payload Transponder Architecture to resolve the TCAS Paradox, executing 4-layer PIDT validation filters.</div>
+            <div class="pub-title">PHI-CHAIN: Physics-Informed Digital Twin and Split-Payload Blockchain Architecture for Multi-Protocol Aviation Communications Security and TCAS Compatibility</div>
+            <div class="pub-meta">Hyperledger Fabric (7 containers, CCAAS mode) + Ed25519 + Physics-Informed Digital Twin Validator securing ADS-B, ACARS, ADS-C, CPDLC &amp; telemetry; validated against ICAO Doc 10037 &amp; RTCA DO-326A.</div>
             <div class="pub-tags">
-                <span class="tag">Hyperledger Fabric 2.5</span><span class="tag">Split-Payload</span><span class="tag">RTCA DO-326A</span>
+                <span class="tag">Hyperledger Fabric</span><span class="tag">Ed25519</span><span class="tag">RTCA DO-326A</span><span class="tag">Control ID 4543570</span>
             </div>
         </a>
 
         <div class="pub-card">
             <div class="pub-header-row">
-                <div class="pub-venue">Reliability Engineering & System Safety</div>
+                <div class="pub-venue">AIAA SciTech Forum 2027 · MVCE-04/FD-64/UQ-17 (ID 4563523)</div>
+                <div class="pub-status accepted">Accepted · Jan 14, 2027</div>
+            </div>
+            <div class="pub-title">Conditional Variational Autoencoder for Spatiotemporal Augmentation of Rotating Detonation Engine CFD Data and Neural Surrogate Operating Envelope Mapping</div>
+            <div class="pub-meta">OpenFOAM v2406 reactingFoam (300×150 mesh); corrected 4× Chapman-Jouguet error; 4.3M-param CNN-BiLSTM CVAE expanding 12 runs to a 72-case (1.48 GB) benchmark + 1.2M-param surrogate.</div>
+            <div class="pub-tags">
+                <span class="tag">OpenFOAM v2406</span><span class="tag">4.3M CVAE</span><span class="tag">72-Case Tensor</span><span class="tag">Control ID 4563523</span>
+            </div>
+        </div>
+
+        <a href="https://github.com/Sm-bello/phi-drone" target="_blank" class="pub-card">
+            <div class="pub-header-row">
+                <div class="pub-venue">SoftwareX (Elsevier) · Zenodo DOI 10.5281/zenodo.21433215</div>
+                <div class="pub-status revision">Minor Revision</div>
+            </div>
+            <div class="pub-title">PHI-DRONE: The Digital Twin Reconnaissance Hub – Simulating UAV Vision and Flight in a Unified Pipeline</div>
+            <div class="pub-meta">Co-authored with Tumsah Usman Ibrahim, supervised by Dr. Godwin Abbe. Zero-ROS ArduPilot SITL + FlightGear + VisDrone-YOLOv8n running in 165.3 ms median on Iris Xe GPU; 1,296 tagged detections over 21.9 min.</div>
+            <div class="pub-tags">
+                <span class="tag">ArduPilot SITL</span><span class="tag">YOLOv8n</span><span class="tag">pymavlink</span><span class="tag">FlightGear</span>
+            </div>
+        </a>
+
+        <div class="pub-card">
+            <div class="pub-header-row">
+                <div class="pub-venue">Reliability Engineering &amp; System Safety (Elsevier)</div>
                 <div class="pub-status review">Under Review</div>
             </div>
-            <div class="pub-title">Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. Built an R²=0.87 degradation regressor mapped directly via a real-time FastAPI interface to FlightGear telemetry.</div>
+            <div class="pub-title">Gas Turbine Ignition System Digital Twin for B787-8 Health Monitoring Using Physics-Derived Degradation Models</div>
+            <div class="pub-meta">Lead Researcher. GEnx ATA Ch 74 ignition digital twin with LightGBM regressor (R²=0.87, MAE=39 flight cycles) trained on a 27,000-sample 11-class dataset + FastAPI &amp; FlightGear UDP bridge.</div>
             <div class="pub-tags">
-                <span class="tag">LightGBM</span><span class="tag">FastAPI</span><span class="tag">GEnx Systems</span><span class="tag">Kaggle Data</span>
+                <span class="tag">LightGBM R²=0.87</span><span class="tag">FastAPI</span><span class="tag">GEnx ATA 74</span><span class="tag">27k Cycles</span>
             </div>
         </div>
 
         <div class="pub-card">
             <div class="pub-header-row">
-                <div class="pub-venue">AIAA Journal of Aerospace Information Systems</div>
+                <div class="pub-venue">AIAA Journal of Aerospace Information Systems (JAIS)</div>
                 <div class="pub-status review">Under Review</div>
             </div>
-            <div class="pub-title">Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems</div>
-            <div class="pub-meta">Lead Researcher & Sole Author. High-fidelity multibody physical reproduction checking structural landing compliance envelopes.</div>
+            <div class="pub-title">Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems with Multi-Domain PHM Architecture</div>
+            <div class="pub-meta">Multi-domain MATLAB/Simscape Multibody model traceable to EASA CS-23.473/479; 1D-CNN-BiLSTM achieves 98.5% accuracy across 11 fault classes at 47 ms latency and 350× cost reduction vs commercial HUMS.</div>
             <div class="pub-tags">
-                <span class="tag">Simscape Multibody</span><span class="tag">CS-23.473</span><span class="tag">PostgreSQL</span>
+                <span class="tag">Simscape Multibody</span><span class="tag">CS-23.473</span><span class="tag">98.5% Acc</span><span class="tag">ATA 32</span>
             </div>
         </div>
 
-        <div class="pub-card">
+        <a href="https://www.kaggle.com/datasets/mohammedbellosani/agtf30-turbine-phm" target="_blank" class="pub-card">
             <div class="pub-header-row">
-                <div class="pub-venue">AIAA SciTech Forum 2027</div>
-                <div class="pub-status abstract">Abstract Submitted</div>
-            </div>
-            <div class="pub-title">Physics-Consistent Conditional VAE for Spatiotemporal Augmentation of RDE CFD Data</div>
-            <div class="pub-meta">Lead Researcher. Documented a significant 4x Chapman-Jouguet overestimation error found in traditional velocity equations within RDE literature.</div>
-            <div class="pub-tags">
-                <span class="tag">OpenFOAM v2406</span><span class="tag">CVAE</span><span class="tag">HuggingFace</span>
-            </div>
-        </div>
-
-        <div class="pub-card">
-            <div class="pub-header-row">
-                <div class="pub-venue">Elsevier MSSP</div>
+                <div class="pub-venue">ASME J. Eng. for Gas Turbines &amp; Power · Kaggle DOI</div>
                 <div class="pub-status review">Under Review</div>
             </div>
-            <div class="pub-title">Gas Turbine LPT & HPT Digital Twin Health Monitoring System</div>
-            <div class="pub-meta">Lab-scale predictive maintenance system for the AGTF30 engine. A 13-sensor bus feeds a CNN-BiLSTM-Attention architecture classifying micro-fractures.</div>
+            <div class="pub-title">From Benchmark Failure to Real-Time Digital Twin: An AGTF30-Native CNN-BiLSTM-Attention Framework for Turbofan Turbine Blade Prognostics</div>
+            <div class="pub-meta">Co-authored with E. S. Ene. NASA T-MATS dual-track AGTF30 simulator (50 engines, 8,901 cycles); MC Dropout CNN-BiLSTM-Attention hits 11.94 ± 0.42 cycles RMSE &amp; 2.14 s FlightGear A320neo detection.</div>
             <div class="pub-tags">
-                <span class="tag">AGTF30</span><span class="tag">CNN-BiLSTM-Attention</span><span class="tag">FlightGear</span>
+                <span class="tag">NASA T-MATS</span><span class="tag">AGTF30</span><span class="tag">MC Dropout</span><span class="tag">FlightGear UDP</span>
+            </div>
+        </a>
+
+        <a href="https://doi.org/10.5281/zenodo.22217970" target="_blank" class="pub-card">
+            <div class="pub-header-row">
+                <div class="pub-venue">AIAA JAIS · Zenodo DOI 10.5281/zenodo.22217970</div>
+                <div class="pub-status review">Under Review</div>
+            </div>
+            <div class="pub-title">Physics Hybrid Integrity for UAV Swarm-Wide Adaptive Resilient Management Architecture (PHI-SWARM)</div>
+            <div class="pub-meta">DIMASA × AFIT Kaduna. 10-layer decentralized federated UAV PHM (+16.8 pp vs isolated, p=4.2×10⁻⁷), dual-gate integrity filter rejecting 100% malicious updates (44/44) vs 79.1% Krum, Ed25519 + SHA-256 ledger.</div>
+            <div class="pub-tags">
+                <span class="tag">Federated PHM</span><span class="tag">Byzantine Defense</span><span class="tag">Simplex Governor</span><span class="tag">173k Edge CNN</span>
+            </div>
+        </a>
+
+        <div class="pub-card">
+            <div class="pub-header-row">
+                <div class="pub-venue">AIAA Journal of Guidance, Control, and Dynamics (JGCD)</div>
+                <div class="pub-status review">Under Review</div>
+            </div>
+            <div class="pub-title">Physics-Hybrid Integrity Control for Fault-Conditioned Flight-Control Reconfiguration on an F-16 Model</div>
+            <div class="pub-meta">Nonlinear 6-DoF F-16A at 15,000 ft / 400 kt under 50% elevator effectiveness loss: cuts peak altitude deviation from 580.78 to 564.98 ft across 20 seeds (effectiveness MAE 0.0093, zero crashes).</div>
+            <div class="pub-tags">
+                <span class="tag">6-DoF F-16A</span><span class="tag">Fault Reconfig</span><span class="tag">Verification-First</span><span class="tag">Control</span>
             </div>
         </div>
 
         <div class="pub-card">
             <div class="pub-header-row">
-                <div class="pub-venue">Elsevier Aerospace Science and Technology (Q1)</div>
-                <div class="pub-status review">Submitted</div>
+                <div class="pub-venue">AIAA AVIATION Forum 2027</div>
+                <div class="pub-status prep">In Preparation</div>
             </div>
-            <div class="pub-title">PHI-DRONE: The Digital Twin Reconnaissance Hub</div>
-            <div class="pub-meta">Simulating UAV Vision and Flight in a Unified Pipeline. Co-designed with Ibrahim Tumsa Usman (AFIT). Integrates ArduPilot SITL, FlightGear, and YOLOv8.</div>
+            <div class="pub-title">PHI-SPIKE: Physics-Informed Spiking Neural Networks for Edge Aircraft Fault Diagnosis</div>
+            <div class="pub-meta">LIF membrane equations gated directly by aircraft-dynamics residuals across 6-DoF JSBSim airframes (PA-28, C182, C172); 75.5% accuracy / 0.595 macro-F1 at 73.2% spike sparsity (~19.3 ms CPU streaming).</div>
             <div class="pub-tags">
-                <span class="tag">ArduPilot SITL</span><span class="tag">YOLOv8</span><span class="tag">MAVLink</span><span class="tag">FlightGear</span>
+                <span class="tag">LIF SNN</span><span class="tag">JSBSim 6-DoF</span><span class="tag">73.2% Sparsity</span><span class="tag">19.3 ms Edge</span>
             </div>
         </div>
 
@@ -1307,6 +1347,61 @@ nav.stretched-nav.scrolled {
             </div>
         </div>
 
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent);">Estimation, Control &amp; Autonomy</div>
+            <i class="fas fa-compass comp-icon"></i>
+            <h3>MPC, CBF &amp; 6-DoF GNC</h3>
+            <p>Health-aware MPC, Control Barrier Functions (ASTM F3269-17 Simplex), 15-state strapdown INS/EKF failover, GP latent-force models, and F-16 / RPOD fault reconfiguration.</p>
+            <div class="comp-tools-label">Tools &amp; Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">EKF / RLS</span><span class="tag">CBF-QP</span><span class="tag">MPC</span><span class="tag">JSBSim 6-DoF</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-orange);">Structures &amp; Fatigue</div>
+            <i class="fas fa-cubes comp-icon"></i>
+            <h3>FEM, PINNs &amp; Damage Tolerance</h3>
+            <p>2-D Q4 plane-stress &amp; 40-element Euler-Bernoulli FEA coupled with >10,000× Fourier PINN surrogates, ASTM E1049 rainflow, Paris-Walker crack growth, and ATA MSG-3.</p>
+            <div class="comp-tools-label">Tools &amp; Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">Q4 FEM</span><span class="tag">Fourier PINN</span><span class="tag">Rainflow</span><span class="tag">ATA MSG-3</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-purple);">Trustworthy AI &amp; V&amp;V</div>
+            <i class="fas fa-certificate comp-icon"></i>
+            <h3>Conformal UQ &amp; Standards V&amp;V</h3>
+            <p>Evidential Normal-Inverse-Gamma posteriors, conformal prediction, Mahalanobis OOD gating, FedProx, and automated NASA-STD-7009A / ASME V&amp;V 40 / GSN SACM 2.0 assurance.</p>
+            <div class="comp-tools-label">Tools &amp; Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">NASA-STD-7009A</span><span class="tag">ASME V&amp;V 40</span><span class="tag">GSN / PROV-O</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-green);">Signal Processing &amp; Neuromorphic</div>
+            <i class="fas fa-wave-square comp-icon"></i>
+            <h3>I/Q Baseband DSP &amp; LIF SNNs</h3>
+            <p>Direct 2×1024 I/Q baseband RF emitter fingerprinting (99.20% at -5 dB SNR, 1,730 Hz) and dynamics-gated Leaky Integrate-and-Fire spiking networks on JSBSim edge telemetry.</p>
+            <div class="comp-tools-label">Tools &amp; Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">SDR I/Q</span><span class="tag">LIF SNN</span><span class="tag">FFT / PSD</span><span class="tag">1D-CNN RF</span>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <div class="comp-category" style="color: var(--accent-teal);">Orbital Systems &amp; HIL</div>
+            <i class="fas fa-satellite comp-icon"></i>
+            <h3>Spacecraft &amp; CCSDS HIL Testbeds</h3>
+            <p>TRL-4 orbital digital twins covering autonomous RPOD docking, zero-boil-off cryogenics, VLEO air-breathing propulsion, and Weibull/Bendel radiation TMR/SEL avionics.</p>
+            <div class="comp-tools-label">Tools &amp; Evidence:</div>
+            <div class="pub-tags">
+                <span class="tag">CCSDS 133.0-B-2</span><span class="tag">Sentman GSI</span><span class="tag">Nukiyama ZBO</span><span class="tag">TMR / SEC-DED</span>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -1332,7 +1427,7 @@ nav.stretched-nav.scrolled {
                     <a href="https://penelope-inc.vercel.app" target="_blank" class="btn-penelope-main">
                         <i class="fas fa-rocket"></i> Explore Penelope Inc.
                     </a>
-                    <a href="mailto:bellosanidrescue@gmail.com" class="btn-penelope-sub">
+                    <a href="mailto:bellosani2drescue@gmail.com" class="btn-penelope-sub">
                         <i class="fas fa-paper-plane"></i> Request Partnership / Join
                     </a>
                 </div>
@@ -1342,22 +1437,22 @@ nav.stretched-nav.scrolled {
                 <div class="pillar-item">
                     <div class="pillar-icon"><i class="fas fa-network-wired"></i></div>
                     <div class="pillar-text">
-                        <h5>PHI-Twin Ecosystem</h5>
-                        <p>Real-time edge diagnostics bridging multi-channel sensor buses with local physics solvers.</p>
+                        <h5>PHI-Twin &amp; Fleet Ecosystem</h5>
+                        <p>Certified edge digital twins, federated PHM (PHI-SWARM / FleetTwin), and NASA-STD-7009A verification labs.</p>
                     </div>
                 </div>
                 <div class="pillar-item">
                     <div class="pillar-icon"><i class="fas fa-shield-halved"></i></div>
                     <div class="pillar-text">
-                        <h5>PHI-Chain Architecture</h5>
-                        <p>Permissioned blockchain frameworks resolving the TCAS Paradox and securing aircraft datalinks.</p>
+                        <h5>PHI-CHAIN &amp; Sovereign Defense</h5>
+                        <p>AIAA SciTech '27 accepted blockchain avionics security, PHI-AEGIS runtime assurance, and C-UAS SDR sensing.</p>
                     </div>
                 </div>
                 <div class="pillar-item">
-                    <div class="pillar-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="pillar-icon"><i class="fas fa-satellite"></i></div>
                     <div class="pillar-text">
-                        <h5>Autonomous Edge Inference</h5>
-                        <p>Ultra-low-latency ONNX/Rust pipelines ensuring flight-critical safety without cloud dependency.</p>
+                        <h5>TRL-4 Orbital HIL &amp; Edge Apps</h5>
+                        <p>CCSDS 133.0-B-2 space qualification testbeds plus Rust/Tauri v2 workstations and Next.js production systems.</p>
                     </div>
                 </div>
             </div>
@@ -1370,13 +1465,13 @@ nav.stretched-nav.scrolled {
         <div class="footer-header">
             <div>
                 <div class="footer-name">Mohammed Bello Sani</div>
-                <div class="footer-tagline">Aerospace Systems Engineering Researcher • Digital Twin Specialist • Founder, Penelope Inc.</div>
+                <div class="footer-tagline">Aerospace Systems Engineering Researcher • DIMASA × PHI Lab • Founder, Penelope Inc.</div>
             </div>
             <div class="footer-contact">
-                <a href="mailto:bellosanidrescue@gmail.com">bellosanidrescue@gmail.com</a>
+                <a href="mailto:bellosani2drescue@gmail.com">bellosani2drescue@gmail.com</a>
                 <a href="https://smbello.vercel.app" target="_blank">smbello.vercel.app</a>
                 <a href="https://github.com/Sm-bello" target="_blank">github.com/Sm-bello</a>
-                <div class="location"><i class="fas fa-location-dot" style="margin-right:0.4rem"></i>Abuja, Nigeria • +234 906 788 3192</div>
+                <div class="location"><i class="fas fa-location-dot" style="margin-right:0.4rem"></i>Abuja / Kaduna, Nigeria • +234 906 788 3192</div>
             </div>
         </div>
 
@@ -1384,56 +1479,56 @@ nav.stretched-nav.scrolled {
             <div class="footer-col footer-bio">
                 <h4>Executive Profile</h4>
                 <p>
-                    Aerospace Engineering Alumnus from the <strong>Air Force Institute of Technology (AFIT), Kaduna</strong>, carrying a final graduation CGPA of <strong>4.13/5.00</strong>. Provisional Master of Science candidate at <strong>Beihang University (BUAA)</strong> within the Hangzhou Innovation Institute's <strong>Smart Aviation Center</strong> under Prof. Hu Yang, specialized in digital-twin aircraft maintenance optimization.
+                    B.Eng. Aerospace Engineering (Expected June 2026, CGPA <strong>4.13/5.00</strong> — Second Class Upper Honours) at the <strong>Air Force Institute of Technology (AFIT), Kaduna</strong>; provisional M.Sc. candidate in Smart Aviation Technology at <strong>Beihang University (BUAA)</strong> under Prof. Hu Yang (Sept 2026). Lead Architect across the <strong>DIMASA × Physics Hybrid Integrity Lab (PHI Lab)</strong> initiative.
                 </p>
                 <p>
-                    Invited as an external <strong>Ad Hoc Peer Reviewer for the AIAA Journal of Aerospace Information Systems</strong> by Associate Editor Prof. Peng Wei (George Washington University). Conducted rigorous technical assessments of structural methodology, autonomous drone vision training parameters, and air data test interfaces.
+                    Invited <strong>Ad Hoc Reviewer for AIAA JAIS</strong> by Assoc. Ed. Prof. Peng Wei (George Washington University) for MS ID 2026-03-I011910 (Gaussian Splat YOLOv8 aerial refueling) &amp; MS ID 2026-03-I011924 (Air Data System emulator). ORCID: <strong>0009-0009-9214-9403</strong> · WoS: <strong>PYW-0574-2026</strong>.
                 </p>
                 <div class="peer-badge">
                     <i class="fas fa-shield"></i>
-                    <span>VALIDATED AIAA EXPERT PEER REVIEW CREDENTIAL</span>
+                    <span>VALIDATED AIAA JAIS AD HOC REVIEWER · 2× SCITECH '27 ACCEPTED</span>
                 </div>
                 <div class="footer-socials">
-                    <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/Sm-bello" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://kaggle.com/mohammedbellosani" target="_blank"><i class="fas fa-chart-pie"></i></a>
-                    <a href="mailto:bellosanidrescue@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/mohammed-bello-sani-369a89284/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Sm-bello" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://kaggle.com/mohammedbellosani" target="_blank" title="Kaggle"><i class="fas fa-chart-pie"></i></a>
+                    <a href="https://orcid.org/0009-0009-9214-9403" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+                    <a href="mailto:bellosani2drescue@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
 
             <div class="footer-col">
-                <h4>Education Timeline</h4>
+                <h4>Education &amp; Credentials</h4>
                 <ul class="footer-list">
-                    <li><strong>Beihang University (BUAA):</strong> M.Sc. Smart Aviation — Term Commencing Sept 2026.</li>
-                    <li><strong>AFIT Kaduna:</strong> B.Eng Aerospace Engineering — Completed June 2026.</li>
-                    <li><strong>Academic Metrics:</strong> 4.13 / 5.00 CGPA (Second Class Upper Honours).</li>
-                    <li><strong>Core Syllabus:</strong> Advanced Aerodynamics, Fluid Dynamics, Control Systems, Airworthiness Structures.</li>
-                    <li><strong>Professional Memberships:</strong> Student Member AIAA, NSE, Nigeria Institution of Safety Engineers.</li>
+                    <li><strong>Beihang University (BUAA):</strong> M.Sc. Smart Aviation — Commencing Sept 2026 (Prof. Hu Yang).</li>
+                    <li><strong>AFIT Kaduna:</strong> B.Eng Aerospace Engineering — Expected June 2026.</li>
+                    <li><strong>Academic Standing:</strong> 4.13 / 5.00 CGPA (Second Class Upper Honours).</li>
+                    <li><strong>Core Syllabus:</strong> Flight Dynamics, Aerospace Structures, CFD, Automatic Control Systems.</li>
+                    <li><strong>Memberships:</strong> Student Member AIAA, NSE, Nigeria Institution of Safety Engineers &amp; CILT.</li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h4>Hangar & Open Benchmarks</h4>
+                <h4>Hangar &amp; Open Benchmarks</h4>
                 <ul class="footer-list">
-                    <li><strong>NCAA Airworthiness:</strong> Technical log audits and Nig. CARs adherence tracking metrics.</li>
-                    <li><strong>EAG 307 MRO Hangar:</strong> Line maintenance operations on active King Air 350 aircraft.</li>
-                    <li><strong>HuggingFace Open Source:</strong> SM-Bello/rde-72-dataset (Propulsion Field Matrices).</li>
-                    <li><strong>Kaggle Datasets:</strong> 27k-sample B787 Ignition logs, PHI-Twin Landing Gear Multibody cycles.</li>
-                    <li><strong>Design Scale Validation:</strong> Mapped to robust validation architectures under the NASA TRL 4–5 framework.</li>
+                    <li><strong>NCAA (Mar–Aug 2025):</strong> Airworthiness technical log audits &amp; Nig. CARs compliance.</li>
+                    <li><strong>EAG 307 MRO (Aug–Nov 2024):</strong> Beechcraft King Air 350 line maintenance &amp; avionics bay ops.</li>
+                    <li><strong>Space HIL Rigs (TRL 4):</strong> CERTI-RPO-HIL (100%), CRYO-ZBO-DT (100%), VLEO-ABEP-DT (98.73%), RAD-FAULT-HIL (98.42%).</li>
+                    <li><strong>DOIs &amp; Datasets:</strong> Zenodo 21433215 / 22217970, Kaggle 15021052 / 17783800, HuggingFace.</li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>Pipeline Integrity</h4>
                 <ul class="research-status">
-                    <li><span class="status-dot dot-blue"></span> Under Review — CJA (PHI-Twin Framework)</li>
-                    <li><span class="status-dot dot-orange"></span> Abstract Submitted — AIAA SciTech (PHI-CHAIN Security)</li>
-                    <li><span class="status-dot dot-green"></span> Under Review — Elsevier RESS (GEnx Diagnostics)</li>
-                    <li><span class="status-dot dot-purple"></span> Under Review — AIAA JAIS (Dornier Airworthiness)</li>
-                    <li><span class="status-dot dot-teal"></span> Submitted — AIAA SciTech 2027 (RDE CFD)</li>
+                    <li><span class="status-dot dot-green"></span> Accepted — AIAA SciTech 2027 (RDE CVAE · ID 4563523 &amp; PHI-CHAIN · ID 4543570)</li>
+                    <li><span class="status-dot dot-purple"></span> Minor Revision — Elsevier SoftwareX (PHI-DRONE)</li>
+                    <li><span class="status-dot dot-blue"></span> Under Review — Elsevier MSSP (PHI-Twin), RESS (B787 Ignition), ASME JGTP (AGTF30)</li>
+                    <li><span class="status-dot dot-orange"></span> Under Review — AIAA JAIS (Dornier 228 &amp; PHI-SWARM), AIAA JGCD (F-16 Reconfig)</li>
+                    <li><span class="status-dot dot-teal"></span> In Preparation — AIAA AVIATION 2027 (PHI-SPIKE)</li>
                     <div class="status-note">
-                        <strong>Penelope Inc. Infrastructure</strong><br>
-                        Developing three native product pipelines (PHI-Twin, PHI-CHAIN, PHI-Arc) to establish autonomous aerospace AI infrastructure.
+                        <strong>DIMASA × PHI Lab · Penelope Inc.</strong><br>
+                        20+ open-source &amp; production aerospace/software architectures spanning PHM, Autonomy, RF SIGINT, Rust/Tauri v2 &amp; Orbital HIL.
                     </div>
                 </ul>
             </div>
