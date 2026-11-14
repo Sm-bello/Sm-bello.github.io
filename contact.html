@@ -712,5 +712,10 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
     <script src="penelope.js"></script>
+    <!-- 1. Place this container wherever you want the ad card to appear -->
+<div class="aenon-ad-slot" data-aenon-zone="smbello-main" data-aenon-format="native_card"></div>
+
+<!-- 2. Load the Aenon Edge Ad Worker script once before </body> -->
+<script async src="https://aenon-ad-worker.aenon-ads.workers.dev/tag.js"></script>
 </body>
 </html>
