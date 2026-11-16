@@ -1,0 +1,22 @@
+{
+  "name": "Mohammed Bello Sani — Aerospace AI & Digital Twin Portfolio",
+  "short_name": "SM-Bello PHI",
+  "description": "Aerospace Systems Engineer, Digital Twin Researcher, DIMASA x PHI Lab Lead Architect & Founder of Penelope Inc.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf9f6",
+  "theme_color": "#060b14",
+  "icons": [
+    {
+      "src": "/assets/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

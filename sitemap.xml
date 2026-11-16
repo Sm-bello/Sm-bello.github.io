@@ -1,52 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://smbello.vercel.app/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  
-  <!-- About Page -->
-  <url>
-    <loc>https://smbello.vercel.app/about.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Projects Page - High Priority for Recruiters -->
-  <url>
-    <loc>https://smbello.vercel.app/projects.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  
-  <!-- Enterprise Solutions Page -->
-  <url>
-    <loc>https://smbello.vercel.app/solutions.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/og-preview.jpg</image:loc>
+      <image:title>Mohammed Bello Sani — Aerospace AI &amp; Digital Twin Systems Engineer</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/profile.jpg</image:loc>
+      <image:title>Mohammed Bello Sani Portrait</image:title>
+    </image:image>
   </url>
 
-  <!-- Video Demonstrations Page -->
+  <!-- Research & Projects Logbook -->
+  <url>
+    <loc>https://smbello.vercel.app/projects.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/og-projects.jpg</image:loc>
+      <image:title>Digital Twins, Autonomy &amp; TRL-4 Orbital HIL Testbeds Logbook</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/certi-rpo-arch.svg</image:loc>
+      <image:title>CERTI-RPO-HIL Autonomous RPOD &amp; CBF-QP Architecture</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/cryo-zbo-arch.svg</image:loc>
+      <image:title>CRYO-ZBO-DT Zero-Boil-Off Cryogenic Depot Architecture</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/vleo-abep-arch.svg</image:loc>
+      <image:title>VLEO-ABEP-DT Rarefied Aerothermodynamics Architecture</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/rad-fault-arch.svg</image:loc>
+      <image:title>RAD-FAULT-HIL Radiation Transport &amp; TMR/SEL Architecture</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/aerotwin-neural-arch.png</image:loc>
+      <image:title>PHI-Twin B787 Landing Gear Prognostics Neural Architecture</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/phichain-topology.png</image:loc>
+      <image:title>PHI-CHAIN Hyperledger Fabric Avionics Security Topology</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/rde-shock-vectors.png</image:loc>
+      <image:title>Rotating Detonation Engine OpenFOAM CVAE Shock Vectors</image:title>
+    </image:image>
+  </url>
+
+  <!-- About & Academic Dossier -->
+  <url>
+    <loc>https://smbello.vercel.app/about.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/og-preview.jpg</image:loc>
+      <image:title>About Mohammed Bello Sani — AFIT Kaduna to Beihang University</image:title>
+    </image:image>
+  </url>
+
+  <!-- Video Demonstrations -->
   <url>
     <loc>https://smbello.vercel.app/Video-Demos.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
-  
-  <!-- Contact Page -->
+
+  <!-- Enterprise Solutions Gateway (Penelope Inc.) -->
+  <url>
+    <loc>https://smbello.vercel.app/solutions.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Contact Interface -->
   <url>
     <loc>https://smbello.vercel.app/contact.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.82</priority>
   </url>
-  
+
+  <!-- PHI-DRONE Interactive Pipeline -->
+  <url>
+    <loc>https://smbello.vercel.app/PHI-Drone-Sim-Pipeline.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- STRATOS-14E Conceptual Aircraft Showcase -->
+  <url>
+    <loc>https://smbello.vercel.app/stratos-14e/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://smbello.vercel.app/assets/stratos-cad-blueprint.png</image:loc>
+      <image:title>STRATOS-14E Ultra-Long-Range VIP Transport Blueprint</image:title>
+    </image:image>
+  </url>
+
+  <!-- MRO Interval Calculator Tool -->
+  <url>
+    <loc>https://smbello.vercel.app/mro-calculator.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+
+  <!-- Aviation Safety Analytics Demo -->
+  <url>
+    <loc>https://smbello.vercel.app/safety-analytics.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+
+  <!-- Aircraft Systems Monitor Digital Twin Demo -->
+  <url>
+    <loc>https://smbello.vercel.app/systems-demo.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+
+  <!-- Human & Search Crawler Smart Directory -->
+  <url>
+    <loc>https://smbello.vercel.app/sitemap.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
 </urlset>

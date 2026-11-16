@@ -1,0 +1,41 @@
+# Mohammed Bello Sani (SM-Bello) — Extended Technical Index
+
+Portfolio URL: https://smbello.vercel.app/
+Organizations: DIMASA (Digital Intelligence Maintenance for Aircraft Systems in Africa), Physics Hybrid Integrity Lab (PHI Lab), Penelope Inc. (https://penelope-inc.vercel.app)
+Experience: Engineering Intern at Nigeria Civil Aviation Authority (NCAA, Mar-Aug 2025, Abuja); Maintenance Intern on King Air 350 at Executive Air Lift Group EAG 307 (Aug-Nov 2024, Abuja).
+
+## 1. Peer-Reviewed & Conference Publications (10 Manuscripts)
+1. **RDE CFD Spatiotemporal CVAE & Neural Surrogate** — *AIAA SciTech Forum 2027* (Session MVCE-04/FD-64/UQ-17, Control ID 4563523), **Accepted for Presentation Jan 14, 2027**. OpenFOAM v2406 reactingFoam (300x150 mesh); corrected 4x Chapman-Jouguet velocity error; 4.3M-param CNN-BiLSTM CVAE expanding 12 runs to 72-case (1.48 GB) benchmark + 1.2M-param surrogate.
+2. **PHI-CHAIN: Blockchain-Secured Avionics Security & TCAS Compatibility** — *AIAA SciTech Forum 2027* (Session CSS-03, Control ID 4543570), **Accepted for Presentation Jan 13, 2027**. Hyperledger Fabric (7 containers CCAAS) + Ed25519 + Physics-Informed Digital Twin Validator securing ADS-B, ACARS, ADS-C, CPDLC & telemetry (ICAO Doc 10037 / RTCA DO-326A). GitHub: https://github.com/Sm-bello/Securing-Aircraft-Comms-with-PHI-CHAIN
+3. **PHI-DRONE: The Digital Twin Reconnaissance Hub** — *SoftwareX (Elsevier)*, 2026, **Under Minor Revision**. Co-authored with Tumsah Usman Ibrahim, supervised by Dr. Godwin Abbe. Zenodo DOI: 10.5281/zenodo.21433215. GitHub: https://github.com/Sm-bello/phi-drone
+4. **AeroTwin (PHI-Twin): B787 Landing Gear Prognostics via Three-Layer Edge AI & SHAP** — *Mechanical Systems and Signal Processing (Elsevier)*, 2026, Under Review. Kaggle DOI: 10.34740/KAGGLE/DSV/15021052. GitHub: https://github.com/Sm-bello/PHI-Twin-LandingGear-B787-version
+5. **Certification-Compliant Digital Twin for Dornier 228 Landing Gear Systems** — *AIAA Journal of Aerospace Information Systems (JAIS)*, 2026, Under Review. Simscape Multibody CS-23.473/479; 98.5% accuracy across 11 fault classes, 47 ms latency, 350x HUMS cost reduction.
+6. **Gas Turbine Ignition System Digital Twin for B787-8 (ATA Ch 74)** — *Reliability Engineering & System Safety (Elsevier)*, 2026, Under Review. LightGBM R^2=0.87, MAE=39 flight cycles, 27k-sample dataset, FastAPI + FlightGear UDP.
+7. **AGTF30-Native CNN-BiLSTM-Attention Turbofan Blade Prognostics** — *ASME Journal of Engineering for Gas Turbines and Power*, 2026, Under Review. Co-authored with E. S. Ene. Kaggle DOI: 10.34740/KAGGLE/DSV/17783800. 11.94 +/- 0.42 cycles RMSE, 2.14 s FlightGear A320neo detection.
+8. **PHI-SWARM / ZeroTwin: Federated UAV Swarm Integrity** — *AIAA JAIS*, 2026, Under Review. Zenodo DOI: 10.5281/zenodo.22217970. 10-layer decentralized UAV PHM (+16.8 pp, 100% malicious update rejection 44/44).
+9. **Physics-Hybrid Integrity Control for F-16 Flight-Control Reconfiguration** — *AIAA Journal of Guidance, Control, and Dynamics*, 2026, Under Review. 6-DoF F-16A at 15,000 ft / 400 kt under 50% elevator loss (580.78 -> 564.98 ft, MAE 0.0093, zero crashes).
+10. **PHI-SPIKE: Physics-Informed Spiking Neural Networks** — Targeted *AIAA AVIATION Forum 2027*. LIF SNN gated by 6-DoF JSBSim dynamics residuals (75.5% acc, 73.2% sparsity, 19.3 ms CPU).
+
+## 2. TRL-4 Space Tech HIL Testbeds (DIMASA x PHI Lab)
+- **CERTI-RPO-HIL** (https://github.com/Sm-bello/CERTI-RPO-HIL): 100.0% (7/7 Pillars, 16/16 pytest). Autonomous RPOD optical/LiDAR nav + ASTM F3269-17 CBF-QP safety shield over CCSDS 133.0-B-2 HIL bridge (min h_KOZ +0.34 m, 0.043 m docking error, P99 1.62 ms).
+- **CRYO-ZBO-DT** (https://github.com/Sm-bello/CRYO-ZBO-DT): 100.0% (7/7 Pillars, 16/16 pytest). Zero-boil-off two-phase Nukiyama chilldown + TVS-MPC orbital fuel depot twin (50.27% cryogen saved, 84.7% surge cut, +/-0.14 kPa ullage hold).
+- **VLEO-ABEP-DT** (https://github.com/Sm-bello/VLEO-ABEP-DT): 98.73% (7/7 Pillars, 16/16 pytest). Sentman GSI + Chebyshev-RBF surrogate + active aero-trim ABEP control (4.97% density error vs ESA GOCE, 101.4% drag comp, Isp 3840 s).
+- **RAD-FAULT-HIL** (https://github.com/Sm-bello/RAD-FAULT-HIL): 98.42% (7/7 Pillars, 16/16 pytest). Weibull/Bendel SEE transport, Hamming (72,64) SEC-DED scrubbing (81.2x MTBUE), TMR GNC voter (0.0065 deg vs 311.77 deg), 2.65 us SEL breaker.
+
+## 3. Federated PHM, Structures, Autonomy, Defense & Software Repos
+- **FleetTwin**: https://github.com/Sm-bello/FleetTwin (AdaFedProx 91.47%, Buckingham Pi Do228->1900D, 4.2 ms Jetson)
+- **ROTORGUARD**: https://github.com/Sm-bello/ROTORGUARD (6-domain multirotor brownout & endurance EKF twin)
+- **PHI-FLEET**: https://github.com/Sm-bello/PHI-FLEET (HP^2-FDT cross-asset federated twin + Evidential NIG + Conformal RUL)
+- **STRUCTURA-X**: https://github.com/Sm-bello/STRUCTURA-X (2D Q4 FEA + >10,000x Fourier PINN + Paris-Walker + MSG-3)
+- **SyncCert-Boom**: https://github.com/Sm-bello/SyncCert-Boom (40-el CFRP + GP latent force + 250 Hz STM32/FreeRTOS + NASA-STD-7009B 3.62/4.0)
+- **CERTIS-DT**: https://github.com/Sm-bello/CERTIS-DT (24.7 us structural-swarm testbed + DO-178C DAL B + GSN/SACM 2.0)
+- **AEROSURE**: https://github.com/Sm-bello/AEROSURE (RK4 CS-25.723 + .aeroevidence RFC 8785 / Merkle-DAG / Ed25519 / W3C PROV-O)
+- **AERO-VERIFY**: Open-source NASA-STD-7009A & ASME V&V 40 verification lab (0.13 ms P50)
+- **PHI-AEGIS**: https://github.com/Sm-bello/PHI-AEGIS (Health-aware MPC + ASTM F3269-17 CBFs, 0 violations in 1k+ MC runs)
+- **SKYBRIDGE**: https://github.com/Sm-bello/SKYBRIDGE (Modular RK4 6-DoF Sim-to-Real harness + Wasserstein/MMD domain shift)
+- **6-DoF GNC Digital Twin Testbed**: 15-state INS/EKF GPS-denied failover, 91.6% NASA-STD-7009A / NATO AMSP-01 Credibility Index
+- **PHI-GUARD & PHI-RF-CLASSIFIER**: https://github.com/Sm-bello/PHI-sigint-fingerprint (C-UAS 6-DoF CBF + LIF SNN + 1D-CNN 99.20% at -5 dB SNR, 1730 Hz)
+- **SOAD**: https://github.com/Sm-bello/SOAD (Next.js 14 / PocketBase / Firebase live CBT platform for 66-candidate cohort)
+- **PHI Lab Workstation ("Company Walls")**: Rust, Tauri v2, React/TS, 48 kHz LiveKit SFU + WebRTC P2P, SQLite, CPDC 2.0
+- **Lifestones**: Rust, Tauri v2, whisper.cpp GGML, INT8 Qwen-0.6B ONNX, SQLite FTS5, NDI (<10 ms verse matching)
+- **STRATOS-14E**: https://smbello.vercel.app/stratos-14e/ (14-seat ultra-long-range VIP conceptual design with PHI-SENSE 1,027 sensors)

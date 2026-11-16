@@ -1,0 +1,32 @@
+# Mohammed Bello Sani (SM-Bello)
+
+> Aerospace Engineering Researcher, Certified Digital Twin Architect, DIMASA x Physics Hybrid Integrity Lab (PHI Lab) Lead Architect, and Founder of Penelope Inc.
+
+- Website: https://smbello.vercel.app/
+- GitHub: https://github.com/Sm-bello
+- ORCID: https://orcid.org/0009-0009-9214-9403
+- Web of Science ResearcherID: PYW-0574-2026
+- Kaggle: https://www.kaggle.com/mohammedbellosani
+- HuggingFace: https://huggingface.co/SM-Bello
+- LinkedIn: https://www.linkedin.com/in/mohammed-bello-sani-369a89284/
+- Email: bellosani2drescue@gmail.com
+- Education: B.Eng. Aerospace Engineering, Air Force Institute of Technology (AFIT) Kaduna, Expected June 2026 (CGPA 4.13/5.00, Second Class Upper Honours); M.Sc. Smart Aviation Technology, Beihang University (BUAA), Hangzhou, commencing Sept 2026 under Prof. Hu Yang.
+- Peer Review Service: Invited Ad Hoc Reviewer for AIAA Journal of Aerospace Information Systems (JAIS), 2026 (invited by Associate Editor Prof. Peng Wei, George Washington University).
+- Memberships: Student Member AIAA, Nigerian Society of Engineers (NSE), Nigeria Institution of Safety Engineers, Chartered Institute of Logistics & Transport (CILT).
+
+## Core Navigation & Pages
+- [Home & Executive Dossier](https://smbello.vercel.app/): Overview, quantitative baselines, 10 research papers, competencies carousel, Penelope Inc.
+- [Researcher Profile & CV](https://smbello.vercel.app/about.html): Education timeline, NCAA & EAG 307 MRO internships, full 10-paper log, technical stack.
+- [Projects Logbook (24+ Systems)](https://smbello.vercel.app/projects.html): Flagship aviation digital twins, 4 TRL-4 Space Tech HIL testbeds, Federated PHM, FEM/PINN structures, 6-DoF GNC autonomy, C-UAS RF SIGINT, and deployed software.
+- [TRL-4 Orbital & Space HIL Testbeds](https://smbello.vercel.app/projects.html#space-hil): CERTI-RPO-HIL (100.0%), CRYO-ZBO-DT (100.0%), VLEO-ABEP-DT (98.73%), RAD-FAULT-HIL (98.42%).
+- [Federated PHM, Structures & V&V](https://smbello.vercel.app/projects.html#phm-vv): FleetTwin, PHI-SWARM, PHI-SPIKE, ROTORGUARD, PHI-FLEET, STRUCTURA-X, SyncCert-Boom, CERTIS-DT, AEROSURE, AERO-VERIFY.
+- [Autonomy & Defense Grid](https://smbello.vercel.app/projects.html#autonomy-defense): PHI-AEGIS, SKYBRIDGE, F-16A Reconfiguration, 6-DoF GNC Digital Twin Testbed, PHI-GUARD, PHI-RF-CLASSIFIER.
+- [Production Software Systems](https://smbello.vercel.app/projects.html#software-systems): SOAD Live CBT Platform, PHI Lab Workstation ("Company Walls"), Lifestones, COLIG, Penelope CLI Agent.
+- [Video Demonstrations](https://smbello.vercel.app/Video-Demos.html): Live FlightGear, Hyperledger Fabric, YOLOv8, OpenFOAM, and AGTF30 telemetry demos.
+- [Enterprise Solutions](https://smbello.vercel.app/solutions.html): Commercial gateway redirecting to Penelope Inc. (https://penelope-inc.vercel.app).
+- [Smart Sitemap Directory](https://smbello.vercel.app/sitemap.html): Searchable topic, keyword, DOI, and repository index.
+- [Contact Terminal](https://smbello.vercel.app/contact.html): Research collaboration & engineering contact interface.
+
+## Full Extended Knowledge Base
+- [Extended Research & Systems Index](https://smbello.vercel.app/llms-full.txt): Complete metrics, DOIs, Control IDs, GitHub links, and technical keyword graph.
+- [Machine-Readable Bio JSON](https://smbello.vercel.app/assets/me.json): Structured JSON dossier powering Penelope AI.
